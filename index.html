@@ -55,9 +55,6 @@
             margin: 10px 0;
             font-size: 16px;
         }
-        .filter-category button.active {
-            background-color: #ddd; /* 示例选中框样式 */
-        }
     </style>
 </head>
 <body>
@@ -106,37 +103,6 @@
             year: '',
             language: ''
         };
-
-        let currentFilter = 0; // 当前选中的过滤器类别
-
-        const filterCategories = document.querySelectorAll('.filter-category');
-        const filterButtons = document.querySelectorAll('.filter-category button');
-
-        function updateActiveButton() {
-            filterButtons.forEach((btn, index) => {
-                btn.classList.remove('active');
-                if (index === currentFilter) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                if (currentFilter < filterCategories.length - 1) {
-                    currentFilter++;
-                    updateActiveButton();
-                }
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                if (currentFilter > 0) {
-                    currentFilter--;
-                    updateActiveButton();
-                }
-            }
-        });
-
         document.querySelectorAll('.filter-container button').forEach(button => {
             button.addEventListener('click', () => {
                 const filterType = button.getAttribute('data-filter');
@@ -149,7 +115,6 @@
                 filterShows();
             });
         });
-
         function filterShows() {
             const shows = document.querySelectorAll('#tvShowList li');
             shows.forEach(show => {
@@ -162,14 +127,7 @@
                 show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
             });
         }
-
-        updateActiveButton(); // 初始化时更新选中状态
     </script>
 </body>
 </html>
 
-        
-        
-    </script>
-</body>
-</html>
