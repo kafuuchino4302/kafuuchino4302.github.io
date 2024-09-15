@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>电视剧目录筛选</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: black;
+            color: white;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .filter-category {
+            margin-bottom: 10px;
+        }
+        .filter-category button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            margin-right: 10px;
+            outline: none;
+        }
+        .filter-category button.active {
+            background-color: pink;
+            color: black;
+        }
+        .tv-show-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .tv-show-list li {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        .tv-show-list img {
+            width: 100%;
+            height: auto;
+        }
+        .tv-show-list h3 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
         .filter-category button.active {
             background-color: #ddd; /* 示例选中框样式 */
         }
