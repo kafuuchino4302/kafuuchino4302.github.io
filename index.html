@@ -5,55 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>电视剧目录筛选</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: black;
-            color: white;
-        }
-        .filter-container {
-            margin-bottom: 20px;
-        }
-        .filter-category {
-            margin-bottom: 10px;
-        }
-        .filter-category button {
-            padding: 10px 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            margin-right: 10px;
-            outline: none;
-        }
         .filter-category button.active {
-            background-color: pink;
-            color: black;
-        }
-        .tv-show-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            list-style-type: none;
-            padding: 0;
-        }
-        .tv-show-list li {
-            width: 200px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: white;
-            color: black;
-            text-align: center;
-        }
-        .tv-show-list img {
-            width: 100%;
-            height: auto;
-        }
-        .tv-show-list h3 {
-            margin: 10px 0;
-            font-size: 16px;
+            background-color: #ddd; /* 示例选中框样式 */
         }
     </style>
 </head>
@@ -61,24 +14,24 @@
     <h1>电视剧目录筛选</h1>
     <div class="filter-container">
         <div class="filter-category">
-            <button data-filter="type" data-value="" tabindex="1">所有类型</button>
-            <button data-filter="type" data-value="action" tabindex="2">动作</button>
-            <button data-filter="type" data-value="comedy" tabindex="3">喜剧</button>
-            <button data-filter="type" data-value="drama" tabindex="4">剧情</button>
-            <button data-filter="type" data-value="sci-fi" tabindex="5">科幻</button>
+            <button data-filter="type" data-value="">所有类型</button>
+            <button data-filter="type" data-value="action">动作</button>
+            <button data-filter="type" data-value="comedy">喜剧</button>
+            <button data-filter="type" data-value="drama">剧情</button>
+            <button data-filter="type" data-value="sci-fi">科幻</button>
         </div>
         <div class="filter-category">
-            <button data-filter="year" data-value="" tabindex="6">所有年份</button>
-            <button data-filter="year" data-value="2024" tabindex="7">2024</button>
-            <button data-filter="year" data-value="2023" tabindex="8">2023</button>
-            <button data-filter="year" data-value="2022" tabindex="9">2022</button>
+            <button data-filter="year" data-value="">所有年份</button>
+            <button data-filter="year" data-value="2024">2024</button>
+            <button data-filter="year" data-value="2023">2023</button>
+            <button data-filter="year" data-value="2022">2022</button>
             <!-- 添加更多年份选项 -->
         </div>
         <div class="filter-category">
-            <button data-filter="language" data-value="" tabindex="10">所有语言</button>
-            <button data-filter="language" data-value="english" tabindex="11">英语</button>
-            <button data-filter="language" data-value="chinese" tabindex="12">中文</button>
-            <button data-filter="language" data-value="japanese" tabindex="13">日语</button>
+            <button data-filter="language" data-value="">所有语言</button>
+            <button data-filter="language" data-value="english">英语</button>
+            <button data-filter="language" data-value="chinese">中文</button>
+            <button data-filter="language" data-value="japanese">日语</button>
             <!-- 添加更多语言选项 -->
         </div>
     </div>
@@ -103,6 +56,37 @@
             year: '',
             language: ''
         };
+
+        let currentFilter = 0; // 当前选中的过滤器类别
+
+        const filterCategories = document.querySelectorAll('.filter-category');
+        const filterButtons = document.querySelectorAll('.filter-category button');
+
+        function updateActiveButton() {
+            filterButtons.forEach((btn, index) => {
+                btn.classList.remove('active');
+                if (index === currentFilter) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (currentFilter < filterCategories.length - 1) {
+                    currentFilter++;
+                    updateActiveButton();
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (currentFilter > 0) {
+                    currentFilter--;
+                    updateActiveButton();
+                }
+            }
+        });
+
         document.querySelectorAll('.filter-container button').forEach(button => {
             button.addEventListener('click', () => {
                 const filterType = button.getAttribute('data-filter');
@@ -115,6 +99,7 @@
                 filterShows();
             });
         });
+
         function filterShows() {
             const shows = document.querySelectorAll('#tvShowList li');
             shows.forEach(show => {
@@ -127,6 +112,12 @@
                 show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
             });
         }
+
+        updateActiveButton(); // 初始化时更新选中状态
+    </script>
+</body>
+</html>
+
         
         
     </script>
