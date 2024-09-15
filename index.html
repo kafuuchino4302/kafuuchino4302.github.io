@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>电视剧目录筛选</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: black;
+            color: white;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .filter-category {
+            margin-bottom: 10px;
+        }
+        .filter-category button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            margin-right: 10px;
+            outline: none;
+        }
+        .filter-category button.active {
+            background-color: pink;
+            color: black;
+        }
+        .tv-show-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .tv-show-list li {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        .tv-show-list img {
+            width: 100%;
+            height: auto;
+        }
+        .tv-show-list h3 {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>电视剧目录筛选</h1>
+    <div class="filter-container">
+        <div class="filter-category">
+            <button data-filter="type" data-value="">所有类型</button>
+            <button data-filter="type" data-value="action">动作</button>
+            <button data-filter="type" data-value="comedy">喜剧</button>
+            <button data-filter="type" data-value="drama">剧情</button>
+            <button data-filter="type" data-value="sci-fi">科幻</button>
+        </div>
+        <div class="filter-category">
+            <button data-filter="year" data-value="">所有年份</button>
+            <button data-filter="year" data-value="2024">2024</button>
+            <button data-filter="year" data-value="2023">2023</button>
+            <button data-filter="year" data-value="2022">2022</button>
+            <!-- 添加更多年份选项 -->
+        </div>
+        <div class="filter-category">
+            <button data-filter="language" data-value="">所有语言</button>
+            <button data-filter="language" data-value="english">英语</button>
+            <button data-filter="language" data-value="chinese">中文</button>
+            <button data-filter="language" data-value="japanese">日语</button>
+            <!-- 添加更多语言选项 -->
+        </div>
+    </div>
+    <ul class="tv-show-list" id="tvShowList">
+        <li data-type="action" data-year="2024" data-language="english">
+            <img src="preview1.jpg" alt="示例剧集 1">
+            <h3>示例剧集 1</h3>
+        </li>
+        <li data-type="comedy" data-year="2023" data-language="chinese">
+            <img src="preview2.jpg" alt="示例剧集 2">
+            <h3>示例剧集 2</h3>
+        </li>
+        <li data-type="drama" data-year="2022" data-language="japanese">
+            <img src="preview3.jpg" alt="示例剧集 3">
+            <h3>示例剧集 3</h3>
+        </li>
+        <!-- 更多剧集条目 -->
+    </ul>
+    <script>
+        let activeFilters = {
+            type: '',
+            year: '',
+            language: ''
+        };
+        document.querySelectorAll('.filter-container button').forEach(button => {
+            button.addEventListener('click', () => {
+                const filterType = button.getAttribute('data-filter');
+                const value = button.getAttribute('data-value');
+                document.querySelectorAll(`button[data-filter="${filterType}"]`).forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                activeFilters[filterType] = value;
+                filterShows();
+            });
+        });
+        function filterShows() {
+            const shows = document.querySelectorAll('#tvShowList li');
+            shows.forEach(show => {
+                const showType = show.getAttribute('data-type');
+                const showYear = show.getAttribute('data-year');
+                const showLanguage = show.getAttribute('data-language');
+                const matchType = activeFilters.type === '' || showType === activeFilters.type;
+                const matchYear = activeFilters.year === '' || showYear === activeFilters.year;
+                const matchLanguage = activeFilters.language === '' || showLanguage === activeFilters.language;
+                show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
+            });
+        }
+        
+        // Handling remote control inputs
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'ArrowUp':
+                    navigate('up');
+                    break;
+                case 'ArrowDown':
+                    navigate('down');
+                    break;
+                case 'ArrowLeft':
+                    navigate('left');
+                    break;
+                case 'ArrowRight':
+                    navigate('right');
+                    break;
+                case 'Enter':
+                    clickActive();
+                    break;
+            }
+        });
+
+        let activeButton = document.querySelector('.filter-container button');
+
+        function navigate(direction) {
+            let buttons = Array.from(document.querySelectorAll('.filter-container button'));
+            let currentIndex = buttons.indexOf(activeButton);
+            let newIndex;
+
+            switch (direction) {
+                case 'up':
+                case 'left':
+                    newIndex = currentIndex - 1;
+                    break;
+                case 'down':
+                case 'right':
+                    newIndex = currentIndex + 1;
+                    break;
+            }
+
+            if (newIndex >= 0 && newIndex < buttons.length) {
+                activeButton.classList.remove('active');
+                activeButton = buttons[newIndex];
+                activeButton.classList.add('active');
+            }
+        }
+
+        function clickActive() {
+            activeButton.click();
+        }
+    </script>
+</body>
+</html>
