@@ -63,36 +63,73 @@
     </style>
 </head>
 <body>
-    <h1>电视剧目录筛选</h1>
+    <h1>目录筛选</h1>
     <div class="filter-container">
         <div class="filter-category">
-            <button data-filter="type" data-value="" class="active">所有类型</button>
-            <button data-filter="type" data-value="action">动作</button>
+            <button data-filter="fenlei" data-value="" class="active">所有分类</button>
+            <button data-filter="fenlei" data-value="dianshiju">电视剧</button>
+            <button data-filter="fenlei" data-value="dianying">电影</button>
+            <button data-filter="fenlei" data-value="zongyi">综艺</button>
+            <button data-filter="fenlei" data-value="dongman">动漫</button>
+            <button data-filter="fenlei" data-value="jilupian">纪录片</button>
         </div>
         <div class="filter-category">
-            <button data-filter="year" data-value="" class="active">所有年份</button>
-            <button data-filter="year" data-value="2024">2024</button>
+            <button data-filter="leixing" data-value="" class="active">所有类型</button>
+            <button data-filter="leixing" data-value="dushi">都市</button>
+            <button data-filter="leixing" data-value="jiating">家庭</button>
+            <button data-filter="leixing" data-value="aiqing">爱情</button>
+            <button data-filter="leixing" data-value="xiju">喜剧</button>
+            <button data-filter="leixing" data-value="guzhuang">古装</button>
+            <button data-filter="leixing" data-value="zhanzheng">战争</button>
+            <button data-filter="leixing" data-value="lishi">历史</button>
+            <button data-filter="leixing" data-value="juqing">剧情</button>
+            <button data-filter="leixing" data-value="junlv">军旅</button>
+            <button data-filter="leixing" data-value="kehuan">科幻</button>
+            <button data-filter="leixing" data-value="nongcun">农村</button>
+            <button data-filter="leixing" data-value="jingfei">警匪</button>
+            <button data-filter="leixing" data-value="diezhan">谍战</button>
+            <button data-filter="leixing" data-value="xuanyi">悬疑</button>
+            <button data-filter="leixing" data-value="qita">其他</button>
         </div>
         <div class="filter-category">
-            <button data-filter="language" data-value="" class="active">所有语言</button>
-            <button data-filter="language" data-value="english">英语</button>
+            <button data-filter="diqu" data-value="" class="active">全部地区</button>
+            <button data-filter="diqu" data-value="neidi">内地</button>
+            <button data-filter="diqu" data-value="zhongguoxianggang">中国香港</button>
+            <button data-filter="diqu" data-value="zhongguotaiwan">中国台湾</button>
+            <button data-filter="diqu" data-value="hanguo">韩国</button>
+            <button data-filter="diqu" data-value="riben">日本</button>
+            <button data-filter="diqu" data-value="meiguo">美国</button>
+            <button data-filter="diqu" data-value="yingguo">英国</button>
+            <button data-filter="diqu" data-value="qita">其他</button>
+        </div>
+        <div class="filter-category">
+            <button data-filter="niandai" data-value="" class="active">全部年代</button>
+            <button data-filter="niandai" data-value="2024">2024</button>
+            <button data-filter="niandai" data-value="2023">2023</button>
+            <button data-filter="niandai" data-value="2022">2022</button>
+            <button data-filter="niandai" data-value="2021">2024</button>
+            <button data-filter="niandai" data-value="2020">2024</button>
+            <button data-filter="niandai" data-value="2019">2024</button>
+            <button data-filter="niandai" data-value="2018">2024</button>
+            <button data-filter="niandai" data-value="20102016">2010-2016</button>
+            <button data-filter="niandai" data-value="00niandai">00年代</button>
+            <button data-filter="niandai" data-value="90niandai">90年代</button>
+            <button data-filter="niandai" data-value="80niandai">80年代</button>
+            <button data-filter="niandai" data-value="gengzao">更早</button>
         </div>
     </div>
     <ul class="tv-show-list" id="tvShowList">
-        <li data-type="action" data-year="2024" data-language="english">
-            <img src="preview1.jpg" alt="示例剧集 1">
-            <h3>示例剧集 1</h3>
-        </li>
-        <li data-type="comedy" data-year="2023" data-language="chinese">
-            <img src="preview2.jpg" alt="示例剧集 2">
-            <h3>示例剧集 2</h3>
+        <li data-fenlei="dianshiju" data-leixing="diezhan,xuanyi" data-diqu="neidi" data-niandai="2024">
+            <img src="preview1.jpg" alt="孤舟">
+            <h3>孤舟</h3>
         </li>
     </ul>
     <script>
         let activeFilters = {
-            type: '',
-            year: '',
-            language: ''
+            fenlei: '',
+            leixing: '',
+            diqu: '',
+            niandai: ''
         };
         
         function setInitialFilters() {
@@ -106,9 +143,9 @@
 
         function applyActiveFilters() {
             document.querySelectorAll('.filter-container button').forEach(button => {
-                const filterType = button.getAttribute('data-filter');
+                const filterFenlei = button.getAttribute('data-filter');
                 const value = button.getAttribute('data-value');
-                if (activeFilters[filterType] === value) {
+                if (activeFilters[filterFenlei] === value) {
                     button.classList.add('active');
                 } else {
                     button.classList.remove('active');
@@ -119,21 +156,23 @@
         function filterShows() {
             const shows = document.querySelectorAll('#tvShowList li');
             shows.forEach(show => {
-                const showType = show.getAttribute('data-type');
-                const showYear = show.getAttribute('data-year');
-                const showLanguage = show.getAttribute('data-language');
-                const matchType = activeFilters.type === '' || showType === activeFilters.type;
-                const matchYear = activeFilters.year === '' || showYear === activeFilters.year;
-                const matchLanguage = activeFilters.language === '' || showLanguage === activeFilters.language;
-                show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
+                const showFenlei = show.getAttribute('data-fenlei');
+                const showLeixing = show.getAttribute('data-leixing').split(',');
+                const showDiqu = show.getAttribute('data-diqu');
+                const showNiandai = show.getAttribute('data-niandai');
+                const matchFenlei = activeFilters.fenlei === '' || showFenlei === activeFilters.fenlei;
+                const matchLeixing = activeFilters.leixing === '' || showLeixing.includes(activeFilters.leixing);
+                const matchDiqu = activeFilters.diqu === '' || showDiqu === activeFilters.diqu;
+                const matchNiandai = activeFilters.niandai === '' || showNiandai === activeFilters.niandai;
+                show.style.display = matchFenlei && matchLeixing && matchDiqu && matchNiandai ? '' : 'none';
             });
         }
 
         document.querySelectorAll('.filter-container button').forEach(button => {
             button.addEventListener('click', () => {
-                const filterType = button.getAttribute('data-filter');
+                const filterFenlei = button.getAttribute('data-filter');
                 const value = button.getAttribute('data-value');
-                activeFilters[filterType] = value;
+                activeFilters[filterFenlei] = value;
                 applyActiveFilters();
                 filterShows();
             });
@@ -145,4 +184,3 @@
     </script>
 </body>
 </html>
-
