@@ -127,6 +127,55 @@
                 show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
             });
         }
+        // Handling remote control inputs
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'ArrowUp':
+                    navigate('up');
+                    break;
+                case 'ArrowDown':
+                    navigate('down');
+                    break;
+                case 'ArrowLeft':
+                    navigate('left');
+                    break;
+                case 'ArrowRight':
+                    navigate('right');
+                    break;
+                case 'Enter':
+                    clickActive();
+                    break;
+            }
+        });
+
+        let activeButton = document.querySelector('.filter-container button');
+
+        function navigate(direction) {
+            let buttons = Array.from(document.querySelectorAll('.filter-container button'));
+            let currentIndex = buttons.indexOf(activeButton);
+            let newIndex;
+
+            switch (direction) {
+                case 'up':
+                case 'left':
+                    newIndex = currentIndex - 1;
+                    break;
+                case 'down':
+                case 'right':
+                    newIndex = currentIndex + 1;
+                    break;
+            }
+
+            if (newIndex >= 0 && newIndex < buttons.length) {
+                activeButton.classList.remove('active');
+                activeButton = buttons[newIndex];
+                activeButton.classList.add('active');
+            }
+        }
+
+        function clickActive() {
+            activeButton.click();
+        }
     </script>
 </body>
 </html>
