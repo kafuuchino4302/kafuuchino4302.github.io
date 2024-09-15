@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>电视剧目录筛选</title>
     <style>
         body {
@@ -61,25 +61,16 @@
     <h1>电视剧目录筛选</h1>
     <div class="filter-container">
         <div class="filter-category">
-            <button data-filter="type" data-value="">所有类型</button>
+            <button data-filter="type" data-value="" class="active">所有类型</button>
             <button data-filter="type" data-value="action">动作</button>
-            <button data-filter="type" data-value="comedy">喜剧</button>
-            <button data-filter="type" data-value="drama">剧情</button>
-            <button data-filter="type" data-value="sci-fi">科幻</button>
         </div>
         <div class="filter-category">
-            <button data-filter="year" data-value="">所有年份</button>
+            <button data-filter="year" data-value="" class="active">所有年份</button>
             <button data-filter="year" data-value="2024">2024</button>
-            <button data-filter="year" data-value="2023">2023</button>
-            <button data-filter="year" data-value="2022">2022</button>
-            <!-- 添加更多年份选项 -->
         </div>
         <div class="filter-category">
-            <button data-filter="language" data-value="">所有语言</button>
+            <button data-filter="language" data-value="" class="active">所有语言</button>
             <button data-filter="language" data-value="english">英语</button>
-            <button data-filter="language" data-value="chinese">中文</button>
-            <button data-filter="language" data-value="japanese">日语</button>
-            <!-- 添加更多语言选项 -->
         </div>
     </div>
     <ul class="tv-show-list" id="tvShowList">
@@ -91,11 +82,6 @@
             <img src="preview2.jpg" alt="示例剧集 2">
             <h3>示例剧集 2</h3>
         </li>
-        <li data-type="drama" data-year="2022" data-language="japanese">
-            <img src="preview3.jpg" alt="示例剧集 3">
-            <h3>示例剧集 3</h3>
-        </li>
-        <!-- 更多剧集条目 -->
     </ul>
     <script>
         let activeFilters = {
@@ -103,18 +89,28 @@
             year: '',
             language: ''
         };
-        document.querySelectorAll('.filter-container button').forEach(button => {
-            button.addEventListener('click', () => {
+        
+        function setInitialFilters() {
+            // Set initial active state for buttons
+            document.querySelectorAll('.filter-container button').forEach(button => {
+                if (button.getAttribute('data-value') === '') {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+        function applyActiveFilters() {
+            document.querySelectorAll('.filter-container button').forEach(button => {
                 const filterType = button.getAttribute('data-filter');
                 const value = button.getAttribute('data-value');
-                document.querySelectorAll(`button[data-filter="${filterType}"]`).forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                button.classList.add('active');
-                activeFilters[filterType] = value;
-                filterShows();
+                if (activeFilters[filterType] === value) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
             });
-        });
+        }
+
         function filterShows() {
             const shows = document.querySelectorAll('#tvShowList li');
             shows.forEach(show => {
@@ -127,7 +123,20 @@
                 show.style.display = matchType && matchYear && matchLanguage ? '' : 'none';
             });
         }
-        
+
+        document.querySelectorAll('.filter-container button').forEach(button => {
+            button.addEventListener('click', () => {
+                const filterType = button.getAttribute('data-filter');
+                const value = button.getAttribute('data-value');
+                activeFilters[filterType] = value;
+                applyActiveFilters();
+                filterShows();
+            });
+        });
+
+        // Initialize filter buttons
+        setInitialFilters();
+        filterShows();
     </script>
 </body>
 </html>
