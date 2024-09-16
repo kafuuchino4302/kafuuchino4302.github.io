@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孤舟 32</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        button {
+            margin: -3px;
+            padding: 0px 0px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s;
+        }
+        .controls button:hover {
+            background-color: yellow;
+            color: black;
+        .controls button:focus {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoPlayer" autoplay muted></video>
+    <div class="controls">
+        <button id="unmuteButton">开启声音</button>
+        <button id="pauseButton">暂停</button>
+        <button id="rewindButton">后退 10s</button>
+        <button id="fastForwardButton">快进 10s</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('videoPlayer');
+            const videoSrc = 'https://europe.olemovienews.com/ts3/20240822/aIukkmCu/mp4/aIukkmCu.mp4/master.m3u8';
+            const unmuteButton = document.getElementById('unmuteButton');
+            const pauseButton = document.getElementById('pauseButton');
+            const rewindButton = document.getElementById('rewindButton');
+            const fastForwardButton = document.getElementById('fastForwardButton');
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play();
+
+                    const requestFullscreen = () => {
+                        if (video.requestFullscreen) {
+                            video.requestFullscreen();
+                        } else if (video.mozRequestFullScreen) { 
+                            video.mozRequestFullScreen();
+                        } else if (video.webkitRequestFullscreen) { 
+                            video.webkitRequestFullscreen();
+                        } else if (video.msRequestFullscreen) { 
+                            video.msRequestFullscreen();
+                        }
+                    };
+
+                    setTimeout(() => {
+                        requestFullscreen();
+                    }, 1000);
+
+                    unmuteButton.addEventListener('click', () => {
+                        video.muted = false;
+                        unmuteButton.style.display = 'none'; 
+                    });
+
+                    pauseButton.addEventListener('click', () => {
+                        if (video.paused) {
+                            video.play();
+                            pauseButton.textContent = '暂停';
+                        } else {
+                            video.pause();
+                            pauseButton.textContent = '播放';
+                        }
+                    });
+
+                    rewindButton.addEventListener('click', () => {
+                        video.currentTime -= 10; 
+                    });
+
+                    fastForwardButton.addEventListener('click', () => {
+                        video.currentTime += 10; 
+                    });
+                });
+            } else {
+                console.error('HLS.js 不受支持');
+            }
+        });
+    </script>
+</body>
+</html>
