@@ -3,198 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>目录筛选</title>
+    <title>安全校验通过</title>
     <style>
-        img {
-            display: block;
-            max-width: 100%;
-        }
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: black;
-            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
         }
-        .filter-container {
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .icon {
             margin-bottom: 20px;
         }
-        .filter-category {
-            margin-bottom: 10px;
+        .buttons {
+            margin-top: 20px;
         }
-        .filter-category button {
+        button {
             padding: 10px 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: white;
-            color: black;
-            cursor: pointer;
-            margin-right: 10px;
-            outline: none;
-            transition: background-color 0.3s;
-        }
-        .filter-category button.active {
-            background-color: pink;
-            color: black;
-        }
-        button:hover {
-            background-color: yellow;
-            color: black;
-       }
-        .tv-show-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            list-style-type: none;
-            padding: 0;
-        }
-        .tv-show-list li {
-            width: 200px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: white;
-            color: black;
-            text-align: center;
-        }
-        .tv-show-list img {
-            width: 100%;
-            height: auto;
-        }
-        .tv-show-list h3 {
-            margin: 10px 0;
             font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
         }
-        .filter-category {
-            white-space: nowrap;
-            overflow-x: auto;
+        .continue {
+            background-color: #0078d7;
+            color: white;
         }
-        button:focus {
-            background-color: yellow;
-            color: black;
-       }
+        .return {
+            background-color: #333;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <h1>目录筛选</h1>
-    <div class="filter-container">
-        <div class="filter-category">
-            <button data-filter="fenlei" data-value="" class="active">所有分类</button>
-            <button data-filter="fenlei" data-value="dianshiju">电视剧</button>
-            <button data-filter="fenlei" data-value="dianying">电影</button>
-            <button data-filter="fenlei" data-value="zongyi">综艺</button>
-            <button data-filter="fenlei" data-value="dongman">动漫</button>
-            <button data-filter="fenlei" data-value="jilupian">纪录片</button>
+    <div class="container">
+        <div class="icon">
+            <img src="image/1.jpg">
         </div>
-        <div class="filter-category">
-            <button data-filter="leixing" data-value="" class="active">所有类型</button>
-            <button data-filter="leixing" data-value="dushi">都市</button>
-            <button data-filter="leixing" data-value="jiating">家庭</button>
-            <button data-filter="leixing" data-value="aiqing">爱情</button>
-            <button data-filter="leixing" data-value="xiju">喜剧</button>
-            <button data-filter="leixing" data-value="guzhuang">古装</button>
-            <button data-filter="leixing" data-value="zhanzheng">战争</button>
-            <button data-filter="leixing" data-value="lishi">历史</button>
-            <button data-filter="leixing" data-value="juqing">剧情</button>
-            <button data-filter="leixing" data-value="junlv">军旅</button>
-            <button data-filter="leixing" data-value="kehuan">科幻</button>
-            <button data-filter="leixing" data-value="nongcun">农村</button>
-            <button data-filter="leixing" data-value="jingfei">警匪</button>
-            <button data-filter="leixing" data-value="diezhan">谍战</button>
-            <button data-filter="leixing" data-value="xuanyi">悬疑</button>
-            <button data-filter="leixing" data-value="qita">其他</button>
-        </div>
-        <div class="filter-category">
-            <button data-filter="diqu" data-value="" class="active">全部地区</button>
-            <button data-filter="diqu" data-value="neidi">内地</button>
-            <button data-filter="diqu" data-value="zhongguoxianggang">中国香港</button>
-            <button data-filter="diqu" data-value="zhongguotaiwan">中国台湾</button>
-            <button data-filter="diqu" data-value="hanguo">韩国</button>
-            <button data-filter="diqu" data-value="riben">日本</button>
-            <button data-filter="diqu" data-value="meiguo">美国</button>
-            <button data-filter="diqu" data-value="yingguo">英国</button>
-            <button data-filter="diqu" data-value="qita">其他</button>
-        </div>
-        <div class="filter-category">
-            <button data-filter="niandai" data-value="" class="active">全部年代</button>
-            <button data-filter="niandai" data-value="2024">2024</button>
-            <button data-filter="niandai" data-value="2023">2023</button>
-            <button data-filter="niandai" data-value="2022">2022</button>
-            <button data-filter="niandai" data-value="2021">2021</button>
-            <button data-filter="niandai" data-value="2020">2020</button>
-            <button data-filter="niandai" data-value="2019">2019</button>
-            <button data-filter="niandai" data-value="2018">2018</button>
-            <button data-filter="niandai" data-value="20102016">2010-2016</button>
-            <button data-filter="niandai" data-value="00niandai">00年代</button>
-            <button data-filter="niandai" data-value="90niandai">90年代</button>
-            <button data-filter="niandai" data-value="80niandai">80年代</button>
-            <button data-filter="niandai" data-value="gengzao">更早</button>
+        <h2>安全校验通过</h2>
+        <p>若无法正常跳转，<br>请您点击右上角，用浏览器打开。</p>
+        <div class="buttons">
+            <button class="continue">继续</button>
         </div>
     </div>
-    <ul class="tv-show-list" id="tvShowList">
-        <li data-fenlei="dianshiju" data-leixing="diezhan,xuanyi" data-diqu="neidi" data-niandai="2024">
-            <a href="dianshiju/2024/guzhou/main.html" style="text-decoration: none; color: inherit;">
-            <img src="image/guzhou.webp" alt="孤舟">
-            <h3>孤舟</h3>
-            </a>
-        </li>
-    </ul>
-    <script>
-        let activeFilters = {
-            fenlei: '',
-            leixing: '',
-            diqu: '',
-            niandai: ''
-        };
-        
-        function setInitialFilters() {
-            // Set initial active state for buttons
-            document.querySelectorAll('.filter-container button').forEach(button => {
-                if (button.getAttribute('data-value') === '') {
-                    button.classList.add('active');
-                }
-            });
-        }
-
-        function applyActiveFilters() {
-            document.querySelectorAll('.filter-container button').forEach(button => {
-                const filterFenlei = button.getAttribute('data-filter');
-                const value = button.getAttribute('data-value');
-                if (activeFilters[filterFenlei] === value) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-        }
-
-        function filterShows() {
-            const shows = document.querySelectorAll('#tvShowList li');
-            shows.forEach(show => {
-                const showFenlei = show.getAttribute('data-fenlei');
-                const showLeixing = show.getAttribute('data-leixing').split(',');
-                const showDiqu = show.getAttribute('data-diqu');
-                const showNiandai = show.getAttribute('data-niandai');
-                const matchFenlei = activeFilters.fenlei === '' || showFenlei === activeFilters.fenlei;
-                const matchLeixing = activeFilters.leixing === '' || showLeixing.includes(activeFilters.leixing);
-                const matchDiqu = activeFilters.diqu === '' || showDiqu === activeFilters.diqu;
-                const matchNiandai = activeFilters.niandai === '' || showNiandai === activeFilters.niandai;
-                show.style.display = matchFenlei && matchLeixing && matchDiqu && matchNiandai ? '' : 'none';
-            });
-        }
-
-        document.querySelectorAll('.filter-container button').forEach(button => {
-            button.addEventListener('click', () => {
-                const filterFenlei = button.getAttribute('data-filter');
-                const value = button.getAttribute('data-value');
-                activeFilters[filterFenlei] = value;
-                applyActiveFilters();
-                filterShows();
-            });
-        });
-
-        // Initialize filter buttons
-        setInitialFilters();
-        filterShows();
-    </script>
 </body>
 </html>
