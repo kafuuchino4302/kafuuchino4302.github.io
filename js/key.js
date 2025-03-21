@@ -1,0 +1,1 @@
+const PASSWORD = '256';
