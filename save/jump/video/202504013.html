@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #videoPlayer {
+            width: 360px; /* Set width for portrait mode */
+            height: 640px; /* Set height for portrait mode */
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls></video>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="../../../js/1.js"></script>
+    <script>
+        if (Hls.isSupported()) {
+            var video = document.getElementById('videoPlayer');
+            var hls = new Hls();
+            hls.loadSource('https://alsgp0.fds.api.xiaomi.com/user.images/20250401175412_813937.m3u8');
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = 'https://alsgp0.fds.api.xiaomi.com/user.images/20250401175412_813937.m3u8';
+        }
+    </script>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://qm.qq.com/q/w7KnS1D7Am" style="display: inline-block; padding: 10px 20px; background-color: #6A0DAD; color: white; text-decoration: none; border-radius: 5px;">
+            点击这里加入组织
+        </a>
+    </div>
+</body>
+</html>
