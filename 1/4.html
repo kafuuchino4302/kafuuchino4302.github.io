@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码验证页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            margin: 20px 0;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="../js/key.js"></script>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const error = document.getElementById('error-message');
+            if (password === PASSWORD) {
+                window.location.href = '1/4.html';
+            } else {
+                error.textContent = '密码错误，请重试！';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>该链接已被加密</h1>
+        <p>此链接为私密内容，请输入密码验证后查看</p>
+        <div class="input-field">
+            <input type="password" id="password" placeholder="请输入密码解锁">
+        </div>
+        <button class="button" onclick="validatePassword()">立即解锁</button>
+        <div class="error" id="error-message"></div>
+        <h2>↓↓获取密码↓↓</h2>
+        <p>长按图片保存到相册哦</p>
+        <img src="../image/1.jpg" width="110">
+    </div>
+</body>
+</html>
