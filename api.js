@@ -54,4 +54,4 @@ export async function analyzeImage(imageDataUrl, aiType) {
     console.error("分析图片时出错:", error);
     throw error;
   }
-}我api.js这样写就行了吗
+}
