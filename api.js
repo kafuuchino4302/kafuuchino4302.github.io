@@ -26,7 +26,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
 
   try {
     console.log("🎯 即将发送请求到 Gemini Worker");
-    const response = await fetch("https://wispy-base-1388.1454385662.workers.dev", {
+    const response = await fetch("https://wispy-base-1388.1454385662.workers.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
