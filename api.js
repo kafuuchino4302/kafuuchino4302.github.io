@@ -4,10 +4,9 @@ export async function analyzeImage(imageDataUrl, aiType) {
   const systemPrompt = systemPrompts[aiType];
 
   if (!systemPrompt) {
-    throw new Error(Invalid AI type: ${aiType});
+    throw new Error(`Invalid AI type: ${aiType}`);
   }
 
-  // 构造 Gemini 请求内容
   const requestBody = {
     contents: [
       {
@@ -17,7 +16,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
           {
             inline_data: {
               mime_type: "image/jpeg",
-              data: imageDataUrl.split(",")[1], // 去掉 base64 的前缀
+              data: imageDataUrl.split(",")[1],
             },
           },
         ],
@@ -33,7 +32,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
     });
 
     if (!response.ok) {
-      throw new Error(API 错误，状态码: ${response.status});
+      throw new Error(`API 错误，状态码: ${response.status}`);
     }
 
     const result = await response.json();
@@ -41,9 +40,10 @@ export async function analyzeImage(imageDataUrl, aiType) {
     const explanation =
       result?.candidates?.[0]?.content?.parts?.[0]?.text || "无法解析 AI 响应";
 
-    // 简单推理一下评分结果（可以后根据返回内容更准确分析）
     const verdict = /不上/.test(explanation) ? "PASS" : "SMASH";
-    const rating = verdict === "PASS" ? Math.floor(Math.random()  5) + 1 : Math.floor(Math.random()  4) + 7;
+    const rating = verdict === "PASS"
+      ? Math.floor(Math.random() * 5) + 1
+      : Math.floor(Math.random() * 4) + 7;
 
     return {
       rating,
