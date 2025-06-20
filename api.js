@@ -1,4 +1,4 @@
-import { systemPrompts } from './config.js';
+import { systemPrompts } from 'config.js';
 
 export async function analyzeImage(imageDataUrl, aiType) {
     const systemPrompt = systemPrompts[aiType];
