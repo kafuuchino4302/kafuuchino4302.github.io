@@ -100,3 +100,5 @@ export const getRatingLabel = (rating) => {
     if (rating <= 8) return '嗯了';
     return '直接开导';
 };
+
+export const PROMPT_VERSION = "1.0.1";
