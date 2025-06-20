@@ -12,7 +12,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
       {
         role: "user",
         parts: [
-          { text: systemPrompt + "\n请分析这张图片并决定的：上还是不上？" },
+          { text: systemPrompt + "\n请分析这张图片并给出评价：" },
           {
             inline_data: {
               mime_type: "image/jpeg",
@@ -25,7 +25,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
   };
 
   try {
-    console.log("🎯 即将发送请求到 Gemini Worker");
+    console.log("🎯 正在请求 Gemini 分析图片...");
     const response = await fetch("https://wispy-base-1388.1454385662.workers.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -37,46 +37,31 @@ export async function analyzeImage(imageDataUrl, aiType) {
     }
 
     const result = await response.json();
-    console.log("🔍 Gemini 返回原始数据:", result);
+    console.log("📦 Gemini 返回原始数据:", result);
 
-    // 尝试提取文本内容
     let explanation = "无法解析 AI 响应";
-    try {
-      const parts = result?.candidates?.[0]?.content?.parts;
-      if (Array.isArray(parts) && parts.length > 0) {
-        explanation = typeof parts[0]?.text === "string"
-          ? parts[0].text
-          : JSON.stringify(parts[0]);
+
+    if (result.error) {
+      explanation = `AI 返回错误：${result.error.message || "未知错误"}`;
+    } else {
+      try {
+        const parts = result?.candidates?.[0]?.content?.parts;
+        if (Array.isArray(parts) && parts.length > 0) {
+          explanation = typeof parts[0].text === "string"
+            ? parts[0].text
+            : JSON.stringify(parts[0]);
+        }
+      } catch {
+        explanation = "AI 响应格式异常";
       }
-    } catch (e) {
-      explanation = "AI 响应格式异常";
     }
 
-    const verdict = /不上/.test(explanation) ? "PASS" : "SMASH";
-    const rating = verdict === "PASS"
-      ? Math.floor(Math.random() * 5) + 1
-      : Math.floor(Math.random() * 4) + 7;
-
-    console.log("✅ 分析完成:", { rating, verdict, explanation });
-
-    return {
-      rating,
-      verdict,
-      explanation,
-    };
+    return { explanation };
   } catch (error) {
-    console.error("❌ 分析图片时出错:", error);
-
-    // 尝试打印原始响应（如果有）
-    try {
-      const rawText = await error?.response?.text?.();
-      console.log("⚠️ Gemini 返回的原始文本:", rawText);
-    } catch {}
+    console.error("❌ 分析过程中出错:", error);
 
     return {
-      rating: 0,
-      verdict: "ERROR",
-      explanation: "😢 AI 没能成功分析图片，可能是响应格式异常或模型无响应",
+      explanation: "😢 AI 没能成功分析图片，可能模型无响应或格式异常",
     };
   }
 }
