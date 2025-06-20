@@ -36,6 +36,7 @@ export async function analyzeImage(imageDataUrl, aiType) {
     }
 
     const result = await response.json();
+    console.log("Gemini 返回原始数据:", result);
 
     const explanation =
       result?.candidates?.[0]?.content?.parts?.[0]?.text || "无法解析 AI 响应";
