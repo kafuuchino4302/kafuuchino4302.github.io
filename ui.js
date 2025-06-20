@@ -1,5 +1,5 @@
-import { getRatingLabel } from 'config.js';
-import * as store from 'store.js';
+import { getRatingLabel } from './config.js';
+import * as store from './store.js';
 
 // --- DOM Element Cache ---
 const elements = {
