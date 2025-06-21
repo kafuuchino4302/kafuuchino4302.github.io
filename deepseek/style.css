@@ -246,4 +246,40 @@ footer p {
     width: 8px;
 }
 
-::-webkit-sc
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 10px;
+    }
+    
+    .chat-history {
+        height: 400px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    button {
+        padding: 12px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
