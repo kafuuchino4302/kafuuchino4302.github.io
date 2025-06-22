@@ -158,7 +158,7 @@ export function createSavedResultsContainer(results, eventHandlers) {
             <div class="saved-result-card" data-index="${index}">
                 <img src="${result.image}" alt="Saved result ${index + 1}">
                 <div class="saved-result-info">
-                    <p class="verdict">${getRatingLabel(result.rating)} (${result.rating}/10)</p>
+                    <p class="verdict">${getRatingLabel(result.rating)} (${result.rating}/100)</p>
                     <p class="explanation">${result.explanation}</p>
                     <p class="date">${new Date(result.timestamp).toLocaleDateString()}</p>
                     <p class="ai-type">模式: ${
