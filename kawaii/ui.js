@@ -161,7 +161,7 @@ export function createSavedResultsContainer(results, eventHandlers) {
     if (results.length === 0) {
         container.innerHTML = `
             <h2>萌度记录</h2>
-            <p style="text-align: center; color: var(--subtitle-color);">(´•ω•̥`) 还没有萌度记录哦~</p>
+            <p style="text-align: center; color: var(--subtitle-color);">(´•ω•̥\`) 还没有萌度记录哦~</p>
         `;
     } else {
         const grid = results.map((result, index) => `
