@@ -10,12 +10,5 @@ export const getRatingLabel = (rating) => {
     if (rating <= 60) return '萌萌哒呢';
     if (rating <= 80) return '超级卡哇伊～';
     return '爆表啦ฅ^•ﻌ•^ฅ';
-};
-
-export const getRatingLabel = (rating) => {
-    if (rating <= 2) return '纯属答辩';
-    if (rating <= 4) return '勉强能冲';
-    if (rating <= 6) return '有点意思';
-    if (rating <= 8) return '嗯了';
-    return '直接开导';
+  
 };
