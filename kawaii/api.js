@@ -1,35 +1,44 @@
-// api.js
-import { systemPrompts, getRatingLabel } from './config.js';
-
-const WORKER_URL = 'https://dark-cake-10ea.1454385662.workers.dev/';
+import { systemPrompts } from './config.js';
 
 export async function analyzeImage(imageDataUrl, aiType) {
-  try {
-    // 从config.js获取系统提示词
-    const systemPrompt = systemPrompts[aiType] || systemPrompts.brief;
-    
-    const response = await fetch(WORKER_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        imageData: imageDataUrl,
-        systemPrompt
-      })
-    });
+    const systemPrompt = systemPrompts[aiType];
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || `API请求失败: ${response.status}`);
+    if (!systemPrompt) {
+        throw new Error(`无效的AI模式: ${aiType}`);
     }
 
-    const result = await response.json();
-    
-    // 添加评分标签
-    result.ratingLabel = getRatingLabel(result.rating);
-    
-    return result;
-  } catch (error) {
-    console.error('分析图片时出错:', error);
-    throw new Error(`分析失败: ${error.message}`);
-  }
+    if (typeof websim === 'undefined' || !websim || !websim.chat) {
+        throw new Error('萌度分析服务不可用');
+    }
+
+    let completion;
+    try {
+        completion = await websim.chat.completions.create({
+            messages: [
+                {
+                    role: "system",
+                    content: systemPrompt,
+                },
+                {
+                    role: "user",
+                    content: [
+                        {
+                            type: "text",
+                            text: "请分析这张图片的萌度",
+                        },
+                        {
+                            type: "image_url",
+                            image_url: { url: imageDataUrl },
+                        },
+                    ],
+                },
+            ],
+            json: true,
+        });
+
+        return JSON.parse(completion.content);
+    } catch (error) {
+        console.error("萌度分析失败:", error);
+        throw error;
+    }
 }

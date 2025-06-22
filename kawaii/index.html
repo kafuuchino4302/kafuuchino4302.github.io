@@ -1,45 +1,46 @@
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>萌萌AI评分系统</title>
+    <title>萌度评分系统</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <button id="theme-toggle" class="theme-toggle" aria-label="切换暗色模式">🌞</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌙</button>
         <header>
-            <h1>可爱AI评分器</h1>
-<p class="subtitle">上传图片，看看你的萌萌值是多少~</p>
+            <h1>萌度评分系统</h1>
+            <p class="subtitle">上传图片，让AI来评判它的可爱程度</p>
         </header>
         
         <div class="disclaimer" id="disclaimer">
             <button class="close-btn" id="close-disclaimer">×</button>
-            <p>⚠️ <strong>温馨提示：</strong> AI只是软萌的“看图官”，评分纯属娱乐～不要拿自己照片尝试哦，我们爱你所有的样子喵！✨</p>
+            <p>✨ <strong>温馨提示：</strong> 本系统采用萌系AI分析，评分结果仅供参考！请不要上传个人隐私照片，萌度是主观感受，结果可能因人而异哦~</p>
         </div>
 
         <div class="ai-type-selector">
             <p>选择AI分析模式：</p>
-<div class="ai-type-options">
-  <label class="ai-type-option">
-    <input type="radio" name="ai-type" value="brief" checked>
-    <span class="ai-type-name">猫猫模式</span>
-    <span class="ai-type-desc">喵~轻轻说两句</span>
-  </label>
-  <label class="ai-type-option">
-    <input type="radio" name="ai-type" value="descriptive">
-    <span class="ai-type-name">狗狗模式</span>
-    <span class="ai-type-desc">汪~多夸几句</span>
-  </label>
-  <label class="ai-type-option">
-    <input type="radio" name="ai-type" value="novel">
-    <span class="ai-type-name">童话模式</span>
-    <span class="ai-type-desc">嗷呜~萌出一整篇</span>
-  </label>
-</div>
+            <div class="ai-type-options">
+                <label class="ai-type-option">
+                    <input type="radio" name="ai-type" value="brief" checked>
+                    <span class="ai-type-name">萌动模式</span>
+                    <span class="ai-type-desc">快速评价，1-2句萌评</span>
+                </label>
+                <label class="ai-type-option">
+                    <input type="radio" name="ai-type" value="descriptive">
+                    <span class="ai-type-name">心动模式</span>
+                    <span class="ai-type-desc">详细分析，3+句萌评</span>
+                </label>
+                <label class="ai-type-option">
+                    <input type="radio" name="ai-type" value="novel">
+                    <span class="ai-type-name">暴萌模式</span>
+                    <span class="ai-type-desc">400字以上，萌到融化</span>
+                </label>
+            </div>
         </div>
 
         <div class="upload-area" id="upload-area">
@@ -58,8 +59,8 @@
                 <img id="preview-image" src="" alt="待分析的图片">
             </div>
             <div class="preview-actions">
-                <button id="start-analysis-btn" class="btn">🚀 获取AI评分</button>
-                <button id="change-image-btn" class="btn btn-secondary">🔁 换张图</button>
+                <button id="start-analysis-btn" class="btn">🌟 获取萌度评分</button>
+                <button id="change-image-btn" class="btn btn-secondary">🔄 换张图</button>
             </div>
         </div>
 
@@ -72,21 +73,20 @@
             </div>
             <div id="loading" class="loading hidden">
                 <div class="spinner"></div>
-                <p>AI正在分析中...</p>
+                <p>AI正在分析萌度...</p>
             </div>
             <div id="result" class="result hidden">
                 <div class="verdict-container">
-                    <h2 id="verdict">评分：</h2>
+                    <h2 id="verdict">萌度评分：</h2>
                     <div id="verdict-icon"></div>
                 </div>
                 <p id="explanation"></p>
                 <div class="result-actions">
-                    <button id="try-again" class="btn">🔁 再试一次</button>
-                    <!-- Save and Share buttons will be injected here -->
+                    <button id="try-again" class="btn">✨ 再评一次</button>
                 </div>
             </div>
         </div>
-        <button class="btn view-saved-btn" id="view-saved">📁 查看保存的结果</button>
+        <button class="btn view-saved-btn" id="view-saved">📚 查看萌度记录</button>
     </div>
     <script type="module" src="main.js"></script>
 </body>

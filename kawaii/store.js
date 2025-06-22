@@ -16,7 +16,7 @@ export function getSavedResults() {
 
 export function addSavedResult(resultData) {
     savedResults.unshift(resultData);
-    if (savedResults.length > 50) { // Keep max 50 results
+    if (savedResults.length > 50) {
         savedResults.pop();
     }
     saveToLocalStorage();
@@ -37,5 +37,4 @@ export function setDarkModePreference(isDarkMode) {
     localStorage.setItem('darkMode', String(isDarkMode));
 }
 
-// Initial load
 loadFromLocalStorage();

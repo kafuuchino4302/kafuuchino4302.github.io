@@ -1,10 +1,9 @@
-import * as store from './store.js';
-import * as ui from './ui.js';
-import { analyzeImage } from './api.js';
-import { getRatingLabel } from './config.js';
+import * as store from 'store.js';
+import * as ui from 'ui.js';
+import { analyzeImage } from 'api.js';
+import { getRatingLabel } from 'config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- DOM Elements ---
     const elements = {
         uploadArea: document.getElementById('upload-area'),
         fileInput: document.getElementById('file-input'),
@@ -26,19 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let isSavedResultsVisible = false;
     let selectedImageDataUrl = null;
 
-    // --- Initialization ---
     function initialize() {
         setupEventListeners();
         ui.initializeTheme();
     }
 
-    // --- Event Handlers ---
     function handleFileSelect() {
         if (!elements.fileInput.files.length) return;
 
         const file = elements.fileInput.files[0];
         if (!file.type.startsWith('image/')) {
-            alert('Please select an image file');
+            alert('请选择图片文件哦~');
             return;
         }
 
@@ -60,16 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await analyzeImage(selectedImageDataUrl, aiType);
             currentAnalysisResult = { ...response, image: selectedImageDataUrl, aiType };
             
-            // A short delay to make the loading feel more deliberate
             setTimeout(() => {
                 ui.displayResult(currentAnalysisResult);
                 ui.createSaveButton(handleSaveResult);
                 ui.createShareButton(handleShareResult);
-            }, 500);
+            }, 800);
 
         } catch (error) {
-            console.error('分析图片时出错:', error);
-            ui.displayError('出错了，请重新上传图片或刷新页面。检查控制台获取详细信息。');
+            console.error('分析萌度时出错:', error);
+            ui.displayError('萌度分析失败，请重新上传图片~');
         }
     }
     
@@ -86,13 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!currentAnalysisResult) return;
         const { rating, verdict, explanation } = currentAnalysisResult;
         const ratingLabel = getRatingLabel(rating);
-        const textToCopy = `我的图片AI评分结果:\n\n verdict: ${verdict}\n rating: ${ratingLabel} (${rating}/100)\n explanation: "${explanation}"\n\n你也来试试吧！`;
+        const textToCopy = `我的萌度评分结果:\n\n萌度: ${ratingLabel} (${rating}/100)\n评语: "${explanation}"\n\n你也来试试吧！`;
         
         navigator.clipboard.writeText(textToCopy).then(() => {
-            console.log('Result copied to clipboard!');
+            console.log('萌度结果已复制');
         }).catch(err => {
-            console.error('Could not copy text: ', err);
-            alert('复制失败');
+            console.error('复制失败: ', err);
+            alert('复制失败，请手动复制哦~');
         });
     }
     
@@ -123,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingContainer = document.querySelector('.saved-results');
         if (existingContainer) {
             existingContainer.remove();
-            elements.viewSavedBtn.textContent = '📁 查看保存的结果';
+            elements.viewSavedBtn.textContent = '📚 查看萌度记录';
             isSavedResultsVisible = false;
         } else {
             renderSaved();
-            elements.viewSavedBtn.textContent = '📁 隐藏保存的结果';
+            elements.viewSavedBtn.textContent = '📚 隐藏萌度记录';
             isSavedResultsVisible = true;
         }
     }
@@ -145,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.container.appendChild(savedContainer);
     }
 
-    // --- Event Listeners Setup ---
     function setupEventListeners() {
         const imageDropZones = [elements.uploadArea, elements.imagePreviewContainer, elements.imagePreviewContainerResult];
         
@@ -179,6 +174,5 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.viewSavedBtn.addEventListener('click', toggleSavedResults);
     }
 
-    // --- Start Application ---
     initialize();
 });
