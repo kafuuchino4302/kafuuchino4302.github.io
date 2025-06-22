@@ -1,7 +1,7 @@
 // api.js
 import { systemPrompts, getRatingLabel } from './config.js';
 
-const WORKER_URL = 'https://wispy-base-1388.1454385662.workers.dev/';
+const WORKER_URL = 'https://dark-cake-10ea.1454385662.workers.dev/';
 
 export async function analyzeImage(imageDataUrl, aiType) {
   try {
