@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!currentAnalysisResult) return;
         const { rating, verdict, explanation } = currentAnalysisResult;
         const ratingLabel = getRatingLabel(rating);
-        const textToCopy = `我的图片AI评分结果:\n\n verdict: ${verdict}\n rating: ${ratingLabel} (${rating}/10)\n explanation: "${explanation}"\n\n你也来试试吧！`;
+        const textToCopy = `我的图片AI评分结果:\n\n verdict: ${verdict}\n rating: ${ratingLabel} (${rating}/100)\n explanation: "${explanation}"\n\n你也来试试吧！`;
         
         navigator.clipboard.writeText(textToCopy).then(() => {
             console.log('Result copied to clipboard!');
