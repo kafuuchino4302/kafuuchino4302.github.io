@@ -1,5 +1,5 @@
-import { getRatingLabel } from 'config.js';
-import * as store from 'store.js';
+import { getRatingLabel } from './config.js';
+import * as store from './store.js';
 
 const elements = {
     uploadArea: document.getElementById('upload-area'),
