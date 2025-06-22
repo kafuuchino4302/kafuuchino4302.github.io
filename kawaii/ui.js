@@ -1,6 +1,7 @@
 import { getRatingLabel } from './config.js';
 import * as store from './store.js';
 
+// --- DOM Element Cache ---
 const elements = {
     uploadArea: document.getElementById('upload-area'),
     previewContainer: document.getElementById('preview-container'),
@@ -21,6 +22,7 @@ const elements = {
 
 let popupOverlay = null;
 
+// --- Initialization ---
 function createPopup() {
     if (document.getElementById('popup-overlay')) return;
     
@@ -34,6 +36,7 @@ function createPopup() {
             <p id="popup-explanation"></p>
         </div>
     `;
+    popupOverlay.style.display = ''; // Remove inline style
     document.body.appendChild(popupOverlay);
 
     popupOverlay.addEventListener('click', (e) => {
@@ -43,8 +46,9 @@ function createPopup() {
     });
     popupOverlay.querySelector('.close-popup').addEventListener('click', hidePopup);
 }
-createPopup();
+createPopup(); // Create on script load
 
+// --- UI State Changers ---
 export function showPreview(imageDataUrl) {
     elements.previewImage.src = imageDataUrl;
     elements.uploadArea.classList.add('hidden');
@@ -60,6 +64,7 @@ export function showLoading(imageDataUrl) {
     elements.loading.classList.remove('hidden');
     elements.result.classList.add('hidden');
 
+    // Clear previous action buttons
     const existingBtns = elements.resultActions.querySelectorAll('.save-btn, .share-btn');
     existingBtns.forEach(btn => btn.remove());
 }
@@ -68,7 +73,6 @@ export function displayResult({ rating, verdict: verdictText, explanation: expla
     elements.loading.classList.add('hidden');
     elements.result.classList.remove('hidden');
     
-    // 萌系结果展示
     const isCute = verdictText === '萌';
     elements.verdict.textContent = `${getRatingLabel(rating)} (${rating}/100)`;
     
@@ -109,6 +113,7 @@ export function hideDisclaimer() {
     elements.disclaimer.style.display = 'none';
 }
 
+// --- Theme Management ---
 export function toggleTheme() {
     const isDarkMode = document.body.classList.toggle('dark-mode');
     elements.themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
@@ -122,6 +127,7 @@ export function initializeTheme() {
     }
 }
 
+// --- Dynamic Element Creation ---
 export function createSaveButton(onClick) {
     const saveBtn = document.createElement('button');
     saveBtn.className = 'btn save-btn';
@@ -181,7 +187,7 @@ export function createSavedResultsContainer(results, eventHandlers) {
         
         container.querySelectorAll('.delete-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation();
+                e.stopPropagation(); // Prevent card click event
                 eventHandlers.onDelete(parseInt(e.target.dataset.index));
             });
         });
@@ -196,11 +202,13 @@ export function createSavedResultsContainer(results, eventHandlers) {
     return container;
 }
 
+// --- Popup Management ---
 export function showPopup(result) {
     if (!popupOverlay) return;
     document.getElementById('popup-img').src = result.image;
     document.getElementById('popup-verdict').textContent = `${getRatingLabel(result.rating)} (${result.rating}/100)`;
     document.getElementById('popup-explanation').textContent = result.explanation;
+    document.getElementById('popup-explanation').style.whiteSpace = 'pre-wrap';
     popupOverlay.classList.add('visible');
 }
 
