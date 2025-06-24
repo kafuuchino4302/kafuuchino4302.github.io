@@ -1,3 +1,4 @@
+// ui.js
 import { getRatingLabel } from './config.js';
 import * as store from './store.js';
 
@@ -34,6 +35,7 @@ function createPopup() {
             <img id="popup-img" src="" alt="预览图片">
             <h3 id="popup-verdict"></h3>
             <p id="popup-explanation"></p>
+            <div id="debug-info" class="debug-info"></div>
         </div>
     `;
     popupOverlay.style.display = ''; // Remove inline style
@@ -69,12 +71,12 @@ export function showLoading(imageDataUrl) {
     existingBtns.forEach(btn => btn.remove());
 }
 
-export function displayResult({ rating, verdict: verdictText, explanation: explanationText }) {
+export function displayResult({ rating, verdict: verdictText, explanation: explanationText, ...rawData }) {
     elements.loading.classList.add('hidden');
     elements.result.classList.remove('hidden');
     
     const isCute = verdictText === '萌';
-    elements.verdict.textContent = `${getRatingLabel(rating)} (${rating}/100)`;
+    elements.verdict.textContent = `${getRatingLabel(rawData.type || "未知", rawData.subtype || "未知", rating)} (${rating}/100)`;
     
     // 萌系图标选择
     if (rating >= 80) {
@@ -89,6 +91,48 @@ export function displayResult({ rating, verdict: verdictText, explanation: expla
     
     elements.explanation.textContent = explanationText;
     elements.result.className = `result ${rating >= 80 ? 'super-cute' : rating >= 60 ? 'cute' : ''}`;
+    
+    // 添加调试按钮
+    createDebugButton(rawData);
+}
+
+function createDebugButton(rawData) {
+    // 移除旧的调试按钮
+    const oldDebugBtn = document.getElementById('debug-btn');
+    if (oldDebugBtn) oldDebugBtn.remove();
+    
+    const debugBtn = document.createElement('button');
+    debugBtn.id = 'debug-btn';
+    debugBtn.className = 'btn debug-btn';
+    debugBtn.textContent = '🐞 调试信息';
+    debugBtn.addEventListener('click', () => showDebugInfo(rawData));
+    elements.resultActions.appendChild(debugBtn);
+}
+
+function showDebugInfo(rawData) {
+    const debugInfo = document.getElementById('debug-info');
+    if (!debugInfo) return;
+    
+    let debugHTML = `<h4>原始数据调试信息</h4>`;
+    
+    // 显示原始类型和子类型
+    if (rawData._rawType || rawData._rawSubtype) {
+        debugHTML += `<p><strong>原始类型:</strong> ${rawData._rawType || '无'}</p>`;
+        debugHTML += `<p><strong>原始子类型:</strong> ${rawData._rawSubtype || '无'}</p>`;
+    }
+    
+    // 显示转换后的类型
+    debugHTML += `<p><strong>转换后类型:</strong> ${rawData.type || '未知'}</p>`;
+    debugHTML += `<p><strong>转换后子类型:</strong> ${rawData.subtype || '未知'}</p>`;
+    
+    // 显示原始文本（如果有）
+    if (rawData._rawText) {
+        debugHTML += `<p><strong>原始响应:</strong></p>`;
+        debugHTML += `<div class="raw-response">${rawData._rawText}</div>`;
+    }
+    
+    debugInfo.innerHTML = debugHTML;
+    debugInfo.style.display = 'block';
 }
 
 export function displayError(errorMessage) {
@@ -168,7 +212,7 @@ export function createSavedResultsContainer(results, eventHandlers) {
             <div class="saved-result-card" data-index="${index}">
                 <img src="${result.image}" alt="萌度记录 ${index + 1}">
                 <div class="saved-result-info">
-                    <p class="verdict">${getRatingLabel(result.rating)} (${result.rating}/100)</p>
+                    <p class="verdict">${getRatingLabel(result.type || "未知", result.subtype || "未知", result.rating)} (${result.rating}/100)</p>
                     <p class="explanation">${result.explanation}</p>
                     <p class="date">${new Date(result.timestamp).toLocaleDateString()}</p>
                     <p class="ai-type">模式: ${
@@ -206,9 +250,14 @@ export function createSavedResultsContainer(results, eventHandlers) {
 export function showPopup(result) {
     if (!popupOverlay) return;
     document.getElementById('popup-img').src = result.image;
-    document.getElementById('popup-verdict').textContent = `${getRatingLabel(result.rating)} (${result.rating}/100)`;
+    document.getElementById('popup-verdict').textContent = `${getRatingLabel(result.type || "未知", result.subtype || "未知", result.rating)} (${result.rating}/100)`;
     document.getElementById('popup-explanation').textContent = result.explanation;
     document.getElementById('popup-explanation').style.whiteSpace = 'pre-wrap';
+    
+    // 隐藏调试信息
+    const debugInfo = document.getElementById('debug-info');
+    if (debugInfo) debugInfo.style.display = 'none';
+    
     popupOverlay.classList.add('visible');
 }
 
