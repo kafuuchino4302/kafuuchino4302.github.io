@@ -1,3 +1,4 @@
+// config.js
 export const systemPrompts = {
     brief: `你是「全领域萌度鉴定AI」，专业评估图片中的三类对象：
                 【人】二次元/二点五次元/三次元
@@ -111,8 +112,6 @@ export const systemPrompts = {
                   "explanation": "完整报告（400字+）"
                 }`
 };
-
-// ... 其他代码保持不变 ...
 
 // 全类型评级函数
 export const getRatingLabel = (type, subtype, rating) => {
