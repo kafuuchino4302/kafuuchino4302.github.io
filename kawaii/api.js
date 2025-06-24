@@ -1,6 +1,6 @@
 import { systemPrompts } from './config.js';
 
-const WORKER_URL = 'https://dark-cake-10ea.1454385662.workers.dev/'; // 替换为实际地址
+const WORKER_URL = 'https://bitter-king-6ce3.1454385662.workers.dev/'; // 替换为实际地址
 
 export async function analyzeImage(imageDataUrl, aiType) {
   try {
