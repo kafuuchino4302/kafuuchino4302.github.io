@@ -3,6 +3,51 @@ import * as ui from './ui.js';
 import { analyzeImage } from './api.js';
 import { getRatingLabel } from './config.js';
 
+/**
+ * Compresses an image.
+ * @param {string} imageDataUrl The base64 data URL of the original image.
+ * @param {object} options Compression options.
+ * @param {number} options.maxWidth Maximum width of the compressed image.
+ * @param {number} options.quality Compression quality (0 to 1).
+ * @returns {Promise<string>} The base64 data URL of the compressed image.
+ */
+function compressImage(imageDataUrl, options = { maxWidth: 800, quality: 0.7 }) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            
+            let width = img.width;
+            let height = img.height;
+
+            // Scale down the image if its width exceeds the max width
+            if (width > options.maxWidth) {
+                height = (options.maxWidth / width) * height;
+                width = options.maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // Convert canvas content to a JPEG data URL with the specified quality
+            const compressedDataUrl = canvas.toDataURL('image/jpeg', options.quality);
+            
+            resolve(compressedDataUrl);
+        };
+        img.onerror = (error) => {
+            console.error("Image failed to load, cannot compress", error);
+            // If compression fails, we can either reject or resolve with the original URL.
+            // Rejecting is better to show a specific error message.
+            reject(new Error('Image compression failed'));
+        };
+        img.src = imageDataUrl;
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
     const elements = {
@@ -24,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentAnalysisResult = null;
     let isSavedResultsVisible = false;
-    let selectedImageDataUrl = null;
+    let selectedImageDataUrl = null; // Store the original, uncompressed image URL
 
     // --- Initialization ---
     function initialize() {
@@ -56,9 +101,19 @@ document.addEventListener('DOMContentLoaded', () => {
         ui.showLoading(selectedImageDataUrl);
 
         try {
+            // --- NEW: Compress the image before sending ---
+            console.log(`Original image size: ${(selectedImageDataUrl.length * 0.75 / 1024).toFixed(2)} KB`);
+            const compressedImageDataUrl = await compressImage(selectedImageDataUrl, { maxWidth: 800, quality: 0.7 });
+            console.log(`Compressed image size: ${(compressedImageDataUrl.length * 0.75 / 1024).toFixed(2)} KB`);
+            // --- End of compression step ---
+
             const aiType = document.querySelector('input[name="ai-type"]:checked').value;
-            const response = await analyzeImage(selectedImageDataUrl, aiType);
-            currentAnalysisResult = { ...response, image: selectedImageDataUrl, aiType };
+            
+            // MODIFIED: Use the compressed image for analysis
+            const response = await analyzeImage(compressedImageDataUrl, aiType);
+            
+            // MODIFIED: Save the compressed image to save local storage space
+            currentAnalysisResult = { ...response, image: compressedImageDataUrl, aiType };
             
             // A short delay to make the loading feel more deliberate
             setTimeout(() => {
@@ -68,8 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
 
         } catch (error) {
-            console.error('分析图片时出错:', error);
-            ui.displayError('出错了，请重新上传图片或刷新页面。检查控制台获取详细信息。');
+            console.error('Error during analysis:', error);
+            if (error.message === 'Image compression failed') {
+                ui.displayError('Image compression failed. Please try another image.');
+            } else {
+                ui.displayError('An error occurred. Please try uploading again or refresh the page. Check console for details.');
+            }
         }
     }
     
@@ -86,13 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!currentAnalysisResult) return;
         const { rating, verdict, explanation } = currentAnalysisResult;
         const ratingLabel = getRatingLabel(rating);
-        const textToCopy = `我的图片AI评分结果:\n\n verdict: ${verdict}\n rating: ${ratingLabel} (${rating}/10)\n explanation: "${explanation}"\n\n你也来试试吧！`;
+        // Note: The rating scale in your config seems to be 0-100, but the text here says 0-10.
+        // You might want to align these. I'll keep the text as is.
+        const textToCopy = `My AI image rating:\n\nVerdict: ${verdict}\nRating: ${ratingLabel} (${rating}/10)\nExplanation: "${explanation}"\n\nTry it yourself!`;
         
         navigator.clipboard.writeText(textToCopy).then(() => {
             console.log('Result copied to clipboard!');
         }).catch(err => {
             console.error('Could not copy text: ', err);
-            alert('复制失败');
+            alert('Failed to copy');
         });
     }
     
@@ -123,11 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingContainer = document.querySelector('.saved-results');
         if (existingContainer) {
             existingContainer.remove();
-            elements.viewSavedBtn.textContent = '📁 查看保存的结果';
+            elements.viewSavedBtn.textContent = '📁 View Saved Results';
             isSavedResultsVisible = false;
         } else {
             renderSaved();
-            elements.viewSavedBtn.textContent = '📁 隐藏保存的结果';
+            elements.viewSavedBtn.textContent = '📁 Hide Saved Results';
             isSavedResultsVisible = true;
         }
     }
