@@ -201,8 +201,6 @@ function displayResult(resultData) {
     } else {
         elements.cupFill.style.width = '0%';
     }
-    
-    elements.explanation.innerHTML = resultData.explanation ? resultData.explanation.replace(/\n/g, '<br>') : '未提供解释';
 }
 
 function displayError(errorMessage = '分析失败，请尝试更换图片或稍后再试。') {
@@ -211,8 +209,6 @@ function displayError(errorMessage = '分析失败，请尝试更换图片或稍
 
     elements.cupSizeMain.textContent = '❌';
     elements.cupFill.style.width = '0%';
-    
-    elements.explanation.innerHTML = `<p class="error-message"><strong>错误:</strong> ${errorMessage.replace(/\n/g, '<br>')}</p>`;
 }
 
 function handleTryAgain() {
