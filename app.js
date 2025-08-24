@@ -1,4 +1,4 @@
-import { API_KEY, systemPrompts } from './config.js';
+import { systemPrompts } from './config.js';
 
 const elements = {
     uploadArea: document.getElementById('upload-area'),
