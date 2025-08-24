@@ -131,7 +131,7 @@ async function analyzeImage(imageDataUrl) {
                     {
                         type: 'image_url',
                         image_url: {
-                            url: imageDataUrl // 直接使用 Data URL 格式
+                            url: imageDataUrl
                         }
                     }
                 ]
@@ -139,16 +139,15 @@ async function analyzeImage(imageDataUrl) {
         ],
         max_tokens: 8192,
         temperature: 0.3,
-        response_format: { type: 'json_object' } // 强制返回 JSON
+        response_format: { type: 'json_object' }
     };
 
-    const apiUrl = 'https://api.x.ai/v1/chat/completions';
+    const apiUrl = '/functions/analyze'; // Pages Function 端点
 
     const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API_KEY}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload)
     });
