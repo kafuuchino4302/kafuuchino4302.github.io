@@ -1,4 +1,4 @@
-import { systemPrompts } from './config.js';
+import { API_KEY, systemPrompts } from './config.js';
 
 const elements = {
     uploadArea: document.getElementById('upload-area'),
@@ -117,53 +117,58 @@ function showLoading(imageDataUrl) {
 
 async function analyzeImage(imageDataUrl) {
     const base64Data = imageDataUrl.split(',')[1];
+    const safetySettings = [
+        { "category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE" },
+        { "category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE" },
+        { "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE" },
+        { "category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE" }
+    ];
 
     const payload = {
-        model: 'grok-3',
-        messages: [
-            {
-                role: 'system',
-                content: systemPrompts.standard
-            },
-            {
-                role: 'user',
-                content: [
-                    {
-                        type: 'image_url',
-                        image_url: {
-                            url: imageDataUrl
-                        }
+        contents: [{
+            parts: [
+                { text: systemPrompts.standard },
+                {
+                    inline_data: {
+                        mime_type: "image/jpeg",
+                        data: base64Data
                     }
-                ]
-            }
-        ],
-        max_tokens: 8192,
-        temperature: 0.3,
-        response_format: { type: 'json_object' }
+                }
+            ]
+        }],
+        generation_config: {
+            temperature: 0.3,
+            max_output_tokens: 8192,
+            response_mime_type: "application/json"
+        },
+        safety_settings: safetySettings
     };
 
-    const apiUrl = 'https://kafuuchino4302-github-io.pages.dev/functions/analyze'; // Pages Function 端点
+    const model = 'gemini-2.5-pro';
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
 
     const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     });
 
     if (!response.ok) {
         const errorData = await response.json();
-        console.error('API Error Response:', errorData);
+        console.error("API Error Response:", errorData);
         throw new Error(errorData.error?.message || `API请求失败，状态码: ${response.status}`);
     }
 
     const data = await response.json();
-    if (!data.choices || data.choices.length === 0) {
+    if (!data.candidates || data.candidates.length === 0) {
+        const finishReason = data.promptFeedback?.blockReason;
+        if (finishReason) {
+             throw new Error(`请求被模型阻止，原因: ${finishReason}。请尝试更换图片或调整安全设置。`);
+        }
         throw new Error('API未返回任何分析结果，可能是图片无法识别。');
     }
 
-    let text = data.choices[0]?.message?.content;
+    let text = data.candidates[0]?.content?.parts?.[0]?.text;
 
     if (!text) {
         throw new Error('API返回内容中不包含有效的文本数据。');
