@@ -142,7 +142,7 @@ async function analyzeImage(imageDataUrl) {
         response_format: { type: 'json_object' }
     };
 
-    const apiUrl = '/functions/analyze'; // Pages Function 端点
+    const apiUrl = 'https://kafuuchino4302-github-io.pages.dev/functions/analyze'; // Pages Function 端点
 
     const response = await fetch(apiUrl, {
         method: 'POST',
