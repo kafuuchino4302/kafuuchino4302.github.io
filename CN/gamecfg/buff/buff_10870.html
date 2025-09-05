@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10870.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10870.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;在队伍中(存活)时，队伍内所有驱逐、轻巡的雷击和装填属性提高5.0%（满级20.0%）&quot;,
+	name = &quot;华之二水战&quot;,
+	init_effect = &quot;&quot;,
+	id = 10870,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;在队伍中(存活)时，队伍内所有驱逐、轻巡的雷击和装填属性提高5.0%（满级20.0%）&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 10870,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				skill_id = 10870
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 10871,
+				shipType = 1,
+				target = &quot;TargetPlayerByType&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 10871,
+				shipType = 2,
+				target = &quot;TargetPlayerByType&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 10871,
+				shipType = 20,
+				target = &quot;TargetPlayerByType&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 10871,
+				shipType = 21,
+				target = &quot;TargetPlayerByType&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

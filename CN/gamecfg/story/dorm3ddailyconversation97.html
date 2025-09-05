@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation97.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation97.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION97&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;{dorm3d}，您平时会做备忘录……或者别的记录吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;sikao2&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			},
+			options = {
+				{
+					content = &quot;通常会交给秘书舰&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;自己会做些工作备忘&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;原来是这样啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;beishang&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;您作为指挥官，真是辛苦……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;其实，天狼星最近也尝试在做一些记录清单了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;但是不知道以什么格式记录比较好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;danyou&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = &quot;指挥官&quot;,
+			say = &quot;普通的工作文书记录不就可以了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;如果是以工作文书的规格对待，会显得有些太生疏了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;毕竟天狼星想记录下来的是，您在一些事情上的喜好和习惯，以便更好地侍奉您。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;shy&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			},
+			options = {
+				{
+					content = &quot;……&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;这个……没有必要吧？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;很有必要哦，让您有舒适的体验也是天狼星的职责和追求所在！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;yaotou&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							param = &quot;Play&quot;,
+							name = &quot;Face_haixiu&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;就这么决定了……记录格式的事，天狼星还是自己独立完成比较好！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

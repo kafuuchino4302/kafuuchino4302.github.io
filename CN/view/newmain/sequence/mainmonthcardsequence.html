@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainmonthcardsequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainmonthcardsequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainMonthCardSequence&quot;)
+
+slot0.Execute = function(slot0, slot1)
+	if MonthCardOutDateTipPanel.GetMonthCardEndDate() == 0 then
+		slot1()
+
+		return
+	end
+
+	slot4 = MonthCardOutDateTipPanel.GetMonthCardTipDate()
+
+	if pg.TimeMgr.GetInstance():GetServerTime() &gt;= slot2 - 259200 and slot4 &lt; slot2 - 259200 then
+		slot0:ShowMsg(slot2, slot3, slot1)
+	else
+		slot1()
+	end
+end
+
+slot0.ShowMsg = function(slot0, slot1, slot2, slot3)
+	MonthCardOutDateTipPanel.SetMonthCardTipDate(slot2)
+
+	slot4 = pg.TimeMgr.GetInstance():STimeDescS(math.min(slot2, slot1), &quot;*t&quot;)
+	slot6 = pg.TimeMgr.GetInstance():STimeDescS(slot1, &quot;*t&quot;)
+
+	pg.MsgboxMgr.GetInstance():ShowMsgBox({
+		hideNo = true,
+		type = MSGBOX_TYPE_MONTH_CARD_TIP,
+		title = pg.MsgboxMgr.TITLE_INFORMATION,
+		content = i18n(slot1 &lt;= slot2 and &quot;trade_card_tips2&quot; or &quot;trade_card_tips3&quot;, i18n(&quot;trade_card_tips4&quot;, slot6.year, slot6.month, slot6.day)),
+		dateText = i18n(&quot;trade_card_tips4&quot;, slot4.year, slot4.month, slot4.day),
+		yesText = i18n(&quot;trade_card_tips1&quot;),
+		weight = LayerWeightConst.TOP_LAYER,
+		onClose = slot3,
+		onYes = function ()
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.CHARGE, {
+				confirmMonthCard = true,
+				wrap = ChargeScene.TYPE_DIAMOND
+			})
+		end
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

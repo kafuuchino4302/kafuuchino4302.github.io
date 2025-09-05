@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldmapportshop.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldmapportshop.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldMapPortShop&quot;, import(&quot;...BaseEntity&quot;))
+slot0.Fields = {
+	items = &quot;table&quot;,
+	expiredTime = &quot;number&quot;
+}
+
+slot0.Setup = function(slot0)
+end
+
+slot0.IsValid = function(slot0)
+	return pg.TimeMgr.GetInstance():GetServerTime() &lt;= slot0.expiredTime
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cagepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cagepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CagePage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.Build = slot0:findTF(&quot;build&quot;, slot0.bg)
+	slot0.build_times = slot0:findTF(&quot;build_times&quot;, slot0.Build)
+	slot0.build_time = slot0:findTF(&quot;time&quot;, slot0.build_times)
+	slot0.Level = slot0:findTF(&quot;fight&quot;, slot0.bg)
+	slot0.Shop = slot0:findTF(&quot;shop&quot;, slot0.bg)
+	slot0.shop_times = slot0:findTF(&quot;shop_times&quot;, slot0.Shop)
+	slot0.shop_time = slot0:findTF(&quot;time&quot;, slot0.shop_times)
+	slot0.Manual = slot0:findTF(&quot;Manual&quot;, slot0.bg)
+
+	SetActive(slot0.build_times, false)
+	SetActive(slot0.shop_times, false)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.time = slot0.activity:getConfig(&quot;time&quot;)
+	slot0.timeMgr = pg.TimeMgr.GetInstance()
+	slot0.js_time = slot0.timeMgr:parseTimeFromConfig(slot0.time[3])
+	slot0.fw_time = slot0.timeMgr:GetServerTime()
+	slot0.xc_time = slot0.timeMgr:DiffDay(slot0.fw_time, slot0.js_time)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.Manual, function ()
+		uv0:emit(ActivityMediator.ON_ADD_SUBLAYER, Context.New({
+			mediator = MedalAlbumTemplateMediator,
+			viewComponent = DivineLightMedalAlbumView
+		}))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.Build, function ()
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.GETBOAT, {
+			page = BuildShipScene.PAGE_BUILD,
+			projectName = BuildShipScene.PROJECTS.ACTIVITY
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.Level, function ()
+		uv0:emit(ActivityMediator.BATTLE_OPERA)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.Shop, function ()
+		uv0:emit(ActivityMediator.GO_CHANGE_SHOP)
+	end, SFX_PANEL)
+
+	if slot0.xc_time &lt;= 0 then
+		SetActive(slot0.build_times, true)
+		SetActive(slot0.shop_times, true)
+		setText(slot0.build_time, i18n(&quot;tolovemainpage_build_countdown&quot;))
+
+		slot0.times = slot0.timeMgr:GetServerHour()
+
+		if &quot;01&quot; &lt;= os.date(&quot;%d&quot;) then
+			setText(slot0.shop_time, i18n(&quot;tolovemainpage_skin_countdown&quot;, 24 - slot0.times - 1))
+		else
+			setText(slot0.shop_time, i18n(&quot;tolovemainpage_skin_countdown&quot;, 24 - slot0.times))
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

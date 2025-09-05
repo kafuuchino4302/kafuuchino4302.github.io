@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jufengyuqingchunzhiquan5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>jufengyuqingchunzhiquan5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;JUFENGYUQINGCHUNZHIQUAN5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgm = &quot;story-temepest-1&quot;,
+			say = &quot;风帆快船以不可思议的速度在塞壬战舰中穿梭着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;站在船尾甲板上，感受着拂面的狂风，身后还时不时亮起爆炸的火花。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;这些火花少数来自于这艘“临时皇家财富号”造成的打击。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;多数则来自塞壬战舰之间的误击。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			factiontag = &quot;蓝洋新星&quot;,
+			dir = 1,
+			actor = 9600010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哦……！这个战术真起作用了！我们真的在以一敌十欸！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			factiontag = &quot;蓝洋新星&quot;,
+			dir = 1,
+			actor = 9600010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……等等，残响舰队正在朝我们的左舷和右舷散开！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			factiontag = &quot;蓝洋新星&quot;,
+			dir = 1,
+			actor = 9600010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这样下去不妙啊！等它们让出可用的炮线，我们就要陷入压制性的不利了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			factiontag = &quot;蓝洋新星&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_524&quot;,
+			actor = 9600010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;左舷中弹啦！快做点什么！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不要急，差不多是时候了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			factiontag = &quot;蓝洋新星&quot;,
+			dir = 1,
+			actor = 9600010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……欸？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;永远记住，我们不是孤军奋战。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;就在这时，远方传来了嘹亮的响哨。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 9600030,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			actorName = &quot;？？&quot;,
+			withoutPainting = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;女神保佑，这里还有一个真正的战士！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 9600030,
+			side = 2,
+			bgName = &quot;star_level_bg_524&quot;,
+			actorName = &quot;？？&quot;,
+			withoutPainting = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;跟上我们的旗舰！前进！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;在十几分钟的努力后，完成整备的城邦舰队终于开动了起来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_524&quot;,
+			hidePaintObj = true,
+			say = &quot;胜负已分——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

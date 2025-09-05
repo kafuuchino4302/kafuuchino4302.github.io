@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlelasereffect.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlelasereffect.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleConst
+slot2 = class(&quot;BattleLaserEffect&quot;, slot0.Battle.BattleEffectArea)
+slot0.Battle.BattleLaserEffect = slot2
+slot2.__name = &quot;BattleLaserEffect&quot;
+
+slot2.Ctor = function(slot0, slot1, slot2)
+	uv0.super.Ctor(slot0, slot1, slot2)
+end
+
+slot2.SetStatic = function(slot0)
+end
+
+slot2.Init = function(slot0)
+	slot0._tf = slot0._go.transform
+	slot0._laserScript = GetComponent(slot0._go, &quot;LaserScript&quot;)
+	slot0._waveCount = 0
+
+	slot0:Update()
+end
+
+slot2.Update = function(slot0)
+	slot0:updateLineRenderer()
+	slot0:UpdatePosition()
+end
+
+slot2.updateLineRenderer = function(slot0)
+	slot0._laserScript.width = slot0._aoeData:GetHeight() + math.cos(slot0._waveCount * math.deg2Rad * 3)
+	slot0._waveCount = slot0._waveCount + 1
+	slot0._laserScript.length = slot0._aoeData:GetWidth()
+	slot2 = slot0._aoeData:GetAngle() * math.deg2Rad
+
+	if slot0._aoeData:GetIFF() == -1 then
+		slot2 = slot2 + math.pi
+	end
+
+	slot0._laserScript.angle = slot2
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>royalfortunepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>royalfortunepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RoyalFortunePage&quot;, import(&quot;.TemplatePage.SkinTemplatePage&quot;))
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.painting = slot0:findTF(&quot;painting&quot;, slot0.bg)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+
+	if slot0:IsLastTaskFinish() then
+		GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/royalfortunepage_atlas&quot;, math.random(#slot0.taskGroup), slot0.painting)
+	else
+		GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/royalfortunepage_atlas&quot;, slot0.nday, slot0.painting)
+	end
+end
+
+slot0.IsLastTaskFinish = function(slot0)
+	if slot0.nday ~= #slot0.taskGroup then
+		return false
+	end
+
+	slot2 = true
+
+	for slot6, slot7 in ipairs(slot0.taskGroup[#slot0.taskGroup]) do
+		if slot0.taskProxy:getTaskVO(slot7):getTaskStatus() ~= 2 then
+			slot2 = false
+		end
+	end
+
+	return slot2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

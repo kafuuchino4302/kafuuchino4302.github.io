@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getislandtaskrandomrefreshcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>getislandtaskrandomrefreshcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GetIslandTaskRandomRefreshCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(21030, {
+		type = 0
+	}, 21031, function (slot0)
+		getProxy(IslandProxy):GetIsland():GetTaskAgency():UpdateRandomRefreshTask(slot0)
+		uv0:sendNotification(GAME.ISLAND_GET_RANDOM_REFRESH_TASK_DONE)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffbulletpierce.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffbulletpierce.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleBuffBulletPierce = class(&quot;BattleBuffBulletPierce&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffBulletPierce.__name = &quot;BattleBuffBulletPierce&quot;
+
+slot0.Battle.BattleBuffBulletPierce.Ctor = function(slot0, slot1)
+	uv0.Battle.BattleBuffBulletPierce.super.Ctor(slot0, slot1)
+end
+
+slot0.Battle.BattleBuffBulletPierce.SetArgs = function(slot0, slot1, slot2)
+	slot0._number = slot0._tempData.arg_list.number
+	slot0._rate = slot0._tempData.arg_list.rate
+	slot0._bulletType = slot0._tempData.arg_list.bulletType or 0
+end
+
+slot0.Battle.BattleBuffBulletPierce.onBulletCreate = function(slot0, slot1, slot2, slot3)
+	slot4 = slot3._bullet
+
+	if slot0:IsHappen(tonumber(slot0._rate)) and (slot0._bulletType == slot4._tempData.type or slot0._bulletType == 0) then
+		slot4._pierceCount = slot0._number
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

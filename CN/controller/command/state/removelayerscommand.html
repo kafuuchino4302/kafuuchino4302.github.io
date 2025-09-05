@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removelayerscommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>removelayerscommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RemoveLayersCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().context
+
+	assert(isa(slot3, Context), &quot;should be an instance of Context&quot;)
+
+	slot4 = pg.SceneMgr.GetInstance()
+
+	slot4:removeLayer(slot0.facade, slot3, function ()
+		uv0:sendNotification(GAME.REMOVE_LAYER_DONE, uv1)
+		existCall(uv2.callback)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

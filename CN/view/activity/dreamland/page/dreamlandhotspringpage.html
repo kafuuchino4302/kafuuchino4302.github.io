@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dreamlandhotspringpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dreamlandhotspringpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DreamlandHotSpringPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;DreamlandHotSpringUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.slots = {}
+	slot0.uiItemList = UIItemList.New(slot0:findTF(&quot;bg/list&quot;), slot0:findTF(&quot;bg/list/tpl&quot;))
+	slot0.iconList = {
+		&quot;icon_1&quot;,
+		&quot;icon_2&quot;,
+		&quot;icon_3&quot;
+	}
+
+	setText(slot0:findTF(&quot;bg/list/tpl/lock/Text&quot;), i18n(&quot;dreamland_spring_lock_tip&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	slot0:bind(DreamlandScene.ON_SPRING_DATA_UPDATE, function (slot0, slot1)
+		uv0:UpdateSpringActUpdate(slot1.data)
+	end)
+	slot0:InitSlots()
+end
+
+slot0.UpdateSpringActUpdate = function(slot0, slot1)
+	if not slot0:isShowing() then
+		return
+	end
+
+	slot0:Flush(slot1)
+end
+
+slot0.InitSlots = function(slot0)
+	slot1 = slot0.uiItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateSlot(slot2, slot1)
+		end
+	end)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	slot0:Flush(slot1)
+end
+
+slot0.Flush = function(slot0, slot1)
+	slot0.shipList = slot1:GetHotSpringData()
+
+	setText(slot0:findTF(&quot;bg/Text&quot;), i18n(&quot;dreamland_spring_tip&quot;, slot1:GetHotSpringAddition()))
+
+	slot0.gameData = slot1
+
+	slot0.uiItemList:align(slot1:GetHotSpringMaxCnt())
+end
+
+slot0.UpdateSlot = function(slot0, slot1, slot2)
+	slot4 = slot0.gameData:IsLockSpringSlot(slot2 + 1)
+	slot5 = slot0.shipList[slot2 + 1] and slot3 &gt; 0
+
+	setActive(slot1:Find(&quot;add&quot;), not slot4 and not slot5)
+	setActive(slot1:Find(&quot;ship&quot;), not slot4 and slot5)
+	setActive(slot1:Find(&quot;lock&quot;), slot4)
+	onButton(slot0, slot1, function ()
+		if uv0 then
+			return
+		end
+
+		slot0 = nil
+
+		if uv1 then
+			slot0 = getProxy(BayProxy):getShipById(uv2)
+		end
+
+		uv3:emit(DreamlandScene.ON_SPRING_OP)
+		uv3:emit(DreamlandMediator.HOT_SPRING_OP, uv4 + 1, uv3.gameData:GetUnlockSpringCnt(), slot0)
+	end, SFX_PANEL)
+
+	if not slot5 then
+		return
+	end
+
+	slot0:UpdateShipSlot(slot1, slot3)
+end
+
+slot0.UpdateShipSlot = function(slot0, slot1, slot2)
+	slot1:Find(&quot;ship&quot;):GetComponent(typeof(Image)).sprite = LoadSprite(&quot;qicon/&quot; .. getProxy(BayProxy):RawGetShipById(slot2):getPrefab())
+	slot8 = slot1:Find(&quot;ship/icon&quot;):GetComponent(typeof(Image))
+	slot8.sprite = GetSpriteFromAtlas(&quot;ui/DlHotSpringUI_atlas&quot;, slot0.iconList[math.random(1, #slot0.iconList)])
+
+	slot8:SetNativeSize()
+end
+
+slot0.Hide = function(slot0)
+	uv0.super.Hide(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

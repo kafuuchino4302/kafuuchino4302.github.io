@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitybossbuff.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activitybossbuff.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityBossBuff&quot;, import(&quot;model.vo.BaseVO&quot;))
+
+slot0.bindConfigTable = function(slot0)
+	return pg.worldboss_bufflist
+end
+
+slot0.GetConfigID = function(slot0)
+	return slot0.configId
+end
+
+slot0.GetIcon = function(slot0)
+	return slot0:getConfig(&quot;buff_icon&quot;)
+end
+
+slot0.GetIconPath = function(slot0)
+	return &quot;activitybossbuff/&quot; .. slot0:getConfig(&quot;buff_icon&quot;)
+end
+
+slot0.GetName = function(slot0)
+	return slot0:getConfig(&quot;name&quot;)
+end
+
+slot0.GetDesc = function(slot0)
+	return slot0:getConfig(&quot;desc&quot;)
+end
+
+slot0.CastOnEnemy = function(slot0)
+	return slot0:getConfig(&quot;buff_target&quot;) == 1
+end
+
+slot0.GetBuffID = function(slot0)
+	return slot0:getConfig(&quot;lua_id&quot;)
+end
+
+slot0.GetBonus = function(slot0)
+	return tonumber(slot0:getConfig(&quot;bonus&quot;))
+end
+
+slot0.GetBonusText = function(slot0)
+	return math.floor(slot0:GetBonus() * 100) .. &quot;%&quot;
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

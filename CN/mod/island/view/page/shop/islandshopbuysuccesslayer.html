@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandshopbuysuccesslayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandshopbuysuccesslayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandShopBuySuccessLayer&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandShopBuySuccessUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.awardList = UIItemList.New(slot0._tf:Find(&quot;awards&quot;), slot0._tf:Find(&quot;awards/item&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;award_window&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.SetUp = function(slot0, slot1, slot2)
+	if slot2.count &gt; 0 then
+		table.insert(slot1, 1, slot2)
+	end
+
+	slot0.awardList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			if uv0[slot1 + 1].type == VIRTUAL_DROP_TYPE_ISLAND_SEASON_PT and slot3.id == 0 then
+				LoadImageSpriteAtlasAsync(&quot;island/&quot; .. pg.island_set.season_pt.key_value_varchar[2], &quot;&quot;, slot2:Find(&quot;IslandItemTpl/icon_bg/icon&quot;))
+				setText(slot2:Find(&quot;IslandItemTpl/icon_bg/count_bg/count&quot;), slot3.count)
+				setActive(slot2:Find(&quot;split&quot;), true)
+			else
+				setActive(slot2:Find(&quot;split&quot;), false)
+
+				if slot3.type == DROP_TYPE_ISLAND_ITEM then
+					updateCustomDrop(slot2:Find(&quot;IslandItemTpl&quot;), {
+						type = slot3.type,
+						id = slot3.id,
+						count = slot3.number
+					})
+				elseif slot3.type == DROP_TYPE_ISLAND_FURNITURE then
+					GetImageSpriteFromAtlasAsync(&quot;island/IslandFurnitureIcon/&quot; .. pg.island_furniture_template[slot3.id].icon, &quot;&quot;, slot2:Find(&quot;IslandItemTpl/icon_bg/icon&quot;))
+					setText(slot2:Find(&quot;IslandItemTpl/icon_bg/count_bg/count&quot;), slot3.number)
+				elseif slot3.type == DROP_TYPE_ISLAND_DRESS then
+					GetImageSpriteFromAtlasAsync(&quot;island/IslandDressIcon/&quot; .. pg.island_dress_template[slot3.id].icon, &quot;&quot;, slot2:Find(&quot;IslandItemTpl/icon_bg/icon&quot;))
+					setText(slot2:Find(&quot;IslandItemTpl/icon_bg/count_bg/count&quot;), slot3.number)
+				elseif slot3.type == DROP_TYPE_ISLAND_SKIN then
+					GetImageSpriteFromAtlasAsync(&quot;island/IslandDressIcon/&quot; .. pg.island_skin_template[slot3.id].icon, &quot;&quot;, slot2:Find(&quot;IslandItemTpl/icon_bg/icon&quot;))
+					setText(slot2:Find(&quot;IslandItemTpl/icon_bg/count_bg/count&quot;), slot3.number)
+				end
+			end
+		end
+	end)
+	slot0.awardList:align(#slot1)
+end
+
+slot0.OnShow = function(slot0, slot1, slot2, slot3)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, {
+		groupName = &quot;IslandShop&quot;
+	})
+	slot0:SetUp(slot1, slot2)
+
+	slot0.callback = slot3
+	slot0.active = true
+end
+
+slot0.OnHide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+
+	if slot0.active then
+		slot0.active = false
+
+		if slot0.callback then
+			slot0.callback()
+		end
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

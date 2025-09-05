@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_17.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_17.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 15.1,
+	name = &quot;起火&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;持续伤害&quot;,
+	stack = 1,
+	id = 17,
+	icon = 17,
+	last_effect = &quot;zhuoshao&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffDOT&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				k = 1.2,
+				attr = &quot;cannonPower&quot;,
+				time = 3,
+				cloakExpose = 36,
+				exposeGroup = 1,
+				dotType = 1,
+				number = 5
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 60,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				skill_id = 61,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

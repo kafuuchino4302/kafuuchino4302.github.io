@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tiexueyuyinfu4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tiexueyuyinfu4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;TIEXUEYUYINFU4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 403030,
+			nameColor = &quot;#ffde38&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;雷达反应消失，小老鼠跑远了&quot;,
+			bgm = &quot;bsm-3&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 2,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;接下来该怎么办，皇家的主力舰队恐怕很快就会来拦截我们了吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 405010,
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			say = &quot;{namecode:428}&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;嗯？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 405010,
+			side = 0,
+			nameColor = &quot;#ffde38&quot;,
+			dir = -1,
+			say = &quot;莱茵演习已经失败，终止行动，立刻调转航向，返回母港&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;可是，恕我直言，你身上的伤...恐怕坚持不了这么远的航程&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			actor = 405010,
+			say = &quot;我的意思是...让你独自返航，我另有打算&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;是要我抛下你吗？这听起来可不像是个好主意&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 405010,
+			side = 0,
+			expression = 3,
+			dir = -1,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;这附近有盟友控制的海域，只要能到达那里，就算是皇家舰队也不敢贸然追击&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;维希教廷么...原来如此&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 405010,
+			side = 0,
+			nameColor = &quot;#ffde38&quot;,
+			dir = -1,
+			say = &quot;希望你能尊重我的命令，这次可容不得你任性了，{namecode:428}&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;我…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 1
+				}
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;我明白了，现在是非常时期，对吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			actor = 405010,
+			say = &quot;那就立刻启程，不要耽误时间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			actor = 405010,
+			say = &quot;从现在开始，就是和时间赛跑的战斗了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 405010,
+			side = 0,
+			nameColor = &quot;#ffde38&quot;,
+			dir = -1,
+			say = &quot;直到抵达安全海域之前都不能停下脚步。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;{namecode:427}号重巡洋舰遵命。祝你好运，{namecode:435}&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			actor = 405010,
+			say = &quot;祝你好运&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffde38&quot;,
+			side = 0,
+			dir = -1,
+			blackBg = true,
+			actorName = &quot;{namecode:435}&quot;,
+			say = &quot;Eisen und Blut über alles！&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:427}&quot;,
+			side = 1,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;Eisen und Blut über alles！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

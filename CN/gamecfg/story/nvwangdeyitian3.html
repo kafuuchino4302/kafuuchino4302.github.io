@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nvwangdeyitian3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nvwangdeyitian3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;NVWANGDEYITIAN3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;女王的一天\n\n&lt;size=45&gt;三 饭后小憩&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_unnamearea_1&quot;,
+			side = 2,
+			bgmDelay = 2,
+			bgm = &quot;theme-partydress&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;午后的训练场中，剑与剑正在碰撞着。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/ui/kuang&quot;,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;试试这招如何————！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不错，但要想命中我，速度还要再练练哦~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 0.6,
+					x = -2500
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;接招————！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/ui/kuang&quot;,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……灵活又迅速的反击，不过这么多次对战之后，你的路数我已经基本清楚了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;啧……被防住了啊……那接下来——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等，前卫，对战暂停，我好像看到窗外有个影子过去了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……咦？大中午除了我们还有人来训练场么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不对，那个身影好像是……伊丽莎白女王！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………就在门外的大树后面，正借着大树的掩护向外移动，你看到了么！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………我看到了哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;君主跟我来！有些事我要跟陛下好好说一下了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_unnamearea_1&quot;,
+			side = 2,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下，有什么事是可以由我为您效劳的么——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………咳，本王只是来训练场看看你跟君主的训练而已！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;既然你们练得火热，本王就不打扰了，告辞告辞……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这场训练是我们临时安排的，陛下是怎么提前知道的呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;您是又打算把我这个近卫骑士晾在一边，偷偷溜出去对吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;绝无此事！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 202190,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下在说谎哦，前卫小姐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 202190,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;她原本的计划是将所有护卫抛在一边，和我两个人一起前往斯卡帕湾锚地，请你一定要阻止陛下这么危险的行为。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;纽卡斯尔！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;女——王——陛——下！您看我身边的人是谁？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不、不是君主么……怎么了？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;某人已经从上次的鲁莽行动中学到教训了，陛下呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（凝视——————）&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………本王知道啦！这次带你们一起去就是了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;很好~那下次呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;下、下次…………下次再说！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 0.6,
+					x = -2500
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下你别跑————！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 0.6,
+					x = -2500
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这件事就到这里！飞机还在等着呢，我们快去快回————&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dinspublicroom.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dinspublicroom.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dInsPublicRoom&quot;, import(&quot;.Dorm3dInsRoom&quot;))
+
+slot0.GetWelcomeCharList = function(slot0)
+	slot1 = _.map(slot0:GetConfig(&quot;character_welcome&quot;), function (slot0)
+		return slot0[1]
+	end)
+
+	return slot1, getProxy(ApartmentProxy):getRoom(slot0.id) and _.select(slot1, function (slot0)
+		return uv0.unlockCharacter[slot0]
+	end) or {}, _.map(slot1, function (slot0)
+		return _.detect(pg.dorm3d_rooms.all, function (slot0)
+			return pg.dorm3d_rooms[slot0].type == 2 and pg.dorm3d_rooms[slot0].character[1] == uv0
+		end)
+	end)
+end
+
+slot0.GetFurnitureNum = function(slot0)
+end
+
+slot0.GetCard = function(slot0)
+	return string.format(&quot;dorm3dselect/room_ins_%s&quot;, string.lower(slot0:GetConfig(&quot;assets_prefix&quot;)))
+end
+
+slot0.IsCare = function(slot0)
+	return false
+end
+
+slot0.GetDesc = function(slot0)
+	return slot0:GetConfig(&quot;room_des&quot;)
+end
+
+slot0.ShouldTip = function(slot0)
+	return false
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

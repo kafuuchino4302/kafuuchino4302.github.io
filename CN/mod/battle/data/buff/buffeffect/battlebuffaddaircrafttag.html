@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffaddaircrafttag.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffaddaircrafttag.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleBuffAddAircraftTag = class(&quot;BattleBuffAddAircraftTag&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffAddAircraftTag.__name = &quot;BattleBuffAddAircraftTag&quot;
+slot1 = slot0.Battle.BattleBuffAddAircraftTag
+
+slot1.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+end
+
+slot1.SetArgs = function(slot0, slot1, slot2)
+	slot0._labelTag = slot0._tempData.arg_list.tag_list
+end
+
+slot1.onAircraftCreate = function(slot0, slot1, slot2, slot3)
+	if not slot0:equipIndexRequire(slot3.equipIndex) then
+		return
+	end
+
+	slot4 = slot3.aircraft
+
+	for slot8, slot9 in ipairs(slot0._labelTag) do
+		if string.find(slot9, &quot;^[NT]_%d+$&quot;) then
+			pg.TipsMgr.GetInstance():ShowTips(&quot;&gt;&gt;BattleBuffAddAircraftTag&lt;&lt;不允许使用&#x27;N_&#x27;或&#x27;T_&#x27;标签&quot;)
+		else
+			slot4:AddLabelTag(slot9)
+		end
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_104014.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_104014.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 10,
+	name = &quot;爱碳光波-III&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;敌方属性下降-6%&quot;,
+	stack = 1,
+	id = 104014,
+	icon = 104010,
+	last_effect = &quot;Darkness&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -600,
+				attr = &quot;cannonPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -600,
+				attr = &quot;torpedoPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -600,
+				attr = &quot;airPower&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

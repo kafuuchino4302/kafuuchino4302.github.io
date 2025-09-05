@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_801370.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_801370.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 801370,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 801370,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				maxTargetNumber = 0,
+				skill_id = 801370,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetNationality&quot;
+				},
+				nationality = {
+					3
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			pop = {},
+			arg_list = {
+				minTargetNumber = 1,
+				skill_id = 801372,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetNationality&quot;
+				},
+				nationality = {
+					3
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

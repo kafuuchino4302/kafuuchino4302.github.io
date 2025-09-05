@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>draw_data_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>draw_data_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.draw_data_template = {
+	{
+		name = &quot;钻石建造&quot;,
+		type = 1,
+		id = 1,
+		use_gem_1 = {
+			10,
+			100,
+			200
+		},
+		use_gem_10 = {
+			1000,
+			2000
+		},
+		bgs = {
+			&quot;bg_adv&quot;,
+			&quot;bg_adv&quot;
+		}
+	},
+	{
+		name = &quot;钻石建造-活动&quot;,
+		type = 2,
+		id = 2,
+		use_gem_1 = {
+			10,
+			100,
+			200
+		},
+		use_gem_10 = {
+			1000,
+			2000
+		},
+		bgs = {
+			&quot;bg_adv&quot;,
+			&quot;bg_adv&quot;
+		}
+	},
+	all = {
+		1,
+		2
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

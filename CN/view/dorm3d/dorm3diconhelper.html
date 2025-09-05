@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3diconhelper.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3diconhelper.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dIconHelper&quot;)
+slot0.CAMERA_VOLUME = 1
+slot0.CAMERA_FRAME = 2
+slot0.DORM_STORY = 3
+
+slot0.UpdateDorm3dIcon = function(slot0, slot1)
+	slot2 = uv0.Data2Config(slot1)
+
+	GetImageSpriteFromAtlasAsync(&quot;weaponframes&quot;, slot2.frame, slot0)
+	GetImageSpriteFromAtlasAsync(slot2.icon, &quot;&quot;, slot0:Find(&quot;icon&quot;))
+	setText(slot0:Find(&quot;count/Text&quot;), &quot;x&quot; .. slot2.count)
+	setText(slot0:Find(&quot;name/Text&quot;), slot2.name)
+end
+
+slot0.Data2Config = function(slot0)
+	slot1.frame = &quot;dorm3d_&quot; .. (switch(slot0[1], {
+		[uv0.CAMERA_VOLUME] = function ()
+			slot0 = pg.dorm3d_camera_volume_template[uv0[2]]
+
+			return {
+				name = slot0.name,
+				icon = slot0.icon,
+				rarity = slot0.rarity,
+				desc = slot0.desc
+			}
+		end,
+		[uv0.CAMERA_FRAME] = function ()
+			slot0 = pg.dorm3d_camera_photo_frame[uv0[2]]
+
+			return {
+				name = slot0.name,
+				icon = slot0.icon,
+				rarity = slot0.rarity,
+				desc = slot0.desc
+			}
+		end,
+		[uv0.DORM_STORY] = function ()
+			slot0 = pg.dorm3d_recall[uv0[2]]
+
+			return {
+				name = slot0.name,
+				icon = &quot;dorm3dicon/&quot; .. slot0.image .. &quot;_icon&quot;,
+				rarity = slot0.rarity,
+				desc = slot0.desc
+			}
+		end
+	}).rarity and ItemRarity.Rarity2Print(slot1.rarity) or &quot;2&quot;)
+	slot1.count = slot0[3]
+
+	return slot1
+end
+
+slot0.SplitStory = function(slot0)
+	slot1 = {}
+	slot2 = nil
+
+	for slot6, slot7 in pairs(slot0) do
+		if slot7[1] ~= uv0.DORM_STORY then
+			table.insert(slot1, slot7)
+		else
+			slot2 = slot7
+		end
+	end
+
+	return slot1, slot2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

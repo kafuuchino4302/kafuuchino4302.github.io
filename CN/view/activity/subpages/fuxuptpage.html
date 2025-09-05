@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuxuptpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fuxuptpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;FuxuPtPage&quot;, import(&quot;.TemplatePage.PtTemplatePage&quot;))
+
+slot0.OnFirstFlush = function(slot0)
+	uv0.super.OnFirstFlush(slot0)
+	onButton(slot0, slot0:findTF(&quot;build_btn&quot;, slot0.bg), function ()
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.GETBOAT, {
+			projectName = BuildShipScene.PROJECTS.HEAVY
+		})
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+
+	slot1, slot2, slot3 = slot0.ptData:GetLevelProgress()
+	slot4, slot5, slot6 = slot0.ptData:GetResProgress()
+
+	setText(slot0.step, slot1)
+	setText(slot0.progress, (slot6 &gt;= 1 and setColorStr(slot4, &quot;#df9e38&quot;) or slot4) .. &quot;/&quot; .. slot5)
+
+	slot7, slot8 = nil
+
+	if slot0.activity:getConfig(&quot;config_client&quot;) ~= &quot;&quot; and slot0.activity:getConfig(&quot;config_client&quot;).linkActID then
+		slot8 = getProxy(ActivityProxy):getActivityById(slot7)
+	end
+
+	if slot7 and not slot8 or slot8 and slot8:isEnd() then
+		setActive(slot0.battleBtn, false)
+		setActive(slot0:findTF(&quot;build_btn&quot;, slot0.bg), false)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

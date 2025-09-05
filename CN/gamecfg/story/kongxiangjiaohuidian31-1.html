@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kongxiangjiaohuidian31-1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kongxiangjiaohuidian31-1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KONGXIANGJIAOHUIDIAN31-1&quot;,
+	scripts = {
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			stopbgm = true,
+			say = &quot;革律翁的双翼掀起风暴，咆哮着冲向水面的敌人。&quot;,
+			side = 2,
+			bgmDelay = 2,
+			bgm = &quot;theme-thedevilXV&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;然而，代行者舰队并没有如预期般陷入混乱，反倒是组织起了更加猛烈的防空火力。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9704010,
+			say = &quot;那些代行者的状态……和之前不一样了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;革律翁，回到舰队中来！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 9704010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;我来掩护！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;革律翁&quot;,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;▁▂▃▄▅▆▇███*愤怒地咆哮*██▌&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			dir = 1,
+			actor = 402100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;女灶神小姐，那些敌人怎么会……突然变成这种样子？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a020f0&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			say = &quot;我没有确切的证据。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9712010,
+			side = 2,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			say = &quot;不过也许和迪贝路的代行者一样，它们也受到了赫米忒管理机变化的影响。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:435}大人，我的舰载机损失惨重！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 406030,
+			say = &quot;第一波派出去的飞机几乎无一返回。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 406030,
+			say = &quot;现在舰载机光是防御舰队上空就很吃力了，我没法组织第二波进攻。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;那些混在敌方舰队中的迪贝路悬浮飞行器，得想办法处理一下才行！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a020f0&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			say = &quot;我知道方法，但，需要一个极其擅长电子战的人来实施。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;……啊哈哈，看来只能硬碰硬了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;不要忘记我们的目标，{namecode:96}小姐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;瘫痪赫米忒的管理机是吧，我记得呢！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;但是那个管理机一直缩在后面不出来，如果不先突破防空火力网的话！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;用和之前一样的战术。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;{namecode:464}来指挥舰队拖延时间。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;我去瘫痪赫米忒的管理机。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9712010,
+			side = 2,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			say = &quot;{namecode:435}，实话实说，你的……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a020f0&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			say = &quot;革律翁这一舰装的技术很特殊，仲裁机关也会对你相当有兴趣才对。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a020f0&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			say = &quot;万一这是一个诱捕你的陷阱呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;那这次事件中的陷阱也太多了一点。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;一路上的经历让我们出现了太多猜测、疑虑与对于未知的恐惧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;但是，世界也不是光靠阴谋与诡计推动的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;既然看到了胜利的机会，就不能坐视其白白流逝。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;其中的风险，就由我来承受吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a020f0&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			say = &quot;……我明白了。虽然我并非战斗型，不过会尽可能为你们提供支援的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 405050,
+			say = &quot;那么后方就交给你了，女灶神小姐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			actor = 9708010,
+			actorName = &quot;{namecode:515}？&quot;,
+			say = &quot;{namecode:435}姐姐，让我跟你一起去吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			actor = 9708010,
+			actorName = &quot;{namecode:515}？&quot;,
+			say = &quot;这一次我绝对不会离开你了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;……好，我们出发！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

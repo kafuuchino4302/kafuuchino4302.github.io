@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200053.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200053.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;2022武藏活动 特定我方角色获得5%属性加成&quot;,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 200053,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;cannonPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;torpedoPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;antiAirPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;airPower&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;loadSpeed&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;attackRating&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 300,
+				attr = &quot;dodgeRate&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

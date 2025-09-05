@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dockyardquickselectsettingpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dockyardquickselectsettingpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DockyardQuickSelectSettingPage&quot;, import(&quot;..base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;DockyardQuickSelectSettingUI&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0:InitUI()
+end
+
+slot0.InitUI = function(slot0)
+	setText(findTF(slot0._tf, &quot;window/top/bg/obtain/title&quot;), i18n(&quot;retire_title&quot;))
+	setText(findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_0/Text&quot;), i18n(&quot;unique_ship_retire_protect&quot;))
+
+	slot1 = findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_0&quot;)
+
+	onToggle(slot0, findTF(slot1, &quot;on&quot;), function (slot0)
+		slot1 = uv0:GetComponent(typeof(Toggle))
+
+		if slot0 then
+			uv1.settingChanged = true
+
+			PlayerPrefs.SetInt(&quot;RetireProtect&quot;, 0)
+		end
+	end)
+	onToggle(slot0, findTF(slot1, &quot;off&quot;), function (slot0)
+		slot1 = uv0:GetComponent(typeof(Toggle))
+
+		if slot0 then
+			uv1.settingChanged = true
+
+			PlayerPrefs.SetInt(&quot;RetireProtect&quot;, 1)
+		end
+	end)
+
+	slot5 = {
+		sr = 4,
+		n = 2,
+		empty = 0,
+		r = 3
+	}
+	slot6 = {}
+
+	for slot10 = 1, #{
+		findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_1&quot;),
+		findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_2&quot;),
+		findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_3&quot;)
+	} do
+		slot6[slot10] = {}
+
+		for slot14, slot15 in pairs(slot5) do
+			slot6[slot10][slot14] = findTF(slot4[slot10], slot14)
+		end
+	end
+
+	for slot10 = 1, #slot4 do
+		for slot14, slot15 in pairs(slot5) do
+			onToggle(slot0, slot6[slot10][slot14], function (slot0)
+				slot1 = uv0[uv1][uv2]:GetComponent(typeof(Toggle))
+
+				if slot0 then
+					uv3.settingChanged = true
+
+					PlayerPrefs.SetInt(&quot;QuickSelectRarity&quot; .. uv1, uv4)
+				elseif not slot1.group:AnyTogglesOn() then
+					triggerToggle(uv0[uv1].empty, true)
+				end
+			end)
+		end
+	end
+
+	slot7 = findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_4&quot;)
+
+	onToggle(slot0, findTF(slot7, &quot;keep_all&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWhenHasAtLeastOneMaxstar&quot;, &quot;KeepAll&quot;)
+		end
+	end)
+	onToggle(slot0, findTF(slot7, &quot;keep_one&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWhenHasAtLeastOneMaxstar&quot;, &quot;KeepOne&quot;)
+		end
+	end)
+	onToggle(slot0, findTF(slot7, &quot;keep_none&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWhenHasAtLeastOneMaxstar&quot;, &quot;KeepNone&quot;)
+		end
+	end)
+
+	slot8 = findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_5&quot;)
+
+	onToggle(slot0, findTF(slot8, &quot;keep_all&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWithoutMaxstar&quot;, &quot;KeepAll&quot;)
+		end
+	end)
+	onToggle(slot0, findTF(slot8, &quot;keep_needed&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWithoutMaxstar&quot;, &quot;KeepNeeded&quot;)
+		end
+	end)
+	onToggle(slot0, findTF(slot8, &quot;keep_none&quot;), function (slot0)
+		if slot0 then
+			uv0.settingChanged = true
+
+			PlayerPrefs.SetString(&quot;QuickSelectWithoutMaxstar&quot;, &quot;KeepNone&quot;)
+		end
+	end)
+	onButton(slot0, findTF(slot0._tf, &quot;window/top/btnBack&quot;), function ()
+		uv0:Hide()
+	end, SFX_CANCEL)
+	onButton(slot0, findTF(slot0._tf, &quot;window/top/bg/obtain/title/title_en/info&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = i18n(&quot;retire_setting_help&quot;)
+		})
+	end, SFX_CONFIRM)
+
+	slot10 = PlayerPrefs.GetString(&quot;QuickSelectWhenHasAtLeastOneMaxstar&quot;, &quot;KeepNone&quot;)
+	slot11 = PlayerPrefs.GetString(&quot;QuickSelectWithoutMaxstar&quot;, &quot;KeepAll&quot;)
+
+	if PlayerPrefs.GetInt(&quot;RetireProtect&quot;, 1) == 0 then
+		triggerToggle(slot2, true)
+	elseif slot9 == 1 then
+		triggerToggle(slot3, true)
+	end
+
+	if slot10 == &quot;KeepAll&quot; then
+		triggerToggle(findTF(slot7, &quot;keep_all&quot;), true)
+	elseif slot10 == &quot;KeepOne&quot; then
+		triggerToggle(findTF(slot7, &quot;keep_one&quot;), true)
+	elseif slot10 == &quot;KeepNone&quot; then
+		triggerToggle(findTF(slot7, &quot;keep_none&quot;), true)
+	end
+
+	if slot11 == &quot;KeepAll&quot; then
+		triggerToggle(findTF(slot8, &quot;keep_all&quot;), true)
+	elseif slot11 == &quot;KeepNeeded&quot; then
+		triggerToggle(findTF(slot8, &quot;keep_needed&quot;), true)
+	elseif slot11 == &quot;KeepNone&quot; then
+		triggerToggle(findTF(slot8, &quot;keep_none&quot;), true)
+	end
+
+	setText(findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_4/Text&quot;), i18n(&quot;retire_1&quot;))
+	setText(findTF(slot0._tf, &quot;window/notifications/options/notify_tpl_5/Text&quot;), i18n(&quot;retire_2&quot;))
+
+	slot12 = {
+		PlayerPrefs.GetInt(&quot;QuickSelectRarity1&quot;, 3),
+		PlayerPrefs.GetInt(&quot;QuickSelectRarity2&quot;, 4),
+		PlayerPrefs.GetInt(&quot;QuickSelectRarity3&quot;, 2)
+	}
+
+	for slot16 = 1, #slot4 do
+		slot20 = &quot;retire_rarity&quot;
+		slot21 = slot16
+
+		setText(findTF(slot4[slot16], &quot;Text&quot;), i18n(slot20, slot21))
+
+		for slot20, slot21 in pairs(slot5) do
+			if slot21 == slot12[slot16] then
+				triggerToggle(slot6[slot16][slot20], true)
+			end
+		end
+	end
+end
+
+slot0.Show = function(slot0)
+	setActive(slot0._tf, true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	setActive(slot0._tf, false)
+
+	if slot0.settingChangedCB then
+		slot0.settingChangedCB()
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.settingChangedCB = nil
+end
+
+slot0.OnSettingChanged = function(slot0, slot1)
+	slot0.settingChangedCB = slot1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

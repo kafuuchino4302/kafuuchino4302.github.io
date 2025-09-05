@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>singleeventrefreshcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>singleeventrefreshcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SingleEventRefreshCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(11202, {
+		cmd = 2,
+		activity_id = slot1:getBody().actId
+	}, 11203, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(ActivityProxy):getActivityById(uv0.actId)
+
+			slot1:SetDailyEventIds(slot0.number)
+			getProxy(ActivityProxy):updateActivity(slot1)
+			pg.m02:sendNotification(GAME.SINGLE_EVENT_REFRESH_DONE, {
+				activity = slot1
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;Refresh single event failed:&quot; .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

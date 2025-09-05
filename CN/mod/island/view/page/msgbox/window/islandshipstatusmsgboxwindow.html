@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandshipstatusmsgboxwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandshipstatusmsgboxwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandShipStatusMsgboxWindow&quot;, import(&quot;.IslandCommonMsgboxWindow&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandShipStatusMsgboxUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.buffDesc = slot0:findTF(&quot;Text&quot;):GetComponent(typeof(Text))
+end
+
+slot0.OnShow = function(slot0)
+	uv0.super.OnShow(slot0)
+	slot0:FlushBuff()
+end
+
+slot0.FlushBuff = function(slot0)
+	if not slot0.settings.buff then
+		return
+	end
+
+	slot0.buffDesc.text = &quot;&quot;
+
+	slot0:AddTimer(slot1)
+end
+
+slot0.AddTimer = function(slot0, slot1)
+	slot0:RemoveTimer()
+
+	if slot1:GetEndTime() &lt;= 0 then
+		return
+	end
+
+	slot0.timer = Timer.New(function ()
+		if uv0 - pg.TimeMgr.GetInstance():GetServerTime() &lt;= 0 then
+			uv1:RemoveTimer()
+
+			uv1.buffDesc.text = &quot;&quot;
+		else
+			uv1.buffDesc.text = uv2:GetName() .. &quot;:&quot; .. pg.TimeMgr.GetInstance():DescCDTime(slot1)
+		end
+	end, 1, -1)
+
+	slot0.timer:Start()
+	slot0.timer.func()
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.OnHide = function(slot0)
+	uv0.super.OnHide(slot0)
+	slot0:RemoveTimer()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

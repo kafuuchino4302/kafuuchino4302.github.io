@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingsdebugpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingsdebugpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsDebugPanel&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsOther&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return &quot;测试面板&quot;
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf:Find(&quot;options/notify_tpl&quot;)
+
+	setActive(slot1, false)
+
+	slot0.container = slot0._tf:Find(&quot;options&quot;)
+	slot0.toggleTpl = cloneTplTo(slot1, slot0._tf, &quot;toggleTpl&quot;)
+	slot0.btnTpl = cloneTplTo(slot1, slot0._tf, &quot;btnTpl&quot;)
+
+	GameObject.Destroy(findGO(slot0.btnTpl, &quot;off&quot;))
+	GameObject.Destroy(findGO(slot0.btnTpl, &quot;on&quot;))
+	RemoveComponent(slot0.btnTpl, &quot;ToggleGroup&quot;)
+	removeAllChildren(slot0.container)
+	slot0:btn_brightness_permission()
+	slot0:btn_brightness_setvalue()
+	slot0:btn_alarm_permission()
+	slot0:btn_notification_permission()
+	slot0:toggle_notification_tag()
+	slot0:btn_push_10s()
+	slot0:btn_cancel_notification()
+	slot0:btn_save_photo()
+	slot0:btn_record_start()
+	slot0:btn_record_stop()
+	slot0:btn_vulkan()
+	slot0:btn_gles()
+	slot0:btn_show_api()
+end
+
+slot0.createBtn = function(slot0, slot1)
+	slot2 = cloneTplTo(slot0.btnTpl, slot0.container, slot1.go)
+
+	setText(slot2:Find(&quot;mask/Text&quot;), slot1.text)
+	onButton(slot0, slot2, slot1.func, SFX_PANEL)
+end
+
+slot0.createToggle = function(slot0, slot1)
+	slot2 = cloneTplTo(slot0.toggleTpl, slot0.container, slot1.go)
+
+	setText(slot2:Find(&quot;mask/Text&quot;), slot1.text)
+	onToggle(slot0, slot2:Find(&quot;on&quot;), slot1.func, SFX_UI_TAG, SFX_UI_CANCEL)
+end
+
+slot0.btn_brightness_permission = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_brightness_permission&quot;,
+		text = &quot;检查亮度权限&quot;,
+		func = function ()
+			if YSNormalTool.BrightnessTool.CanWriteSetting() then
+				pg.TipsMgr.GetInstance():ShowTips(&quot;拥有权限&quot;)
+			else
+				YSNormalTool.OtherTool.OpenAndroidWriteSettings()
+			end
+		end
+	})
+end
+
+slot0.btn_brightness_setvalue = function(slot0)
+	slot3 = function()
+		setText(uv0.container:Find(uv1.go .. &quot;/mask/Text&quot;), uv2 .. YSNormalTool.BrightnessTool.GetBrightnessValue())
+	end
+
+	slot0:createBtn({
+		go = &quot;btn_brightness_setvalue&quot;,
+		text = &quot;循环设置亮度，当前亮度：&quot; .. YSNormalTool.BrightnessTool.GetBrightnessValue(),
+		func = function ()
+			if YSNormalTool.BrightnessTool.GetBrightnessValue() + 0.1 &gt; 1 then
+				slot0 = slot0 - 1
+			end
+
+			YSNormalTool.BrightnessTool.SetBrightnessValue(slot0)
+			uv0()
+		end
+	})
+end
+
+slot0.btn_alarm_permission = function(slot0)
+	slot1 = {
+		go = &quot;btn_alarm_permission&quot;,
+		text = &quot;检查安卓闹钟权限&quot;,
+		func = function ()
+			if YSNormalTool.NotificationTool.CanScheduleExactAlarms() then
+				pg.TipsMgr.GetInstance():ShowTips(&quot;拥有权限&quot;)
+			else
+				YSNormalTool.NotificationTool.RequestScheduleExactAlarmsPermission()
+			end
+		end
+	}
+
+	if PermissionHelper.IsAndroid() then
+		slot0:createBtn(slot1)
+	end
+end
+
+slot0.btn_notification_permission = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_notification_permission&quot;,
+		text = &quot;检查通知权限&quot;,
+		func = function ()
+			YSNormalTool.PermissionTool.RequestMultiPermission({
+				YSNormalTool.PermissionTool.Notification
+			}, function (slot0, slot1)
+				slot2 = true
+
+				for slot7 = 0, slot1.Length - 1 do
+					if slot1[slot7] ~= 0 then
+						slot2 = false
+
+						break
+					end
+				end
+
+				if slot2 then
+					pg.TipsMgr.GetInstance():ShowTips(&quot;授权成功&quot;)
+				else
+					pg.TipsMgr.GetInstance():ShowTips(&quot;授权失败&quot;)
+				end
+			end)
+		end
+	})
+end
+
+slot0.toggle_notification_tag = function(slot0)
+	slot0:createToggle({
+		go = &quot;btn_push_10s&quot;,
+		text = &quot;开启则可切到后台测试通知，测完需要关闭&quot;,
+		func = function (slot0)
+			if slot0 then
+				PUSH_NOTIFICATION_TEST_TAG = true
+			else
+				PUSH_NOTIFICATION_TEST_TAG = false
+			end
+		end
+	})
+end
+
+slot0.btn_push_10s = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_push_10s&quot;,
+		text = &quot;10秒后推送通知&quot;,
+		func = function ()
+			pg.TipsMgr.GetInstance():ShowTips(&quot;推送测试通知&quot;)
+
+			slot0 = pg.TimeMgr.GetInstance():STimeDescS(pg.TimeMgr.GetInstance():GetServerTime(), &quot;*t&quot;)
+
+			pg.PushNotificationMgr.GetInstance():Push(&quot;测试标题&quot;, slot0.year .. slot0.month .. slot0.day .. slot0.hour .. slot0.min .. slot0.sec, pg.TimeMgr.GetInstance():GetServerTime() + 10)
+			pg.PushNotificationMgr.GetInstance():PushCache()
+		end
+	})
+end
+
+slot0.btn_cancel_notification = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_cancel_notification&quot;,
+		text = &quot;取消所有通知&quot;,
+		func = function ()
+			YSNormalTool.NotificationTool.CancelAllNotification()
+		end
+	})
+end
+
+slot0.btn_save_photo = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_save_photo&quot;,
+		text = &quot;保存截图&quot;,
+		func = function ()
+			YSNormalTool.MediaTool.SaveImageWithBytes(YSTool.YSScreenShoter.TakeScreenShotDirectly(), function (slot0, slot1)
+				if slot0 then
+					pg.TipsMgr.GetInstance():ShowTips(&quot;保存截图成功&quot;)
+				else
+					pg.TipsMgr.GetInstance():ShowTips(&quot;保存截图失败：&quot; .. slot1)
+				end
+			end)
+		end
+	})
+end
+
+slot0.btn_record_start = function(slot0)
+	slot2 = function(slot0)
+		if not slot0 then
+			pg.TipsMgr.GetInstance():ShowTips(&quot;开始录屏失败&quot;)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;开始录屏成功&quot;)
+		end
+	end
+
+	slot0:createBtn({
+		go = &quot;btn_record_start&quot;,
+		text = &quot;开始录屏&quot;,
+		func = function ()
+			PermissionHelper.RequestCamera(function ()
+				uv0.recordFilePath = YSNormalTool.RecordTool.GenRecordFilePath()
+
+				YSNormalTool.RecordTool.StartRecording(uv1, uv0.recordFilePath)
+			end, function ()
+				pg.TipsMgr.GetInstance():ShowTips(&quot;请求录屏所需权限失败&quot;)
+			end)
+		end
+	})
+end
+
+slot0.btn_record_stop = function(slot0)
+	slot2 = function(slot0)
+		if slot0 and PLATFORM == PLATFORM_ANDROID then
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;word_save_video&quot;),
+				onNo = function ()
+					if System.IO.File.Exists(uv0.recordFilePath) then
+						System.IO.File.Delete(uv0.recordFilePath)
+					end
+				end,
+				onYes = function ()
+					YSNormalTool.MediaTool.SaveVideoToAlbum(uv0.recordFilePath, function (slot0, slot1)
+						if slot0 then
+							pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;word_save_ok&quot;))
+
+							if System.IO.File.Exists(uv0.recordFilePath) then
+								System.IO.File.Delete(uv0.recordFilePath)
+							end
+						end
+					end)
+				end
+			})
+		end
+	end
+
+	slot0:createBtn({
+		go = &quot;btn_record_stop&quot;,
+		text = &quot;结束录屏&quot;,
+		func = function ()
+			YSNormalTool.RecordTool.StopRecording(uv0)
+		end
+	})
+end
+
+slot0.btn_vulkan = function(slot0)
+	slot2 = &quot;&quot;
+
+	if GraphApiHelper.GetGraphApiSaveValue() == 0 then
+		slot2 = &quot; 当前未设置，Unity自己选择。&quot;
+	elseif slot1 == 1 then
+		slot2 = &quot; 当前强制设置Vulkan。&quot;
+	elseif slot1 == 2 then
+		slot2 = &quot; 当前强制设置GLES。&quot;
+	end
+
+	slot0:createBtn({
+		go = &quot;btn_vulkan&quot;,
+		text = &quot;设置为Vulkan(需要重启)&quot; .. slot2,
+		func = function ()
+			GraphApiHelper.SetForceGraphApi(GraphApiHelper.Api.Force_Vulkan)
+		end
+	})
+end
+
+slot0.btn_gles = function(slot0)
+	slot2 = &quot;&quot;
+
+	if GraphApiHelper.GetGraphApiSaveValue() == 0 then
+		slot2 = &quot; 当前未设置，Unity自己选择。&quot;
+	elseif slot1 == 1 then
+		slot2 = &quot; 当前强制设置Vulkan。&quot;
+	elseif slot1 == 2 then
+		slot2 = &quot; 当前强制设置GLES。&quot;
+	end
+
+	slot0:createBtn({
+		go = &quot;btn_gles&quot;,
+		text = &quot;设置为OpenGLES(需要重启)&quot; .. slot2,
+		func = function ()
+			GraphApiHelper.SetForceGraphApi(GraphApiHelper.Api.Force_OpenGLES)
+		end
+	})
+end
+
+slot0.btn_show_api = function(slot0)
+	slot0:createBtn({
+		go = &quot;btn_show_api&quot;,
+		text = &quot;点击显示当前Api&quot;,
+		func = function ()
+			pg.TipsMgr.GetInstance():ShowTips(&quot;当前Api:&quot; .. GraphApiHelper.GetCurGraphApi())
+		end
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

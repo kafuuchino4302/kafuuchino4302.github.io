@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islanddailytask3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islanddailytask3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 10,
+	id = &quot;ISLANDDAILYTASK3&quot;,
+	map = {
+		{
+			100300,
+			10020004
+		}
+	},
+	look_weight = {
+		{
+			0.7,
+			0
+		},
+		{
+			0.3,
+			0
+		}
+	},
+	scripts = {
+		{
+			animation = &quot;clap&quot;,
+			subName = &quot;货运管理员&quot;,
+			characterId = 100300,
+			say = &quot;呼——终于等到了！指挥官你真是我的大救星！&quot;,
+			face2Face = {
+				{
+					0,
+					100300
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;有了这些东西，货运中心的船就能启航了。&quot;,
+			subName = &quot;货运管理员&quot;,
+			characterId = 100300,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;啊，装船……感觉又要开始忙了……不过能帮到指挥官就好~&quot;,
+			animation = &quot;talk&quot;,
+			characterId = 100300,
+			subName = &quot;货运管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;嘿嘿~放心吧！即使是我，也不会一直偷懒的啦~&quot;,
+			animation = &quot;nod&quot;,
+			characterId = 100300,
+			subName = &quot;货运管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

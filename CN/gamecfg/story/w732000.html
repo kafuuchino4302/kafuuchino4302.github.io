@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w732000.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>w732000.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 2,
+	once = true,
+	id = &quot;W732000&quot;,
+	skipTip = false,
+	scripts = {
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;要将圆盘往那个方向倾斜？（选择了方向后，地图上所有未归位的能源矩阵都会往那个方向滑动）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;↑上↑&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;←左←&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;↓下↓&quot;,
+					flag = 3
+				},
+				{
+					content = &quot;→右→&quot;,
+					flag = 4
+				},
+				{
+					content = &quot;离开&quot;,
+					flag = 5
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

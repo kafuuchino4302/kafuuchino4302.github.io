@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardpuzzlecombatpausemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cardpuzzlecombatpausemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CardPuzzleCombatPauseMediator&quot;, ContextMediator)
+slot0.QUIT_COMBAT = &quot;QUIT_COMBAT&quot;
+slot0.RESUME_COMBAT = &quot;RESUME_COMBAT&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.QUIT_COMBAT, function (slot0, slot1)
+		uv0:sendNotification(GAME.QUIT_BATTLE)
+	end)
+	slot0:bind(uv0.RESUME_COMBAT, function (slot0, slot1)
+		uv0:sendNotification(GAME.RESUME_BATTLE)
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {}
+end
+
+slot0.remove = function(slot0)
+end
+
+slot0.onBackPressed = function(slot0, slot1)
+	slot0:sendNotification(GAME.RESUME_BATTLE)
+	uv0.super.onBackPressed(slot0, slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

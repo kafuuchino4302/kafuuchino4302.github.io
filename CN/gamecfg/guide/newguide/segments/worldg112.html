@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg112.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg112.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG112&quot;,
+	events = {
+		{
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;GWORLDX112A&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			style = {
+				text = &quot;在塞壬要塞海域中，该区域会实时显示敌方剩余的据点数。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 0,
+				posX = 508.1
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/right_stage/tip_word&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			style = {
+				text = &quot;每清理一处敌方据点塞壬控制力就会下降。在塞壬控制力归零后即可彻底夺回该处海域的控制权。&quot;,
+				mode = 2,
+				dir = -1,
+				char = &quot;1&quot;,
+				posY = 191.14,
+				posX = -250.05
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/top_stage/features/status_field/poison_rate&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

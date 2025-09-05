@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>character_voice_special.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>character_voice_special.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.character_voice_special = {
+	login = {
+		profile_index = 1,
+		key = &quot;login&quot;,
+		voice_name = &quot;登录&quot;,
+		resource_key = &quot;login&quot;
+	},
+	main1 = {
+		profile_index = 2,
+		key = &quot;main1&quot;,
+		voice_name = &quot;主界面1&quot;,
+		resource_key = &quot;main_1&quot;
+	},
+	main2 = {
+		profile_index = 3,
+		key = &quot;main2&quot;,
+		voice_name = &quot;主界面2&quot;,
+		resource_key = &quot;main_2&quot;
+	},
+	main3 = {
+		profile_index = 4,
+		key = &quot;main3&quot;,
+		voice_name = &quot;主界面3&quot;,
+		resource_key = &quot;main_3&quot;
+	},
+	main4 = {
+		profile_index = 5,
+		key = &quot;main4&quot;,
+		voice_name = &quot;主界面4&quot;,
+		resource_key = &quot;main_4&quot;
+	},
+	main5 = {
+		profile_index = 6,
+		key = &quot;main5&quot;,
+		voice_name = &quot;主界面5&quot;,
+		resource_key = &quot;main_5&quot;
+	},
+	main6 = {
+		profile_index = 7,
+		key = &quot;main6&quot;,
+		voice_name = &quot;主界面6&quot;,
+		resource_key = &quot;main_6&quot;
+	},
+	main7 = {
+		profile_index = 8,
+		key = &quot;main7&quot;,
+		voice_name = &quot;主界面7&quot;,
+		resource_key = &quot;main_7&quot;
+	},
+	touch = {
+		profile_index = 9,
+		key = &quot;touch&quot;,
+		voice_name = &quot;普通触摸&quot;,
+		resource_key = &quot;touch&quot;
+	},
+	mission = {
+		profile_index = 10,
+		key = &quot;mission&quot;,
+		voice_name = &quot;任务提醒&quot;,
+		resource_key = &quot;mission&quot;
+	},
+	mission_complete = {
+		profile_index = 11,
+		key = &quot;mission_complete&quot;,
+		voice_name = &quot;任务完成&quot;,
+		resource_key = &quot;mission_complete&quot;
+	},
+	mail = {
+		profile_index = 12,
+		key = &quot;mail&quot;,
+		voice_name = &quot;邮件提醒&quot;,
+		resource_key = &quot;mail&quot;
+	},
+	home = {
+		profile_index = 13,
+		key = &quot;home&quot;,
+		voice_name = &quot;回港&quot;,
+		resource_key = &quot;home&quot;
+	},
+	expedition = {
+		profile_index = 14,
+		key = &quot;expedition&quot;,
+		voice_name = &quot;委托完成&quot;,
+		resource_key = &quot;expedition&quot;
+	},
+	shengdan = {
+		profile_index = 15,
+		key = &quot;shengdan&quot;,
+		voice_name = &quot;圣诞节&quot;,
+		resource_key = &quot;shengdan&quot;
+	},
+	chuxi = {
+		profile_index = 16,
+		key = &quot;chuxi&quot;,
+		voice_name = &quot;除夕&quot;,
+		resource_key = &quot;chuxi&quot;
+	},
+	xinnian = {
+		profile_index = 17,
+		key = &quot;xinnian&quot;,
+		voice_name = &quot;新年&quot;,
+		resource_key = &quot;xinnian&quot;
+	},
+	qingrenjie = {
+		profile_index = 18,
+		key = &quot;qingrenjie&quot;,
+		voice_name = &quot;情人节&quot;,
+		resource_key = &quot;qingrenjie&quot;
+	},
+	zhongqiu = {
+		profile_index = 19,
+		key = &quot;zhongqiu&quot;,
+		voice_name = &quot;中秋节&quot;,
+		resource_key = &quot;zhongqiu&quot;
+	},
+	wansheng = {
+		profile_index = 20,
+		key = &quot;wansheng&quot;,
+		voice_name = &quot;万圣节&quot;,
+		resource_key = &quot;wansheng&quot;
+	},
+	huodong = {
+		profile_index = 21,
+		key = &quot;huodong&quot;,
+		voice_name = &quot;活动提醒&quot;,
+		resource_key = &quot;huodong&quot;
+	},
+	genghuan = {
+		profile_index = 22,
+		key = &quot;genghuan&quot;,
+		voice_name = &quot;更换外形模块&quot;,
+		resource_key = &quot;genghuan&quot;
+	},
+	chime_0 = {
+		profile_index = 23,
+		key = &quot;chime_0&quot;,
+		voice_name = &quot;0点报时&quot;,
+		resource_key = &quot;chime_0&quot;
+	},
+	chime_1 = {
+		profile_index = 24,
+		key = &quot;chime_1&quot;,
+		voice_name = &quot;1点报时&quot;,
+		resource_key = &quot;chime_1&quot;
+	},
+	chime_2 = {
+		profile_index = 25,
+		key = &quot;chime_2&quot;,
+		voice_name = &quot;2点报时&quot;,
+		resource_key = &quot;chime_2&quot;
+	},
+	chime_3 = {
+		profile_index = 26,
+		key = &quot;chime_3&quot;,
+		voice_name = &quot;3点报时&quot;,
+		resource_key = &quot;chime_3&quot;
+	},
+	chime_4 = {
+		profile_index = 27,
+		key = &quot;chime_4&quot;,
+		voice_name = &quot;4点报时&quot;,
+		resource_key = &quot;chime_4&quot;
+	},
+	chime_5 = {
+		profile_index = 28,
+		key = &quot;chime_5&quot;,
+		voice_name = &quot;5点报时&quot;,
+		resource_key = &quot;chime_5&quot;
+	},
+	chime_6 = {
+		profile_index = 29,
+		key = &quot;chime_6&quot;,
+		voice_name = &quot;6点报时&quot;,
+		resource_key = &quot;chime_6&quot;
+	},
+	chime_7 = {
+		profile_index = 30,
+		key = &quot;chime_7&quot;,
+		voice_name = &quot;7点报时&quot;,
+		resource_key = &quot;chime_7&quot;
+	},
+	chime_8 = {
+		profile_index = 31,
+		key = &quot;chime_8&quot;,
+		voice_name = &quot;8点报时&quot;,
+		resource_key = &quot;chime_8&quot;
+	},
+	chime_9 = {
+		profile_index = 32,
+		key = &quot;chime_9&quot;,
+		voice_name = &quot;9点报时&quot;,
+		resource_key = &quot;chime_9&quot;
+	},
+	chime_10 = {
+		profile_index = 33,
+		key = &quot;chime_10&quot;,
+		voice_name = &quot;10点报时&quot;,
+		resource_key = &quot;chime_10&quot;
+	},
+	chime_11 = {
+		profile_index = 34,
+		key = &quot;chime_11&quot;,
+		voice_name = &quot;11点报时&quot;,
+		resource_key = &quot;chime_11&quot;
+	},
+	chime_12 = {
+		profile_index = 35,
+		key = &quot;chime_12&quot;,
+		voice_name = &quot;12点报时&quot;,
+		resource_key = &quot;chime_12&quot;
+	},
+	chime_13 = {
+		profile_index = 36,
+		key = &quot;chime_13&quot;,
+		voice_name = &quot;13点报时&quot;,
+		resource_key = &quot;chime_13&quot;
+	},
+	chime_14 = {
+		profile_index = 37,
+		key = &quot;chime_14&quot;,
+		voice_name = &quot;14点报时&quot;,
+		resource_key = &quot;chime_14&quot;
+	},
+	chime_15 = {
+		profile_index = 38,
+		key = &quot;chime_15&quot;,
+		voice_name = &quot;15点报时&quot;,
+		resource_key = &quot;chime_15&quot;
+	},
+	chime_16 = {
+		profile_index = 39,
+		key = &quot;chime_16&quot;,
+		voice_name = &quot;16点报时&quot;,
+		resource_key = &quot;chime_16&quot;
+	},
+	chime_17 = {
+		profile_index = 40,
+		key = &quot;chime_17&quot;,
+		voice_name = &quot;17点报时&quot;,
+		resource_key = &quot;chime_17&quot;
+	},
+	chime_18 = {
+		profile_index = 41,
+		key = &quot;chime_18&quot;,
+		voice_name = &quot;18点报时&quot;,
+		resource_key = &quot;chime_18&quot;
+	},
+	chime_19 = {
+		profile_index = 42,
+		key = &quot;chime_19&quot;,
+		voice_name = &quot;19点报时&quot;,
+		resource_key = &quot;chime_19&quot;
+	},
+	chime_20 = {
+		profile_index = 43,
+		key = &quot;chime_20&quot;,
+		voice_name = &quot;20点报时&quot;,
+		resource_key = &quot;chime_20&quot;
+	},
+	chime_21 = {
+		profile_index = 44,
+		key = &quot;chime_21&quot;,
+		voice_name = &quot;21点报时&quot;,
+		resource_key = &quot;chime_21&quot;
+	},
+	chime_22 = {
+		profile_index = 45,
+		key = &quot;chime_22&quot;,
+		voice_name = &quot;22点报时&quot;,
+		resource_key = &quot;chime_22&quot;
+	},
+	chime_23 = {
+		profile_index = 46,
+		key = &quot;chime_23&quot;,
+		voice_name = &quot;23点报时&quot;,
+		resource_key = &quot;chime_23&quot;
+	},
+	all = {
+		&quot;login&quot;,
+		&quot;main1&quot;,
+		&quot;main2&quot;,
+		&quot;main3&quot;,
+		&quot;main4&quot;,
+		&quot;main5&quot;,
+		&quot;main6&quot;,
+		&quot;main7&quot;,
+		&quot;touch&quot;,
+		&quot;mission&quot;,
+		&quot;mission_complete&quot;,
+		&quot;mail&quot;,
+		&quot;home&quot;,
+		&quot;expedition&quot;,
+		&quot;shengdan&quot;,
+		&quot;chuxi&quot;,
+		&quot;xinnian&quot;,
+		&quot;qingrenjie&quot;,
+		&quot;zhongqiu&quot;,
+		&quot;wansheng&quot;,
+		&quot;huodong&quot;,
+		&quot;genghuan&quot;,
+		&quot;chime_0&quot;,
+		&quot;chime_1&quot;,
+		&quot;chime_2&quot;,
+		&quot;chime_3&quot;,
+		&quot;chime_4&quot;,
+		&quot;chime_5&quot;,
+		&quot;chime_6&quot;,
+		&quot;chime_7&quot;,
+		&quot;chime_8&quot;,
+		&quot;chime_9&quot;,
+		&quot;chime_10&quot;,
+		&quot;chime_11&quot;,
+		&quot;chime_12&quot;,
+		&quot;chime_13&quot;,
+		&quot;chime_14&quot;,
+		&quot;chime_15&quot;,
+		&quot;chime_16&quot;,
+		&quot;chime_17&quot;,
+		&quot;chime_18&quot;,
+		&quot;chime_19&quot;,
+		&quot;chime_20&quot;,
+		&quot;chime_21&quot;,
+		&quot;chime_22&quot;,
+		&quot;chime_23&quot;
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

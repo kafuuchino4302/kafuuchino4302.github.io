@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaixuan4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kaixuan4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KAIXUAN4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;骑士公主的忧郁\n\n&lt;size=45&gt;四 失落的凯旋小姐&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;和凯旋一起在港区巡逻&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;好！今天也要打起精神完成工作～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;似乎干劲满满的样子&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;啊，是指挥官…来，恐怖，跟指挥官和凯旋小姐打个招呼&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213020,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;凯旋小姐、指挥官，你们好…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;偶然遇到了黑暗界和恐怖&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;贵安，黑暗界小姐、恐怖小姐&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213010,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			say = &quot;凯旋小姐，谢谢你…和你一起出击之后，恐怖变得比以前自信了不少…&quot;,
+			dir = -1,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213020,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;谢谢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;嘻嘻，恐怖本来就很厉害的，我只不过是给了她一点掩护和支援罢了～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 213010,
+			say = &quot;那…我们就先走了。这么大的太阳对恐怖的身体不大好…恐怖，想吃点心吗…？&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213020,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;想…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;黑暗界带着恐怖离开了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;自信啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 107020,
+			say = &quot;哎呀，是凯旋小姐啊，和指挥官在巡逻吗？&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;贵安，列克星敦小姐、萨拉托加小姐&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107030,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			say = &quot;哎？哎哎？怎么被发现了！？还想要偷偷出现吓指挥官一跳呢～&quot;,
+			dir = 1,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;哎呀～那我还真是做了坏事了呢，对不起呀，萨拉托加小姐&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107020,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;萨拉，怎么说你也是大家的前辈，要好好学习一下凯旋的稳重才对哦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107030,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;是～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107020,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;指挥官、凯旋小姐。巡逻，要加油哦。我们就先告辞了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107030,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;拜拜～对了，姐姐，你听我说哦——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 801010,
+			say = &quot;稳重啊…&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;凯旋似乎有点失落&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;呼…嗯？我的脸上有什么吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;轻轻摸她的头&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;指、指挥官……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;凯旋的脸上，流露出了一丝寂寥的神情&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

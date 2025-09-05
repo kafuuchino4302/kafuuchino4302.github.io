@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandshipskillpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandshipskillpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandShipSkillPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandShipSkillUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.skillIcon = slot0:findTF(&quot;adapt/attr_panel/skill/icon&quot;)
+	slot0.skillName = slot0:findTF(&quot;adapt/attr_panel/skill/name&quot;):GetComponent(typeof(Text))
+	slot0.skillLv = slot0:findTF(&quot;adapt/attr_panel/skill/level&quot;):GetComponent(typeof(Text))
+	slot0.descTxt = slot0:findTF(&quot;adapt/attr_panel/desc/Text&quot;):GetComponent(typeof(Text))
+	slot0.descList = UIItemList.New(slot0:findTF(&quot;adapt/attr_panel/desc/list&quot;), slot0:findTF(&quot;adapt/attr_panel/desc/list/tpl&quot;))
+	slot0.consumeList = UIItemList.New(slot0:findTF(&quot;adapt/attr_panel/consume/list&quot;), slot0:findTF(&quot;adapt/attr_panel/consume/list/tpl&quot;))
+	slot0.upgradeBtn = slot0:findTF(&quot;adapt/attr_panel/consume/upgrade&quot;)
+	slot0.tipTxt = slot0:findTF(&quot;adapt/attr_panel/consume/tip&quot;):GetComponent(typeof(Text))
+	slot0.goldTr = slot0:findTF(&quot;adapt/attr_panel/consume/label&quot;)
+	slot0.goldTxt = slot0:findTF(&quot;adapt/attr_panel/consume/label/Text&quot;):GetComponent(typeof(Text))
+	slot0.goldIco = slot0:findTF(&quot;adapt/attr_panel/consume/label/icon&quot;)
+
+	setText(slot0:findTF(&quot;adapt/attr_panel/consume/label/label1&quot;), i18n(&quot;island_ship_breakout_consume&quot;))
+end
+
+slot0.OnInit = function(slot0)
+end
+
+slot0.AddListeners = function(slot0)
+	slot0:AddListener(GAME.ISLAND_UPGRADE_SKILL_DONE, slot0.OnSkillUpgrade)
+end
+
+slot0.RemoveListeners = function(slot0)
+	slot0:RemoveListener(GAME.ISLAND_UPGRADE_SKILL_DONE, slot0.OnSkillUpgrade)
+end
+
+slot0.OnSkillUpgrade = function(slot0)
+	slot0:Flush()
+end
+
+slot0.OnShow = function(slot0, slot1)
+	slot0.selectedId = slot1
+
+	slot0:Flush()
+end
+
+slot0.Flush = function(slot0)
+	if getProxy(IslandProxy):GetIsland():GetCharacterAgency():GetShipById(slot0.selectedId) == nil then
+		return
+	end
+
+	slot0:UpdateMainView(slot1)
+end
+
+slot0.UpdateMainView = function(slot0, slot1)
+	slot2 = slot1:GetMainSkill()
+	slot3 = slot1:GetNextLevelMainSkillId()
+
+	slot0:FlushLevelAndIcon(slot1, slot2, slot3)
+	slot0:FlushDesc(slot1, slot2, slot3)
+	slot0:FlushConsume(slot1, slot2, slot3)
+	slot0:FlushUpgradeBtn(slot1, slot2, slot3)
+end
+
+slot0.FlushLevelAndIcon = function(slot0, slot1, slot2, slot3)
+	slot4 = pg.island_chara_skill[slot2]
+
+	GetImageSpriteFromAtlasAsync(&quot;island/IslandSkillIcon/&quot; .. slot4.icon, &quot;&quot;, slot0.skillIcon)
+
+	slot0.skillName.text = slot4.name
+
+	if slot3 then
+		slot0.skillLv.text = &quot;&lt;color=#393a3c&gt;[ Lv.&quot; .. slot4.level .. &quot; ]&lt;/color&gt;&lt;color=#006cff&gt;   &gt;   [ Lv.&quot; .. slot4.level + 1 .. &quot; ]&lt;/color&gt;&quot;
+	else
+		slot0.skillLv.text = &quot;&lt;color=#393a3c&gt;MAX&lt;/color&gt;&quot;
+	end
+end
+
+slot0.FlushDesc = function(slot0, slot1, slot2, slot3)
+	slot0.descList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+			slot7 = pg.island_chara_skill[uv1].level + 1 == slot3.level and &quot;#006cff&quot; or &quot;#393a3c&quot;
+
+			setText(slot2:Find(&quot;level&quot;), &quot;&lt;color=&quot; .. slot7 .. &quot;&gt;[ Lv.&quot; .. slot4 .. &quot; ]&lt;/color&gt;&quot;)
+			setText(slot2:Find(&quot;Text&quot;), &quot;&lt;color=&quot; .. slot7 .. &quot;&gt;&quot; .. i18n(&quot;island_word_unlock&quot;) .. slot3.desc .. &quot;&lt;/color&gt;&quot;)
+
+			GetOrAddComponent(slot2, typeof(CanvasGroup)).alpha = slot4 &lt;= slot6 + 1 and 1 or 0.4
+		end
+	end)
+	slot0.descList:align(#slot1:GetMainSkillUpgradeEffectDesc())
+
+	if slot3 then
+		slot0.descTxt.text = pg.island_chara_skill[slot3].desc
+	else
+		slot0.descTxt.text = pg.island_chara_skill[slot2].desc
+	end
+end
+
+slot0.FlushConsume = function(slot0, slot1, slot2, slot3)
+	slot5 = getProxy(IslandProxy):GetIsland():GetInventoryAgency()
+
+	slot0.consumeList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 2]
+			slot4 = Drop.New({
+				type = slot3[1],
+				id = slot3[2],
+				count = slot3[3]
+			})
+
+			updateCustomDrop(slot2, slot4)
+			setText(slot2:Find(&quot;icon_bg/count&quot;), setColorStr(slot5, slot4.count &lt;= uv1:GetOwnCount(slot4.id) and &quot;#FFFFFF&quot; or &quot;#ff7e7e&quot;) .. &quot;/&quot; .. slot4.count)
+			onButton(uv2, slot2, function ()
+				uv0:ShowMsgBox({
+					title = i18n(&quot;island_word_ship_buff_desc&quot;),
+					type = IslandMsgBox.TYPE_ITEM_DESC,
+					itemId = uv1.id
+				})
+			end, SFX_PANEL)
+		end
+	end)
+	slot0.consumeList:align(math.max(0, #slot1:GetUpgradeSkillConsume() - 1))
+end
+
+slot0.FlushUpgradeBtn = function(slot0, slot1, slot2, slot3)
+	slot4 = slot1:GetUpgradeSkillConsume()
+	slot0.upgradeBtn:GetComponent(typeof(Image)).color = slot1:CanUpgradeMainSkill() and Color.New(0.2235294, 0.7490196, 1, 1) or Color.New(0.6117647, 0.6117647, 0.6117647, 1)
+	slot6 = true
+
+	if slot3 then
+		slot6 = pg.island_chara_skill[slot3].upgrade_unlock &lt;= slot1:GetLevel()
+		slot0.tipTxt.text = i18n(&quot;island_need_ship_level&quot;, slot8)
+	end
+
+	if slot4[1] then
+		slot8 = Drop.New({
+			type = slot7[1],
+			id = slot7[2],
+			count = slot7[3]
+		})
+
+		GetImageSpriteFromAtlasAsync(slot8:getConfigTable().icon, &quot;&quot;, slot0.goldIco)
+
+		slot0.goldTxt.text = slot8.count
+	end
+
+	setActive(slot0.tipTxt.gameObject, not slot6)
+	setActive(slot0.goldTr, slot6 and slot7)
+	setActive(slot0.upgradeBtn, not slot1:IsMaxMainSkillLevel())
+	onButton(slot0, slot0.upgradeBtn, function ()
+		if not uv0 then
+			return
+		end
+
+		uv1:emit(IslandMediator.UPGRADE_SKILL, uv2.id)
+	end, SFX_PANEL)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_60028.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_60028.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffWorldVariable&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					variable = &quot;SpeedRatioByIFF&quot;,
+					key = -1,
+					resetNumber = 1,
+					number = 0.4
+				}
+			},
+			{
+				type = &quot;BattleBuffWorldVariable&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					variable = &quot;MapSpeedRatio&quot;,
+					resetNumber = 1,
+					number = 0.4
+				}
+			}
+		}
+	},
+	uiEffect = &quot;SlowEffectUI&quot;,
+	name = &quot;测试-伊丽莎白-减速&quot;,
+	init_effect = &quot;jiasuBUFF&quot;,
+	time = 6,
+	picture = &quot;&quot;,
+	desc = &quot;测试-伊丽莎白-减速&quot;,
+	stack = 1,
+	id = 60028,
+	icon = 60028,
+	last_effect = &quot;SPD&quot;
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

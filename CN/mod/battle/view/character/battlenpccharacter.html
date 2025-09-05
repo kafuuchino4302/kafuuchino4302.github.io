@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlenpccharacter.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlenpccharacter.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleUnitEvent
+slot0.Battle.BattleNPCCharacter = class(&quot;BattleNPCCharacter&quot;, slot0.Battle.BattleEnemyCharacter)
+slot0.Battle.BattleNPCCharacter.__name = &quot;BattleNPCCharacter&quot;
+slot2 = slot0.Battle.BattleNPCCharacter
+
+slot2.Ctor = function(slot0)
+	uv0.super.Ctor(slot0)
+
+	slot0._preCastBound = false
+end
+
+slot2.SetHPColor = function(slot0, slot1)
+	slot0._HPColor = slot1
+end
+
+slot2.GetHPColor = function(slot0)
+	return slot0._HPColor
+end
+
+slot2.SetModleID = function(slot0, slot1)
+	slot0._prefab = slot1
+end
+
+slot2.GetModleID = function(slot0)
+	if slot0._prefab then
+		return slot0._prefab
+	else
+		return slot0._unitData:GetTemplate().prefab
+	end
+end
+
+slot2.SetUnvisible = function(slot0)
+	slot0._isUnvisible = true
+end
+
+slot2.MakeVisible = function(slot0)
+	if slot0._isUnvisible then
+		slot0._go:SetActive(false)
+		slot0._HPBar:SetActive(false)
+		slot0._buffBar:SetActive(false)
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

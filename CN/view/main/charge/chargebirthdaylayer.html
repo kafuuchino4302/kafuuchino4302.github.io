@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chargebirthdaylayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chargebirthdaylayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChargeBirthdayLayer&quot;, import(&quot;...base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ChargeBirthdayUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0:initData()
+	slot0:findUI()
+	slot0:addListener()
+	slot0:initUIText()
+end
+
+slot0.didEnter = function(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+slot0.initData = function(slot0)
+end
+
+slot0.initUIText = function(slot0)
+	slot0.inputSC.text = &quot;&quot;
+end
+
+slot0.findUI = function(slot0)
+	slot0.bg = slot0:findTF(&quot;bg&quot;)
+	slot0.window = slot0:findTF(&quot;window&quot;)
+	slot0.inputField = slot0:findTF(&quot;birthday_input_panel/InputField&quot;, slot0.window)
+	slot0.inputSC = GetComponent(slot0.inputField, typeof(InputField))
+	slot0.cancelBtn = slot0:findTF(&quot;birthday_input_panel/btns/cancel_btn&quot;, slot0.window)
+	slot0.confirmBtn = slot0:findTF(&quot;birthday_input_panel/btns/confirm_btn&quot;, slot0.window)
+	slot0.closeBtn = slot0:findTF(&quot;top/btnBack&quot;, slot0.window)
+end
+
+slot0.addListener = function(slot0)
+	onButton(slot0, slot0.bg, function ()
+		uv0:closeView()
+	end)
+	onButton(slot0, slot0.cancelBtn, function ()
+		uv0:closeView()
+	end)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:closeView()
+	end)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if not checkBirthFormat(uv0.inputSC.text) then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;set_birth_empty_tip&quot;))
+		else
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				modal = true,
+				title = i18n(&quot;set_birth_title&quot;),
+				content = i18n(&quot;set_birth_confirm_tip&quot;, uv0.inputSC.text),
+				onYes = function ()
+					pg.SdkMgr.GetInstance():SetBirth(uv0.inputSC.text)
+					uv0:closeView()
+				end
+			})
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

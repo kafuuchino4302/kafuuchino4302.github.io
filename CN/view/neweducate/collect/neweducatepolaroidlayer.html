@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducatepolaroidlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducatepolaroidlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewEducatePolaroidLayer&quot;, import(&quot;.NewEducateCollectLayerTemplate&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;NewEducatePolaroidUI&quot;
+end
+
+slot0.initConfig = function(slot0)
+	slot0.config = pg.child2_polaroid
+	slot0.allIds = slot0.contextData.permanentData:GetAllPolaroidGroups()
+	slot0.unlockIds = slot0.contextData.permanentData:GetUnlockPolaroidGroups()
+	slot0.polaroidGroup2Ids = slot0.contextData.permanentData:GetPolaroidGroup2Ids()
+	slot0.polaroids = slot0.contextData.permanentData:GetPolaroids()
+end
+
+slot0.didEnter = function(slot0)
+	slot0:InitPageInfo()
+	setText(slot0.curCntTF, #slot0.unlockIds)
+	setText(slot0.allCntTF, &quot;/&quot; .. #slot0.allIds)
+	onButton(slot0, slot0.performTF, function ()
+		setActive(uv0.performTF, false)
+	end, SFX_PANEL)
+	slot0:InitShowList()
+	slot0:UpdatePage()
+end
+
+slot0.InitShowList = function(slot0)
+	slot0.showIds = {}
+	slot0.selectedIndex = 1
+	slot1 = slot0.performTF
+	slot0.groupsTF = slot1:Find(&quot;bg/groups&quot;)
+	slot3 = slot0.groupsTF
+	slot0.showList = UIItemList.New(slot0.groupsTF, slot3:Find(&quot;tpl&quot;))
+	slot1 = slot0.showList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.showIds[slot1 + 1]
+			slot4 = uv0:IsUnlock(slot3)
+
+			setText(slot2:Find(&quot;unlock/unselected/Text&quot;), slot3)
+			setText(slot2:Find(&quot;unlock/selected/Text&quot;), slot3)
+			setActive(slot2:Find(&quot;lock&quot;), not slot4)
+			setActive(slot2:Find(&quot;unlock&quot;), slot4)
+			setActive(slot2:Find(&quot;unlock/selected&quot;), uv0.selectedIndex == slot1 + 1)
+			setActive(slot2:Find(&quot;unlock/unselected&quot;), uv0.selectedIndex ~= slot1 + 1)
+			onButton(uv0, slot2, function (slot0)
+				if uv0 then
+					uv1.selectedIndex = uv2 + 1
+
+					uv1:UpdatePerform(uv3)
+					uv1.showList:align(#uv1.showIds)
+				else
+					pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;child_polaroid_lock_tip&quot;))
+				end
+			end)
+		end
+	end)
+end
+
+slot0.IsUnlock = function(slot0, slot1)
+	return true
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2)
+	slot3 = slot0.polaroidGroup2Ids[slot1]
+
+	table.sort(slot3, CompareFuncs({
+		function (slot0)
+			return table.contains(uv0.polaroids, slot0) and 0 or 1
+		end,
+		function (slot0)
+			return slot0
+		end
+	}))
+
+	slot4 = slot0.config[slot3[1]]
+	slot5 = table.contains(slot0.unlockIds, slot1)
+
+	setActive(slot2:Find(&quot;lock&quot;), not slot5)
+	setActive(slot2:Find(&quot;unlock&quot;), slot5)
+
+	if slot5 then
+		LoadImageSpriteAsync(&quot;neweducateicon/&quot; .. slot4.pic, slot2:Find(&quot;unlock/mask/Image&quot;), true)
+		setText(slot2:Find(&quot;unlock/name&quot;), slot4.title)
+		onButton(slot0, slot2, function ()
+			uv0:ShowPerformWindow(uv1)
+		end, SFX_PANEL)
+	else
+		removeOnButton(slot2)
+		setText(slot2:Find(&quot;lock/Text&quot;), slot4.condition)
+	end
+end
+
+slot0.ShowPerformWindow = function(slot0, slot1, slot2)
+	slot0.showIds = slot1
+
+	slot0.showList:align(#slot0.showIds)
+	triggerButton(slot0.groupsTF:GetChild(0))
+	setActive(slot0.performTF, true)
+end
+
+slot0.UpdatePerform = function(slot0, slot1)
+	slot2 = slot0.config[slot1]
+
+	LoadImageSpriteAsync(&quot;neweducateicon/&quot; .. slot2.pic_2, slot0.performTF:Find(&quot;bg/mask/Image&quot;), true)
+	setText(slot0.performTF:Find(&quot;bg/Text&quot;), slot2.title)
+end
+
+slot0.PlayAnimChange = function(slot0)
+	slot0.anim:Stop()
+	slot0.anim:Play(&quot;anim_educate_Polaroid_change&quot;)
+end
+
+slot0.PlayAnimClose = function(slot0)
+	slot0.anim:Play(&quot;anim_educate_Polaroid_out&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

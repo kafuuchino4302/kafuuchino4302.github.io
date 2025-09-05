@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userproxy.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>userproxy.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;UserProxy&quot;, import(&quot;.NetProxy&quot;))
+
+slot0.register = function(slot0)
+	slot0.userIsLogined = false
+	slot0.gateways = {}
+	slot0.canSwitchGateway = false
+end
+
+slot0.setLastLogin = function(slot0, slot1)
+	assert(isa(slot1, User), &quot;should be an instance of User&quot;)
+
+	if slot1.type == 1 then
+		PlayerPrefs.SetString(&quot;user.type&quot;, &quot;1&quot;)
+		PlayerPrefs.SetString(&quot;user.arg1&quot;, slot1.arg1)
+		PlayerPrefs.SetString(&quot;user.arg2&quot;, slot1.arg2)
+		PlayerPrefs.SetString(&quot;user.arg3&quot;, slot1.arg3)
+	elseif slot1.type == 2 then
+		PlayerPrefs.SetString(&quot;user.type&quot;, &quot;1&quot;)
+		PlayerPrefs.SetString(&quot;user.arg1&quot;, &quot;yongshi&quot;)
+		PlayerPrefs.SetString(&quot;user.arg2&quot;, slot1.arg1)
+		PlayerPrefs.SetString(&quot;user.arg3&quot;, slot1.token)
+	elseif slot1.type == 3 then
+		PlayerPrefs.SetString(&quot;user.type&quot;, &quot;3&quot;)
+		PlayerPrefs.SetString(&quot;user.arg1&quot;, slot1.arg1)
+		PlayerPrefs.SetString(&quot;user.arg2&quot;, &quot;&quot;)
+		PlayerPrefs.SetString(&quot;user.arg3&quot;, &quot;&quot;)
+		PlayerPrefs.SetString(&quot;guest_uuid&quot;, slot1.arg1)
+	end
+
+	PlayerPrefs.Save()
+
+	slot0.data = slot1:clone()
+
+	slot0.data:display(&quot;logged in&quot;)
+
+	if PLATFORM_CODE == PLATFORM_JP then
+		slot0:clearTranscode()
+	end
+end
+
+slot0.getLastLoginUser = function()
+	slot0 = tonumber(PlayerPrefs.GetString(&quot;user.type&quot;))
+	slot2 = PlayerPrefs.GetString(&quot;user.arg2&quot;)
+	slot3 = PlayerPrefs.GetString(&quot;user.arg3&quot;)
+
+	print(&quot;last login:&quot;, slot0, &quot; arg1:&quot;, PlayerPrefs.GetString(&quot;user.arg1&quot;))
+
+	if slot0 ~= &quot;&quot; and slot1 ~= &quot;&quot; and slot2 ~= &quot;&quot; then
+		return User.New({
+			type = slot0,
+			arg1 = slot1,
+			arg2 = slot2,
+			arg3 = slot3
+		})
+	end
+
+	return nil
+end
+
+slot0.saveTranscode = function(slot0, slot1)
+	PlayerPrefs.SetString(&quot;transcode&quot;, slot1)
+	PlayerPrefs.Save()
+end
+
+slot0.getTranscode = function(slot0)
+	if PlayerPrefs.GetString(&quot;transcode&quot;) then
+		return slot1
+	end
+
+	return &quot;&quot;
+end
+
+slot0.clearTranscode = function(slot0)
+	PlayerPrefs.DeleteKey(&quot;transcode&quot;)
+end
+
+slot0.SetLoginedFlag = function(slot0, slot1)
+	slot0.userIsLogined = slot1
+end
+
+slot0.GetLoginedFlag = function(slot0)
+	return slot0.userIsLogined
+end
+
+slot1 = &quot;#cacheGatewayFlag#&quot;
+
+slot0.SetDefaultGateway = function(slot0)
+	if not slot0.gateways[PLATFORM] then
+		slot0.gateways[PLATFORM] = GatewayInfo.New(NetConst.GATEWAY_HOST, NetConst.GATEWAY_PORT, NetConst.PROXY_GATEWAY_HOST, NetConst.PROXY_GATEWAY_PORT)
+	end
+end
+
+slot0.ShouldSwitchGateway = function(slot0, slot1, slot2)
+	return slot0:GetCacheGatewayFlag(slot2) ~= slot1
+end
+
+slot0.GetGateWayByPlatform = function(slot0, slot1)
+	return slot0.gateways[slot1]
+end
+
+slot0.SetGatewayForPlatform = function(slot0, slot1, slot2)
+	slot0.gateways[slot1] = slot2
+end
+
+slot0.GetCacheGatewayFlag = function(slot0, slot1)
+	if not slot0.cachePlatform then
+		slot0.cachePlatform = PlayerPrefs.GetInt(uv0 .. slot1, PLATFORM)
+	end
+
+	return slot0.cachePlatform
+end
+
+slot0.GetCacheGatewayInServerLogined = function(slot0)
+	return slot0.cachePlatform or PLATFORM
+end
+
+slot0.SetCacheGatewayFlag = function(slot0, slot1)
+	if slot0.cachePlatform ~= slot1 then
+		slot0.cachePlatform = slot1
+	end
+end
+
+slot0.SaveCacheGatewayFlag = function(slot0, slot1)
+	if not slot0.canSwitchGateway then
+		return
+	end
+
+	if PlayerPrefs.GetInt(uv0 .. slot1, PLATFORM) ~= slot0.cachePlatform then
+		PlayerPrefs.SetInt(uv0 .. slot1, slot0.cachePlatform)
+		PlayerPrefs.Save()
+	end
+end
+
+slot0.GetReversePlatform = function(slot0)
+	return slot0.cachePlatform == PLATFORM_IPHONEPLAYER and PLATFORM_ANDROID or PLATFORM_IPHONEPLAYER
+end
+
+slot0.ActiveGatewaySwitcher = function(slot0)
+	slot0.canSwitchGateway = true
+end
+
+slot0.ShowGatewaySwitcher = function(slot0)
+	return slot0.canSwitchGateway
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

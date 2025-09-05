@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guoqing16.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guoqing16.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	noWaitFade = true,
+	once = true,
+	id = &quot;GUOQING16&quot;,
+	fadeType = 1,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 307020,
+			actorName = &quot;{namecode:92}&quot;,
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;【棋子】终究只有这种水平的战斗力吗，趁这个时候…先手必胜！！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			actorName = &quot;{namecode:92}&quot;,
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;你的灵魂，我们就收下了！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;！！！可恶，来不及回避了&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;……{namecode:95}…{namecode:95}姐？&quot;,
+			flashout = {
+				dur = 0.3,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			say = &quot;…约定……守护…………永远…&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			action = {
+				{
+					y = -2500,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 1,
+					x = 0
+				}
+			},
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:95}姐...？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actorName = &quot;{namecode:92}&quot;,
+			dir = -1,
+			actor = 307020,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;？！棋子居然……？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actorName = &quot;{namecode:91}&quot;,
+			dir = -1,
+			actor = 307010,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;呵呵呵，制造出的棋子居然会在这时候选择为“妹妹”挺身而出么。&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actorName = &quot;{namecode:91}&quot;,
+			dir = -1,
+			actor = 307010,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;（只是制造出的棋子，竟然会为了妹妹.....）&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actorName = &quot;{namecode:92}&quot;,
+			dir = -1,
+			actor = 307020,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;这…这就是所谓的觉醒反应么…只要在合适的地点激发出心底最重要的一段类似的经历就…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			actorName = &quot;{namecode:91}&quot;,
+			dir = -1,
+			actor = 307010,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;{namecode:92}、先撤退，如果有棋子出现“觉醒”的反应，按照和神明的约定应当作为最高优先级日志上报&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actorName = &quot;{namecode:92}&quot;,
+			dir = -1,
+			actor = 307020,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;了解&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;...等！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呜......&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:95}姐？我终于找到你了，你没事吧！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:96}...你来了啊...感觉好像做了一个很长的梦。&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在梦里...我......&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那个棋子...看来都结束了啊...唔，头好痛。&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:95}姐…对不起，这么久了，我一直没有成长，总是这么鲁莽的只顾看着眼前…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;只要你能够平安无事，我们就还有希望...只有你，能够战胜那个对手....&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在那之前，姐姐会一直在你身边...一直守护着你...&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;你只要…放心的看着前方…看着那个目标就好…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:95}姐…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			actorName = &quot;{namecode:95}&quot;,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;去吧…追上她们，问清楚她们的动机，不能让重樱的未来…毁在她们手中…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

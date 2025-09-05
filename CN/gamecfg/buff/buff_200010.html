@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200010.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200010.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;2022意大利活动 选择性镜面海域&quot;,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;撒丁帝国阵营角色在战斗中造成的伤害提高，受到的伤害降低&quot;,
+	stack = 1,
+	id = 200010,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;damageRatioBullet&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -0.2,
+				attr = &quot;injureRatio&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

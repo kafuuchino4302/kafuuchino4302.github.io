@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_54.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_54.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;竞技场BUFF触发器&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;竞技场BUFF&quot;,
+	stack = 1,
+	id = 54,
+	icon = 54,
+	last_effect = &quot;&quot;,
+	limit = {
+		SYSTEM_SCENARIO,
+		SYSTEM_ROUTINE
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				skill_id = 54
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

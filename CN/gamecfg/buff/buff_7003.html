@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_7003.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_7003.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;精英怪-旗舰&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;精英怪-旗舰-暂时无用，里面的具体配置也是有问题的&quot;,
+	stack = 1,
+	id = 7003,
+	icon = 7003,
+	last_effect = &quot;jingyingguaibuffjinse&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				group = 0,
+				number = 10000,
+				attr = &quot;maxHP&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffNewAI&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				ai_onRemove = 10012,
+				ai_onAttach = 10012
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				group = 0,
+				number = 10000,
+				attr = &quot;armor&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {
+				&quot;onUpdate&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				buff_id = 7006,
+				exceptCaster = true,
+				target = &quot;TargetAllHelp&quot;,
+				max_distance = 20
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

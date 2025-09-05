@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buyfurniturecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buyfurniturecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuyFurnitureCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.type
+	slot5 = getProxy(DormProxy)
+	slot7 = getProxy(PlayerProxy):getData()
+
+	if #slot2.furnitureIds == 0 or not slot4 then
+		return
+	end
+
+	slot8 = 0
+
+	for slot12, slot13 in ipairs(slot3) do
+		if not Furniture.New({
+			id = slot13
+		}):inTime() then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;buy_furniture_overtime&quot;))
+
+			return
+		elseif slot4 == 4 then
+			assert(slot14:getPrice(4) &gt; 0, &quot;furniture price should more than zero&gt;&gt;&quot; .. slot14.id)
+
+			slot8 = slot8 + slot15
+		elseif slot4 == 6 then
+			assert(slot14:getPrice(6) &gt; 0, &quot;furniture price should more than zero&gt;&gt;&quot; .. slot14.id)
+
+			slot8 = slot8 + slot15
+		end
+	end
+
+	if slot7:getResById(slot4) &lt; slot8 then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_resource&quot;))
+
+		return
+	end
+
+	slot9 = function()
+		slot0 = pg.ConnectionMgr.GetInstance()
+
+		slot0:Send(19006, {
+			furniture_id = uv0,
+			currency = uv1
+		}, 19007, function (slot0)
+			if slot0.result == 0 then
+				uv0:consume({
+					[id2res(uv1)] = uv2
+				})
+				uv3:updatePlayer(uv0)
+
+				if pg.furniture_data_template[uv4[1]] and slot2.themeId &gt; 0 then
+					uv5:ResetSystemTheme(slot2.themeId)
+				end
+
+				uv5:AddFurnitrues(uv4)
+
+				for slot6, slot7 in ipairs(uv4) do
+					-- Nothing
+				end
+
+				PlayerConst.UpdateLinkActivity(underscore.map(uv4, function (slot0)
+					return Drop.New({
+						count = 1,
+						type = DROP_TYPE_FURNITURE,
+						id = slot0
+					})
+				end))
+				uv6:sendNotification(GAME.BUY_FURNITURE_DONE, uv5:getData(), uv4)
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_buy_success&quot;))
+			else
+				pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;backyard_buyFurniture_error&quot;, slot0.result))
+			end
+		end)
+	end
+
+	if slot4 == 4 then
+		slot10 = i18n(&quot;word_furniture&quot;)
+
+		if #slot3 == 1 then
+			slot10 = Furniture.New({
+				id = slot3[1]
+			}):getConfig(&quot;name&quot;)
+		end
+
+		if _BackyardMsgBoxMgr then
+			_BackyardMsgBoxMgr:Show({
+				content = i18n(&quot;charge_scene_buy_confirm_backyard&quot;, slot8, slot10),
+				onYes = function ()
+					uv0()
+				end
+			})
+		else
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;charge_scene_buy_confirm&quot;, slot8, slot10),
+				onYes = function ()
+					uv0()
+				end
+			})
+		end
+	else
+		slot9()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

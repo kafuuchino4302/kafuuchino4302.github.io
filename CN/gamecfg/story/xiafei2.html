@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiafei2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xiafei2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;XIAFEI2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;与天使的约会\n\n&lt;size=45&gt;二　“赎罪”的祈祷&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			bgm = &quot;theme-clemenceau&quot;,
+			say = &quot;和霞飞一起来到了祷告堂。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;虽说是“一起做祷告”，但实际上我只是坐在长椅上看着她而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_507&quot;,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……愿鸢尾的祝福常伴。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;少女跪坐在地，双手交握于胸前。阳光透过上方的窗户倾泄而下，照亮她的半身。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;这圣洁又虔诚的一幕让人下意识地屏息，生怕惊扰了眼前紧闭双眸的“天使”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……好了。接下来轮到您了，指挥官。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;她睁开眼看向我的方向。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;考虑到您对祷告一事并不熟练，所以，我会仔细地指导您的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;果然还是算了&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;（点点头）&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			say = &quot;祷告这种事……果然还是算了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好吧，您不习惯的话，我不会勉强您。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;刚点头同意，手腕便被少女拉住了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;请您像这样，双手合十。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;她将双手覆上我的手背，在教导我双手合十时，纤细的手指先一步与我紧扣。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……您在自己双手紧握时，记得保持现在的这个力度就好。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;她浅淡的嗓音听不出其它情绪。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来是……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;她走到我身后，纤细的手指抚上了我的面颊，然后用掌心将我的双眼捂住。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还请您闭上双眼，然后和我一起念出祷告词。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			say = &quot;……明白了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;只要微微后仰，便能感受到身后少女的体温，以及某些柔软的存在。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;以鸢尾之名……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;不知为何，霞飞微微俯下了身。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;感受到肌肤相贴时传递而来的温热，教人开始无暇关注她口中所念的句子。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;您不专心呢……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			optionFlag = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;禁锢在眼前的手掌不知何时撤离，而霞飞则是一副若有所思的模样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;看来以后得想办法让您习惯……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			say = &quot;习惯晨间祷告？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，您就当是这样吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 907010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……那接下来我们就去别的地方吧，请您跟我来。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（嗯……霞飞今天果然很不对劲。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

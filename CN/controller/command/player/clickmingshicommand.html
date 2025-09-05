@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clickmingshicommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>clickmingshicommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ClickMingShiCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = getProxy(PlayerProxy):getData()
+	slot4.mingshiCount = slot4.mingshiCount + 1
+
+	if getProxy(ActivityProxy):getActivityById(mingshiActivityId) and not slot5:isEnd() and not LOCK_CLICK_MINGSHI and getProxy(TaskProxy):getmingshiTaskID(slot4.mingshiCount) &gt; 0 then
+		slot0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 1,
+			activity_id = mingshiActivityId
+		})
+	end
+
+	if slot4.mingshiflag &gt;= 2 then
+		slot3:updatePlayer(slot4)
+
+		return
+	end
+
+	slot6 = pg.ConnectionMgr.GetInstance()
+
+	slot6:Send(11506, {
+		state = 0
+	}, 11507, function (slot0)
+		if slot0.result == 0 then
+			uv0.chargeExp = uv0.chargeExp + 5
+			uv0.mingshiflag = uv0.mingshiflag + 1
+
+			uv1:sendNotification(GAME.CLICK_MING_SHI_SUCCESS)
+		else
+			uv0.mingshiflag = 2
+		end
+
+		uv2:updatePlayer(uv0)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

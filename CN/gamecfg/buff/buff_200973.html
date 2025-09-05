@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200973.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200973.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 3,
+	name = &quot;2024 斯特拉斯堡活动EX 开场检测&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 200973,
+	icon = 200973,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				buff_id = 200975,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHarm&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;LittleBeaverBadge&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 200763,
+				maxTargetNumber = 0,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHarm&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;LittleBeaverBadge&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

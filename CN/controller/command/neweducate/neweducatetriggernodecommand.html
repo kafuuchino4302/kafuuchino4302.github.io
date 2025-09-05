@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducatetriggernodecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducatetriggernodecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewEducateTriggerNodeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot5 = slot2.costs or {}
+
+	pg.ConnectionMgr.GetInstance():Send(29030, {
+		id = slot2.id,
+		branch = slot2.branch or 0
+	}, 29031, function (slot0)
+		if slot0.result == 0 then
+			getProxy(NewEducateProxy):Costs(uv0)
+			getProxy(NewEducateProxy):GetCurChar():GetFSM():SetCurNode(slot0.next_node)
+			uv1:sendNotification(GAME.NEW_EDUCATE_NEXT_NODE, {
+				node = slot0.next_node,
+				drop = NewEducateHelper.FilterBenefit(NewEducateHelper.UpdateDropsData(NewEducateHelper.MergeDrops(slot0.drop))),
+				noNextCb = function ()
+					if uv0.next_node == 0 then
+						if uv1:GetStystemNo() == NewEducateFSM.STYSTEM.PLAN then
+							if uv1:GetState(NewEducateFSM.STYSTEM.PLAN):IsFinish() then
+								uv2:sendNotification(GAME.NEW_EDUCATE_GET_EXTRA_DROP, {
+									id = uv3,
+									scheduleDrops = slot0:GetDrops()
+								})
+							else
+								uv2:sendNotification(GAME.NEW_EDUCATE_NEXT_PLAN, {
+									id = uv3
+								})
+							end
+						else
+							uv2:sendNotification(GAME.NEW_EDUCATE_CHECK_FSM)
+						end
+					end
+				end
+			})
+
+			return
+		end
+
+		pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;NewEducate_TriggerNode: &quot;, slot0.result))
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

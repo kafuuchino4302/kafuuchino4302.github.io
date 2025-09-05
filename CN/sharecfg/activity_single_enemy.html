@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_single_enemy.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_single_enemy.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_single_enemy = {
+	[1001] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1799001,
+		activity_type = 1,
+		name = &quot;&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;&quot;,
+		time = &quot;stop&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 1001,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	[1002] = {
+		pre_chapter = 1001,
+		count = 0,
+		type = 2,
+		expedition_id = 1799002,
+		activity_type = 1,
+		name = &quot;&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;&quot;,
+		time = &quot;stop&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 1002,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	[1003] = {
+		pre_chapter = 1002,
+		count = 0,
+		type = 3,
+		expedition_id = 1799003,
+		activity_type = 1,
+		name = &quot;&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;&quot;,
+		time = &quot;stop&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 1003,
+		use_oil_limit = {
+			25,
+			15
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	[1004] = {
+		pre_chapter = 1003,
+		count = 1,
+		type = 4,
+		expedition_id = 1799004,
+		activity_type = 1,
+		name = &quot;&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;&quot;,
+		time = &quot;stop&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 1004,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {
+			{
+				&quot;level&quot;,
+				1,
+				110
+			}
+		}
+	},
+	[1005] = {
+		pre_chapter = 1003,
+		count = 0,
+		type = 5,
+		expedition_id = 1799005,
+		activity_type = 1,
+		name = &quot;&quot;,
+		guardian_limit = 1,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;&quot;,
+		time = &quot;stop&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 1005,
+		use_oil_limit = {
+			40,
+			16
+		},
+		limitation = {},
+		property_limitation = {
+			{
+				&quot;level&quot;,
+				1,
+				105
+			}
+		}
+	},
+	[2001] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1901001,
+		activity_type = 2,
+		name = &quot;T1 住院大楼&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 2,
+		icon = &quot;clue_5&quot;,
+		level = &quot;LV.20&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2001,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905364
+			},
+			{
+				2,
+				905365
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201304,
+			201309,
+			201310,
+			201311
+		}
+	},
+	[2002] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1901002,
+		activity_type = 2,
+		name = &quot;T2 疗养中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 2,
+		icon = &quot;clue_2&quot;,
+		level = &quot;LV.20&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2002,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905364
+			},
+			{
+				2,
+				905365
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201305,
+			201309,
+			201312
+		}
+	},
+	[2003] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1901003,
+		activity_type = 2,
+		name = &quot;T3 后勤中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 2,
+		icon = &quot;clue_1&quot;,
+		level = &quot;LV.20&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2003,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905364
+			},
+			{
+				2,
+				905365
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201306,
+			201309,
+			201313
+		}
+	},
+	[2004] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1901004,
+		activity_type = 2,
+		name = &quot;T4 研究中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 2,
+		icon = &quot;clue_3&quot;,
+		level = &quot;LV.20&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2004,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905364
+			},
+			{
+				2,
+				905365
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201307,
+			201314,
+			201315,
+			201316,
+			201317,
+			201318
+		}
+	},
+	[2005] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 2,
+		expedition_id = 1902001,
+		activity_type = 2,
+		name = &quot;T1 住院大楼&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 3,
+		icon = &quot;clue_5&quot;,
+		level = &quot;LV.50&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2005,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905367
+			},
+			{
+				2,
+				905368
+			},
+			{
+				3,
+				905369
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201304,
+			201309,
+			201310,
+			201311
+		}
+	},
+	[2006] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 2,
+		expedition_id = 1902002,
+		activity_type = 2,
+		name = &quot;T2 疗养中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 3,
+		icon = &quot;clue_2&quot;,
+		level = &quot;LV.50&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2006,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905367
+			},
+			{
+				2,
+				905368
+			},
+			{
+				3,
+				905369
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201305,
+			201309,
+			201312
+		}
+	},
+	[2007] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 2,
+		expedition_id = 1902003,
+		activity_type = 2,
+		name = &quot;T3 后勤中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 3,
+		icon = &quot;clue_1&quot;,
+		level = &quot;LV.50&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2007,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905367
+			},
+			{
+				2,
+				905368
+			},
+			{
+				3,
+				905369
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201306,
+			201309,
+			201313
+		}
+	},
+	[2008] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 2,
+		expedition_id = 1902004,
+		activity_type = 2,
+		name = &quot;T4 研究中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 3,
+		icon = &quot;clue_3&quot;,
+		level = &quot;LV.50&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2008,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905367
+			},
+			{
+				2,
+				905368
+			},
+			{
+				3,
+				905369
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201307,
+			201314,
+			201315,
+			201316,
+			201317,
+			201318
+		}
+	},
+	[2009] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 3,
+		expedition_id = 1903001,
+		activity_type = 2,
+		name = &quot;T1 住院大楼&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 4,
+		icon = &quot;clue_5&quot;,
+		level = &quot;LV.90&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2009,
+		use_oil_limit = {
+			25,
+			15
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905371
+			},
+			{
+				2,
+				905372
+			},
+			{
+				3,
+				905373
+			},
+			{
+				4,
+				905374
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201304,
+			201309,
+			201310,
+			201311
+		}
+	},
+	[2010] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 3,
+		expedition_id = 1903002,
+		activity_type = 2,
+		name = &quot;T2 疗养中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 4,
+		icon = &quot;clue_2&quot;,
+		level = &quot;LV.90&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2010,
+		use_oil_limit = {
+			25,
+			15
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905371
+			},
+			{
+				2,
+				905372
+			},
+			{
+				3,
+				905373
+			},
+			{
+				4,
+				905374
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201305,
+			201309,
+			201312
+		}
+	},
+	[2011] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 3,
+		expedition_id = 1903003,
+		activity_type = 2,
+		name = &quot;T3 后勤中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 4,
+		icon = &quot;clue_1&quot;,
+		level = &quot;LV.90&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2011,
+		use_oil_limit = {
+			25,
+			15
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905371
+			},
+			{
+				2,
+				905372
+			},
+			{
+				3,
+				905373
+			},
+			{
+				4,
+				905374
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201306,
+			201309,
+			201313
+		}
+	},
+	[2012] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 3,
+		expedition_id = 1903004,
+		activity_type = 2,
+		name = &quot;T4 研究中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_num = 4,
+		icon = &quot;clue_3&quot;,
+		level = &quot;LV.90&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		id = 2012,
+		use_oil_limit = {
+			25,
+			15
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905371
+			},
+			{
+				2,
+				905372
+			},
+			{
+				3,
+				905373
+			},
+			{
+				4,
+				905374
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201307,
+			201314,
+			201315,
+			201316,
+			201317,
+			201318
+		}
+	},
+	[2013] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 4,
+		expedition_id = 1904001,
+		activity_type = 2,
+		name = &quot;ESP 诊疗中心&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 905380,
+		strategy_num = 4,
+		icon = &quot;clue_4&quot;,
+		level = &quot;LV.110&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 65561,
+		id = 2013,
+		use_oil_limit = {
+			40,
+			16
+		},
+		limitation = {},
+		property_limitation = {},
+		extra_drop = {
+			{
+				1,
+				905376
+			},
+			{
+				2,
+				905377
+			},
+			{
+				3,
+				905378
+			},
+			{
+				4,
+				905379
+			}
+		},
+		strategy_id = {
+			201301,
+			201302,
+			201303,
+			201308,
+			201309,
+			201319,
+			201320
+		}
+	},
+	[3001] = {
+		pre_chapter = 0,
+		count = 0,
+		type = 1,
+		expedition_id = 1929001,
+		activity_type = 1,
+		name = &quot;ABRS-1&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;30&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 3001,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	[3002] = {
+		pre_chapter = 3001,
+		count = 0,
+		type = 1,
+		expedition_id = 1929002,
+		activity_type = 1,
+		name = &quot;ABRS-2&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;60&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 3002,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	[3003] = {
+		pre_chapter = 3002,
+		count = 0,
+		type = 1,
+		expedition_id = 1929003,
+		activity_type = 1,
+		name = &quot;ABRS-3&quot;,
+		guardian_limit = 0,
+		enter_cost_drop = 0,
+		strategy_id = &quot;&quot;,
+		strategy_num = 0,
+		icon = &quot;&quot;,
+		level = &quot;90&quot;,
+		time = &quot;always&quot;,
+		enter_cost = 0,
+		extra_drop = &quot;&quot;,
+		id = 3003,
+		use_oil_limit = {
+			0,
+			0
+		},
+		limitation = {},
+		property_limitation = {}
+	},
+	all = {
+		1001,
+		1002,
+		1003,
+		1004,
+		1005,
+		2001,
+		2002,
+		2003,
+		2004,
+		2005,
+		2006,
+		2007,
+		2008,
+		2009,
+		2010,
+		2011,
+		2012,
+		2013,
+		3001,
+		3002,
+		3003
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

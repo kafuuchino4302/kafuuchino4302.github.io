@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200760.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200760.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 15,
+	name = &quot;2023 关岛活动EX 一阶段召唤 随机列表&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 200760,
+	icon = 200760,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCleanse&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				buff_id_list = {
+					200758,
+					200759
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200757,
+					200758,
+					200759
+				},
+				range = {
+					{
+						0,
+						0.33
+					},
+					{
+						0.33,
+						0.67
+					},
+					{
+						0.67,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				skill_id = 8831,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

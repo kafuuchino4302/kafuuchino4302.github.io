@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipviewconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shipviewconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	PAGE = {
+		EQUIPMENT = 2,
+		DETAIL = 1,
+		INTENSIFY = 3,
+		CORE = 7,
+		UPGRADE = 4,
+		REMOULD = 6,
+		FASHION = 5
+	},
+	currentPage = nil
+}
+slot0.SUB_VIEW_PAGE = {
+	slot0.PAGE.DETAIL,
+	slot0.PAGE.EQUIPMENT,
+	slot0.PAGE.INTENSIFY,
+	slot0.PAGE.UPGRADE,
+	slot0.PAGE.FASHION
+}
+slot0.SUB_LAYER_PAGE = {
+	slot0.PAGE.REMOULD,
+	slot0.PAGE.CORE
+}
+
+slot0.IsSubLayerPage = function(slot0)
+	return table.contains(uv0.SUB_LAYER_PAGE, slot0)
+end
+
+slot0.SWITCH_TO_PAGE = &quot;ShipViewConst.switch_to_page&quot;
+slot0.LOAD_PAINTING = &quot;ShipViewConst.load_painting&quot;
+slot0.LOAD_PAINTING_BG = &quot;ShipViewConst.load_painting_bg&quot;
+slot0.HIDE_SHIP_WORD = &quot;ShipViewConst.hide_ship_word&quot;
+slot0.SET_CLICK_ENABLE = &quot;ShipViewConst.set_click_enable&quot;
+slot0.SHOW_CUSTOM_MSG = &quot;ShipViewConst.show_custom_msg&quot;
+slot0.HIDE_CUSTOM_MSG = &quot;ShipViewConst.hide_custom_msg&quot;
+slot0.DISPLAY_HUNTING_RANGE = &quot;ShipViewConst.display_hunting_range&quot;
+slot0.PAINT_VIEW = &quot;ShipViewConst.paint_view&quot;
+slot0.SHOW_EXP_ITEM_USAGE = &quot;ShipViewConst.SHOW_EXP_ITEM_USAGE&quot;
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haman1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>haman1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HAMAN1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;哈曼观察日志\n\n&lt;size=45&gt;一  爱发脾气的秘书舰&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;港区·指挥室&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;喂！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.2,
+					number = 1,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 0,
+			say = &quot;哎…？&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;哈曼提交的报告书，你还没看吗？&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			actor = 101250,
+			say = &quot;一小时前就放这里了！为什么还不看！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;三小时前的文件都没处理完呢…&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我没说过这资料明天再交也行吗？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			actor = 101250,
+			say = &quot;不许找借口！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.2,
+					number = 3,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;说你没看就是没看！哈曼费了这么大劲才写好的！你怎么赔我！&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;（小声）还，还想说要是你好好看了就给你点奖励呢……&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;怎么突然变小声了…&quot;,
+			dir = 1,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;没什么！现在立刻马上看完来陪…给我指示！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;之后的行程是要去演习视察吧？现在不找哈曼晚点可就找不着了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;……什么叫“太突然了没有工作让你做”啊！？明明总是忙个不停为什么不让哈曼帮忙啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;啊烦死了！你就赶紧出门去你的演习海域好了啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;&lt;size=60&gt;笨蛋！&lt;/size&gt;&quot;,
+			action = {
+				{
+					y = 30,
+					dur = 0.1,
+					number = 3,
+					type = &quot;shake&quot;
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;（咚！）&quot;,
+			dialogShake = {
+				speed = 0.04,
+				x = 12.75,
+				number = 2
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;不知为何被哈曼赶出了指挥室……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

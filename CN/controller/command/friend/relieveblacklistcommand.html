@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>relieveblacklistcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>relieveblacklistcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RelieveBlackListCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if not getProxy(FriendProxy):getBlackPlayerById(slot1:getBody()) then
+		return
+	end
+
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(50107, {
+		id = slot2
+	}, 50108, function (slot0)
+		if slot0.result == 0 then
+			uv0:relieveBlackListById(uv1)
+			uv2:sendNotification(GAME.FRIEND_RELIEVE_BLACKLIST_DONE)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;friend_relieveblacklist_success&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;friend_relieveblacklist&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

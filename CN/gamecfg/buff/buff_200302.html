@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200302.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200302.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 3.2,
+	name = &quot;2022美系活动EX 恶魔开幕弹形态1&quot;,
+	init_effect = &quot;&quot;,
+	id = 200302,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 200302,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 200302,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				skill_id = 200305,
+				time = 3,
+				maxTargetNumber = 0,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHarm&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;devil&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				skill_id = 200304,
+				time = 3,
+				minTargetNumber = 1,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHarm&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;devil&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

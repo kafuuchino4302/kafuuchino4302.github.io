@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharacterrepairmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharacterrepairmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterRepairMediator&quot;, import(&quot;...base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.REPAIR_META_CHARACTER_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.REPAIR_META_CHARACTER_DONE then
+		slot0.viewComponent:checkSpecialEffect()
+		slot0.viewComponent:updateData()
+		slot0.viewComponent:doRepairProgressPanelAni()
+		slot0.viewComponent:updateAttrItem(slot0.viewComponent.attrTFList[slot0.viewComponent.curAttrName], slot0.viewComponent.curAttrName)
+		slot0.viewComponent:updateRepairBtn()
+		slot0.viewComponent:updateDetailPanel()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

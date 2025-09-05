@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldshiprepaircommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldshiprepaircommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldShipRepairCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.shipIds
+
+	if nowWorld():GetInventoryProxy():GetItemCount(WorldItem.MoneyId) &lt; slot2.totalCost then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_item_1&quot;))
+
+		return
+	end
+
+	slot8 = pg.ConnectionMgr.GetInstance()
+
+	slot8:Send(33407, {
+		ship_list = slot3
+	}, 33408, function (slot0)
+		if slot0.result == 0 then
+			_.each(uv0, function (slot0)
+				slot1 = uv0:GetShip(slot0)
+
+				assert(slot1, &quot;ship not exist: &quot; .. slot0)
+				slot1:Repair()
+			end)
+			uv2:RemoveItem(WorldItem.MoneyId, uv3)
+			uv4:sendNotification(GAME.WORLD_SHIP_REPAIR_DONE, {
+				shipIds = uv0
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;world_ship_repair_err_&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

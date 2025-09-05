@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newchallengeresultgradepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newchallengeresultgradepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewChallengeResultGradePage&quot;, import(&quot;..NewBattleResultGradePage&quot;))
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.challenge = getProxy(ChallengeProxy):getUserChallengeInfo(slot0.contextData.mode)
+	slot0.challengeExpire = getProxy(ChallengeProxy):userSeaonExpire(slot0.contextData.mode)
+end
+
+slot0.isTotalClear = function(slot0)
+	return slot0.challenge:getMode() == ChallengeProxy.MODE_CASUAL and slot0.challenge:IsFinish() or slot0:isFail()
+end
+
+slot0.isFail = function(slot0)
+	return slot0.contextData.score &lt; ys.Battle.BattleConst.BattleScore.S
+end
+
+slot0.GetGetObjectives = function(slot0)
+	if getProxy(ChallengeProxy):getUserChallengeInfo(slot0.contextData.mode):getMode() == ChallengeProxy.MODE_INFINITE then
+		return {}
+	else
+		slot3 = {}
+		slot5, slot6 = NewBattleResultUtil.ColorObjective(true)
+
+		table.insert(slot3, {
+			text = setColorStr(i18n(&quot;challenge_combat_score&quot;, slot2:getLastScore()), slot6),
+			icon = slot5
+		})
+		table.insert(slot3, {
+			text = setColorStr(i18n(&quot;challenge_current_score&quot;, slot2:getScore()), slot6),
+			icon = slot5
+		})
+
+		return slot3
+	end
+end
+
+slot0.UpdateChapterName = function(slot0)
+	if getProxy(ChallengeProxy):getUserChallengeInfo(slot0.contextData.mode) == ChallengeProxy.MODE_INFINITE then
+		setText(slot0.gradeChapterName, pg.expedition_data_template[slot1.stageId].name .. &quot; - ROUND &quot; .. getProxy(ChallengeProxy):getUserChallengeInfo(slot1.mode):getLevel())
+	else
+		uv0.super.UpdateChapterName(slot0)
+	end
+end
+
+slot0.LoadChallengeRes = function(slot0, slot1)
+	slot3 = slot0.bgTr
+
+	setActive(slot3:Find(&quot;ResultEffect/Tips&quot;), false)
+	LoadAnyAsync(&quot;BattleResultItems/Challenge&quot;, &quot;&quot;, nil, function (slot0)
+		if uv0.exited or IsNil(slot0) then
+			if uv1 then
+				uv1()
+			end
+
+			return
+		end
+
+		uv0:UpdateChallengeInfo(Object.Instantiate(slot0, uv0._tf).transform)
+
+		if uv1 then
+			uv1()
+		end
+	end)
+end
+
+slot0.UpdateChallengeInfo = function(slot0, slot1)
+	setText(slot1:Find(&quot;expire&quot;), slot0.challengeExpire and i18n(&quot;challenge_expire_warn&quot;) or &quot;&quot;)
+	setText(findTF(slot1, &quot;continue_btn/text&quot;), i18n(&quot;battle_result_continue_battle&quot;))
+	setText(findTF(slot1, &quot;quit_btn/text&quot;), i18n(&quot;battle_result_quit_battle&quot;))
+	setText(findTF(slot1, &quot;share_btn/text&quot;), i18n(&quot;battle_result_share_battle&quot;))
+
+	slot0.continueBtn = findTF(slot1, &quot;continue_btn&quot;)
+	slot0.quitBtn = findTF(slot1, &quot;quit_btn&quot;)
+	slot0.shareBtn = findTF(slot1, &quot;share_btn&quot;)
+	slot2 = slot0:isTotalClear()
+
+	SetActive(slot0.continueBtn, not slot2)
+	SetActive(slot0.quitBtn, not slot2)
+	SetActive(slot0.shareBtn, slot2)
+end
+
+slot0.RegisterEvent = function(slot0, slot1)
+	seriesAsync({
+		function (slot0)
+			uv0.super.RegisterEvent(uv1, slot0)
+		end,
+		function (slot0)
+			removeOnButton(uv0._tf)
+			uv0:LoadChallengeRes(slot0)
+		end,
+		function (slot0)
+			uv0:RegisterChallengeEvent(uv1)
+		end
+	})
+end
+
+slot0.RegisterChallengeEvent = function(slot0, slot1)
+	if slot0:isTotalClear() then
+		onButton(slot0, slot0.shareBtn, function ()
+			uv0:emit(NewBattleResultMediator.CHALLENGE_SHARE)
+		end, SFX_CONFIRM)
+		onButton(slot0, slot0._tf, slot1, SFX_CONFIRM)
+	else
+		onButton(slot0, slot0.continueBtn, function ()
+			uv0:OnContinue(uv1)
+		end, SFX_CONFIRM)
+		onButton(slot0, slot0.quitBtn, function ()
+			uv0:OnQuit(uv1)
+		end, SFX_CONFIRM)
+	end
+end
+
+slot0.OnContinue = function(slot0, slot1)
+	if slot0:isFail() then
+		slot1()
+	else
+		slot0.contextData.goToNext = true
+
+		slot0:emit(NewBattleResultMediator.CHALLENGE_DEFEAT_SCENE, {
+			callback = slot1
+		})
+	end
+end
+
+slot0.OnQuit = function(slot0, slot1)
+	if slot0:isFail() then
+		slot1()
+	else
+		slot0:emit(NewBattleResultMediator.CHALLENGE_DEFEAT_SCENE, {
+			callback = slot1
+		})
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

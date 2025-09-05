@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200703.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200703.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	time = 0,
+	name = &quot;黑基洛夫BOSS战 闪流机械重组&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 200703,
+	icon = 200703,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 200705,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = 0.3,
+				attr = &quot;injureRatioByBulletTorpedo&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBeforeFatalDamage&quot;
+			},
+			arg_list = {
+				buff_id = 200704,
+				target = &quot;TargetShipTag&quot;,
+				minTargetNumber = 1,
+				ship_tag_list = {
+					&quot;BOSS&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

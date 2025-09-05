@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_801334.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_801334.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;&quot;,
+	init_effect = &quot;jinengchufablue&quot;,
+	id = 801334,
+	time = 8,
+	picture = &quot;&quot;,
+	desc = &quot;完全闪避&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 801330,
+	last_effect = &quot;&quot;,
+	blink = {
+		0,
+		0.7,
+		1,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				group = 801330,
+				number = 1,
+				attr = &quot;perfectDodge&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 801333
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				skill_id = 801334,
+				initialCD = true,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingyangzhelaifangjishi4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>lingyangzhelaifangjishi4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	defaultTb = 2003,
+	id = &quot;LINGYANGZHELAIFANGJISHI4&quot;,
+	placeholder = {
+		&quot;tb&quot;
+	},
+	scripts = {
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_166&quot;,
+			bgm = &quot;qe-ova-1&quot;,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哎呀，被指挥官发现了呢♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;先声明一下，好孩子{namecode:491:亚德}是来帮忙的哦~可不是在偷懒呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;只是有点好奇，所以才在这里感受一下下午茶而已哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;笨蛋{tb}怎么总是跑来找这种狡猾的家伙啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			fontsize = 24,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;不过这种说话方式倒是有点意思，值得学习一下呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼~来都来了，指挥官要不要也来点甜点？这可是限定款哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过呢，想要品尝的话，是要付出相应的代价的♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;谁让指挥官是坏孩子嘛~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			fontsize = 24,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;先给糖果再要好处吗~原来如此……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;询问{namecode:491:亚德}想要什么代价&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;拒绝{namecode:491:亚德}的提议&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你想要什么代价？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔~这个嘛~让{namecode:491:亚德}好好想一想……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不如陪{namecode:491:亚德}再坐一会儿？或者答应{namecode:491:亚德}一个小小的要求？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不会是什么过分的要求吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;放心啦，{namecode:491:亚德}是好孩子呢。不会提太过分的要求的…大概？呵呵♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;原来这样就能让笨蛋{tb}上钩啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;啊，不过{tb}你可别真的上钩了哦~我可是在替你着想呢♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_166&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;想了想，还是拒绝了{namecode:491:亚德}的提议。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吃甜点就算了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那真是太可惜了呢……明明{namecode:491:亚德}还想让指挥官品尝的……~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过既然这样，那下次{namecode:491:亚德}给指挥官带些别的好了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;作为交换，指挥官要答应{namecode:491:亚德}一个要求哦♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯？为什么突然就要答应一个要求……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为{namecode:491:亚德}是好孩子嘛，答应好孩子的要求也是天经地义的事情啦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;啊~原来如此……还能这样啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，说起来{namecode:491:亚德}今天的任务已经完成了呢♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;看来娜比娅也学到了不少有趣的东西~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼~原来还可以这样捉弄笨蛋{tb}啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_166&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那{namecode:491:亚德}就先告辞啦，下次见面的时候，指挥官要记得补偿{namecode:491:亚德}哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_166&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = -2,
+			actorName = &quot;娜比娅&quot;,
+			hidePaintObj = true,
+			say = &quot;居然还不忘记要好处……嘻嘻，这个也学到了呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_166&quot;,
+			hidePaintObj = true,
+			say = &quot;和{namecode:491:亚德}告别之后，和娜比娅一起离开了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

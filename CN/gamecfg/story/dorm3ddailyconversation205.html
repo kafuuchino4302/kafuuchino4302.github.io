@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation205.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation205.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION205&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			actorName = 30221,
+			side = 2,
+			hidePaintObj = true,
+			nameColor = &quot;#FFFFFF&quot;,
+			say = &quot;{dorm3d}~有时间的话要不要一起吃个饭啾？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = true,
+							name = &quot;shuohua_qidai&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							skip = true,
+							name = &quot;Face_weixiao&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;……啊，不、不行，果然我这么说话很奇怪吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;“流行的可爱说话方式”本身就是不可信的吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;明明就很可爱！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;一点也不奇怪！&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			hidePaintObj = true,
+			nameColor = &quot;#FFFFFF&quot;,
+			say = &quot;欸？{dorm3d}是这么觉得的吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = true,
+							name = &quot;shuohua_chuaishou&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							skip = true,
+							name = &quot;Face_weixiao&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;那我就继续这么说话了啾……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

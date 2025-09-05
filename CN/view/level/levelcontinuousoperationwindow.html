@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelcontinuousoperationwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelcontinuousoperationwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelContinuousOperationWindow&quot;, import(&quot;view.activity.worldboss.ContinuousOperationWindow&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;LevelContinuousOperationWindowUI&quot;
+end
+
+slot0.ResUISettings = function(slot0)
+	return {
+		reset = true,
+		gemOffsetX = 628,
+		showType = PlayerResUI.TYPE_OIL
+	}
+end
+
+slot0.init = function(slot0)
+	slot0.panel = slot0._tf:Find(&quot;window/panel&quot;)
+	slot0._countSelect = slot0.panel:Find(&quot;content&quot;)
+	slot0._pageUtil = PageUtil.New(slot0._countSelect:Find(&quot;value_bg/left&quot;), slot0._countSelect:Find(&quot;value_bg/right&quot;), slot0._countSelect:Find(&quot;max&quot;), slot0._countSelect:Find(&quot;value_bg/value&quot;))
+	slot0.consumeText = slot0.panel:Find(&quot;content/consume&quot;):GetComponent(&quot;RichText&quot;)
+
+	setText(slot0._tf:Find(&quot;window/top/bg/title/title&quot;), i18n(&quot;multiple_sorties_title&quot;))
+	setText(slot0._tf:Find(&quot;window/top/bg/title/title/title_en&quot;), i18n(&quot;multiple_sorties_title_eng&quot;))
+	setText(slot0.panel:Find(&quot;content/desc_txt&quot;), i18n(&quot;multiple_sorties_times&quot;))
+	setText(slot0.panel:Find(&quot;Tip&quot;), i18n(&quot;multiple_sorties_main_tip&quot;))
+	setText(slot0.panel:Find(&quot;battle/pic&quot;), i18n(&quot;msgbox_text_battle&quot;))
+	setText(slot0.panel:Find(&quot;bonus/Text&quot;), i18n(&quot;expedition_extra_drop_tip&quot;))
+	setText(slot0.panel:Find(&quot;ticket/Text&quot;), i18n(&quot;multiple_sorties_challenge_ticket_use&quot;))
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._tf:Find(&quot;window/top/btnBack&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0._tf:Find(&quot;bg&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+
+	slot2 = slot0.contextData.extraRate.enabled
+	slot0.contextData.useTicket = defaultValue(slot0.contextData.useTicket, slot2)
+
+	triggerToggle(slot0.panel:Find(&quot;ticket/checkbox&quot;), slot2)
+	onToggle(slot0, slot0.panel:Find(&quot;ticket/checkbox&quot;), function (slot0)
+		uv0.contextData.useTicket = slot0
+
+		uv0:emit(LevelMediator2.ON_SPITEM_CHANGED, slot0)
+		uv0:UpdateContent()
+	end, SFX_PANEL, SFX_CANCEL)
+	slot0._pageUtil:setNumUpdate(function (slot0)
+		uv0.contextData.battleTimes = slot0
+
+		uv0:UpdateContent()
+	end)
+
+	slot3 = slot0.contextData.maxCount
+
+	slot0._pageUtil:setMaxNum(slot3)
+
+	if slot3 &gt;= 0 then
+		slot0.contextData.battleTimes = math.min(slot3, slot0.contextData.battleTimes or 1)
+	end
+
+	slot0._pageUtil:setDefaultNum(slot0.contextData.battleTimes)
+	slot0:UpdateContent()
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.UpdateContent = function(slot0)
+	slot2 = slot0.contextData.extraRate
+	slot7 = slot0.contextData.useTicket and math.clamp(slot0.contextData.battleTimes - slot2.freeBonus, 0, slot2.extraCount) or 0
+
+	if slot0.contextData.useTicket then
+		setText(slot0.panel:Find(&quot;ticket/Number&quot;), setColorStr(slot7, slot1 &lt;= slot3 and COLOR_GREEN or COLOR_RED) .. &quot;/&quot; .. slot3)
+	else
+		setText(slot0.panel:Find(&quot;ticket/Number&quot;), slot3)
+	end
+
+	slot8 = slot3 &gt; 0 and slot5 &gt; 0
+
+	setActive(slot0.panel:Find(&quot;ticket/checkboxBan&quot;), not slot8)
+	setToggleEnabled(slot0.panel:Find(&quot;ticket/checkbox&quot;), slot8)
+
+	if slot0.contextData.useTicket and not slot8 then
+		triggerToggle(slot0.panel:Find(&quot;ticket/checkbox&quot;), false)
+	end
+
+	slot9 = slot0.contextData.oilCost * (slot1 + (slot2.rate - 1) * slot6)
+	slot10 = i18n(&quot;multiple_sorties_cost1&quot;, slot9)
+
+	if getProxy(PlayerProxy):getRawData().oil &lt; slot9 then
+		slot10 = string.gsub(slot10, &quot;#92fc63&quot;, COLOR_RED)
+	end
+
+	if slot6 &gt; 0 then
+		slot10 = slot10 .. i18n(&quot;multiple_sorties_cost3&quot;, slot6)
+	end
+
+	slot0.consumeText.text = slot10
+	slot14 = slot0.panel
+
+	onButton(slot0, slot14:Find(&quot;battle&quot;), function ()
+		if uv1.oil &lt; uv0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;stage_beginStage_error_noResource&quot;))
+
+			return
+		end
+
+		uv2:emit(PreCombatMediator.CONTINUOUS_OPERATION)
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

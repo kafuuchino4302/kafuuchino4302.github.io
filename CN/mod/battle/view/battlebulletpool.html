@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebulletpool.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebulletpool.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot1 = singletonClass(&quot;BattleBulletPool&quot;)
+ys.Battle.BattleBulletPool = slot1
+slot1.__name = &quot;BattleBulletPool&quot;
+
+slot1.Ctor = function(slot0)
+end
+
+slot1.Init = function(slot0)
+	slot0._bulletResCache = {}
+end
+
+slot1.InstantiateBullet = function(slot0, slot1, slot2)
+	if slot0._bulletResCache[slot1] ~= nil then
+		slot2(slot0._bulletResCache[slot1])
+	else
+		ResourceMgr.Inst:getAssetAsync(&quot;Item/&quot; .. slot1, &quot;&quot;, UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+			assert(slot0, &quot;子弹资源加载失败：&quot; .. uv0)
+			uv1(slot0)
+
+			uv2._bulletResCache[uv0] = slot0
+		end), true, true)
+	end
+end
+
+slot1.Clear = function(slot0)
+	slot0._bulletResCache = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

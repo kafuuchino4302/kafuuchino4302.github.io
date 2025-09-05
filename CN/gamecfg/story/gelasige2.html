@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gelasige2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gelasige2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;GELASIGE2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;恋爱的季节到了\n\n&lt;size=45&gt;二 才不是那种关系呢&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼…今天也算赶上了。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;(要是放着不管，那个人肯定每天上学都要迟到……如果没有我，他现在肯定已经留级了！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201030,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;早呀，一大早就这么火热，关系这么好真让人羡慕啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;热，热心！？你是什么时候开始在那看的！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 201030,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯~大概是两位一起跑过校门的时候？担心什么，我又不会吞掉你们~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;什么？！才，才不是那样！我们根本就不是那种关系！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;被你这么强烈否定，那家伙也太可怜了。本人听着得多受伤呀~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207061,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;是、是呀…格拉斯哥，另外，平时还是对人家更温柔一些比较……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201030,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;就算格拉斯哥变温柔，也不可能变坦率啦~真是的，旁人看了都着急~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;一个个的，都太多管闲事了啦！哼！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;（不管旁人怎么说，我只想照平常一样作自己。才没有特别在意什么呢！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;（那个人根本离不开我，我只是在各方面照顾他而已，怎么会有那种误会！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201020,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;格拉斯哥…脸又红了…为什么…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这份纯情正是她的魅力所在吧…不过作为旁观者来说~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207061,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;作为皇家一员，这种事时候果然还是应该华丽地——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好了好了！这话题到此为止！赶紧回自己座位去吧，晨会马上就要开始了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;——叮铃铃铃。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哦哦，还真的是！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201020,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;总觉得困起来了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207061,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那就下课休息时再见了，各位——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;各自就坐后，格拉斯哥的目光不经意间与谈话中心的那个人对上了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;完全没注意到有人在谈论自己，带着一脸纯真的微笑向格拉斯哥挥着手。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……唉，真是个迟钝的家伙。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;格拉斯哥别开目光，看向窗外。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…一切都只是误解。无论现在还是以后，两人永远都会只是这样的关系…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;以后也…肯定不会变的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;想象了挥手回应的自己，只感到一阵害羞，最终格拉斯哥还是什么都没做。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

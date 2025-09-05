@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rivalinfolayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>rivalinfolayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RivalInfoLayer&quot;, import(&quot;..base.BaseUI&quot;))
+slot0.TYPE_DISPLAY = 1
+slot0.TYPE_BATTLE = 2
+
+slot0.getUIName = function(slot0)
+	return &quot;RivalInfoUI&quot;
+end
+
+slot0.setRival = function(slot0, slot1)
+	slot0.rivalVO = slot1
+end
+
+slot0.didEnter = function(slot0)
+	pg.UIMgr.GetInstance():LoadingOn()
+	onButton(slot0, findTF(slot0._tf, &quot;bg&quot;), function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end)
+
+	slot0.shipCardTpl = slot0._tf:GetComponent(&quot;ItemList&quot;).prefabItem[0]
+	slot0.startBtn = findTF(slot0._tf, &quot;ships_container/start_btn&quot;)
+
+	setActive(slot0.startBtn, false)
+	setActive(findTF(slot0._tf, &quot;info/title_miex&quot;), slot0.contextData.type == slot0.TYPE_BATTLE)
+	onButton(slot0, slot0.startBtn, function ()
+		uv0:emit(RivalInfoMediator.START_BATTLE)
+	end, SFX_CONFIRM)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, {
+		weight = LayerWeightConst.SECOND_LAYER
+	})
+	slot0:initRivalInfo()
+
+	slot0.isRealName = false
+	slot0.realNameToggle = slot0:findTF(&quot;info/real_name&quot;)
+
+	onToggle(slot0, slot0.realNameToggle, function (slot0)
+		uv0.isRealName = slot0
+
+		uv0:UpdateNames()
+	end, SFX_PANEL)
+	setActive(slot0.realNameToggle, pg.PushNotificationMgr.GetInstance():isEnableShipName())
+end
+
+slot0.UpdateNames = function(slot0)
+	for slot4, slot5 in pairs(slot0.names) do
+		slot7 = slot5[2]
+
+		setText(findTF(slot5[1], &quot;content/info/name_mask/name&quot;), slot0.isRealName and slot7:GetDefaultName() or slot7:getName())
+	end
+end
+
+slot0.initRivalInfo = function(slot0)
+	setText(findTF(slot0._tf, &quot;info/name/container/name&quot;), slot0.rivalVO.name)
+	setText(findTF(slot0._tf, &quot;info/name/container/lv&quot;), &quot;Lv.&quot; .. slot0.rivalVO.level)
+	setActive(findTF(slot0._tf, &quot;info/rank&quot;), slot0.rivalVO.rank ~= nil)
+	setActive(findTF(slot0._tf, &quot;info/medal&quot;), slot0.rivalVO.rank ~= nil)
+	setActive(findTF(slot0._tf, &quot;info/medal/Text&quot;), slot0.rivalVO.rank ~= nil)
+
+	if slot0.rivalVO.rank then
+		setText(findTF(slot0._tf, &quot;info/rank/container/value&quot;), slot0.rivalVO.rank)
+
+		slot1 = SeasonInfo.getMilitaryRank(slot0.rivalVO.score, slot0.rivalVO.rank)
+		slot2 = findTF(slot0._tf, &quot;info/medal&quot;)
+		slot2 = slot2:GetComponent(typeof(Image))
+		slot3 = findTF(slot0._tf, &quot;info/medal/Text&quot;)
+		slot3 = slot3:GetComponent(typeof(Image))
+		slot4 = SeasonInfo.getEmblem(slot0.rivalVO.score, slot0.rivalVO.rank)
+
+		LoadSpriteAsync(&quot;emblem/&quot; .. slot4, function (slot0)
+			uv0.sprite = slot0
+
+			uv1:SetNativeSize()
+		end)
+		LoadSpriteAsync(&quot;emblem/n_&quot; .. slot4, function (slot0)
+			uv0.sprite = slot0
+
+			uv0:SetNativeSize()
+		end)
+	end
+
+	slot0.names = {}
+
+	slot1 = function(slot0, slot1)
+		flushShipCard(slot0, slot1)
+		setScrollText(findTF(slot0, &quot;content/info/name_mask/name&quot;), slot1:GetColorName(getProxy(PlayerProxy):getRawData():ShouldCheckCustomName() and slot1:GetDefaultName() or slot1:getName()))
+	end
+
+	slot2 = function(slot0, slot1, slot2, slot3)
+		slot4 = cloneTplTo(uv0.shipCardTpl, slot2)
+		slot4.localScale = Vector3(1.1, 1.1, 1)
+
+		setActive(uv0:findTF(&quot;content&quot;, slot4), slot3 ~= nil)
+		setActive(uv0:findTF(&quot;empty&quot;, slot4), slot3 == nil)
+
+		if slot3 then
+			uv1(slot4, slot3)
+			table.insert(uv0.names, {
+				slot4,
+				slot3
+			})
+		end
+	end
+
+	slot3 = slot0:findTF(&quot;ships_container/ships/main&quot;, slot0._tf)
+	slot4 = #slot0.rivalVO.mainShips
+
+	for slot8 = 1, 3 do
+		slot2(slot4, slot8, slot3, slot0.rivalVO.mainShips[slot8])
+	end
+
+	slot5 = slot0:findTF(&quot;ships_container/ships/vanguard&quot;, slot0._tf)
+	slot6 = #slot0.rivalVO.vanguardShips
+
+	for slot10 = 1, 3 do
+		slot2(slot6, slot10, slot5, slot0.rivalVO.vanguardShips[slot10])
+	end
+
+	slot7 = slot0:findTF(&quot;ships_container/main_comprehensive&quot;, slot0._tf)
+	slot8 = slot0:findTF(&quot;ships_container/vanguard_comprehensive&quot;, slot0._tf)
+	slot11 = slot0.rivalVO
+	slot12 = slot0.rivalVO
+	slot13 = LeanTween.value(go(slot0:findTF(&quot;ships_container/main_comprehensive/Text&quot;, slot0._tf)), 0, slot11:GetGearScoreSum(TeamType.Main), 0.5)
+
+	slot13:setOnUpdate(System.Action_float(function (slot0)
+		setText(uv0, math.floor(slot0))
+	end))
+
+	slot13 = LeanTween.value(go(slot0:findTF(&quot;ships_container/vanguard_comprehensive/Text&quot;, slot0._tf)), 0, slot12:GetGearScoreSum(TeamType.Vanguard), 0.5)
+	slot13 = slot13:setOnUpdate(System.Action_float(function (slot0)
+		setText(uv0, math.floor(slot0))
+	end))
+
+	slot13:setOnComplete(System.Action(function ()
+		setActive(uv0.startBtn, uv0.contextData.type == uv0.TYPE_BATTLE)
+		pg.UIMgr.GetInstance():LoadingOff()
+	end))
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, pg.UIMgr.GetInstance().UIMain)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

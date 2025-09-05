@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation75.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation75.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION75&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;{dorm3d}，您为什么一直在看着天狼星？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;toukan&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			},
+			options = {
+				{
+					content = &quot;天狼星有喜欢的音乐吗？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;想更了解天狼星的喜好，比如喜欢的音乐之类的&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;天狼星仔细回想了一下，过去似乎没有什么好好聆听音乐的机会……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;sikao1&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;所以在音乐这方面，也没有什么可以称得上“喜欢”或是“不喜欢”的内容。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;天狼星感到很抱歉，我的{dorm3d}……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;为什么要道歉呢？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;因为{dorm3d}想要更了解天狼星的喜好，但天狼星完全没有这方面的认知。所以……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;还没找到喜好也不要紧&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我会陪着天狼星慢慢寻找&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;其实……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;jidong&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;天狼星最喜欢的永远是您，我骄傲的{dorm3d}啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

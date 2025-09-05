@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_15110.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_15110.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 15110,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 15110,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				skill_id = 15110,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				buff_id = 15113,
+				minTargetNumber = 2,
+				nationality = 5,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetNationality&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				countTarget = 3,
+				countType = 15110,
+				index = {
+					1
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				skill_id = 15111,
+				target = &quot;TargetSelf&quot;,
+				countType = 15110
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				skill_id = 15112,
+				target = &quot;TargetSelf&quot;,
+				countType = 15110
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

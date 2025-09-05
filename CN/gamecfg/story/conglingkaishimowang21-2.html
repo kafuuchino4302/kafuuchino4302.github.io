@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conglingkaishimowang21-2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>conglingkaishimowang21-2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;CONGLINGKAISHIMOWANG21-2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;login-2022401us&quot;,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = &quot;main1&quot;,
+			say = &quot;呵，就凭汝等这点三脚猫的功夫还想困住身为完美究极吸血鬼的吾？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;降临吧，吾的使魔们，赐予这群不知天高地厚的凡人永恒的解脱吧——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;有翼啾莱姆群&quot;,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;翼啾——翼啾————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			movableNode = {
+				{
+					name = &quot;props/story_youyishilaimu&quot;,
+					time = 1.7,
+					path = {
+						{
+							-1500,
+							100
+						},
+						{
+							1600,
+							0
+						}
+					}
+				},
+				{
+					delay = 0.5,
+					name = &quot;props/story_youyishilaimu&quot;,
+					time = 1.2,
+					path = {
+						{
+							-1600,
+							0
+						},
+						{
+							1500,
+							0
+						}
+					}
+				},
+				{
+					delay = 0.2,
+					name = &quot;props/story_youyishilaimu&quot;,
+					time = 1.3,
+					path = {
+						{
+							-1800,
+							250
+						},
+						{
+							1500,
+							0
+						}
+					}
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;独角兽、利物浦，注意魔法值管理，优先使用消耗少的持续性回复。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;努比亚人，使用群体性伤害的爆裂魔药攻击魔物群。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;谢菲尔德和{namecode:460:塞德利茨}，优先使用远程火力将落单的魔物逐个击杀。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;贞德留在回复阵内，只处理突入身边的敌人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;抚顺也是，注意阵型，别一个人冲得太远！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;呵，还真是密不透风啊。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;小队指挥……看吾先解决了汝——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 0.5,
+					x = -2500
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;——终于上钩了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			say = &quot;不枉我大声指挥了那么久。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;就在吸血鬼向我笔直冲来之际，她触碰到了吸血鬼女仆在消散前设置的陷阱。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;随即——时间停止了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;竟然是时间停止魔法？！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;果然是时间停止魔法！&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;THE——WORLD&quot;,
+					flag = 3
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			factiontag = &quot;指挥官&quot;,
+			optionFlag = 3,
+			say = &quot;时间啊——停止吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;可、可恶……身体动不了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这样就——结束了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;可恶啊————！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_176&quot;,
+			bgm = &quot;story-mmorpg&quot;,
+			say = &quot;就这样，魔王军的全部三座据点都被摧毁了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_176&quot;,
+			say = &quot;我依靠光明之加护的力量，净化了大地上的诅咒，让荒芜之地重新焕发了生机。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;最开始我只是以为遇到了又一批鲁莽的冒险者……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没想到你们竟然能做到这一步……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我代表全体吸血鬼猎人，向诸位致以最诚挚的谢意。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吸血鬼猎人将永远是诸位的盟友。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;此间事毕。接下来，我们需要前往世界各地告知其他猎人王都沦陷日的真相。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们必须要暂时分别一段时间了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……我没有什么能够代表吸血鬼猎人整体的信物能够给你们。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过请你们放心，当你们和魔王决战的时候——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;谢菲尔德&amp;塞德利茨&quot;,
+			side = 0,
+			bgName = &quot;star_level_bg_176&quot;,
+			hideOther = true,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吸血鬼猎人一定在场！&quot;,
+			subActors = {
+				{
+					actor = 404031,
+					hidePaintObj = true,
+					pos = {
+						x = 1125
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

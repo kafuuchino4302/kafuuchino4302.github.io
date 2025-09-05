@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banrenmafeiji4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>banrenmafeiji4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;BANRENMAFEIJI4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;盛夏的半人马座\n\n&lt;size=45&gt;四　沙滩上的美味&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_106&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			actor = 201212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊，自由和维希的姐妹们来了呢。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			say = &quot;还有罗德尼前辈。&quot;,
+			dir = 1,
+			actor = 206040,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201212,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;咦，真的耶。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			dir = 1,
+			actor = 201212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;罗德尼姐姐，敦刻尔克小姐，埃米尔小姐，这边~~~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 904011,
+			side = 2,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;你是……啊，新加入的半人马对吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			say = &quot;是的，敦刻尔克前辈，埃米尔·贝尔汀前辈，还有罗德尼前辈，上午好。&quot;,
+			dir = 1,
+			actor = 206040,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;日安，叫我埃米尔就好啦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;呵呵，日安。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205041,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;你好~我在路上遇到了她们两个，就顺便带过来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;标枪，不好意思，巴尔她果然还是不愿意过来呢。不过你放心，今晚我一定会把她拉过来的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201212,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯，那就麻烦敦刻尔克姐姐了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 206040,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;咦，晚上有什么事吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201212,
+			side = 2,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嘻嘻，等到晚上你就知道了，也和半人马你有关哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			say = &quot;这样啊，那好吧……&quot;,
+			dir = 1,
+			actor = 206040,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;总之，我做了甜点来，要一起尝尝吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201212,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;半人马我跟你说，敦刻尔克姐姐做的甜点超级好吃的哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205041,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;我也听姐姐说过呢，说维希教廷来了一位世界级的甜点大师什么的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;呵呵，你们都太过奖了……好了，请用吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			dir = 1,
+			actor = 206040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……真美味啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			dir = 1,
+			actor = 201212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;对吧~不过我虽然很想吃……但总觉得吃下去的话，回去要没有勇气面对体重计了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 205041,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;确实很美味呢……不过真遗憾，等一下我还要去练习沙滩排球，不能吃太多呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;呵呵，没事的，想要吃的话可以随时来找我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802011,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不过，为什么来海边会带蛋糕这些点心啦……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802011,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;虽然敦刻尔克你做的是很好吃没错，你看标枪做的便当就很正常。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 904011,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;……那下次我问指挥官申请一个便携冰箱，做点冰淇淋过来怎么样？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802011,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;你还真是完全没有抛弃甜点的念头呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802011,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不过冰淇淋是个好主意，我支持哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			bgName = &quot;star_level_bg_106&quot;,
+			dir = 1,
+			actor = 206040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;也很符合夏天的感觉呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201212,
+			side = 0,
+			bgName = &quot;star_level_bg_106&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;虽然热量也很高就是了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;唔，不管了，我也要吃！&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_106&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 201212,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.3,
+				side = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0.3,
+					dur = 0.4,
+					x = 22.5,
+					number = 1
+				},
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 1.1,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

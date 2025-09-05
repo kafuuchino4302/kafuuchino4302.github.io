@@ -1,0 +1,2994 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name_code.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>name_code.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.name_code = {
+	{
+		name = &quot;峰风&quot;,
+		type = 1,
+		id = 1,
+		code = &quot;樱&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;吹雪&quot;,
+		type = 1,
+		id = 2,
+		code = &quot;桐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;白雪&quot;,
+		type = 1,
+		id = 3,
+		code = &quot;杉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;初雪&quot;,
+		type = 1,
+		id = 4,
+		code = &quot;杨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;深雪&quot;,
+		type = 1,
+		id = 5,
+		code = &quot;梧&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;绫波&quot;,
+		type = 1,
+		id = 6,
+		code = &quot;柚&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;敷波&quot;,
+		type = 1,
+		id = 7,
+		code = &quot;柿&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;曙&quot;,
+		type = 1,
+		id = 8,
+		code = &quot;棪&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;涟&quot;,
+		type = 1,
+		id = 9,
+		code = &quot;槿&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;潮&quot;,
+		type = 1,
+		id = 10,
+		code = &quot;槟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;晓&quot;,
+		type = 1,
+		id = 11,
+		code = &quot;枫&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;响&quot;,
+		type = 1,
+		id = 12,
+		code = &quot;栀&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;雷&quot;,
+		type = 1,
+		id = 13,
+		code = &quot;梓&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;电&quot;,
+		type = 1,
+		id = 14,
+		code = &quot;柏&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;白露&quot;,
+		type = 1,
+		id = 15,
+		code = &quot;梿&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕立&quot;,
+		type = 1,
+		id = 16,
+		code = &quot;椿&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;时雨&quot;,
+		type = 1,
+		id = 17,
+		code = &quot;栴&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;岛风&quot;,
+		type = 1,
+		id = 18,
+		code = &quot;芒&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;阳炎&quot;,
+		type = 1,
+		id = 19,
+		code = &quot;萩&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;不知火&quot;,
+		type = 1,
+		id = 20,
+		code = &quot;蒲&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;黑潮&quot;,
+		type = 1,
+		id = 21,
+		code = &quot;蓉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;雪风&quot;,
+		type = 1,
+		id = 22,
+		code = &quot;莲&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;天津风&quot;,
+		type = 1,
+		id = 23,
+		code = &quot;菡&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;野分&quot;,
+		type = 1,
+		id = 24,
+		code = &quot;苓&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;岚&quot;,
+		type = 1,
+		id = 25,
+		code = &quot;萍&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;秋月&quot;,
+		type = 1,
+		id = 26,
+		code = &quot;椛&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;凉月&quot;,
+		type = 1,
+		id = 27,
+		code = &quot;栎&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;宵月&quot;,
+		type = 1,
+		id = 28,
+		code = &quot;楛&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;花月&quot;,
+		type = 1,
+		id = 29,
+		code = &quot;榵&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;初春&quot;,
+		type = 1,
+		id = 30,
+		code = &quot;梅&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;有明&quot;,
+		type = 1,
+		id = 31,
+		code = &quot;榎&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕暮&quot;,
+		type = 1,
+		id = 32,
+		code = &quot;棭&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;睦月&quot;,
+		type = 1,
+		id = 33,
+		code = &quot;松&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;如月&quot;,
+		type = 1,
+		id = 34,
+		code = &quot;樟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕云&quot;,
+		type = 1,
+		id = 35,
+		code = &quot;茭&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;卷云&quot;,
+		type = 1,
+		id = 36,
+		code = &quot;荨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕张&quot;,
+		type = 1,
+		id = 37,
+		code = &quot;狐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;川内&quot;,
+		type = 1,
+		id = 38,
+		code = &quot;貆&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;神通&quot;,
+		type = 1,
+		id = 39,
+		code = &quot;貎&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;那珂&quot;,
+		type = 1,
+		id = 40,
+		code = &quot;豻&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;天龙&quot;,
+		type = 1,
+		id = 41,
+		code = &quot;豺&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;龙田&quot;,
+		type = 1,
+		id = 42,
+		code = &quot;豹&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;球磨&quot;,
+		type = 1,
+		id = 43,
+		code = &quot;熊&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;北上&quot;,
+		type = 1,
+		id = 44,
+		code = &quot;狸&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大井&quot;,
+		type = 1,
+		id = 45,
+		code = &quot;獾&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;长良&quot;,
+		type = 1,
+		id = 46,
+		code = &quot;貊&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;阿武隈&quot;,
+		type = 1,
+		id = 47,
+		code = &quot;貃&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;五十铃&quot;,
+		type = 1,
+		id = 48,
+		code = &quot;貉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;阿贺野&quot;,
+		type = 1,
+		id = 49,
+		code = &quot;豼&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;能代&quot;,
+		type = 1,
+		id = 50,
+		code = &quot;貅&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;矢矧&quot;,
+		type = 1,
+		id = 51,
+		code = &quot;貁&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大淀&quot;,
+		type = 1,
+		id = 52,
+		code = &quot;淀&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;古鹰&quot;,
+		type = 1,
+		id = 53,
+		code = &quot;狼&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;加古&quot;,
+		type = 1,
+		id = 54,
+		code = &quot;狌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;青叶&quot;,
+		type = 1,
+		id = 55,
+		code = &quot;犹&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;衣笠&quot;,
+		type = 1,
+		id = 56,
+		code = &quot;猅&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;最上&quot;,
+		type = 1,
+		id = 57,
+		code = &quot;猨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;三隈&quot;,
+		type = 1,
+		id = 58,
+		code = &quot;狻&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;铃谷&quot;,
+		type = 1,
+		id = 59,
+		code = &quot;狺&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;熊野&quot;,
+		type = 1,
+		id = 60,
+		code = &quot;猁&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;利根&quot;,
+		type = 1,
+		id = 61,
+		code = &quot;猑&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;筑摩&quot;,
+		type = 1,
+		id = 62,
+		code = &quot;狘&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;妙高&quot;,
+		type = 1,
+		id = 63,
+		code = &quot;獌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;那智&quot;,
+		type = 1,
+		id = 64,
+		code = &quot;狏&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;羽黑&quot;,
+		type = 1,
+		id = 65,
+		code = &quot;犰&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;高雄&quot;,
+		type = 1,
+		id = 66,
+		code = &quot;獒&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;爱宕&quot;,
+		type = 1,
+		id = 67,
+		code = &quot;犬&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;摩耶&quot;,
+		type = 1,
+		id = 68,
+		code = &quot;犮&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;鸟海&quot;,
+		type = 1,
+		id = 69,
+		code = &quot;猋&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;金刚&quot;,
+		type = 1,
+		id = 70,
+		code = &quot;鲤&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;比叡&quot;,
+		type = 1,
+		id = 71,
+		code = &quot;鲟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;榛名&quot;,
+		type = 1,
+		id = 72,
+		code = &quot;鲑&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;雾岛&quot;,
+		type = 1,
+		id = 73,
+		code = &quot;鳗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;长门&quot;,
+		type = 1,
+		id = 74,
+		code = &quot;鲨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;陆奥&quot;,
+		type = 1,
+		id = 75,
+		code = &quot;鲛&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊势&quot;,
+		type = 1,
+		id = 76,
+		code = &quot;鳌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;日向&quot;,
+		type = 1,
+		id = 77,
+		code = &quot;螯&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑&quot;,
+		type = 1,
+		id = 78,
+		code = &quot;魟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;山城&quot;,
+		type = 1,
+		id = 79,
+		code = &quot;鲼&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;纪伊&quot;,
+		type = 1,
+		id = 80,
+		code = &quot;鲣&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;土佐&quot;,
+		type = 1,
+		id = 81,
+		code = &quot;䲠&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;三笠&quot;,
+		type = 1,
+		id = 82,
+		code = &quot;鲐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大和&quot;,
+		type = 1,
+		id = 83,
+		code = &quot;鲸&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;武藏&quot;,
+		type = 1,
+		id = 84,
+		code = &quot;鳄&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;飞鹰&quot;,
+		type = 1,
+		id = 85,
+		code = &quot;鸱&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;隼鹰&quot;,
+		type = 1,
+		id = 86,
+		code = &quot;鸢&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;祥凤&quot;,
+		type = 1,
+		id = 87,
+		code = &quot;鹞&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;瑞凤&quot;,
+		type = 1,
+		id = 88,
+		code = &quot;鹳&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;凤翔&quot;,
+		type = 1,
+		id = 89,
+		code = &quot;凤&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;龙骧&quot;,
+		type = 1,
+		id = 90,
+		code = &quot;枭&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;赤城&quot;,
+		type = 1,
+		id = 91,
+		code = &quot;凰&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;加贺&quot;,
+		type = 1,
+		id = 92,
+		code = &quot;鸾&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;苍龙&quot;,
+		type = 1,
+		id = 93,
+		code = &quot;蛟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;飞龙&quot;,
+		type = 1,
+		id = 94,
+		code = &quot;龙&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;翔鹤&quot;,
+		type = 1,
+		id = 95,
+		code = &quot;鹬&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;瑞鹤&quot;,
+		type = 1,
+		id = 96,
+		code = &quot;鹤&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大凤&quot;,
+		type = 1,
+		id = 97,
+		code = &quot;鹩&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;明石&quot;,
+		type = 1,
+		id = 98,
+		code = &quot;茗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;IJN&quot;,
+		type = 1,
+		id = 99,
+		code = &quot;SIN&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;一航战&quot;,
+		type = 1,
+		id = 100,
+		code = &quot;一航战&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;二航战&quot;,
+		type = 1,
+		id = 101,
+		code = &quot;二航战&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;五航战&quot;,
+		type = 1,
+		id = 102,
+		code = &quot;五航战&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;千岁&quot;,
+		type = 1,
+		id = 103,
+		code = &quot;鹂&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;千代田&quot;,
+		type = 1,
+		id = 104,
+		code = &quot;鹃&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;吹雪级量产型&quot;,
+		type = 1,
+		id = 105,
+		code = &quot;桐级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;白露级量产型&quot;,
+		type = 1,
+		id = 106,
+		code = &quot;梿级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;阳炎级量产型&quot;,
+		type = 1,
+		id = 107,
+		code = &quot;萩级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕云级量产型&quot;,
+		type = 1,
+		id = 108,
+		code = &quot;茭级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;睦月级量产型&quot;,
+		type = 1,
+		id = 109,
+		code = &quot;松级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;长良级量产型&quot;,
+		type = 1,
+		id = 110,
+		code = &quot;貊级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;川内级量产型&quot;,
+		type = 1,
+		id = 111,
+		code = &quot;貆级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;五十铃量产型&quot;,
+		type = 1,
+		id = 112,
+		code = &quot;貉量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;古鹰级量产型&quot;,
+		type = 1,
+		id = 113,
+		code = &quot;狼级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;青叶级量产型&quot;,
+		type = 1,
+		id = 114,
+		code = &quot;犹级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;妙高级量产型&quot;,
+		type = 1,
+		id = 115,
+		code = &quot;獌级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;高雄级量产型&quot;,
+		type = 1,
+		id = 116,
+		code = &quot;獒级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;最上级量产型&quot;,
+		type = 1,
+		id = 117,
+		code = &quot;猨级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;战舰·比叡&quot;,
+		type = 1,
+		id = 118,
+		code = &quot;战舰·鲟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;战舰·雾岛&quot;,
+		type = 1,
+		id = 119,
+		code = &quot;战舰·鳗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;空母·赤城&quot;,
+		type = 1,
+		id = 120,
+		code = &quot;空母·凰&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;空母·加贺&quot;,
+		type = 1,
+		id = 121,
+		code = &quot;空母·鸾&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;初风&quot;,
+		type = 1,
+		id = 122,
+		code = &quot;菙&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;球磨级量产型&quot;,
+		type = 1,
+		id = 123,
+		code = &quot;熊级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;神风&quot;,
+		type = 1,
+		id = 124,
+		code = &quot;榊&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;新月&quot;,
+		type = 1,
+		id = 125,
+		code = &quot;枥&quot;,
+		nation = 3
+	},
+	{
+		name = &quot;三日月&quot;,
+		type = 1,
+		id = 126,
+		code = &quot;檧&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;谷风&quot;,
+		type = 1,
+		id = 127,
+		code = &quot;栭&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;滨风&quot;,
+		type = 1,
+		id = 128,
+		code = &quot;樇&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;初霜&quot;,
+		type = 1,
+		id = 129,
+		code = &quot;檨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;舞风&quot;,
+		type = 1,
+		id = 130,
+		code = &quot;蒠&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;萩风&quot;,
+		type = 1,
+		id = 131,
+		code = &quot;莵&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;山城改&quot;,
+		type = 1,
+		id = 132,
+		code = &quot;鲼.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;水无月&quot;,
+		type = 1,
+		id = 133,
+		code = &quot;杌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;松风&quot;,
+		type = 1,
+		id = 134,
+		code = &quot;棡&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;亲潮&quot;,
+		type = 1,
+		id = 135,
+		code = &quot;藮&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;敷岛&quot;,
+		type = 1,
+		id = 136,
+		code = &quot;鲙&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;卯月&quot;,
+		type = 1,
+		id = 137,
+		code = &quot;楙&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;朝风&quot;,
+		type = 1,
+		id = 138,
+		code = &quot;櫂&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;春风&quot;,
+		type = 1,
+		id = 139,
+		code = &quot;橪&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;旗风&quot;,
+		type = 1,
+		id = 140,
+		code = &quot;樋&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;若叶&quot;,
+		type = 1,
+		id = 141,
+		code = &quot;楉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;浦风&quot;,
+		type = 1,
+		id = 142,
+		code = &quot;槆&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;矶风&quot;,
+		type = 1,
+		id = 143,
+		code = &quot;柉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;足柄&quot;,
+		type = 1,
+		id = 144,
+		code = &quot;狳&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;朝潮&quot;,
+		type = 1,
+		id = 145,
+		code = &quot;棹&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大潮&quot;,
+		type = 1,
+		id = 146,
+		code = &quot;荙&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;满潮&quot;,
+		type = 1,
+		id = 147,
+		code = &quot;樠&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;荒潮&quot;,
+		type = 1,
+		id = 148,
+		code = &quot;栘&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;凉风&quot;,
+		type = 1,
+		id = 149,
+		code = &quot;莨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;海风&quot;,
+		type = 1,
+		id = 150,
+		code = &quot;菪&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;出云&quot;,
+		type = 1,
+		id = 151,
+		code = &quot;侌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊吹&quot;,
+		type = 1,
+		id = 152,
+		code = &quot;峦&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕凪&quot;,
+		type = 1,
+		id = 153,
+		code = &quot;枳&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊19&quot;,
+		type = 1,
+		id = 154,
+		code = &quot;衣玖&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊26&quot;,
+		type = 1,
+		id = 155,
+		code = &quot;双叶梦&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊58&quot;,
+		type = 1,
+		id = 156,
+		code = &quot;冴矢&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;春月&quot;,
+		type = 1,
+		id = 157,
+		code = &quot;桸&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;江风&quot;,
+		type = 1,
+		id = 158,
+		code = &quot;茳&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;文月&quot;,
+		type = 1,
+		id = 159,
+		code = &quot;橗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;长月&quot;,
+		type = 1,
+		id = 160,
+		code = &quot;枨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;天城&quot;,
+		type = 1,
+		id = 161,
+		code = &quot;鳐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;卷波&quot;,
+		type = 1,
+		id = 162,
+		code = &quot;棬&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊13&quot;,
+		type = 1,
+		id = 163,
+		code = &quot;十纱&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;北风&quot;,
+		type = 1,
+		id = 164,
+		code = &quot;苝&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;吾妻&quot;,
+		type = 1,
+		id = 165,
+		code = &quot;猉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;特II型绫波&quot;,
+		type = 1,
+		id = 166,
+		code = &quot;特II型柚&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;特I型吹雪&quot;,
+		type = 1,
+		id = 167,
+		code = &quot;特I型桐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;特III型晓&quot;,
+		type = 1,
+		id = 168,
+		code = &quot;特III型枫&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;小比叡&quot;,
+		type = 1,
+		id = 169,
+		code = &quot;小鲟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;小赤城&quot;,
+		type = 1,
+		id = 170,
+		code = &quot;小凰&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;阳炎级量产型.verAI&quot;,
+		type = 1,
+		id = 171,
+		code = &quot;萩级量产型.verAI&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;妙高级量产型.verAI&quot;,
+		type = 1,
+		id = 172,
+		code = &quot;獌级量产型.verAI&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑级量产型.verAI&quot;,
+		type = 1,
+		id = 173,
+		code = &quot;魟量产型.verAI&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;清波&quot;,
+		type = 1,
+		id = 174,
+		code = &quot;棈&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;骏河&quot;,
+		type = 1,
+		id = 175,
+		code = &quot;鲪&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;赤城(μ兵装)&quot;,
+		type = 1,
+		id = 176,
+		code = &quot;凰(μ兵装)&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊势级量产型&quot;,
+		type = 1,
+		id = 177,
+		code = &quot;鳌级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑级量产型&quot;,
+		type = 1,
+		id = 178,
+		code = &quot;魟级量产型&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;龙凤&quot;,
+		type = 1,
+		id = 179,
+		code = &quot;鸗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;霞&quot;,
+		type = 1,
+		id = 180,
+		code = &quot;蕸&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;鬼怒&quot;,
+		type = 1,
+		id = 181,
+		code = &quot;猤&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;信浓&quot;,
+		type = 1,
+		id = 182,
+		code = &quot;鵗&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大鲸&quot;,
+		type = 1,
+		id = 183,
+		code = &quot;迖&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;浦波&quot;,
+		type = 1,
+		id = 184,
+		code = &quot;朴&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;长波&quot;,
+		type = 1,
+		id = 185,
+		code = &quot;苌&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;冬月&quot;,
+		type = 1,
+		id = 186,
+		code = &quot;㮔&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;满月&quot;,
+		type = 1,
+		id = 187,
+		code = &quot;槾&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;樫野&quot;,
+		type = 1,
+		id = 188,
+		code = &quot;㭴&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;初月&quot;,
+		type = 1,
+		id = 189,
+		code = &quot;檚&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;大凤(μ兵装)&quot;,
+		type = 1,
+		id = 190,
+		code = &quot;鹩(μ兵装)&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;飞龙·META&quot;,
+		type = 1,
+		id = 191,
+		code = &quot;龙·META&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;追风&quot;,
+		type = 1,
+		id = 192,
+		code = &quot;椎&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;小天城&quot;,
+		type = 1,
+		id = 193,
+		code = &quot;小鳐&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;提康德罗加&quot;,
+		type = 1,
+		id = 194,
+		code = &quot;卡莉永&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;旧金山&quot;,
+		type = 1,
+		id = 195,
+		code = &quot;雾城&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;射水鱼&quot;,
+		type = 1,
+		id = 196,
+		code = &quot;喷水鱼&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;博伊西&quot;,
+		type = 1,
+		id = 197,
+		code = &quot;树城&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;莫里森&quot;,
+		type = 1,
+		id = 198,
+		code = &quot;赛普拉斯&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;新泽西&quot;,
+		type = 1,
+		id = 199,
+		code = &quot;花园&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;提康&quot;,
+		type = 1,
+		id = 200,
+		code = &quot;卡莉&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;衣阿华&quot;,
+		type = 1,
+		id = 201,
+		code = &quot;霍克艾&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;巴劳鱵&quot;,
+		type = 1,
+		id = 202,
+		code = &quot;鱵&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;风云&quot;,
+		type = 1,
+		id = 203,
+		code = &quot;枟&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;白龙&quot;,
+		type = 1,
+		id = 204,
+		code = &quot;鹫&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;苍龙·META&quot;,
+		type = 1,
+		id = 205,
+		code = &quot;蛟·META&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;由良&quot;,
+		type = 1,
+		id = 206,
+		code = &quot;㹨&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;山风&quot;,
+		type = 1,
+		id = 207,
+		code = &quot;杣&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;葛城&quot;,
+		type = 1,
+		id = 208,
+		code = &quot;鹖&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;云龙&quot;,
+		type = 1,
+		id = 209,
+		code = &quot;靇&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑·META&quot;,
+		type = 1,
+		id = 210,
+		code = &quot;魟·META&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑改&quot;,
+		type = 1,
+		id = 211,
+		code = &quot;魟.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;最上改&quot;,
+		type = 1,
+		id = 212,
+		code = &quot;猨.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;夕立.改&quot;,
+		type = 1,
+		id = 213,
+		code = &quot;椿.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;最上.改&quot;,
+		type = 1,
+		id = 214,
+		code = &quot;猨.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;扶桑.改&quot;,
+		type = 1,
+		id = 215,
+		code = &quot;魟.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;山城.改&quot;,
+		type = 1,
+		id = 216,
+		code = &quot;鲼.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;伊势.改&quot;,
+		type = 1,
+		id = 217,
+		code = &quot;鳌.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;日向.改&quot;,
+		type = 1,
+		id = 218,
+		code = &quot;螯.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;霞.改&quot;,
+		type = 1,
+		id = 219,
+		code = &quot;蕸.改&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;飞鹰·META&quot;,
+		type = 1,
+		id = 220,
+		code = &quot;鸱·META&quot;,
+		nation = 0
+	},
+	{
+		name = &quot;隼鹰·META&quot;,
+		type = 1,
+		id = 221,
+		code = &quot;鸢·META&quot;,
+		nation = 0
+	},
+	[223] = {
+		name = &quot;山城·META&quot;,
+		type = 1,
+		id = 223,
+		code = &quot;鲼·META&quot;,
+		nation = 0
+	},
+	[224] = {
+		name = &quot;哈尔滨&quot;,
+		type = 1,
+		id = 224,
+		code = &quot;滨江&quot;,
+		nation = 0
+	},
+	[225] = {
+		name = &quot;若月&quot;,
+		type = 1,
+		id = 225,
+		code = &quot;若&quot;,
+		nation = 0
+	},
+	[226] = {
+		name = &quot;酒匂&quot;,
+		type = 1,
+		id = 226,
+		code = &quot;貄&quot;,
+		nation = 0
+	},
+	[227] = {
+		name = &quot;能代(μ兵装)&quot;,
+		type = 1,
+		id = 227,
+		code = &quot;貅(μ兵装)&quot;,
+		nation = 0
+	},
+	[228] = {
+		name = &quot;金刚(μ兵装)&quot;,
+		type = 1,
+		id = 228,
+		code = &quot;鲤(μ兵装)&quot;,
+		nation = 0
+	},
+	[229] = {
+		name = &quot;霞·META&quot;,
+		type = 1,
+		id = 229,
+		code = &quot;蕸·META&quot;,
+		nation = 0
+	},
+	[235] = {
+		name = &quot;皋月&quot;,
+		type = 1,
+		id = 235,
+		code = &quot;槔&quot;,
+		nation = 0
+	},
+	[236] = {
+		name = &quot;弥生&quot;,
+		type = 1,
+		id = 236,
+		code = &quot;葞&quot;,
+		nation = 0
+	},
+	[230] = {
+		name = &quot;长门·META&quot;,
+		type = 1,
+		id = 230,
+		code = &quot;鲨·META&quot;,
+		nation = 0
+	},
+	[231] = {
+		name = &quot;渡良濑&quot;,
+		type = 1,
+		id = 231,
+		code = &quot;獭&quot;,
+		nation = 0
+	},
+	[232] = {
+		name = &quot;比叡·META&quot;,
+		type = 1,
+		id = 232,
+		code = &quot;鲟·META&quot;,
+		nation = 0
+	},
+	[233] = {
+		name = &quot;绫濑&quot;,
+		type = 1,
+		id = 233,
+		code = &quot;狑&quot;,
+		nation = 0
+	},
+	[234] = {
+		name = &quot;凉波&quot;,
+		type = 1,
+		id = 234,
+		code = &quot;椋&quot;,
+		nation = 0
+	},
+	[237] = {
+		name = &quot;凤翔·META&quot;,
+		type = 1,
+		id = 237,
+		code = &quot;凤·META&quot;,
+		nation = 0
+	},
+	[238] = {
+		name = &quot;大凤·META&quot;,
+		type = 1,
+		id = 238,
+		code = &quot;鹩·META&quot;,
+		nation = 0
+	},
+	[250] = {
+		name = &quot;伊9&quot;,
+		type = 1,
+		id = 250,
+		code = &quot;玖&quot;,
+		nation = 0
+	},
+	[251] = {
+		name = &quot;伊16&quot;,
+		type = 1,
+		id = 251,
+		code = &quot;伊知梦&quot;,
+		nation = 0
+	},
+	[252] = {
+		name = &quot;伊25&quot;,
+		type = 1,
+		id = 252,
+		code = &quot;双叶檎&quot;,
+		nation = 0
+	},
+	[253] = {
+		name = &quot;伊54&quot;,
+		type = 1,
+		id = 253,
+		code = &quot;冴诗&quot;,
+		nation = 0
+	},
+	[254] = {
+		name = &quot;伊56&quot;,
+		type = 1,
+		id = 254,
+		code = &quot;冴梦&quot;,
+		nation = 0
+	},
+	[255] = {
+		name = &quot;伊60&quot;,
+		type = 1,
+		id = 255,
+		code = &quot;六重&quot;,
+		nation = 0
+	},
+	[256] = {
+		name = &quot;伊168&quot;,
+		type = 1,
+		id = 256,
+		code = &quot;伊吕波&quot;,
+		nation = 0
+	},
+	[257] = {
+		name = &quot;伊490&quot;,
+		type = 1,
+		id = 257,
+		code = &quot;诗玖玲&quot;,
+		nation = 0
+	},
+	[280] = {
+		name = &quot;巡潜乙型&quot;,
+		type = 1,
+		id = 280,
+		code = &quot;Type-B型&quot;,
+		nation = 0
+	},
+	[281] = {
+		name = &quot;海大型&quot;,
+		type = 1,
+		id = 281,
+		code = &quot;KD型&quot;,
+		nation = 0
+	},
+	[282] = {
+		name = &quot;巡潜甲型改二型&quot;,
+		type = 1,
+		id = 282,
+		code = &quot;Type-A Mod.2&quot;,
+		nation = 0
+	},
+	[283] = {
+		name = &quot;巡潜乙型改二型&quot;,
+		type = 1,
+		id = 283,
+		code = &quot;Type-B Mod.2&quot;,
+		nation = 0
+	},
+	[284] = {
+		name = &quot;海大VI型a型&quot;,
+		type = 1,
+		id = 284,
+		code = &quot;KD VIa型&quot;,
+		nation = 0
+	},
+	[285] = {
+		name = &quot;伊型&quot;,
+		type = 1,
+		id = 285,
+		code = &quot;衣型&quot;,
+		nation = 0
+	},
+	[286] = {
+		name = &quot;夕云级量产型T2&quot;,
+		type = 1,
+		id = 286,
+		code = &quot;茭级量产型T2&quot;,
+		nation = 0
+	},
+	[287] = {
+		name = &quot;川内级量产型T2&quot;,
+		type = 1,
+		id = 287,
+		code = &quot;貆级量产型T2&quot;,
+		nation = 0
+	},
+	[288] = {
+		name = &quot;最上级量产型T2&quot;,
+		type = 1,
+		id = 288,
+		code = &quot;猨级量产型T2&quot;,
+		nation = 0
+	},
+	[289] = {
+		name = &quot;扶桑级量产型T2&quot;,
+		type = 1,
+		id = 289,
+		code = &quot;魟级量产型T2&quot;,
+		nation = 0
+	},
+	[290] = {
+		name = &quot;赤城级量产型T2&quot;,
+		type = 1,
+		id = 290,
+		code = &quot;凰级量产型T2&quot;,
+		nation = 0
+	},
+	[291] = {
+		name = &quot;小大凤&quot;,
+		type = 1,
+		id = 291,
+		code = &quot;小鹩&quot;,
+		nation = 0
+	},
+	[292] = {
+		name = &quot;四万十&quot;,
+		type = 1,
+		id = 292,
+		code = &quot;虒&quot;,
+		nation = 0
+	},
+	[293] = {
+		name = &quot;神通·META&quot;,
+		type = 1,
+		id = 293,
+		code = &quot;貎·META&quot;,
+		nation = 0
+	},
+	[294] = {
+		name = &quot;云仙&quot;,
+		type = 1,
+		id = 294,
+		code = &quot;猃&quot;,
+		nation = 0
+	},
+	[295] = {
+		name = &quot;尾张&quot;,
+		type = 1,
+		id = 295,
+		code = &quot;鳂&quot;,
+		nation = 0
+	},
+	[297] = {
+		name = &quot;名取&quot;,
+		type = 1,
+		id = 297,
+		code = &quot;猽&quot;,
+		nation = 0
+	},
+	[298] = {
+		name = &quot;朝凪&quot;,
+		type = 1,
+		id = 298,
+		code = &quot;桎&quot;,
+		nation = 0
+	},
+	[299] = {
+		name = &quot;大山&quot;,
+		type = 1,
+		id = 299,
+		code = &quot;鳝&quot;,
+		nation = 0
+	},
+	[300] = {
+		name = &quot;江风·META&quot;,
+		type = 1,
+		id = 300,
+		code = &quot;茳·META&quot;,
+		nation = 0
+	},
+	[301] = {
+		name = &quot;夕立·META&quot;,
+		type = 1,
+		id = 301,
+		code = &quot;椿·META&quot;,
+		nation = 0
+	},
+	[400] = {
+		name = &quot;Z1&quot;,
+		type = 1,
+		id = 400,
+		code = &quot;莉泽洛特&quot;,
+		nation = 0
+	},
+	[401] = {
+		name = &quot;Z2&quot;,
+		type = 1,
+		id = 401,
+		code = &quot;格尔达&quot;,
+		nation = 0
+	},
+	[402] = {
+		name = &quot;Z5&quot;,
+		type = 1,
+		id = 402,
+		code = &quot;保拉&quot;,
+		nation = 0
+	},
+	[403] = {
+		name = &quot;Z17&quot;,
+		type = 1,
+		id = 403,
+		code = &quot;迪特琳德&quot;,
+		nation = 0
+	},
+	[404] = {
+		name = &quot;Z18&quot;,
+		type = 1,
+		id = 404,
+		code = &quot;汉娜&quot;,
+		nation = 0
+	},
+	[405] = {
+		name = &quot;Z19&quot;,
+		type = 1,
+		id = 405,
+		code = &quot;赫尔米娜&quot;,
+		nation = 0
+	},
+	[406] = {
+		name = &quot;Z20&quot;,
+		type = 1,
+		id = 406,
+		code = &quot;卡洛琳&quot;,
+		nation = 0
+	},
+	[407] = {
+		name = &quot;Z21&quot;,
+		type = 1,
+		id = 407,
+		code = &quot;威尔赫米娜&quot;,
+		nation = 0
+	},
+	[408] = {
+		name = &quot;Z23&quot;,
+		type = 1,
+		id = 408,
+		code = &quot;妮米&quot;,
+		nation = 0
+	},
+	[409] = {
+		name = &quot;Z25&quot;,
+		type = 1,
+		id = 409,
+		code = &quot;妮可&quot;,
+		nation = 0
+	},
+	[410] = {
+		name = &quot;Z35&quot;,
+		type = 1,
+		id = 410,
+		code = &quot;咪菓&quot;,
+		nation = 0
+	},
+	[411] = {
+		name = &quot;Z36&quot;,
+		type = 1,
+		id = 411,
+		code = &quot;咪露&quot;,
+		nation = 0
+	},
+	[412] = {
+		name = &quot;Z46&quot;,
+		type = 1,
+		id = 412,
+		code = &quot;希露&quot;,
+		nation = 0
+	},
+	[413] = {
+		name = &quot;U-47&quot;,
+		type = 1,
+		id = 413,
+		code = &quot;优希娜&quot;,
+		nation = 0
+	},
+	[414] = {
+		name = &quot;U-81&quot;,
+		type = 1,
+		id = 414,
+		code = &quot;优哈依&quot;,
+		nation = 0
+	},
+	[415] = {
+		name = &quot;U-557&quot;,
+		type = 1,
+		id = 415,
+		code = &quot;优可可娜&quot;,
+		nation = 0
+	},
+	[416] = {
+		name = &quot;U-556&quot;,
+		type = 1,
+		id = 416,
+		code = &quot;优可可洛&quot;,
+		nation = 0
+	},
+	[417] = {
+		name = &quot;U-73&quot;,
+		type = 1,
+		id = 417,
+		code = &quot;优娜米&quot;,
+		nation = 0
+	},
+	[418] = {
+		name = &quot;U-101&quot;,
+		type = 1,
+		id = 418,
+		code = &quot;优伊欧伊&quot;,
+		nation = 0
+	},
+	[419] = {
+		name = &quot;U-522&quot;,
+		type = 1,
+		id = 419,
+		code = &quot;优柯妮妮&quot;,
+		nation = 0
+	},
+	[420] = {
+		name = &quot;U-110&quot;,
+		type = 1,
+		id = 420,
+		code = &quot;优伊伊丽&quot;,
+		nation = 0
+	},
+	[421] = {
+		name = &quot;柯尼斯堡&quot;,
+		type = 1,
+		id = 421,
+		code = &quot;阿尔伯缇娜&quot;,
+		nation = 0
+	},
+	[422] = {
+		name = &quot;卡尔斯鲁厄&quot;,
+		type = 1,
+		id = 422,
+		code = &quot;夏璐尔&quot;,
+		nation = 0
+	},
+	[423] = {
+		name = &quot;科隆&quot;,
+		type = 1,
+		id = 423,
+		code = &quot;克劳迪亚&quot;,
+		nation = 0
+	},
+	[424] = {
+		name = &quot;莱比锡&quot;,
+		type = 1,
+		id = 424,
+		code = &quot;莉普莎&quot;,
+		nation = 0
+	},
+	[425] = {
+		name = &quot;希佩尔海军上将&quot;,
+		type = 1,
+		id = 425,
+		code = &quot;芙兰希卡&quot;,
+		nation = 0
+	},
+	[426] = {
+		name = &quot;希佩尔&quot;,
+		type = 1,
+		id = 426,
+		code = &quot;芙兰希卡&quot;,
+		nation = 0
+	},
+	[427] = {
+		name = &quot;欧根亲王&quot;,
+		type = 1,
+		id = 427,
+		code = &quot;萨沃伊亲王&quot;,
+		nation = 0
+	},
+	[428] = {
+		name = &quot;欧根&quot;,
+		type = 1,
+		id = 428,
+		code = &quot;萨沃伊&quot;,
+		nation = 0
+	},
+	[429] = {
+		name = &quot;德意志&quot;,
+		type = 1,
+		id = 429,
+		code = &quot;亚勒玛妮亚&quot;,
+		nation = 0
+	},
+	[430] = {
+		name = &quot;斯佩伯爵海军上将&quot;,
+		type = 1,
+		id = 430,
+		code = &quot;休贝塔伯爵&quot;,
+		nation = 0
+	},
+	[431] = {
+		name = &quot;斯佩伯爵&quot;,
+		type = 1,
+		id = 431,
+		code = &quot;休贝塔伯爵&quot;,
+		nation = 0
+	},
+	[432] = {
+		name = &quot;斯佩&quot;,
+		type = 1,
+		id = 432,
+		code = &quot;休贝塔&quot;,
+		nation = 0
+	},
+	[433] = {
+		name = &quot;沙恩霍斯特&quot;,
+		type = 1,
+		id = 433,
+		code = &quot;格尔林德&quot;,
+		nation = 0
+	},
+	[434] = {
+		name = &quot;格奈森瑙&quot;,
+		type = 1,
+		id = 434,
+		code = &quot;奥古斯塔&quot;,
+		nation = 0
+	},
+	[435] = {
+		name = &quot;俾斯麦&quot;,
+		type = 1,
+		id = 435,
+		code = &quot;奥德莉亚&quot;,
+		nation = 0
+	},
+	[436] = {
+		name = &quot;提尔比茨&quot;,
+		type = 1,
+		id = 436,
+		code = &quot;阿尔芙莉达&quot;,
+		nation = 0
+	},
+	[437] = {
+		name = &quot;齐柏林伯爵&quot;,
+		type = 1,
+		id = 437,
+		code = &quot;海拉伯爵&quot;,
+		nation = 0
+	},
+	[438] = {
+		name = &quot;齐柏林&quot;,
+		type = 1,
+		id = 438,
+		code = &quot;海拉&quot;,
+		nation = 0
+	},
+	[439] = {
+		name = &quot;罗恩&quot;,
+		type = 1,
+		id = 439,
+		code = &quot;艾伯塔&quot;,
+		nation = 0
+	},
+	[440] = {
+		name = &quot;腓特烈大帝&quot;,
+		type = 1,
+		id = 440,
+		code = &quot;腓德雷卡大帝&quot;,
+		nation = 0
+	},
+	[441] = {
+		name = &quot;腓特烈&quot;,
+		type = 1,
+		id = 441,
+		code = &quot;腓德雷卡&quot;,
+		nation = 0
+	},
+	[442] = {
+		name = &quot;Z16&quot;,
+		type = 1,
+		id = 442,
+		code = &quot;弗蕾德贡&quot;,
+		nation = 0
+	},
+	[443] = {
+		name = &quot;Z24&quot;,
+		type = 1,
+		id = 443,
+		code = &quot;妮丝&quot;,
+		nation = 0
+	},
+	[444] = {
+		name = &quot;Z26&quot;,
+		type = 1,
+		id = 444,
+		code = &quot;妮露&quot;,
+		nation = 0
+	},
+	[445] = {
+		name = &quot;Z28&quot;,
+		type = 1,
+		id = 445,
+		code = &quot;妮娅&quot;,
+		nation = 0
+	},
+	[446] = {
+		name = &quot;纽伦堡&quot;,
+		type = 1,
+		id = 446,
+		code = &quot;诺菈&quot;,
+		nation = 0
+	},
+	[447] = {
+		name = &quot;马格德堡&quot;,
+		type = 1,
+		id = 447,
+		code = &quot;马格达莱娜&quot;,
+		nation = 0
+	},
+	[448] = {
+		name = &quot;埃姆登&quot;,
+		type = 1,
+		id = 448,
+		code = &quot;埃玛&quot;,
+		nation = 0
+	},
+	[449] = {
+		name = &quot;埃尔宾&quot;,
+		type = 1,
+		id = 449,
+		code = &quot;埃尔薇菈&quot;,
+		nation = 0
+	},
+	[450] = {
+		name = &quot;布吕歇尔&quot;,
+		type = 1,
+		id = 450,
+		code = &quot;布丽吉特&quot;,
+		nation = 0
+	},
+	[451] = {
+		name = &quot;希佩尔海军上将(μ兵装)&quot;,
+		type = 1,
+		id = 451,
+		code = &quot;芙兰希卡(μ兵装)&quot;,
+		nation = 0
+	},
+	[452] = {
+		name = &quot;罗恩(μ兵装)&quot;,
+		type = 1,
+		id = 452,
+		code = &quot;艾伯塔(μ兵装)&quot;,
+		nation = 0
+	},
+	[453] = {
+		name = &quot;海因里希亲王&quot;,
+		type = 1,
+		id = 453,
+		code = &quot;赫莉米娜亲王&quot;,
+		nation = 0
+	},
+	[454] = {
+		name = &quot;海因里希&quot;,
+		type = 1,
+		id = 454,
+		code = &quot;赫莉米娜&quot;,
+		nation = 0
+	},
+	[455] = {
+		name = &quot;阿达尔伯特亲王&quot;,
+		type = 1,
+		id = 455,
+		code = &quot;阿德莉娅亲王&quot;,
+		nation = 0
+	},
+	[456] = {
+		name = &quot;阿达尔伯特&quot;,
+		type = 1,
+		id = 456,
+		code = &quot;阿德莉娅&quot;,
+		nation = 0
+	},
+	[457] = {
+		name = &quot;约克&quot;,
+		type = 1,
+		id = 457,
+		code = &quot;伊冯娜&quot;,
+		nation = 4
+	},
+	[458] = {
+		name = &quot;小欧根&quot;,
+		type = 1,
+		id = 458,
+		code = &quot;小萨沃伊&quot;,
+		nation = 0
+	},
+	[459] = {
+		name = &quot;小斯佩&quot;,
+		type = 1,
+		id = 459,
+		code = &quot;小休贝塔&quot;,
+		nation = 0
+	},
+	[460] = {
+		name = &quot;塞德利茨&quot;,
+		type = 1,
+		id = 460,
+		code = &quot;桑德菈&quot;,
+		nation = 0
+	},
+	[461] = {
+		name = &quot;吕佐夫&quot;,
+		type = 1,
+		id = 461,
+		code = &quot;露西&quot;,
+		nation = 0
+	},
+	[462] = {
+		name = &quot;布伦希尔德&quot;,
+		type = 1,
+		id = 462,
+		code = &quot;贝尔莎&quot;,
+		nation = 0
+	},
+	[463] = {
+		name = &quot;乌尔里希·冯·胡滕&quot;,
+		type = 1,
+		id = 463,
+		code = &quot;乌尔里克·冯·胡贝尔&quot;,
+		nation = 0
+	},
+	[464] = {
+		name = &quot;乌尔里希&quot;,
+		type = 1,
+		id = 464,
+		code = &quot;乌尔里克&quot;,
+		nation = 0
+	},
+	[465] = {
+		name = &quot;胡滕&quot;,
+		type = 1,
+		id = 465,
+		code = &quot;胡贝尔&quot;,
+		nation = 0
+	},
+	[466] = {
+		name = &quot;图林根&quot;,
+		type = 1,
+		id = 466,
+		code = &quot;特鲁德&quot;,
+		nation = 0
+	},
+	[467] = {
+		name = &quot;威悉&quot;,
+		type = 1,
+		id = 467,
+		code = &quot;威尔玛&quot;,
+		nation = 0
+	},
+	[468] = {
+		name = &quot;易北&quot;,
+		type = 1,
+		id = 468,
+		code = &quot;埃尔斯贝特&quot;,
+		nation = 0
+	},
+	[469] = {
+		name = &quot;小齐柏林&quot;,
+		type = 1,
+		id = 469,
+		code = &quot;小海拉&quot;,
+		nation = 0
+	},
+	[470] = {
+		name = &quot;彼得·史特拉塞&quot;,
+		type = 1,
+		id = 470,
+		code = &quot;佩特菈·斯坦贝瑟&quot;,
+		nation = 0
+	},
+	[471] = {
+		name = &quot;彼得&quot;,
+		type = 1,
+		id = 471,
+		code = &quot;佩特菈&quot;,
+		nation = 0
+	},
+	[472] = {
+		name = &quot;史特拉塞&quot;,
+		type = 1,
+		id = 472,
+		code = &quot;斯坦贝瑟&quot;,
+		nation = 0
+	},
+	[473] = {
+		name = &quot;U-96&quot;,
+		type = 1,
+		id = 473,
+		code = &quot;优玖露&quot;,
+		nation = 0
+	},
+	[474] = {
+		name = &quot;U-37&quot;,
+		type = 1,
+		id = 474,
+		code = &quot;优米娜&quot;,
+		nation = 0
+	},
+	[475] = {
+		name = &quot;U-410&quot;,
+		type = 1,
+		id = 475,
+		code = &quot;优斯伊丽&quot;,
+		nation = 0
+	},
+	[476] = {
+		name = &quot;U-1206&quot;,
+		type = 1,
+		id = 476,
+		code = &quot;优伊妮欧露&quot;,
+		nation = 0
+	},
+	[477] = {
+		name = &quot;格奈森瑙·META&quot;,
+		type = 1,
+		id = 477,
+		code = &quot;奥古斯塔·META&quot;,
+		nation = 0
+	},
+	[478] = {
+		name = &quot;沙恩霍斯特·META&quot;,
+		type = 1,
+		id = 478,
+		code = &quot;格尔林德·META&quot;,
+		nation = 0
+	},
+	[479] = {
+		name = &quot;美因茨&quot;,
+		type = 1,
+		id = 479,
+		code = &quot;米兹&quot;,
+		nation = 0
+	},
+	[480] = {
+		name = &quot;埃吉尔&quot;,
+		type = 1,
+		id = 480,
+		code = &quot;埃格妮丝&quot;,
+		nation = 0
+	},
+	[481] = {
+		name = &quot;奥古斯特·冯·帕塞瓦尔&quot;,
+		type = 1,
+		id = 481,
+		code = &quot;奥斯特雷德·冯·帕赫贝尔&quot;,
+		nation = 0
+	},
+	[482] = {
+		name = &quot;奥古斯特&quot;,
+		type = 1,
+		id = 482,
+		code = &quot;奥斯特雷德&quot;,
+		nation = 0
+	},
+	[483] = {
+		name = &quot;帕塞瓦尔&quot;,
+		type = 1,
+		id = 483,
+		code = &quot;帕赫贝尔&quot;,
+		nation = 0
+	},
+	[484] = {
+		name = &quot;鲁普雷希特亲王&quot;,
+		type = 1,
+		id = 484,
+		code = &quot;蕾贝卡亲王&quot;,
+		nation = 0
+	},
+	[485] = {
+		name = &quot;鲁普雷希特&quot;,
+		type = 1,
+		id = 485,
+		code = &quot;蕾贝卡&quot;,
+		nation = 0
+	},
+	[486] = {
+		name = &quot;奥丁&quot;,
+		type = 1,
+		id = 486,
+		code = &quot;沃登&quot;,
+		nation = 0
+	},
+	[487] = {
+		name = &quot;德累斯顿&quot;,
+		type = 1,
+		id = 487,
+		code = &quot;迪特林德&quot;,
+		nation = 0
+	},
+	[488] = {
+		name = &quot;皮劳&quot;,
+		type = 1,
+		id = 488,
+		code = &quot;宝拉&quot;,
+		nation = 0
+	},
+	[489] = {
+		name = &quot;德弗林格尔&quot;,
+		type = 1,
+		id = 489,
+		code = &quot;多萝泰娅&quot;,
+		nation = 0
+	},
+	[490] = {
+		name = &quot;赫尔戈兰&quot;,
+		type = 1,
+		id = 490,
+		code = &quot;赫娜洛蕾&quot;,
+		nation = 0
+	},
+	[491] = {
+		name = &quot;亚德&quot;,
+		type = 1,
+		id = 491,
+		code = &quot;阿黛尔&quot;,
+		nation = 0
+	},
+	[492] = {
+		name = &quot;舍尔海军上将&quot;,
+		type = 1,
+		id = 492,
+		code = &quot;席勒&quot;,
+		nation = 0
+	},
+	[493] = {
+		name = &quot;舍尔&quot;,
+		type = 1,
+		id = 493,
+		code = &quot;席勒&quot;,
+		nation = 0
+	},
+	[494] = {
+		name = &quot;Z47&quot;,
+		type = 1,
+		id = 494,
+		code = &quot;希娜&quot;,
+		nation = 0
+	},
+	[495] = {
+		name = &quot;Z9&quot;,
+		type = 1,
+		id = 495,
+		code = &quot;沃尔普加&quot;,
+		nation = 0
+	},
+	[496] = {
+		name = &quot;Z11&quot;,
+		type = 1,
+		id = 496,
+		code = &quot;伯莎&quot;,
+		nation = 0
+	},
+	[497] = {
+		name = &quot;Z12&quot;,
+		type = 1,
+		id = 497,
+		code = &quot;埃丽卡&quot;,
+		nation = 0
+	},
+	[498] = {
+		name = &quot;Z13&quot;,
+		type = 1,
+		id = 498,
+		code = &quot;埃丝特&quot;,
+		nation = 0
+	},
+	[499] = {
+		name = &quot;Z22&quot;,
+		type = 1,
+		id = 499,
+		code = &quot;安妮特&quot;,
+		nation = 0
+	},
+	[500] = {
+		name = &quot;德意志级量产型&quot;,
+		type = 1,
+		id = 500,
+		code = &quot;亚勒玛妮亚级量产型&quot;,
+		nation = 0
+	},
+	[501] = {
+		name = &quot;柯尼斯堡级量产型&quot;,
+		type = 1,
+		id = 501,
+		code = &quot;阿尔伯缇娜级量产型&quot;,
+		nation = 0
+	},
+	[502] = {
+		name = &quot;希佩尔海军上将级量产型&quot;,
+		type = 1,
+		id = 502,
+		code = &quot;芙兰希卡级量产型&quot;,
+		nation = 0
+	},
+	[503] = {
+		name = &quot;沙恩霍斯特级量产型&quot;,
+		type = 1,
+		id = 503,
+		code = &quot;格尔林德级量产型&quot;,
+		nation = 0
+	},
+	[504] = {
+		name = &quot;齐柏林级量产型&quot;,
+		type = 1,
+		id = 504,
+		code = &quot;海拉级量产型&quot;,
+		nation = 0
+	},
+	[505] = {
+		name = &quot;德意志级量产型·改I&quot;,
+		type = 1,
+		id = 505,
+		code = &quot;亚勒玛妮亚级量产型·改I&quot;,
+		nation = 0
+	},
+	[506] = {
+		name = &quot;柯尼斯堡级量产型·改I&quot;,
+		type = 1,
+		id = 506,
+		code = &quot;阿尔伯缇娜级量产型·改I&quot;,
+		nation = 0
+	},
+	[507] = {
+		name = &quot;希佩尔海军上将级量产型·改I&quot;,
+		type = 1,
+		id = 507,
+		code = &quot;芙兰希卡级量产型·改I&quot;,
+		nation = 0
+	},
+	[508] = {
+		name = &quot;沙恩霍斯特级量产型·改I&quot;,
+		type = 1,
+		id = 508,
+		code = &quot;格尔林德级量产型·改I&quot;,
+		nation = 0
+	},
+	[509] = {
+		name = &quot;齐柏林级量产型·改I&quot;,
+		type = 1,
+		id = 509,
+		code = &quot;海拉级量产型·改I&quot;,
+		nation = 0
+	},
+	[510] = {
+		name = &quot;奥托·冯·阿尔文斯莱本&quot;,
+		type = 1,
+		id = 510,
+		code = &quot;奥莉薇娅·冯·阿诺德&quot;,
+		nation = 0
+	},
+	[511] = {
+		name = &quot;奥托&quot;,
+		type = 1,
+		id = 511,
+		code = &quot;奥莉薇娅&quot;,
+		nation = 0
+	},
+	[512] = {
+		name = &quot;阿尔文斯莱本&quot;,
+		type = 1,
+		id = 512,
+		code = &quot;阿诺德&quot;,
+		nation = 0
+	},
+	[513] = {
+		name = &quot;阿尔文斯&quot;,
+		type = 1,
+		id = 513,
+		code = &quot;阿诺德&quot;,
+		nation = 0
+	},
+	[514] = {
+		name = &quot;俾斯麦Zwei&quot;,
+		type = 1,
+		id = 514,
+		code = &quot;奥德莉亚Zwei&quot;,
+		nation = 0
+	},
+	[515] = {
+		name = &quot;U-556·META&quot;,
+		type = 1,
+		id = 515,
+		code = &quot;优可可洛·META&quot;,
+		nation = 0
+	},
+	[516] = {
+		name = &quot;雷根斯堡&quot;,
+		type = 1,
+		id = 516,
+		code = &quot;瑞吉娜&quot;,
+		nation = 0
+	},
+	[517] = {
+		name = &quot;U-556.META？&quot;,
+		type = 1,
+		id = 517,
+		code = &quot;优可可洛·META？&quot;,
+		nation = 0
+	},
+	[518] = {
+		name = &quot;菲利克斯·舒尔茨&quot;,
+		type = 1,
+		id = 518,
+		code = &quot;弗郎西斯卡·舒伯特&quot;,
+		nation = 0
+	},
+	[519] = {
+		name = &quot;菲利克斯&quot;,
+		type = 1,
+		id = 519,
+		code = &quot;弗郎西斯卡&quot;,
+		nation = 0
+	},
+	[520] = {
+		name = &quot;舒尔茨&quot;,
+		type = 1,
+		id = 520,
+		code = &quot;舒伯特&quot;,
+		nation = 0
+	},
+	[521] = {
+		name = &quot;兴登堡&quot;,
+		type = 1,
+		id = 521,
+		code = &quot;希尔德加德&quot;,
+		nation = 0
+	},
+	[522] = {
+		name = &quot;旗风·META&quot;,
+		type = 1,
+		id = 522,
+		code = &quot;樋·META&quot;,
+		nation = 0
+	},
+	[523] = {
+		name = &quot;让·巴尔&quot;,
+		type = 1,
+		id = 523,
+		code = &quot;简·布罗伊&quot;,
+		nation = 0
+	},
+	[524] = {
+		name = &quot;圣地亚哥&quot;,
+		type = 1,
+		id = 524,
+		code = &quot;圣戴安娜&quot;,
+		nation = 0
+	},
+	[525] = {
+		name = &quot;英格拉罕&quot;,
+		type = 1,
+		id = 525,
+		code = &quot;格拉哈姆&quot;,
+		nation = 0
+	},
+	[526] = {
+		name = &quot;扎拉&quot;,
+		type = 1,
+		id = 526,
+		code = &quot;扎达尔&quot;,
+		nation = 0
+	},
+	[527] = {
+		name = &quot;小圣地亚哥&quot;,
+		type = 1,
+		id = 527,
+		code = &quot;小圣戴安娜&quot;,
+		nation = 0
+	},
+	[528] = {
+		name = &quot;圣地亚哥.改&quot;,
+		type = 1,
+		id = 528,
+		code = &quot;圣戴安娜.改&quot;,
+		nation = 0
+	},
+	[529] = {
+		name = &quot;苏维埃同盟&quot;,
+		type = 1,
+		id = 529,
+		code = &quot;苏维埃萨尤斯&quot;,
+		nation = 0
+	},
+	[530] = {
+		name = &quot;同盟&quot;,
+		type = 1,
+		id = 530,
+		code = &quot;萨尤斯&quot;,
+		nation = 0
+	},
+	[531] = {
+		name = &quot;腓特烈·卡尔&quot;,
+		type = 1,
+		id = 531,
+		code = &quot;腓德雷卡·卡尔 &quot;,
+		nation = 0
+	},
+	[532] = {
+		name = &quot;欧根亲王(μ兵装)&quot;,
+		type = 1,
+		id = 532,
+		code = &quot;萨沃伊亲王(μ兵装)&quot;,
+		nation = 0
+	},
+	[533] = {
+		name = &quot;博伊西(μ兵装)&quot;,
+		type = 1,
+		id = 533,
+		code = &quot;树城(μ兵装)&quot;,
+		nation = 0
+	},
+	[534] = {
+		name = &quot;小信浓&quot;,
+		type = 1,
+		id = 534,
+		code = &quot;小鵗&quot;,
+		nation = 0
+	},
+	[535] = {
+		name = &quot;小腓特烈&quot;,
+		type = 1,
+		id = 535,
+		code = &quot;小腓德雷卡&quot;,
+		nation = 0
+	},
+	[536] = {
+		name = &quot;U-31&quot;,
+		type = 1,
+		id = 536,
+		code = &quot;优咪伊&quot;,
+		nation = 0
+	},
+	[537] = {
+		name = &quot;Z43&quot;,
+		type = 1,
+		id = 537,
+		code = &quot;希咪&quot;,
+		nation = 0
+	},
+	[538] = {
+		name = &quot;Z9&quot;,
+		type = 1,
+		id = 538,
+		code = &quot;沃尔普加&quot;,
+		nation = 0
+	},
+	[539] = {
+		name = &quot;Z11&quot;,
+		type = 1,
+		id = 539,
+		code = &quot;伯莎&quot;,
+		nation = 0
+	},
+	[540] = {
+		name = &quot;Z52&quot;,
+		type = 1,
+		id = 540,
+		code = &quot;柯妮&quot;,
+		nation = 0
+	},
+	[541] = {
+		name = &quot;杜伊斯堡&quot;,
+		type = 1,
+		id = 541,
+		code = &quot;多琳妮娅&quot;,
+		nation = 0
+	},
+	[542] = {
+		name = &quot;弗里茨·鲁梅&quot;,
+		type = 1,
+		id = 542,
+		code = &quot;菲莉西娅·鲁梅&quot;,
+		nation = 0
+	},
+	[543] = {
+		name = &quot;希佩尔海军上将·META&quot;,
+		type = 1,
+		id = 543,
+		code = &quot;芙兰希卡·META&quot;,
+		nation = 0
+	},
+	[544] = {
+		name = &quot;小埃吉尔&quot;,
+		type = 1,
+		id = 544,
+		code = &quot;小埃格妮丝&quot;,
+		nation = 0
+	},
+	[545] = {
+		name = &quot;U-552&quot;,
+		type = 1,
+		id = 545,
+		code = &quot;优可可妮&quot;,
+		nation = 0
+	},
+	[546] = {
+		name = &quot;曾克海军上将&quot;,
+		type = 1,
+		id = 546,
+		code = &quot;泽特&quot;,
+		nation = 0
+	},
+	[547] = {
+		name = &quot;曾克&quot;,
+		type = 1,
+		id = 547,
+		code = &quot;泽特&quot;,
+		nation = 0
+	},
+	[548] = {
+		name = &quot;U552&quot;,
+		type = 1,
+		id = 548,
+		code = &quot;优可可妮&quot;,
+		nation = 0
+	},
+	[549] = {
+		name = &quot;U37&quot;,
+		type = 1,
+		id = 549,
+		code = &quot;优米娜&quot;,
+		nation = 0
+	},
+	[550] = {
+		name = &quot;梅克伦堡&quot;,
+		type = 1,
+		id = 550,
+		code = &quot;梅克琳达&quot;,
+		nation = 0
+	},
+	[10000] = {
+		name = &quot;零战五二型&quot;,
+		type = 2,
+		id = 10000,
+		code = &quot;泽克战斗机&quot;,
+		nation = 0
+	},
+	[10001] = {
+		name = &quot;天山&quot;,
+		type = 2,
+		id = 10001,
+		code = &quot;吉鲁鱼雷机&quot;,
+		nation = 0
+	},
+	[10002] = {
+		name = &quot;F6F地狱猫&quot;,
+		type = 2,
+		id = 10002,
+		code = &quot;赫尔卡特战斗机&quot;,
+		nation = 0
+	},
+	[10003] = {
+		name = &quot;SB2C地狱俯冲者&quot;,
+		type = 2,
+		id = 10003,
+		code = &quot;赫尔代瓦轰炸机&quot;,
+		nation = 0
+	},
+	[10004] = {
+		name = &quot;瑞云&quot;,
+		type = 2,
+		id = 10004,
+		code = &quot;保罗水上侦察机&quot;,
+		nation = 0
+	},
+	[10005] = {
+		name = &quot;海毒牙&quot;,
+		type = 2,
+		id = 10005,
+		code = &quot;希方各战斗机&quot;,
+		nation = 0
+	},
+	[10006] = {
+		name = &quot;F6F地狱猫（HVAR搭载型）&quot;,
+		type = 2,
+		id = 10006,
+		code = &quot;赫尔卡特战斗机（HVAR搭载型）&quot;,
+		nation = 0
+	},
+	[10007] = {
+		name = &quot;天山改&quot;,
+		type = 2,
+		id = 10007,
+		code = &quot;吉鲁改鱼雷机&quot;,
+		nation = 0
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

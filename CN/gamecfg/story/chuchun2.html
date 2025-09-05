@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chuchun2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chuchun2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;CHUCHUN2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;{namecode:30}的烦恼\n\n&lt;size=45&gt;二 同伴的建议&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;港区·重樱宿舍&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301210,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;呜…早知道会变成这个样子，就不要自告奋勇去做报告了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;明明在回来的路上已经做过那么多次练习了，为什么在指挥官面前还是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 45,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 306010,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;哟！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;呀！呜、呜呜…原来是{namecode:85}小姐吗&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			say = &quot;啊，抱、抱歉，吓到你了吗？&quot;,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 306010,
+			nameColor = &quot;#92fc63&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;不用担心，委托报告我已经帮你完成了。真是的，害怕的话，一开始就交给我不就好了嘛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301210,
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;那个，谢、谢谢…不过我还是想……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;…还在烦恼刚刚的事情吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301210,
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;嗯…我想变得自信一点，所以想试着努力一下&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301210,
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;…但是一站在指挥官面前，之前想好的话突然一下子就全部忘记了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;嗯…原来如此，我明白了！{namecode:30}还是太缺乏自信了啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;（点头）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = -30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;自信的话——啊，有了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;我找找……找到了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301210,
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;这是…眼罩？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;没错！靠这个把软弱和缺乏自信都隐藏起来！来，戴上吧。对了，还要有个佩刀……要不把我的借给你吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;呜…还、还是不用了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 45,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 306010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;不行！在这里犹豫，停滞不前的话是没法变得自信的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 306010,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;就是现在，出发吧，大海盗{namecode:30}！无论是指挥官还是别的什么的，就用你的力量通通去征服吧！&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;啊呜…我……&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 45,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 301240,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#92fc63&quot;,
+			dir = 1,
+			say = &quot;{namecode:30}姐，一会有个巡逻任务一起去——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301230,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;哇，姐姐好帅！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301210,
+			nameColor = &quot;#92fc63&quot;,
+			say = &quot;呜呜呜…我果然还是不行啦！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;如此这般，伟大的“征服”在出发前便夭折了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

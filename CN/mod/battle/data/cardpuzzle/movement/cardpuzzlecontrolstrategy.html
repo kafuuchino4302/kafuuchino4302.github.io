@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardpuzzlecontrolstrategy.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cardpuzzlecontrolstrategy.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleFormulas
+slot2 = slot0.Battle.BattleConfig
+slot0.Battle.CardPuzzleControlStrategy = class(&quot;CardPuzzleControlStrategy&quot;, slot0.Battle.BattleJoyStickBotBaseStrategy)
+slot3 = slot0.Battle.CardPuzzleControlStrategy
+slot3.__name = &quot;CardPuzzleControlStrategy&quot;
+
+slot3.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+	slot0._fleetVO:GetCardPuzzleComponent():AttachMoveController(slot0)
+
+	slot0._moveState = uv1.Battle.CardPuzzleMoveState.New(slot0._fleetVO)
+end
+
+slot3.GetStrategyType = function(slot0)
+	return uv0.Battle.BattleJoyStickAutoBot.CARD_PUZZLE_CONTROL
+end
+
+slot3.InputTargetPoint = function(slot0, slot1, slot2)
+	slot0._moveState:SetReferencePoint(slot1)
+	slot0._moveState:FinishCallback(slot2)
+	slot0._moveState:ChangeState(slot0._moveState.STATE_MOVE)
+end
+
+slot3.analysis = function(slot0)
+	slot0._hrz, slot0._vtc = slot0._moveState:GetDirection()
+end
+
+slot3.Output = function(slot0)
+	slot0._moveState:Update()
+	slot0:analysis()
+
+	return slot0._hrz, slot0._vtc
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unlockcryptolaliacommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>unlockcryptolaliacommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;UnlockCryptolaliaCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.id
+	slot4 = slot2.costType
+	slot7 = nil
+
+	for slot11, slot12 in ipairs(getProxy(PlayerProxy):getRawData():GetCryptolaliaList()) do
+		if slot12.id == slot3 then
+			slot7 = slot12
+
+			break
+		end
+	end
+
+	if not slot7 or not slot7:IsLock() then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+		return
+	end
+
+	if not slot7:InTime() then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+		return
+	end
+
+	slot8 = slot7:GetCost(slot4)
+
+	if slot5:getResById(slot8.id) &lt; slot8.count then
+		if slot4 == Cryptolalia.COST_TYPE_TICKET then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;cryptolalia_no_ticket&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_resource&quot;))
+		end
+
+		return
+	end
+
+	slot10 = pg.ConnectionMgr.GetInstance()
+
+	slot10:Send(16205, {
+		id = slot3,
+		cost_type = slot4
+	}, 16206, function (slot0)
+		if slot0.ret == 0 then
+			uv0:UnlockCryptolalia(uv1)
+			uv0:consume({
+				[id2res(uv2.id)] = uv2.count
+			})
+			getProxy(PlayerProxy):updatePlayer(uv0)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;cryptolalia_exchange_success&quot;))
+			uv3:sendNotification(GAME.UNLOCK_CRYPTOLALIA_DONE, {
+				id = uv1
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.ret] .. slot0.ret)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

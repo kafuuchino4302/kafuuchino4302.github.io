@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miwuzhixia4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>miwuzhixia4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;MIWUZHIXIA4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;story-6&quot;,
+			say = &quot;要塞东侧外海？·海雾中&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;咦？刚刚飘过去的是…塞壬军舰的残骸？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不会吧，居然真的有我们的人在这儿…？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			say = &quot;虽然视野被雾气所遮蔽，不过从四周的一片死寂来判断，这一区域的塞壬舰队恐怕遭受了毁灭性打击&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 103160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;喂~~周围有人么~~~~！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没人回应呢，通讯器里也没有受到任何消息…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不对…！大家注意…我们的通讯被干扰了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;什么？！通讯联络一路上畅通无比，怎么会突然被干扰了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;…塞壬拥有干扰我们通讯的能力，只不过一直没有使用…难道说！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;发~现~的`太~晚~了`哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;顶着浓厚的海雾出海，可是会碰到恐怖塞壬出没的，你们的传说没这么说过么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;净化者……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;没错，比如会遇到恐怖的净化者！好久不见啊，各位实验数据们&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;啊~你们的低级加密通讯，已经被我拿去做更有趣的事了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;在这片异常的海雾里通讯居然还能正常使用，你们就没想过为什么么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;利用了我们的往来通讯么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;利用了哦~虽然你们估计还不知道是怎么被利用的吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			say = &quot;净化者突然装摸做样的打了个响指，笼罩在众人周边的海雾应声消失了一部分，露出了天空与水面&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;miwu_01&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;那家伙的装置，还真好用啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;咳咳，忘了说了，你们的导航系统也被我干扰了哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;…这里居然是百慕大海域？我们完全偏离航线了啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;净化者、在我下手之前，坦白你的阴谋吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;哈啊？怎么可能坦白啊！又是干扰又是伪装，折腾了这么久谁会老老实实告诉你计划啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;巴尔的摩，要塞那边…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;啊，想逃跑也不可能哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			say = &quot;随着净化者的又一声响指，浓密的海雾重新覆盖了天空与海面&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;主角还没到场，你们现在哪儿都不能去哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唉，看来走不成了……全员注意，目标塞壬净化者，准备战斗！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900021,
+			actorName = &quot;净化者&quot;,
+			say = &quot;就是这样~！时间还有的是，就老老实实的呆在这里陪我好好玩玩吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_underwater&quot;,
+			dir = 1,
+			stopbgm = true,
+			say = &quot;要塞东侧外海·？？？&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_underwater&quot;,
+			dir = 1,
+			actor = 900228,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哈~呼~哈~呼~哈~呼……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_underwater&quot;,
+			dir = 1,
+			actor = 900228,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还、还在追着我吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_underwater&quot;,
+			dir = 1,
+			actor = 900228,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;游快一点，再加把劲……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_underwater&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 900228,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;得、得快点把刚才看到的告诉大家才行！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

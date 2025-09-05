@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandevent.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandevent.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandEvent&quot;, import(&quot;.BaseVO&quot;))
+
+slot0.bindConfigTable = function(slot0)
+	return pg.activity_map_event_data
+end
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1.id
+	slot0.configId = slot1.id
+end
+
+slot0.CheckTrigger = function(slot0, slot1)
+	if slot0:getConfig(&quot;type&quot;) == 2 then
+		slot2 = underscore.detect(slot0:getConfig(&quot;params&quot;), function (slot0)
+			return slot0[1] == uv0
+		end)
+
+		assert(slot2, string.format(&quot;event_%d without params option_%d&quot;, slot0.id, slot1))
+
+		if slot2[2] then
+			slot4, slot5, slot6 = unpack(slot2[2])
+
+			assert(({
+				count = slot6,
+				id = slot5,
+				type = slot4
+			}).type == DROP_TYPE_RESOURCE or slot3.type == DROP_TYPE_ITEM or DROP_TYPE_USE_ACTIVITY_DROP &lt; slot3.type, &quot;error config cosume type&quot;)
+
+			if slot3:getOwnedCount() &lt; slot3.count then
+				return false, i18n(&quot;common_no_item_1&quot;)
+			end
+		end
+	end
+
+	return true
+end
+
+slot0.AfterTrigger = function(slot0, slot1)
+	if slot0:getConfig(&quot;type&quot;) == 2 and underscore.detect(slot0:getConfig(&quot;params&quot;), function (slot0)
+		return slot0[1] == uv0
+	end)[2] then
+		slot3, slot4, slot5 = unpack(slot2[2])
+
+		switch(slot3, {
+			[DROP_TYPE_RESOURCE] = function ()
+				slot0 = getProxy(PlayerProxy)
+				slot1 = slot0:getData()
+
+				slot1:consume({
+					[id2res(uv0)] = uv1
+				})
+				slot0:updatePlayer(slot1)
+			end,
+			[DROP_TYPE_ITEM] = function ()
+				getProxy(BagProxy):removeItemById(uv0, uv1)
+			end
+		}, function ()
+			assert(DROP_TYPE_USE_ACTIVITY_DROP &lt; uv0)
+
+			slot0 = getProxy(ActivityProxy)
+			slot1 = slot0:getActivityById(pg.activity_drop_type[uv0].activity_id)
+
+			slot1:addVitemNumber(uv1, -uv2)
+			slot0:updateActivity(slot1)
+		end)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

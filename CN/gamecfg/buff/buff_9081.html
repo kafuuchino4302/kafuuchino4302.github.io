@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_9081.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_9081.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	desc_get = &quot;在队伍中时降低旗舰受到的伤害15.0%(满级25.0%)&quot;,
+	name = &quot;旗舰掩护-LV8&quot;,
+	init_effect = &quot;&quot;,
+	id = 9081,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;在队伍中时降低旗舰受到的伤害$1&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 9080,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				skill_id = 9081
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 9080,
+				target = &quot;TargetPlayerFlagShip&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

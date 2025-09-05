@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_443911.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_443911.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;航母-后勤-机动I具体效果&quot;,
+	init_effect = &quot;&quot;,
+	id = 433911,
+	picture = &quot;&quot;,
+	desc = &quot;航母-后勤-机动I&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 433910,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatioCommander&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				ability = &quot;support&quot;,
+				convertRate = 0.4,
+				convertAttr = &quot;dodgeRate&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tolua.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tolua.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">if jit then
+	if jit.opt then
+		jit.opt.start(3)
+	end
+
+	print(&quot;ver&quot; .. jit.version_num .. &quot; jit: &quot;, jit.status())
+	print(string.format(&quot;os: %s, arch: %s&quot;, jit.os, jit.arch))
+end
+
+if DebugServerIp then
+	require(&quot;mobdebug&quot;).start(DebugServerIp)
+end
+
+require(&quot;Framework.toLua.misc.functions&quot;)
+
+Mathf = require(&quot;Framework.toLua.UnityEngine.Mathf&quot;)
+Vector3 = require(&quot;Framework.toLua.UnityEngine.Vector3&quot;)
+Quaternion = require(&quot;Framework.toLua.UnityEngine.Quaternion&quot;)
+Vector2 = require(&quot;Framework.toLua.UnityEngine.Vector2&quot;)
+Vector4 = require(&quot;Framework.toLua.UnityEngine.Vector4&quot;)
+Color = require(&quot;Framework.toLua.UnityEngine.Color&quot;)
+Ray = require(&quot;Framework.toLua.UnityEngine.Ray&quot;)
+Bounds = require(&quot;Framework.toLua.UnityEngine.Bounds&quot;)
+RaycastHit = require(&quot;Framework.toLua.UnityEngine.RaycastHit&quot;)
+Touch = require(&quot;Framework.toLua.UnityEngine.Touch&quot;)
+LayerMask = require(&quot;Framework.toLua.UnityEngine.LayerMask&quot;)
+Plane = require(&quot;Framework.toLua.UnityEngine.Plane&quot;)
+Time = reimport(&quot;Framework.toLua.UnityEngine.Time&quot;)
+list = require(&quot;Framework.toLua.list&quot;)
+utf8 = require(&quot;Framework.toLua.misc.utf8&quot;)
+
+require(&quot;Framework.toLua.event&quot;)
+require(&quot;Framework.toLua.typeof&quot;)
+require(&quot;Framework.toLua.slot&quot;)
+require(&quot;Framework.toLua.System.Timer&quot;)
+require(&quot;Framework.toLua.System.coroutine&quot;)
+require(&quot;Framework.toLua.System.ValueType&quot;)
+require(&quot;Framework.toLua.System.Reflection.BindingFlags&quot;)
+
+object = System.Object
+Type = System.Type
+Object = UnityEngine.Object
+GameObject = UnityEngine.GameObject
+Transform = UnityEngine.Transform
+MonoBehaviour = UnityEngine.MonoBehaviour
+Component = UnityEngine.Component
+Application = UnityEngine.Application
+SystemInfo = UnityEngine.SystemInfo
+Gyroscope = UnityEngine.Gyroscope
+Screen = UnityEngine.Screen
+ScreenOrientation = UnityEngine.ScreenOrientation
+Camera = UnityEngine.Camera
+Material = UnityEngine.Material
+Renderer = UnityEngine.Renderer
+AsyncOperation = UnityEngine.AsyncOperation
+GeometryUtility = UnityEngine.GeometryUtility
+TextureFormat = UnityEngine.TextureFormat
+EventSystem = UnityEngine.EventSystems.EventSystem
+CharacterController = UnityEngine.CharacterController
+SkinnedMeshRenderer = UnityEngine.SkinnedMeshRenderer
+Animation = UnityEngine.Animation
+AnimationClip = UnityEngine.AnimationClip
+AnimationEvent = UnityEngine.AnimationEvent
+AnimationState = UnityEngine.AnimationState
+Input = UnityEngine.Input
+Gyroscope = UnityEngine.Gyroscope
+KeyCode = UnityEngine.KeyCode
+Physics = UnityEngine.Physics
+Light = UnityEngine.Light
+LightType = UnityEngine.LightType
+ParticleEmitter = UnityEngine.ParticleEmitter
+Space = UnityEngine.Space
+CameraClearFlags = UnityEngine.CameraClearFlags
+RenderSettings = UnityEngine.RenderSettings
+MeshRenderer = UnityEngine.MeshRenderer
+WrapMode = UnityEngine.WrapMode
+QueueMode = UnityEngine.QueueMode
+PlayMode = UnityEngine.PlayMode
+ParticleAnimator = UnityEngine.ParticleAnimator
+TouchPhase = UnityEngine.TouchPhase
+AnimationBlendMode = UnityEngine.AnimationBlendMode
+Sprite = UnityEngine.Sprite
+QualitySettings = UnityEngine.QualitySettings
+Resources = UnityEngine.Resources
+PlayerPrefs = UnityEngine.PlayerPrefs
+RectTransform = UnityEngine.RectTransform
+CanvasGroup = UnityEngine.CanvasGroup
+Canvas = UnityEngine.Canvas
+TextMesh = UnityEngine.TextMesh
+Font = UnityEngine.Font
+Shader = UnityEngine.Shader
+TextAsset = UnityEngine.TextAsset
+Animator = UnityEngine.Animator
+Button = UnityEngine.UI.Button
+GridLayoutGroup = UnityEngine.UI.GridLayoutGroup
+HorizontalLayoutGroup = UnityEngine.UI.HorizontalLayoutGroup
+Image = UnityEngine.UI.Image
+InputField = UnityEngine.UI.InputField
+ParticleSystem = UnityEngine.ParticleSystem
+RawImage = UnityEngine.UI.RawImage
+ScrollRect = UnityEngine.UI.ScrollRect
+Scrollbar = UnityEngine.UI.Scrollbar
+Slider = UnityEngine.UI.Slider
+OSlider = UnityEngine.UI.OSlider
+Text = UnityEngine.UI.Text
+Toggle = UnityEngine.UI.Toggle
+ToggleGroup = UnityEngine.UI.ToggleGroup
+VerticalLayoutGroup = UnityEngine.UI.VerticalLayoutGroup
+TextAnchor = UnityEngine.TextAnchor
+AspectRatioFitter = UnityEngine.UI.AspectRatioFitter
+AspectMode = UnityEngine.UI.AspectRatioFitter.AspectMode
+Outline = UnityEngine.UI.Outline
+ContentSizeFitter = UnityEngine.UI.ContentSizeFitter
+LayoutElement = UnityEngine.UI.LayoutElement
+RectMask2D = UnityEngine.UI.RectMask2D
+Profiler = UnityEngine.Profiler
+HScrollSnap = UnityEngine.UI.Extensions.HScrollSnap
+CanvasScaler = UnityEngine.UI.CanvasScaler
+SleepTimeout = UnityEngine.SleepTimeout
+GraphicRaycaster = UnityEngine.UI.GraphicRaycaster
+LoadSceneMode = UnityEngine.SceneManagement.LoadSceneMode
+SceneManager = UnityEngine.SceneManagement.SceneManager
+Physics2D = UnityEngine.Physics2D
+BoxCollider2D = UnityEngine.BoxCollider2D
+SocketError = System.Net.Sockets.SocketError
+GCHandle = System.Runtime.InteropServices.GCHandle
+GCHandleType = System.Runtime.InteropServices.GCHandleType
+BundleWizard = YongShi.BundleWizardRuntime.BundleWizard
+DownloadState = YongShi.BundleWizardRuntime.DownloadState
+GroupHelper = YongShi.BundleWizardRuntime.GroupHelper
+GroupMainHelper = YongShi.BundleWizardRuntime.GroupMainHelper
+GroupOtherHelper = YongShi.BundleWizardRuntime.GroupOtherHelper
+DMFileChecker = YongShi.BundleWizardRuntime.DMFileChecker
+BundleWizardUpdater = YongShi.BundleWizardRuntime.BundleWizardUpdater
+BundleWizardUpdateInfo = YongShi.BundleWizardRuntime.BundleWizardUpdateInfo
+CubismParameterBlendMode = Live2D.Cubism.Framework.CubismParameterBlendMode
+RuntimeAnimatorController = UnityEngine.RuntimeAnimatorController
+SpineAnimationState = Spine.AnimationState
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

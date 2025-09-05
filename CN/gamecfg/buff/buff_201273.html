@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_201273.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_201273.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 3,
+	name = &quot;2025拉斐尔活动 神光之网&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 201273,
+	icon = 201273,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 201274,
+				maxTargetNumber = 0,
+				nationality = 6,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetNationality&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 201275,
+				minTargetNumber = 1,
+				nationality = 6,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetNationality&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapbuilderbismarck.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mapbuilderbismarck.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MapBuilderBismarck&quot;, import(&quot;.MapBuilderShinano&quot;))
+
+slot0.GetType = function(slot0)
+	return MapBuilder.TYPEBISMARCK
+end
+
+slot0.getUIName = function(slot0)
+	return &quot;Bismarck_levels&quot;
+end
+
+slot0.GetAtlasPath = function(slot0)
+	return &quot;ui/&quot; .. slot0:getUIName() .. &quot;_atlas&quot;
+end
+
+slot1 = {
+	[1720012.0] = &quot;red&quot;,
+	[1720025.0] = &quot;blue&quot;,
+	[1720026.0] = &quot;red&quot;,
+	[1720001.0] = &quot;green&quot;,
+	[1720002.0] = &quot;yellow&quot;,
+	[1720011.0] = &quot;blue&quot;
+}
+
+slot0.OnInit = function(slot0)
+	slot0.tpl = slot0._tf:Find(&quot;level_tpl&quot;)
+
+	setActive(slot0.tpl, false)
+
+	slot0.itemHolder = slot0._tf:Find(&quot;items&quot;)
+	slot0.buttonUp = slot0._tf:Find(&quot;up&quot;)
+	slot0.effectUp = slot0._tf:Find(&quot;upEffect&quot;)
+	slot0.buttonDown = slot0._tf:Find(&quot;down&quot;)
+	slot0.effectDown = slot0._tf:Find(&quot;downEffect&quot;)
+
+	pg.ViewUtils.SetSortingOrder(slot0.effectUp:Find(&quot;zhongzhijiguang_jiasu&quot;), ChapterConst.LayerWeightMap + 1)
+	pg.ViewUtils.SetSortingOrder(slot0.effectDown:Find(&quot;zhongzhijiguang_jiasu&quot;), ChapterConst.LayerWeightMap + 1)
+	slot0:InitTransformMapBtn(slot0.buttonDown, 1, slot0.effectDown)
+	slot0:InitTransformMapBtn(slot0.buttonUp, -1, slot0.effectUp)
+
+	slot0.loader = AutoLoader.New()
+end
+
+slot0.InitTransformMapBtn = function(slot0, slot1, slot2, slot3)
+	onButton(slot0, slot1, function ()
+		if uv0:isfrozen() then
+			return
+		end
+
+		seriesAsync({
+			function (slot0)
+				if not uv0:TrySwitchNextMap(uv1) then
+					return
+				end
+
+				pg.CriMgr.GetInstance():StopBGM()
+				pg.CriMgr.GetInstance():PlaySE_V3(&quot;battle-ship-move&quot;)
+				setActive(uv2, true)
+				uv0.sceneParent:frozen()
+				LeanTween.delayedCall(go(uv3), 1.8, System.Action(slot0))
+			end,
+			function (slot0)
+				uv0.sceneParent:setMap(uv0.contextData.mapIdx + uv1)
+				LeanTween.delayedCall(go(uv2), 0.5, System.Action(slot0))
+			end,
+			function (slot0)
+				uv0.sceneParent:unfrozen()
+			end
+		})
+	end)
+end
+
+slot0.UpdateCustomButtons = function(slot0)
+	setActive(slot0.buttonUp, false)
+	setActive(slot0.effectUp, false)
+	setActive(slot0.buttonDown, false)
+	setActive(slot0.effectDown, false)
+
+	if not (slot0.contextData.map:getConfig(&quot;type&quot;) == Map.ACT_EXTRA) then
+		setActive(slot0.sceneParent.btnPrev, false)
+		setActive(slot0.sceneParent.btnNext, false)
+
+		slot4 = getProxy(ChapterProxy)
+		slot4 = slot4:getMapsByActivities(slot1:getConfig(&quot;on_activity&quot;))
+
+		setActive(slot0.buttonDown, _.detect(slot4, function (slot0)
+			return slot0.id == uv0.id + 1
+		end))
+		setActive(slot0.buttonUp, _.detect(slot4, function (slot0)
+			return slot0.id == uv0.id - 1
+		end))
+		LeanTween.cancel(go(slot0.buttonUp), true)
+		LeanTween.cancel(go(slot0.buttonDown), true)
+	end
+end
+
+slot0.UpdateMapItem = function(slot0, slot1, slot2)
+	slot3 = slot2:getConfigTable()
+
+	setAnchoredPosition(slot1, {
+		x = slot0.mapWidth * slot3.pos_x,
+		y = slot0.mapHeight * slot3.pos_y
+	})
+
+	slot4 = findTF(slot1, &quot;main&quot;)
+
+	setActive(slot4, true)
+	setActive(findTF(slot4, &quot;info/bk/fordark&quot;), slot3.icon_outline == 1)
+
+	slot6 = findTF(slot4, &quot;circle/clear_flag&quot;)
+	slot7 = findTF(slot4, &quot;circle/lock&quot;)
+	slot9 = findTF(slot4, &quot;circle/progress&quot;)
+	slot12 = string.split(slot3.name, &quot;|&quot;)
+	slot13 = uv0[slot0.data:GetConfigID()]
+
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), &quot;stage_bar_&quot; .. slot13, slot4:Find(&quot;info/bk&quot;))
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), &quot;chapter_progress_bg_&quot; .. slot13, slot4:Find(&quot;circle/bk&quot;))
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), &quot;chapter_progress_circle_&quot; .. slot13, slot4:Find(&quot;circle/progress/Fill/progress&quot;))
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), &quot;chapter_progress_wave_&quot; .. slot13, slot4:Find(&quot;circle/progress/Mask/Handler/Wave&quot;))
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), &quot;clear_text_&quot; .. slot13, slot4:Find(&quot;circle/clear_flag&quot;))
+	setSlider(slot4:Find(&quot;circle/progress&quot;), 0, 1, slot2.progress / 100)
+
+	slot14 = not slot2.active and not slot2:isUnlock() and &quot;#737373&quot; or &quot;#FFFFFF&quot;
+
+	setText(findTF(slot4, &quot;info/bk/title_form/title_index&quot;), setColorStr(slot3.chapter_name .. &quot;  &quot;, slot14))
+	setText(findTF(slot4, &quot;info/bk/title_form/title&quot;), setColorStr(slot12[1], slot14))
+	setText(findTF(slot4, &quot;info/bk/title_form/title_en&quot;), setColorStr(slot12[2] or &quot;&quot;, slot14))
+	setText(findTF(slot4, &quot;circle/progress_text&quot;), string.format(&quot;%d%%&quot;, slot2.progress))
+	setActive(findTF(slot4, &quot;circle/stars&quot;), slot2:existAchieve())
+
+	if slot2:existAchieve() then
+		for slot18, slot19 in ipairs(slot2.achieves) do
+			setActive(slot11:Find(&quot;star&quot; .. slot18 .. &quot;/light&quot;), ChapterConst.IsAchieved(slot19))
+		end
+	end
+
+	slot15 = not slot2.active and slot2:isClear()
+
+	setActive(slot6, slot15)
+	setActive(slot7, slot8)
+	setActive(slot10, not slot15 and not slot8)
+	slot0:DeleteTween(&quot;fighting&quot; .. slot2.id)
+
+	slot16 = findTF(slot4, &quot;circle/fighting&quot;)
+
+	setText(findTF(slot16, &quot;Text&quot;), i18n(&quot;tag_level_fighting&quot;))
+
+	slot17 = findTF(slot4, &quot;circle/oni&quot;)
+
+	setText(findTF(slot17, &quot;Text&quot;), i18n(&quot;tag_level_oni&quot;))
+
+	slot18 = findTF(slot4, &quot;circle/narrative&quot;)
+
+	setText(findTF(slot18, &quot;Text&quot;), i18n(&quot;tag_level_narrative&quot;))
+	setActive(slot16, false)
+	setActive(slot17, false)
+	setActive(slot18, false)
+
+	slot19, slot20 = nil
+
+	if slot2:getConfig(&quot;chapter_tag&quot;) == 1 then
+		slot19 = slot18
+	end
+
+	if slot2.active then
+		slot19 = slot2:existOni() and slot17 or slot16
+	end
+
+	if slot19 then
+		setActive(slot19, true)
+
+		slot20 = GetOrAddComponent(slot19, &quot;CanvasGroup&quot;)
+		slot20.alpha = 1
+
+		slot0:RecordTween(&quot;fighting&quot; .. slot2.id, LeanTween.alphaCanvas(slot20, 0, 0.5):setFrom(1):setEase(LeanTweenType.easeInOutSine):setLoopPingPong().uniqueId)
+	end
+
+	slot22 = slot2:isTriesLimit()
+
+	setActive(findTF(slot4, &quot;triesLimit&quot;), slot22)
+
+	if slot22 then
+		slot23 = slot2:getConfig(&quot;count&quot;)
+
+		setText(slot21:Find(&quot;label&quot;), i18n(&quot;levelScene_chapter_count_tip&quot;))
+		setText(slot21:Find(&quot;Text&quot;), setColorStr(slot23 - slot2:getTodayDefeatCount() .. &quot;/&quot; .. slot23, slot23 &lt;= slot2:getTodayDefeatCount() and COLOR_RED or COLOR_GREEN))
+	end
+
+	slot23 = slot2:GetDailyBonusQuota()
+	slot24 = findTF(slot4, &quot;mark&quot;)
+
+	setActive(slot24:Find(&quot;bonus&quot;), slot23)
+	setActive(slot24, slot23)
+
+	if slot23 then
+		slot0.sceneParent.loader:GetSprite(&quot;ui/levelmainscene_atlas&quot;, slot0.contextData.map:getConfig(&quot;type&quot;) == Map.ACTIVITY_HARD and &quot;bonus_us_hard&quot; or &quot;bonus_us&quot;, slot24:Find(&quot;bonus&quot;))
+		LeanTween.cancel(go(slot24), true)
+
+		slot28 = slot24.anchoredPosition.y
+		slot24:GetComponent(typeof(CanvasGroup)).alpha = 0
+
+		LeanTween.value(go(slot24), 0, 1, 0.2):setOnUpdate(System.Action_float(function (slot0)
+			uv0.alpha = slot0
+			slot1 = uv1.anchoredPosition
+			slot1.y = uv2 * slot0
+			uv1.anchoredPosition = slot1
+		end)):setOnComplete(System.Action(function ()
+			uv0.alpha = 1
+			slot0 = uv1.anchoredPosition
+			slot0.y = uv2
+			uv1.anchoredPosition = slot0
+		end)):setEase(LeanTweenType.easeOutSine):setDelay(0.7)
+	end
+
+	slot25 = slot2.id
+
+	onButton(slot0, slot4, function ()
+		if uv0.chaptersInBackAnimating[uv1] then
+			return
+		end
+
+		slot0 = uv2.localPosition
+
+		uv0:TryOpenChapterInfo(uv1, Vector3(slot0.x - 10, slot0.y + 150))
+	end, SFX_UI_WEIGHANCHOR_SELECT)
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.loader:Clear()
+	uv0.super.OnDestroy(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

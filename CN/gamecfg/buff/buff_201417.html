@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_201417.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_201417.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;2025狮UR活动 剧情战触发 召唤塞壬单位（人形）&quot;,
+	time = 0.5,
+	stack = 1,
+	id = 201417,
+	picture = &quot;&quot;,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					201404,
+					201405,
+					201406
+				},
+				range = {
+					{
+						0,
+						0.36
+					},
+					{
+						0.36,
+						0.72
+					},
+					{
+						0.72,
+						1
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

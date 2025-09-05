@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shengdiyagegai3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shengdiyagegai3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SHENGDIYAGEGAI3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;闪耀☆战斗之星！\n\n&lt;size=45&gt;三　{namecode:524}、苦恼中？！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_103&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔…好像有点明白了，又好像不太明白…&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;所谓的“改造”究竟是什么呢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过聪明如{namecode:524}，一定早晚能搞明白的，嗯！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actorName = &quot;???&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呼…呼…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102080,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哎呀？在那边的是…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呀~吼~~！！！！尼古拉斯~~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 101319,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊哇哇哇哇！敌、敌袭？！还是地震！？天灾来了！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 3
+				}
+			}
+		},
+		{
+			say = &quot;啊哈哈哈，是我是我啦，{namecode:524}~&quot;,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101319,
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;什么嘛…原来是{namecode:524}啊，吓了我一跳…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊！尼古拉斯好像也变得不一样了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101319,
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呼哇~因为我一直都在睡觉嘛…睡着睡着身体就成长啦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;噢噢！多睡觉就能有所成长吗！我记下来了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.2,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 101319,
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔…也不是……算了，解释也好麻烦——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;才不是那样的啦啦啦啦啦！！！&quot;,
+			side = 2,
+			actor = 101259,
+			dir = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			actorPosition = {
+				x = 2250,
+				y = 0
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = -2250
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;呀吼~哈曼~&quot;,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			actor = 102080,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 101259,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这边可是历经了千辛万苦，好不容易才完成的“改造”啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 101259,
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;要不是想着能为指挥官多出点力…（小声&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯？哈曼为指挥官做什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 101259,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没、没什么啦！总之我想说的就是，改造才没有那么容易呢！要做好心理准备才行啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯！好像又更明白了一些！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101319,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔…怎么都好啦，总之让我再多睡一会吧…Zzz&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;蜕变之路似乎也并不是那么好走，有了心理准备的{namecode:524}，似乎距离“改造”又更进了一步——也许&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

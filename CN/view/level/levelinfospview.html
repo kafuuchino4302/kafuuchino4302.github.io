@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelinfospview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelinfospview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelInfoSPView&quot;, import(&quot;.LevelInfoView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;LevelInfoSPUI&quot;
+end
+
+slot0.InitUI = function(slot0)
+	uv0.super.InitUI(slot0)
+
+	slot1 = slot0._tf
+	slot0.levelBanner = slot1:Find(&quot;panel/Level&quot;)
+	slot1 = slot0._tf
+	slot0.btnSwitchNormal = slot1:Find(&quot;panel/Difficulty/Normal&quot;)
+	slot1 = slot0._tf
+	slot0.btnSwitchHard = slot1:Find(&quot;panel/Difficulty/Hard&quot;)
+	slot1 = slot0._tf
+	slot0.btnAnim = slot1:GetComponent(typeof(Animation))
+	slot1 = slot0._tf
+	slot0.btnAniEvent = slot1:GetComponent(typeof(DftAniEvent))
+	slot1 = slot0.btnAniEvent
+
+	slot1:SetEndEvent(function ()
+		uv0:playButtonLoopFX()
+	end)
+end
+
+slot0.playButtonLoopFX = function(slot0)
+	if slot0.btnAnim:IsPlaying(&quot;Anim_LevelInfoSPUI_NormalSelected&quot;) then
+		slot0.btnAnim:Play(&quot;Anim_LevelInfoSPUI_NormalInLoop&quot;)
+	else
+		slot0.btnAnim:Play(&quot;Anim_LevelInfoSPUI_DifficultyInLoop&quot;)
+	end
+end
+
+slot0.SetChapterGroupInfo = function(slot0, slot1)
+	slot0.groupInfo = slot1
+end
+
+slot0.set = function(slot0, slot1, slot2)
+	uv0.super.set(slot0, slot1, slot2)
+
+	slot3 = getProxy(ChapterProxy):getChapterById(slot1, true)
+	slot4 = slot0.groupInfo
+
+	assert(slot4)
+
+	slot5 = {
+		&quot;Normal&quot;,
+		&quot;Hard&quot;
+	}
+	slot6 = 1
+	slot7 = nil
+
+	if #slot4 &gt; 1 then
+		slot8 = table.indexof(slot4, slot1)
+		slot6 = slot8
+		slot7 = slot4[#slot4 - slot8 + 1]
+	elseif slot3:IsSpChapter() or slot3:IsEXChapter() then
+		slot6 = 2
+	end
+
+	for slot11, slot12 in ipairs(slot5) do
+		setActive(slot0.titleBG:Find(slot12), slot11 == slot6)
+	end
+
+	for slot11, slot12 in ipairs(slot5) do
+		setActive(slot0.levelBanner:Find(slot12), slot11 == slot6)
+	end
+
+	if #slot4 &gt; 1 then
+		setActive(slot0.btnSwitchNormal, slot6 == 1)
+		setActive(slot0.btnSwitchHard, slot6 == 2)
+		slot0.btnAnim:Play(&quot;Anim_LevelInfoSPUI_&quot; .. (slot6 == 1 and &quot;Normal&quot; or &quot;Difficulty&quot;) .. &quot;Selected&quot;)
+	else
+		setActive(slot0.btnSwitchNormal, false)
+		setActive(slot0.btnSwitchNormal, false)
+	end
+
+	if #slot4 &gt; 1 then
+		slot8 = slot6 == 1 and slot0.btnSwitchNormal or slot0.btnSwitchHard
+
+		for slot12 = 1, 2 do
+			slot15 = getProxy(ChapterProxy):getChapterById(slot4[slot12], true):GetDailyBonusQuota()
+
+			setActive(slot8:Find(&quot;Bonus&quot; .. slot12), slot15)
+
+			if slot15 then
+				slot0.loader:GetSprite(&quot;ui/levelmainscene_atlas&quot;, getProxy(ChapterProxy):getMapById(slot14:getConfig(&quot;map&quot;)):getConfig(&quot;type&quot;) == Map.ACTIVITY_HARD and &quot;bonus_us_hard&quot; or &quot;bonus_us&quot;, slot13:Find(&quot;Image&quot;))
+			end
+		end
+	end
+
+	slot8 = slot6 == 1 and Color.NewHex(&quot;FFDE38&quot;) or Color.white
+
+	setTextColor(slot0:findTF(&quot;title_index&quot;, slot0.txTitle), slot8)
+	setTextColor(slot0:findTF(&quot;title&quot;, slot0.txTitle), slot8)
+	setTextColor(slot0:findTF(&quot;title_en&quot;, slot0.txTitle), slot8)
+
+	slot9 = slot3:getConfig(&quot;boss_expedition_id&quot;)
+
+	if slot3:getPlayType() == ChapterConst.TypeMultiStageBoss then
+		slot9 = pg.chapter_model_multistageboss[slot3.id].boss_expedition_id
+	end
+
+	slot12 = slot0.levelBanner
+
+	setText(slot12:Find(&quot;Text&quot;), &quot;LV &quot; .. pg.expedition_data_template[slot9[#slot9]].level)
+
+	slot13 = slot0.btnSwitchNormal
+
+	onButton(slot0, slot13:Find(&quot;Switch&quot;), function ()
+		uv0:emit(LevelUIConst.SWITCH_SPCHAPTER_DIFFICULTY, uv1)
+		uv0:set(uv1)
+	end, SFX_PANEL)
+
+	slot13 = slot0.btnSwitchHard
+
+	onButton(slot0, slot13:Find(&quot;Switch&quot;), function ()
+		uv0:emit(LevelUIConst.SWITCH_SPCHAPTER_DIFFICULTY, uv1)
+		uv0:set(uv1)
+	end, SFX_PANEL)
+	(function ()
+		if IsUnityEditor and not ENABLE_GUIDE then
+			return
+		end
+
+		if uv0 ~= 1 or #uv1 == 1 then
+			return
+		end
+
+		if pg.NewStoryMgr.GetInstance():IsPlayed(&quot;NG0045&quot;) then
+			return
+		end
+
+		pg.SystemGuideMgr.GetInstance():PlayByGuideId(slot0)
+	end)()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

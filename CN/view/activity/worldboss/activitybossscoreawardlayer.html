@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitybossscoreawardlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activitybossscoreawardlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityBossScoreAwardLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ActivitybonusWindow_nonPt&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.closeBtn = slot0:findTF(&quot;window/top/btnBack&quot;)
+	slot0.uiItemList = UIItemList.New(slot0:findTF(&quot;window/panel/list&quot;), slot0:findTF(&quot;window/panel/list/item&quot;))
+
+	slot0.uiItemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateItem(slot1, slot2)
+		end
+	end)
+
+	slot0.currentTxt = slot0:findTF(&quot;window/pt/Text&quot;):GetComponent(typeof(Text))
+
+	setText(slot0:findTF(&quot;window/top/bg/infomation&quot;), i18n(&quot;world_expedition_reward_display&quot;))
+	setText(slot0:findTF(&quot;window/pt/title&quot;), i18n(&quot;activityboss_sp_window_best_score&quot;))
+	setText(slot0:findTF(&quot;window/panel/list/item/target/title&quot;), i18n(&quot;activityboss_sp_score_target&quot;))
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	slot0:Flush()
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.Flush = function(slot0, slot1)
+	slot0.awards = slot0.contextData.awards
+	slot0.targets = slot0.contextData.targets
+	slot0.score = slot0.contextData.score
+
+	slot0.uiItemList:align(#slot0.awards)
+
+	slot0.currentTxt.text = slot0.score
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2)
+	slot3 = slot0.awards[slot1 + 1]
+	slot5 = slot2:Find(&quot;award&quot;)
+
+	updateDrop(slot5, {
+		type = slot3[1],
+		id = slot3[2],
+		count = slot3[3]
+	})
+	onButton(slot0, slot5, function ()
+		uv0:emit(BaseUI.ON_DROP, uv1)
+	end, SFX_PANEL)
+	setActive(slot2:Find(&quot;award/mask&quot;), slot0.targets[slot1 + 1] &lt;= slot0.score)
+	setText(slot2:Find(&quot;target/Text&quot;), slot4)
+	setText(slot2:Find(&quot;title/Text&quot;), &quot;PHASE  &quot; .. slot1 + 1)
+end
+
+slot0.Hide = function(slot0)
+	slot0:closeView()
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

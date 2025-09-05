@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backyarddecorationdecbox.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>backyarddecorationdecbox.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BackYardDecorationDecBox&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;BackYardDecorationDescUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.nameTxt = slot0:findTF(&quot;name_bg/Text&quot;):GetComponent(typeof(Text))
+	slot0.descTxt = slot0:findTF(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.icon = slot0:findTF(&quot;icon_bg/icon&quot;):GetComponent(typeof(Image))
+	slot0.shipIcon = slot0:findTF(&quot;icon_bg/ship&quot;):GetComponent(typeof(Image))
+	slot0.width = slot0._tf.rect.width
+	slot0.prantLeftBound = slot0._tf.parent.rect.width / 2
+end
+
+slot0.shortenString = function(slot0, slot1, slot2)
+	slot3 = string.gmatch(slot1, &quot;&lt;color=#%w+&gt;&quot;)()
+	slot4, slot5 = string.find(slot1, &quot;&lt;color=#%w+&gt;&quot;)
+
+	if not slot4 then
+		return shortenString(slot1, slot2)
+	end
+
+	slot6, slot7 = string.find(slot1, &quot;&lt;/color&gt;&quot;)
+	slot11 = &quot;&quot;
+	slot12 = 0
+
+	for slot16, slot17 in ipairs({
+		string.sub(slot1, 1, slot4 - 1),
+		string.sub(slot1, slot5 + 1, slot6 - 1),
+		string.sub(slot1, slot7 + 1, string.len(slot1))
+	}) do
+		slot12 = slot16
+
+		if shouldShortenString(slot11 .. slot17, slot2) then
+			break
+		end
+	end
+
+	if slot12 &lt;= 1 then
+		return shortenString(slot11, slot2)
+	else
+		slot11 = shortenString(slot11, slot2)
+
+		if slot8 == &quot;&quot; then
+			return string.gsub(slot11, slot9, slot3 .. slot9) .. &quot;&lt;/color&gt;&quot;
+		else
+			return string.gsub(slot11, slot8, slot8 .. slot3) .. &quot;&lt;/color&gt;&quot;
+		end
+	end
+end
+
+slot0.SetUp = function(slot0, slot1, slot2, slot3)
+	if slot0.furniture ~= slot1 then
+		slot0.nameTxt.text = shortenString(HXSet.hxLan(slot1:getConfig(&quot;name&quot;)), 10)
+		slot0.descTxt.text = slot0:shortenString(HXSet.hxLan(slot1:getConfig(&quot;describe&quot;)), 41)
+		slot0.icon.sprite = LoadSprite(&quot;furnitureicon/&quot; .. slot1:getConfig(&quot;icon&quot;))
+
+		slot0.icon:SetNativeSize()
+	end
+
+	slot0._tf.position = slot2
+
+	if slot3 then
+		slot4 = slot0._tf.localPosition
+		slot0._tf.localPosition = Vector3(slot4.x, slot4.y - slot0._tf.rect.height, 0)
+	end
+
+	if slot0.prantLeftBound &lt; slot0._tf.localPosition.x + slot0.width then
+		slot4 = slot0._tf.localPosition
+		slot0._tf.localPosition = Vector3(slot4.x - slot0.width, slot4.y, slot4.z)
+	end
+
+	slot0.furniture = slot1
+
+	slot0:UpdateSkinType()
+	slot0:Show()
+end
+
+slot0.UpdateSkinType = function(slot0)
+	slot2 = Goods.ExistFurniture(Goods.FurnitureId2Id(slot0.furniture.id))
+
+	setActive(slot0.shipIcon, slot2)
+
+	if slot2 then
+		GetImageSpriteFromAtlasAsync(&quot;QIcon/&quot; .. pg.ship_skin_template[Goods.Id2ShipSkinId(Goods.GetFurnitureConfig(slot1).id)].prefab, &quot;&quot;, slot0.shipIcon.gameObject)
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

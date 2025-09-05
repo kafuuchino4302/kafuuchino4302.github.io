@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng0037.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ng0037.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;NG0037&quot;,
+	events = {
+		{
+			alpha = 0,
+			ui = {
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/left/list/MainUINewServerBtn4Mellow(Clone)&quot;
+					else
+						return &quot;OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/link_top/layout/MainUINewServerBtn(Clone)&quot;
+					end
+				end,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -49.02,
+					posX = 59.75
+				}
+			},
+			style = {
+				text = &quot;点击打开限时活动&quot;,
+				mode = 1,
+				dir = -1,
+				posY = 204.69,
+				posX = -329.7
+			}
+		},
+		{
+			alpha = 0,
+			style = {
+				text = &quot;完成任务获取Pt，在商店中兑换丰富奖励&quot;,
+				mode = 1,
+				dir = -1,
+				posY = -102.33,
+				posX = -29.1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maincrusingactsequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>maincrusingactsequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainCrusingActSequence&quot;)
+
+slot0.Execute = function(slot0, slot1)
+	slot4 = {}
+
+	if getProxy(ActivityProxy):getAliveActivityByType(ActivityConst.ACTIVITY_TYPE_PT_CRUSING) and not slot3:isEnd() then
+		table.insert(slot4, function (slot0)
+			uv0:CheckCrusingAct(uv1, slot0)
+		end)
+
+		if PlayerPrefs.GetInt(&quot;cursing_first_enter_scene:&quot; .. slot3.id, 0) == 0 then
+			table.insert(slot4, function (slot0)
+				PlayerPrefs.SetInt(&quot;cursing_first_enter_scene:&quot; .. uv0.id, 1)
+				uv1:ShowWindow(slot0)
+			end)
+		end
+	end
+
+	seriesAsync(slot4, slot1)
+end
+
+slot0.ShowWindow = function(slot0, slot1)
+	pg.m02:sendNotification(GAME.LOAD_LAYERS, {
+		parentContext = getProxy(ContextProxy):getCurrentContext(),
+		context = Context.New({
+			mediator = CrusingWindowMediator,
+			viewComponent = CrusingWindowLayer2,
+			data = {
+				onClose = slot1
+			}
+		})
+	})
+end
+
+slot0.CheckCrusingAct = function(slot0, slot1, slot2)
+	slot3 = PlayerPrefs.GetInt(string.format(&quot;crusing_%d_last_time&quot;, slot1.id), 3)
+	slot4 = slot1.stopTime - pg.TimeMgr.GetInstance():GetServerTime()
+
+	if #slot1:GetCrusingUnreceiveAward() &gt; 0 and math.floor(slot4 / 86400) &lt; slot3 then
+		PlayerPrefs.SetInt(string.format(&quot;crusing_%d_last_time&quot;, slot1.id), math.floor(slot4 / 86400))
+		slot0:ShowMsg(slot5, slot4, slot2)
+	else
+		slot2()
+	end
+end
+
+slot0.ShowMsg = function(slot0, slot1, slot2, slot3)
+	if slot2 &lt; 86400 then
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			hideNo = true,
+			type = MSGBOX_TYPE_ITEM_BOX,
+			content = i18n(&quot;battlepass_acquire_attention&quot;, math.floor(slot2 / 86400), math.floor(slot2 % 86400 / 3600)),
+			items = slot1,
+			onYes = function ()
+				pg.m02:sendNotification(GAME.GO_SCENE, SCENE.CRUSING)
+			end,
+			yesText = i18n(&quot;msgbox_text_forward&quot;),
+			onNo = function ()
+				pg.m02:sendNotification(GAME.GO_SCENE, SCENE.CRUSING)
+			end,
+			weight = LayerWeightConst.TOP_LAYER
+		})
+	else
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_ITEM_BOX,
+			content = i18n(&quot;battlepass_acquire_attention&quot;, math.floor(slot2 / 86400), math.floor(slot2 % 86400 / 3600)),
+			items = slot1,
+			onYes = function ()
+				pg.m02:sendNotification(GAME.GO_SCENE, SCENE.CRUSING)
+			end,
+			yesText = i18n(&quot;msgbox_text_forward&quot;),
+			onNo = slot3,
+			weight = LayerWeightConst.TOP_LAYER
+		})
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

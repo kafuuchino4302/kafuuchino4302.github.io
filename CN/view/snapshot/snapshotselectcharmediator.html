@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snapshotselectcharmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>snapshotselectcharmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SnapshotSelectCharMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.SELECT_CHAR = &quot;SnapshotSelectCharMediator.SELECT_CHAR&quot;
+
+slot0.register = function(slot0)
+	slot1 = getProxy(CollectionProxy)
+	slot2 = slot0.viewComponent
+
+	slot2:setShipGroups(slot1:getGroups())
+
+	slot2 = getProxy(BayProxy)
+	slot3 = slot0.viewComponent
+
+	slot3:setProposeList(slot2:getProposeGroupList())
+	slot0:bind(SnapshotSelectCharLayer.ON_INDEX, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			viewComponent = CustomIndexLayer,
+			mediator = CustomIndexMediator,
+			data = slot1
+		}))
+	end)
+	slot0:bind(SnapshotSelectCharLayer.SELECT_CHAR, function (slot0, slot1)
+		uv0:sendNotification(uv1.SELECT_CHAR, slot1)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_clue_group.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_clue_group.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_clue_group = setmetatable({
+	__name = &quot;activity_clue_group&quot;,
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35
+	}
+}, confHX)
+pg.base = pg.base or {}
+pg.base.activity_clue_group = {
+	{
+		task_id = &quot;21613&quot;,
+		type = 1,
+		id = 1,
+		title = &quot;深谷病院·上&quot;,
+		pic = &quot;1&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{}
+		}
+	},
+	{
+		task_id = &quot;21613&quot;,
+		type = 1,
+		id = 2,
+		title = &quot;深谷病院·下&quot;,
+		pic = &quot;2&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{}
+		}
+	},
+	{
+		task_id = &quot;21613&quot;,
+		type = 1,
+		id = 3,
+		title = &quot;诊疗中心&quot;,
+		pic = &quot;3&quot;,
+		unlock_jump = {
+			{
+				2013
+			},
+			{}
+		}
+	},
+	{
+		task_id = &quot;21612&quot;,
+		type = 1,
+		id = 4,
+		title = &quot;医生办公室&quot;,
+		pic = &quot;4&quot;,
+		unlock_jump = {
+			{
+				2013
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201319
+			}
+		}
+	},
+	{
+		task_id = &quot;21612&quot;,
+		type = 1,
+		id = 5,
+		title = &quot;诊疗中心(地下)&quot;,
+		pic = &quot;5&quot;,
+		unlock_jump = {
+			{
+				2013
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201309
+			}
+		}
+	},
+	{
+		task_id = &quot;21606&quot;,
+		type = 1,
+		id = 6,
+		title = &quot;住院大楼&quot;,
+		pic = &quot;6&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301,
+				201304
+			}
+		}
+	},
+	{
+		task_id = &quot;21606&quot;,
+		type = 1,
+		id = 7,
+		title = &quot;护士站&quot;,
+		pic = &quot;7&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301,
+				201303,
+				201310
+			}
+		}
+	},
+	{
+		task_id = &quot;21606&quot;,
+		type = 1,
+		id = 8,
+		title = &quot;病房&quot;,
+		pic = &quot;8&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301,
+				201302,
+				201311
+			}
+		}
+	},
+	{
+		task_id = &quot;21607&quot;,
+		type = 1,
+		id = 9,
+		title = &quot;住院大楼(地下)&quot;,
+		pic = &quot;9&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301,
+				201303,
+				201309
+			}
+		}
+	},
+	{
+		task_id = &quot;21609&quot;,
+		type = 1,
+		id = 10,
+		title = &quot;研究中心&quot;,
+		pic = &quot;10&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201307
+			}
+		}
+	},
+	{
+		task_id = &quot;21610&quot;,
+		type = 1,
+		id = 11,
+		title = &quot;研究中心(地下)&quot;,
+		pic = &quot;11&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201314
+			}
+		}
+	},
+	{
+		task_id = &quot;21607&quot;,
+		type = 1,
+		id = 12,
+		title = &quot;疗养中心&quot;,
+		pic = &quot;12&quot;,
+		unlock_jump = {
+			{
+				2010
+			},
+			{
+				201301,
+				201305
+			}
+		}
+	},
+	{
+		task_id = &quot;21607&quot;,
+		type = 1,
+		id = 13,
+		title = &quot;疗养中心(地下)&quot;,
+		pic = &quot;13&quot;,
+		unlock_jump = {
+			{
+				2010
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201309
+			}
+		}
+	},
+	{
+		task_id = &quot;21608&quot;,
+		type = 1,
+		id = 14,
+		title = &quot;后勤中心&quot;,
+		pic = &quot;14&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201301,
+				201303
+			}
+		}
+	},
+	{
+		task_id = &quot;21608&quot;,
+		type = 1,
+		id = 15,
+		title = &quot;后勤中心(地下)&quot;,
+		pic = &quot;15&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201301,
+				201309
+			}
+		}
+	},
+	{
+		task_id = &quot;21610&quot;,
+		type = 1,
+		id = 16,
+		title = &quot;停车场&quot;,
+		pic = &quot;16&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201307,
+				201316
+			}
+		}
+	},
+	{
+		task_id = &quot;21610&quot;,
+		type = 1,
+		id = 17,
+		title = &quot;停车场(地下)&quot;,
+		pic = &quot;17&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201302,
+				201307,
+				201317
+			}
+		}
+	},
+	{
+		task_id = &quot;21611&quot;,
+		type = 1,
+		id = 18,
+		title = &quot;门卫亭&quot;,
+		pic = &quot;18&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201307,
+				201318
+			}
+		}
+	},
+	{
+		task_id = &quot;21612&quot;,
+		type = 1,
+		id = 19,
+		title = &quot;古典长廊&quot;,
+		pic = &quot;19&quot;,
+		unlock_jump = {
+			{
+				2013
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201308
+			}
+		}
+	},
+	{
+		task_id = &quot;21609&quot;,
+		type = 1,
+		id = 20,
+		title = &quot;庭院&quot;,
+		pic = &quot;20&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201313
+			}
+		}
+	},
+	{
+		task_id = &quot;21609&quot;,
+		type = 1,
+		id = 21,
+		title = &quot;樱花树&quot;,
+		pic = &quot;21&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201306
+			}
+		}
+	},
+	{
+		task_id = &quot;21608&quot;,
+		type = 1,
+		id = 22,
+		title = &quot;小树林&quot;,
+		pic = &quot;22&quot;,
+		unlock_jump = {
+			{
+				2010
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201312
+			}
+		}
+	},
+	{
+		task_id = &quot;21611&quot;,
+		type = 1,
+		id = 23,
+		title = &quot;正门&quot;,
+		pic = &quot;23&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201315
+			}
+		}
+	},
+	{
+		task_id = &quot;21611&quot;,
+		type = 1,
+		id = 24,
+		title = &quot;后门&quot;,
+		pic = &quot;24&quot;,
+		unlock_jump = {
+			{
+				2013
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201320
+			}
+		}
+	},
+	{
+		task_id = &quot;21614&quot;,
+		type = 2,
+		id = 25,
+		title = &quot;莫加多尔&quot;,
+		pic = &quot;25&quot;,
+		unlock_jump = {
+			{
+				2005
+			},
+			{}
+		}
+	},
+	{
+		task_id = &quot;21615&quot;,
+		type = 2,
+		id = 26,
+		title = &quot;富兰克林&quot;,
+		pic = &quot;26&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301
+			}
+		}
+	},
+	{
+		task_id = &quot;21616&quot;,
+		type = 2,
+		id = 27,
+		title = &quot;华盛顿&quot;,
+		pic = &quot;27&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201304
+			}
+		}
+	},
+	{
+		task_id = &quot;21617&quot;,
+		type = 2,
+		id = 28,
+		title = &quot;{namecode:59}&quot;,
+		pic = &quot;28&quot;,
+		unlock_jump = {
+			{
+				2010
+			},
+			{
+				201301
+			}
+		}
+	},
+	{
+		task_id = &quot;21618&quot;,
+		type = 2,
+		id = 29,
+		title = &quot;伏罗希洛夫&quot;,
+		pic = &quot;29&quot;,
+		unlock_jump = {
+			{
+				2010
+			},
+			{
+				201301,
+				201302,
+				201303,
+				201305
+			}
+		}
+	},
+	{
+		task_id = &quot;21619&quot;,
+		type = 2,
+		id = 30,
+		title = &quot;鹰&quot;,
+		pic = &quot;30&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201302,
+				201303
+			}
+		}
+	},
+	{
+		task_id = &quot;21620&quot;,
+		type = 2,
+		id = 31,
+		title = &quot;神速&quot;,
+		pic = &quot;31&quot;,
+		unlock_jump = {
+			{
+				2011
+			},
+			{
+				201301
+			}
+		}
+	},
+	{
+		task_id = &quot;21621&quot;,
+		type = 2,
+		id = 32,
+		title = &quot;圣塔菲&quot;,
+		pic = &quot;32&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201307
+			}
+		}
+	},
+	{
+		task_id = &quot;21622&quot;,
+		type = 2,
+		id = 33,
+		title = &quot;米勒&quot;,
+		pic = &quot;33&quot;,
+		unlock_jump = {
+			{
+				2012
+			},
+			{
+				201301,
+				201307,
+				201302,
+				201303
+			}
+		}
+	},
+	{
+		task_id = &quot;21623&quot;,
+		type = 2,
+		id = 34,
+		title = &quot;哈尔福德&quot;,
+		pic = &quot;34&quot;,
+		unlock_jump = {
+			{
+				2001
+			},
+			{}
+		}
+	},
+	{
+		task_id = &quot;21624&quot;,
+		type = 2,
+		id = 35,
+		title = &quot;{namecode:91}&quot;,
+		pic = &quot;35&quot;,
+		unlock_jump = {
+			{
+				2009
+			},
+			{}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

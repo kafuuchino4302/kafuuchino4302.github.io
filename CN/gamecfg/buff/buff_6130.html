@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_6130.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_6130.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;被击沉时恢复全队其他角色耐久10.0%&quot;
+	},
+	time = 0,
+	name = &quot;珍珠之泪&quot;,
+	init_effect = &quot;&quot;,
+	id = 6130,
+	picture = &quot;&quot;,
+	desc = &quot;被击沉时恢复全队其他角色耐久10%&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 6130,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onSink&quot;
+			},
+			arg_list = {
+				skill_id = 6130,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onSink&quot;
+			},
+			arg_list = {
+				count = 1
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;Pearl&#x27;s-Tears&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

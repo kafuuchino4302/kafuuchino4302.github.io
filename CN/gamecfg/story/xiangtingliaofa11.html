@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiangtingliaofa11.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xiangtingliaofa11.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;XIANGTINGLIAOFA11&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			side = 0,
+			dir = 1,
+			bgm = &quot;story-6&quot;,
+			actor = 103160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;坚固也要有个限度！差不多该给我倒下了吧！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900021,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 1,
+			dir = 1,
+			actorName = &quot;净化者&quot;,
+			say = &quot;唉，你们一直耗在我这边真的好么，那边，越烧越厉害了哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207040,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…！指挥官，再拖下去纽约港就……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不、这样就结束了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 900021,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;净化者&quot;,
+			say = &quot;？！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;轰——————&quot;,
+			dir = 1,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900021,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;净化者&quot;,
+			say = &quot;背后吗…居然是你这个不起眼的小姑娘，大意了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 103160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在冰冷的海底为牺牲的同胞赎罪吧，净化者。&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;做…做到了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102230,
+			say = &quot;朱诺…做的不错，这样大家也会对你刮目相看了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嘿、嘿嘿~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;击败了净化者，解除了塞壬对长岛防线的最大威胁，之后的战斗可以放心交给朱诺她们了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;接下来舰队的目标就是…纽约港——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

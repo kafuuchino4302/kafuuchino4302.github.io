@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_112165.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_112165.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 1.6,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 112165,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 112110,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 112261
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 112162
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 10,
+				fleetAttr = &quot;YumiaManaFlow&gt;=1&quot;,
+				skill_id = 112162,
+				time = 0.1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

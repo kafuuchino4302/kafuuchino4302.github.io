@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiangtingliaofa32.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xiangtingliaofa32.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;XIANGTINGLIAOFA32&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			bgm = &quot;battle-boss-4&quot;,
+			say = &quot;海面上回响的，是毁灭的声音。&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;硝烟与爆炎，废墟与残骸。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;她独自一人，沉默而激烈地战斗着——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actorName = &quot;观察者&quot;,
+			say = &quot;这样一来，整片区域的塞壬武装就被彻底清除了，恭喜恭喜~&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;没想到您还会特意回来善后，看来演出超乎预期的成功呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			actor = 900072,
+			dir = 1,
+			actorName = &quot;？？？&quot;,
+			say = &quot;我说过，不要牵扯无关的人。&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actorName = &quot;观察者&quot;,
+			say = &quot;在您说的语境下，“人”这个词有点难以界定呢。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;如果您是指这些棋子的话，毕竟都是为您特意准备的，请随意处置~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;啊--如果您是指她们的话，不过是实验素材，您也可以随意破坏哟？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;还是说……好奇怪啊~明明都凑到眼前了，为什么放弃了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			actor = 900072,
+			dir = 1,
+			actorName = &quot;？？？&quot;,
+			say = &quot;……&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actorName = &quot;观察者&quot;,
+			say = &quot;不要这么固执嘛。只要您愿意，我们随时可以和好如初哦~？&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;这样一意孤行下去，除了原地踏步般一次次迎来悲伤，您什么都拯救不了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;观察者&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;其实，你还在逃避吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			actor = 900072,
+			dir = 1,
+			actorName = &quot;？？？&quot;,
+			say = &quot;住口&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;guanchazhe&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900072,
+			actorName = &quot;？？？&quot;,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900072,
+			actorName = &quot;？？？&quot;,
+			say = &quot;将我的行踪汇报给主机，就是你的全部任务。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			actor = 900072,
+			actorName = &quot;？？？&quot;,
+			say = &quot;不要再多管闲事，你不可能再妨碍我一次了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			bgName = &quot;bg_xiangting_3&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 900072,
+			actorName = &quot;？？？&quot;,
+			say = &quot;消失吧。&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

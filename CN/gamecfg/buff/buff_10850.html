@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10850.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10850.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	{
+		desc = &quot;命运的阴暗面&quot;
+	},
+	desc_get = &quot;与其他J系驱逐舰同时出击(存活)时，其他J系驱逐受到伤害降低20.0%，自身受到伤害提高20.0%&quot;,
+	name = &quot;命运的阴暗面&quot;,
+	init_effect = &quot;&quot;,
+	id = 10850,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;与其他J系驱逐舰同时出击(存活)时，其他J系驱逐受到伤害降低20.0%，自身受到伤害提高20.0%&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 10850,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				skill_id = 10850,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Jersey Skill&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 10851,
+				target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Jersey Skill&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

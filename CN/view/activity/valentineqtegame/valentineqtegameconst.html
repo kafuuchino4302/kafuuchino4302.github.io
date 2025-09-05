@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valentineqtegameconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>valentineqtegameconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ValentineQteGameConst&quot;)
+slot0.DEBUG = false
+slot0.OP_SCORE_GEAR_PERFECT = 1
+slot0.OP_SCORE_GEAR_GREAT = 2
+slot0.OP_SCORE_GEAR_GOOD = 3
+slot0.OP_SCORE_GEAR_MISS = 4
+slot0.GMAE_TIME = 50
+slot0.SLIDEWAY_WIDTH = 1334
+slot0.SLIDER_WIDTH = 104
+slot0.PERFECT_WIDTH = 150
+slot0.GREAT_WIDTH = 270
+slot0.GOOD_WIDTH = 500
+slot0.INIT_SPEED = 550
+slot0.SPEEDUP_RATIO_PRE_5SEC = 3
+slot0.SPEED_UP = slot0.INIT_SPEED * slot0.SPEEDUP_RATIO_PRE_5SEC * 0.01
+slot0.MAX_SPEEDUP_RATIO = 120
+slot0.MAX_SPEED = slot0.INIT_SPEED * slot0.MAX_SPEEDUP_RATIO * 0.01
+slot0.BASE_OP_SCORE = 100
+slot0.OP_SCORE = {
+	[slot0.OP_SCORE_GEAR_PERFECT] = 1,
+	[slot0.OP_SCORE_GEAR_GREAT] = 0.7,
+	[slot0.OP_SCORE_GEAR_GOOD] = 0.5,
+	[slot0.OP_SCORE_GEAR_MISS] = 0
+}
+slot0.COMBO_EXTRA_SCORE_RATIO = {
+	{
+		2,
+		5,
+		20
+	},
+	{
+		6,
+		10,
+		40
+	},
+	{
+		11,
+		15,
+		60
+	},
+	{
+		16,
+		20,
+		80
+	},
+	{
+		21,
+		Mathf.Infinity,
+		100
+	}
+}
+slot0.OP_INTERVAL = 0.2
+slot0.GEN_ITEM_FIRST_TIME = 5
+slot0.GEN_ITEM_INTERVAL = 3
+slot0.ITEM_DISAPPEAR_TIME = 5
+slot0.MAX_ITEM_COUNT = 4
+slot0.CHAT_CONTENT = {
+	{
+		6000,
+		Mathf.Infinity,
+		&quot;s&quot;
+	},
+	{
+		3000,
+		5999,
+		&quot;a&quot;
+	},
+	{
+		1000,
+		2999,
+		&quot;b&quot;
+	},
+	{
+		0,
+		999,
+		&quot;c&quot;
+	}
+}
+slot0.GEAR_SHOW_TIME = 0.7
+slot0.OPEN_DOOR_TIME = 3
+slot0.SOUND_PICK_ITEM = &quot;event:/ui/mini_get&quot;
+slot0.GEAR_SOUND = {
+	[slot0.OP_SCORE_GEAR_PERFECT] = &quot;event:/ui/mini_perfect&quot;,
+	[slot0.OP_SCORE_GEAR_GREAT] = &quot;event:/ui/mini_great&quot;,
+	[slot0.OP_SCORE_GEAR_GOOD] = &quot;event:/ui/mini_miss&quot;,
+	[slot0.OP_SCORE_GEAR_MISS] = &quot;event:/ui/mini_miss&quot;
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

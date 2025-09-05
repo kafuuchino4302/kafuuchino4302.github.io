@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandgetoverflowitemcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandgetoverflowitemcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandGetOverFlowItemCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(21006, {
+		type = 0
+	}, 21007, function (slot0)
+		if slot0.result == 0 then
+			if #slot0.item_list &gt; 0 then
+				slot1 = {}
+				slot3 = getProxy(IslandProxy):GetIsland():GetInventoryAgency()
+
+				for slot7, slot8 in ipairs(slot0.item_list) do
+					slot3:RemoveOverflowItem(slot8.id, slot8.num)
+					table.insert(slot1, {
+						type = DROP_TYPE_ISLAND_ITEM,
+						id = slot8.id,
+						count = slot8.num
+					})
+				end
+
+				uv0:sendNotification(GAME.ISLAND_GET_OVERFLOW_ITEM_DOME, {
+					awards = IslandDropHelper.AddItems({
+						drop_list = slot1
+					}).awards
+				})
+			end
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

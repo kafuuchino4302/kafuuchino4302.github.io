@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_8897.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_8897.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;黑海伦娜 领域全体敌人获得易伤效果&quot;,
+	init_effect = &quot;&quot;,
+	id = 8897,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 8897,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 8894,
+				target = &quot;TargetAllHarm&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 8894,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				rant = 10000,
+				skill_id = 8897,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

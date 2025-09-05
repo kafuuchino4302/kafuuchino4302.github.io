@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daofeng4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>daofeng4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DAOFENG4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;欲速则不达\n\n&lt;size=45&gt;四　港区海洋博物馆&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_task&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;港区・指挥室&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;昨天几乎都在玩，实在有点不好意思……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;既然下达了自由行动许可，自然是没什么问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;…好像确实如此？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;而且今天的工作也完成得特别快，剩下的时间继续自由行动好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;哎？！真的么，那指挥官能不能来陪我一起，{namecode:18}有想去参观的设施……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;来到了郊外一处刚建好的博物馆。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;哇…是武器装备的博物馆啊~好厉害！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;看她像小狗一样……不对，应该是兔子一样手舞足蹈的样子，应该是很中意这个地方了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，快看这里的说明！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;顺着{namecode:18}指着地方看去，上面的内容是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这个展区内的装备都不是仿造品,而是真品哦·！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;确实如此。该不会里面还装填着炮弹吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;啊！看这里，居然还有重樱式五联装的鱼雷发射管哎！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;勉强拦住了在博物馆里动如脱兔的{namecode:18}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，为什么要拦住我呀！我想再靠近点看的……啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;向{namecode:18}指了指立在一旁的指示牌。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;——「请勿触摸展品」以及「馆内请保持安静」。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;呜，呜呜呜……对不起……{namecode:18}又犯错了……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;毫不掩饰失落模样的{namecode:18}，样子有点可爱……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;看在她有好好反省的份上，安慰了她之后牵手绕着馆内看了一圈。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

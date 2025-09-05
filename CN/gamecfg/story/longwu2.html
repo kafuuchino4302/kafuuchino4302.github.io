@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>longwu2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>longwu2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;LONGWU2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;田园美味食记\n\n&lt;size=45&gt;二　草莓与甜味&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			bgm = &quot;story-richang-light&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;第二天一大早，与龙武一起来到了农家探索乐园。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 305130,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;指挥官，龙武你们来啦~！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 312010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欢迎来到农家探索乐园喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;早上好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你们好……谢谢你们提供了优惠的套餐。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305130,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哪里哪里~你们能来真是太好了~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305130,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;毕竟龙武可以帮忙我们评估乐园里的食材品质，指挥官可以帮我们反馈体验~哈哈哈♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，那我会好好记录食材的口味的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 312010,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;相信以龙武和指挥官的专业程度，一定能给出很好的建议喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305130,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;好啦，也不多占用你们的时间啦~乐园中还有很多很多内容等着你们去探索哦~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;在{namecode:98:明石}和{namecode:295:尾张}的推荐下，我们商定了一天的游玩路线。第一站就从正值采摘季节的草莓果园开始。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_702&quot;,
+			side = 2,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，草莓果园到了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这些草莓，看上去好好吃啊——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;园中，翠绿的叶片层层叠叠，藏在叶片下的草莓鲜红成熟，散发着清甜的果香。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，我们快一起去摘草莓吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;龙武迫不及待地拿了木篓子，拉过我的手，一同凑到了草莓植株旁边，利落地摘起了草莓。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_702&quot;,
+			say = &quot;不知不觉中，草莓已经将两个木篓填得满满当当。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;龙武还在摘着草莓，额头上布满细密的汗珠。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;龙武，要不要休息一会儿？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯？我也没有很累……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊……已经采了这么多草莓了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那我们就休息一会儿吧，指挥官。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我去洗一些草莓一起吃。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;好，那我跟你一起去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_702&quot;,
+			say = &quot;利用果园的水池仔细清洗了草莓后，我与龙武一起坐到了一旁的长凳上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……确实有些累了呢，还好指挥官提醒我了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 9,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;抱歉……指挥官，我总是这样，过分关注和美食相关的事情，很容易忽略周围的事……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;刚刚摘草莓的时候，我就在想，这么美味新鲜的草莓肯定能让吃的人露出幸福的笑容……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 9,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就想摘得更多一些，结果就一直一直没停下来……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 501050,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;其实……应该先让指挥官尝尝草莓的，毕竟刚摘下来的草莓是最美味的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;龙武说完，带着期待的目光，将一颗草莓递到我嘴边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;吃！&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			say = &quot;一口咬下，草莓酸甜的果香在口中弥漫。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_702&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;好吃！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;果然指挥官露出了幸福的笑容呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_702&quot;,
+			dir = 1,
+			actor = 501050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那我就要努力再多摘一些了！嗯！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_702&quot;,
+			say = &quot;将采摘的草莓送回住处后，我们按照计划向下一个目的地进发——园区的中心湖泊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

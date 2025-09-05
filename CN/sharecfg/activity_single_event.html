@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_single_event.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_single_event.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_single_event = {
+	[1001] = {
+		story_type = 1,
+		name = &quot;EP1-1 从零开始的冒险&quot;,
+		pre_event = 0,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG2&quot;,
+		mode = 1,
+		id = 1001,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-853,
+			493
+		},
+		options = {}
+	},
+	[1002] = {
+		story_type = 2,
+		name = &quot;EP1-2 初始之森的战斗&quot;,
+		pre_event = 1001,
+		type = 1,
+		story = &quot;1799101&quot;,
+		mode = 1,
+		id = 1002,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-586,
+			453
+		},
+		options = {
+			{
+				1002,
+				&quot;9&quot;
+			},
+			{
+				2001,
+				&quot;500&quot;
+			},
+			{
+				2002,
+				&quot;250&quot;
+			},
+			{
+				2003,
+				&quot;100&quot;
+			},
+			{
+				2004,
+				&quot;90&quot;
+			},
+			{
+				2005,
+				&quot;21&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1003] = {
+		story_type = 1,
+		name = &quot;EP1-3 别样的新手村&quot;,
+		pre_event = 1002,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG4&quot;,
+		mode = 1,
+		id = 1003,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-915,
+			419
+		},
+		options = {}
+	},
+	[1004] = {
+		story_type = 1,
+		name = &quot;EP1-4 王都与国王&quot;,
+		pre_event = 1003,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG5&quot;,
+		mode = 1,
+		id = 1004,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-1549,
+			341
+		},
+		options = {
+			{
+				1002,
+				&quot;20&quot;
+			},
+			{
+				2001,
+				&quot;2000&quot;
+			},
+			{
+				2002,
+				&quot;500&quot;
+			},
+			{
+				2003,
+				&quot;420&quot;
+			},
+			{
+				2004,
+				&quot;320&quot;
+			},
+			{
+				2005,
+				&quot;32&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1005] = {
+		story_type = 1,
+		name = &quot;EP2-1 王都采购&quot;,
+		pre_event = 1004,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG6&quot;,
+		mode = 1,
+		id = 1005,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-1382,
+			255
+		},
+		options = {}
+	},
+	[1006] = {
+		story_type = 1,
+		name = &quot;EP2-2 无尽树海的深处&quot;,
+		pre_event = 1005,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG7&quot;,
+		mode = 1,
+		id = 1006,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-555,
+			271
+		},
+		options = {}
+	},
+	[1007] = {
+		story_type = 1,
+		name = &quot;EP2-3 村落的药剂师&quot;,
+		pre_event = 1006,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG8&quot;,
+		mode = 1,
+		id = 1007,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-940,
+			8
+		},
+		options = {
+			{
+				1002,
+				&quot;33&quot;
+			},
+			{
+				2001,
+				&quot;3870&quot;
+			},
+			{
+				2002,
+				&quot;3000&quot;
+			},
+			{
+				2003,
+				&quot;600&quot;
+			},
+			{
+				2004,
+				&quot;510&quot;
+			},
+			{
+				2005,
+				&quot;45&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3161,
+				&quot;B&quot;
+			}
+		}
+	},
+	[1008] = {
+		story_type = 2,
+		name = &quot;EP2-4 高塔的魔女&quot;,
+		pre_event = 1007,
+		type = 1,
+		story = &quot;1799102&quot;,
+		mode = 1,
+		id = 1008,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-1576,
+			-388
+		},
+		options = {
+			{
+				1002,
+				&quot;100&quot;
+			},
+			{
+				2001,
+				&quot;11700&quot;
+			},
+			{
+				2002,
+				&quot;10000&quot;
+			},
+			{
+				2003,
+				&quot;1400&quot;
+			},
+			{
+				2004,
+				&quot;1800&quot;
+			},
+			{
+				2005,
+				&quot;112&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3161,
+				&quot;B&quot;
+			},
+			{
+				3192,
+				&quot;C&quot;
+			}
+		}
+	},
+	[1009] = {
+		story_type = 2,
+		name = &quot;EP2-5 传说中的英雄&quot;,
+		pre_event = 1008,
+		type = 1,
+		story = &quot;1799103&quot;,
+		mode = 1,
+		id = 1009,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-533,
+			252
+		},
+		options = {
+			{
+				1002,
+				&quot;137&quot;
+			},
+			{
+				2001,
+				&quot;14000&quot;
+			},
+			{
+				2002,
+				&quot;11000&quot;
+			},
+			{
+				2003,
+				&quot;1500&quot;
+			},
+			{
+				2004,
+				&quot;2000&quot;
+			},
+			{
+				2005,
+				&quot;149&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3161,
+				&quot;B&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1010] = {
+		story_type = 2,
+		name = &quot;EP3-1 来自天上的敌人&quot;,
+		pre_event = 1009,
+		type = 1,
+		story = &quot;1799104&quot;,
+		mode = 1,
+		id = 1010,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-688,
+			49
+		},
+		options = {
+			{
+				1002,
+				&quot;150&quot;
+			},
+			{
+				2001,
+				&quot;15000&quot;
+			},
+			{
+				2002,
+				&quot;13000&quot;
+			},
+			{
+				2003,
+				&quot;1550&quot;
+			},
+			{
+				2004,
+				&quot;2100&quot;
+			},
+			{
+				2005,
+				&quot;162&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3161,
+				&quot;B&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1011] = {
+		story_type = 1,
+		name = &quot;EP3-2 救援弗里德村&quot;,
+		pre_event = 1010,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG12&quot;,
+		mode = 1,
+		id = 1011,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-1049,
+			-544
+		},
+		options = {}
+	},
+	[1012] = {
+		story_type = 2,
+		name = &quot;EP3-3 守望长城攻防战&quot;,
+		pre_event = 1011,
+		type = 1,
+		story = &quot;1799105&quot;,
+		mode = 1,
+		id = 1012,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-627,
+			-519
+		},
+		options = {
+			{
+				1002,
+				&quot;298&quot;
+			},
+			{
+				2001,
+				&quot;97000&quot;
+			},
+			{
+				2002,
+				&quot;79600&quot;
+			},
+			{
+				2003,
+				&quot;2200&quot;
+			},
+			{
+				2004,
+				&quot;2700&quot;
+			},
+			{
+				2005,
+				&quot;310&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3161,
+				&quot;B&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1013] = {
+		story_type = 1,
+		name = &quot;EP3-4 庆功宴&quot;,
+		pre_event = 1012,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG14&quot;,
+		mode = 1,
+		id = 1013,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			-386,
+			49
+		},
+		options = {
+			{
+				1002,
+				&quot;300&quot;
+			},
+			{
+				2001,
+				&quot;100000&quot;
+			},
+			{
+				2002,
+				&quot;80000&quot;
+			},
+			{
+				2003,
+				&quot;2210&quot;
+			},
+			{
+				2004,
+				&quot;2710&quot;
+			},
+			{
+				2005,
+				&quot;312&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1014] = {
+		story_type = 2,
+		name = &quot;EP4-1 枯萎森林的圣女&quot;,
+		pre_event = 1013,
+		type = 1,
+		story = &quot;1799106&quot;,
+		mode = 1,
+		id = 1014,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			74,
+			138
+		},
+		options = {
+			{
+				1002,
+				&quot;310&quot;
+			},
+			{
+				2001,
+				&quot;110000&quot;
+			},
+			{
+				2002,
+				&quot;97000&quot;
+			},
+			{
+				2003,
+				&quot;2250&quot;
+			},
+			{
+				2004,
+				&quot;2800&quot;
+			},
+			{
+				2005,
+				&quot;322&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1015] = {
+		story_type = 1,
+		name = &quot;EP4-2 猎人的往昔&quot;,
+		pre_event = 1014,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG16&quot;,
+		mode = 1,
+		id = 1015,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			841,
+			201
+		},
+		options = {}
+	},
+	[1016] = {
+		story_type = 2,
+		name = &quot;EP4-3 遗迹的守护者&quot;,
+		pre_event = 1015,
+		type = 1,
+		story = &quot;1799107&quot;,
+		mode = 1,
+		id = 1016,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			1053,
+			331
+		},
+		options = {
+			{
+				1002,
+				&quot;345&quot;
+			},
+			{
+				2001,
+				&quot;185000&quot;
+			},
+			{
+				2002,
+				&quot;137000&quot;
+			},
+			{
+				2003,
+				&quot;2400&quot;
+			},
+			{
+				2004,
+				&quot;2970&quot;
+			},
+			{
+				2005,
+				&quot;357&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3001,
+				&quot;B&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1017] = {
+		story_type = 1,
+		name = &quot;EP4-4 尘封的真相&quot;,
+		pre_event = 1016,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG18&quot;,
+		mode = 1,
+		id = 1017,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			1053,
+			483
+		},
+		options = {
+			{
+				1002,
+				&quot;370&quot;
+			},
+			{
+				2001,
+				&quot;217000&quot;
+			},
+			{
+				2002,
+				&quot;197000&quot;
+			},
+			{
+				2003,
+				&quot;2450&quot;
+			},
+			{
+				2004,
+				&quot;3050&quot;
+			},
+			{
+				2005,
+				&quot;382&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1018] = {
+		story_type = 1,
+		name = &quot;EP4-5 东方据点之战&quot;,
+		pre_event = 1017,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG19&quot;,
+		mode = 1,
+		id = 1018,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;4&quot;,
+		pos = {
+			609,
+			445
+		},
+		options = {
+			{
+				1002,
+				&quot;450&quot;
+			},
+			{
+				2001,
+				&quot;560000&quot;
+			},
+			{
+				2002,
+				&quot;526000&quot;
+			},
+			{
+				2003,
+				&quot;3010&quot;
+			},
+			{
+				2004,
+				&quot;4500&quot;
+			},
+			{
+				2005,
+				&quot;462&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1019] = {
+		story_type = 1,
+		name = &quot;EP4-6 西方据点之战&quot;,
+		pre_event = 1018,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG20&quot;,
+		mode = 1,
+		id = 1019,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;2&quot;,
+		pos = {
+			-203,
+			-554
+		},
+		options = {
+			{
+				1002,
+				&quot;570&quot;
+			},
+			{
+				2001,
+				&quot;600000&quot;
+			},
+			{
+				2002,
+				&quot;580000&quot;
+			},
+			{
+				2003,
+				&quot;4800&quot;
+			},
+			{
+				2004,
+				&quot;5740&quot;
+			},
+			{
+				2005,
+				&quot;582&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1020] = {
+		story_type = 2,
+		name = &quot;EP4-7 中部据点之战&quot;,
+		pre_event = 1019,
+		type = 1,
+		story = &quot;1799108&quot;,
+		mode = 1,
+		id = 1020,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;3&quot;,
+		pos = {
+			276,
+			137
+		},
+		options = {
+			{
+				1002,
+				&quot;720&quot;
+			},
+			{
+				2001,
+				&quot;780000&quot;
+			},
+			{
+				2002,
+				&quot;670000&quot;
+			},
+			{
+				2003,
+				&quot;7100&quot;
+			},
+			{
+				2004,
+				&quot;6810&quot;
+			},
+			{
+				2005,
+				&quot;732&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1021] = {
+		story_type = 2,
+		name = &quot;EP5-1 军械库之战&quot;,
+		pre_event = 1020,
+		type = 1,
+		story = &quot;1799109&quot;,
+		mode = 1,
+		id = 1021,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;3&quot;,
+		pos = {
+			444,
+			-393
+		},
+		options = {
+			{
+				1002,
+				&quot;810&quot;
+			},
+			{
+				2001,
+				&quot;820000&quot;
+			},
+			{
+				2002,
+				&quot;790000&quot;
+			},
+			{
+				2003,
+				&quot;8000&quot;
+			},
+			{
+				2004,
+				&quot;8300&quot;
+			},
+			{
+				2005,
+				&quot;822&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1022] = {
+		story_type = 1,
+		name = &quot;EP5-2 补给站之战&quot;,
+		pre_event = 1021,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG23&quot;,
+		mode = 1,
+		id = 1022,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;3&quot;,
+		pos = {
+			910,
+			-421
+		},
+		options = {
+			{
+				1002,
+				&quot;900&quot;
+			},
+			{
+				2001,
+				&quot;900000&quot;
+			},
+			{
+				2002,
+				&quot;900000&quot;
+			},
+			{
+				2003,
+				&quot;9000&quot;
+			},
+			{
+				2004,
+				&quot;9000&quot;
+			},
+			{
+				2005,
+				&quot;912&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1023] = {
+		story_type = 1,
+		name = &quot;EP5-3 来自王都的天使&quot;,
+		pre_event = 1022,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG24&quot;,
+		mode = 1,
+		id = 1023,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;3&quot;,
+		pos = {
+			1199,
+			-269
+		},
+		options = {}
+	},
+	[1024] = {
+		story_type = 2,
+		name = &quot;EP5-4 巨炎龙讨伐战&quot;,
+		pre_event = 1023,
+		type = 1,
+		story = &quot;1799110&quot;,
+		mode = 1,
+		id = 1024,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;3&quot;,
+		pos = {
+			1595,
+			254
+		},
+		options = {
+			{
+				1002,
+				&quot;999&quot;
+			},
+			{
+				2001,
+				&quot;999999&quot;
+			},
+			{
+				2002,
+				&quot;999999&quot;
+			},
+			{
+				2003,
+				&quot;9999&quot;
+			},
+			{
+				2004,
+				&quot;9999&quot;
+			},
+			{
+				2005,
+				&quot;999&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	[1025] = {
+		story_type = 2,
+		name = &quot;EP5-5 最终魔王讨伐战&quot;,
+		pre_event = 1024,
+		type = 1,
+		story = &quot;1799111&quot;,
+		mode = 1,
+		id = 1025,
+		icon = &quot;tag_battle_daily&quot;,
+		map_options = &quot;5&quot;,
+		pos = {
+			1535,
+			-380
+		},
+		options = {}
+	},
+	[1026] = {
+		story_type = 1,
+		name = &quot;EP5-6 在那之后的故事&quot;,
+		pre_event = 1025,
+		type = 1,
+		story = &quot;CONGLINGKAISHIMOWANG27&quot;,
+		mode = 1,
+		id = 1026,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;5&quot;,
+		pos = {
+			1535,
+			-300
+		},
+		options = {}
+	},
+	[2001] = {
+		story_type = 1,
+		name = &quot;委托-修缮城墙 &quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO1&quot;,
+		mode = 2,
+		id = 2001,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-618,
+			-489
+		},
+		options = {}
+	},
+	[2002] = {
+		story_type = 1,
+		name = &quot;委托-探索遗迹&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO2&quot;,
+		mode = 2,
+		id = 2002,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			1052,
+			497
+		},
+		options = {}
+	},
+	[2003] = {
+		story_type = 1,
+		name = &quot;委托-要塞驻守 &quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO3&quot;,
+		mode = 2,
+		id = 2003,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-393,
+			86
+		},
+		options = {}
+	},
+	[2004] = {
+		story_type = 1,
+		name = &quot;委托-潜入魔王补给站 &quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO4&quot;,
+		mode = 2,
+		id = 2004,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			942,
+			-413
+		},
+		options = {}
+	},
+	[2005] = {
+		story_type = 1,
+		name = &quot;委托-炎狱山脉调查 &quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO5&quot;,
+		mode = 2,
+		id = 2005,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			1797,
+			497
+		},
+		options = {}
+	},
+	[2006] = {
+		story_type = 1,
+		name = &quot;委托-帮助特尔玛尔村&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO6&quot;,
+		mode = 2,
+		id = 2006,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-869,
+			14
+		},
+		options = {}
+	},
+	[2007] = {
+		story_type = 1,
+		name = &quot;委托-帮助乌尔斯普村&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO7&quot;,
+		mode = 2,
+		id = 2007,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-939,
+			417
+		},
+		options = {}
+	},
+	[2008] = {
+		story_type = 1,
+		name = &quot;委托-帮助弗里德村&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO8&quot;,
+		mode = 2,
+		id = 2008,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-1097,
+			-538
+		},
+		options = {}
+	},
+	[2009] = {
+		story_type = 1,
+		name = &quot;委托-枯萎森林地形侦察&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO9&quot;,
+		mode = 2,
+		id = 2009,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			57,
+			-164
+		},
+		options = {}
+	},
+	[2010] = {
+		story_type = 1,
+		name = &quot;委托-炎狱湖钓鱼&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO10&quot;,
+		mode = 2,
+		id = 2010,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			703,
+			-389
+		},
+		options = {}
+	},
+	[2011] = {
+		story_type = 1,
+		name = &quot;委托-石料采集&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO11&quot;,
+		mode = 2,
+		id = 2011,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-1006,
+			-256
+		},
+		options = {}
+	},
+	[2012] = {
+		story_type = 1,
+		name = &quot;委托-潜入魔王军械库&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO12&quot;,
+		mode = 2,
+		id = 2012,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			456,
+			-364
+		},
+		options = {}
+	},
+	[2013] = {
+		story_type = 1,
+		name = &quot;委托-无尽树海狩猎&quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO13&quot;,
+		mode = 2,
+		id = 2013,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-715,
+			-203
+		},
+		options = {}
+	},
+	[2014] = {
+		story_type = 1,
+		name = &quot;委托-悠闲钓鱼 &quot;,
+		pre_event = 0,
+		type = 2,
+		story = &quot;YISHIJIEWEITUO14&quot;,
+		mode = 2,
+		id = 2014,
+		icon = &quot;tag_story_branch&quot;,
+		map_options = &quot;&quot;,
+		pos = {
+			-1427,
+			-361
+		},
+		options = {}
+	},
+	[3001] = {
+		story_type = 1,
+		name = &quot;EP1-1 初见即毕业&quot;,
+		pre_event = 0,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI2&quot;,
+		mode = 1,
+		id = 3001,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3002] = {
+		story_type = 1,
+		name = &quot;EP1-2 初入奇渊&quot;,
+		pre_event = 3001,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI3&quot;,
+		mode = 1,
+		id = 3002,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3003] = {
+		story_type = 1,
+		name = &quot;EP1-3 再见还是毕业&quot;,
+		pre_event = 3002,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI4&quot;,
+		mode = 1,
+		id = 3003,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3004] = {
+		story_type = 1,
+		name = &quot;EP1-4 再度启程&quot;,
+		pre_event = 3003,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI5&quot;,
+		mode = 1,
+		id = 3004,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3005] = {
+		story_type = 1,
+		name = &quot;EP2-1 冰喉峡谷&quot;,
+		pre_event = 3004,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI6&quot;,
+		mode = 1,
+		id = 3005,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3006] = {
+		story_type = 1,
+		name = &quot;EP2-2 极光之地&quot;,
+		pre_event = 3005,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI7&quot;,
+		mode = 1,
+		id = 3006,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3007] = {
+		story_type = 1,
+		name = &quot;EP2-3 陷阱&quot;,
+		pre_event = 3006,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI8&quot;,
+		mode = 1,
+		id = 3007,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3008] = {
+		story_type = 1,
+		name = &quot;EP2-4 重逢&quot;,
+		pre_event = 3007,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI9&quot;,
+		mode = 1,
+		id = 3008,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3009] = {
+		story_type = 1,
+		name = &quot;EP2-5 过去的事&quot;,
+		pre_event = 3008,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI10&quot;,
+		mode = 1,
+		id = 3009,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3010] = {
+		story_type = 1,
+		name = &quot;EP2-6 古老的馈赠&quot;,
+		pre_event = 3009,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI11&quot;,
+		mode = 1,
+		id = 3010,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3011] = {
+		story_type = 1,
+		name = &quot;EP2-7 寒冬要塞&quot;,
+		pre_event = 3010,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI12&quot;,
+		mode = 1,
+		id = 3011,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3012] = {
+		story_type = 2,
+		name = &quot;EP3-1 秽沼瘴潭之战&quot;,
+		pre_event = 3011,
+		type = 1,
+		story = &quot;1956001&quot;,
+		mode = 1,
+		id = 3012,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3013] = {
+		story_type = 1,
+		name = &quot;EP3-2 异化法师营地&quot;,
+		pre_event = 3012,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI14&quot;,
+		mode = 1,
+		id = 3013,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3014] = {
+		story_type = 1,
+		name = &quot;EP3-3 结盟仪式&quot;,
+		pre_event = 3013,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI15&quot;,
+		mode = 1,
+		id = 3014,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3015] = {
+		story_type = 2,
+		name = &quot;EP3-4 和谈生变&quot;,
+		pre_event = 3014,
+		type = 1,
+		story = &quot;1956002&quot;,
+		mode = 1,
+		id = 3015,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3016] = {
+		story_type = 1,
+		name = &quot;EP3-5 预言之子&quot;,
+		pre_event = 3015,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI17&quot;,
+		mode = 1,
+		id = 3016,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3017] = {
+		story_type = 2,
+		name = &quot;EP4-1 遗忘之地&quot;,
+		pre_event = 3016,
+		type = 1,
+		story = &quot;1956003&quot;,
+		mode = 1,
+		id = 3017,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3018] = {
+		story_type = 1,
+		name = &quot;EP4-2 不落要塞&quot;,
+		pre_event = 3017,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI19&quot;,
+		mode = 1,
+		id = 3018,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3019] = {
+		story_type = 2,
+		name = &quot;EP4-3 幻影之境&quot;,
+		pre_event = 3018,
+		type = 1,
+		story = &quot;1956004&quot;,
+		mode = 1,
+		id = 3019,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3020] = {
+		story_type = 1,
+		name = &quot;EP4-4 黎明的终战&quot;,
+		pre_event = 3019,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI21&quot;,
+		mode = 1,
+		id = 3020,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3021] = {
+		story_type = 1,
+		name = &quot;EP4-5 神庙漫步&quot;,
+		pre_event = 3020,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI22&quot;,
+		mode = 1,
+		id = 3021,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3022] = {
+		story_type = 1,
+		name = &quot;EP4-6 回忆觉醒&quot;,
+		pre_event = 3021,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI23&quot;,
+		mode = 1,
+		id = 3022,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3023] = {
+		story_type = 1,
+		name = &quot;EP4-7 寂灭魔法塔&quot;,
+		pre_event = 3022,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI24&quot;,
+		mode = 1,
+		id = 3023,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3024] = {
+		story_type = 1,
+		name = &quot;EP4-8 逝去的时代&quot;,
+		pre_event = 3023,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI25&quot;,
+		mode = 1,
+		id = 3024,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3025] = {
+		story_type = 1,
+		name = &quot;EP4-9 沉睡之地&quot;,
+		pre_event = 3024,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI26&quot;,
+		mode = 1,
+		id = 3025,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3026] = {
+		story_type = 1,
+		name = &quot;EP5-1 反攻的第一枪&quot;,
+		pre_event = 3025,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI27&quot;,
+		mode = 1,
+		id = 3026,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3027] = {
+		story_type = 2,
+		name = &quot;EP5-2 恩泽城之战&quot;,
+		pre_event = 3026,
+		type = 1,
+		story = &quot;1956005&quot;,
+		mode = 1,
+		id = 3027,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {}
+	},
+	[3028] = {
+		story_type = 1,
+		name = &quot;EP5-3 终结与新生&quot;,
+		pre_event = 3027,
+		type = 1,
+		story = &quot;QIYUANXIADEMIMI29&quot;,
+		mode = 1,
+		id = 3028,
+		icon = &quot;tag_story_main&quot;,
+		map_options = &quot;1&quot;,
+		pos = {
+			0,
+			0
+		},
+		options = {
+			{
+				1002,
+				&quot;999&quot;
+			},
+			{
+				2001,
+				&quot;999999&quot;
+			},
+			{
+				2002,
+				&quot;999999&quot;
+			},
+			{
+				2003,
+				&quot;9999&quot;
+			},
+			{
+				2004,
+				&quot;9999&quot;
+			},
+			{
+				2005,
+				&quot;999&quot;
+			},
+			{
+				2006,
+				&quot;750&quot;
+			},
+			{
+				3000,
+				&quot;C&quot;
+			},
+			{
+				3002,
+				&quot;SSS&quot;
+			},
+			{
+				3003,
+				&quot;SSS&quot;
+			},
+			{
+				3004,
+				&quot;SSS&quot;
+			},
+			{
+				3005,
+				&quot;SSS&quot;
+			},
+			{
+				3168,
+				&quot;SSS&quot;
+			},
+			{
+				3192,
+				&quot;SSS&quot;
+			},
+			{
+				3193,
+				&quot;SSS&quot;
+			}
+		}
+	},
+	all = {
+		1001,
+		1002,
+		1003,
+		1004,
+		1005,
+		1006,
+		1007,
+		1008,
+		1009,
+		1010,
+		1011,
+		1012,
+		1013,
+		1014,
+		1015,
+		1016,
+		1017,
+		1018,
+		1019,
+		1020,
+		1021,
+		1022,
+		1023,
+		1024,
+		1025,
+		1026,
+		2001,
+		2002,
+		2003,
+		2004,
+		2005,
+		2006,
+		2007,
+		2008,
+		2009,
+		2010,
+		2011,
+		2012,
+		2013,
+		2014,
+		3001,
+		3002,
+		3003,
+		3004,
+		3005,
+		3006,
+		3007,
+		3008,
+		3009,
+		3010,
+		3011,
+		3012,
+		3013,
+		3014,
+		3015,
+		3016,
+		3017,
+		3018,
+		3019,
+		3020,
+		3021,
+		3022,
+		3023,
+		3024,
+		3025,
+		3026,
+		3027,
+		3028
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

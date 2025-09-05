@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_73301.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_73301.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 10,
+	name = &quot;韧性装甲&quot;,
+	init_effect = &quot;&quot;,
+	id = 73301,
+	picture = &quot;&quot;,
+	desc = &quot;战斗对象每隔X秒，生成一个降低被暴击伤害Y%的护盾，持续Z秒&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 73300,
+	last_effect = &quot;Shield_enemy&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 1,
+				attr = &quot;criDamageResist&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

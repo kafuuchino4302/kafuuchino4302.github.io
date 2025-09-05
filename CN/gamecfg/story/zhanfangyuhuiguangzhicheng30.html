@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zhanfangyuhuiguangzhicheng30.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zhanfangyuhuiguangzhicheng30.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;ZHANFANGYUHUIGUANGZHICHENG30&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			blackBg = true,
+			bgmDelay = 2,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			sequence = {
+				{
+					&quot;群星之间&quot;,
+					1
+				},
+				{
+					&quot;卡美洛之庭·庭院&quot;,
+					2
+				},
+				{
+					&quot;一段时间后&quot;,
+					3
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#5CE6FF&quot;,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			bgm = &quot;theme-camelot&quot;,
+			say = &quot;此刻，三节车厢正静静地停在庭院翠绿的草坪上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;辉光之城回收完毕，战斗痕迹和信息残留也全部消除。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯——终于可以带你回家了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不过看你的表情，似乎还有话要说？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			say = &quot;关于罗德尼·META……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;她现在的情况很不稳定，我必须要将她带回治疗。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不过很快你就能再次见到她了，我保证。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;你还有问题？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;不再继续提问。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;追问「重塑」的事。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯————&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;我知道了，你还在在意重塑的事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			optionFlag = 1,
+			say = &quot;你打算告诉我么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不打算~你现在只需要知道「重塑」的状态既危险又不稳定就可以了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;正如我之前所说，所谓「重塑」，只是META化的一个特殊阶段而已，既危险又不稳定。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;只是刚才……如果不让「罗德尼」进入重塑状态的话，就救不下来她了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			optionFlag = 2,
+			say = &quot;……那孟菲斯和女灶神她们？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯？她们怎么了么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			optionFlag = 2,
+			say = &quot;不……没什么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，这个话题就到此为止吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来换我提问了，我也有问题要问你。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;没问题，你问吧！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;你竟然也有不知道的事~？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，我只知道我知道的事情，仅此而已哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;此次行动中跟随卡美洛之庭而来的META，除了伊丽莎白女王之外，还有其他人么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			say = &quot;没有。原本伊丽莎白是想带她的人一起来的，不过最后还是只有她一个人来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;“只有她一个人”啊……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#5CE6FF&quot;,
+			say = &quot;嗯？这句话有什么问题么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_camelot_15&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;没什么~我们回去吧——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

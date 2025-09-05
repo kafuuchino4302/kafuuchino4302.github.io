@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dphotosharelayermediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dphotosharelayermediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dPhotoShareLayerMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.SELECTFRAME = &quot;Dorm3dPhotoShareLayerMediator:SELECTFRAME&quot;
+slot0.EXIT_SHARE = &quot;Dorm3dPhotoShareLayerMediator:EXIT_SHARE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.SELECTFRAME, function (slot0, slot1, slot2)
+		uv0:addSubLayers(Context.New({
+			mediator = Dorm3dPhotoSelectFrameMediator,
+			viewComponent = Dorm3dPhotoSelectFrame,
+			data = {
+				photoTex = slot1,
+				photoData = slot2
+			}
+		}))
+	end)
+	slot0:bind(uv0.EXIT_SHARE, function ()
+		uv0:sendNotification(uv1.EXIT_SHARE)
+	end)
+end
+
+slot0.initNotificationHandleDic = function(slot0)
+	slot0.handleDic = {
+		[Dorm3dPhotoSelectFrameMediator.CONFIRMFRAME] = function (slot0, slot1)
+			slot0.viewComponent:AfterSelectFrame(slot1:getBody())
+		end
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_11650.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_11650.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;出击时，队友中每有一个白鹰联邦正航或轻母，自身航空、防空属性上升$1,自身舰载机击落敌方飞机时，自身航空额外提高$2（该效果最高叠加5层）&quot;,
+	name = &quot;航空阵列&quot;,
+	init_effect = &quot;&quot;,
+	id = 11650,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;出击时，队友中每有一个白鹰联邦正航或轻母，自身航空、防空属性上升$1,自身舰载机击落敌方飞机时，自身航空额外提高$2（该效果最高叠加5层）&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 11650,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				buff_id = 11651,
+				nationality = 1,
+				minTargetNumber = 1,
+				isBuffStackByCheckTarget = true,
+				check_target = {
+					&quot;TargetNationalityFriendly&quot;,
+					&quot;TargetShipTypeFriendly&quot;
+				},
+				ship_type_list = {
+					6,
+					7
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				nationality = 1,
+				skill_id = 11650,
+				check_target = {
+					&quot;TargetNationalityFriendly&quot;,
+					&quot;TargetShipTypeFriendly&quot;
+				},
+				ship_type_list = {
+					6,
+					7
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onFoeAircraftDying&quot;
+			},
+			arg_list = {
+				skill_id = 11651,
+				killer = &quot;child&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onFoeAircraftDying&quot;
+			},
+			arg_list = {
+				killer = &quot;child&quot;,
+				countTarget = 5,
+				countType = 11650
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				count = 1,
+				countType = 11650
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

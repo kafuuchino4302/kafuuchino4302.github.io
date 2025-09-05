@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huonululu3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>huonululu3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HUONULULU3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;有关火奴鲁鲁的二三事\n\n&lt;size=45&gt;三　火奴鲁鲁不好相处？&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;和火奴鲁鲁、利安得来到了附近的小店。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102120,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;谢谢你招待我来喝茶，利安得。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;哪里哪里，你能来才是我的荣幸呢。&quot;,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			actor = 202010,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			actor = 102120,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……但是指挥官你为什么又在这里？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;热情地打招呼&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 102120,
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;算了……你高兴就好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202010,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵呵，邀请指挥官的时候，指挥官说想要一起邀请你。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202010,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我也一直想要和火奴鲁鲁聊聊天，正好借这个机会和你亲近一下呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102120,
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……瞎操心。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			say = &quot;火奴鲁鲁把头别到一边去，不过看起来并没有真的生气。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202010,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵呵…我刚才点了这里的饼干，两位还请不要客气~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			say = &quot;于是开始了愉快的下午茶时间&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			actor = 202010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过，感觉火奴鲁鲁你平时不大与人来往呢？&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102120,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……嗯，毕竟我的性格，也不太招人喜欢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_104&quot;,
+			say = &quot;火奴鲁鲁显得有些低落。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202010,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那真是遗憾呢，明明火奴鲁鲁你这么漂亮，再有自信一点也没关系哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;漂、漂亮，我吗？&quot;,
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			actor = 102120,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 202010,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;是啊，刚才也说了，因为过去的缘分，我一直想要和火奴鲁鲁你友好相处。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202010,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;像现在这样坐下聊天后，就能感觉到，火奴鲁鲁你果然是个好漂亮的女孩子呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202010,
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;连同为女性的我都忍不住有些羡慕了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102120,
+			side = 0,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…………谢、谢谢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			say = &quot;被这么直接地赞美，一直都是逆来顺受的火奴鲁鲁反而有些窘迫了起来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			say = &quot;果然，让火奴鲁鲁和利安得交朋友是对的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102120,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……指挥官，你干什么用那种欣慰的眼光看着我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102120,
+			side = 2,
+			bgName = &quot;star_level_bg_104&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哼，笨蛋。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;star_level_bg_104&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;火奴鲁鲁又把头别到一边去，不过这次看起来只是想掩饰羞涩而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

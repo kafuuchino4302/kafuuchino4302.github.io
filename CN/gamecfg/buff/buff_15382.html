@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_15382.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_15382.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 15382,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 15382,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 15386,
+				quota = 1
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				quota = 1,
+				skill_id = 15387,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Impero&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;diguohuixue&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCleanse&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id_list = {
+					15383
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				hpOutInterval = true,
+				skill_id = 15385,
+				hpSigned = 0,
+				hpUpperBound = 0.9,
+				target = &quot;TargetSelf&quot;,
+				hpLowerBound = 0.2
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

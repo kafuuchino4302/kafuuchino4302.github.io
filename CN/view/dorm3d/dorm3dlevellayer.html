@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dlevellayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dlevellayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dLevelLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+slot0.SERVER_TYPE = 1
+slot0.CLIENT_TYPE = 2
+slot0.STORY_TYPE = 3
+slot0.NAME_MIN_SIZE = 4
+slot0.NAME_SHORT_SIZE = 8
+slot0.NAME_LONG_SIZE = 14
+slot0.PLAYERPREFS_KEY = &quot;Dorm3dLayer.playerprefs&quot;
+
+slot0.getUIName = function(slot0)
+	return &quot;Dorm3dLevelUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.rtLevelPanel = slot0._tf:Find(&quot;panel&quot;)
+
+	onButton(slot0, slot0._tf:Find(&quot;btn_back&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0._tf:Find(&quot;bg&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.rtLevelPanel:Find(&quot;bg/bottom/btn_time&quot;), function ()
+		if uv0.apartment.level &lt; getDorm3dGameset(&quot;drom3d_time_unlock&quot;)[1] then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;apartment_level_unenough&quot;, slot0))
+
+			return
+		end
+
+		uv0:ShowTimeSelectWindow()
+	end, SFX_PANEL)
+
+	slot0.rtTimeSelectWindow = slot0._tf:Find(&quot;TimeSelectWindow&quot;)
+
+	onButton(slot0, slot0.rtTimeSelectWindow:Find(&quot;bg&quot;), function ()
+		setActive(uv0.rtTimeSelectWindow, false)
+		pg.UIMgr.GetInstance():UnOverlayPanel(uv0.rtTimeSelectWindow, uv0._tf)
+	end, SFX_CANCEL)
+
+	slot0.rtRenameWindow = slot0._tf:Find(&quot;RenameWindow&quot;)
+
+	onButton(slot0, slot0.rtLevelPanel:Find(&quot;bg/left/rot&quot;), function ()
+		uv0:ShowRenameWindow()
+	end, SFX_PANEL)
+
+	slot0.callInput = slot0.rtRenameWindow:Find(&quot;panel/input/nickname&quot;)
+
+	onButton(slot0, slot0.rtRenameWindow:Find(&quot;panel/confirm&quot;), function ()
+		if getInputText(uv0.callInput) == &quot;&quot; then
+			return
+		end
+
+		if not nameValidityCheck(slot0, uv1.NAME_MIN_SIZE, uv1.NAME_LONG_SIZE, {
+			&quot;spece_illegal_tip&quot;,
+			&quot;dorm3d_appellation_waring3&quot;,
+			&quot;dorm3d_appellation_waring2&quot;,
+			&quot;dorm3d_appellation_waring1&quot;
+		}) then
+			setInputText(uv0.callInput, uv0.apartment:GetCallName())
+
+			return
+		end
+
+		if slot0 == uv0.apartment:GetCallName() then
+			return
+		end
+
+		if uv0.apartment:GetSetCallCd() &gt; 0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_appellation_waring4&quot;))
+
+			return
+		end
+
+		if uv0.renameReset then
+			uv0:emit(Dorm3dLevelMediator.RENAME_RESET, uv0.apartment.configId)
+		else
+			uv0:emit(Dorm3dLevelMediator.RENAME, uv0.apartment.configId, slot0)
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.rtRenameWindow:Find(&quot;panel/cancel&quot;), function ()
+		uv0:CloseRenameWindow()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.rtRenameWindow:Find(&quot;panel/reset&quot;), function ()
+		setInputText(uv0.callInput, pg.dorm3d_dorm_template[uv0.apartment.configId].default_appellation)
+
+		uv0.renameReset = true
+	end)
+
+	slot0.nameShort = slot0.rtLevelPanel:Find(&quot;bg/left/rot/short&quot;)
+	slot0.nameLong = slot0.rtLevelPanel:Find(&quot;bg/left/rot/long&quot;)
+	slot0.blurPanel = slot0._tf:Find(&quot;blur&quot;)
+
+	slot0.callInput:GetComponent(typeof(InputField)).onValueChanged:AddListener(function ()
+		uv0.renameReset = false
+	end)
+	setActive(slot0.rtLevelPanel:Find(&quot;bg/left/rot&quot;), not uv0.IsLockNamed())
+	slot0:InitItemList()
+end
+
+slot0.SetApartment = function(slot0, slot1)
+	slot0.apartment = slot1
+end
+
+slot0.InitItemList = function(slot0)
+	slot1 = slot0.rtLevelPanel
+	slot0.rtLevelContainer = slot1:Find(&quot;bg/awards/content&quot;)
+	slot3 = slot0.rtLevelContainer
+	slot0.levelItemList = UIItemList.New(slot0.rtLevelContainer, slot3:Find(&quot;tpl&quot;))
+	slot1 = slot0.levelItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		slot3 = slot1 + 1
+		slot5 = uv0.apartment:getFavorConfig(&quot;levelup_client_item&quot;, slot3)
+		slot6 = slot2:Find(&quot;items&quot;)
+		slot7 = {}
+
+		for slot11, slot12 in pairs(uv0.apartment:getFavorConfig(&quot;levelup_item&quot;, slot3)) do
+			table.insert(slot7, {
+				type = uv1.SERVER_TYPE,
+				data = slot12
+			})
+		end
+
+		slot8 = false
+
+		for slot12, slot13 in pairs(slot5) do
+			if slot13[1] == Dorm3dIconHelper.DORM_STORY then
+				table.insert(slot7, {
+					type = uv1.STORY_TYPE,
+					data = slot13
+				})
+
+				slot8 = true
+			else
+				table.insert(slot7, {
+					type = uv1.CLIENT_TYPE,
+					data = slot13
+				})
+			end
+		end
+
+		if slot0 == UIItemList.EventInit then
+			setActive(slot2:Find(&quot;bg/normal&quot;), not slot8)
+			setActive(slot2:Find(&quot;bg/special&quot;), slot8)
+
+			slot9 = function(slot0)
+				slot3 = uv0:GetChild(slot0 - 1):Find(&quot;item&quot;):Find(&quot;Dorm3dIconTpl&quot;)
+
+				if slot0 &lt;= #uv1 then
+					switch(uv1[slot0].type, {
+						[uv2.SERVER_TYPE] = function ()
+							slot1 = uv0
+
+							setActive(slot1:Find(&quot;count&quot;), true)
+							updateCustomDrop(uv0, Drop.Create(uv1[uv2].data), {
+								style = &quot;dorm&quot;
+							})
+							onButton(uv3, uv4, function ()
+								uv0:emit(BaseUI.ON_NEW_DROP, {
+									style = &quot;dorm&quot;,
+									drop = uv1
+								})
+							end, SFX_PANEL)
+						end,
+						[uv2.CLIENT_TYPE] = function ()
+							slot1 = uv0
+
+							setActive(slot1:Find(&quot;count&quot;), true)
+							Dorm3dIconHelper.UpdateDorm3dIcon(uv0, uv1[uv2].data)
+
+							slot0 = Dorm3dIconHelper.Data2Config(uv1[uv2].data)
+
+							onButton(uv3, uv4, function ()
+								uv0:emit(Dorm3dLevelMediator.ON_DROP_CLIENT, {
+									data = uv1[uv2].data
+								})
+							end, SFX_PANEL)
+						end,
+						[uv2.STORY_TYPE] = function ()
+							slot0 = Dorm3dIconHelper.Data2Config(uv0[uv1].data)
+
+							setActive(uv2:Find(&quot;sp&quot;), true)
+							setActive(uv3:Find(&quot;story&quot;), true)
+							onButton(uv4, uv3, function ()
+								uv0:emit(Dorm3dLevelMediator.ON_DROP_CLIENT, {
+									data = uv1[uv2].data
+								})
+							end, SFX_PANEL)
+							Dorm3dIconHelper.UpdateDorm3dIcon(uv5, uv0[uv1].data)
+							setText(uv3:Find(&quot;story/Text&quot;), i18n(&quot;dorm3d_favor_level_story&quot;))
+						end
+					})
+				else
+					setActive(slot2, false)
+					setActive(slot1:Find(&quot;empty&quot;), true)
+				end
+			end
+
+			for slot13 = 1, slot6.childCount do
+				slot9(slot13)
+			end
+		elseif slot0 == UIItemList.EventUpdate then
+			slot9 = slot3 &lt;= uv0.apartment.level
+
+			setActive(slot2:Find(&quot;unlock&quot;), slot9)
+			setText(slot2:Find(&quot;number&quot;), string.format(&quot;&lt;color=%s&gt;%02d&lt;/color&gt;&quot;, slot8 and &quot;#FFFFFF&quot; or slot9 and &quot;#b6b1b7&quot; or &quot;#827d82&quot;, slot3))
+
+			if slot9 then
+				setGray(slot2:Find(&quot;items&quot;), true, true)
+			end
+		end
+	end)
+end
+
+slot0.didEnter = function(slot0)
+	slot1, slot2 = slot0.apartment:getFavor()
+
+	setText(slot0.rtLevelPanel:Find(&quot;bg/favor/level&quot;), string.format(&quot;Lv.%d : &quot;, slot0.apartment.level))
+
+	if slot0.apartment:isMaxFavor() then
+		setText(slot0.rtLevelPanel:Find(&quot;bg/favor/level/Text&quot;), &quot;MAX&quot;)
+	else
+		setText(slot0.rtLevelPanel:Find(&quot;bg/favor/level/Text&quot;), string.format(&quot;%d/%d&quot;, slot1, slot2))
+	end
+
+	setSlider(slot0.rtLevelPanel:Find(&quot;bg/favor/progressBg/progress&quot;), 0, slot2, slot1)
+	slot0.levelItemList:align(getDorm3dGameset(&quot;favor_level&quot;)[1])
+
+	slot0.rtLevelContainer:GetComponent(typeof(ScrollRect)).horizontalNormalizedPosition = 0
+	slot4 = getDorm3dGameset(&quot;drom3d_time_unlock&quot;)[1] &lt;= slot0.apartment.level
+
+	setImageAlpha(slot0.rtLevelPanel:Find(&quot;bg/bottom/btn_time&quot;), not slot4 and 0.2 or 1)
+	setActive(slot0.rtLevelPanel:Find(&quot;bg/bottom/btn_time/lock&quot;), not slot4)
+	setText(slot0.rtLevelPanel:Find(&quot;bg/left/rot/Text&quot;), i18n(&quot;dorm3d_appellation_title&quot;))
+	setText(slot0.rtRenameWindow:Find(&quot;panel/cancel/Text&quot;), i18n(&quot;word_cancel&quot;))
+	setText(slot0.rtRenameWindow:Find(&quot;panel/confirm/Text&quot;), i18n(&quot;word_ok&quot;))
+	slot0:UpdateName()
+	slot0:UpdateRed()
+end
+
+slot0.IsLockNamed = function()
+	return PLATFORM_CODE ~= PLATFORM_CH and DORM_LOCK_NAMED
+end
+
+slot0.IsShowRed = function()
+	if uv0.IsLockNamed() then
+		return false
+	end
+
+	return PlayerPrefs.GetInt(uv0.PLAYERPREFS_KEY, 0) == 0
+end
+
+slot0.UpdateRed = function(slot0)
+	setActive(slot0.rtLevelPanel:Find(&quot;bg/left/rot/red&quot;), uv0.IsShowRed())
+	slot0:emit(Dorm3dLevelMediator.UPDATE_FAVOR_DISPLAY)
+end
+
+slot0.UpdateName = function(slot0)
+	slot2, slot3 = utf8_to_unicode(slot0.apartment:GetCallName())
+	slot4 = slot3 &lt;= uv0.NAME_SHORT_SIZE
+
+	setActive(slot0.nameShort, slot4)
+	setActive(slot0.nameLong, not slot4)
+	setText(slot4 and slot0.nameShort:Find(&quot;Text&quot;) or slot0.nameLong:Find(&quot;Text&quot;), slot1)
+end
+
+slot0.ShowRenameWindow = function(slot0)
+	setActive(slot0._tf:Find(&quot;bg&quot;), false)
+	setActive(slot0._tf:Find(&quot;btn_back&quot;), false)
+	setActive(slot0.rtLevelPanel, false)
+	setActive(slot0.rtRenameWindow, true)
+	setActive(slot0.blurPanel, true)
+	pg.UIMgr.GetInstance():OverlayPanelPB(slot0.blurPanel, {
+		pbList = {
+			slot0.blurPanel
+		},
+		groupName = LayerWeightConst.GROUP_DORM3D,
+		weight = slot0:getWeightFromData() + 1
+	})
+	pg.UIMgr.GetInstance():OverlayPanel(slot0.rtRenameWindow, {
+		groupName = LayerWeightConst.GROUP_DORM3D,
+		weight = slot0:getWeightFromData() + 1
+	})
+	setInputText(slot0.callInput, slot0.apartment:GetCallName())
+
+	slot2 = nil
+
+	setText(slot0.rtRenameWindow:Find(&quot;panel/time&quot;), slot1 == 0 and i18n(&quot;dorm3d_appellation_interval&quot;) or i18n(&quot;dorm3d_appellation_cd&quot;, slot0.apartment:GetSetCallCd() &gt; 3600 and math.floor(slot1 / 3600) .. i18n(&quot;word_hour&quot;) or slot1 &gt; 60 and math.floor(slot1 / 60) .. i18n(&quot;word_minute&quot;) or slot1 .. i18n(&quot;word_second&quot;)))
+	PlayerPrefs.SetInt(uv0.PLAYERPREFS_KEY, 1)
+	slot0:UpdateRed()
+end
+
+slot0.CloseRenameWindow = function(slot0)
+	setActive(slot0._tf:Find(&quot;bg&quot;), true)
+	setActive(slot0._tf:Find(&quot;btn_back&quot;), true)
+	setActive(slot0.rtLevelPanel, true)
+	setActive(slot0.rtRenameWindow, false)
+	setActive(slot0.blurPanel, false)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0.blurPanel, slot0._tf)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0.rtRenameWindow, slot0._tf)
+	slot0:UpdateName()
+end
+
+slot0.ShowTimeSelectWindow = function(slot0)
+	slot5 = &quot;dorm3d_time_choose&quot;
+
+	setText(slot0.rtTimeSelectWindow:Find(&quot;panel&quot;):Find(&quot;title&quot;), i18n(slot5))
+
+	for slot5, slot6 in ipairs({
+		&quot;day&quot;,
+		&quot;night&quot;
+	}) do
+		slot7 = slot1:Find(&quot;content/&quot; .. slot6)
+
+		setText(slot7:Find(&quot;now/Text&quot;), i18n(&quot;dorm3d_now_time&quot;))
+		setActive(slot7:Find(&quot;now&quot;), slot5 == slot0.contextData.timeIndex)
+		onToggle(slot0, slot7, function (slot0)
+			if slot0 == true then
+				uv0.selectTimeIndex = uv1
+			end
+
+			quickPlayAnimation(uv2, slot0 and &quot;anim_dorm3d_timeselect_click&quot; or &quot;anim_dorm3d_timeselect_unclick&quot;)
+		end, SFX_PANEL)
+	end
+
+	triggerToggle(slot1:Find(&quot;content&quot;):GetChild(slot0.contextData.timeIndex - 1), true)
+	setText(slot1:Find(&quot;bottom/toggle_lock/Text&quot;), i18n(&quot;dorm3d_is_auto_time&quot;))
+	onToggle(slot0, slot1:Find(&quot;bottom/toggle_lock&quot;), function (slot0)
+		if slot0 then
+			PlayerPrefs.SetInt(ApartmentProxy.GetTimePPName(uv0.contextData.roomId), 0)
+		else
+			PlayerPrefs.SetInt(ApartmentProxy.GetTimePPName(uv0.contextData.roomId), uv0.contextData.timeIndex)
+		end
+
+		quickPlayAnimation(uv1:Find(&quot;bottom/toggle_lock&quot;), slot0 and &quot;anim_dorm3d_timeselect_bottom_on&quot; or &quot;anim_dorm3d_timeselect_bottom_off&quot;)
+	end, SFX_PANEL)
+	triggerToggle(slot1:Find(&quot;bottom/toggle_lock&quot;), PlayerPrefs.GetInt(ApartmentProxy.GetTimePPName(slot0.contextData.roomId), 1) == 0)
+	onButton(slot0, slot1:Find(&quot;bottom/btn_confirm&quot;), function ()
+		warning(uv0.contextData.timeIndex, uv0.selectTimeIndex)
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_day_night_switching&quot; .. uv0.selectTimeIndex))
+
+		if uv0.contextData.timeIndex == uv0.selectTimeIndex then
+			return
+		else
+			if PlayerPrefs.GetInt(ApartmentProxy.GetTimePPName(uv0.contextData.roomId), 1) ~= 0 then
+				PlayerPrefs.SetInt(ApartmentProxy.GetTimePPName(uv0.contextData.roomId), uv0.selectTimeIndex)
+			end
+
+			triggerButton(uv0.rtTimeSelectWindow:Find(&quot;bg&quot;))
+			uv0:emit(Dorm3dLevelMediator.CHAMGE_TIME, uv0.selectTimeIndex)
+		end
+	end, SFX_CONFIRM)
+	setActive(slot0.rtTimeSelectWindow, true)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0.rtTimeSelectWindow, {
+		weight = LayerWeightConst.SECOND_LAYER,
+		groupName = LayerWeightConst.GROUP_DORM3D
+	})
+end
+
+slot0.onBackPressed = function(slot0)
+	if isActive(slot0.rtTimeSelectWindow) then
+		triggerButton(slot0.rtTimeSelectWindow:Find(&quot;bg&quot;))
+	elseif isActive(slot0.rtRenameWindow) then
+		triggerButton(slot0.rtRenameWindow:Find(&quot;panel/cancel&quot;))
+	else
+		uv0.super.onBackPressed(slot0)
+	end
+end
+
+slot0.willExit = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

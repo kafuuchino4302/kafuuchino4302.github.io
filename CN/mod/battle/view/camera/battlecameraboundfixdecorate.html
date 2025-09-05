@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlecameraboundfixdecorate.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlecameraboundfixdecorate.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleConfig
+slot2 = slot0.Battle.BattleVariable
+slot0.Battle.BattleCameraBoundFixDecorate = class(&quot;BattleCameraBoundFixDecorate&quot;)
+slot0.Battle.BattleCameraBoundFixDecorate.__name = &quot;BattleCameraBoundFixDecorate&quot;
+slot3 = slot0.Battle.BattleCameraBoundFixDecorate
+
+slot3.Ctor = function(slot0)
+end
+
+slot3.SetMapData = function(slot0, slot1, slot2, slot3, slot4)
+	slot0._cameraUpperBound = slot1 + 30
+	slot0._cameraLowerBound = slot2 - 5
+	slot0._cameraLeftBound = slot3 - 3
+	slot0._cameraRightBound = slot4 + 3
+	slot0._cameraHalfWidth = uv0.CAMERA_SIZE * pg.CameraFixMgr.GetInstance().targetRatio
+	slot0._cameraLeftBoundPoint = slot0._cameraLeftBound + slot0._cameraHalfWidth
+	slot0._cameraRightBoundPoint = slot0._cameraRightBound - slot0._cameraHalfWidth
+	slot0._projectionConst = uv0.CAMERA_SIZE / uv1._camera_radian_x_sin
+
+	return slot0._cameraUpperBound, slot0._cameraLowerBound, slot0._cameraLeftBound, slot0._cameraRightBound
+end
+
+slot3.GetCameraPos = function(slot0, slot1)
+	slot2 = slot1.y / uv0._camera_radian_x_tan + slot0._projectionConst
+
+	if slot1.z &lt; slot0._cameraLowerBound then
+		slot1.z = slot0._cameraLowerBound
+	elseif slot1.z &gt; slot0._cameraUpperBound - slot2 then
+		slot1.z = slot0._cameraUpperBound - slot2
+	end
+
+	if slot1.x &lt; slot0._cameraLeftBoundPoint then
+		slot1.x = slot0._cameraLeftBoundPoint
+	elseif slot0._cameraRightBoundPoint &lt; slot1.x then
+		slot1.x = slot0._cameraRightBoundPoint
+	end
+
+	return slot1
+end
+
+slot3.Dispose = function(slot0)
+	slot0._cameraUpperBound = nil
+	slot0._cameraLowerBound = nil
+	slot0._cameraLeftBound = nil
+	slot0._cameraRightBound = nil
+	slot0._cameraHalfWidth = nil
+	slot0._cameraLeftBoundPoint = nil
+	slot0._cameraRightBoundPoint = nil
+	slot0._projectionConst = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

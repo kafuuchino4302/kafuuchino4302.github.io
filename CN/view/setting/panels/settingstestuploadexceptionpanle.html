@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingstestuploadexceptionpanle.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingstestuploadexceptionpanle.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsTestUploadExceptionPanle&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsServiceCH&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return &quot;测试异常上传&quot;
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;/ Service&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.serviceBtn = findTF(slot0._tf, &quot;delete&quot;)
+
+	onButton(slot0, slot0.serviceBtn, function ()
+		slot0 = ___inexistence____[0]
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdate = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

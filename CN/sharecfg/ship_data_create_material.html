@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ship_data_create_material.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ship_data_create_material.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.ship_data_create_material = {
+	{
+		use_gold = 1500,
+		name = &quot;特型舰&quot;,
+		build_anim = &quot;building&quot;,
+		type = 1,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 1,
+		icon = &quot;build_1&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ff5e39&gt;海上传奇舰船&lt;/color&gt;：1.2%&quot;,
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：28.8%&quot;
+		}
+	},
+	{
+		use_gold = 600,
+		name = &quot;轻型舰&quot;,
+		build_anim = &quot;building&quot;,
+		type = 1,
+		ship_icon = &quot;2&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 1,
+		id = 2,
+		icon = &quot;build_2&quot;,
+		exchange_count = 1,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：26%&quot;,
+			&quot;普通舰船：55%&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;重型舰&quot;,
+		build_anim = &quot;building&quot;,
+		type = 1,
+		ship_icon = &quot;3&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 3,
+		icon = &quot;build_3&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ff5e39&gt;海上传奇舰船&lt;/color&gt;：1.2%&quot;,
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：28.8%&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;限时建造&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 4,
+		icon = &quot;build_4&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：30%&quot;,
+			&quot;&lt;color=#ffde38&gt;马塞纳&lt;/color&gt;：2.0%&lt;color=#92FC63&gt;(up!)&lt;/color&gt;&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ffde38&gt;贝劳森林&lt;/color&gt;：2.0%&lt;color=#92FC63&gt;(up!)&lt;/color&gt;&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ffde38&gt;大胆&lt;/color&gt;：0.5%&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#d797ff&gt;迪凯纳&lt;/color&gt;：2.5%&lt;color=#92FC63&gt;(up!)&lt;/color&gt;&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;限时建造&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 5,
+		icon = &quot;build_5&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：30%&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;特型舰祈愿&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 6,
+		icon = &quot;build_6&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ff5e39&gt;海上传奇舰船&lt;/color&gt;：1.2%&quot;,
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：28.8%&quot;
+		}
+	},
+	{
+		use_gold = 600,
+		name = &quot;轻型舰祈愿&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;2&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 1,
+		id = 7,
+		icon = &quot;build_7&quot;,
+		exchange_count = 1,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：26%&quot;,
+			&quot;普通舰船：55%&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;重型舰祈愿&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;3&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 8,
+		icon = &quot;build_8&quot;,
+		exchange_count = 2,
+		rate_tip = {
+			&quot;&lt;color=#ff5e39&gt;海上传奇舰船&lt;/color&gt;：1.2%&quot;,
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：28.8%&quot;
+		}
+	},
+	{
+		use_gold = 600,
+		name = &quot;轻型限时建造&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;2&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 1,
+		id = 9,
+		icon = &quot;build_4&quot;,
+		exchange_count = 1,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：26%&quot;,
+			&quot;普通舰船：55%&quot;,
+			&quot;&lt;color=#d797ff&gt;塔尔图&lt;/color&gt;：1.4%(&lt;color=#92fc63&gt;up!&lt;/color&gt;)&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;限时建造&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 2,
+		id = 10,
+		icon = &quot;build_4&quot;,
+		exchange_count = 0,
+		rate_tip = {
+			&quot;&lt;color=#ff5e39&gt;海上传奇舰船&lt;/color&gt;：1.2%&quot;,
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：28.8%&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ff5e39&gt;{namecode:514}&lt;/color&gt;：1.2%(&lt;color=#92fc63&gt;up!&lt;/color&gt;)&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ffde38&gt;{namecode:516}&lt;/color&gt;：2.0%(&lt;color=#92fc63&gt;up!&lt;/color&gt;)&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ffde38&gt;{namecode:510}&lt;/color&gt;：2.0%(&lt;color=#92fc63&gt;up!&lt;/color&gt;)&quot;,
+			&quot; &quot;,
+			&quot;&lt;color=#ffde38&gt;{namecode:515}&lt;/color&gt;：0.5%&quot;
+		}
+	},
+	{
+		use_gold = 1500,
+		name = &quot;庆典新手建造&quot;,
+		build_anim = &quot;building&quot;,
+		type = 2,
+		ship_icon = &quot;1&quot;,
+		build_voice = &quot;&quot;,
+		use_item = 20001,
+		number_1 = 1,
+		id = 11,
+		icon = &quot;build_11&quot;,
+		exchange_count = 0,
+		rate_tip = {
+			&quot;&lt;color=#ffde38&gt;超稀有舰船&lt;/color&gt;：7%&quot;,
+			&quot;&lt;color=#d797ff&gt;精锐舰船&lt;/color&gt;：12%&quot;,
+			&quot;&lt;color=#3dc6ff&gt;稀有舰船&lt;/color&gt;：51%&quot;,
+			&quot;普通舰船：30%&quot;
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

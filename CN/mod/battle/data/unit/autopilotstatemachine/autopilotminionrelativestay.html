@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>autopilotminionrelativestay.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>autopilotminionrelativestay.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = class(&quot;AutoPilotMinionRelativeStay&quot;, slot0.Battle.IPilot)
+slot0.Battle.AutoPilotMinionRelativeStay = slot1
+slot1.__name = &quot;AutoPilotMinionRelativeStay&quot;
+
+slot1.Ctor = function(slot0, ...)
+	uv0.super.Ctor(slot0, ...)
+end
+
+slot1.SetParameter = function(slot0, slot1, slot2)
+	uv0.super.SetParameter(slot0, slot1, slot2)
+
+	slot0._distX = slot1.x
+	slot0._distZ = slot1.z
+	slot0._nextBuffID = slot1.buffID
+end
+
+slot1.GetDirection = function(slot0, slot1)
+	if not slot0._pilot:GetTarget():GetMaster():IsAlive() then
+		if slot0._nextBuffID then
+			slot0._pilot:GetTarget():AddBuff(uv0.Battle.BattleBuffUnit.New(slot0._nextBuffID))
+		end
+
+		return Vector3.zero
+	end
+
+	slot3 = slot2:GetPosition()
+	slot5 = Vector3(slot3.x + slot0._distX, slot1.y, slot3.z + slot0._distZ) - slot1
+
+	if slot0:IsExpired() then
+		slot0:Finish()
+	end
+
+	if slot5.magnitude &lt; 0.4 then
+		return Vector3.zero
+	else
+		slot5.y = 0
+
+		return slot5:SetNormalize()
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

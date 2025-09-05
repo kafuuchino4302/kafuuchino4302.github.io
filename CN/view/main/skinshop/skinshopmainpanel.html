@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skinshopmainpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skinshopmainpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SkinShopMainPanel&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._tf = slot1
+	slot0.nameTxt = findTF(&quot;name_bg/name&quot;, slot0._tf):GetComponent(typeof(Text))
+	slot0.skinNameTxt = findTF(&quot;name_bg/skin_name&quot;, slot0._tf):GetComponent(typeof(Text))
+	slot0.charParent = findTF(&quot;char/char&quot;, slot0._tf)
+	slot0.paintingTF = findTF(&quot;paint&quot;, slot0._tf)
+	slot0.charBg = findTF(&quot;char/char_info&quot;, slot0._tf)
+	slot0.tags = findTF(&quot;char/char_info/tags&quot;, slot0._tf)
+	slot0.limitTxt = findTF(&quot;name_bg/limit_time/Text&quot;, slot0._tf):GetComponent(typeof(Text))
+	slot0.commonPanel = findTF(&quot;char/common&quot;, slot0._tf)
+	slot0.buyBtn = findTF(&quot;buy_btn&quot;, slot0.commonPanel)
+	slot0.activityBtn = findTF(&quot;activty_btn&quot;, slot0.commonPanel)
+	slot0.gotBtn = findTF(&quot;got_btn&quot;, slot0.commonPanel)
+	slot0.priceTxt = findTF(&quot;consume/Text&quot;, slot0.commonPanel):GetComponent(typeof(Text))
+	slot0.originalPriceTxt = findTF(&quot;consume/originalprice/Text&quot;, slot0.commonPanel):GetComponent(typeof(Text))
+	slot0.timelimtPanel = findTF(&quot;char/timelimt&quot;, slot0._tf)
+	slot0.timelimitBtn = findTF(&quot;timelimit_btn&quot;, slot0.timelimtPanel)
+	slot0.timelimitPriceTxt = findTF(&quot;consume/Text&quot;, slot0.timelimtPanel):GetComponent(typeof(Text))
+	slot0.bg1 = findTF(&quot;bg/bg_1&quot;)
+	slot0.bg2 = findTF(&quot;bg/bg_2&quot;)
+	slot0.bgType = false
+	slot0.defaultBg = slot0.bg1:GetComponent(typeof(Image)).sprite
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

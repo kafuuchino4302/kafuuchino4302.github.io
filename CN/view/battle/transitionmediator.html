@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transitionmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>transitionmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TransitionMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.FINISH = &quot;TransitionMediator:FINISH&quot;
+
+slot0.register = function(slot0)
+end
+
+slot0.remove = function(slot0)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.LOAD_SCENE_DONE,
+		GAME.BEGIN_STAGE_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.LOAD_SCENE_DONE then
+		if slot3 == SCENE.TRANSITION then
+			slot0.contextData.afterLoadFunc()
+		end
+	elseif slot2 == GAME.BEGIN_STAGE_DONE then
+		if getProxy(ContextProxy):getContextByMediator(BattleMediator) then
+			getProxy(ContextProxy):RemoveContext(slot4)
+		end
+
+		slot0:sendNotification(GAME.CHANGE_SCENE, SCENE.COMBATLOAD, slot3)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

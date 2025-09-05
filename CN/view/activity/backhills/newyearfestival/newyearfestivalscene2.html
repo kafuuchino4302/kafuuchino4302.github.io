@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newyearfestivalscene2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newyearfestivalscene2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewYearFestivalScene2&quot;, import(&quot;..TemplateMV.BackHillTemplate&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;NewyearFestivalUI2&quot;
+end
+
+slot0.edge2area = {
+	default = &quot;map_middle&quot;,
+	[&quot;3_4&quot;] = &quot;map_bottom&quot;,
+	[&quot;5_6&quot;] = &quot;map_bottom&quot;
+}
+
+slot0.init = function(slot0)
+	uv0.super.init(slot0)
+
+	slot0.top = slot0:findTF(&quot;top&quot;)
+	slot0._map = slot0:findTF(&quot;map&quot;)
+
+	for slot4 = 0, slot0._map.childCount - 1 do
+		slot5 = slot0._map:GetChild(slot4)
+		slot0[&quot;map_&quot; .. go(slot5).name] = slot5
+	end
+
+	slot0._shipTpl = slot0._map:Find(&quot;ship&quot;)
+	slot0._upper = slot0:findTF(&quot;upper&quot;)
+
+	for slot4 = 0, slot0._upper.childCount - 1 do
+		slot5 = slot0._upper:GetChild(slot4)
+		slot0[&quot;upper_&quot; .. go(slot5).name] = slot5
+	end
+
+	slot0.containers = {
+		slot0.map_middle
+	}
+	slot0.graphPath = GraphPath.New(import(&quot;GameCfg.BackHillGraphs.NewyearFestivalGraph2&quot;))
+	slot0._map:GetComponent(typeof(UnityEngine.Canvas)).sortingOrder = (slot0._tf:GetComponentInParent(typeof(UnityEngine.Canvas)) and slot1.sortingOrder or 0) - 2
+	slot3 = GetComponent(slot0._map, &quot;ItemList&quot;)
+
+	for slot7 = 1, 1 do
+		if not IsNil(slot3.prefabItem[slot7 - 1]) then
+			slot9 = tf(Instantiate(slot8))
+
+			setParent(slot9, slot0._map)
+			pg.ViewUtils.SetSortingOrder(slot9, slot2 - 1)
+		end
+	end
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0:findTF(&quot;top/back&quot;), function ()
+		uv0:emit(uv1.ON_BACK)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0:findTF(&quot;top/home&quot;), function ()
+		uv0:emit(uv1.ON_HOME)
+	end, SFX_PANEL)
+	onButton(slot0, slot0:findTF(&quot;top/help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.help_xinnian2021_feast.tip
+		})
+	end, SFX_PANEL)
+	slot0:InitStudents(getProxy(ActivityProxy):getActivityById(ActivityConst.NEWYEAR_SNACKSTREET_MINIGAME) and slot1.id, 3, 4)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;daxuezhang&quot;, function ()
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, 18)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;xiaochijie&quot;, function ()
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, 19)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;qiaozhong&quot;, function ()
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, 20)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;fuzhuangdian&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.SKINSHOP)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;mofang&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.GETBOAT, {
+			projectName = &quot;new&quot;,
+			page = 1
+		})
+	end)
+	slot0:UpdateView()
+end
+
+slot0.UpdateView = function(slot0)
+	setActive(slot0.upper_daxuezhang:Find(&quot;Tip&quot;), uv0.IsMiniActNeedTip(ActivityConst.NEWYEAR_SNOWBALL_FIGHT))
+	setActive(slot0.upper_xiaochijie:Find(&quot;Tip&quot;), NewYearSnackPage.IsTip())
+	setActive(slot0.upper_qiaozhong:Find(&quot;Tip&quot;), NewYearShrineView.IsNeedShowTipWithoutActivityFinalReward())
+end
+
+slot0.willExit = function(slot0)
+	slot0:clearStudents()
+	uv0.super.willExit(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

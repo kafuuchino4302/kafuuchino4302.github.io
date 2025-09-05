@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saratogapermanentskinpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>saratogapermanentskinpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SaratogaPermanentSkinPage&quot;, import(&quot;.TemplatePage.PtTemplatePage&quot;))
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+	onButton(slot0, slot0.battleBtn, function ()
+		uv0:emit(ActivityMediator.SPECIAL_BATTLE_OPERA)
+	end, SFX_PANEL)
+
+	slot1, slot2, slot3 = slot0.ptData:GetResProgress()
+
+	setText(slot0.progress, setColorStr(slot1, &quot;#FF8DB5&quot;) .. &quot;/&quot; .. slot2)
+	setText(slot0.bg:Find(&quot;Text&quot;), i18n(&quot;activity_kill&quot;))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

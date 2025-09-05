@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharactertasklist.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharactertasklist.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterTaskList&quot;, import(&quot;..BaseVO&quot;))
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1.id
+	slot0.configId = slot0.id
+	slot0.skillId = slot0:getConfig(&quot;skill_ID&quot;)
+	slot0.taskList = {}
+	slot3 = nil
+
+	for slot7, slot8 in ipairs(slot0:getConfig(&quot;skill_levelup_task&quot;)) do
+		slot9 = MetaCharacterTask.New({
+			taskId = slot8[1],
+			star = slot8[2],
+			level = slot8[3],
+			skillId = slot0.skillId,
+			prev = slot3,
+			indexofList = slot7
+		})
+
+		table.insert(slot0.taskList, slot9)
+
+		slot3 = slot9
+	end
+end
+
+slot0.bindConfigTable = function(slot0)
+	return pg.ship_meta_skilltask
+end
+
+slot0.getTaskList = function(slot0)
+	return slot0.taskList
+end
+
+slot0.getSkillId = function(slot0)
+	return slot0.skillId
+end
+
+slot0.getTaskByTaskId = function(slot0, slot1)
+	return _.detect(slot0.taskList, function (slot0)
+		return uv0 == slot0.id
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

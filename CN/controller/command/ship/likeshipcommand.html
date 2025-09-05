@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>likeshipcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>likeshipcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LikeShipCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(17107, {
+		ship_group_id = slot1:getBody()
+	}, 17108, function (slot0)
+		if slot0.result == 0 then
+			if getProxy(CollectionProxy):getShipGroup(uv0) then
+				slot2.iheart = true
+				slot2.hearts = slot2.hearts + 1
+				slot2.evaluation.hearts = slot2.evaluation.hearts + 1
+
+				slot1:updateShipGroup(slot2)
+				uv1:sendNotification(CollectionProxy.GROUP_INFO_UPDATE, uv0)
+			end
+
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;like_ship_success&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;like_ship&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

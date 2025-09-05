@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enemysmasher.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>enemysmasher.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EnemySmasher&quot;, import(&quot;view.miniGame.gameView.RyzaMiniGame.character.MoveEnemy&quot;))
+slot0.ConfigSkillCD = 10
+slot0.ConfigSkillCount = 3
+slot0.ImpackRange = 20
+
+slot0.InitUI = function(slot0, slot1)
+	uv0.super.InitUI(slot0, slot1)
+
+	slot0.hp = slot1.hp or 2
+	slot0.hpMax = slot0.hp
+	slot0.speed = slot1.speed or 2
+
+	eachChild(slot0.rtScale:Find(&quot;front&quot;), function (slot0)
+		slot0:GetComponent(typeof(DftAniEvent)):SetEndEvent(function ()
+			setActive(uv0, false)
+		end)
+	end)
+	slot0.mainTarget:GetComponent(typeof(DftAniEvent)):SetTriggerEvent(function ()
+		uv0.triggerCount = defaultValue(uv0.triggerCount, 0) + 1
+
+		switch(uv0.triggerCount, {
+			function ()
+				setActive(uv0.rtScale:Find(&quot;front/EF_Bullet_UP&quot;), true)
+			end,
+			function ()
+				setActive(uv0.rtScale:Find(&quot;front/EF_Bullet_UP_High&quot;), true)
+			end
+		})
+
+		uv0.triggerCount = uv0.triggerCount % 2
+	end)
+	slot0.mainTarget:GetComponent(typeof(DftAniEvent)):SetEndEvent(function ()
+		switch(uv0.status, {
+			Attack_S = function ()
+				uv0.impackCD = 0
+				uv0.impackCount = uv0.ConfigSkillCount
+			end
+		})
+
+		uv0.lock = false
+
+		if uv0.hp &lt;= 0 then
+			uv0:Destroy()
+		end
+	end)
+
+	slot0.skillCD = 0
+	slot0.impackCount = 0
+end
+
+slot0.TimeTrigger = function(slot0, slot1)
+	uv0.super.TimeTrigger(slot0, slot1)
+
+	slot0.skillCD = slot0.skillCD - slot1
+
+	if not slot0.lock and slot0.skillCD &lt;= 0 and slot0.responder:SearchRyza(slot0, slot0.search) and (slot0.responder.reactorRyza.pos - slot0.pos):SqrMagnitude() &gt;= 4 then
+		slot0:PlayAnim(&quot;Attack_S&quot;)
+
+		slot0.skillCD = slot0.ConfigSkillCD
+		slot0.skillCenterPos = slot0.responder.reactorRyza.realPos
+	end
+
+	slot2 = function()
+		if uv0.responder.reactorRyza.hide then
+			return false
+		else
+			slot0 = uv0.responder.reactorRyza.realPos - uv0.skillCenterPos
+			slot1 = slot0.x * slot0.x &lt; uv0.ImpackRange * uv0.ImpackRange / 4 and slot0.y * slot0.y &lt; uv0.ImpackRange * uv0.ImpackRange / 4
+
+			return slot1
+		end
+	end
+
+	if slot0.impackCount &gt; 0 then
+		if slot2() then
+			slot0.impackCD = slot0.impackCD - slot1
+
+			if slot0.impackCD &lt;= 0 then
+				slot0.impackCount = slot0.impackCount - 1
+				slot0.impackCD = 0.5
+				slot3 = slot0.responder.reactorRyza.pos
+				slot4 = slot0.responder.reactorRyza.realPos
+
+				slot0.responder:Create({
+					name = &quot;Impack&quot;,
+					pos = {
+						slot3.x,
+						slot3.y
+					},
+					realPos = {
+						slot4.x,
+						slot4.y
+					}
+				})
+			end
+		else
+			slot0.impackCount = 0
+			slot0.impackCD = nil
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

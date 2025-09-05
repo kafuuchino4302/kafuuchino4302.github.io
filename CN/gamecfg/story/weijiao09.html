@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weijiao09.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>weijiao09.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;WEIJIAO09&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 202020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;真是个坚强的家伙呢……战斗到最后一刻然后选择了自沉，总觉得我们才像是恶人一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			say = &quot;呵呵，哪有什么善人恶人……这就是战争哦，姐姐。&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;通知坎伯兰不用过来了，以及通告全军，{namecode:431}已经沉没了……吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202020,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没问题，那我们也返航……嗯？阿贾克斯，你怎么啦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;姐姐你先走吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202020,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……嗯，我知道了，你也尽快赶上来哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 2,
+			dir = 1,
+			hideOther = true,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;抱歉呢，我们的后方只有坎伯兰在赶过来，皇家方舟和声望都是假的哦？&quot;,
+			flashout = {
+				black = true,
+				dur = 1.2,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1.5,
+				black = true,
+				dur = 1.2,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;当然了，即使你能赢过我和姐姐，在你选择了进入这个港口的瞬间，就注定你的失败了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哎呀，真不像我，竟然有点感伤了起来，还是回去继续戏弄埃克塞特前辈吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;谢谢你，{namecode:431}，我玩的很开心哦，呵呵呵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

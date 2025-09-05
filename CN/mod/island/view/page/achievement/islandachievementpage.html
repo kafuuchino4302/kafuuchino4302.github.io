@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandachievementpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandachievementpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAchievementPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandAchievementUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	setText(slot0._tf:Find(&quot;top/title/Text&quot;), i18n(&quot;island_achievement_title&quot;))
+	setText(slot0._tf:Find(&quot;top/total/Text&quot;), i18n(&quot;island_achv_total&quot;))
+
+	slot0.totalTF = slot0._tf:Find(&quot;top/total/value&quot;)
+	slot1 = slot0._tf:Find(&quot;view/content&quot;)
+	slot0.uiList = UIItemList.New(slot1, slot1:Find(&quot;tpl&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;top/back&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot1 = slot0.uiList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			uv0:InitItem(slot1, slot2)
+		elseif slot0 == UIItemList.EventUpdate then
+			uv0:UpdateItem(slot1, slot2)
+		end
+	end)
+
+	slot0.typeIds = pg.island_achievement_group.all
+end
+
+slot0.OnShow = function(slot0)
+	slot0:Flush()
+end
+
+slot0.AddListeners = function(slot0)
+	slot0:AddListener(GAME.ISLAND_GET_ACHV_AWARD_DONE, slot0.Flush)
+end
+
+slot0.RemoveListeners = function(slot0)
+	slot0:RemoveListener(GAME.ISLAND_GET_ACHV_AWARD_DONE, slot0.Flush)
+end
+
+slot0.Flush = function(slot0)
+	slot0.achvAgency = getProxy(IslandProxy):GetIsland():GetAchievementAgency()
+
+	setText(slot0.totalTF, #slot0.achvAgency:GetGotList() .. &quot;/&quot; .. slot0.achvAgency:GetTotalCnt())
+	slot0.uiList:align(#slot0.typeIds)
+end
+
+slot0.InitItem = function(slot0, slot1, slot2)
+	slot3 = slot0.typeIds[slot1 + 1]
+	slot2.name = slot3
+	slot4 = pg.island_achievement_group[slot3]
+
+	LoadImageSpriteAtlasAsync(&quot;island/islandachievement&quot;, slot4.icon, slot2:Find(&quot;icon&quot;), true)
+	setText(slot2:Find(&quot;name&quot;), slot4.name)
+	onButton(slot0, slot2, function ()
+		uv0:OpenPage(IslandAchvDetailPage, uv1)
+	end, SFX_PANEL)
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2)
+	slot5 = {}
+
+	for slot9, slot10 in ipairs(pg.island_achievement_group[slot0.typeIds[slot1 + 1]].achievement_list) do
+		for slot15, slot16 in ipairs(slot0.achvAgency:GetGroup(slot10):GetSortAchvList()) do
+			table.insert(slot5, slot16)
+		end
+	end
+
+	slot6 = underscore.reduce(slot5, 0, function (slot0, slot1)
+		return slot0 + (slot1:GetStatus() == IslandAchievement.STATUS.GOT and 1 or 0)
+	end)
+	slot7 = underscore.reduce(slot5, 0, function (slot0, slot1)
+		return slot0 + (slot1:IsHideType() and 0 or 1)
+	end)
+
+	setText(slot2:Find(&quot;progress/cur&quot;), slot6)
+	setText(slot2:Find(&quot;progress/all&quot;), &quot;/&quot; .. slot7)
+
+	slot2:Find(&quot;bar&quot;):GetComponent(typeof(Image)).fillAmount = slot6 / slot7
+	slot8 = slot6 == slot7
+
+	setActive(slot2:Find(&quot;bg&quot;), not slot8)
+	setActive(slot2:Find(&quot;bg_all&quot;), slot8)
+	setActive(slot2:Find(&quot;name/tip&quot;), underscore.any(slot5, function (slot0)
+		return slot0:GetStatus() == IslandAchievement.STATUS.GET
+	end))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

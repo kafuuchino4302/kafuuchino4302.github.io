@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildshiphelpwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildshiphelpwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildShipHelpWindow&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;BuildShipHelpWindowUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.shipListTF = slot0:findTF(&quot;window/list/scrollview/list&quot;, slot0._tf)
+	slot0.shipListTpl = slot0:findTF(&quot;window/list/scrollview/item&quot;, slot0._tf)
+
+	setActive(slot0.shipListTpl, false)
+
+	slot0.tipListTF = slot0:findTF(&quot;window/rateList/scrollview/list&quot;, slot0._tf)
+	slot0.tipListTpl = slot0:findTF(&quot;window/rateList/scrollview/item&quot;, slot0._tf)
+
+	setText(slot0:findTF(&quot;window/confirm_btn/Image/Image (1)&quot;), i18n(&quot;text_confirm&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0:findTF(&quot;window/close_btn&quot;, slot0._tf), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0:findTF(&quot;window/confirm_btn&quot;, slot0._tf), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1, slot2, slot3)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+
+	slot0.isSupport = slot2 == &quot;support&quot;
+	slot4 = slot0:findTF(&quot;window/rateList/title/Text&quot;)
+
+	if slot0.isSupport then
+		setText(slot4, i18n(&quot;support_rate_title&quot;))
+	else
+		setText(slot4, i18n(&quot;build_rate_title&quot;))
+	end
+
+	setActive(slot4, false)
+	setActive(slot4, true)
+	slot0:OnShow(slot1, slot3)
+	setActiveViaLayer(slot0._tf, true)
+	slot0:PlayOpenAnimation()
+end
+
+slot0.OnShow = function(slot0, slot1, slot2)
+	slot0.showing = true
+	slot3 = slot1
+
+	for slot8 = 1, slot0.shipListTF.childCount do
+		if slot0.shipListTF:GetChild(slot8 - 1) then
+			setActive(slot9, false)
+		end
+	end
+
+	for slot9 = 1, slot0.tipListTF.childCount do
+		if slot0.tipListTF:GetChild(slot9 - 1) then
+			setActive(slot10, false)
+		end
+	end
+
+	slot6 = getProxy(ActivityProxy)
+	slot7 = nil
+
+	if not slot0.isSupport then
+		slot7 = (not slot2 or slot6:getBuildActivityCfgByID(slot3.id)) and slot6:getNoneActBuildActivityCfgByID(slot3.id)
+	end
+
+	slot8 = slot7 and slot7.rate_tip or slot3.rate_tip
+
+	for slot12 = 1, #slot8 do
+		slot13 = nil
+
+		if (slot12 &gt; slot5 or slot0.tipListTF:GetChild(slot12 - 1)) and cloneTplTo(slot0.tipListTpl, slot0.tipListTF) then
+			setActive(slot13, true)
+			setText(slot13, HXSet.hxLan(slot8[slot12]))
+		end
+	end
+end
+
+slot0.Hide = function(slot0)
+	slot0.showing = false
+
+	setActiveViaLayer(slot0._tf, false)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._tf)
+end
+
+slot0.isShowing = function(slot0)
+	return slot0.showing
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+slot0.PlayOpenAnimation = function(slot0)
+	slot2 = slot0:findTF(&quot;window/bg_decorations&quot;):GetComponent(typeof(Animation))
+
+	slot2:Stop()
+	slot2:Play(&quot;anim_window_bg&quot;)
+
+	slot4 = slot0:findTF(&quot;window/title&quot;):GetComponent(typeof(Animation))
+
+	slot4:Stop()
+	slot4:Play(&quot;anim_top&quot;)
+
+	slot6 = slot0:findTF(&quot;window&quot;):GetComponent(typeof(Animation))
+
+	slot6:Stop()
+	slot6:Play(&quot;anim_content&quot;)
+
+	slot8 = slot0:findTF(&quot;print&quot;):GetComponent(typeof(Animation))
+
+	slot8:Stop()
+	slot8:Play(&quot;anim_bg_plus&quot;)
+
+	slot10 = slot0:findTF(&quot;window/confirm_btn&quot;):GetComponent(typeof(Animation))
+
+	slot10:Stop()
+	slot10:Play(&quot;anim_button_container&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

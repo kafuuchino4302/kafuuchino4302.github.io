@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zijiangjinlan11.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zijiangjinlan11.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;ZIJIANGJINLAN11&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgm = &quot;musashi-1&quot;,
+			stopbgm = true,
+			say = &quot;大棋盘·{namecode:74}控制区 第三回合&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 301490,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……这雾，碍事。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;呵呵呵，这种只对舰载机有利的事件，明显是前辈弄出来的……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;虽然我也不会受影响，不过单靠我一个人实在势单力薄，如果{namecode:96}在就好了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;回想起来，{namecode:96}会被临时调走正是因为收到了{namecode:84}大人的命令。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;{namecode:84}大人难道从那时开始就开始算计了么？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 304030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不至于吧，只是一盘棋而已……为了在一盘游戏上取得优势而特意准备作战任务，也太小家子气了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;说的也是~与前辈不同，{namecode:84}大人可不是这么小家子气的人。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;可是这样也改变不了我们处在困境中的现实哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304020,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;确实战况不妙……我和{namecode:72}都是战列舰，原本这回合就可以彻底关闭与{namecode:84}大人的边界通道的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304020,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;现在由于海雾的影响，恐怕需要非常好的运气才能做到了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;相信汝等都看到突然出现的海雾了，鉴于现状，吾必须要改变原定的作战计划。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;本回合放弃进攻与{namecode:84}区域相邻的边界据点GH56。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:72}进入上回合攻下的据点IJ56，{namecode:71}移动至I5，保持对于{namecode:84}的压力。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:158}移动至H5，{namecode:157}移动至G5，防范{namecode:84}可能的入侵行动。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:95}就近进入IJ12据点控制区I2。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吾将上回合利用「荣耀之传承」获得的额外行动分配与汝，并使用新的指挥卡为汝提高伤害。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 305050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;汝一人配合量产型，将小据点IJ12拿下，以上。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:74}的话语结束后，{namecode:95}身上瞬间被两种光芒所覆盖。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301570,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;哇哦……上回合{namecode:157}失去的行动力加在{namecode:95}身上了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			dir = 1,
+			actor = 304030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不止如此，{namecode:74}大人还使用指挥卡「总旗舰之令」大幅度提高了{namecode:95}的伤害！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;如此奇妙的感觉……这些难道不应该只是演习规则的设定么……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;为什么我感觉此刻，自身正充盈着力量……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307050,
+			side = 2,
+			bgName = &quot;bg_wuzang_bg7&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			say = &quot;以现在的状态，一个人拿下一座据点感觉也绝非不可能的事，放心交给我吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

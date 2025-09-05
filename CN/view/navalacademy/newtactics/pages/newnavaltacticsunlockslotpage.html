@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newnavaltacticsunlockslotpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newnavaltacticsunlockslotpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewNavalTacticsUnlockSlotPage&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;NewNavalTacticsUnlockSlotPage&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.contentTxt = slot0:findTF(&quot;content/Text&quot;):GetComponent(typeof(Text))
+	slot0.discountDateTxt = slot0:findTF(&quot;content/discountDate&quot;):GetComponent(typeof(Text))
+	slot0.discountTxt = slot0:findTF(&quot;content/discountInfo/Text&quot;):GetComponent(typeof(Text))
+	slot0.confirmBtn = slot0:findTF(&quot;content/confirm_btn&quot;)
+	slot0.cancelBtn = slot0:findTF(&quot;content/cancel_btn&quot;)
+	slot0.closeBtn = slot0:findTF(&quot;content/btnBack&quot;)
+
+	setText(slot0.confirmBtn:Find(&quot;pic&quot;), i18n(&quot;word_ok&quot;))
+	setText(slot0.cancelBtn:Find(&quot;pic&quot;), i18n(&quot;word_cancel&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if uv0.callback then
+			uv0.callback()
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.cancelBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1, slot2)
+	uv0.super.Show(slot0)
+
+	slot0.callback = slot2
+	slot3 = CommonCommodity.New({
+		id = slot1
+	}, Goods.TYPE_SHOPSTREET)
+
+	slot0:Flush(slot3)
+
+	slot0.commodity = slot3
+end
+
+slot0.Flush = function(slot0, slot1)
+	slot0:RemoveTimer()
+
+	if slot1:isDisCount() then
+		slot0:UpdateDiscountView(slot1)
+	else
+		slot0.contentTxt.text = i18n(&quot;open_skill_pos&quot;, slot1:GetPrice())
+	end
+
+	setActive(slot0.discountDateTxt.gameObject, slot2)
+	setActive(slot0.discountTxt.gameObject.transform.parent, slot2)
+end
+
+slot0.UpdateDiscountView = function(slot0, slot1)
+	slot2, slot3 = slot1:GetPrice()
+
+	slot0:AddTimer(slot1:GetDiscountEndTime())
+
+	slot0.discountTxt.text = slot3 .. &quot;%&quot;
+	slot0.contentTxt.text = i18n(&quot;open_skill_pos_discount&quot;, slot1:getConfig(&quot;resource_num&quot;), slot2)
+
+	onNextTick(function ()
+		slot0 = uv0.contentTxt.gameObject.transform
+
+		if not IsNil(slot0:GetChild(slot0.childCount - 1)) then
+			setAnchoredPosition(slot1, {
+				y = slot1.anchoredPosition.y + 15
+			})
+		end
+	end)
+end
+
+slot0.AddTimer = function(slot0, slot1)
+	slot0.timer = Timer.New(function ()
+		if uv0 - pg.TimeMgr.GetInstance():GetServerTime() &lt;= 0 then
+			uv1.discountDateTxt.text = &quot;&quot;
+
+			uv1:Flush(uv1.commodity)
+		elseif i18n(&quot;discount_time&quot;, uv1:WarpDateTip(slot1) .. i18n(&quot;word_date&quot;)) ~= uv1.str then
+			uv1.discountDateTxt.text = slot2
+			uv1.str = slot2
+		end
+	end, 1, -1)
+
+	slot0.timer:Start()
+	slot0.timer.func()
+end
+
+slot0.WarpDateTip = function(slot0, slot1)
+	slot2 = &quot;&quot;
+
+	return (slot1 &lt; 86400 or math.floor(slot1 / 86400)) and (slot1 &lt; 3600 or math.floor(slot1 / 3600)) and math.floor(slot1 / 60)
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.Hide = function(slot0)
+	slot0:RemoveTimer()
+	uv0.super.Hide(slot0)
+
+	slot0.callback = nil
+	slot0.commodity = nil
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0:Hide()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

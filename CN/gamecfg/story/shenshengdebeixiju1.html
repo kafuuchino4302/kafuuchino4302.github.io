@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shenshengdebeixiju1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shenshengdebeixiju1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;SHENSHENGDEBEIXIJU1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;我们走过漫漫征程，本以为可见曙光&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=51&gt;却又步入一片幽暗的森林&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;啊！这森林是多么荒芜，多么险恶，多令人举步维艰！&lt;/size&gt;&quot;,
+					5
+				},
+				{
+					&quot;&lt;size=51&gt;而我们当时又是多么懵懂无知&lt;/size&gt; &quot;,
+					7
+				},
+				{
+					&quot;&lt;size=51&gt;以至于抛弃正路，不知何去何从——&lt;/size&gt;&quot;,
+					9
+				}
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			blackBg = true,
+			effects = {
+				{
+					active = true,
+					name = &quot;shenshengdebeixiju&quot;
+				}
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				5,
+				delay = 0,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					1
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;battle-boss-italy&quot;,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			bgName = &quot;bg_italy_cg1&quot;,
+			say = &quot;不…这不可能&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;shenshengdebeixiju&quot;
+				},
+				{
+					active = true,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italy_cg1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;燃烧、爆炸…硝烟将夜晚的塔兰托港染成一片鲜红&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_italy_cg1&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;怎么会这样...！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italy_cg1&quot;,
+			dir = 1,
+			say = &quot;防空炮仍在嘶吼着，却无法完全阻止剑鱼们的突袭&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_italy_cg1&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;居然能在夜晚利用舰载机发动空袭…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italy_cg1&quot;,
+			dir = 1,
+			say = &quot;这仿佛地狱般的光景，不 ，这里就是地狱吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_story_italy&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-italy&quot;,
+			say = &quot;三日前，——永恒之城&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;这里可是陆间海，怎么会有塞壬舰队出没…确认清楚了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 601020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;已经再三确认过了，帝国海域南部，有大量塞壬正在集结！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;竟然让塞壬进入到这么深入的位置…铁血的家伙究竟在做什么？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;明明已经再三强调过了，一切合作的前提必须是保证陆间海的纯净&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;之前以掩护维希教廷为由引来塞壬的舰队已是越界，如今竟然还敢…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 605020,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;好了，维托里奥，历史告诉过我们，一味地倚赖他人，终归最后会自食苦果——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;是你啊，我的妹妹&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;抱怨是不能解决问题的，「总旗舰大人」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;曾经的帝国海军技不如人，屈居人下…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;然而现在，我们拥有欧罗巴大陆最先进的武器以及陆间海最强的舰队&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 605020,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;好好看着这片土地和海洋吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;这片孕育了生命、文化、艺术以及战争的永恒之地&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;如果想要真正夺回罗穆路斯曾经的辉煌，我们必须将它完全夺回手中&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;——真正意义上的夺回手中&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;可是…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 605020,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;下令吧，总旗舰。只要你一声令下，帝国舰队将踏平一切陆间海来犯之敌&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 900198,
+			nameColor = &quot;#ffde38&quot;,
+			hidePaintObj = true,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;我知道你在担心皇家舰队的态度，之前的奥兰港事件已经暴露了她们的野心&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;继续坐以待毙的话，我们迟早也会和维希教廷的战舰一样成为皇家的俎上之肉&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;这次塞壬入侵，对我们来说既是威胁也是机遇&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 605020,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			nameColor = &quot;#ffde38&quot;,
+			dir = 1,
+			say = &quot;曾经限制着我们的鸢尾海军也已经不复存在&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;而皇家对于我们姐妹的实力目前还停留在纸面猜测的程度&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;怎么样，不如…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#ffde38&quot;,
+			say = &quot;就让我们一起来演一出最擅长的戏剧吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

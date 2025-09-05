@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigamehallbuilding.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>minigamehallbuilding.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MinigameHallBuilding&quot;, import(&quot;.NavalAcademyBuilding&quot;))
+
+slot0.GetGameObjectName = function(slot0)
+	return &quot;minigamehall&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return i18n(&quot;school_title_xiaoyouxiting&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	setActive(slot0._tf, not LOCK_MINIGAME_HALL)
+	setActive(slot0._tf:Find(&quot;name/lock&quot;), not slot0:IsUnlock())
+end
+
+slot0.OnClick = function(slot0)
+	slot0:emit(NavalAcademyMediator.ON_OPEN_MINIGAMEHALL)
+end
+
+slot0.IsUnlock = function(slot0)
+	return pg.SystemOpenMgr.GetInstance():isOpenSystem(getProxy(PlayerProxy):getRawData().level, &quot;GameHallMediator&quot;)
+end
+
+slot0.IsTip = function(slot0)
+	return false
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

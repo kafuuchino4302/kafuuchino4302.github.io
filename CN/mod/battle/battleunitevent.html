@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battleunitevent.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battleunitevent.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = {}
+ys.Battle.BattleUnitEvent = slot0
+slot0.CHANGE_FORMATION = &quot;CHANGE_FORMATION&quot;
+slot0.CHANGE_ACTION = &quot;CHANGE_ACTION&quot;
+slot0.POP_UP = &quot;POP_UP&quot;
+slot0.SKILL_FLOAT = &quot;SKILL_FLOAT&quot;
+slot0.CUT_INT = &quot;CUT_INT&quot;
+slot0.VOICE = &quot;VOICE&quot;
+slot0.FIRE = &quot;FIRE&quot;
+slot0.CREATE_BULLET = &quot;CREATE_BULLET&quot;
+slot0.SPAWN_CACHE_BULLET = &quot;SPAWN_CACHE_BULLET&quot;
+slot0.CREATE_POINT_AIR_STRIKE = &quot;CREATE_POINT_AIR_STRIKE&quot;
+slot0.CREATE_TEMPORARY_WEAPON = &quot;CREATE_TEMPORARY_WEAPON&quot;
+slot0.REMOVE_WEAPON = &quot;REMOVE_WEAPON&quot;
+slot0.MANUAL_WEAPON_READY = &quot;MANUAL_WEAPON_READY&quot;
+slot0.MANUAL_WEAPON_FIRE = &quot;MANUAL_WEAPON_FIRE&quot;
+slot0.MANUAL_WEAPON_INSTANT_READY = &quot;MANUAL_WEAPON_INSTANT_READY&quot;
+slot0.CHARGE_WEAPON_FINISH = &quot;CHARGE_WEAPON_FINISH&quot;
+slot0.CHARGE_WEAPON_FIRE = &quot;CHARGE_WEAPON_FIRE&quot;
+slot0.CHARGE_WEAPON_CHARGE = &quot;CHARGE_WEAPON_CHARGE&quot;
+slot0.CHARGE_WEAPON_CANCEL = &quot;CHARGE_WEAPON_CANCEL&quot;
+slot0.POINT_HIT_CHARGE = &quot;POINT_HIT_CHARGE&quot;
+slot0.POINT_HIT_CANCEL = &quot;POINT_HIT_CANCEL&quot;
+slot0.TORPEDO_WEAPON_PREPAR = &quot;TORPEDO_WEAPON_PREPAR&quot;
+slot0.TORPEDO_WEAPON_FIRE = &quot;TORPEDO_WEAPON_FIRE&quot;
+slot0.TORPEDO_WEAPON_CANCEL = &quot;TORPEDO_WEAPON_CANCEL&quot;
+slot0.TORPEDO_WEAPON_READY = &quot;TORPEDO_WEAPON_READY&quot;
+slot0.UPDATE_HP = &quot;UPDATE_HP&quot;
+slot0.UPDATE_SCORE = &quot;UPDATE_SCORE&quot;
+slot0.DYING = &quot;DYING&quot;
+slot0.WILL_DIE = &quot;WILL_DIE&quot;
+slot0.INIT_COOL_DOWN = &quot;INIT_COOL_DOWN&quot;
+slot0.GLOBAL_COOL_DOWN = &quot;GLOBAL_COOL_DOWN&quot;
+slot0.WEAPON_PRE_CAST = &quot;WEAPON_PRE_CAST&quot;
+slot0.WEAPON_PRE_CAST_FINISH = &quot;WEAPON_PRE_CAST_FINISH&quot;
+slot0.WEAPON_INTERRUPT = &quot;WEAPON_INTERRUPT&quot;
+slot0.SHUT_DOWN_PLAYER = &quot;SHUT_DOWN_PLAYER&quot;
+slot0.BOMB_WEAPON_PRE_CAST_ALERT = &quot;BOMB_WEAPON_PRE_CAST_ALERT&quot;
+slot0.ADD_BUFF_CLOCK = &quot;ADD_BUFF_CLOCK&quot;
+slot0.WEAPON_SECTOR = &quot;WEAPON_SECTOR&quot;
+slot0.UPDATE_AIR_CRAFT_HP = &quot;UPDATE_AIR_CRAFT_HP&quot;
+slot0.AIR_CRAFT_DYING = &quot;AIR_CRAFT_DYING&quot;
+slot0.AIR_CRAFT_RETURN = &quot;AIR_CRAFT_RETURN&quot;
+slot0.AIR_STRIKE_STATE_CHANGE = &quot;AIR_STRIKE_STATE_CHANGE&quot;
+slot0.ADD_EFFECT = &quot;ADD_EFFECT&quot;
+slot0.CANCEL_EFFECT = &quot;CANCEL_EFFECT&quot;
+slot0.DEACTIVE_EFFECT = &quot;DEACTIVE_EFFECT&quot;
+slot0.ADD_BLINK = &quot;ADD_BLINK&quot;
+slot0.REMOVE_BLINK = &quot;REMOVE_BLINK&quot;
+slot0.SUBMARINE_VISIBLE = &quot;SUBMARINE_VISIBLE&quot;
+slot0.SUBMARINE_DETECTED = &quot;SUBMARINE_DETECTED&quot;
+slot0.SUBMARINE_FORCE_DETECTED = &quot;SUBMARINE_FORCE_DETECTED&quot;
+slot0.BLIND_VISIBLE = &quot;BLIND_VISIBLE&quot;
+slot0.BLIND_EXPOSE = &quot;BLIND_EXPOSE&quot;
+slot0.PLAY_FX = &quot;PLAY_FX&quot;
+slot0.SWITCH_SHADER = &quot;SWITCH_SHADER&quot;
+slot0.INIT_ANIT_SUB_VIGILANCE = &quot;INIT_ANIT_SUB_VIGILANCE&quot;
+slot0.CHANGE_ANTI_SUB_VIGILANCE = &quot;CHANGE_ANTI_SUB_VIGILANCE&quot;
+slot0.ANTI_SUB_VIGILANCE_SONAR_CHECK = &quot;ANTI_SUB_VIGILANCE_SONAR_CHECK&quot;
+slot0.ANTI_SUB_VIGILANCE_HATE_CHAIN = &quot;ANTI_SUB_VIGILANCE_HATE_CHAIN&quot;
+slot0.HIDE_WAVE_FX = &quot;HIDE_WAVE_FX&quot;
+slot0.BARRIER_STATE_CHANGE = &quot;BARRIER_STATE_CHANGE&quot;
+slot0.INIT_CLOAK = &quot;INIT_CLOAK&quot;
+slot0.UPDATE_CLOAK_CONFIG = &quot;UPDATE_CLOAK_CONFIG&quot;
+slot0.UPDATE_CLOAK_LOCK = &quot;UPDATE_CLOAK_LOCK&quot;
+slot0.UPDATE_CLOAK_STATE = &quot;UPDATE_CLOAK_STATE&quot;
+slot0.INIT_AIMBIAS = &quot;INIT_AIMBIAS&quot;
+slot0.UPDATE_AIMBIAS_LOCK = &quot;UPDATE_AIMBIAS_LOCK&quot;
+slot0.HOST_AIMBIAS = &quot;HOST_AIMBIAS&quot;
+slot0.REMOVE_AIMBIAS = &quot;REMOVE_AIMBIAS&quot;
+slot0.SWITCH_SPINE = &quot;SWITCH_SPINE&quot;
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yuanweifangxinmimanshi14.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yuanweifangxinmimanshi14.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;YUANWEIFANGXINMIMANSHI14&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;鸢尾芳馨弥漫时\n\n&lt;size=45&gt;我要保守秘密…&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			stopbgm = false,
+			mode = 1,
+			bgmDelay = 1,
+			bgm = &quot;xinnong-3&quot;,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;「……不知沉睡了多久……我的任务……唔……」&lt;/size&gt;&quot;,
+					2.5
+				},
+				{
+					&quot;&lt;size=51&gt;「……记忆有些紊乱……」&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;「……昏迷剂的效果……还没消退么……」&lt;/size&gt;&quot;,
+					3.5
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_154&quot;,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;现场状况我知道了，继续执行任务吧。&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;再强调一下，带回来的时候，我要的是还能喘气的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;发号施令完后，阿芙乐尔？终于注意到了这边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;你醒啦？比之前预计的时间要早一些呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;正好，早开工早收工，你也可以早点上路。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;说吧，把你知道的都说出来。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;……说什么？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我什么都不知道。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;嚯？是装作不知道，或者是昏迷剂药效还没过吗？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;很经典的回答，我每天都要听到很多次呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;不过也无所谓，本来也不指望你会乖乖把情报都说出来。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;看来得先让你吃点苦头了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;毕竟……坏孩子总是要吃点苦头，才会老老实实的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			say = &quot;快住手，阿芙乐尔！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			say = &quot;等等，冷静下来。眼前这位绝对不是我所认识的阿芙乐尔。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			say = &quot;所以…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;我可能在做梦？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我什么都不会说的！&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			optionFlag = 1,
+			say = &quot;当脑海里出现了这个想法之后，周围的一起都黯淡了下去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			optionFlag = 1,
+			say = &quot;世界重新回归到了昏昏沉沉的黑暗中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			optionFlag = 2,
+			actorName = &quot;阿芙乐尔？&quot;,
+			actor = 702012,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			say = &quot;哦~居然知道我的名字？看来我们这边出现了内鬼呢~&quot;,
+			flashout = {
+				dur = 0.15,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.2,
+				dur = 0.2,
+				alpha = {
+					1,
+					0
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;正好，把内鬼的情报也告诉我，不然……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;我绝对不会说出情报的……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_154&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;秘密……决不能透露给敌人……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;哦~哦，看来是个硬骨头呢，连我都稍微兴奋起来了~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;让我看看你能撑到什么时候~哼哼~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			optionFlag = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊————！&quot;,
+			flashout = {
+				dur = 0.15,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.2,
+				dur = 0.2,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_154&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 702012,
+			actorName = &quot;阿芙乐尔？&quot;,
+			say = &quot;叫吧，再叫大声一些哦，哦呵呵~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgName = &quot;star_level_bg_107&quot;,
+			bgm = &quot;story-richang-4&quot;,
+			actor = 702010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……好像做噩梦了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……膝枕的腿稍微有些麻了……但是……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;为了指挥官的话……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_107&quot;,
+			hidePaintObj = true,
+			say = &quot;快住手，阿芙乐尔！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……什、什么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				},
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……你究竟梦到了什么……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

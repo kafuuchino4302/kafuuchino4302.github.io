@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_50210.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_50210.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;敌方指挥舰指挥技能——伤害上升&quot;,
+	init_effect = &quot;&quot;,
+	id = 50210,
+	picture = &quot;&quot;,
+	desc = &quot;指挥技能——伤害上升&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 50210,
+	last_effect = &quot;zhihuiRing02&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 50211,
+				exceptCaster = true,
+				target = &quot;TargetAllHelp&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

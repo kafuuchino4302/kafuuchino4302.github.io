@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ouxiangdashiguanqia4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ouxiangdashiguanqia4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;OUXIANGDASHIGUANQIA4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			say = &quot;―――！！&quot;,
+			side = 2,
+			dir = 1,
+			bgm = &quot;idom-Speed&quot;,
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			actor = 202250,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;干得不错…嘛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 30,
+					number = 3
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			actor = 102240,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没想到对方居然这么厉害…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			expression = 4,
+			dir = 1,
+			actor = 905030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;演唱・舞蹈・视觉——确认对方的演出处于全方位的优势&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403070,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;接下来怎么办，{namecode:91}？这么僵持下去也不是办法。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 307100,
+			say = &quot;……撤退吧。虽然很不甘心，这场演出的确是我们输了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;……………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……输了呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;讨厌，明明只差一点点了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307100,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;让你们看到丢人的一面了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 401236,
+			say = &quot;没、没关系的啦！大家都没受伤，之后再来挑战就好！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯…进行特训，做好完全的准备以后再来挑战，一定能赢的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;用演出决胜负的这个设定可不是{namecode:98}的主意喵～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;谁都没想到会变成这样。{namecode:98}就专心研究为什么会出现那样的“城市”吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那个冒牌货怎么回事嘛！……不可原谅！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真是抱歉，为了我们…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（大家的演出水平其实并不差，但是怎么说呢…）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没有传达出“为了谁而歌唱”的心…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;千早，你有什么在意的地方吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯…有点……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽说输给那样的对手情有可原…但是，单纯只把歌唱出口，是没法打动人心的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;刚才的“失败”应该就是这个原因吧。&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;原来如此……现在重要的是先搞清了“为谁而唱，想要传达什么”，再进行表演是吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;身为偶像的我们，时刻都意识着何谓能够打动人心的表演。如果舰船的的大家也能做出打动人心的表演，应该就能改变现在这个状况？&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;全员&quot;,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……………！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 205012,
+			actorName = &quot;？？？&quot;,
+			say = &quot;事情的经过，本王了解了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 202250,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;陛下…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 205012,
+			say = &quot;我是皇家的女王陛下，伊丽莎白女王！你们这样下去可不行啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呼喵？！赞助商大人登场了喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 205012,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这样下去可赢不了那冒牌货，特训之后再去挑战吧！还有…让其他μ兵装的组合也动员起来！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 205012,
+			say = &quot;765事务所的偶像们，能否助我们一臂之力呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;诶？是在问我们吗……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎呀~怎么办呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;突然说什么呢…她们又不属于碧蓝航线，只是突然从异世界穿越过来的普通人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 205022,
+			say = &quot;对啊！陛下，不管怎么说这也…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205012,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;本王当然知道！可是不调查那片海域的话，这几位也回不去不是吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 205012,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;而且最重要的是…这场演出的赞助商可是皇家！不能就这样放着演出海域不管！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700020,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;明白了……我们会帮忙的。如果我们能帮上忙的话。&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700060,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好像很有趣的样子，亚美也会帮你们的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;异世界偶像…听上去就好帅啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307100,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;谢谢你们。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700040,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;我也会加油帮忙的。&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700030,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;就交给超级偶像伊织酱我吧！嘻嘻嘻♪&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;“碧蓝航线”的各位，请多多关照！一起加油吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哼哼哼…………&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			say = &quot;专业的偶像啊…{namecode:98}已经闻到新的商机了喵。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 401236,
+			say = &quot;想什么呢…她们只是“顾问”而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 401236,
+			say = &quot;她们只是来帮我们进行训练和彩排而已，可别给她们安排什么奇怪的任务哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10700050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;二位是{namecode:98}…还有{namecode:408}…对吧？现在方便吗？&quot;,
+			hidePaintEquip = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401236,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;律子小姐？有什么事吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 10700050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;其实我有点在意，那个冒牌“伊织”身上的机械一样的东西……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

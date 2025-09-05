@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linghangyuanhaogandu5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>linghangyuanhaogandu5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	defaultTb = 1007,
+	mode = 2,
+	fadeOut = 1.5,
+	id = &quot;LINGHANGYUANHAOGANDU5&quot;,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;心与心的交汇\n\n&lt;size=45&gt;五 喜欢的故事&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			bgm = &quot;qe-ova-1&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;迄今为止，已经随着TB的心愿尝试了许多种安排。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;就是不知道这些行程安排里，TB喜欢的是什么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-sad2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;能够被列在心愿单上的，其实都算“喜欢”。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			say = &quot;她无声地出现在我面前。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那能给我一个喜欢的理由么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-doubt1&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;理由？因为觉得这样做是对的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;“喜欢”和“正确”是不能混为一谈的啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;举个不恰当的例子，“喜欢”就是明知道这样不对，可能也还会去做的哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			voice = &quot;event:/educate/tb/educate-tb-2-doubt2&quot;,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……好复杂。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这样吧，TB就放空脑袋，什么都不要考虑——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-doubt3&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;然后呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;然后告诉我，你现在最想做的事是？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-doubt2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-talking1&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;想听……故事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;很好，看来TB喜欢的就是听故事啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			voice = &quot;event:/educate/tb/educate-tb-2-answer10&quot;,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……不，还是不太一样。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-talking2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我只是喜欢听你讲睡前故事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-shy&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;会感觉……很亲近，很安心。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（这一点倒是和她更小一点的时候没区别呢。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然TB喜欢，那今晚就继续讲睡前故事吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 9,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-answer2&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 9,
+			side = 2,
+			bgName = &quot;bg_project_tb_room2&quot;,
+			voice = &quot;event:/educate/tb/educate-tb-2-laugh1&quot;,
+			dir = 1,
+			tbActor = true,
+			actor = 1007,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……以后，也可以多讲。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

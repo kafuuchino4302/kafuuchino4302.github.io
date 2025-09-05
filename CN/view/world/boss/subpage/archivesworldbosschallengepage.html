@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>archivesworldbosschallengepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>archivesworldbosschallengepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ArchivesWorldBossChallengePage&quot;, import(&quot;.BaseWorldBossChallengePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ArchivesWorldBossChallengeUI&quot;
+end
+
+slot0.OnFilterBoss = function(slot0, slot1)
+	return not WorldBossConst._IsCurrBoss(slot1)
+end
+
+slot0.GetResSuffix = function(slot0)
+	return &quot;_archives&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.switchBtn = slot0:findTF(&quot;detail_btn&quot;)
+	slot0.currentChallengeBtn = slot0:findTF(&quot;current_list_btn&quot;)
+	slot0.tipTr = slot0:findTF(&quot;tip&quot;)
+
+	setText(slot0.tipTr, i18n(&quot;world_boss_archives_boss_tip&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+	onButton(slot0, slot0.switchBtn, function ()
+		if nowWorld():GetBossProxy():GetSelfBoss() and WorldBossConst._IsCurrBoss(slot0) then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;current_boss_was_opened&quot;))
+		else
+			uv0:emit(WorldBossScene.ON_SWITCH, WorldBossScene.PAGE_ARCHIVES)
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.currentChallengeBtn, function ()
+		uv0:emit(WorldBossScene.ON_SWITCH, WorldBossScene.PAGE_CHALLENGE)
+	end, SFX_PANEL)
+	onButton(slot0, slot0:findTF(&quot;help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.world_archives_boss_help.tip
+		})
+	end, SFX_PANEL)
+end
+
+slot0.UpdateEmptyCard = function(slot0)
+	slot2 = slot0:findTF(&quot;list_panel/mask/tpl&quot;):Find(&quot;empty&quot;):GetComponent(typeof(Image))
+
+	if WorldBossConst.GetAchieveState() == WorldBossConst.ACHIEVE_STATE_STARTING then
+		slot2.sprite = GetSpriteFromAtlas(&quot;MetaWorldboss/&quot; .. WorldBossConst.BossId2MetaId(WorldBossConst.GetArchivesId()), &quot;item_04&quot;)
+	else
+		slot2.sprite = GetSpriteFromAtlas(&quot;MetaWorldboss/extra_empty&quot;, &quot;&quot;)
+	end
+
+	slot2:SetNativeSize()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

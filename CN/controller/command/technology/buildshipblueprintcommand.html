@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildshipblueprintcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildshipblueprintcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildShipBluePrintCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.hideTip
+	slot7, slot8 = getProxy(TechnologyProxy):getBluePrintById(slot2.id):isFinishPrevTask()
+
+	if not slot8 then
+		pg.TipsMgr.GetInstance():ShowTips(&quot;without finish pre task&quot;)
+
+		return
+	end
+
+	if pg.TimeMgr.GetInstance():GetServerTime() &lt; slot5:getColdTime() then
+		if slot9 - slot10 &lt; 0 then
+			slot11 = 0
+		end
+
+		slot13 = nil
+
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;blueprint_cannot_build_tip&quot;, math.floor(slot11 / 86400) &gt; 0 and i18n(&quot;time_remaining_tip&quot;) .. slot12 .. i18n(&quot;word_date&quot;) or math.floor(slot11 / 3600) &gt; 0 and i18n(&quot;time_remaining_tip&quot;) .. slot14 .. i18n(&quot;word_hour&quot;) or math.floor(slot11 / 60) &gt; 0 and i18n(&quot;time_remaining_tip&quot;) .. slot15 .. i18n(&quot;word_minute&quot;) or i18n(&quot;time_remaining_tip&quot;) .. slot11 .. i18n(&quot;word_second&quot;)))
+
+		return
+	end
+
+	slot11 = {}
+
+	if slot5:getBuildingBluePrint() then
+		table.insert(slot11, function (slot0)
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;cannot_build_multiple_printblue&quot;, uv0:getShipVO():getConfig(&quot;name&quot;), uv1:getShipVO():getConfig(&quot;name&quot;)),
+				onYes = function ()
+					uv0:sendNotification(GAME.STOP_BLUEPRINT, {
+						id = uv1.id,
+						callback = uv2
+					})
+				end
+			})
+		end)
+	else
+		table.insert(slot11, function (slot0)
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;blueprint_build_time_tip&quot;),
+				onYes = slot0
+			})
+		end)
+	end
+
+	seriesAsync(slot11, function ()
+		slot0 = pg.ConnectionMgr.GetInstance()
+
+		slot0:Send(63200, {
+			blueprint_id = uv0
+		}, 63201, function (slot0)
+			if slot0.result == 0 then
+				uv0:updateColdTime()
+				uv1:start(slot0.time)
+				uv0:updateBluePrint(uv1)
+				uv2:sendNotification(GAME.BUILD_SHIP_BLUEPRINT_DONE)
+			else
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;printblue_build_erro&quot;) .. slot0.result)
+			end
+		end)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

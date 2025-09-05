@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objectrockb.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>objectrockb.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ObjectRockB&quot;, import(&quot;view.miniGame.gameView.RyzaMiniGame.object.ObjectBreakable&quot;))
+
+slot0.FirePassability = function(slot0)
+	return slot0.isWater and 2 or 1
+end
+
+slot0.InTimeRiver = function(slot0)
+	return true
+end
+
+slot0.InitUI = function(slot0, slot1)
+	slot2 = slot0._tf
+	slot2 = slot2:Find(&quot;Image&quot;)
+	slot3 = slot0._tf
+	slot3 = slot3:Find(&quot;Image&quot;)
+	slot0.comAnimator = slot3:GetComponent(typeof(Animator))
+	slot3 = slot2:GetComponent(typeof(DftAniEvent))
+
+	slot3:SetTriggerEvent(function ()
+		uv0.waterTime = uv1.waterTime or 4
+	end)
+	slot3:SetEndEvent(function ()
+		uv0:Destroy()
+	end)
+
+	slot0.waterTime = 0
+end
+
+slot0.Break = function(slot0)
+	slot0:DeregisterAll()
+	slot0.comAnimator:Play(&quot;B2&quot;)
+end
+
+slot0.TimeUpdate = function(slot0, slot1)
+	if slot0.waterTime &gt; 0 then
+		slot0.waterTime = slot0.waterTime - slot1
+
+		if slot0.waterTime &lt;= 0 then
+			slot0.comAnimator:Play(&quot;B4&quot;)
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

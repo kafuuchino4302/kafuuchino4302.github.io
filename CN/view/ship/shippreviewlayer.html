@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shippreviewlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shippreviewlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShipPreviewLayer&quot;, import(&quot;..base.BaseUI&quot;))
+slot1 = 12
+slot2 = 3
+slot3 = Vector3(0, 1, 40)
+
+slot0.getUIName = function(slot0)
+	return &quot;ShipPreviewUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.UIMgr = pg.UIMgr.GetInstance()
+	slot1 = slot0.UIMgr
+
+	slot1:BlurPanel(slot0._tf, false, slot0.contextData.weight and {
+		weight = slot0.contextData.weight
+	} or {})
+
+	slot0.UIMain = slot0.UIMgr.UIMain
+	slot0.seaCameraGO = GameObject.Find(&quot;BarrageCamera&quot;)
+	slot0.leftPanel = slot0:findTF(&quot;left_panel&quot;)
+	slot0.sea = slot0:findTF(&quot;sea&quot;, slot0.leftPanel)
+	slot0.seaCamera = slot0.seaCameraGO:GetComponent(&quot;Camera&quot;)
+	slot0.seaCamera.enabled = true
+	slot0.rawImage = slot0.sea:GetComponent(&quot;RawImage&quot;)
+
+	setActive(slot0.rawImage, false)
+
+	slot0.seaCamera.targetTexture = slot0.rawImage.texture
+	slot0.healTF = slot0:findTF(&quot;resources/heal&quot;)
+	slot0.healTF.transform.localPosition = Vector3(-360, 50, 40)
+
+	setActive(slot0.healTF, false)
+	slot0.healTF:GetComponent(&quot;DftAniEvent&quot;):SetEndEvent(function ()
+		setActive(uv0.healTF, false)
+		setText(uv0.healTF:Find(&quot;text&quot;), &quot;&quot;)
+	end)
+
+	slot0.seaLoading = slot0:findTF(&quot;bg/loading&quot;, slot0.leftPanel)
+
+	slot0:playLoadingAni()
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0.seaLoading, function ()
+		if not uv0.previewer then
+			uv0:showBarrage()
+		end
+	end)
+	onButton(slot0, slot0._tf, function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end)
+end
+
+slot0.setShip = function(slot0, slot1, slot2, slot3)
+	slot0.shipVO = slot1
+	slot0.weaponIds = slot2
+	slot0.equipSkinId = slot3
+end
+
+slot0.showBarrage = function(slot0)
+	slot0.previewer = WeaponPreviewer.New(slot0.rawImage)
+	slot1 = slot0.previewer
+
+	slot1:configUI(slot0.healTF)
+
+	slot1 = slot0.previewer
+
+	slot1:setDisplayWeapon(slot0.weaponIds, slot0.equipSkinId, true)
+
+	slot1 = slot0.previewer
+
+	slot1:load(40000, slot0.shipVO, slot0.weaponIds, function ()
+		uv0:stopLoadingAni()
+	end)
+end
+
+slot0.getWaponIdsById = function(slot0, slot1)
+	return slot0.ship_data_breakout[slot1].weapon_ids
+end
+
+slot0.playLoadingAni = function(slot0)
+	setActive(slot0.seaLoading, true)
+end
+
+slot0.stopLoadingAni = function(slot0)
+	setActive(slot0.seaLoading, false)
+end
+
+slot0.willExit = function(slot0)
+	slot0.seaCamera.enabled = false
+
+	slot0.UIMgr:UnblurPanel(slot0._tf, slot0.UIMain)
+
+	if slot0.previewer then
+		slot0.previewer:clear()
+
+		slot0.previewer = nil
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

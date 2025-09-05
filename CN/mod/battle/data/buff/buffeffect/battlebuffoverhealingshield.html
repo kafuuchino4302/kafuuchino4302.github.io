@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffoverhealingshield.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffoverhealingshield.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleBuffOverHealingShield = class(&quot;BattleBuffOverHealingShield&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffOverHealingShield.__name = &quot;BattleBuffOverHealingShield&quot;
+slot1 = slot0.Battle.BattleBuffOverHealingShield
+
+slot1.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+end
+
+slot1.SetArgs = function(slot0, slot1, slot2)
+	slot3 = slot0._tempData.arg_list
+	slot0._shieldDuration = slot0._tempData.arg_list.shield_duration
+	slot0._shieldRate = slot0._tempData.arg_list.shield_rate
+	slot0._shieldLabel = slot0._tempData.arg_list.shield_tag_list or {}
+	slot0._shieldList = {}
+end
+
+slot1.onOverHealing = function(slot0, slot1, slot2, slot3)
+	if math.ceil(slot3.overHealing * slot0._shieldRate) &gt; 0 then
+		table.insert(slot0._shieldList, {
+			timeStamp = pg.TimeMgr.GetInstance():GetCombatTime(),
+			value = slot5
+		})
+	end
+
+	slot0:updateLabelTag(slot1)
+end
+
+slot1.onUpdate = function(slot0, slot1, slot2)
+	slot3 = #slot0._shieldList
+	slot5 = pg.TimeMgr.GetInstance():GetCombatTime() - slot0._shieldDuration
+
+	while slot3 &gt; 0 do
+		if slot0._shieldList[slot3].timeStamp &lt;= slot5 then
+			table.remove(slot0._shieldList, slot3)
+		end
+
+		slot3 = slot3 - 1
+	end
+
+	slot0:updateLabelTag(slot1)
+end
+
+slot1.onTakeDamage = function(slot0, slot1, slot2, slot3)
+	slot4 = #slot0._shieldList
+
+	if slot0:damageCheck(slot3) and slot4 &gt; 0 then
+		slot5 = slot3.damage
+		slot6 = 0
+
+		while slot5 &gt; 0 and slot6 &lt; slot4 do
+			if slot5 &lt;= slot0._shieldList[slot6 + 1].value then
+				slot0._shieldList[slot6].value = slot7 - slot5
+				slot5 = 0
+			else
+				slot5 = slot5 - slot7
+				slot0._shieldList[slot6].value = 0
+			end
+		end
+
+		slot3.damage = slot5
+
+		while slot4 &gt; 0 do
+			if slot0._shieldList[slot4].value &lt;= 0 then
+				table.remove(slot0._shieldList, slot4)
+			end
+
+			slot4 = slot4 - 1
+		end
+
+		slot0:updateLabelTag(slot1)
+	end
+end
+
+slot1.updateLabelTag = function(slot0, slot1)
+	if #slot0._shieldList &lt;= 0 then
+		for slot5, slot6 in ipairs(slot0._shieldLabel) do
+			slot1:RemoveLabelTag(slot6)
+		end
+	elseif not slot1:ContainsLabelTag(slot0._shieldLabel) then
+		for slot5, slot6 in ipairs(slot0._shieldLabel) do
+			slot1:AddLabelTag(slot6)
+		end
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

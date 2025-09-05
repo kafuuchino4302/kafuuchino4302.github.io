@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardfeastpoolmgr.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardfeastpoolmgr.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardFeastPoolMgr&quot;, import(&quot;.CourtYardPoolMgr&quot;))
+
+slot0.GenPool = function(slot0, slot1)
+	slot2 = uv0.super.GenPool(slot0, slot1)
+
+	for slot7, slot8 in ipairs({
+		&quot;chengbao_aixin&quot;,
+		&quot;chengbao_xinxin&quot;,
+		&quot;chengbao_yinfu&quot;,
+		&quot;chengbao_ZZZ&quot;
+	}) do
+		table.insert(slot2, function (slot0)
+			slot1 = ResourceMgr.Inst
+
+			slot1:getAssetAsync(&quot;Effect/&quot; .. uv0, &quot;&quot;, typeof(Object), UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+				if uv0.exited then
+					return
+				end
+
+				if slot0 then
+					uv0.pools[uv1] = CourtYardEffectPool.New(uv2, slot0, 0, 3, CourtYardConst.FEAST_EFFECT_TIME)
+				end
+
+				uv3()
+			end), true, true)
+		end)
+	end
+
+	return slot2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

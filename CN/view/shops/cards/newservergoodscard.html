@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newservergoodscard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newservergoodscard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewServerGoodsCard&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._go = slot1
+	slot0._tf = slot1.transform
+	slot0._tr = slot1.transform
+	slot0.itemTF = slot0._tr:Find(&quot;item&quot;)
+	slot0.itemIconBgTF = slot0.itemTF:Find(&quot;icon_bg&quot;)
+	slot0.itemIconFrameTF = slot0.itemTF:Find(&quot;icon_bg/frame&quot;)
+	slot0.itemIconTF = slot0.itemTF:Find(&quot;icon_bg/icon&quot;)
+	slot0.itemCountTF = slot0.itemTF:Find(&quot;icon_bg/count&quot;):GetComponent(typeof(Text))
+	slot0.discountTF = slot0._tr:Find(&quot;item/discount&quot;)
+	slot0.nameTF = slot0._tr:Find(&quot;item/name_mask/name&quot;):GetComponent(typeof(Text))
+	slot0.consumeIconTF = slot0._tr:Find(&quot;item/consume/contain/icon&quot;)
+	slot0.consumeTxtTF = slot0._tr:Find(&quot;item/consume/contain/Text&quot;):GetComponent(typeof(Text))
+	slot0.sellOutMaskTF = slot0._tr:Find(&quot;selloutmask&quot;)
+	slot0.levelMaskTF = slot0._tr:Find(&quot;levelmask&quot;)
+	slot0.cntTxt = slot0._tr:Find(&quot;item/count_contain/count&quot;):GetComponent(typeof(Text))
+
+	setActive(slot0.discountTF, false)
+	setText(slot0.sellOutMaskTF:Find(&quot;ch&quot;), i18n(&quot;word_sell_out&quot;))
+	setText(slot0.levelMaskTF:Find(&quot;ch&quot;), i18n(&quot;word_sell_lock&quot;))
+	setText(slot0._tr:Find(&quot;item/count_contain/label&quot;), i18n(&quot;activity_shop_exchange_count&quot;))
+end
+
+slot0.Update = function(slot0, slot1, slot2)
+	slot0.shop = slot2
+
+	if slot1 ~= slot0.commodity then
+		slot0.commodity = slot1
+
+		slot0:Init()
+		slot0:Flush()
+	else
+		slot0.commodity = slot1
+
+		slot0:Flush()
+	end
+end
+
+slot0.Flush = function(slot0)
+	slot0.cntTxt.text = slot0.commodity:GetCanPurchaseCnt() .. &quot;/&quot; .. slot0.commodity:GetCanPurchaseMaxCnt()
+
+	setActive(slot0.sellOutMaskTF, not slot0.commodity:CanPurchase())
+	setActive(slot0.levelMaskTF, not slot0.commodity:IsOpening(slot0.shop:GetStartTime()))
+end
+
+slot0.Init = function(slot0)
+	if string.match(slot0.commodity:GetDesc().name, &quot;(%d+)&quot;) then
+		setText(slot0.nameTF, shortenString(slot2, 5))
+	else
+		setText(slot0.nameTF, shortenString(slot2, 6))
+	end
+
+	slot3 = slot0.commodity:GetConsume()
+	slot0.consumeTxtTF.text = slot3.count
+
+	GetImageSpriteFromAtlasAsync(slot3:getConfig(&quot;icon&quot;), &quot;&quot;, slot0.consumeIconTF)
+
+	slot0.itemCountTF.text = slot0.commodity:GetDropCnt()
+
+	GetImageSpriteFromAtlasAsync(slot1.icon, &quot;&quot;, slot0.itemIconTF)
+
+	slot4 = slot1.rarity or ItemRarity.Gray
+
+	setImageSprite(slot0.itemIconBgTF, GetSpriteFromAtlas(&quot;weaponframes&quot;, &quot;bg&quot; .. ItemRarity.Rarity2Print(slot4)))
+	setImageColor(slot0.itemIconFrameTF, Color.NewHex(ItemRarity.Rarity2FrameHexColor(slot4)))
+end
+
+slot0.Dispose = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

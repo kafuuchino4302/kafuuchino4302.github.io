@@ -1,0 +1,3822 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_series_enemy_story.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_series_enemy_story.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_series_enemy_story = {
+	{
+		pos_x = &quot;0.10703125&quot;,
+		name = &quot;TS-1&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO3&quot;,
+		line = 2,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 1,
+		icon = &quot;story_greenA&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.157291667&quot;,
+		trigger_type = {
+			1
+		},
+		trigger_value = {
+			500
+		}
+	},
+	{
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;TS-2&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO4&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 2,
+		icon = &quot;level2&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			1
+		}
+	},
+	{
+		pos_x = &quot;0.50546875&quot;,
+		name = &quot;TS-3&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO5&quot;,
+		line = 4,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 3,
+		icon = &quot;story_greenB&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.080208333&quot;,
+		trigger_type = {
+			1,
+			3
+		},
+		trigger_value = {
+			1000,
+			2
+		}
+	},
+	{
+		pos_x = &quot;0.60546875&quot;,
+		name = &quot;TS-4&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1719601&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 4,
+		icon = &quot;level1&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.446875&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			3
+		}
+	},
+	{
+		pos_x = &quot;0.6265625&quot;,
+		name = &quot;TS-5&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO7&quot;,
+		line = 6,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 5,
+		icon = &quot;story_greenC&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.15625&quot;,
+		trigger_type = {
+			1,
+			3
+		},
+		trigger_value = {
+			2000,
+			4
+		}
+	},
+	{
+		pos_x = &quot;1.10703125&quot;,
+		name = &quot;TS-6&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO8&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 6,
+		icon = &quot;level3&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.157291667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			5
+		}
+	},
+	{
+		pos_x = &quot;1.34609375&quot;,
+		name = &quot;TS-7&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO9&quot;,
+		line = 8,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 7,
+		icon = &quot;story_greenD&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.347916667&quot;,
+		trigger_type = {
+			1,
+			3
+		},
+		trigger_value = {
+			3000,
+			6
+		}
+	},
+	{
+		pos_x = &quot;1.50546875&quot;,
+		name = &quot;TS-8&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO10&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 8,
+		icon = &quot;level4&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.080208333&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			7
+		}
+	},
+	{
+		pos_x = &quot;1.60546875&quot;,
+		name = &quot;TS-9&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO11&quot;,
+		line = 10,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 9,
+		icon = &quot;story_greenE&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.446875&quot;,
+		trigger_type = {
+			1,
+			3
+		},
+		trigger_value = {
+			4000,
+			8
+		}
+	},
+	{
+		pos_x = &quot;1.6265625&quot;,
+		name = &quot;TS-10&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO12&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 10,
+		icon = &quot;level5&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.15625&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			9
+		}
+	},
+	{
+		pos_x = &quot;2.10703125&quot;,
+		name = &quot;TSH-1&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO13&quot;,
+		line = 12,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 11,
+		icon = &quot;story_yellowF&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;2.157291667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			2
+		}
+	},
+	{
+		pos_x = &quot;2.34609375&quot;,
+		name = &quot;TSH-2&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO14&quot;,
+		line = 13,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 12,
+		icon = &quot;story_yellowG&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;2.347916667&quot;,
+		trigger_type = {
+			3,
+			3
+		},
+		trigger_value = {
+			4,
+			11
+		}
+	},
+	{
+		pos_x = &quot;2.50546875&quot;,
+		name = &quot;TSH-3&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO15&quot;,
+		line = 14,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 13,
+		icon = &quot;story_yellowH&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;2.080208333&quot;,
+		trigger_type = {
+			3,
+			3
+		},
+		trigger_value = {
+			6,
+			12
+		}
+	},
+	{
+		pos_x = &quot;0.10703125&quot;,
+		name = &quot;TSH-4&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO16&quot;,
+		line = 15,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 14,
+		icon = &quot;story_yellowI&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.157291667&quot;,
+		trigger_type = {
+			3,
+			3
+		},
+		trigger_value = {
+			8,
+			13
+		}
+	},
+	{
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;TSH-5&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;JIDIFENGBAO17&quot;,
+		line = 16,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 15,
+		icon = &quot;story_yellowJ&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;,
+		trigger_type = {
+			3,
+			3
+		},
+		trigger_value = {
+			10,
+			14
+		}
+	},
+	{
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;TSH-6&quot;,
+		type = 2,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1719602&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 16,
+		icon = &quot;story_yellowK&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			15
+		}
+	},
+	{
+		trigger_value = &quot;&quot;,
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;基地1&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		trigger_type = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 17,
+		icon = &quot;base1&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;
+	},
+	{
+		trigger_value = &quot;&quot;,
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;基地2&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		trigger_type = &quot;&quot;,
+		line = 1,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 18,
+		icon = &quot;base2&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;
+	},
+	{
+		trigger_value = &quot;&quot;,
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;基地3&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		trigger_type = &quot;&quot;,
+		line = 3,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 19,
+		icon = &quot;base3&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;
+	},
+	{
+		trigger_value = &quot;&quot;,
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;基地4&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		trigger_type = &quot;&quot;,
+		line = 5,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 20,
+		icon = &quot;base4&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;
+	},
+	{
+		trigger_value = &quot;&quot;,
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;基地5&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		trigger_type = &quot;&quot;,
+		line = 11,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 21,
+		icon = &quot;base5&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;
+	},
+	[31] = {
+		pos_x = &quot;0.10703125&quot;,
+		name = &quot;叛恶者之歌&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;HUANYINLAIDAOTONGXINXUEYUAN2&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 31,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.157291667&quot;,
+		trigger_type = {
+			1
+		},
+		trigger_value = {
+			0
+		}
+	},
+	[32] = {
+		pos_x = &quot;0.34609375&quot;,
+		name = &quot;组成乐队吧♪&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1819601&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 32,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.347916667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			31
+		}
+	},
+	[33] = {
+		pos_x = &quot;0.50546875&quot;,
+		name = &quot;巨大指挥官&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1819602&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 33,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.080208333&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			32
+		}
+	},
+	[34] = {
+		pos_x = &quot;0.60546875&quot;,
+		name = &quot;健康活力Fight&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1819603&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 34,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.446875&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			33
+		}
+	},
+	[35] = {
+		pos_x = &quot;0.6265625&quot;,
+		name = &quot;拯救老师大作战&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;HUANYINLAIDAOTONGXINXUEYUAN6&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 35,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.15625&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			34
+		}
+	},
+	[36] = {
+		pos_x = &quot;1.10703125&quot;,
+		name = &quot;与童心重逢之时&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1819604&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 36,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.157291667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			35
+		}
+	},
+	[37] = {
+		pos_x = &quot;1.34609375&quot;,
+		name = &quot;失控的童心&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1819605&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 37,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.347916667&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			36
+		}
+	},
+	[38] = {
+		pos_x = &quot;1.50546875&quot;,
+		name = &quot;愿童心永驻&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;HUANYINLAIDAOTONGXINXUEYUAN9&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 38,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;1.080208333&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			37
+		}
+	},
+	[39] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-1 爆炸疑云&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE2&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 39,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			1
+		},
+		trigger_value = {
+			0
+		}
+	},
+	[40] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-2 兔警官探案中&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE3&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 40,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			39
+		}
+	},
+	[41] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-3 战略性约会进行时&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE4&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 41,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			40
+		}
+	},
+	[42] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-4 公路维和组，出击！&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE5&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 42,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			41
+		}
+	},
+	[43] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-5 问题的关键&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE6&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 43,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			42
+		}
+	},
+	[44] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-6 说来话长&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE7&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 44,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			43
+		}
+	},
+	[45] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-7 谈心教室&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE8&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 45,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			44
+		}
+	},
+	[46] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-8 迷彩都市之夜&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE9&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 46,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			45
+		}
+	},
+	[47] = {
+		pos_x = &quot;&quot;,
+		name = &quot;CH-9 谁是卧底？&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;MICAIDUSHIDEXUNZONGZHE10&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 47,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			46
+		}
+	},
+	[48] = {
+		pos_x = &quot;0.174729166666667&quot;,
+		name = &quot;EPS-1 一次调查&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_1&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN1&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-theme-pv&quot;,
+		params = &quot;&quot;,
+		id = 48,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.50712962962963&quot;,
+		trigger_type = {
+			4
+		},
+		trigger_value = {
+			48
+		}
+	},
+	[49] = {
+		pos_x = &quot;0.389166666666667&quot;,
+		name = &quot;EPS-2 一场寻宝&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_1&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN2&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-theme-pv&quot;,
+		params = &quot;&quot;,
+		id = 49,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.320555555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			48,
+			49
+		}
+	},
+	[50] = {
+		pos_x = &quot;0.705729166666667&quot;,
+		name = &quot;EPS-3 一次冒险&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN3&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 50,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.215&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			49,
+			50
+		}
+	},
+	[51] = {
+		pos_x = &quot;0.173489583333333&quot;,
+		name = &quot;EP1-1 起始之海&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN4&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 51,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.241296296296296&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			50,
+			51
+		}
+	},
+	[52] = {
+		pos_x = &quot;0.173229166666667&quot;,
+		name = &quot;EP1-2 舒适海滩&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN5&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 52,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.483055555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			51,
+			52
+		}
+	},
+	[53] = {
+		pos_x = &quot;0.613&quot;,
+		name = &quot;EP1-3 险峻石滩&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN6&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 53,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.372&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			52,
+			53
+		}
+	},
+	[54] = {
+		pos_x = &quot;0.380208333333333&quot;,
+		name = &quot;EP1-4 合流·其一&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN7&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 54,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.26537037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			53,
+			54
+		}
+	},
+	[55] = {
+		pos_x = &quot;0.600520833333333&quot;,
+		name = &quot;EP1-5 合流·其二&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN8&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 55,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.255555555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			54,
+			55
+		}
+	},
+	[56] = {
+		pos_x = &quot;0.483854166666667&quot;,
+		name = &quot;EP1-6 天际塔：起始区段&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_2&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN9&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-1&quot;,
+		params = &quot;&quot;,
+		id = 56,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.288888888888889&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			55,
+			56
+		}
+	},
+	[57] = {
+		pos_x = &quot;0.4671875&quot;,
+		name = &quot;EP1-7 向上进发&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN10&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		id = 57,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.331481481481481&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			56,
+			57
+		},
+		params = {
+			{
+				&quot;item_lock&quot;,
+				{
+					1001,
+					134,
+					1
+				}
+			}
+		}
+	},
+	[58] = {
+		pos_x = &quot;0.385416666666667&quot;,
+		name = &quot;EP2-1 丰水湖&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN11&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 58,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.386111111111111&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			57,
+			58
+		}
+	},
+	[59] = {
+		pos_x = &quot;0.313020833333333&quot;,
+		name = &quot;EP2-2 丰饶林地&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN12&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 59,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.494444444444444&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			58,
+			59
+		}
+	},
+	[60] = {
+		pos_x = &quot;0.266666666666667&quot;,
+		name = &quot;EP2-3 青草区&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN13&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 60,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.573148148148148&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			59,
+			60
+		}
+	},
+	[61] = {
+		pos_x = &quot;0.186458333333333&quot;,
+		name = &quot;EP2-4 腐草区&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN14&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 61,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.653703703703704&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			60,
+			61
+		}
+	},
+	[62] = {
+		pos_x = &quot;0.128645833333333&quot;,
+		name = &quot;EP2-5 腐水河流&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN15&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 62,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.753703703703704&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			61,
+			62
+		}
+	},
+	[63] = {
+		pos_x = &quot;0.176041666666667&quot;,
+		name = &quot;EP2-6 废弃村落&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN16&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 63,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.75&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			62,
+			63
+		}
+	},
+	[64] = {
+		pos_x = &quot;0.252604166666667&quot;,
+		name = &quot;EP2-7 腐水湖&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_3&quot;,
+		story = &quot;1947001&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-7&quot;,
+		params = &quot;&quot;,
+		id = 64,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.769444444444444&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			63,
+			64
+		}
+	},
+	[65] = {
+		pos_x = &quot;0.328125&quot;,
+		name = &quot;EP2-8 天际塔：L1区段&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN18&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		params = &quot;&quot;,
+		id = 65,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.713888888888889&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			64,
+			65
+		}
+	},
+	[66] = {
+		pos_x = &quot;0.395833333333333&quot;,
+		name = &quot;EP3-1 腐水海&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;1947002&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		id = 66,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.801851851851852&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			66
+		},
+		params = {
+			{
+				&quot;item_lock&quot;,
+				{
+					1001,
+					135,
+					1
+				}
+			}
+		}
+	},
+	[67] = {
+		pos_x = &quot;0.445833333333333&quot;,
+		name = &quot;EP3-2 腐蚀林地&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN20&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		params = &quot;&quot;,
+		id = 67,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.686111111111111&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			66,
+			67
+		}
+	},
+	[68] = {
+		pos_x = &quot;0.5015625&quot;,
+		name = &quot;EP3-3 死亡荒原&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN21&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		params = &quot;&quot;,
+		id = 68,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.588888888888889&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			67,
+			68
+		}
+	},
+	[69] = {
+		pos_x = &quot;0.559375&quot;,
+		name = &quot;EP3-4 废弃哨站&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN22&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		params = &quot;&quot;,
+		id = 69,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.433333333333333&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			68,
+			69
+		}
+	},
+	[70] = {
+		pos_x = &quot;0.616145833333333&quot;,
+		name = &quot;EP3-5 大裂谷&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_4&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN23&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-20&quot;,
+		params = &quot;&quot;,
+		id = 70,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.351851851851852&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			69,
+			70
+		}
+	},
+	[71] = {
+		pos_x = &quot;0.819791666666667&quot;,
+		name = &quot;EP3-6 天际塔：L2区段&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_5&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN24&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-28&quot;,
+		params = &quot;&quot;,
+		id = 71,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.382407407407407&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			70,
+			71
+		}
+	},
+	[72] = {
+		pos_x = &quot;0.822916666666667&quot;,
+		name = &quot;EP4-1 鬼影群山&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_5&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN25&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-28&quot;,
+		id = 72,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.457407407407407&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			72
+		},
+		params = {
+			{
+				&quot;item_lock&quot;,
+				{
+					1001,
+					136,
+					1
+				}
+			}
+		}
+	},
+	[73] = {
+		pos_x = &quot;0.6453125&quot;,
+		name = &quot;EP4-2 废弃都市&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_5&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN26&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-28&quot;,
+		params = &quot;&quot;,
+		id = 73,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.592592592592593&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			72,
+			73
+		}
+	},
+	[74] = {
+		pos_x = &quot;0.610416666666667&quot;,
+		name = &quot;EP4-3 天际塔：L3区段&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_6&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN27&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-53&quot;,
+		params = &quot;&quot;,
+		id = 74,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.749074074074074&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			73,
+			74
+		}
+	},
+	[75] = {
+		pos_x = &quot;0.697916666666667&quot;,
+		name = &quot;EP5-1 天际海&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_6&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN28&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-53&quot;,
+		id = 75,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.815740740740741&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			74,
+			75
+		},
+		params = {
+			{
+				&quot;item_lock&quot;,
+				{
+					1001,
+					137,
+					1
+				}
+			}
+		}
+	},
+	[76] = {
+		pos_x = &quot;0.778645833333333&quot;,
+		name = &quot;EP5-2 大护盾&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_6&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN29&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-53&quot;,
+		params = &quot;&quot;,
+		id = 76,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.739814814814815&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			75,
+			76
+		}
+	},
+	[77] = {
+		pos_x = &quot;0.813541666666667&quot;,
+		name = &quot;EP5-3 核心都市区&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_6&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN30&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-53&quot;,
+		params = &quot;&quot;,
+		id = 77,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.681481481481481&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			76,
+			77
+		}
+	},
+	[78] = {
+		pos_x = &quot;0.811979166666667&quot;,
+		name = &quot;EP5-4 天际塔：塔尖区段&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_6&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN31&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-theme-pv&quot;,
+		params = &quot;&quot;,
+		id = 78,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.793518518518519&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			77,
+			78
+		}
+	},
+	[79] = {
+		pos_x = &quot;0.848958333333333&quot;,
+		name = &quot;EP5-5 决战&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_1&quot;,
+		story = &quot;1947003&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-theme-pv&quot;,
+		params = &quot;&quot;,
+		id = 79,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.750925925925926&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			78,
+			79
+		}
+	},
+	[80] = {
+		pos_x = &quot;0.349479166666667&quot;,
+		name = &quot;EPS-4 尾声&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_1&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN33&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-theme-pv&quot;,
+		params = &quot;&quot;,
+		id = 80,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.512962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			79,
+			80
+		}
+	},
+	[81] = {
+		pos_x = &quot;0.633854166666667&quot;,
+		name = &quot;EPS-5 尾声的尾声&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_yumia_story_mode_7&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN34&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;Yumia-az-story&quot;,
+		params = &quot;&quot;,
+		id = 81,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.512962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			80,
+			81
+		}
+	},
+	[82] = {
+		pos_x = &quot;0.463541666666667&quot;,
+		name = &quot;起始区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 82,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.262037037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			57,
+			79
+		}
+	},
+	[83] = {
+		pos_x = &quot;0.541145833333333&quot;,
+		name = &quot;险峻石滩&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 83,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.187962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			57,
+			79
+		}
+	},
+	[84] = {
+		pos_x = &quot;0.150520833333333&quot;,
+		name = &quot;起始之海&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 84,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.27037037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			57,
+			79
+		}
+	},
+	[85] = {
+		pos_x = &quot;0.168229166666667&quot;,
+		name = &quot;舒适海滩&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 85,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.480555555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			57,
+			79
+		}
+	},
+	[86] = {
+		pos_x = &quot;0.375520833333333&quot;,
+		name = &quot;丰水湖&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 86,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.39537037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			79
+		}
+	},
+	[87] = {
+		pos_x = &quot;0.247395833333333&quot;,
+		name = &quot;丰饶林地&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 87,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.572222222222222&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			79
+		}
+	},
+	[88] = {
+		pos_x = &quot;0.289583333333333&quot;,
+		name = &quot;L1区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 88,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.721296296296296&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			79
+		}
+	},
+	[89] = {
+		pos_x = &quot;0.139583333333333&quot;,
+		name = &quot;废弃村落&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 89,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.711111111111111&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			79
+		}
+	},
+	[90] = {
+		pos_x = &quot;0.1953125&quot;,
+		name = &quot;腐水湖&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 90,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.806481481481482&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			65,
+			79
+		}
+	},
+	[91] = {
+		pos_x = &quot;0.397395833333333&quot;,
+		name = &quot;腐水海&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 91,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.842592592592593&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[92] = {
+		pos_x = &quot;0.430208333333333&quot;,
+		name = &quot;腐蚀林地&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 92,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.69537037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[93] = {
+		pos_x = &quot;0.514583333333333&quot;,
+		name = &quot;死亡荒原&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 93,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.49537037037037&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[94] = {
+		pos_x = &quot;0.554166666666667&quot;,
+		name = &quot;废弃哨站&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 94,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.398148148148148&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[95] = {
+		pos_x = &quot;0.6375&quot;,
+		name = &quot;大裂谷&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 95,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.324074074074074&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[96] = {
+		pos_x = &quot;0.815104166666667&quot;,
+		name = &quot;L2区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 96,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.32962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			71,
+			79
+		}
+	},
+	[97] = {
+		pos_x = &quot;0.8359375&quot;,
+		name = &quot;鬼影群山&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 97,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.473148148148148&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			74,
+			79
+		}
+	},
+	[98] = {
+		pos_x = &quot;0.602604166666667&quot;,
+		name = &quot;废弃都市&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 98,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.612962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			74,
+			79
+		}
+	},
+	[99] = {
+		pos_x = &quot;0.597395833333333&quot;,
+		name = &quot;L3区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 99,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.736111111111111&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			74,
+			79
+		}
+	},
+	[100] = {
+		pos_x = &quot;0.463541666666667&quot;,
+		name = &quot;起始区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 100,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.262037037037037&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[101] = {
+		pos_x = &quot;0.541145833333333&quot;,
+		name = &quot;险峻石滩&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 101,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.187962962962963&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[102] = {
+		pos_x = &quot;0.150520833333333&quot;,
+		name = &quot;起始之海&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 102,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.27037037037037&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[103] = {
+		pos_x = &quot;0.168229166666667&quot;,
+		name = &quot;舒适海滩&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 103,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.480555555555556&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[104] = {
+		pos_x = &quot;0.375520833333333&quot;,
+		name = &quot;丰水湖&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 104,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.39537037037037&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[105] = {
+		pos_x = &quot;0.247395833333333&quot;,
+		name = &quot;丰饶林地&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 105,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.572222222222222&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[106] = {
+		pos_x = &quot;0.289583333333333&quot;,
+		name = &quot;L1区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 106,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.721296296296296&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[107] = {
+		pos_x = &quot;0.139583333333333&quot;,
+		name = &quot;废弃村落&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 107,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.711111111111111&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[108] = {
+		pos_x = &quot;0.1953125&quot;,
+		name = &quot;腐水湖&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 108,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.806481481481482&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[109] = {
+		pos_x = &quot;0.397395833333333&quot;,
+		name = &quot;腐水海&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 109,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.842592592592593&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[110] = {
+		pos_x = &quot;0.430208333333333&quot;,
+		name = &quot;腐蚀林地&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 110,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.69537037037037&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[111] = {
+		pos_x = &quot;0.514583333333333&quot;,
+		name = &quot;死亡荒原&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 111,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.49537037037037&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[112] = {
+		pos_x = &quot;0.554166666666667&quot;,
+		name = &quot;废弃哨站&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 112,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.398148148148148&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[113] = {
+		pos_x = &quot;0.6375&quot;,
+		name = &quot;大裂谷&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 113,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.324074074074074&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[114] = {
+		pos_x = &quot;0.815104166666667&quot;,
+		name = &quot;L2区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 114,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.32962962962963&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[115] = {
+		pos_x = &quot;0.8359375&quot;,
+		name = &quot;鬼影群山&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 115,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.473148148148148&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[116] = {
+		pos_x = &quot;0.602604166666667&quot;,
+		name = &quot;废弃都市&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 116,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.612962962962963&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[117] = {
+		pos_x = &quot;0.597395833333333&quot;,
+		name = &quot;L3区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 117,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.736111111111111&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[118] = {
+		pos_x = &quot;0.673958333333333&quot;,
+		name = &quot;天际海&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 118,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.878703703703704&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[119] = {
+		pos_x = &quot;0.822916666666667&quot;,
+		name = &quot;塔尖区段&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 119,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.794444444444444&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[120] = {
+		pos_x = &quot;0.819270833333333&quot;,
+		name = &quot;核心都市区&quot;,
+		type = 4,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 120,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.707407407407407&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			81
+		}
+	},
+	[121] = {
+		pos_x = &quot;0.444270833333333&quot;,
+		name = &quot;EP1-1 初见即毕业&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_1&quot;,
+		story = &quot;QIYUANXIADEMIMI2&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 121,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.707407407407407&quot;,
+		trigger_type = {
+			4
+		},
+		trigger_value = {
+			121
+		}
+	},
+	[122] = {
+		pos_x = &quot;0.444270833333333&quot;,
+		name = &quot;EP1-2 初入奇渊&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI3&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 122,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.707407407407407&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			121,
+			122
+		}
+	},
+	[123] = {
+		pos_x = &quot;0.444270833333333&quot;,
+		name = &quot;EP1-3 再见还是毕业&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI4&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 123,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.707407407407407&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			122,
+			123
+		}
+	},
+	[124] = {
+		pos_x = &quot;0.444270833333333&quot;,
+		name = &quot;EP1-4 再度启程&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_2&quot;,
+		story = &quot;QIYUANXIADEMIMI5&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 124,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.707407407407407&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			123,
+			124
+		}
+	},
+	[125] = {
+		pos_x = &quot;0.388020833333333&quot;,
+		name = &quot;EP2-1 冰喉峡谷&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI6&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 125,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.558333333333333&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			124,
+			125
+		}
+	},
+	[126] = {
+		pos_x = &quot;0.358333333333333&quot;,
+		name = &quot;EP2-2 极光之地&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI7&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 126,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.526851851851852&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			125,
+			126
+		}
+	},
+	[127] = {
+		pos_x = &quot;0.328645833333333&quot;,
+		name = &quot;EP2-3 陷阱&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI8&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 127,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.480555555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			126,
+			127
+		}
+	},
+	[128] = {
+		pos_x = &quot;0.244791666666667&quot;,
+		name = &quot;EP2-4 重逢&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI9&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 128,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.533333333333333&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			127,
+			128
+		}
+	},
+	[129] = {
+		pos_x = &quot;0.3&quot;,
+		name = &quot;EP2-5 过去的事&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI10&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 129,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.637962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			128,
+			129
+		}
+	},
+	[130] = {
+		pos_x = &quot;0.1796875&quot;,
+		name = &quot;EP2-6 古老的馈赠&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI11&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 130,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.659259259259259&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			129,
+			130
+		}
+	},
+	[131] = {
+		pos_x = &quot;0.23125&quot;,
+		name = &quot;EP2-7 寒冬要塞&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_3&quot;,
+		story = &quot;QIYUANXIADEMIMI12&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 131,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.360185185185185&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			130,
+			131
+		}
+	},
+	[132] = {
+		pos_x = &quot;0.502083333333333&quot;,
+		name = &quot;EP3-1 秽沼瘴潭之战&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1956001&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 132,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.785185185185185&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			131,
+			132
+		}
+	},
+	[133] = {
+		pos_x = &quot;0.603125&quot;,
+		name = &quot;EP3-2 异化法师营地&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI14&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 133,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.785185185185185&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			132,
+			133
+		}
+	},
+	[134] = {
+		pos_x = &quot;0.6640625&quot;,
+		name = &quot;EP3-3 结盟仪式&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI15&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 134,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.672222222222222&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			133,
+			134
+		}
+	},
+	[135] = {
+		pos_x = &quot;0.6359375&quot;,
+		name = &quot;EP3-4 和谈生变&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1956002&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 135,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.652777777777778&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			134,
+			135
+		}
+	},
+	[136] = {
+		pos_x = &quot;0.765625&quot;,
+		name = &quot;EP3-5 预言之子&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_4&quot;,
+		story = &quot;QIYUANXIADEMIMI17&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 136,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.55&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			135,
+			136
+		}
+	},
+	[137] = {
+		pos_x = &quot;0.5453125&quot;,
+		name = &quot;EP4-1 遗忘之地&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1956003&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 137,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.505555555555556&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			136,
+			137
+		}
+	},
+	[138] = {
+		pos_x = &quot;0.591145833333333&quot;,
+		name = &quot;EP4-2 不落要塞&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI19&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 138,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.461111111111111&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			137,
+			138
+		}
+	},
+	[139] = {
+		pos_x = &quot;0.5390625&quot;,
+		name = &quot;EP4-3 幻影之境&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1956004&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 139,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.387962962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			138,
+			139
+		}
+	},
+	[140] = {
+		pos_x = &quot;0.698958333333333&quot;,
+		name = &quot;EP4-4 黎明的终战&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI21&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 140,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.30462962962963&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			139,
+			140
+		}
+	},
+	[141] = {
+		pos_x = &quot;0.763541666666667&quot;,
+		name = &quot;EP4-5 神庙漫步&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI22&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 141,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.213888888888889&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			140,
+			141
+		}
+	},
+	[142] = {
+		pos_x = &quot;0.853125&quot;,
+		name = &quot;EP4-6 回忆觉醒&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI23&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 142,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.234259259259259&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			141,
+			142
+		}
+	},
+	[143] = {
+		pos_x = &quot;0.455208333333333&quot;,
+		name = &quot;EP4-7 寂灭魔法塔&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI24&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 143,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.446296296296296&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			142,
+			143
+		}
+	},
+	[144] = {
+		pos_x = &quot;0.855729166666667&quot;,
+		name = &quot;EP4-8 逝去的时代&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI25&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 144,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.248148148148148&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			143,
+			144
+		}
+	},
+	[145] = {
+		pos_x = &quot;0.85&quot;,
+		name = &quot;EP4-9 沉睡之地&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_5&quot;,
+		story = &quot;QIYUANXIADEMIMI26&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 145,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.339814814814815&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			144,
+			145
+		}
+	},
+	[146] = {
+		pos_x = &quot;0.836458333333333&quot;,
+		name = &quot;EP5-1 反攻的第一枪&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;QIYUANXIADEMIMI27&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 146,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.473148148148148&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			145,
+			146
+		}
+	},
+	[147] = {
+		pos_x = &quot;0.446875&quot;,
+		name = &quot;EP5-2 恩泽城之战&quot;,
+		type = 3,
+		en_name = &quot;&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;1956005&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 147,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.642592592592593&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			146,
+			147
+		}
+	},
+	[148] = {
+		pos_x = &quot;0.446875&quot;,
+		name = &quot;EP5-3 终结与新生&quot;,
+		type = 1,
+		en_name = &quot;&quot;,
+		change_background = &quot;bg_masaina_story_mode_4&quot;,
+		story = &quot;QIYUANXIADEMIMI29&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;story-enzecheng-theme&quot;,
+		params = &quot;&quot;,
+		id = 148,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.642592592592593&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			147,
+			148
+		}
+	},
+	[149] = {
+		pos_x = &quot;0.446875&quot;,
+		name = &quot;恩泽城&quot;,
+		type = 4,
+		en_name = &quot;Benedictus&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 149,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.642592592592593&quot;,
+		trigger_type = {
+			3,
+			4
+		},
+		trigger_value = {
+			124,
+			145
+		}
+	},
+	[150] = {
+		pos_x = &quot;0.371354166666667&quot;,
+		name = &quot;冰喉峡谷&quot;,
+		type = 4,
+		en_name = &quot;IcemawGorge&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 150,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.530555555555556&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[151] = {
+		pos_x = &quot;0.308854166666667&quot;,
+		name = &quot;极光之地&quot;,
+		type = 4,
+		en_name = &quot;LandofAuroras&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 151,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.471296296296296&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[152] = {
+		pos_x = &quot;0.3015625&quot;,
+		name = &quot;永寂冰湖&quot;,
+		type = 4,
+		en_name = &quot;NevermeltingLake&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 152,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.639814814814815&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[153] = {
+		pos_x = &quot;0.218229166666667&quot;,
+		name = &quot;噬光苔原&quot;,
+		type = 4,
+		en_name = &quot;LightbaneTundra&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 153,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.555555555555556&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[154] = {
+		pos_x = &quot;0.175520833333333&quot;,
+		name = &quot;古代遗迹&quot;,
+		type = 4,
+		en_name = &quot;AncientRuins&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 154,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.663888888888889&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[155] = {
+		pos_x = &quot;0.2390625&quot;,
+		name = &quot;寒冬要塞&quot;,
+		type = 4,
+		en_name = &quot;Frostheim&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 155,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.278703703703704&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			131
+		}
+	},
+	[156] = {
+		pos_x = &quot;0.522916666666667&quot;,
+		name = &quot;秽沼瘴潭&quot;,
+		type = 4,
+		en_name = &quot;MiasmicSwamp&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 156,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.773148148148148&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			136
+		}
+	},
+	[157] = {
+		pos_x = &quot;0.613541666666667&quot;,
+		name = &quot;异化法师营地&quot;,
+		type = 4,
+		en_name = &quot;DerelictusHold&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 157,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.742&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			136
+		}
+	},
+	[158] = {
+		pos_x = &quot;0.6265625&quot;,
+		name = &quot;低语林地&quot;,
+		type = 4,
+		en_name = &quot;WhisperingGrove&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 158,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.625925925925926&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			136
+		}
+	},
+	[159] = {
+		pos_x = &quot;0.700520833333333&quot;,
+		name = &quot;腐心树&quot;,
+		type = 4,
+		en_name = &quot;HollowheartTree&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 159,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.814814814814815&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			136
+		}
+	},
+	[160] = {
+		pos_x = &quot;0.7703125&quot;,
+		name = &quot;暗夜魔宫&quot;,
+		type = 4,
+		en_name = &quot;Pandemonium&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 160,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.547222222222222&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			136
+		}
+	},
+	[161] = {
+		pos_x = &quot;0.697395833333333&quot;,
+		name = &quot;遗忘之地&quot;,
+		type = 4,
+		en_name = &quot;ForgottenReach&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 161,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.311111111111111&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			145
+		}
+	},
+	[162] = {
+		pos_x = &quot;0.586979166666667&quot;,
+		name = &quot;破碎之地&quot;,
+		type = 4,
+		en_name = &quot;ShatteredLands&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 162,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.392592592592593&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			145
+		}
+	},
+	[163] = {
+		pos_x = &quot;0.473958333333333&quot;,
+		name = &quot;寂灭魔法塔&quot;,
+		type = 4,
+		en_name = &quot;SpireofCycles&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 163,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.442592592592593&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			145
+		}
+	},
+	[164] = {
+		pos_x = &quot;0.853125&quot;,
+		name = &quot;古战场遗迹&quot;,
+		type = 4,
+		en_name = &quot;AncientBattlefieldRuins&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 164,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.228703703703704&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			145
+		}
+	},
+	[165] = {
+		pos_x = &quot;0.841145833333333&quot;,
+		name = &quot;静默树庭&quot;,
+		type = 4,
+		en_name = &quot;SilentGrove&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 165,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.360185185185185&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			145
+		}
+	},
+	[166] = {
+		pos_x = &quot;0.446875&quot;,
+		name = &quot;恩泽城&quot;,
+		type = 4,
+		en_name = &quot;Benedictus&quot;,
+		change_background = &quot;&quot;,
+		story = &quot;&quot;,
+		line = 0,
+		pass_awards = 0,
+		change_bgm = &quot;&quot;,
+		params = &quot;&quot;,
+		id = 166,
+		icon = &quot;&quot;,
+		change_prefab = &quot;&quot;,
+		pos_y = &quot;0.642592592592593&quot;,
+		trigger_type = {
+			3
+		},
+		trigger_value = {
+			148
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61,
+		62,
+		63,
+		64,
+		65,
+		66,
+		67,
+		68,
+		69,
+		70,
+		71,
+		72,
+		73,
+		74,
+		75,
+		76,
+		77,
+		78,
+		79,
+		80,
+		81,
+		82,
+		83,
+		84,
+		85,
+		86,
+		87,
+		88,
+		89,
+		90,
+		91,
+		92,
+		93,
+		94,
+		95,
+		96,
+		97,
+		98,
+		99,
+		100,
+		101,
+		102,
+		103,
+		104,
+		105,
+		106,
+		107,
+		108,
+		109,
+		110,
+		111,
+		112,
+		113,
+		114,
+		115,
+		116,
+		117,
+		118,
+		119,
+		120,
+		121,
+		122,
+		123,
+		124,
+		125,
+		126,
+		127,
+		128,
+		129,
+		130,
+		131,
+		132,
+		133,
+		134,
+		135,
+		136,
+		137,
+		138,
+		139,
+		140,
+		141,
+		142,
+		143,
+		144,
+		145,
+		146,
+		147,
+		148,
+		149,
+		150,
+		151,
+		152,
+		153,
+		154,
+		155,
+		156,
+		157,
+		158,
+		159,
+		160,
+		161,
+		162,
+		163,
+		164,
+		165,
+		166
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

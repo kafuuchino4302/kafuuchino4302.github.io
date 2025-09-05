@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_9675.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_9675.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;14-顶盾冲锋&quot;,
+	init_effect = &quot;&quot;,
+	id = 9575,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 9575,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffFixVelocity&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				group = 8003,
+				add = 0,
+				mul = 5000
+			}
+		},
+		{
+			id = 1,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 32,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							14,
+							12
+						},
+						offset = {
+							0,
+							0,
+							0
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					return Vector3(2, 1, 0)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, 192, 0)
+				end
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

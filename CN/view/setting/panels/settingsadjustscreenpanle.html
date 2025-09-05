@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingsadjustscreenpanle.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingsadjustscreenpanle.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsAdjustScreenPanle&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsAdjustScreen&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return i18n(&quot;Settings_title_AdjustScr&quot;)
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;  / SCREEN SETTING&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.notchSlider = findTF(slot0._tf, &quot;slider&quot;)
+end
+
+slot0.OnUpdate = function(slot0)
+	slot1 = getProxy(SettingsProxy)
+
+	setSlider(slot0.notchSlider, ADAPT_MIN, math.clamp(Screen.width / Screen.height - 0.001, 1.3333333333333333, 2.3333333333333335), slot1:GetScreenRatio())
+	OnSliderWithButton(slot0, slot0.notchSlider, function (slot0)
+		uv0:SetScreenRatio(slot0)
+
+		NotchAdapt.CheckNotchRatio = slot0
+
+		NotchAdapt.AdjustUI()
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

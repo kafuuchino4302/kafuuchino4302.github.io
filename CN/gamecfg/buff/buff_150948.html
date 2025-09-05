@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_150948.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_150948.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 150948,
+	picture = &quot;&quot;,
+	desc = &quot;黑颜料&quot;,
+	time = 10,
+	stack = 3,
+	color = &quot;yellow&quot;,
+	icon = 150940,
+	last_effect = &quot;lafeier_tiaosepan_04&quot;,
+	last_effect_stack_list = {
+		[2.0] = &quot;lafeier_tiaosepan_05&quot;,
+		[3.0] = &quot;lafeier_tiaosepan_06&quot;
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onSink&quot;
+			},
+			arg_list = {
+				buff_id = 150957,
+				repeat_count = -1,
+				target = {
+					&quot;TargetAllFoe&quot;,
+					&quot;TargetFatalDamageSrc&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffFixVelocity&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				add = 0,
+				mul = -500
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 3,
+				countType = 150948
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				buff_id = 150949,
+				target = &quot;TargetSelf&quot;,
+				countType = 150948
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;HEIYANLIAO&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

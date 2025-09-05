@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bianhuakaianxianglai1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>bianhuakaianxianglai1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;BIANHUAKAIANXIANGLAI1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			expression = 8,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_600&quot;,
+			bgm = &quot;story-italy&quot;,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;诸位请举杯——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;让我们一同为了我们的外交成就，干杯~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;干杯~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;撒丁帝国众人&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;干杯！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			say = &quot;装饰华丽的大厅中，一场属于撒丁帝国内部的宴会正在热烈进行着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 605010,
+			say = &quot;联盟合并的会议在我们的协调下正如火如荼地召开。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;与鸢尾盟约的成功签订，既是各方对于我们协调人身份的最大认可。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 605010,
+			say = &quot;也是一次我们外交能力的充分展现。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我在这里衷心感谢诸位所做出的贡献。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼~这样一来，不论今后局势如何变化，我们都有应对的把握了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 602010,
+			say = &quot;这应该是鸢尾合并之后签订的第一个外交协议吧……还是如此重量级的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 602010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;为什么会选我们呢……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这还用问，肯定是看到了我们撒丁帝国的潜力。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;自从博览会之后，随着我们在国际舞台上的频繁亮相，我们的影响力是蒸蒸日上。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好事也是一件接一件。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;今后，说不定能在合并后的联盟内成为举足轻重的一极呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我们如今取得的成就离不开大家的齐心协力，不过现在只是一个开始。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 605010,
+			say = &quot;为了帝国的今后，还需要大家继续努力，不要松懈才是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那是自然，那是自然~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那就让我们再次共同举杯。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 605010,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;为了撒丁帝国的伟大与复兴，干杯！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;干杯~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;撒丁帝国众人&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;干杯！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajiakesi1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ajiakesi1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;AJIAKESI1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;我的美好回忆\n\n&lt;size=45&gt;一 小小的午餐会&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;某日，港区・学园中庭&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202020,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;大家好久没一起吃午饭了呢——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;利安得做的菜果然还是那么好吃呢。&quot;,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;阿贾克斯你也该学学做饭了吧？每次都让指挥官做…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					flag = 1,
+					content = &quot;乐意之至！Your Highness!&quot;
+				},
+				{
+					flag = 2,
+					content = &quot;可、可恶！但是不知不觉就…！&quot;
+				}
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 202020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过本人也乐在其中，其实也没什么不好的嘛？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;对吧？别看这样，我家的指挥官可是很能干的呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 202020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;是、是这样吗…？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呵呵♪究竟是怎么回事呢～？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202010,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;阿贾克斯？不可以再捉弄指挥官了哦？来喝点水吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 0,
+			dir = 1,
+			say = &quot;谢谢…呼。啊，指挥官也口渴了吧？要不要喝点水？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;阿贾克斯说着把刚喝了一口的塑料水瓶递了过来&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202020,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;这、这难道是……！间接kiss！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;来喝一口？还是说…想要我喂你喝？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;（咽口水）&quot;,
+					flag = 3
+				}
+			}
+		},
+		{
+			actor = 202010,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;真是的……虽然不知道你们说的“简洁kiss”是什么…不过阿贾克斯，可不能老为难指挥官哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202020,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;好像也有点不对…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;好了好了，可不能教坏利安得呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;指挥官想喝的话，下次想喝多少我喂你多少～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202030,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			blackBg = true,
+			hideOther = true,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;敬请期待吧，呵呵呵♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

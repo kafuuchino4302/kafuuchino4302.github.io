@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_6120.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_6120.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;维修工具T3&quot;,
+	init_effect = &quot;&quot;,
+	id = 6120,
+	picture = &quot;&quot;,
+	desc = &quot;每15秒1.0%缓慢回复耐久，同类效果取最大值，不可叠加&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 6120,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				check_target = &quot;TargetSelf&quot;,
+				skill_id = 6120,
+				targetMaxHPRatio = 0.99,
+				minTargetNumber = 1,
+				time = 15,
+				target = &quot;TargetSelf&quot;,
+				group = {
+					id = 6100,
+					level = 3
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

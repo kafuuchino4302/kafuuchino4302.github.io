@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>twcelebrationpage2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>twcelebrationpage2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TWCelebrationPage2&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.getBtn = slot0:findTF(&quot;AD/get_btn&quot;)
+	slot0.gotBtn = slot0:findTF(&quot;AD/got_btn&quot;)
+	slot0.goBtn = slot0:findTF(&quot;AD/battle_btn&quot;)
+	slot0.mark = slot0:findTF(&quot;AD/mark&quot;)
+end
+
+slot0.OnFirstFlush = function(slot0)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot3 = getProxy(TaskProxy):getTaskById(slot0.activity:getConfig(&quot;config_data&quot;)[1]) or slot2:getFinishTaskById(slot1) or Task.New({
+		id = slot1
+	})
+	slot4 = slot3:isFinish()
+	slot5 = slot3:isReceive()
+
+	setActive(slot0.getBtn, slot3 and slot4 and not slot5)
+	setActive(slot0.gotBtn, slot3 and slot5)
+	setActive(slot0.mark, slot3 and slot5)
+	setActive(slot0.goBtn, slot3 and not slot4)
+	onButton(slot0, slot0.goBtn, function ()
+		uv0:emit(ActivityMediator.SPECIAL_BATTLE_OPERA)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.getBtn, function ()
+		if uv0 and uv1 and not uv2 then
+			uv3:emit(ActivityMediator.ON_TASK_SUBMIT, uv0)
+		end
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

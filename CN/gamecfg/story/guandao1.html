@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guandao1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guandao1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;GUANDAO1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;主持人、艺人与秘书舰\n\n&lt;size=45&gt;一　身兼数职的秘书舰&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			bgm = &quot;story-richang-11&quot;,
+			say = &quot;午后，结束了忙碌拍摄的关岛正在指挥室中享受午餐时光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然，所谓的“午餐”只是顺路买的快餐，而值得享受的“午餐时光”也已所剩无几。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;吃慢点也没关系的！&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;午休时间可以适当延长一会。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔……我很快……唔……不能耽误下午的工作。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;关岛——现任的港区秘书舰，此刻正努力以最快的速度消灭她的午餐。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;身兼数职的她不但要处理秘书舰的工作，主持人与艺人活动的工作也不能落下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然这么忙，为什么还要申请来当秘书舰呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那当然是想帮到指挥官的忙嘛！再加上一点想要丰富经历的小心思~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼，指挥官，我与午餐的战斗已经胜利收尾，让我们开始工作吧~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;名为关岛的美少女舰船兼新闻主持人兼港区艺人兼秘书舰，此刻干劲满满。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;真的不用再休息一会吗？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欸嘿嘿~指挥官是在关心我吗？放心吧~关岛没有问题的！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;既然上午因为拍摄耽误了秘书舰的工作，那下午就应该全力以赴才是！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;在拍着胸脯保证后，关岛立刻活力满满地投入到下午的工作中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然文书处理的返工率依然有些问题……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;不过至少，迎难而上的精神是非常值得肯定的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜！指挥官！你的视线突然变得好微妙！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;文书工作什么的……唔……唔……真的不能随便应付一下么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;不幸的是，少女的活力来得快，去得也快。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;在看到文件后的瞬间，她的活力便消失了一半。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;要不然，你的休假申请，我也随便应付一下好了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task_2&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;当我没说！本美少女一定全心全意完成指挥官大人布置的文书工作！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;幸运的是，少女的活力去得快，来得也快。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task_2&quot;,
+			hidePaintObj = true,
+			say = &quot;看着少女再次充满干劲的模样，我不禁回想起她刚刚成为秘书舰的那段时光——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

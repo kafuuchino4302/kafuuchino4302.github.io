@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10820.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10820.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	{
+		desc = &quot;鹤之奋进&quot;
+	},
+	desc_get = &quot;空中支援时，永久提高下一次空中支援伤害8.0%(满级20.0%)，可叠加3次&quot;,
+	name = &quot;鹤之奋进&quot;,
+	init_effect = &quot;&quot;,
+	id = 10820,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;空中支援时，永久提高下一次空中支援伤害$1，可叠加3次&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 10820,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				check_target = &quot;TargetNationalityFriendly&quot;,
+				minTargetNumber = 3,
+				skill_id = 10821,
+				nationality = 3
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAllInStrike&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 10820,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

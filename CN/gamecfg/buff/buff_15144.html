@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_15144.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_15144.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;战斗开始时使用烟雾弹，随后每15秒有15.0%(满级30.0%)的概率使用烟雾弹，处于烟幕中的角色回避率提高20.0%(满级40.0%)，持续5秒，同技能效果不叠加&quot;,
+	name = &quot;烟雾弹&quot;,
+	init_effect = &quot;&quot;,
+	id = 15144,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;战斗开始时使用烟雾弹，随后每15秒有$1的概率使用烟雾弹，处于烟幕中的角色回避率提高$2，持续5秒，同技能效果不叠加&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 15144,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 4081
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				buff_id = 15144,
+				target = &quot;TargetSelf&quot;,
+				time = 15
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

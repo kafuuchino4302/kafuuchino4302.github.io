@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commanderhomelevelinfopage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>commanderhomelevelinfopage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CommanderHomeLevelInfoPage&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;CommanderHomeLevelUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.close = slot0:findTF(&quot;bg/frame/close_btn&quot;)
+	slot0.scrollrect = slot0:findTF(&quot;bg/frame/scrollrect&quot;):GetComponent(&quot;LScrollRect&quot;)
+	slot0.levelTxt = slot0:findTF(&quot;bg/frame/level/Text&quot;):GetComponent(typeof(Text))
+	slot0.descPanel = slot0:findTF(&quot;desc_panel&quot;)
+	slot0.descLevelTxt = slot0.descPanel:Find(&quot;frame/level&quot;):GetComponent(typeof(Text))
+	slot0.descTxt = slot0.descPanel:Find(&quot;frame/Text&quot;):GetComponent(typeof(Text))
+	slot0.expTxt = slot0:findTF(&quot;bg/frame/level/exp&quot;):GetComponent(typeof(Text))
+
+	setText(slot0:findTF(&quot;bg/frame/level/label&quot;), i18n(&quot;commander_home_level_label&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot0.cards = {}
+
+	slot0.scrollrect.onInitItem = function(slot0)
+		uv0:OnInitItem(slot0)
+	end
+
+	slot0.scrollrect.onUpdateItem = function(slot0, slot1)
+		uv0:OnUpdateItem(slot0, slot1)
+	end
+
+	onButton(slot0, slot0.descPanel, function ()
+		uv0:CloseDescWindow()
+	end, SFX_PANEL)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.close, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.OnInitItem = function(slot0, slot1)
+	slot0.cards[slot1] = CommanderHomeLevelCard.New(slot1, slot0)
+end
+
+slot0.OnUpdateItem = function(slot0, slot1, slot2)
+	if not slot0.cards[slot2] then
+		slot0:OnInitItem(slot2)
+
+		slot3 = slot0.cards[slot2]
+	end
+
+	slot3:Update(slot0.home, slot0.displays[slot1 + 1])
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+
+	slot0.home = slot1
+
+	slot0:InitMainView()
+end
+
+slot0.InitMainView = function(slot0)
+	slot1 = slot0.home
+	slot0.levelTxt.text = &quot;LV.&quot; .. slot1:GetLevel()
+
+	if slot1:IsMaxLevel() then
+		slot0.expTxt.text = &quot;EXP MAX&quot;
+	else
+		slot0.expTxt.text = &quot;EXP &quot; .. slot1.exp .. &quot;/&quot; .. slot1:GetNextLevelExp()
+	end
+
+	slot0.displays = {}
+	slot3 = slot1:bindConfigTable()
+
+	for slot7, slot8 in ipairs(slot1:GetAllLevel()) do
+		table.insert(slot0.displays, {
+			level = slot3[slot8].level,
+			totalExp = slot1:GetTargetExpForLevel(slot8),
+			tail = slot7 == #slot2,
+			exp = slot9.home_exp,
+			desc = slot3[slot8].desc
+		})
+	end
+
+	slot0.scrollrect:SetTotalCount(#slot0.displays)
+end
+
+slot0.ShowDescWindow = function(slot0, slot1, slot2)
+	setActive(slot0.descPanel, true)
+
+	slot0.descTxt.text = slot1
+	slot0.descLevelTxt.text = &quot;LV.&quot; .. slot2
+end
+
+slot0.CloseDescWindow = function(slot0)
+	setActive(slot0.descPanel, false)
+end
+
+slot0.OnDestroy = function(slot0)
+	for slot4, slot5 in pairs(slot0.cards) do
+		slot5:Dispose()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

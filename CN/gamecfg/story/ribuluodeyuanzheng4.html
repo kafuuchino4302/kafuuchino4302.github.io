@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ribuluodeyuanzheng4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ribuluodeyuanzheng4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;RIBULUODEYUANZHENG4&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;日不落的远征\n\n&lt;size=45&gt;E女士&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			bgm = &quot;theme-theempressIII&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;光芒消散后，映入眼帘的一座明亮的校园。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;这次不是教室了？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;地图拓展了？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = 900486,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			actorName = &quot;？？？&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哟，这位同学看着有点面生啊，第一次来？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;循声望去，一位白衣黑裙的少女优雅地向我点了点头。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;蓝色火焰般的发饰随风飘动，格外显眼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……你好？请问你是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（等等……不对……这个声音我似乎在哪里听到过……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;远方的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			bgm = &quot;story-antix-past&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……没想到，这么快就追过来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			actorName = &quot;另一个声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;计划的本质被察觉了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;另一个声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;还是说，它们的封锁包围比我们预测中更彻底？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;远方的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;继续释放诱饵编队，引导它们分散追兵，前往错误的坐标。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;远方的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;只要再离开这个世纪，我们就安全了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;另一个声音&quot;,
+			side = 2,
+			bgName = &quot;bg_port_chongdong&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			bgm = &quot;theme-theempressIII&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（她是当时的另一个人！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;汝可称余为E女士（LadyE）哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……E女士？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（能出现在麦纪莎地盘上的E女士……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;你是女皇（Empress），还是皇帝（Emperor）？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（不过麦纪莎最近刚和恩普雷斯联手进行了一次大型行动……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;不，你不是皇帝（Emperor），你是女皇（Empress）——仲裁者·恩普雷斯·III，我没猜错吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（这么说来……当时那个不认识的声音是恩普雷斯，那个有些耳熟的声音……难道是……零？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;哈哈哈~汝思维活跃，联想能力丰富，看来从余的名字中联想到了不少啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，事情并没有那么复杂，余在此处，就仅仅是E女士而已~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;好吧，E女士……麦纪莎这次又不在么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;麦纪莎是谁？汝莫非指的是M女士~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;说话间，黑裙少女俏皮地眨了眨眼睛，似乎在暗示着什么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（难道……以代号相称是这片空间的某种规则？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;是哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（……？！你能听到我的心声？！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;不能。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……………………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;哈哈哈~只是用了些小手段罢了，不用在意这些细节。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;不闹了，正经回答一下汝的问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;余其实并不是很清楚M女士在这里做的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;不过从经验上来看，她现在应该正在教室里上课。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;今天貌似还是一堂很重要的课，所以现在千万不要去打扰她哟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;重要的课……？你知道上课的学生是谁么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;嗯——汝见过她的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;更多的消息我就不方便说了，毕竟那是她的学生不是余的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;汝不妨之后当面去问问看吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900481,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;该走了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900481,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;时间太长了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;跟随在E女士身后的白衣少女发起了催促。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;她的存在如此自然，仿佛自始至终一直站在那里一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（又是像这样突然出现了……！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（不过这次的她和上次见到的时候似乎有着截然不同的气质……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（仿佛变得……阴郁了许多……？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;余不清楚M女士手底下学生的事哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;不过这个孩子嘛……性格是有些问题的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;明明这么小，却这么阴郁~所以余今天才带她出来走走。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900486,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;E女士&quot;,
+			say = &quot;多晒晒太阳，说不定人也能变得阳光一些呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;汝说对吧~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900481,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不对。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;那听说与人交流对于性格改善也有帮助，现在正好有合适的人，汝也来多聊几句？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900481,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不要。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;光是摇头还不够，少女将整个身体都缩在玩偶之后，表现出了强烈的抗拒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;那算了，不管汝咯~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			say = &quot;再次意识到的时候，白衣少女已经消失了，就像从来不曾存在过一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;所以……今天到底是怎么回事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（这已经是第二次M女士把我拉过来，但是本人却不在的情况了……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;是呀，这样做确实很不礼貌呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;汝在这里干等着也没用，不如余送汝回去吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;那麻烦你了&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我还想在这里多看看&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_706&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			actor = 900486,
+			actorName = &quot;E女士&quot;,
+			hidePaintObj = true,
+			say = &quot;不麻烦，不麻烦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			optionFlag = 1,
+			say = &quot;黑裙少女微笑着挥了挥手，世界缓缓陷入了黑暗——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;黑裙少女只是微笑着挥了挥手，世界仿佛陡然间暗淡了下来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_706&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;很显然，她刚才的那句话并不是疑问句——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

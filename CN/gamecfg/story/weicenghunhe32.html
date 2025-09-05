@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weicenghunhe32.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>weicenghunhe32.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;WEICENGHUNHE32&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			side = 2,
+			dir = 1,
+			bgm = &quot;hunhe-boss&quot;,
+			say = &quot;密集的火力向着下潜中的塞壬指挥舰倾泻着，似乎终于起到了效果。&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102260,
+			say = &quot;没错，大家集中火力攻击变形的关节处，这样就能减缓变形的速度了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102260,
+			say = &quot;对于变形系装甲的弱点，我可是再清楚不过了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 106550,
+			say = &quot;哎？里诺小姐，你对机械学还有研究么！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102260,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哎嘿嘿，算是吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 900234,
+			actorName = &quot;？？？&quot;,
+			say = &quot;……真是麻烦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;轰隆隆------&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;蓝鳃鱼&quot;,
+			say = &quot;埃塞克斯，布莱默顿，水面上的任何人，能听到么！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;蓝鳃鱼&quot;,
+			say = &quot;超超超超超恐怖的东西从水下出现了，正在向水面方向快速移动中，大家注意水下，小心规避！！！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 4
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;马布尔黑德&quot;,
+			say = &quot;唔哇！这、这些……这些是什么啊！！！！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;卡萨布兰卡&quot;,
+			say = &quot;…机械触手？！这种东西怎么会从水面下出来啊…！简直和恐怖电影的桥段一样！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;马布尔黑德&quot;,
+			say = &quot;这个触手水压什么的摩擦系数什么的这个都完全说不通吧！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_banama_5&quot;,
+			dir = 1,
+			actorName = &quot;埃塞克斯&quot;,
+			say = &quot;大家优先注意规避，千万别被这些东西卷进去了！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;hunhe-battle&quot;,
+			actor = 106550,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;明明就差一步，还是让它趁乱逃跑了…&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102260,
+			say = &quot;这个敌人和测试者净化者给人的感觉都不一样，我完全没有从它那里感受到斗志的存在。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 101440,
+			say = &quot;就这么结束了…？刚刚的那些究竟是什么东西啊…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107110,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;雷达通讯导航恢复正常了，迷雾正在消散，塞壬舰队也开始撤退了，应该是结束了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 107110,
+			say = &quot;不管怎么说，本次塞壬袭击被成功挫败，巴拿马要塞安全了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;接下来，该继续寻找失踪的企业前辈和调防舰队了……哎？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;企业前辈？！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 107170,
+			say = &quot;失踪的巴尔的摩她们也在？！从什么地方出现的……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103160,
+			say = &quot;哟，不好意思啊，路上花了点时间。看来你们这儿也经历了场大战啊…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 107110,
+			say = &quot;究竟发生了什么事----&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那就说来话长了，从哪儿开始呢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103160,
+			say = &quot;总而言之，大家都平安无事真是可喜可贺！之后的事，我们回去慢慢聊吧…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103160,
+			say = &quot;走吧，企业。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 107060,
+			say = &quot;……嗯，走吧。大家都没事真是太好了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation11.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation11.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION11&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			actorName = 20220,
+			side = 2,
+			dir = 1,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;{dorm3d}看上去好像状态不错，是遇到了什么开心的事吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;因为来和天狼星见面了。&quot;,
+					flag = 1
+				}
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;sikao2&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 1,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			actorName = 20220,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			say = &quot;……！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 20220,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			say = &quot;和{dorm3d}见面，也是天狼星一天中最开心的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

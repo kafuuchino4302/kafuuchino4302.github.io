@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dinvitemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dinvitemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dInviteMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_DORM = &quot;Dorm3dInviteMediator.ON_DORM&quot;
+slot0.ON_UNLOCK_DORM_ROOM = &quot;Dorm3dInviteMediator.ON_UNLOCK_DORM_ROOM&quot;
+slot0.OPEN_ROOM_UNLOCK_WINDOW = &quot;Dorm3dInviteMediator.OPEN_ROOM_UNLOCK_WINDOW&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_DORM, function (slot0, slot1)
+		uv0:sendNotification(Dorm3dInviteMediator.ON_DORM, slot1)
+	end)
+	slot0:bind(uv0.OPEN_ROOM_UNLOCK_WINDOW, function (slot0, slot1, slot2)
+		uv0:addSubLayers(Context.New({
+			viewComponent = Dorm3dRoomUnlockWindow,
+			mediator = Dorm3dRoomUnlockWindowMediator,
+			data = {
+				roomId = slot1,
+				groupId = slot2
+			},
+			onRemoved = function ()
+				uv0.viewComponent:ShowSelectPanel()
+			end
+		}))
+	end)
+	slot0.viewComponent:UpdateRoom(getProxy(ApartmentProxy):getRoom(slot0.contextData.roomId))
+end
+
+slot0.initNotificationHandleDic = function(slot0)
+	slot0.handleDic = {
+		[GAME.APARTMENT_ROOM_INVITE_UNLOCK_DONE] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+		end,
+		[ApartmentProxy.UPDATE_ROOM] = function (slot0, slot1)
+			if slot1:getBody().id == slot0.contextData.roomId then
+				slot0.viewComponent:UpdateRoom(slot2)
+			end
+		end
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

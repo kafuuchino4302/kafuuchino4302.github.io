@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelawardpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelawardpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelAwardPage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;bg&quot;)
+	slot0.award = slot0:findTF(&quot;scroll/award&quot;)
+	slot0.content = slot0:findTF(&quot;scroll/content&quot;)
+	slot0.scrollTF = slot0:findTF(&quot;scroll&quot;)
+	slot0.pageSignDownTF = slot0:findTF(&quot;sign&quot;)
+	slot0.pageSignUpTF = slot0:findTF(&quot;sign_up&quot;)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.config = pg.activity_level_award[slot0.activity:getConfig(&quot;config_id&quot;)]
+end
+
+slot0.OnFirstFlush = function(slot0)
+	setActive(slot0.award, false)
+
+	for slot4 = 1, #slot0.config.front_drops do
+		slot5 = slot0.config.front_drops[slot4]
+		slot7 = cloneTplTo(slot0.award, slot0.content, &quot;award&quot; .. tostring(slot4))
+		slot9 = slot0:findTF(&quot;btnAchieve&quot;, slot7)
+		slot10 = slot0:findTF(&quot;items&quot;, slot7)
+
+		setActive(slot0:findTF(&quot;item&quot;, slot7), false)
+
+		slot15 = slot0:findTF(&quot;limit_label/labelLevel&quot;, slot7)
+
+		GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/level_award_atlas&quot;, tostring(slot5[1]), slot15, true)
+
+		for slot15 = 2, #slot5 do
+			slot16 = cloneTplTo(slot11, slot10)
+			slot17 = slot5[slot15]
+
+			updateDrop(slot16, {
+				type = slot17[1],
+				id = slot17[2],
+				count = slot17[3]
+			})
+			onButton(slot0, slot16, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+		end
+
+		onButton(slot0, slot9, function ()
+			uv0:emit(ActivityMediator.EVENT_OPERATION, {
+				cmd = 1,
+				activity_id = uv0.activity.id,
+				arg1 = uv1
+			})
+		end, SFX_PANEL)
+		onScroll(slot0, slot0.scrollTF, function (slot0)
+			setActive(uv0.pageSignDownTF, slot0.y &gt; 0.01)
+			setActive(uv0.pageSignUpTF, slot0.y &lt; 0.99)
+		end)
+	end
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	for slot4 = 1, #slot0.config.front_drops do
+		slot6 = slot0:findTF(&quot;award&quot; .. tostring(slot4), slot0.content)
+		slot7 = slot0:findTF(&quot;btnAchieve&quot;, slot6)
+		slot8 = slot0:findTF(&quot;achieve_sign&quot;, slot6)
+
+		if _.include(slot0.activity.data1_list, slot0.config.front_drops[slot4][1]) then
+			slot6.transform:SetAsLastSibling()
+		end
+
+		setGray(slot0:findTF(&quot;limit_label&quot;, slot6), slot9)
+		setGray(slot0:findTF(&quot;items&quot;, slot6), slot9)
+		setActive(slot8, slot9)
+		setActive(slot7, slot5[1] &lt;= slot0.shareData.player.level and not slot9)
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

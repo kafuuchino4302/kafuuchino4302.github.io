@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xuefeng5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xuefeng5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;XUEFENG5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;叫我{namecode:22}大人！\n\n&lt;size=45&gt;五　{namecode:22}和游乐园·上&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;想去游乐园了？哼，那种地方我{namecode:22}大人怎么会喜……呃呃呃……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;……哼，这可是指挥官实在想去{namecode:22}大人迫不得已才跟着你去的哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;哼！好好感谢本大人吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;于是休息日去了游乐园——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:22}&quot;,
+			actor = 301160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;旋转木马？那种幼稚的玩意儿{namecode:22}大人是肯定不会去玩的！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:22}&quot;,
+			actor = 301160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;过山车？和海上的大浪比起来只不过算是鸡毛蒜皮罢了！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:22}&quot;,
+			actor = 301160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;摩天轮！？那、那个不是约会的时候坐的东西吗！？雪、{namecode:22}大人倒是不——&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;嗯？要去那个鬼屋挑战一下吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;啊～哈哈哈！这种骗小孩的玩意，{namecode:22}大人是不会害怕的啦！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			say = &quot;5分钟后&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;呜哇啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 37.5,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					number = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;（颤抖）……好、好可怕……！不不不不要松开手啊啊啊啊啊啊 ――！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			shake = {
+				speed = 5,
+				number = 3
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;指挥官！救救我啊啊啊啊啊啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 37.5,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					number = 3
+				}
+			}
+		},
+		{
+			side = 0,
+			dir = 1,
+			blackBg = true,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:22}&quot;,
+			actor = 301160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;要、要死了……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 1,
+					x = 37.5,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301160,
+			actorName = &quot;{namecode:22}&quot;,
+			say = &quot;指、指挥官……呜呜呜呜……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 1,
+					x = 37.5,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;不经意间发现{namecode:22}紧紧抱住了自己。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

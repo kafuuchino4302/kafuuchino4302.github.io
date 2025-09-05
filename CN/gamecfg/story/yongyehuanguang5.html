@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yongyehuanguang5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yongyehuanguang5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;YONGYEHUANGUANG5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgm = &quot;battle-boss-5&quot;,
+			actor = 408050,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;悄悄地潜伏，悄悄地接近，然后悄悄地偷袭------&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			side = 2,
+			say = &quot;发现你了，铁血的潜艇！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 10,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			dir = 1,
+			actor = 408050,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;哎~？还是被发现了么~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 202270,
+			say = &quot;这里是皇家海军极地船团护航舰队，铁血潜艇，我们不会让你们伤到运输队一丝一毫的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202170,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;居然敢来袭击由我亲自护航的船团，勇气可嘉啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 408050,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;哼哼，那我建议你们看看天空哦~航空队增援已经到了，很快主力舰队也会赶来，你们一个跑不掉了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 202270,
+			say = &quot;听起来像是虚张声势啊...你们那些被封锁在北海的主力舰队，要怎么才能不被发现的绕过封锁线进入巴伦支海呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 408050,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;可惜，看来你们还什么都不知道哎~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 408050,
+			say = &quot;没办法了，来打一架吧~我可不打算轻易放过这批战果哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202170,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;口气倒是不小...希望一会打起来的实力也能让人满意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 202270,
+			say = &quot;皇家女仆赫敏，准备进行反潜作战。牙买加小姐，让我们一同为女王陛下带来胜利吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

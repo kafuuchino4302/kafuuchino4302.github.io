@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartmentcollectionitemcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>apartmentcollectionitemcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ApartmentCollectionItemCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.roomId
+	slot7 = pg.dorm3d_collection_template[slot2.itemId].award
+
+	if slot2.groupId == 0 and slot7 ~= 0 then
+		pg.TipsMgr.GetInstance():ShowTips(&quot;error collection favor trigger link:&quot; .. slot5)
+
+		return
+	end
+
+	if getProxy(ApartmentProxy):getRoom(slot3).collectItemDic[slot5] then
+		slot0:sendNotification(GAME.APARTMENT_COLLECTION_ITEM_DONE, {
+			itemId = slot5
+		})
+
+		return
+	end
+
+	slot10 = slot8:getApartment(slot4)
+	slot11 = pg.ConnectionMgr.GetInstance()
+
+	slot11:Send(28011, {
+		room_id = slot3,
+		collection_id = slot5,
+		ship_group = slot4
+	}, 28012, function (slot0)
+		if slot0.result == 0 then
+			slot1 = uv0
+
+			slot1:ModifyRoom(uv1, function (slot0)
+				slot0.collectItemDic[uv0] = true
+			end)
+
+			if uv3.award &gt; 0 then
+				slot2, slot3 = uv0:triggerFavor(uv4, slot1)
+
+				uv5:sendNotification(GAME.APARTMENT_TRIGGER_FAVOR_DONE, {
+					triggerId = slot1,
+					cost = slot3,
+					delta = slot2,
+					apartment = uv6
+				})
+			end
+
+			PlayerPrefs.SetInt(&quot;apartment_collection_item&quot;, uv2)
+			uv5:sendNotification(GAME.APARTMENT_COLLECTION_ITEM_DONE, {
+				isNew = true,
+				itemId = uv2
+			})
+			pg.m02:sendNotification(GAME.APARTMENT_TRACK, Dorm3dTrackCommand.BuildDataCollectionItem(uv2, 2))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

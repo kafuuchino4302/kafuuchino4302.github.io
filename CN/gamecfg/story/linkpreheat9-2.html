@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linkpreheat9-2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>linkpreheat9-2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;LINKPREHEAT9-2&quot;,
+	jumpto = &quot;LINKPREHEAT10-1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = -1,
+			say = &quot;有谁能把那玩意儿引开一段时间吗喵&quot;,
+			bgm = &quot;level-uta&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;引开……佯攻作战吗？&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401230,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:98}小姐，你一定有什么妙策了吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;是的喵，虽然原理还没搞清楚，不过这个“结界”也会受到我们的干扰的影响喵。持续干扰的话没准能和另一个世界的人一起把塞壬的“结界”破坏掉呢喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;顺利的话，也许能打烂塞壬的算盘喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101170,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;好的……那拉菲来引开她吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201210,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;标枪也来帮忙！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;不……这个作战我想交给久远队伍的人喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10300010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我们吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;塞壬比起我们更重视来自异世界的你们喵。大概是想要获取你们的数据吧喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10300020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;所以我们更适合佯攻的意思吗&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			compulsory = true,
+			side = 2,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽然我也知道这很强人所难……不过能拜托你们吗喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;选择久远进行作战&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;选择猫音进行作战&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;选择露露缇耶进行作战&quot;,
+					flag = 3
+				},
+				{
+					content = &quot;选择乌璐露进行作战&quot;,
+					flag = 4
+				},
+				{
+					content = &quot;选择萨拉娜进行作战&quot;,
+					flag = 5
+				},
+				{
+					content = &quot;选择芙米露露进行作战&quot;,
+					flag = 6
+				}
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT10-1&quot;,
+			dir = 1,
+			optionFlag = 1,
+			say = &quot;选择久远&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT12-1&quot;,
+			dir = 1,
+			optionFlag = 2,
+			say = &quot;选择猫音&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT11-1&quot;,
+			dir = 1,
+			optionFlag = 3,
+			say = &quot;选择露露缇耶&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT13-1&quot;,
+			dir = 1,
+			optionFlag = 4,
+			say = &quot;选择乌璐露&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT14-1&quot;,
+			dir = 1,
+			optionFlag = 5,
+			say = &quot;选择萨拉娜&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			jumpto = &quot;LINKPREHEAT15-1&quot;,
+			dir = 1,
+			optionFlag = 6,
+			say = &quot;选择芙米露露&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

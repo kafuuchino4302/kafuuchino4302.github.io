@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>randomdockyardmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>randomdockyardmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RandomDockYardMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.OPEN_INDEX = &quot;RandomDockYardMediator:OPEN_INDEX&quot;
+slot0.ON_ADD_SHIPS = &quot;RandomDockYardMediator:ON_ADD_SHIPS&quot;
+slot0.ON_REMOVE_SHIPS = &quot;RandomDockYardMediator:ON_REMOVE_SHIPS&quot;
+slot0.OPEN_PHANTOM_LAYER = &quot;RandomDockYardMediator.OPEN_PHANTOM_LAYER&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_ADD_SHIPS, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHANGE_RANDOM_SHIPS, {
+			addList = underscore.map(slot1, function (slot0)
+				return ShipPhantom.PackMark(slot0, 0)
+			end),
+			deleteList = {}
+		})
+	end)
+	slot0:bind(uv0.ON_REMOVE_SHIPS, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHANGE_RANDOM_SHIPS, {
+			addList = {},
+			deleteList = underscore.map(slot1, function (slot0)
+				return ShipPhantom.PackMark(slot0, 0)
+			end)
+		})
+	end)
+	slot0:bind(uv0.OPEN_INDEX, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			viewComponent = RandomDockYardIndexLayer,
+			mediator = CustomIndexMediator,
+			data = slot1
+		}))
+	end)
+	slot0:bind(uv0.OPEN_PHANTOM_LAYER, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = DockyardMediator,
+			viewComponent = DockyardScene,
+			data = {
+				mode = DockyardScene.MODE_SHIP_PHANTOM
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.CHANGE_RANDOM_SHIPS_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.CHANGE_RANDOM_SHIPS_DONE then
+		slot0.viewComponent:OnChangeRandomShips()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

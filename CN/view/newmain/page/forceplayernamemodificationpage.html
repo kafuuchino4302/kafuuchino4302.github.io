@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forceplayernamemodificationpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>forceplayernamemodificationpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ForcePlayerNameModificationPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;PlayerVitaeRenamePage&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.content = slot0:findTF(&quot;frame/border/tip&quot;):GetComponent(typeof(Text))
+	slot0.confirmBtn = slot0:findTF(&quot;frame/queren&quot;)
+	slot0.cancelBtn = slot0:findTF(&quot;frame/cancel&quot;)
+	slot0.inputField = slot0:findTF(&quot;frame/name_field&quot;)
+	slot0.prompt = slot0._tf:Find(&quot;frame/border/prompt&quot;)
+
+	setText(slot0._tf:Find(&quot;frame/top/title_list/infomation/title&quot;), i18n(&quot;change_player_name_title&quot;))
+	setText(slot0._tf:Find(&quot;frame/name_field/Placeholder&quot;), i18n(&quot;change_player_name_input_tip&quot;))
+	setText(slot0.confirmBtn:Find(&quot;Image&quot;), i18n(&quot;word_ok&quot;))
+	setActive(slot0.cancelBtn, false)
+	setAnchoredPosition(slot0.confirmBtn, {
+		x = -365
+	})
+	setAnchoredPosition(slot0.inputField, {
+		y = -30
+	})
+	setAnchoredPosition(slot0.prompt, {
+		y = 43
+	})
+
+	slot1 = slot0.prompt:GetComponent(typeof(Text))
+	slot1.alignment = TextAnchor.MiddleCenter
+	slot1.fontSize = 27
+	slot1.lineSpacing = 0.8
+	slot1.verticalOverflow = ReflectionHelp.RefGetField(typeof(&quot;UnityEngine.VerticalWrapMode&quot;), &quot;Overflow&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.confirmBtn, function ()
+		pg.m02:sendNotification(GAME.CHANGE_PLAYER_NAME, {
+			type = 2,
+			name = getInputText(uv0.inputField),
+			onSuccess = function ()
+				setInputText(uv0.inputField, &quot;&quot;)
+
+				if uv0.callback then
+					uv0.callback()
+				end
+
+				uv0:Hide()
+			end
+		})
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	slot0.showing = true
+
+	uv0.super.Show(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+	setText(slot0.prompt, i18n(&quot;change_player_name_illegal&quot;, getProxy(PlayerProxy):getRawData().name))
+
+	slot0.callback = slot1
+end
+
+slot0.Hide = function(slot0)
+	if slot0.showing then
+		slot0.showing = false
+
+		pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+		uv0.super.Hide(slot0)
+
+		slot0.callback = nil
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0:Hide()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

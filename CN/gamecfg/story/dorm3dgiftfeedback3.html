@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dgiftfeedback3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dgiftfeedback3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DGIFTFEEDBACK3&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			say = &quot;没想到{dorm3d}您会送天狼星这本书呢，一定是天狼星的觉悟还不够……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = false,
+							name = &quot;surprise2&quot;,
+							type = &quot;action&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = true,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			say = &quot;天狼星一定会好好研读这本书，成为让{dorm3d}赞不绝口的完美女仆！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

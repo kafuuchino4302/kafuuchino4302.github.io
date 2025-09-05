@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharacterrepaircommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharacterrepaircommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterRepairCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot9 = getProxy(BayProxy):getShipById(slot2.shipID):getMetaCharacter():getAttrVO(slot2.attr):getItem()
+
+	if getProxy(BagProxy):getItemCountById(slot9:getItemId()) &lt; slot9:getTotalCnt() then
+		return
+	end
+
+	if slot8:isMaxLevel() then
+		return
+	end
+
+	print(&quot;63301 meta repair:&quot;, slot3, slot9.id)
+
+	slot14 = pg.ConnectionMgr.GetInstance()
+
+	slot14:Send(63301, {
+		ship_id = slot3,
+		repair_id = slot9.id
+	}, 63302, function (slot0)
+		if slot0.result == 0 then
+			print(&quot;63302 meta repair success:&quot;)
+			uv0:levelUp()
+			uv1:updateShip(uv2)
+			getProxy(MetaCharacterProxy):getMetaProgressVOByID(uv3.id):updateShip(uv2)
+			uv4:sendNotification(GAME.CONSUME_ITEM, Drop.New({
+				type = DROP_TYPE_ITEM,
+				id = uv5,
+				count = uv6
+			}))
+			uv4:sendNotification(GAME.REPAIR_META_CHARACTER_DONE)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chargeawardpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chargeawardpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChargeAwardPage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;bg&quot;)
+	slot0.charge = slot0:findTF(&quot;charge&quot;)
+	slot0.take = slot0:findTF(&quot;take&quot;)
+	slot0.finish = slot0:findTF(&quot;finish&quot;)
+end
+
+slot0.OnDataSetting = function(slot0)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.charge, function ()
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.CHARGE, {
+			wrap = ChargeScene.TYPE_DIAMOND
+		})
+	end)
+	onButton(slot0, slot0.take, function ()
+		uv0:emit(ActivityMediator.EVENT_OPERATION, {
+			cmd = 1,
+			activity_id = uv0.activity.id
+		})
+	end)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	setActive(slot0.charge, slot0.activity.data2 == 0 and slot0.activity.data1 == 0)
+	setButtonEnabled(slot0.take, slot0.activity.data2 == 0)
+	setActive(slot0.take, slot0.activity.data1 &gt; 0)
+	setActive(slot0.finish, slot0.activity.data2 == 1)
+end
+
+slot0.OnDestroy = function(slot0)
+	clearImageSprite(slot0.bg)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation89.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation89.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION89&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = &quot;指挥官&quot;,
+			say = &quot;你会不会觉得现在的房间布置太单调了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;并不会哦，我的{dorm3d}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;yaotou&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;不过，天狼星之前提过，希望让{dorm3d}把路上看到的花送给我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;要不要干脆借这个机会，尝试一下插花呢？这样{dorm3d}也不会觉得房间布置单调了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;sikao1&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			},
+			options = {
+				{
+					content = &quot;天狼星会插花？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;女仆还要学插花吗？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			optionFlag = 1,
+			say = &quot;嗯……不算会，只是勉强了解一点点。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			optionFlag = 2,
+			say = &quot;为{dorm3d}提供舒适和赏心悦目的居家环境，是女仆的分内之事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;虽然是天狼星提出的插花，但我其实并不擅长呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;不过提出这种自己并不擅长的事，也是因为天狼星实在太想和{dorm3d}一起做了……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;ganjin&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 3,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;果然……还请您惩罚天狼星这个厚脸皮的女仆吧，我的{dorm3d}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;shy&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			nameColor = &quot;#FFFFFF&quot;,
+			actorName = 20220,
+			say = &quot;天狼星已经做好了接受惩罚的准备……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

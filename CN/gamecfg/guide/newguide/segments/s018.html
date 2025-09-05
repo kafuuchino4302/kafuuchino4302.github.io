@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s018.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>s018.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;让我们前往&lt;color=#ff7d36&gt;船坞&lt;/color&gt;&quot;,
+	&quot;选择一名角色，查看她的详细情况&quot;,
+	&quot;点击&lt;color=#ff7d36&gt;装备&lt;/color&gt;按钮，查看她当前使用的装备&quot;,
+	&quot;现在对该&lt;color=#ff7d36&gt;装备强化&lt;/color&gt;一次吧！&quot;,
+	&quot;确定强化&quot;,
+	&quot;这里会显示出&lt;color=#ff7d36&gt;强化后装备提升的属性！&lt;/color&gt;&quot;,
+	&quot;点击&lt;color=#ff7d36&gt;强化&lt;/color&gt;开始强化&quot;
+}
+
+return {
+	id = &quot;S018&quot;,
+	events = {
+		{
+			alpha = 0.274,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[1]
+			},
+			ui = {
+				pathIndex = -1,
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/bottom/frame/dock&quot;
+					else
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/bottom/dockBtn&quot;
+					end
+				end,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -19.37,
+					posX = 35.15
+				}
+			},
+			code = {
+				2
+			}
+		},
+		{
+			waitScene = &quot;DockyardScene&quot;,
+			alpha = 0.306,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = -5.18,
+				text = slot0[2]
+			},
+			ui = {
+				pathIndex = 0,
+				path = &quot;/UICamera/Canvas/UIMain/DockyardUI(Clone)/main/ship_container/ships&quot;,
+				image = {
+					source = &quot;content/ship_icon&quot;,
+					isChild = true,
+					target = &quot;content/ship_icon&quot;,
+					isRelative = true
+				},
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -74.58,
+					posX = 48.4
+				}
+			},
+			code = {
+				2
+			}
+		},
+		{
+			waitScene = &quot;ShipMainScene&quot;,
+			alpha = 0.294,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[3]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;/OverlayCamera/Overlay/UIMain/blur_panel/adapt/left_length/frame/root/equpiment_toggle&quot;,
+				triggerType = {
+					2
+				}
+			},
+			code = {
+				2
+			}
+		},
+		{
+			alpha = 0.364,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -140,
+				posX = 6,
+				text = slot0[4]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/equipment_r_container(Adapt)/equipment_r_container/equipment_r/equipment/equipment_r2&quot;,
+				triggerType = {
+					1
+				}
+			}
+		},
+		{
+			alpha = 0.152,
+			waitScene = &quot;EquipmentInfoLayer&quot;,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 265.7,
+				text = slot0[5]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/EquipmentInfoUI(Clone)/default/actions/action_button_2&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -29.38,
+					posX = 44.9
+				}
+			}
+		},
+		{
+			alpha = 0.405,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 226,
+				posX = 479,
+				text = slot0[6]
+			}
+		},
+		{
+			alpha = 0.366,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[7]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/EquipUpgradeUI(Clone)/main/panel/material_panel/start_btn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -19.78,
+					posX = 30.24
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

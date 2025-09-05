@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dcameraanim.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dcameraanim.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dCameraAnim&quot;, import(&quot;model.vo.BaseVO&quot;))
+
+slot0.bindConfigTable = function(slot0)
+	return pg.dorm3d_camera_anim_template
+end
+
+slot0.GetName = function(slot0)
+	return slot0:getConfig(&quot;desc&quot;)
+end
+
+slot0.GetStateName = function(slot0)
+	return slot0:getConfig(&quot;state&quot;)
+end
+
+slot0.GetAnimTime = function(slot0)
+	return slot0:getConfig(&quot;anim_time&quot;)
+end
+
+slot0.GetPreAnimID = function(slot0)
+	return slot0:getConfig(&quot;pre_anim&quot;)
+end
+
+slot0.GetFinishAnimID = function(slot0)
+	return slot0:getConfig(&quot;finish_anim&quot;)
+end
+
+slot0.GetUnlockRequirment = function(slot0)
+	return slot0:getConfig(&quot;unlock&quot;)
+end
+
+slot0.GetFurnitureID = function(slot0)
+	return slot0:getConfig(&quot;furniture_id&quot;)
+end
+
+slot0.GetZoneName = function(slot0)
+	return pg.dorm3d_camera_zone_template[tonumber(slot0:getConfig(&quot;zone&quot;))].name
+end
+
+slot0.GetZoneIcon = function(slot0)
+	return slot0:getConfig(&quot;icon&quot;)
+end
+
+slot0.GetStartPoint = function(slot0)
+	return slot0:getConfig(&quot;staypoint&quot;)
+end
+
+slot0.GetEnterSceneAnim = function(slot0)
+	if slot0:getConfig(&quot;enter_scene_anim&quot;) and slot1 ~= &quot;&quot; and #slot1 &gt; 0 then
+		return slot1
+	else
+		return {}
+	end
+end
+
+slot0.GetEnterExtraItem = function(slot0)
+	if slot0:getConfig(&quot;enter_extra_item&quot;) and slot1 ~= &quot;&quot; and #slot1 &gt; 0 then
+		return slot1
+	else
+		return {}
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

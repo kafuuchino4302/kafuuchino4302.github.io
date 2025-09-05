@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardpuzzlejoystickautobot.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cardpuzzlejoystickautobot.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.CardPuzzleJoyStickAutoBot = class(&quot;CardPuzzleJoyStickAutoBot&quot;)
+slot1 = slot0.Battle.CardPuzzleJoyStickAutoBot
+slot1.__name = &quot;CardPuzzleJoyStickAutoBot&quot;
+slot1.RANDOM = &quot;RandomStrategy&quot;
+slot1.MOVE_TO = &quot;RandomStrategy&quot;
+slot1.CARD_PUZZLE_CONTROL = &quot;CardPuzzleControlStrategy&quot;
+
+slot1.Ctor = function(slot0, slot1, slot2)
+	slot0._dataProxy = slot1
+	slot0._fleetVO = slot2
+
+	slot0:init()
+end
+
+slot1.UpdateFleetArea = function(slot0)
+	if slot0._strategy then
+		slot0._strategy:SetBoardBound(slot0._fleetVO:GetFleetBound())
+	end
+end
+
+slot1.FleetFormationUpdate = function(slot0)
+end
+
+slot1.SetActive = function(slot0, slot1)
+	slot0._active = slot1
+
+	if slot1 then
+		slot0._fleetVO:SetMotionSource(function ()
+			return uv0._strategy:Output()
+		end)
+	else
+		slot0._fleetVO:SetMotionSource()
+	end
+end
+
+slot1.SwitchStrategy = function(slot0, slot1)
+	if slot0._strategy then
+		slot0._strategy:Dispose()
+	end
+
+	slot0._strategy = uv1.Battle[slot1 or uv0.CARD_PUZZLE_CONTROL].New(slot0._fleetVO)
+
+	slot0:UpdateFleetArea()
+	slot0._strategy:Input(slot0._dataProxy:GetFoeShipList(), slot0._dataProxy:GetFoeAircraftList())
+end
+
+slot1.init = function(slot0)
+	slot0:SwitchStrategy()
+end
+
+slot1.Dispose = function(slot0)
+	if slot0._strategy then
+		slot0._strategy:Dispose()
+	end
+
+	slot0._dataProxy = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

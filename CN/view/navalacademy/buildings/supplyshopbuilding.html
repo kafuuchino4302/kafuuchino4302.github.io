@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supplyshopbuilding.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>supplyshopbuilding.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SupplyShopBuilding&quot;, import(&quot;.NavalAcademyBuilding&quot;))
+
+slot0.GetGameObjectName = function(slot0)
+	return &quot;supplyShop&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return i18n(&quot;school_title_shangdian&quot;)
+end
+
+slot0.OnClick = function(slot0)
+	slot0:emit(NavalAcademyMediator.ON_OPEN_SUPPLYSHOP)
+end
+
+slot0.IsTip = function(slot0)
+	return getProxy(ShopsProxy):getShopStreet() and slot2:isUpdateGoods()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

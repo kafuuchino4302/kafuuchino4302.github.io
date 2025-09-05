@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wuerlixi4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wuerlixi4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;WUERLIXI4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;essential.\n\n&lt;size=45&gt;四　毒&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;level&quot;,
+			say = &quot;港区・演习海域&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			say = &quot;今天的铁血演习似乎{namecode:465}也参加了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 499020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，舰队集结完毕……很好。那就让模拟战开始吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 403010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;让大家见识一下我{namecode:426}的实力，全速前进！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;喂{namecode:426}，你冲太前了！稍微跟其他人的步调配合下！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			say = &quot;这场演习看起来是由{namecode:465}进行指挥的，{namecode:440}似乎更多沉浸在了战斗的乐趣上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			say = &quot;不知不觉间，出神的看完了全程。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;你都看到了吗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;刚刚的演习非常不错。&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那就好。说实话我并没有{namecode:441}那么喜欢战斗……但为了在战场上能把所有伙伴都平安带回来，这些演习是必要的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;到是你那边没问题么？铁血舰队的事我还要处理一段时间，你再去找个新的秘书舰顶班也可以哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			say = &quot;最近出人意料的工作逐步空下来了，暂时来说并没有什么问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			say = &quot;{namecode:465}可以安心处理铁血同伴之间的事，之后再返回工作也是可以的。当然——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;要多注意休息哦。&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;是是是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;（小声）观察力倒是一如既往的敏锐……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 499020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;比起担心别人更应该考虑自己，周围所有人里，最需要休息的人不就站在这里么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我同意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 499020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;温柔可成药，过度的温柔亦能为毒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 499020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;全部饮下可是需要相当觉悟的呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 499020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;还是说……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:441}……指挥官已经完全陷入困惑了，要不就先到这里吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;总而言之，不需要太在意我。如果需要帮忙的话马上直说，等到出了什么事再说就晚了哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 405030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那么今天的演习就到此为止，大家都回去休息吧。包括你哦，指挥官。解散——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shishangtekanhedingjisan2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shishangtekanhedingjisan2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;SHISHANGTEKANHEDINGJISAN2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;港区时尚特刊：合订集[3]\n\n&lt;size=45&gt;微醺胜负&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			portrait = 499091,
+			side = 2,
+			actorName = &quot;{namecode:521:兴登堡}&quot;,
+			dir = 1,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哦呀~契约者终于醒了呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			bgm = &quot;story-richang-4&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;熟悉的声音在耳边响起，睁开眼看到的却不是熟悉的场景。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;唔……这里是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			live2d = &quot;touch&quot;,
+			hidePaintObj = true,
+			say = &quot;陌生的房间中，只看得到昏暗的灯光、散乱的纸牌、复古的装饰，还有——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;半躺在沙发上，穿着侍者制服一脸笑意的{namecode:521:兴登堡}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;看契约者这副懵懂的样子……呵呵~不记得了吗？我们之间可还没有分出胜负呢~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;胜负？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;mission_complete&quot;,
+			say = &quot;没错哟~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;想要离开此处，唯有在恶魔的试炼中取胜才行呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（脑海中一片空白，依旧什么都没能回忆起来……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（不过既然{namecode:521:兴登堡}这么说……那就……应该是有这么一回事？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;main3&quot;,
+			say = &quot;呵呵~虽然我也不介意中场休息的时间再延长一些……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;不，应该说——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;我倒是想将你囚禁于此，好让契约者只被我支配。成为……独属于我的珍宝。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;headtouch&quot;,
+			say = &quot;呵呵~契约者无需惶恐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;胜负未分，我是不会对你做什么的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;但是~如果你输了的话……那可就不好说了哟~契约者，准备好了吗？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;开、开始吧。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;我一定会赢！&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;main1&quot;,
+			say = &quot;呵呵~有自信是好事，希望一会儿的你还能这么自信。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_501&quot;,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch&quot;,
+			say = &quot;很遗憾，看起来今天的幸运女神并没有站在契约者的身边呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;好奇怪？我明明算过，不应该啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;手中的纸牌让局面陷入了两难的境地，之前算好的牌面究竟是哪里出现了偏差？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;expedition&quot;,
+			say = &quot;看来契约者还在思考？罢了~多挣扎一会儿也无妨，这有助于你认清现实。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:521:兴登堡}端着饮料惬意地靠在沙发上，像是一只慵懒的黑豹，正等待着她的猎物自投罗网。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;而此时，随着她的动作，我所产生的困惑终于得到了解答！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（……原来是这样！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;快速伸手——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;main2&quot;,
+			say = &quot;哦？契约者这是终于等不及……咦？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_501&quot;,
+			hidePaintObj = true,
+			say = &quot;将不小心卡在某处的纸牌——这场胜负的关键——拿了出来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;欸呀呀~这调皮的小家伙是什么时候跑进去的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;现在看来，这场对局又要重新开始了呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			hidePaintObj = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			dir = 1,
+			actor = 499091,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch&quot;,
+			say = &quot;呵呵~你准备好了吗？亲爱的契约者~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

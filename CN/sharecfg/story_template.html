@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>story_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>story_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.story_template = {
+	[4342] = {
+		name = &quot;E0-1&quot;,
+		id = 4342,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YUZHEDETIANPING2&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[4343] = {
+		name = &quot;E0-2&quot;,
+		id = 4343,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YUZHEDETIANPING3&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[4344] = {
+		name = &quot;E0-3&quot;,
+		id = 4344,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YUZHEDETIANPING4&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[4350] = {
+		name = &quot;E1-1&quot;,
+		id = 4350,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING10&quot;,
+		pos = {
+			0.105,
+			0.14
+		}
+	},
+	[4351] = {
+		name = &quot;E1-2&quot;,
+		id = 4351,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING11&quot;,
+		pos = {
+			0.5,
+			0.136
+		}
+	},
+	[4352] = {
+		name = &quot;E1-3&quot;,
+		id = 4352,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING12&quot;,
+		pos = {
+			0.411,
+			0.355
+		}
+	},
+	[4353] = {
+		name = &quot;E1-4&quot;,
+		id = 4353,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING13&quot;,
+		pos = {
+			0.578,
+			0.296
+		}
+	},
+	[4354] = {
+		name = &quot;E1-5&quot;,
+		id = 4354,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING14&quot;,
+		pos = {
+			0.41,
+			0.276
+		}
+	},
+	[4355] = {
+		name = &quot;E1-6&quot;,
+		id = 4355,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING15&quot;,
+		pos = {
+			0.517,
+			0.412
+		}
+	},
+	[4356] = {
+		name = &quot;E1-7&quot;,
+		id = 4356,
+		icon = &quot;story-diluoyi&quot;,
+		story = &quot;YUZHEDETIANPING16&quot;,
+		pos = {
+			0.28,
+			0.391
+		}
+	},
+	[4368] = {
+		name = &quot;E2-1&quot;,
+		id = 4368,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING28&quot;,
+		pos = {
+			0.91,
+			0.114
+		}
+	},
+	[4369] = {
+		name = &quot;E2-2&quot;,
+		id = 4369,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING29&quot;,
+		pos = {
+			0.71,
+			0.33
+		}
+	},
+	[4370] = {
+		name = &quot;E2-3&quot;,
+		id = 4370,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING30&quot;,
+		pos = {
+			0.9,
+			0.341
+		}
+	},
+	[4371] = {
+		name = &quot;E2-4&quot;,
+		id = 4371,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING31&quot;,
+		pos = {
+			0.443,
+			0.152
+		}
+	},
+	[4372] = {
+		name = &quot;E2-5&quot;,
+		id = 4372,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING32&quot;,
+		pos = {
+			0.188,
+			0.176
+		}
+	},
+	[4373] = {
+		name = &quot;E2-6&quot;,
+		id = 4373,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING33&quot;,
+		pos = {
+			0.33,
+			0.358
+		}
+	},
+	[4374] = {
+		name = &quot;E2-7&quot;,
+		id = 4374,
+		icon = &quot;story-xinhaota&quot;,
+		story = &quot;YUZHEDETIANPING34&quot;,
+		pos = {
+			0.192,
+			0.447
+		}
+	},
+	[6180] = {
+		name = &quot;E1-1&quot;,
+		id = 6180,
+		icon = &quot;story-wurenji&quot;,
+		story = &quot;TIEYIQINGFENG10&quot;,
+		pos = {
+			0.65,
+			0.49
+		}
+	},
+	[6181] = {
+		name = &quot;E1-2&quot;,
+		id = 6181,
+		icon = &quot;story-wurenji&quot;,
+		story = &quot;TIEYIQINGFENG11&quot;,
+		pos = {
+			0.56,
+			0.1
+		}
+	},
+	[6182] = {
+		name = &quot;E1-3&quot;,
+		id = 6182,
+		icon = &quot;story-wurenji&quot;,
+		story = &quot;TIEYIQINGFENG12&quot;,
+		pos = {
+			0.73,
+			0.25
+		}
+	},
+	[6183] = {
+		name = &quot;E1-4&quot;,
+		id = 6183,
+		icon = &quot;story-xinghaizhuangzhi&quot;,
+		story = &quot;TIEYIQINGFENG13&quot;,
+		pos = {
+			0.85,
+			0.4
+		}
+	},
+	[6184] = {
+		name = &quot;E1-5&quot;,
+		id = 6184,
+		icon = &quot;story-zhihuimao&quot;,
+		story = &quot;TIEYIQINGFENG14&quot;,
+		pos = {
+			0.2,
+			0.4
+		}
+	},
+	[6959] = {
+		name = &quot;SP&quot;,
+		id = 6959,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN9&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[6969] = {
+		name = &quot;SP&quot;,
+		id = 6969,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN18&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[6976] = {
+		name = &quot;SP&quot;,
+		id = 6976,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN24&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	[6979] = {
+		name = &quot;SP&quot;,
+		id = 6979,
+		icon = &quot;story-doujichang&quot;,
+		story = &quot;YOUMIYAGUANQIAPIAN27&quot;,
+		pos = {
+			0.5,
+			0.3
+		}
+	},
+	all = {
+		4342,
+		4343,
+		4344,
+		4350,
+		4351,
+		4352,
+		4353,
+		4354,
+		4355,
+		4356,
+		4368,
+		4369,
+		4370,
+		4371,
+		4372,
+		4373,
+		4374,
+		6180,
+		6181,
+		6182,
+		6183,
+		6184,
+		6959,
+		6969,
+		6976,
+		6979
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

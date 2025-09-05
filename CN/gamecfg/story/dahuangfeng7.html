@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dahuangfeng7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dahuangfeng7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DAHUANGFENG7&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;像牛仔一样！\n\n&lt;size=45&gt;七　所以说，我喜欢你！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;大黄蜂和{namecode:96}的演习结束后——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			fontsize = 60,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官！我们去约会吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呃……好像有些太大声了，抱歉抱歉……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我从{namecode:98}那里搞到了两张西部片的电影票，我们一起去看电影吧！顺便再玩个一整天~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这个是……不管作为之前事情的封口费也好……报答也好，还是单纯的邀请之类的……总之没那么多理由，一起去玩吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_105&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;快点快点，电影要开始了！别忘了拿上3D眼镜！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还以为大黄蜂那种性格肯定会在剧情高潮的时候喊出声来……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			say = &quot;没想到她只是聚精会神地沉浸在电影的世界中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			say = &quot;因为一直被她握着手，反倒是我这变得有点不好意思起来……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;果然西部片最经典的场景就是骑马和拔枪决斗了呢~&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎，指挥官~你该不会是握个手就脸红了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;走吧走吧，让我们去下一个地方——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;在接下来的时光里，就这样被大黄蜂拉着体验了整栋大楼的全部娱乐设施……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_night&quot;,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼哇——过瘾了过瘾了，把一整年的份量都玩够了哎~特别是那个牛仔套环，真是超有趣~！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎？你已经撑不住了么，那我们休息一会吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;与大黄蜂一同在长椅上坐了下来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107070,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;按照惯例，这种时候应该到那个什么……倾诉环节了吧？彼此说说心里话，让感情更进一步之类的？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过我是已经没有什么好倾诉的啦……多亏了你、北安普顿还有企业姐，我现在感觉状态极好~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107070,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;你知道么，那个平时不爱说话的闷葫芦居然在观众席上为我大声加油了！虽然我当时离得太远完全没听到，哈哈哈……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;企业姐也是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107070,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;“不要回避模仿姐姐这件事，只不过不要成为企业姐的模仿者，而是学会借助姐姐的力量……”&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯嗯，说的没错，不过我还想补充一句。…我啊，也有不想用姐姐们的力量，不去模仿姐姐战斗的时候哦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;比如说…你看，我没有姐姐那么麻烦吧。你眼前的大黄蜂我啊，对喜欢的人是会直接说喜欢的&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;所以说这种“战斗”就是只属于我一个人的——指挥官，我喜欢你！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			dir = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			blackbg = true,
+			actor = 107070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;————指挥官，你呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

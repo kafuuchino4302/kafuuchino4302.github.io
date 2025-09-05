@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigameshopmultiwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>minigameshopmultiwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MiniGameShopMultiWindow&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ShopsUIMsgbox&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.topItem = slot0:findTF(&quot;item/panel_bg&quot;)
+	slot0.ownerTF = slot0.topItem:Find(&quot;left/own&quot;)
+	slot0.detailTF = slot0.topItem:Find(&quot;left/detail&quot;)
+	slot0.nameTF = slot0.topItem:Find(&quot;display_panel/name_container/name/Text&quot;):GetComponent(typeof(Text))
+	slot0.descTF = slot0.topItem:Find(&quot;display_panel/desc/Text&quot;):GetComponent(typeof(Text))
+	slot0.bottomItem = slot0:findTF(&quot;got/panel_bg/list/item&quot;)
+	slot0.itemCountTF = slot0.bottomItem:Find(&quot;icon_bg/count&quot;):GetComponent(typeof(Text))
+	slot0.maxBtn = slot0:findTF(&quot;count/max&quot;)
+	slot0.leftBtn = slot0:findTF(&quot;count/number_panel/left&quot;)
+	slot0.rightBtn = slot0:findTF(&quot;count/number_panel/right&quot;)
+	slot0.countTF = slot0:findTF(&quot;count/number_panel/value&quot;):GetComponent(typeof(Text))
+	slot0.cancelBtn = slot0:findTF(&quot;actions/cancel_button&quot;)
+	slot0.confirmBtn = slot0:findTF(&quot;actions/confirm_button&quot;)
+
+	setText(slot0:findTF(&quot;got/panel_bg/got_text&quot;), i18n(&quot;shops_msgbox_output&quot;))
+	setText(slot0:findTF(&quot;count/image_text&quot;), i18n(&quot;shops_msgbox_exchange_count&quot;))
+	setText(slot0:findTF(&quot;actions/cancel_button/label&quot;), i18n(&quot;shop_word_cancel&quot;))
+	setText(slot0:findTF(&quot;actions/confirm_button/label&quot;), i18n(&quot;shop_word_exchange&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.cancelBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;bg&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1, slot2)
+	slot0:InitWindow(slot1, slot2)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	uv0.super.Show(slot0)
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	uv0.super.Hide(slot0)
+end
+
+slot0.InitWindow = function(slot0, slot1, slot2)
+	slot3 = slot1:GetDropInfo()
+	slot5 = math.max(math.floor(getProxy(GameRoomProxy):getTicket() / slot1:getConfig(&quot;price&quot;)), 1)
+
+	if slot1:GetMaxCnt() ~= 0 then
+		slot5 = math.min(slot5, slot1:GetMaxCnt())
+	end
+
+	(function (slot0)
+		slot0 = math.min(math.max(slot0, 1), uv0)
+		uv1.countTF.text = slot0
+		uv1.curCount = slot0
+		uv1.itemCountTF.text = slot0 * uv2:getConfig(&quot;num&quot;)
+	end)(1)
+	updateDrop(slot0.topItem:Find(&quot;left/IconTpl&quot;), slot3)
+	UpdateOwnDisplay(slot0.ownerTF, slot3)
+	RegisterDetailButton(slot0, slot0.detailTF, slot3)
+
+	slot0.nameTF.text = slot3:getConfig(&quot;name&quot;)
+	slot0.descTF.text = slot3.desc or slot3:getConfig(&quot;desc&quot;)
+
+	updateDrop(slot0.bottomItem, slot3)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if uv0 then
+			uv0(uv1.curCount)
+		end
+
+		uv1:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.leftBtn, function ()
+		uv0(uv1.curCount - 1)
+	end)
+	onButton(slot0, slot0.rightBtn, function ()
+		uv0(uv1.curCount + 1)
+	end)
+	onButton(slot0, slot0.maxBtn, function ()
+		uv0(uv1)
+	end)
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

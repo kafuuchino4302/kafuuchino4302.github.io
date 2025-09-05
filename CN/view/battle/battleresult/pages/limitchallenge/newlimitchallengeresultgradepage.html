@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newlimitchallengeresultgradepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newlimitchallengeresultgradepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewLimitChallengeResultGradePage&quot;, import(&quot;..NewBattleResultGradePage&quot;))
+
+slot0.GetGetObjectives = function(slot0)
+	slot2 = {}
+
+	if ys.Battle.BattleConst.BattleScore.C &lt; slot0.contextData.statistics._battleScore then
+		table.insert(slot2, {
+			text = setColorStr(i18n(&quot;battle_result_total_time&quot;), &quot;#FFFFFFFF&quot;),
+			value = setColorStr(ys.Battle.BattleTimerView.formatTime(math.floor(slot1.statistics._totalTime)), COLOR_YELLOW)
+		})
+	end
+
+	return slot2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

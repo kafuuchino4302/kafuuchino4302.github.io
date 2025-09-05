@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandmakepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandmakepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandMakePage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandMakeUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.backBtn = slot0:findTF(&quot;top/back&quot;)
+	slot0.title = slot0:findTF(&quot;top/title&quot;)
+	slot0.uiList = UIItemList.New(slot0:findTF(&quot;frame/content&quot;), slot0:findTF(&quot;frame/content/tpl&quot;))
+	slot0.infoPage = IslandBuildingInfoPage.New(slot0._tf, slot0.event)
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot1 = slot0.uiList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateItem(slot1, slot2)
+		end
+	end)
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2)
+	slot3 = slot0.list[slot1 + 1]
+	slot2.name = tostring(slot3.id)
+	slot4 = slot3:IsUnlock()
+
+	setActive(slot0:findTF(&quot;unlock&quot;, slot2), slot4)
+	setActive(slot0:findTF(&quot;lock&quot;, slot2), not slot4)
+
+	if not slot4 then
+		setText(slot0:findTF(&quot;lock/Text&quot;, slot2), i18n(&quot;island_make_unlock_tip&quot;, slot0.building:GetName(), slot3:getConfig(&quot;unlock_place_level&quot;)))
+	else
+		slot5 = slot3:GetShipId()
+
+		setActive(slot0:findTF(&quot;unlock/ship/empty&quot;, slot2), not slot5)
+		setActive(slot0:findTF(&quot;unlock/ship/icon&quot;, slot2), slot5)
+		setActive(slot0:findTF(&quot;unlock/name&quot;, slot2), slot5)
+		setActive(slot0:findTF(&quot;unlock/energy_bar&quot;, slot2), slot5)
+
+		if slot5 then
+			slot7 = getProxy(IslandProxy):GetIsland():GetCharacterAgency():GetShipById(slot5)
+
+			setText(slot0:findTF(&quot;unlock/name&quot;, slot2), slot7:GetName())
+			setSlider(slot0:findTF(&quot;unlock/energy_bar&quot;, slot2), 0, 1, slot7:GetEnergy() / slot7:GetMaxEnergy())
+			GetImageSpriteFromAtlasAsync(&quot;ShipYardIcon/&quot; .. IslandShip.StaticGetPrefab(slot5), &quot;&quot;, slot6)
+		end
+
+		onButton(slot0, slot0:findTF(&quot;unlock/ship&quot;, slot2), function ()
+			uv0:OpenPage(IslandShipSelectPage, uv1)
+		end, SFX_PANEL)
+
+		slot7 = slot3:GetFormulaId()
+
+		setActive(slot0:findTF(&quot;unlock/formula/progress/empty&quot;, slot2), not slot7)
+		setActive(slot0:findTF(&quot;unlock/formula/progress/icon&quot;, slot2), slot7)
+		setText(slot0:findTF(&quot;unlock/capacity&quot;, slot2), slot3:GetNum() .. &quot;/&quot; .. slot3:GetCapacity())
+		setActive(slot0:findTF(&quot;unlock/next_tip&quot;, slot2), slot7)
+		setActive(slot0:findTF(&quot;unlock/time&quot;, slot2), slot7)
+		setActive(slot0:findTF(&quot;unlock/get&quot;, slot2), false)
+
+		if slot7 then
+			slot9 = IslandFormula.New(slot7)
+
+			GetImageSpriteFromAtlasAsync(pg.island_item_data_template[slot9:getConfig(&quot;item_id&quot;)].icon, &quot;&quot;, slot8)
+			setSlider(slot0:findTF(&quot;unlock/formula/progress&quot;, slot2), 0, 1, slot3:GetCurTime() / slot3:GetOnceTime())
+			setText(slot0:findTF(&quot;unlock/time&quot;, slot2), slot3:GetNextRemainTime())
+			onButton(slot0, slot0:findTF(&quot;unlock/time/quick&quot;, slot2), function ()
+			end, SFX_PANEL)
+			onButton(slot0, slot0:findTF(&quot;unlock/get&quot;, slot2), function ()
+				uv0:emit(IslandMediator.ON_GET_COMMISSION_AWARD, uv0.building.id, uv1.id)
+			end, SFX_PANEL)
+		end
+
+		onButton(slot0, slot0:findTF(&quot;unlock/formula&quot;, slot2), function ()
+			uv0:OpenPage(IslandFormulaSelectPage, uv0.building, uv1)
+		end, SFX_PANEL)
+	end
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+
+	slot0.building = slot1
+
+	setText(slot0.title, slot0.building:GetName())
+
+	slot0.list = slot0.building:GetCommissionList()
+
+	slot0.uiList:align(#slot0.list)
+	slot0.infoPage:ExecuteAction(&quot;Show&quot;, slot0.building)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

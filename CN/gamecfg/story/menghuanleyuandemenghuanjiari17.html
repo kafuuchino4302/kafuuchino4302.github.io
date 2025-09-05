@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menghuanleyuandemenghuanjiari17.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>menghuanleyuandemenghuanjiari17.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;MENGHUANLEYUANDEMENGHUANJIARI17&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			expression = 2,
+			side = 2,
+			spine = true,
+			dir = 1,
+			bgName = &quot;star_level_bg_115&quot;,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;小兔子……不要乱跑，等我换好了礼服，再陪你玩……欸……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……是指、指、指挥官大人——？！为、为什么……啊……已、已经到了约定的时间了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;少女慌张的声音透过大开的门扉传来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，所以我过来找你了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;对、对不起，指挥官大人，我还没有换、换好舞会——不是……还没换好衣服！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而且我居然、居然会忘记关门……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那、那个，舞会是不是要迟到了，呜呜……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;都怪我……笨手笨脚的……连、连衣服都穿不好……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;安慰{namecode:233:绫濑}&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;提议帮忙&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			say = &quot;慢慢来就好，不要紧张。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……可、可是……指挥官大人，这个衣服，{namecode:233:绫濑}有点看不懂怎么穿……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;可、可以请你帮帮我吗……呜呜……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			say = &quot;我来帮你吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好……这个衣服，{namecode:233:绫濑}看不懂怎么穿……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;麻、麻烦指挥官大人了……呜呜……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;在得到少女的许可后进入了房间内，开始研究少女的礼裙构造。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜……是不是很麻烦……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我已经尝试了很多次了……一直……一直穿不上去……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;清透的薄纱半遮半掩少女的肌肤，因为紧张而泛着淡色的红。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;有点麻烦，不过应该不是问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;先把这个穿上，绑好蝴蝶结固定。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好……蝴蝶结……绑、绑在胸口么……我试试……好了……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔哇——！怎、怎么又散开了？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜呜……指、指挥官大人……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;口头指导&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;动手帮忙&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			say = &quot;试试先拉到最紧，再绑蝴蝶结。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜……我、我试试……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;要、要不还是指挥官大人来吧，呜呜……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 2,
+			say = &quot;我来吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜呜……好……那就麻烦指挥官大人了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_115&quot;,
+			say = &quot;终于，{namecode:233:绫濑}艰难地完成了这场名为“穿戴礼裙”的试炼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;出发前，少女有些踌躇地停下了脚步，随即不安地低下了头，紧紧攥着自己的衣角。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那个、这、这身礼裙真的适合我么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是不是……有些奇怪……毕竟我、我……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;夸奖{namecode:233:绫濑}&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;一点也不奇怪，这身礼裙很适合你。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:233:绫濑}也不用担心……只要是你，无论怎样都是最好看的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;少女不安的愁容散尽，露出了灿烂的笑容。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_115&quot;,
+			hidePaintObj = true,
+			say = &quot;她凑到我身边，握住了我的手，深吸了一口气。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			spine = true,
+			dir = 1,
+			actor = 302261,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……！走吧，指挥官大人，我……很期待与你共舞的时刻！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nizhuancaihongzhita35.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nizhuancaihongzhita35.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;NIZHUANCAIHONGZHITA35&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;battle-boss-italy&quot;,
+			say = &quot;罗马·大教堂&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……以上，就是由铁血的{namecode:440}亲自发来的事件报告。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;最后居然叫了米德加尔特之塔……这算什么名字啊，要选典故的话不是有很多么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;都是塔的话，我觉得干脆就叫巴别塔不是挺好的么，反正只是一次凡夫俗子妄图窥伺神之权柄的尝试罢了……无聊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;（无聊……名字……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……那请问我应该怎么回复{namecode:440}比较好？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;就说我已经读过了就行。啊，顺便说点恭喜的话之类的，你看着弄吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;加富尔伯爵，你了解「极光之壁」么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;极光之壁……是之前维希教廷在莫桑比克使用的那个实验性武器么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;正是！如果能完成的话，那才是一件堪称完美的圣器啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;倒不如说那才是真正适合用来打造永恒之城，代行神之威严的装置。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……维希的圣堂在上次袭击中损害严重，况且现在该地正处于自由鸢尾的控制之下，要想将其拿过来恐怕要费一番波折。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;既然是兵器，总有图纸吧，问铁血也好维希教廷也好要过来，我们自己再做一个新的不就行了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;如果有那件装置的话，一定能成为我真正登上永恒之城圣座的钥匙吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我会将其纳入计划的……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;很好~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;然后是袭击事件的善后处理进度。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;袭击的余波仍未平复，数位元老下落不明，恐怕已经……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我们支持的海军派正在努力争取权力空白，想来很快就能在元老院中占据主导权了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这些凡事你们看着处理就好，我没兴趣。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我让你调查的另一件事呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那件事的话……「圣座冠冕」依然下落不明。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;有可靠消息源指出，在当时教廷司令部下达解散命令到完成重组的几天之内，似乎发生了诸多变故。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;「圣座冠冕」在变故中遗失，至今下落不明。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;“下落不明”，「圣座冠冕」如此重要的圣物，可不能这样模棱两可啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;如今圣座之位空置，你觉得我坐上去怎么样？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……马可波罗大人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;维内托大人指示，重建罗穆路斯的秩序依然是首要任务。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我只是提出一点建议罢了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，再不快点准备的话……说不定会让那个枢机主教黎塞留抢先哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;总之，最近诸事繁杂，都有劳你们了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;一切为了撒丁帝国的复兴。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_midgard_9&quot;,
+			dir = 1,
+			actor = 605050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那么近期事件全部报告完毕，请容许我返回工作。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_1100&quot;,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			bgm = &quot;xinnong-3&quot;,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;放任塞壬穿过自己的控制区，直到轰炸开始后才进行了零星拦截……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;皇家到底还是皇家……拉拢只是口头上的么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;还是说马耳他有什么让她们动弹不得的理由……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;算了，我对世俗的争斗本就毫无兴趣，倒是维内托她们一门心思想要复兴这个世俗的政权……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;狭隘啊……不过还是要感谢她们从四处收集回来的「圣物」就是了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;如今永恒之城的权力正在洗牌，这可是个好机会。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;差不多也该到出手的时候了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_1100&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 699010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;————神啊，您觉得呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			blackBg = true,
+			mode = 1,
+			effects = {
+				{
+					active = true,
+					name = &quot;heimutexiao1&quot;
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

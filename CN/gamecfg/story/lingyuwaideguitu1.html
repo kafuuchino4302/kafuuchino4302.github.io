@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingyuwaideguitu1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>lingyuwaideguitu1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;LINGYUWAIDEGUITU1&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;领域外的归途\n\n&lt;size=45&gt;一　记忆螺旋&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;bg_canghongzhiyan_1&quot;,
+			say = &quot;似雾似水的奈落烟尘之上，一艘巨舰正在快速行驶着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			blackBg = true,
+			mode = 1,
+			asideType = 3,
+			bgmDelay = 2,
+			bgm = &quot;battle-eagleunion&quot;,
+			sequence = {
+				{
+					&quot;{namecode:91:赤城}号量产舰&quot;,
+					1
+				},
+				{
+					&quot;指挥甲板&quot;,
+					2
+				},
+				{
+					&quot;返航途中&quot;,
+					3
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;外面的环境虽然怪异……不过那些烟尘之上居然真的能行船啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;是啊，起航三个小时以来一切顺利，真希望这份顺利能持续下去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不知道我还要开多久的船？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;根据观察者计算，以我们当前所处的{namecode:91:赤城}号量产舰为基准的话，至少还需要开七个小时。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;七个小时……这样返程全程时间就达到了十个多小时呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;明明进入世界切片的时候只花了一瞬间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;毕竟我们绕路了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;十个小时就能从重樱本岛直达NA海域中心，这么一想倒也不算特别慢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔，指挥官这么一说的话……倒确实！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;以NA海域的时间来算，我们回去需要多久？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;似乎要大于七个小时，具体时间观察者没说，只是扔了一堆公式过来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;你要亲自算算么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不必……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;连续指挥已经很累了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这里有我看着就够了，你可以先去休息会。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;没事，我再观察一段时间，我还是第一次来到{namecode:91:赤城}号量产舰的驾驶室里。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;本来我还以为返航的船会选用{namecode:182:信浓}的量产型呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;从舒适度的角度考虑，确实使用{namecode:182:信浓}号量产型比较好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过……我个人是不推荐乘坐{namecode:182:信浓}号量产型出门的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;嗯？这个理由怎么和观察者跟我说的一模一样……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;难道这件事真的有什么说法？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;倒也没什么，你就当讨个彩头好了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;奇怪的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			soundeffect = &quot;event:/ui/xipai&quot;,
+			say = &quot;刷刷——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;耳边，似乎传来了洗牌的声音。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			blackBg = true,
+			bgm = &quot;theme-themagiciani&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;红雾弥漫，吞噬了整片空间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_dark&quot;,
+					active = true
+				}
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_503&quot;,
+			side = 2,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明亮的房间中，一个身影停留在黑板前。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_dark&quot;,
+					active = false
+				}
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			dir = 1,
+			actor = 900332,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;助手，你有在认真听么？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			dir = 1,
+			actor = 900332,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;刚刚正好讲到重点部分了欸！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			dir = 1,
+			actor = 900332,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;喂……别睡别睡，再坚持一下！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			dir = 1,
+			actor = 900332,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;助手——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;宽敞的办公室中，一个身影递来了名片。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			dir = 1,
+			actor = 900408,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欧西斯商业联合，柯蕾。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 900408,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}阁下，预祝我们合作愉快。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_cccpv2_3&quot;,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;昏暗的房间中，一个身影埋没在屏幕中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_cccpv2_3&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			actor = 900407,
+			actorName = &quot;？？？&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}！这次实验……终于——成功了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_cccpv2_3&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			actor = 900407,
+			actorName = &quot;？？？&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼~不愧是能和奥斯塔玩到一起去的人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_cccpv2_3&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			actor = 900407,
+			actorName = &quot;？？？&quot;,
+			hidePaintObj = true,
+			say = &quot;让我们一同用这项研究……给那群冥顽不化的人来点小小震撼吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_cccpv2_9&quot;,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;沉闷的会议室中，许多虚影围坐在圆桌旁。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;苍老的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_9&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			say = &quot;会议已经结束了。很遗憾，我们的修正提案没有在理事会得到多数票的支持。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;苍老的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_9&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			say = &quot;计划仍将按照原定方案推行。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;苍老的声音&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_9&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			say = &quot;是时候做出决断了，{playername}将军。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_147&quot;,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;教室中，少女看着面前的涂鸦本。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_147&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 199030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……老师……安克雷奇画的……好看么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_147&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 199030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……老师……明天……就要走了么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_147&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 199030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……老师……不要去……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_504&quot;,
+			oldPhoto = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;银白色的海面上，少女们正在战斗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_504&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 107020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_504&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 107020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你怎么还在……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_504&quot;,
+			oldPhoto = true,
+			dir = 1,
+			actor = 107020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;萨拉，快带指挥官走！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_504&quot;,
+			oldPhoto = true,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			oldPhoto = true,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;无穷无尽的场景在眼前快速流转着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			oldPhoto = true,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……能听见……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;大脑仿佛被扔入了一台高速旋转的离心机。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			oldPhoto = true,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……我说话……么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			oldPhoto = true,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;意识在螺旋中断开、裂解、下沉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 8,
+			blackBg = true,
+			nextBgName = &quot;bg_story_task&quot;,
+			close = 0,
+			blurTimeFactor = {
+				0.7,
+				1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgm = &quot;battle-eagleunion&quot;,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;唔……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;我这是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;终于，旋转停止了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;这里是{namecode:91:赤城}号的指挥甲板，面前是焦虑的孟菲斯。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……指挥官，你吓死我了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;刚才我见到你在睁眼走神！整个人就像被定住一样，怎么喊你都没反应……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;走神……？持续了大概多久？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;一分多钟吧！……指挥官，发生什么事了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;一分多钟……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（意识之中经历了无数场景，现实中只过去一分多中么……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;没事，只是有些疲劳，稍微走神了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼，那就好……只是走神了么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你看我说什么，这就叫关心则乱。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你知道么，在第三声没喊醒你的时候，她就想去拉全舰警报了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还好我让你这个小秘书多等了等。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……谨慎一点又没什么错。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{playername}阁下，就现状而言，你确实该去休息了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;嗯……我同意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（虽然不知道刚才异状出现的原因……但此刻的精神，确实已经无法集中了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我让{namecode:96:瑞鹤}在房间里准备了些简单的点心，路上时间还长，吃一些垫垫肚子吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;有劳了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那指挥官，我带你去休息室吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;正在努力回忆前往休息室的路线时，孟菲斯靠近过来，轻轻扶住了我的肩。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;路线的话，这边走~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我说，小秘书。“指挥官”去休息，你也要跟着么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;当然了，这可是工作的一环。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;工作？行吧……既然你也要走的话，把这盘水果带上吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:91:赤城}指了指摆放在桌子上的果盘。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……水果？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;给{playername}阁下剥着吃啊，不然呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……啊？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;给，拿着哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哦……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;就这样，有些愣神的孟菲斯呆呆的拿着果盘和我一同离开了指挥甲板。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等……不对……这个女人拿我当什么人了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;算了……不跟她一般见识。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，休息要紧，我们快走吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

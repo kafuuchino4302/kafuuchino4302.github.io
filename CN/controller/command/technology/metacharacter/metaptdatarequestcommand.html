@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metaptdatarequestcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metaptdatarequestcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaPTDataRequestCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = getProxy(MetaCharacterProxy)
+	slot4 = {}
+
+	if slot1:getBody().isAll then
+		for slot10, slot11 in ipairs(slot2:getMetaProgressVOList()) do
+			if slot11:isPtType() and (slot11:isInAct() or slot11:isInArchive()) then
+				table.insert(slot4, slot11.id)
+			end
+		end
+	end
+
+	print(&quot;34001 meta pt request:&quot;, table.concat(slot4, &quot;,&quot;))
+
+	slot6 = pg.ConnectionMgr.GetInstance()
+
+	slot6:Send(34001, {
+		group_id = slot4
+	}, 34002, function (slot0)
+		print(&quot;34002 meta pt request done:&quot;, #uv0)
+		uv1:setAllProgressPTData(slot0.meta_ship_list)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

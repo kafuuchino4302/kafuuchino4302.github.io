@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tieyiqingfeng5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tieyiqingfeng5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;TIEYIQINGFENG5&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			bgm = &quot;story-island-soft&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;随着舰队接近圣诞岛，天空的阴云在不知不觉间消散，取而代之的是一片风和日丽的景象。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 103280,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;天气以不符合科学规律的方式发生改变了呢……法戈，对于圣诞岛的侦察结果如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 102330,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;岛上一切正常，没有发现战备等级提升的迹象，也没有见到任何战斗痕迹。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;但是，就是不回应我们的任何联络？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102330,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没错。在这个通讯距离下，我有94.75%的把握排除通讯干扰的因素。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那我们可以得出结论了——圣诞岛的情况和我们之前遭遇到的一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们用肉眼看到的景色，侦察机拍摄的照片，还有此刻的碧海晴空，都是在虚像幻境的影响下生成的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虚像之下……圣诞岛或许已经被敌人彻底占领了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 108090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那我们得赶紧上岛救人才行！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 103280,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不行，幻境会扭曲人的认知，贸然登岛会有危险。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 103280,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就像我们之前把敌人当成友军一样，岛上仍处在幻境中的同伴也有可能将我们当成敌人……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 103280,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;对了~{namecode:292:四万十}小姐之前留给我们的纸符！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 103280,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;她不是说那些纸符可以破解虚像幻境，让人从梦中醒来吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 105150,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;但是……当时她们走得匆忙，我们又都在消化深陷虚像幻境的事，忘记问{namecode:292:四万十}小姐具体的使用方法了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 108090,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;贝尔……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欸……都说了，我只是看电影和漫画比较多，对于这些事——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……等等，这种场面我在电影里还真见到过！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;先像这样拿出符咒……然后嘴里喊些什么……再扔出去！应该就可以了~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			say = &quot;贝尔兴奋地拿出一张纸符，仿照记忆中的画面将符咒夹在食指和中指之间向外翻出。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			say = &quot;暴露在幻境之中的符咒如同开始呼吸般，闪烁起樱色的光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真的……有反应了！和电影里演的一样欸！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 108090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;别忘了还要喊些什么呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……那就——樱符~幻梦破碎！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;符咒如同离弦之箭一般向前飞出，沿途散发出耀眼的樱色光芒。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;meifujuqing_fenmu&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			say = &quot;光芒消散后，一座鸟居出现在了水面上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 103280,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;之前{namecode:292:四万十}小姐也是从鸟居中出现的……看来我们只要穿过就行了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 105150,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;厉害啊，贝尔！真弄成了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			dir = 1,
+			actor = 101520,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欸嘿嘿，主要是{namecode:292:四万十}小姐留下来的符咒厉害啦……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 108090,
+			side = 2,
+			bgName = &quot;star_level_bg_539&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那我们还等什么？穿越鸟居，去救援幻境中的同伴吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

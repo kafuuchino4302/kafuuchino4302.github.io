@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maizangyubianzhihua11.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>maizangyubianzhihua11.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;MAIZANGYUBIANZHIHUA11&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;埋葬于彼岸之花\n\n&lt;size=45&gt;剑碎&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			bgm = &quot;battle-unzen-2&quot;,
+			say = &quot;针对八云山的攻击，仿佛永无止境般地持续着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 399011,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:151:出云}，所有人都已经平安撤入八云山中了，立刻封闭结界。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 399020,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……针对结界的攻击密度过高，封闭仪式无法顺利进行。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然如此，我带人出门迎敌吧，吸引敌人的注意力，为你们拖延片刻。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 399020,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;麻烦大前辈了。如果结界承受的攻击减弱，我只需要一刻钟就能完成封闭仪式。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;明白了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:181:鬼怒}、{namecode:140:旗风}、{namecode:134:松风}、{namecode:192:追风}，随我出战！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			bgm = &quot;theme-misaka&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;顺着山路一路向下，{namecode:82:三笠}一行人如同一柄尖矛切割着黑色的洪流。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 301310,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;真是些奇怪的敌人……如同从百鬼绘卷里跑出来的一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 301790,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;狐、兔、鱼、鸦、鬼……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301790,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:134:松风}，没有「蛾」呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301850,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那可真是太好了……比人还大的蛾子……不敢想。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;啊哈哈哈哈哈~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;真是令人真怀念，我们好久没像现在这样并肩作战了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 301790,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;人老了，就爱感慨了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301790,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;别忘了，之前在{namecode:84:武藏}大人的棋局上，我们也并肩作战了一次哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯——那次{namecode:134:松风}和{namecode:192:追风}不在，不能算。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301790,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哈哈……也是，也是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（{namecode:84:武藏}……我在此处的战斗都如此艰难。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（不知道你在仪式核心阵法之中的行动，还顺利么……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_521&quot;,
+			say = &quot;大约一刻钟后——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 399011,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;大前辈，结界封闭仪式即将完成，请迅速撤回。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明白。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;咳……总算是结束了。敌人虽弱，这么一直涌上来还是让人吃不消啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301850,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;敌人又快涌上来了……大前辈，我们快撤退吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……你们身上都有伤，撤退不便。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;诸位先走，我来殿后。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 301310,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;大、大前辈，你在说什么啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;执行命令，不然我们一个都走不了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:82:三笠}看向受伤的友人，然后看向如潮水般涌来的敌人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			say = &quot;她露出了微笑，而后义无反顾地冲入了洪流之中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;炮弹裹挟着硝烟与死亡肆意飞舞着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_dark&quot;,
+					active = true
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			say = &quot;身体受到的创伤，如今已经难以计数了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:82:三笠}只是在意志与本能的驱使下继续战斗着，在黑色的洪流中掀起一阵又一阵波澜。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（如此绝望又实力悬殊的战斗……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（上一次……还是在首战面对塞壬的时候吧。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（今日之果，昨日之因……我怎能说从未预料到如此局面呢？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（能采取铁腕手段予以阻止的机会，也并非一次两次……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（……为什么，我却放任事情走到了今天这一步呢。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（永远都在消极调和……永远都在事后弥补……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（呵呵……可能，我也只是想再见你一面吧。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（再听听你的排兵布阵，再和你下一局棋……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（所以在内心深处……我也是支持{namecode:91:赤城}的计划的么……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（……呵呵。所以，这就是我该承担的责任。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（八云山已经彻底封闭，重樱本岛内的作战力量得到了最大限度的保全。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（{namecode:74:长门}……就当是我作为大前辈的任性好了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_521&quot;,
+			dir = 1,
+			actor = 305110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（接下来的事，就拜托你了——）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nextBgName = &quot;star_level_bg_521&quot;,
+			mode = 8,
+			bgName = &quot;star_level_bg_521&quot;,
+			blurTimeFactor = {
+				0.7,
+				1
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_521&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;在视野彻底坠入黑暗之前，金色的蝴蝶群迎风起舞，迸发出如同旭日般的光芒——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;meifujuqing_jinsehudie&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

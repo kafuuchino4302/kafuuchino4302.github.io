@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monthsignresignui.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>monthsignresignui.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MonthSignReSignUI&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MonthSignReSignUI&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0:InitUI()
+	setActive(slot0._tf, true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.InitUI = function(slot0)
+	slot1 = slot0._tf
+	slot0.destroyBonusList = slot1:Find(&quot;frame/bg/scrollview/list&quot;)
+	slot1 = slot0.destroyBonusList
+	slot0.itemTpl = slot1:Find(&quot;item_tpl&quot;)
+
+	setText(slot0:findTF(&quot;frame/title_text/Text&quot;), i18n(&quot;month_sign_resign&quot;))
+	onButton(slot0, slot0:findTF(&quot;frame/top/btnBack&quot;), function ()
+		uv0:Destroy()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0:findTF(&quot;frame/actions/confirm_btn&quot;), function ()
+		uv0:Destroy()
+	end, SFX_UI_EQUIPMENT_RESOLVE)
+end
+
+slot0.setAwardShow = function(slot0, slot1, slot2)
+	slot0.awards = slot1
+	slot0.callback = slot2
+
+	slot0:displayAwards()
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.selectedIds = nil
+
+	if slot0.callback then
+		slot0.callback()
+
+		slot0.callback = nil
+	end
+
+	slot0.awards = nil
+
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+end
+
+slot0.displayAwards = function(slot0)
+	assert(#slot0.awards ~= 0, &quot;items数量不能为0&quot;)
+	removeAllChildren(slot0.destroyBonusList)
+
+	for slot4 = 1, #slot0.awards do
+		slot5 = cloneTplTo(slot0.itemTpl, slot0.destroyBonusList):Find(&quot;bg&quot;)
+		slot6 = slot0.awards[slot4]
+
+		updateDrop(tf(slot5), slot6, {
+			fromAwardLayer = true
+		})
+		setActive(findTF(slot5, &quot;bonus&quot;), slot6.riraty)
+		setActive(findTF(slot5, &quot;name&quot;), false)
+		setActive(findTF(slot5, &quot;name_mask&quot;), true)
+		findTF(slot5, &quot;name_mask/name&quot;):GetComponent(&quot;ScrollText&quot;):SetText(slot6.name or getText(slot7))
+		onButton(slot0, slot5, function ()
+			if uv0.inAniming then
+				return
+			end
+
+			uv0:emit(BaseUI.ON_DROP, uv1)
+		end, SFX_PANEL)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

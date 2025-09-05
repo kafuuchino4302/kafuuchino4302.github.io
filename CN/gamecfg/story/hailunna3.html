@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hailunna3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>hailunna3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HAILUNNA3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;暴风雨与麦芽糖\n\n&lt;size=45&gt;三　摇曳的灯火·上&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-2&quot;,
+			say = &quot;港区·指挥室&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;借助应急灯和海伦娜来到了线路箱所在的位置。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;刚一接近，一股烧焦的气味就扑鼻而来……看来一时半会是无法修复了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，我记得仓库里好像放着一台应急用的小型发电机……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;用那个的话……应该能解决今晚的照明问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我们一起去把它找出来吧……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_story_task&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;指挥室大楼地下的结构十分复杂，再加上停电的影响，实在有些难以摸清方向。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;是这边吗？——不对，这边是档案室。是那边么？似乎也不对……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……指挥官，存放发电机的区域，好像是往这边走……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;海伦娜，你对这里熟悉吗？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……没有，只是很久之前来过一次，所以有一点点印象……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102050,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我记得，应该是先往右边，然后往左，之后再往左……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_148&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;跟着海伦娜前进，很快便到达了仓库的位置。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			say = &quot;仅仅来了一次就记住这么复杂的路了么……真厉害。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			say = &quot;不过找到仓库只是第一步，接下来还要在众多的物品中找到那个应急发电机——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;发电机的话，我记得…...好像是在这里。第十二排第一层的位置？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……呼~太好了，没有记错……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			say = &quot;居然连具体位置都记得这么清楚……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;海伦娜的记忆力，真的很厉害啊。&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……欸？没有的事啦，只是稍微有些印象而已……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;接，接下来还要找到配套的燃油……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			say = &quot;不知为何，在一片昏暗之中似乎看到了海伦娜脸颊上出现的一抹红晕。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_story_task&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;伴随着发电机嗡嗡的运转声，指挥室重新恢复了光明。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;能正常运转真是太好了……接下来…...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;诶……？！发电机？对不起，对不起…….&quot;,
+			flashout = {
+				dur = 0.15,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.2,
+				dur = 0.2,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;不用紧张，不是操作错误引起的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;看来是发电机因为老化性能下降了……总之先关掉一些用电设施……只开一盏台灯试试吧——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;暖黄色的灯光点亮了指挥室的一隅。和坐在身旁的海伦娜一起分享着这来之不易的光明。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

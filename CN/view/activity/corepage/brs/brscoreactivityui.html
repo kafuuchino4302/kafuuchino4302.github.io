@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brscoreactivityui.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>brscoreactivityui.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BRSCoreActivityUI&quot;, import(&quot;view.activity.CorePage.CoreActivityMainScene&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;BRSCoreActivityUI&quot;
+end
+
+slot0.init = function(slot0, ...)
+	uv0.super.init(slot0, ...)
+	setText(slot0._tf:Find(&quot;adapt/top/btn_home/text_tip/Text (Legacy)&quot;), i18n(&quot;brs_main_tip&quot;))
+
+	slot0.huanyingmituzhe_lan = slot0._tf:Find(&quot;adapt/mark/huanyingmituzhe_lan&quot;)
+	slot0.huanyingmituzhe_lv = slot0._tf:Find(&quot;adapt/mark/huanyingmituzhe_lv&quot;)
+end
+
+slot0.selectActivity = function(slot0, slot1)
+	if slot1 and (not slot0.activity or slot0.activity.id ~= slot1.id) then
+		SetActive(slot0.huanyingmituzhe_lan, slot1.id ~= 5984)
+		SetActive(slot0.huanyingmituzhe_lv, slot1.id == 5984)
+
+		slot2 = slot0.pageDic[slot1.id]
+
+		assert(slot2, &quot;找不到id:&quot; .. slot1.id .. &quot;的活动页，请检查&quot;)
+		slot2:Load()
+		slot2:ActionInvoke(&quot;Flush&quot;, slot1)
+		slot2:ActionInvoke(&quot;ShowOrHide&quot;, true)
+
+		if slot0.activity and slot0.activity.id ~= slot1.id then
+			slot0.pageDic[slot0.activity.id]:ActionInvoke(&quot;ShowOrHide&quot;, false)
+		end
+
+		slot0.activity = slot1
+		slot0.contextData.id = slot1.id
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

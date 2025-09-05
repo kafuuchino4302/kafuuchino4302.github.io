@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equipmentskinpreviewwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>equipmentskinpreviewwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EquipmentSkinPreviewWindow&quot;, import(&quot;view.ship.ShipPreviewLayer&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;EquipSkinPreviewUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.buttonList = slot0._tf:Find(&quot;left_panel/Buttons&quot;)
+	slot0.hitToggle = slot0.buttonList:Find(&quot;HitEffect&quot;)
+	slot0.spawnToggle = slot0.buttonList:Find(&quot;SpawnEffect&quot;)
+
+	uv0.super.init(slot0)
+	setText(slot0.hitToggle:Find(&quot;Text&quot;), i18n(&quot;hit_preview&quot;))
+	setText(slot0.spawnToggle:Find(&quot;Text&quot;), i18n(&quot;shoot_preview&quot;))
+end
+
+slot0.didEnter = function(slot0)
+	slot3 = {
+		EquipType.CannonQuZhu,
+		EquipType.CannonQingXun,
+		EquipType.CannonZhongXun,
+		EquipType.Torpedo,
+		EquipType.SubmarineTorpedo
+	}
+	slot2 = pg.equip_skin_template[slot0.equipSkinId].hit_fx_name ~= &quot;&quot; and _.any(slot1.equip_type, function (slot0)
+		return table.contains(uv0, slot0)
+	end)
+
+	setActive(slot0.hitToggle, slot2)
+
+	if slot2 then
+		slot0.contextData.hitEffect = defaultValue(slot0.contextData.hitEffect, true)
+
+		triggerToggle(slot0.hitToggle, slot0.contextData.hitEffect)
+		onToggle(slot0, slot0.hitToggle, function (slot0)
+			uv0.contextData.hitEffect = slot0
+
+			uv0:RefreshFXMode()
+		end)
+	else
+		slot0.contextData.hitEffect = defaultValue(slot0.contextData.hitEffect, false)
+	end
+
+	slot4 = slot1.fire_fx_name ~= &quot;&quot;
+
+	setActive(slot0.spawnToggle, slot4)
+
+	if slot4 then
+		slot0.contextData.spawnEffect = defaultValue(slot0.contextData.spawnEffect, true)
+
+		triggerToggle(slot0.spawnToggle, slot0.contextData.spawnEffect)
+		onToggle(slot0, slot0.spawnToggle, function (slot0)
+			uv0.contextData.spawnEffect = slot0
+
+			uv0:RefreshFXMode()
+		end)
+	else
+		slot0.contextData.spawnEffect = defaultValue(slot0.contextData.spawnEffect, true)
+	end
+
+	uv0.super.didEnter(slot0)
+end
+
+slot0.RefreshFXMode = function(slot0)
+	if not slot0.previewer then
+		return
+	end
+
+	slot0.previewer:SetFXMode(slot0.contextData.spawnEffect, slot0.contextData.hitEffect)
+	slot0.previewer:onWeaponUpdate()
+end
+
+slot0.showBarrage = function(slot0)
+	uv0.super.showBarrage(slot0)
+	slot0.previewer:SetFXMode(slot0.contextData.spawnEffect, slot0.contextData.hitEffect)
+end
+
+slot0.playLoadingAni = function(slot0)
+	uv0.super.playLoadingAni(slot0)
+	setActive(slot0.buttonList, false)
+end
+
+slot0.stopLoadingAni = function(slot0)
+	uv0.super.stopLoadingAni(slot0)
+	setActive(slot0.buttonList, true)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

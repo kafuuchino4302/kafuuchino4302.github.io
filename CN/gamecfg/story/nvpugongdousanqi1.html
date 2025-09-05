@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nvpugongdousanqi1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nvpugongdousanqi1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;NVPUGONGDOUSANQI1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;战斗！皇家女仆队3rd？\n\n&lt;size=45&gt;一　第三次演习&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgm = &quot;story-richang&quot;,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintEquip = true,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;听好了，光辉！本次演习是一次对于我们新型航空母舰的重要测试！&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;演习配置为三航母对三航母，再加适量护卫舰队好了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在前两次的舰队演习中，女仆队展现出了皇家的风范，希望这次也能再接再厉，让本次航空对抗演习取得圆满成功！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;对了……因为是航空演习，本王就不亲自指挥了，所以这次指挥官也别指挥！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 207030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;以上是陛下希望我进行传达的内容。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 207030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下已经决定了由半人马、阿尔比恩、英仙座作为皇家一方的参战航母。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 207030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;另一方的参战人员与护卫舰人选就交由指挥官来决定了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;航空演习啊……合适的人选倒是不少，问题是应该选择哪些人员参与呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;埃塞克斯，你怎么看？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，我认为埃塞克斯级可以作为皇家新型航空母舰的演习对手。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;人选的话……让无畏、香格里拉与邦克山参与战斗怎么样？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;（敲门声）————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;打扰了~指挥官，还有各位女士们，我刚刚在门口似乎听到了名为“航空演习”的事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;机会难得，能不能让撒丁帝国也参与一下呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;撒丁帝国的话，能动用的航空母舰就是天鹰和帝国了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错~剩下的一艘就交给白鹰，让我们来一次撒丁-白鹰联合舰队如何，埃塞克斯小姐？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;与撒丁帝国的联合航空编队演练啊……听起来很有挑战性。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果指挥官没有意见的话，我也没有意见。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;那就这样决定了？剩下的一个人选你打算让谁来？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;无畏的话……指挥官觉得可以么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;没问题，那舰队的指挥就交给同为埃塞克斯级的埃塞克斯了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……诶？是！我一定圆满完成演习任务。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵~天鹰与帝国那边就由我负责去转达，我就先告辞了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 605020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;护卫舰队的事就交给你了哦，埃塞克斯小姐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔……光辉，皇家那边的护卫舰队有决定好么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 207030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下计划让女仆队曼彻斯特与正在进行女仆队体验的雅努斯参加。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这样的话，我们这边就让里诺去好了，驱逐舰的话……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;驱逐舰的话，这里不是正好有一位么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 201340,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……？指挥官，这是某种玩笑么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 201340,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我身为皇家女仆队的临时成员，怎么能到皇家舰队的演习对抗方去呢……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;既然是以测试为目的的演习，有了解皇家战术的人参加会更有意义。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;埃塞克斯和光辉也没意见吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 107090,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;只要指挥官同意的话，我就没问题。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 207030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我也觉得没问题哦，演习中皇家女仆队的总人数增加了，不论结果是输是赢，陛下应该都会很高兴呢~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;很好，那就这么决定了————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			hidePaintEquip = true,
+			actor = 201340,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欸………………是，我了解了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

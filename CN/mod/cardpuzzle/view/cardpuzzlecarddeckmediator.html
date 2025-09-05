@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardpuzzlecarddeckmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cardpuzzlecarddeckmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CardPuzzleCardDeckMediator&quot;, ContextMediator)
+slot0.SHOW_CARD = &quot;SHOW_CARD&quot;
+slot0.CLOSE_LAYER = &quot;CLOSE_LAYER&quot;
+
+slot0.register = function(slot0)
+	slot3 = slot0.viewComponent
+
+	slot3:SetCards(slot0.contextData.card, slot0.contextData.hand)
+	slot0:bind(uv0.SHOW_CARD, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = CardPuzzleCardDetailMediator,
+			viewComponent = CardPuzzleCardDetailLayer,
+			data = slot1
+		}))
+	end)
+	slot0:bind(uv0.CLOSE_LAYER, function (slot0, slot1)
+		uv0:sendNotification(GAME.RESUME_BATTLE)
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot2 = slot1:getName()
+	slot3 = slot1:getBody()
+end
+
+slot0.onBackPressed = function(slot0, slot1)
+	slot0:sendNotification(GAME.RESUME_BATTLE)
+	uv0.super.onBackPressed(slot0, slot1)
+end
+
+slot0.remove = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

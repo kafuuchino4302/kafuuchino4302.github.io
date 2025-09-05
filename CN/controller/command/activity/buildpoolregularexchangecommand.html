@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildpoolregularexchangecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildpoolregularexchangecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildPoolRegularExchangeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().id
+
+	if getProxy(BuildShipProxy):getRegularExchangeCount() &lt; pg.ship_data_create_exchange[REGULAR_BUILD_POOL_EXCHANGE_ID].exchange_request then
+		pg.TipsMgr:GetInstance():ShowTips(&quot;unenough&quot;)
+
+		return
+	end
+
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(12047, {
+		ship_tid = slot3
+	}, 12048, function (slot0)
+		if slot0.result == 0 then
+			getProxy(BuildShipProxy):changeRegularExchangeCount(-pg.ship_data_create_exchange[REGULAR_BUILD_POOL_EXCHANGE_ID].exchange_request)
+			uv0:sendNotification(GAME.REGULAR_BUILD_POOL_EXCHANGE_DONE, {
+				awards = PlayerConst.addTranDrop(slot0.drop_list)
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

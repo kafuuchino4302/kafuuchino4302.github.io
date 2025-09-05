@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zumaptshopscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zumaptshopscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ZumaPTShopScene&quot;, import(&quot;...base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ZumaPTShopUI&quot;
+end
+
+slot0.getBGM = function(slot0)
+	return &quot;cw-story&quot;
+end
+
+slot0.init = function(slot0)
+	slot0:initData()
+	slot0:findUI()
+	slot0:addListener()
+end
+
+slot0.didEnter = function(slot0)
+	slot0:updatePTPanel()
+	slot0:updateGoodPanel()
+end
+
+slot0.onBackPressed = function(slot0)
+	slot0:closeView()
+end
+
+slot0.willExit = function(slot0)
+end
+
+slot0.initData = function(slot0)
+	slot0.actID = ActivityConst.MINIGAME_ZUMA_PT_SHOP_ID
+	slot0.ptID = LaunchBallActivityMgr.GetGamePtId(ActivityConst.MINIGAME_ZUMA)
+	slot0.ptItemID = id2ItemId(slot0.ptID)
+	slot0.actShopVO = nil
+	slot0.goodVOListForShow = nil
+	slot0.goodIDList = pg.activity_template[slot0.actID].config_data
+	slot0.goodTFList = {}
+
+	slot0:updateData()
+end
+
+slot0.findUI = function(slot0)
+	slot0.tpl = slot0:findTF(&quot;Tpl&quot;)
+	slot0.containerTF = slot0:findTF(&quot;Shop/Panel/ScrollView/Viewport/Content&quot;)
+	slot0.backBtn = slot0:findTF(&quot;Adapt/Back&quot;)
+	slot0.helpBtn = slot0:findTF(&quot;Adapt/Help&quot;)
+	slot0.ptInfoIcon = slot0:findTF(&quot;Shop/PTInfo/Icon&quot;)
+	slot0.ptInfoCountText = slot0:findTF(&quot;Shop/PTInfo/Count&quot;)
+
+	setText(slot0:findTF(&quot;Tip&quot;, slot0.tpl), i18n(&quot;islandshop_tips2&quot;))
+end
+
+slot0.addListener = function(slot0)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:closeView()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.helpBtn, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = i18n(&quot;card_pairs_help_tip&quot;)
+		})
+	end, SFX_PANEL)
+
+	slot0.goodUIItemList = UIItemList.New(slot0.containerTF, slot0.tpl)
+	slot1 = slot0.goodUIItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventInit then
+			uv0.goodTFList[slot1] = slot2
+
+			onButton(uv0, slot2, function ()
+				if not isActive(uv0:findTF(&quot;Mask&quot;, uv1)) then
+					uv0:emit(ZumaPTShopMediator.OPEN_ZUMA_PT_SHOP_BUY_WINDOW, uv0:getGoodVOByIndex(uv2))
+				else
+					pg.TipsMgr:GetInstance():ShowTips(i18n(&quot;launchball_minigame_shop&quot;))
+				end
+			end, SFX_PANEL)
+		elseif slot0 == UIItemList.EventUpdate then
+			uv0:updateTpl(slot1, slot2)
+		end
+	end)
+end
+
+slot0.updateData = function(slot0)
+	slot0.actShopVO = ActivityShop.New(getProxy(ActivityProxy):getActivityById(slot0.actID))
+	slot0.goodVOListForShow = slot0.actShopVO:getSortGoods()
+end
+
+slot0.getGoodVOByIndex = function(slot0, slot1)
+	return slot0.goodVOListForShow[slot1]
+end
+
+slot0.updatePTPanel = function(slot0)
+	setText(slot0.ptInfoCountText, Drop.New({
+		type = 1,
+		id = slot0.ptID
+	}):getOwnedCount())
+end
+
+slot0.updateGoodPanel = function(slot0)
+	slot0.goodUIItemList:align(#slot0.goodVOListForShow)
+end
+
+slot0.updateTpl = function(slot0, slot1, slot2)
+	slot6 = slot0:findTF(&quot;BuyCount&quot;, slot2)
+	slot7 = slot0.goodVOListForShow[slot1]
+	slot8 = Drop.New({
+		type = slot7:getConfig(&quot;commodity_type&quot;),
+		id = slot7:getConfig(&quot;commodity_id&quot;),
+		count = slot7:getConfig(&quot;num&quot;)
+	})
+
+	updateDrop(slot0:findTF(&quot;Item&quot;, slot2), slot8)
+	setScrollText(slot0:findTF(&quot;Name/Name&quot;, slot2), slot8:getName())
+	setText(slot0:findTF(&quot;PTCount&quot;, slot2), slot7:getConfig(&quot;resource_num&quot;))
+
+	if slot7:getConfig(&quot;num_limit&quot;) == 0 then
+		setText(slot6, i18n(&quot;common_no_limit&quot;))
+	else
+		setText(slot6, math.max(slot7:GetPurchasableCnt(), 0) .. &quot;/&quot; .. slot10)
+	end
+
+	slot11 = slot0:findTF(&quot;Mask&quot;, slot2)
+	slot14 = slot10 &gt; 0 and slot7:GetPurchasableCnt() &lt;= 0
+
+	setActive(slot11, slot14)
+	setActive(slot0:findTF(&quot;SellOut&quot;, slot11), slot14)
+	setActive(slot0:findTF(&quot;Lock&quot;, slot11), false)
+end
+
+slot0.updateTplByGoodID = function(slot0, slot1)
+	slot2 = 0
+
+	for slot6, slot7 in ipairs(slot0.goodVOListForShow) do
+		if slot7.id == slot1 then
+			slot2 = slot6
+		end
+	end
+
+	slot0:updateTpl(slot2, slot0.goodTFList[slot2])
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

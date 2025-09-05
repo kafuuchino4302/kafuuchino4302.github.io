@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg111.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg111.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG111&quot;,
+	events = {
+		{
+			alpha = 0.3,
+			code = {
+				&quot;TipsWord&quot;
+			},
+			style = {
+				text = &quot;每个编号塞壬实验场中都存在若干谜题，跟随文本提示可以一步步进行解谜。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -100,
+				posX = 300
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/right_stage/tip_word&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;ExitButton&quot;
+			},
+			style = {
+				text = &quot;点击退出按钮可以暂时离开塞壬实验场返回通常海域，不过再次进入后解密进度将恢复为初始状态。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -100,
+				posX = 500
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/right_stage/btn_list/dock/exit_button&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xingguangxiadeyuhui12-3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xingguangxiadeyuhui12-3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;XINGGUANGXIADEYUHUI12-3&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;story-ironblood-strong&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 402110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;鲁梅女士、指挥官，两翼压力过大，我们的队形出现混乱了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			dir = 1,
+			actor = 407040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我来殿后，所有人在沿航线三十海里处集结重整。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 402110,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明白，我立刻部署！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 407040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，你与指挥舰先行，整队完毕后不用等我，直接前往基地救援！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_596&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……这个阵仗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_596&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;鲁梅女士，以往……有过天外之兽自爆杀敌的记录么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 407040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;天外之兽只有战斗本能，并没有什么战斗策略。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 407040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;遇到必死局面多会逃跑，死拼的情况都不算太多，如果要让其主动选择自爆的话……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_596&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……必须要有领袖级的天外之兽进行指挥？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 407040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;糟糕……可怎么——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_596&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			blackBg = true,
+			bgm = &quot;theme-themagiciani&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;象征量产舰被摧毁的爆炸声中，我的意识逐渐陷入沉寂。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			soundeffect = &quot;event:/ui/xipai&quot;,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;刷刷——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;耳边，似乎传来了洗牌的声音——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

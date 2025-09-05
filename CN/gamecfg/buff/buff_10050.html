@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10050.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10050.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，5.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;5.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，5.5秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;5.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，6.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;6.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，6.5秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;6.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，7.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;7.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，7.5秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;7.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，8.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;8.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，8.5秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;8.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，9.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;9.0(+1)&quot;
+		}
+	},
+	{
+		desc = &quot;受到攻击时，有15%的几率触发，10.0秒内使全体先锋完全回避所有攻击&quot;,
+		addition = {
+			&quot;10.0&quot;
+		}
+	},
+	desc_get = &quot;受到攻击时，有15%的几率触发，5.0秒(满级10.0秒)内使全体先锋完全回避所有攻击&quot;,
+	name = &quot;彩虹计划&quot;,
+	init_effect = &quot;&quot;,
+	id = 10050,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;受到攻击时，有15%的几率触发，$1秒内使全体先锋完全回避所有攻击&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 10050,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBeHit&quot;
+			},
+			arg_list = {
+				rant = 1500,
+				skill_id = 10050,
+				target = &quot;TargetSelf&quot;,
+				time = 20
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

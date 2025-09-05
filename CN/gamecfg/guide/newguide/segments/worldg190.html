@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg190.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg190.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG190&quot;,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;大型作战中有可能收集到信标数据，这些数据会被记录在信标记录仪中。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -74.7,
+				posX = -471.5
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;收集到的信标数据可以点击此处查看。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 335.5,
+				posX = 0,
+				ui = {
+					lineMode = true,
+					path = &quot;/OverlayCamera/Overlay/UIMain/top/adapt/top_chapter/resources/WorldResPanel(Clone)/res/boss_progress&quot;
+				}
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;recall guide&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world recall&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>donghuangchunjie7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>donghuangchunjie7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DONGHUANGCHUNJIE7&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;闹腾嬉戏东煌春节\n\n&lt;size=45&gt;七 嬉戏闹腾的新年&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 501041,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯……电灯的开关都没用，好像是……电闸被拉掉了。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101173,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;黑黑的环境……唔，拉菲先睡了，晚安。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 202121,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;…？走廊里有脚步声，越来越近了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 107062,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯？走廊的尽头是不是有团巨大的影子？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 501010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;这、这究竟是…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 501020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;（嘿嘿嘿，春节吓人计划顺利进行中~接下来只要使用这个“抚顺特制爆竹二号机”，就可以让节目效果达到最高潮了~）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 501020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我点，我扔~诶？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 300
+				},
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.2,
+					dur = 0.2,
+					x = -300
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			say = &quot;丢出的爆竹撞到了走廊的墙壁，弹回来正好落在了抚顺的脚下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 501020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;喂喂喂，等等，哇！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;（轰）&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 12.75,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;爆竹爆炸的同时，房间内的灯光也恢复了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			bgm = &quot;main-chunjie&quot;,
+			actor = 501020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呜哇…没想到会在最后一步…失、策…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = -1500,
+					type = &quot;move&quot;,
+					delay = 1,
+					dur = 0.2,
+					x = 0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 501041,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;抚、抚顺姐！？没、没事吧！？？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 501010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;咳咳咳，屋子里被搞得乌烟瘴气，抚！顺！做了这种蠢事你做好挨训的心理准备…诶？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 22.5,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 3
+				}
+			}
+		},
+		{
+			actor = 501031,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊哈哈哈哈~抚顺姐变成成黑炭啦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107062,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这可真是…既成功又失败的恶作剧啊，哈哈哈&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 107021,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎呀，真是调皮的孩子，不过这个节目效果倒也算是不错呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 501020,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;咳咳，吓死我了，还以为会怎样呢，诶？我脸上怎么了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 301054,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;镜子给你…的说&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哇哇，哈哈哈哈哈，这下没脸见人了哈哈哈&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 501010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;真是的…还不赶紧去洗洗脸！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 202121,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真是哪里都不缺有趣的事情呢，呵呵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我洗好啦～&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202121,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那么，我准备为还在工作的指挥官送去东煌大家的料理了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 107062,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊啊，果然，能有这么温暖的团聚时光，无论是不是一时的短暂和平，都得好好感谢指挥官才是呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 501020,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔，鞍山姐，我们也一起去找指挥官嘛～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301054,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:6}和拉菲…也一起去&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 107021,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呵呵呵，那就去指挥官的办公室再来一次“团聚”吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;众人&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;喔～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 501020,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;咦？原来我这里还有一只备用的爆竹呀，嘿嘿嘿，那就…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;众人&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			blackBg = true,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;快住手啦！！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 12.75,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

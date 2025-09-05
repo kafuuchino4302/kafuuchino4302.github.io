@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_7001.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_7001.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;精英怪-急速&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;精英怪-急速&quot;,
+	stack = 1,
+	id = 7001,
+	icon = 7001,
+	last_effect = &quot;jingyingguaibuffbaise&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffNewAI&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				ai_onRemove = 10012,
+				ai_onAttach = 10012
+			}
+		},
+		{
+			type = &quot;BattleBuffFixVelocity&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				group = 0,
+				add = 0,
+				mul = 2000
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				group = 0,
+				number = 10000,
+				attr = &quot;loadSpeed&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				buff_id = 7007,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

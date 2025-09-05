@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yongzhedelvtu5-2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yongzhedelvtu5-2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;YONGZHEDELVTU5-2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;系统提示&quot;,
+			bgm = &quot;login-2022401jp&quot;,
+			say = &quot;标枪 使用 亿万斩击 对魔王 造成了100000000点伤害，魔王被击败了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 900233,
+			nameColor = &quot;#ff5c5c&quot;,
+			actorName = &quot;魔王&quot;,
+			side = 2,
+			say = &quot;怎、怎么可能……本魔王居然被击败了！！！！&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900233,
+			nameColor = &quot;#ff5c5c&quot;,
+			actorName = &quot;魔王&quot;,
+			side = 2,
+			say = &quot;啊啊啊啊啊啊啊啊——————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;系统提示&quot;,
+			say = &quot;获得了道具 魔王宝物库的钥匙。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			dir = 1,
+			actor = 201217,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这个就是…………只有传说级的勇者才能使用的传说级武器？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.15,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.2,
+				dur = 0.2,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 201217,
+			say = &quot;…………虽然看起来有点奇怪，但是攻击力确实提升了？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			dir = 1,
+			actor = 201217,
+			say = &quot;哎嘿嘿，这样也不错呢~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;系统提示&quot;,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;就这样，魔王被消灭了，世界迎来了和平。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;系统提示&quot;,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;——THE END——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chargediamondcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chargediamondcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChargeDiamondCard&quot;)
+slot0.NewTagType = 2
+slot0.DoubleTagType = 4
+
+slot0.Ctor = function(slot0, slot1, slot2, slot3)
+	slot0.go = slot1
+	slot0.tr = tf(slot1)
+	slot0.firstTag = slot0.tr:Find(&quot;FirstTag&quot;)
+	slot0.iconImg = slot0.tr:Find(&quot;IconImg&quot;)
+	slot0.diamondCountText = slot0.tr:Find(&quot;Count/Text&quot;)
+	slot0.tipTF = slot0.tr:Find(&quot;Tip&quot;)
+	slot0.firstTipTag = slot0.tr:Find(&quot;Tip/Text/FirstTag&quot;)
+	slot0.exTipTag = slot0.tr:Find(&quot;Tip/Text&quot;)
+	slot0.firstEXTip = slot0.tr:Find(&quot;Tip/Text&quot;)
+	slot0.priceText = slot0.tr:Find(&quot;Price/Text&quot;)
+	slot0.priceIcon = slot0.tr:Find(&quot;Price/Icon&quot;)
+	slot0.monthTF = slot2
+	slot0.goods = nil
+	slot0.parentContext = slot3
+end
+
+slot0.update = function(slot0, slot1, slot2, slot3)
+	slot0.goods = slot1
+
+	if slot1:isMonthCard() then
+		setActive(slot0.tr, false)
+		slot0:updateForMonthTF(slot1, slot2)
+
+		return
+	end
+
+	slot5 = table.contains(slot3, slot1.id) or slot1:firstPayDouble()
+
+	setActive(slot0.firstTag, (slot5 and uv0.DoubleTagType or slot1:getConfig(&quot;tag&quot;)) == uv0.DoubleTagType)
+
+	if slot5 then
+		setScrollText(slot0.firstEXTip, i18n(&quot;charge_double_gem_tip&quot;, slot1:getConfig(&quot;gem&quot;)))
+		setActive(slot0.exTipTag, false)
+		setActive(slot0.firstEXTip, true)
+		setActive(slot0.tipTF, true)
+	elseif slot1:hasExtraGem() then
+		setScrollText(slot0.firstEXTip, i18n(&quot;charge_extra_gem_tip&quot;, slot1:getConfig(&quot;extra_gem&quot;)))
+		setActive(slot0.exTipTag, true)
+		setActive(slot0.firstEXTip, true)
+		setActive(slot0.tipTF, true)
+	else
+		setActive(slot0.tipTF, false)
+	end
+
+	setText(slot0.diamondCountText, slot1:getConfig(&quot;gem&quot;))
+	setText(slot0.priceText, slot1:getConfig(&quot;money&quot;))
+
+	if PLATFORM_CODE == PLATFORM_CHT then
+		setActive(slot0.priceIcon, not slot1:IsLocalPrice())
+	end
+
+	LoadSpriteAsync(&quot;chargeicon/&quot; .. slot1:getConfig(&quot;picture&quot;), function (slot0)
+		if slot0 and not IsNil(uv0.iconImg) then
+			setImageSprite(uv0.iconImg, slot0, true)
+		end
+	end)
+end
+
+slot0.updateForMonthTF = function(slot0, slot1, slot2)
+	slot3 = slot0.monthTF:Find(&quot;IconImg&quot;)
+	slot6 = slot0.monthTF:Find(&quot;ItemIconTpl&quot;)
+	slot7 = slot0.monthTF:Find(&quot;ItemIconList&quot;)
+	slot8 = slot0.monthTF:Find(&quot;Mask&quot;)
+	slot9 = slot0.monthTF:Find(&quot;Price/Icon&quot;)
+	slot10 = slot0.monthTF:Find(&quot;leftTimeText&quot;)
+
+	setScrollText(slot0.monthTF:Find(&quot;Tip/Text&quot;), slot1:getConfig(&quot;first_text&quot;))
+	setScrollText(slot0.monthTF:Find(&quot;Tip2/Text&quot;), slot1:getConfig(&quot;second_text&quot;))
+	setScrollText(slot0.monthTF:Find(&quot;title/Text&quot;), slot1:getConfig(&quot;name_display&quot;))
+	setText(slot0.monthTF:Find(&quot;ResCountText&quot;), slot1:getConfig(&quot;gem&quot;) + slot1:getConfig(&quot;extra_gem&quot;))
+	setText(slot0.monthTF:Find(&quot;Price/Text&quot;), slot1:getConfig(&quot;money&quot;))
+
+	if PLATFORM_CODE == PLATFORM_CHT then
+		setActive(slot9, not slot1:IsLocalPrice())
+	end
+
+	if #slot1:GetDropList() &gt; 0 then
+		slot13 = UIItemList.New(slot7, slot6)
+
+		slot13:make(function (slot0, slot1, slot2)
+			if slot0 == UIItemList.EventUpdate then
+				updateDrop(slot2:Find(&quot;itemBg/item&quot;), uv0[slot1 + 1])
+			end
+		end)
+		slot13:align(#slot12)
+	end
+
+	if slot2:getCardById(VipCard.MONTH) and not slot13:isExpire() then
+		slot16 = math.floor((slot13:getLeftDate() - pg.TimeMgr.GetInstance():GetServerTime()) / 86400)
+		slot17 = slot1:getConfig(&quot;limit_arg&quot;) or 0
+
+		setScrollText(slot10, i18n(&quot;charge_month_card_lefttime_tip&quot;, slot16))
+		setScrollText(slot0.monthTF:Find(&quot;Mask/leftTimeGo/Text&quot;), i18n(&quot;charge_month_card_lefttime_tip&quot;, slot16))
+		setActive(slot10, true)
+		setActive(slot8, slot17 &lt; slot16)
+		setActive(slot0.monthTF:Find(&quot;NewTag&quot;), false)
+		setButtonEnabled(slot0.monthTF, slot16 &lt;= slot17)
+	else
+		setActive(slot10, false)
+		setActive(slot8, false)
+		setActive(slot0.monthTF:Find(&quot;NewTag&quot;), true)
+		setButtonEnabled(slot0.monthTF, true)
+	end
+
+	onButton(slot0.parentContext, slot0.monthTF, function ()
+		triggerButton(uv0.tr)
+	end, SFX_PANEL)
+end
+
+slot0.destoryTimer = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

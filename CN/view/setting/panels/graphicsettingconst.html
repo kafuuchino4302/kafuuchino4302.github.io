@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graphicsettingconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>graphicsettingconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">GraphicSettingConst = {}
+slot0 = GraphicSettingConst
+slot0.SettingType = {
+	select = 2,
+	toggle = 1
+}
+slot0.SettingLevel = {
+	High = 3,
+	Mid = 2,
+	Low = 1,
+	Custom = 4
+}
+slot0.assetPath = {
+	&quot;Default_LowQualitySettings&quot;,
+	&quot;Default_MediumQualitySettings&quot;,
+	&quot;Default_HighQualitySettings&quot;,
+	&quot;Default_QualitySettings&quot;
+}
+slot0.settings = {
+	{
+		tips = &quot;grapihcs3d_setting_gpgpu_warning&quot;,
+		parameterId = 0,
+		settingType = 1,
+		playerPrefsname = &quot;enableGPUDriver&quot;,
+		settingName = &quot;grapihcs3d_setting_enable_gup_driver&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			0,
+			1,
+			0
+		}
+	},
+	{
+		playerPrefsname = &quot;gameOptions&quot;,
+		settingType = 2,
+		parameterId = 3,
+		settingName = &quot;grapihcs3d_setting_global_illumination&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_global_illumination_optionname0&quot;,
+			&quot;grapihcs3d_setting_global_illumination_optionname1&quot;,
+			&quot;grapihcs3d_setting_global_illumination_optionname2&quot;,
+			&quot;grapihcs3d_setting_global_illumination_optionname3&quot;
+		},
+		options = {
+			0,
+			1,
+			2,
+			3
+		},
+		defaultValues = {
+			2,
+			2,
+			2,
+			2
+		}
+	},
+	{
+		playerPrefsname = &quot;bloomIntensity&quot;,
+		settingType = 2,
+		parameterId = 12,
+		settingName = &quot;grapihcs3d_setting_bloom_intensity&quot;,
+		isShow = 0,
+		optionNames = {
+			&quot;grapihcs3d_setting_bloom_intensity_0&quot;,
+			&quot;grapihcs3d_setting_bloom_intensity_1&quot;,
+			&quot;grapihcs3d_setting_bloom_intensity_2&quot;,
+			&quot;grapihcs3d_setting_bloom_intensity_3&quot;
+		},
+		options = {
+			0,
+			1,
+			2,
+			3
+		},
+		defaultValues = {
+			3,
+			3,
+			3,
+			3
+		}
+	},
+	{
+		playerPrefsname = &quot;resolution&quot;,
+		settingType = 2,
+		parameterId = 2,
+		settingName = &quot;grapihcs3d_setting_resolution&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_resolution_optionname0&quot;,
+			&quot;grapihcs3d_setting_resolution_optionname1&quot;,
+			&quot;grapihcs3d_setting_resolution_optionname2&quot;
+		},
+		options = {
+			1280,
+			1920,
+			2560
+		},
+		defaultValues = {
+			1280,
+			1920,
+			2560,
+			1920
+		}
+	},
+	{
+		playerPrefsname = &quot;renderingQuality&quot;,
+		settingType = 2,
+		parameterId = 1,
+		settingName = &quot;grapihcs3d_setting_rendering_quality&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_rendering_quality_optionname0&quot;,
+			&quot;grapihcs3d_setting_rendering_quality_optionname1&quot;
+		},
+		options = {
+			0,
+			1
+		},
+		defaultValues = {
+			0,
+			0,
+			0,
+			0
+		}
+	},
+	{
+		playerPrefsname = &quot;shaderQuality&quot;,
+		settingType = 2,
+		parameterId = 4,
+		settingName = &quot;grapihcs3d_setting_shader_quality&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_shader_quality_optionname0&quot;,
+			&quot;grapihcs3d_setting_shader_quality_optionname1&quot;
+		},
+		options = {
+			0,
+			1
+		},
+		defaultValues = {
+			0,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enableAdditionalLights&quot;,
+		settingType = 1,
+		parameterId = 5,
+		settingName = &quot;grapihcs3d_setting_enable_additional_lights&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;shadowQuality&quot;,
+		settingType = 2,
+		parameterId = 6,
+		settingName = &quot;grapihcs3d_setting_shadow_quality&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_shadow_quality_optionname0&quot;,
+			&quot;grapihcs3d_setting_shadow_quality_optionname1&quot;,
+			&quot;grapihcs3d_setting_shadow_quality_optionname2&quot;,
+			&quot;grapihcs3d_setting_shadow_quality_optionname3&quot;
+		},
+		options = {
+			0,
+			1,
+			2,
+			3
+		},
+		defaultValues = {
+			0,
+			2,
+			3,
+			2
+		}
+	},
+	{
+		playerPrefsname = &quot;shadowUpdateMode&quot;,
+		settingType = 2,
+		parameterId = 7,
+		settingName = &quot;grapihcs3d_setting_shadow_update_mode&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_shadow_update_mode_optionname0&quot;,
+			&quot;grapihcs3d_setting_shadow_update_mode_optionname1&quot;,
+			&quot;grapihcs3d_setting_shadow_update_mode_optionname2&quot;,
+			&quot;grapihcs3d_setting_shadow_update_mode_optionname3&quot;
+		},
+		options = {
+			0,
+			1,
+			2,
+			3
+		},
+		defaultValues = {
+			0,
+			2,
+			2,
+			2
+		}
+	},
+	{
+		playerPrefsname = &quot;lodQuality&quot;,
+		settingType = 2,
+		parameterId = 21,
+		settingName = &quot;Lod&quot;,
+		isShow = 0,
+		optionNames = {
+			&quot;关&quot;,
+			&quot;低&quot;,
+			&quot;中&quot;,
+			&quot;高&quot;
+		},
+		options = {
+			0,
+			1,
+			2,
+			3
+		},
+		defaultValues = {
+			3,
+			3,
+			3,
+			3
+		}
+	},
+	{
+		playerPrefsname = &quot;enableAO&quot;,
+		settingType = 1,
+		parameterId = 18,
+		settingName = &quot;AO&quot;,
+		isShow = 0,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enablePostProcess&quot;,
+		settingType = 1,
+		parameterId = 9,
+		settingName = &quot;grapihcs3d_setting_enable_post_process&quot;,
+		isShow = 1,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enableReflection&quot;,
+		settingType = 1,
+		parameterId = 8,
+		settingName = &quot;grapihcs3d_setting_enable_reflection&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		parentId = 12,
+		playerPrefsname = &quot;enablePostAntialiasing&quot;,
+		settingType = 1,
+		parameterId = 10,
+		settingName = &quot;grapihcs3d_setting_enable_post_antialiasing&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			0,
+			0,
+			1
+		}
+	},
+	{
+		parentId = 12,
+		playerPrefsname = &quot;enableHDR&quot;,
+		settingType = 1,
+		parameterId = 11,
+		settingName = &quot;grapihcs3d_setting_enable_hdr&quot;,
+		isShow = 1,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		parentId = 12,
+		playerPrefsname = &quot;enableDOF&quot;,
+		settingType = 1,
+		parameterId = 13,
+		settingName = &quot;grapihcs3d_setting_enable_dof&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			0,
+			1,
+			1
+		}
+	},
+	{
+		parentId = 12,
+		playerPrefsname = &quot;enableDistort&quot;,
+		settingType = 1,
+		parameterId = 14,
+		settingName = &quot;grapihcs3d_setting_enable_distort&quot;,
+		isShow = 1,
+		defaultValues = {
+			0,
+			0,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enableFog&quot;,
+		settingType = 1,
+		parameterId = 15,
+		settingName = &quot;雾&quot;,
+		isShow = 0,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enableFlare&quot;,
+		settingType = 1,
+		parameterId = 16,
+		settingName = &quot;grapihcs3d_setting_flare&quot;,
+		isShow = 1,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;enableLensFlare&quot;,
+		settingType = 1,
+		parameterId = 17,
+		settingName = &quot;镜头炫光&quot;,
+		isShow = 0,
+		defaultValues = {
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;characterQuality&quot;,
+		settingType = 2,
+		parameterId = 19,
+		settingName = &quot;grapihcs3d_setting_character_quality&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_character_quality_optionname0&quot;,
+			&quot;grapihcs3d_setting_character_quality_optionname1&quot;,
+			&quot;grapihcs3d_setting_character_quality_optionname2&quot;
+		},
+		options = {
+			0,
+			1,
+			2
+		},
+		defaultValues = {
+			0,
+			1,
+			2,
+			1
+		}
+	},
+	{
+		playerPrefsname = &quot;terrainLayerQuality&quot;,
+		settingType = 2,
+		parameterId = 20,
+		settingName = &quot;grapihcs3d_setting_terrain_layer_quality&quot;,
+		isShow = 1,
+		optionNames = {
+			&quot;grapihcs3d_setting_terrain_layer_quality_optionname0&quot;,
+			&quot;grapihcs3d_setting_terrain_layer_quality_optionname1&quot;,
+			&quot;grapihcs3d_setting_terrain_layer_quality_optionname2&quot;
+		},
+		options = {
+			0,
+			1,
+			2
+		},
+		defaultValues = {
+			0,
+			1,
+			2,
+			1
+		}
+	}
+}
+
+slot0.InitDefautQuality = function()
+	if PlayerPrefs.GetInt(&quot;dorm3d_graphics_settings_new&quot;, 0) == 0 then
+		slot1 = DevicePerformanceUtil.GetDevicePerformanceLevel()
+
+		if PLATFORM == PLATFORM_IPHONEPLAYER then
+			slot4 = function(slot0)
+				if tonumber(string.match(slot0, &quot;iPhone(%d+)&quot;)) and slot2 &gt;= 13 then
+					return true
+				end
+
+				return false
+			end
+
+			if (function (slot0)
+				if tonumber(string.match(slot0, &quot;iPad(%d+)&quot;)) and slot2 &gt;= 8 then
+					return true
+				end
+
+				return false
+			end)(SystemInfo.deviceModel or &quot;&quot;) or slot4(slot2) then
+				slot1 = DevicePerformanceLevel.High
+			end
+		end
+
+		slot0 = slot1 == DevicePerformanceLevel.High and 3 or slot1 == DevicePerformanceLevel.Mid and 2 or 1
+
+		PlayerPrefs.SetInt(&quot;dorm3d_graphics_settings_new&quot;, slot0)
+
+		Dorm3dRoomTemplateScene.FirstDefaultSetting = slot0
+	end
+end
+
+slot0.SettingQuality = function()
+	if PlayerPrefs.GetInt(&quot;dorm3d_graphics_settings_new&quot;, 4) ~= 4 then
+		for slot4, slot5 in ipairs(uv0.settings) do
+			GraphicsInterface.Instance:SetQualitySettings(slot5.parameterId, slot5.defaultValues[slot0])
+		end
+
+		return
+	end
+
+	for slot4, slot5 in ipairs(uv0.settings) do
+		slot6 = slot5.parameterId
+		slot8 = slot5.defaultValues[4]
+
+		if PlayerPrefs.GetInt(slot5.playerPrefsname, -1) ~= -1 then
+			slot8 = slot7
+		end
+
+		GraphicsInterface.Instance:SetQualitySettings(slot6, slot8)
+	end
+end
+
+slot0.ClearPlayerPrefs = function()
+	if PlayerPrefs.GetInt(&quot;dorm3d_graphics_settings_changeed&quot;, 0) == 1 then
+		return
+	end
+
+	PlayerPrefs.SetInt(&quot;dorm3d_graphics_settings_changeed&quot;, 1)
+
+	for slot3, slot4 in ipairs(uv0.settings) do
+		PlayerPrefs.DeleteKey(slot4.playerPrefsname)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

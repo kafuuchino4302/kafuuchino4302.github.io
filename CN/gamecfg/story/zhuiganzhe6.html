@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zhuiganzhe6.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zhuiganzhe6.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;ZHUIGANZHE6&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;与「大小姐」共处的时刻\n\n&lt;size=45&gt;六 并不优雅的尝试？&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;在追赶者和{namecode:11}的双重热情压迫下，决定让{namecode:11}来展示下重樱的忍术——忍者的特技。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;确实就像长岛说的那样，忍者可以在水面上奔跑！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301090,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没错，以在下的力量，甚至能做到这种程度…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;{namecode:11}加快了速度，在海面上转了三圈。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦哦…还能使用叫做“火遁”的技能，射出火球！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 301090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这也很简单！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;{namecode:11}用主炮射击，低威力的模拟弹命中了目标，产生了一个小火球。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还可以用烟雾之类的隐藏自己！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301090,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;是、是这个吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;{namecode:11}拉起了烟幕……唔？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 206050,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊，似乎每个都是靠舰装就能做到的事情呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;就如追赶者所说，只要使用舰装，舰船们都能使出这些“非现实”的技能。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301090,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不用舰装的技能…呣……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;色诱之术之类的？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_main_day&quot;,
+			actor = 301090,
+			dir = 1,
+			hideOther = true,
+			actorName = &quot;{namecode:66}＆{namecode:11}&quot;,
+			say = &quot;什么！？&quot;,
+			subActors = {
+				{
+					actor = 303110,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 206050,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;就是…这种感觉的…？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;瞬间感到右臂传来一阵柔软的触感。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;……看来是被追赶者抱住了右臂。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 303110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;咳、咳咳…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊…抱歉抱歉，好像有点跑题了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;手臂得到了解放……这是这几天来追赶者最让人吓一跳的时刻了吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 206050,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那么…{namecode:66}小姐，接下来的项目是什么呢…？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

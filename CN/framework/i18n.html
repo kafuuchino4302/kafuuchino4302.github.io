@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i18n.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>i18n.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot1 = require(&quot;Framework/lang/&quot; .. &quot;zh-cn&quot;)
+
+l10n = function(slot0)
+	return uv0[slot0] or slot0
+end
+
+i18n = function(slot0, ...)
+	if pg.gametip[slot0] then
+		return stringInset(slot1.tip, ...)
+	else
+		return i18n_not_find(slot0)
+	end
+end
+
+i18n_not_find = function(slot0)
+	return &quot;UndefinedLanguage:&quot; .. slot0
+end
+
+i18n1 = function(slot0, ...)
+	return string.format(l10n(slot0), ...)
+end
+
+i18n2 = function(slot0, ...)
+	if pg.gameset_language_client[slot0] then
+		slot2 = slot1.value
+
+		for slot6, slot7 in ipairs({
+			...
+		}) do
+			slot2 = string.gsub(slot2, &quot;$&quot; .. slot6, slot7)
+		end
+
+		return slot2
+	else
+		return slot0
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

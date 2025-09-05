@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open_systems_limited.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>open_systems_limited.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.open_systems_limited = {
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;后宅&quot;,
+		story_id = &quot;SYG001&quot;,
+		id = 1,
+		mediator = &quot;CourtYardMediator&quot;,
+		level = 8
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;每日副本&quot;,
+		story_id = &quot;&quot;,
+		id = 2,
+		mediator = &quot;DailyLevelMediator&quot;,
+		level = 10
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;大舰队&quot;,
+		story_id = &quot;SYG002&quot;,
+		id = 3,
+		mediator = &quot;NewGuildMediator&quot;,
+		level = 11
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;军事委托&quot;,
+		story_id = &quot;SYG003&quot;,
+		id = 4,
+		mediator = &quot;EventMediator&quot;,
+		level = 12
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;军事演习&quot;,
+		story_id = &quot;SYG004&quot;,
+		id = 5,
+		mediator = &quot;MilitaryExerciseMediator&quot;,
+		level = 15
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;排行榜&quot;,
+		story_id = &quot;SYG005&quot;,
+		id = 6,
+		mediator = &quot;BillboardMediator&quot;,
+		level = 16
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;模拟战&quot;,
+		story_id = &quot;&quot;,
+		id = 7,
+		mediator = &quot;ShamPreCombatMediator&quot;,
+		level = 10
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;核心兑换·月度&quot;,
+		story_id = &quot;&quot;,
+		id = 8,
+		mediator = &quot;ShamShop&quot;,
+		level = 10
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;大讲堂&quot;,
+		story_id = &quot;&quot;,
+		id = 9,
+		mediator = &quot;ClassMediator&quot;,
+		level = 50
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;开发船坞&quot;,
+		story_id = &quot;&quot;,
+		id = 10,
+		mediator = &quot;ShipBluePrintMediator&quot;,
+		level = 30
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;军部科研室&quot;,
+		story_id = &quot;&quot;,
+		id = 11,
+		mediator = &quot;TechnologyMediator&quot;,
+		level = 30
+	},
+	{
+		scene = &quot;MAINUI&quot;,
+		name = &quot;商路护航&quot;,
+		story_id = &quot;&quot;,
+		id = 12,
+		mediator = &quot;Escort&quot;,
+		level = 30
+	},
+	[14] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;指挥喵&quot;,
+		story_id = &quot;&quot;,
+		id = 14,
+		mediator = &quot;CommanderCatMediator&quot;,
+		level = 40
+	},
+	[15] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;限界挑战&quot;,
+		story_id = &quot;&quot;,
+		id = 15,
+		mediator = &quot;ChallengeMainMediator&quot;,
+		level = 80
+	},
+	[16] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;原型商店&quot;,
+		story_id = &quot;&quot;,
+		id = 16,
+		mediator = &quot;FragmentShop&quot;,
+		level = 30
+	},
+	[17] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;meta研究室&quot;,
+		story_id = &quot;&quot;,
+		id = 17,
+		mediator = &quot;MetaCharacterMediator&quot;,
+		level = 1
+	},
+	[18] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;装备改造&quot;,
+		story_id = &quot;&quot;,
+		id = 18,
+		mediator = &quot;EquipmentTransformTreeMediator&quot;,
+		level = 60
+	},
+	[19] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;大型作战&quot;,
+		story_id = &quot;&quot;,
+		id = 19,
+		mediator = &quot;WorldMediator&quot;,
+		level = 60
+	},
+	[20] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;大世界收藏&quot;,
+		story_id = &quot;&quot;,
+		id = 20,
+		mediator = &quot;WorldMediaCollectionRecordMediator&quot;,
+		level = 60
+	},
+	[21] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;小游戏大厅&quot;,
+		story_id = &quot;&quot;,
+		id = 21,
+		mediator = &quot;GameHallMediator&quot;,
+		level = 30
+	},
+	[22] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;核心兑换·限定&quot;,
+		story_id = &quot;&quot;,
+		id = 22,
+		mediator = &quot;QuotaShop&quot;,
+		level = 10
+	},
+	[23] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;新版限界挑战&quot;,
+		story_id = &quot;&quot;,
+		id = 23,
+		mediator = &quot;LimitChallengeMediator&quot;,
+		level = 80
+	},
+	[24] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;养成系统&quot;,
+		story_id = &quot;&quot;,
+		id = 24,
+		mediator = &quot;EducateMediator&quot;,
+		level = 30
+	},
+	[25] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;宿舍计划&quot;,
+		story_id = &quot;&quot;,
+		id = 25,
+		mediator = &quot;SelectDorm3DMediator&quot;,
+		level = 80
+	},
+	[26] = {
+		scene = &quot;MAINUI&quot;,
+		name = &quot;养成系统&quot;,
+		story_id = &quot;&quot;,
+		id = 26,
+		mediator = &quot;NewEducateSelectMediator&quot;,
+		level = 30
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

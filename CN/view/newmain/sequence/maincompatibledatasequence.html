@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maincompatibledatasequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>maincompatibledatasequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainCompatibleDataSequence&quot;)
+
+slot0.Execute = function(slot0, slot1)
+	seriesAsync({
+		function (slot0)
+			getProxy(SixthAnniversaryIslandProxy):CheckAndRequest(slot0)
+		end,
+		function (slot0)
+			uv0:CheckSpecialDayForEducateChar(slot0)
+		end
+	}, slot1)
+end
+
+slot0.CheckSpecialDayForEducateChar = function(slot0, slot1)
+	if LOCK_EDUCATE_SYSTEM then
+		slot1()
+
+		return
+	end
+
+	slot3, slot4, slot5 = ChineseCalendar.GetCurrYearMonthDay(pg.TimeMgr.GetInstance():GetServerTime())
+	slot7 = getProxy(SettingsProxy)
+
+	if getProxy(PlayerProxy):getRawData():ExistEducateChar() and slot7:GetFlagShipDisplayMode() ~= FlAG_SHIP_DISPLAY_ONLY_SHIP and not slot7:IsTipDay(slot3, slot4, slot5) and ChineseCalendar.AnySpecialDay(slot3, slot4, slot5) then
+		slot8, slot9 = PlayerVitaeShipsPage.GetSlotMaxCnt()
+
+		if slot9 + 1 and slot10 &gt; 0 then
+			slot7:setCurrentSecretaryIndex(slot10)
+		end
+	end
+
+	slot1()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huangyejiarikaituoji12.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>huangyejiarikaituoji12.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;HUANGYEJIARIKAITUOJI12&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			bgm = &quot;story-richang-westdaily&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;来到泳池时，意外看到了正在这里休息的{namecode:440:腓特烈大帝}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;login&quot;,
+			say = &quot;我的孩子，此时的相遇就是所谓的缘分么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;还是说，你来此处，就是为了来见我？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:440:腓特烈大帝}躺在充气床上，用手朝我的方向轻轻拨动着池水。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;想来游泳放松一下。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;嗯，我是来见你的。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;呵呵，你看起来确实有些疲倦，来我这里休息一会儿吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;很好，我的孩子，我喜欢你的这份率直。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch&quot;,
+			say = &quot;作为奖励，到我身边来吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;稍微吃点樱桃，喝些饮料，放松一下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;她摇曳着杯中酒红色的液体，面色潮红，金色的双眸中带着湿润的笑意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（这是醉了……？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（这样的情况，让她独自在泳池中待着可不安全。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:440:腓特烈大帝}，我先送你回房休息吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;哦？我的孩子，你是在担心我么……？呵呵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;main1&quot;,
+			say = &quot;无需担心，我并没有醉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;看，今夜的烟火表演开始了，到我身边来吧，一同欣赏这美景。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;依言走到了她的身边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;傻傻地站着做什么？还是不放心么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;那就试试吧，酒精浓度并不高。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:440:腓特烈大帝}朝我递来了高脚杯，上面还印着浅色的唇印。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;就着唇印喝&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;换个位置喝&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			optionFlag = 1,
+			say = &quot;接过高脚杯，就着唇印喝了一口。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;或许有更直接的方式，满足你的欲望，呵呵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			optionFlag = 2,
+			say = &quot;接过高脚杯，换了个位置喝了一口。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;你这是在害羞么？呵呵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯……的确不可能让你醉倒，刚刚看你脸很红，我还以为……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;啊，这里日间阳光太晒，风沙也比我预想中大得多，皮肤敏感才会发红吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:440:腓特烈大帝}换了个姿势，身上半透的黑纱摇曳，半遮掩着她白皙的肌肤。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;为何这般看着我？是想吃樱桃了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;正想开口，{namecode:440:腓特烈大帝}却先一步将鲜红欲滴的樱桃递到我的嘴边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;很甜的，没有核，试试看吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;张开嘴，吃下樱桃后，鲜甜的气味仍在口中萦绕。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……我刚刚是想说，夜里比较凉快，注意别着凉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;被你这么一说，倒是有几分凉意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:440:腓特烈大帝}并没有将衣物整理好，而是轻轻拍了拍自己身边空出的位置。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;来我身边躺下，与我分享肌肤的温热吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			say = &quot;夜空中绚烂的烟火绽放，池水摇曳着旖旎的光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;我的孩子，在夏夜结束前……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_164&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			actor = 499022,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch2&quot;,
+			say = &quot;于我的怀中，尽情地撒娇吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

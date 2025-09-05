@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlegateprologue.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlegateprologue.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BattleGatePrologue&quot;)
+ys.Battle.BattleGatePrologue = slot0
+slot0.__name = &quot;BattleGatePrologue&quot;
+
+slot0.Entrance = function(slot0, slot1)
+	slot2 = PROLOGUE_DUNGEON
+
+	slot1:sendNotification(GAME.BEGIN_STAGE_DONE, {
+		prefabFleet = ys.Battle.BattleDataFunction.GetDungeonTmpDataByID(pg.expedition_data_template[slot2].dungeon_id).fleet_prefab,
+		stageId = slot2,
+		system = SYSTEM_PROLOGUE
+	})
+end
+
+slot0.Exit = function(slot0, slot1)
+	slot1:sendNotification(GAME.FINISH_STAGE_DONE, {
+		system = SYSTEM_PROLOGUE
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

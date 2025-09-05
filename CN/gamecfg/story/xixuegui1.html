@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xixuegui1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xixuegui1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;XIXUEGUI1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;白衣天使or恶魔？\n\n&lt;size=45&gt;一　补给中的“惊喜”&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;港区·广场&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 312010,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;嗯喵，这一批补给物资可以用好久了喵，军部在这方面倒是从来不小气喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;这不是理所当然的事情吗，我们这可是最前线，要是我们都得不到充足的补给可怎么办……&quot;,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301180,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;话是这么说，看到这么多的东西还是会高兴喵，被人支持的感觉很好喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301180,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……难得说了句好话呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;喵？！竟然被{namecode:20}夸奖了喵！不得了喵，等会儿说不定要来台风了喵！~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 301180,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;你这家伙…我看看…弹药…食物…医疗用品…嗯？这是什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;喵？让{namecode:98}看看？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 312010,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;这是什么喵，好像是衣服喵？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301180,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯…这个是…护士服？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201230,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;护士服？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼喵！？…吸血鬼你从哪里窜出来的喵，吓喵一跳！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.05,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 201230,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;人家只是路过而已~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;……能不能不要一边说一边就把衣服拿起来比自己的身材。&quot;,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 301180,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201230,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;有什么不好嘛，你看，虽然小了点，这不是和人家的身材正相称吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301180,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……但是你并不是护士吧？要说的话旁边这只还能算。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;喵？！{namecode:98}才不想穿这个喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 1
+				}
+			}
+		},
+		{
+			actor = 201230,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;……唔&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201230,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;啧啧啧，这你就小看人家了，人家可是皇家驱逐的大前辈，护理这种小事当然是不在话下啦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真的喵？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 201230,
+			side = 0,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;总而言之，这件衣服就暂时由我来保管了哦~~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = -1,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……就这么让她走掉了喵。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;只是一件衣服的话，向指挥官报告一下从她的工资里扣就好了。总之，继续清点吧。&quot;,
+			side = 1,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 301180,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

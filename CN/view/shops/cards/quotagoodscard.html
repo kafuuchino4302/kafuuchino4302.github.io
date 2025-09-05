@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quotagoodscard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>quotagoodscard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;QuotaGoodsCard&quot;, import(&quot;.BaseGoodsCard&quot;))
+
+slot0.update = function(slot0, slot1, slot2, slot3, slot4)
+	slot0.goodsVO = slot1
+	slot5 = slot0.goodsVO:canPurchase()
+
+	setActive(slot0.mask, not slot5)
+	setActive(slot0.limitTag, not slot5)
+	onButton(slot0, slot0.mask, function ()
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;quota_shop_limit_error&quot;))
+	end, SFX_PANEL)
+
+	slot6 = slot1:getConfig(&quot;commodity_type&quot;)
+
+	updateDrop(slot0.itemTF, Drop.New({
+		type = slot6,
+		id = slot1:getConfig(&quot;commodity_id&quot;),
+		count = slot1:getConfig(&quot;num&quot;)
+	}))
+
+	slot9 = &quot;&quot;
+
+	setScrollText(slot0.nameTxt, slot6 == DROP_TYPE_SKIN and (pg.ship_skin_template[slot7].name or &quot;??&quot;) or slot8:getConfig(&quot;name&quot;) or &quot;??&quot;)
+	setText(slot0.countTF, slot1:getConfig(&quot;resource_num&quot;))
+	GetImageSpriteFromAtlasAsync(Drop.New({
+		type = slot1:getConfig(&quot;resource_category&quot;),
+		id = slot1:getConfig(&quot;resource_type&quot;)
+	}):getIcon(), &quot;&quot;, slot0.resIconTF)
+
+	slot11 = slot1:GetLimitGoodCount()
+
+	setText(slot0.limitCountLabelTF, i18n(&quot;quota_shop_owned&quot;) .. slot11 - slot1:GetPurchasableCnt() .. &quot;/&quot; .. slot11)
+	setActive(slot0.limitCountLabelTF, true)
+end
+
+slot0.setAsLastSibling = function(slot0)
+	slot0.tf:SetAsLastSibling()
+end
+
+slot0.OnDispose = function(slot0)
+	slot0.goodsVO = nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gng001.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gng001.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;攻坚队可以协助大舰队成员进行首领战&quot;,
+	&quot;让我们试着派遣一名角色前往攻坚队吧！&quot;,
+	&quot;点击此处编辑攻坚队&quot;,
+	&quot;点击添加前往攻坚队的角色&quot;
+}
+
+return {
+	id = &quot;GNG001&quot;,
+	events = {
+		{
+			alpha = 0.433,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -223,
+				posX = 495.2,
+				text = slot0[1]
+			}
+		},
+		{
+			alpha = 0.433,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -223,
+				posX = 495.2,
+				text = slot0[2]
+			}
+		},
+		{
+			alpha = 0.433,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -223,
+				posX = 495.2,
+				text = slot0[3]
+			},
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/GuildEmptyUI(Clone)/GuildEventPage(Clone)/formation_btn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = 0,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 166.9
+				}
+			}
+		},
+		{
+			alpha = 0.383,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 267.65,
+				posX = 17.53,
+				text = slot0[4]
+			},
+			ui = {
+				path = &quot;/OverlayCamera/Overlay/UIMain/GuildEventFormationUI(Clone)/frame/ship1&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = 0,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 166.9
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

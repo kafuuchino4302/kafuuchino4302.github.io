@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ssssmainpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ssssmainpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SSSSMainPage&quot;, import(&quot;.TemplatePage.PreviewTemplatePage&quot;))
+slot1 = 0.45
+slot2 = 0.2
+slot3 = 1.2
+slot4 = &quot;event:/ui/kaiji&quot;
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.effectBlankScreen = slot0:findTF(&quot;blank_screen_effect&quot;, slot0.bg)
+	slot0.effectOpen = slot0:findTF(&quot;open_effect&quot;, slot0.bg)
+	slot0.effectBlink = slot0:findTF(&quot;blink_effect&quot;, slot0.bg)
+	slot0.effectClick = slot0:findTF(&quot;click_effect&quot;, slot0.bg)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot0.skinshopBtn = slot0:findTF(&quot;skinshop&quot;, slot0.btnList)
+
+	onButton(slot0, slot0.skinshopBtn, function ()
+		uv0:PlayClickEffect(uv0.skinshopBtn, function ()
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.SKINSHOP)
+		end)
+	end, SFX_PANEL)
+
+	slot0.mountainBtn = slot0:findTF(&quot;mountain&quot;, slot0.btnList)
+
+	onButton(slot0, slot0.mountainBtn, function ()
+		uv0:PlayClickEffect(uv0.mountainBtn, function ()
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.SSSS_ACADEMY)
+		end)
+	end, SFX_PANEL)
+
+	slot0.buildBtn = slot0:findTF(&quot;build&quot;, slot0.btnList)
+
+	onButton(slot0, slot0.buildBtn, function ()
+		uv0:PlayClickEffect(uv0.buildBtn, function ()
+			uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.GETBOAT, {
+				projectName = BuildShipScene.PROJECTS.ACTIVITY
+			})
+		end)
+	end, SFX_PANEL)
+
+	slot0.shopBtn = slot0:findTF(&quot;shop&quot;, slot0.btnList)
+
+	onButton(slot0, slot0.shopBtn, function ()
+		uv0:PlayClickEffect(uv0.shopBtn, function ()
+			if (not configClinet.shopLinkActID or not getProxy(ActivityProxy):getActivitiesById(configClinet.shopLinkActID)) and not underscore.detect(getProxy(ActivityProxy):getActivitiesByType(ActivityConst.ACTIVITY_TYPE_SHOP), function (slot0)
+				return not slot0:isEnd()
+			end) or slot0:isEnd() then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+				return
+			end
+
+			uv0:emit(ActivityMediator.GO_SHOPS_LAYER, {
+				warp = NewShopsScene.TYPE_ACTIVITY,
+				actId = slot0.id
+			})
+		end)
+	end, SFX_PANEL)
+
+	slot0.fightBtn = slot0:findTF(&quot;fight&quot;, slot0.btnList)
+
+	onButton(slot0, slot0.fightBtn, function ()
+		uv0:PlayClickEffect(uv0.fightBtn, function ()
+			uv0:emit(ActivityMediator.BATTLE_OPERA)
+		end)
+	end, SFX_PANEL)
+	slot0:PlayOpenEffect()
+end
+
+slot0.PlayOpenEffect = function(slot0)
+	setActive(slot0.effectBlankScreen, true)
+	setActive(slot0.effectOpen, false)
+	slot0:managedTween(LeanTween.delayedCall, function ()
+		setActive(uv0.effectOpen, true)
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(uv1)
+	end, uv1, nil)
+	slot0:managedTween(LeanTween.delayedCall, function ()
+		setActive(uv0.effectBlankScreen, false)
+	end, uv2, nil)
+	slot0:managedTween(LeanTween.delayedCall, function ()
+		setActive(uv0.effectOpen, false)
+		setActive(uv0.effectBlink, true)
+	end, uv1 + uv3, nil)
+end
+
+slot0.PlayClickEffect = function(slot0, slot1, slot2)
+	setLocalPosition(slot0.effectClick, pg.UIMgr.GetInstance().OverlayEffect:GetChild(0) and slot3.localPosition:Sub(Vector3(192, 60, 0)) or slot1.localPosition)
+	setActive(slot0.effectClick, true)
+	slot0:managedTween(LeanTween.delayedCall, function ()
+		setActive(uv0.effectClick, false)
+
+		if uv1 then
+			uv1()
+		end
+	end, 0.3, nil)
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0:cleanManagedTween()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dexiv4framepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dexiv4framepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DexiV4FramePage&quot;, import(&quot;.TemplatePage.FrameTemplatePage&quot;))
+
+slot0.Switch = function(slot0, slot1)
+	slot0.isSwitching = true
+	slot2 = GetOrAddComponent(slot0.phases[1], typeof(CanvasGroup))
+
+	slot0.phases[2]:SetAsLastSibling()
+	setActive(slot0.phases[1]:Find(&quot;Image&quot;), false)
+	setLocalPosition(go(slot0.phases[1]), slot0.phases[2].localPosition)
+	setActive(slot0.phases[1]:Find(&quot;label&quot;), true)
+	LeanTween.value(go(slot0.phases[1]), 0, 1, 0.4):setOnUpdate(System.Action_float(function (slot0)
+		uv0.alpha = slot0
+	end))
+	setActive(slot0.phases[2]:Find(&quot;Image&quot;), true)
+
+	slot5 = GetOrAddComponent(slot0.phases[2], typeof(CanvasGroup))
+
+	LeanTween.value(go(slot0.phases[2]), 0, 1, 0.4):setOnUpdate(System.Action_float(function (slot0)
+		uv0.alpha = slot0
+	end))
+	setActive(slot0.phases[2]:Find(&quot;label&quot;), false)
+	setLocalPosition(go(slot0.phases[2]), slot0.phases[1].localPosition)
+
+	slot0.isSwitching = nil
+	slot0.phases[2] = slot0.phases[1]
+	slot0.phases[1] = slot0.phases[2]
+
+	slot0:UpdateAwardGot()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

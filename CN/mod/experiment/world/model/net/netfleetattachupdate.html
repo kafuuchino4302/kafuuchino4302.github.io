@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netfleetattachupdate.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>netfleetattachupdate.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NetFleetAttachUpdate&quot;, import(&quot;....BaseEntity&quot;))
+slot0.Fields = {
+	row = &quot;number&quot;,
+	column = &quot;number&quot;,
+	id = &quot;number&quot;
+}
+
+slot0.Setup = function(slot0, slot1)
+	slot0.id = slot1.item_id
+	slot0.row = slot1.pos.row
+	slot0.column = slot1.pos.column
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

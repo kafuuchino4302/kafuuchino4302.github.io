@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sg002.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>sg002.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		index = 1,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S001&quot;,
+				12003
+			}
+		}
+	},
+	{
+		index = 2,
+		end_segment = &quot;S003&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S002&quot;,
+				12009
+			},
+			{
+				&quot;S002_1&quot;,
+				12026
+			}
+		},
+		getSegment = function ()
+			return getProxy(BuildShipProxy):getFinishCount() &gt; 0 and 2 or 1
+		end
+	},
+	{
+		index = 3,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS004&quot;,
+				12103
+			}
+		}
+	},
+	{
+		index = 4,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS022&quot;,
+				13102
+			}
+		}
+	},
+	{
+		index = 5,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS023&quot;,
+				13104
+			}
+		}
+	},
+	{
+		index = 6,
+		end_segment = &quot;new.NS024_1&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS024&quot;,
+				13104
+			}
+		}
+	},
+	{
+		index = 7,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS025&quot;,
+				13104
+			}
+		}
+	},
+	{
+		index = 8,
+		interrupt = true,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;new.NS026&quot;,
+				40002
+			}
+		}
+	},
+	{
+		index = 9,
+		view = {
+			&quot;NewMainScene&quot;,
+			&quot;LevelScene&quot;
+		},
+		condition = {
+			arg = {
+				1,
+				40004
+			},
+			func = function (slot0, slot1)
+				if slot0 == &quot;NewMainScene&quot; then
+					return pg.SeriesGuideMgr.CODES.MAINUI, 8
+				elseif slot0 == &quot;LevelScene&quot; then
+					if not slot1 then
+						return pg.SeriesGuideMgr.CODES.CONDITION, 8
+					elseif slot1 then
+						if slot1.score &gt; 1 then
+							return pg.SeriesGuideMgr.CODES.CONDITION, 10
+						elseif slot1.total_time &gt;= 180 then
+							return pg.SeriesGuideMgr.CODES.CONDITION, 8
+						else
+							return pg.SeriesGuideMgr.CODES.CONDITION, 4
+						end
+					end
+				end
+			end
+		}
+	},
+	{
+		index = 10,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S027&quot;,
+				13104
+			}
+		}
+	},
+	{
+		index = 11,
+		interrupt = true,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S028&quot;,
+				40002
+			}
+		}
+	},
+	{
+		index = 12,
+		end_segment = &quot;new.NS029&quot;,
+		view = {
+			&quot;NewMainScene&quot;,
+			&quot;LevelScene&quot;
+		},
+		condition = {
+			arg = {
+				1,
+				40004
+			},
+			func = function (slot0, slot1)
+				if slot0 == &quot;NewMainScene&quot; then
+					return pg.SeriesGuideMgr.CODES.MAINUI, 11
+				elseif slot0 == &quot;LevelScene&quot; then
+					if not slot1 then
+						return pg.SeriesGuideMgr.CODES.CONDITION, 11
+					elseif slot1 then
+						if slot1.score &gt; 1 then
+							return pg.SeriesGuideMgr.CODES.CONDITION, 13
+						elseif slot1.total_time &gt;= 180 then
+							return pg.SeriesGuideMgr.CODES.CONDITION, 11
+						else
+							return pg.SeriesGuideMgr.CODES.CONDITION, 4
+						end
+					end
+				end
+			end
+		}
+	},
+	{
+		index = 13,
+		end_segment = &quot;S012&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S011&quot;,
+				20006
+			}
+		}
+	},
+	{
+		index = 14,
+		end_segment = &quot;S016&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S015&quot;,
+				14007
+			}
+		}
+	},
+	{
+		index = 15,
+		end_segment = &quot;S012&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S011&quot;,
+				20006
+			}
+		}
+	},
+	{
+		index = 16,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		condition = {
+			arg = {
+				2
+			},
+			func = function (slot0)
+				if slot0.getEquip(slot0, 2) then
+					return pg.SeriesGuideMgr.CODES.MAINUI, 17
+				end
+
+				return pg.SeriesGuideMgr.CODES.MAINUI, 16
+			end
+		},
+		segment = {
+			{
+				&quot;S017&quot;,
+				12007
+			}
+		}
+	},
+	{
+		index = 17,
+		end_segment = &quot;S019&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		segment = {
+			{
+				&quot;S018&quot;,
+				14003
+			}
+		}
+	},
+	{
+		index = 18,
+		end_segment = &quot;new.NG0037_1&quot;,
+		view = {
+			&quot;NewMainScene&quot;
+		},
+		condition = {
+			arg = {
+				3
+			},
+			func = function (slot0)
+				if slot0 then
+					return pg.SeriesGuideMgr.CODES.MAINUI, 18
+				end
+
+				return pg.SeriesGuideMgr.CODES.MAINUI, 19
+			end
+		},
+		segment = {
+			{
+				&quot;new.NG0037&quot;,
+				20012
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

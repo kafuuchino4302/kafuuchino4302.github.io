@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aterialyumiacorebuffmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>aterialyumiacorebuffmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AterialYumiaCoreBuffMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.SUBMIT_TASK = &quot;AterialYumiaCoreBuffMediator.SUBMIT_TASK&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.SUBMIT_TASK, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_TASK, slot1)
+	end)
+	slot0.viewComponent:SetActivity(getProxy(ActivityProxy):getActivityById(ActivityConst.YUMIA_EXPEDITION_BUFF_ACT_ID))
+end
+
+slot0.initNotificationHandleDic = function(slot0)
+	slot0.handleDic = {
+		[GAME.SUBMIT_TASK_AWARD_DOWN] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			slot0.viewComponent:UpdateView()
+			slot0.viewComponent:ShowUpgrade(nil, true)
+		end
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

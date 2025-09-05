@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipaddmoneycommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shipaddmoneycommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShipAddMoneyCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(19013, {
+		id = slot1:getBody()
+	}, 19014, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(BayProxy)
+			slot2 = slot1:getShipById(uv0)
+			slot3 = slot2.state_info_4
+			slot2.state_info_4 = 0
+
+			slot1:updateShip(slot2)
+
+			slot4 = getProxy(PlayerProxy)
+			slot5 = slot4:getData()
+
+			slot5:addResources({
+				dormMoney = slot3
+			})
+			slot4:updatePlayer(slot5)
+
+			if slot3 == 0 then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;backyard_getResource_emptry&quot;))
+			else
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;backyard_shipAddMoney_ok&quot;, slot2:getName(), slot3))
+			end
+
+			getProxy(DormProxy):UpdateInimacyAndMoney()
+			uv1:sendNotification(GAME.BACKYARD_ADD_MONEY_DONE, {
+				id = uv0
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;backyard_shipAddMoney&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

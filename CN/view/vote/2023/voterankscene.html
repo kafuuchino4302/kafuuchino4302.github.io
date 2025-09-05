@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voterankscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>voterankscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;VoteRankScene&quot;, import(&quot;..VoteScene&quot;))
+
+slot0.init = function(slot0)
+	uv0.super.init(slot0)
+	setActive(slot0:findTF(&quot;blur_panel/adapt/top/title_rank&quot;), true)
+	setActive(slot0:findTF(&quot;blur_panel/adapt/top/title&quot;), false)
+	setActive(slot0:findTF(&quot;main/right_panel/filter_bg&quot;), false)
+	setActive(slot0:findTF(&quot;main/right_panel/title/help&quot;), false)
+	setActive(slot0:findTF(&quot;main/right_panel/title/schedule&quot;), false)
+	setActive(slot0:findTF(&quot;main/right_panel/title/Text&quot;), false)
+end
+
+slot0.GetPageMap = function(slot0)
+	return {
+		[VoteConst.RACE_TYPE_PRE] = {
+			VotePreRaceShipPage,
+			VoteGroupRaceRankPage
+		},
+		[VoteConst.RACE_TYPE_GROUP] = {
+			VoteGroupRaceShipPage,
+			VoteGroupRaceRankPage
+		},
+		[VoteConst.RACE_TYPE_RESURGENCE] = {
+			VoteGroupRaceShipPage,
+			VoteGroupRaceRankPage
+		},
+		[VoteConst.RACE_TYPE_FINAL] = {
+			VoteFinalsRaceShipsPageForRank,
+			VoteFinalsRaceRankPage
+		},
+		[VoteConst.RACE_TYPE_PRE_RESURGENCE] = {
+			VoteGroupRaceShipPage,
+			VoteGroupRaceRankPage
+		},
+		[VoteConst.RACE_TYPE_FUN] = {
+			VoteFunRaceShipsPageForRank,
+			VoteFunRaceRankPage
+		}
+	}
+end
+
+slot0.initShips = function(slot0)
+	slot0.displays = {}
+	slot2 = getInputText(slot0.search)
+
+	for slot6, slot7 in ipairs(slot0.contextData.voteGroup:GetRankList()) do
+		table.insert(slot0.displays, slot7)
+	end
+
+	slot0.shipsPage:ExecuteAction(&quot;Update&quot;, slot0.contextData.voteGroup, slot0.displays, slot0:GetVotes())
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

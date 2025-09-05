@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_201329.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_201329.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;2025医院活动 无限循环回廊&quot;,
+	time = 0,
+	stack = 1,
+	id = 201329,
+	picture = &quot;&quot;,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 201333
+			}
+		},
+		{
+			type = &quot;BattleBuffAura&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 201330,
+				cld_data = {
+					box = {
+						range = 300
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

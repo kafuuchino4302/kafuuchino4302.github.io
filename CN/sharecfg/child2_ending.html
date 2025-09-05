@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child2_ending.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>child2_ending.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.child2_ending = {
+	{
+		pic_preview = &quot;oceana_ending1&quot;,
+		name = &quot;继续升学&quot;,
+		character = 1,
+		id = 1,
+		pic = &quot;bg_project_oceana_cg23&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA32&quot;,
+		condition_desc = {
+			{
+				{
+					300041
+				},
+				&quot;完成养成计划&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300041
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending2&quot;,
+		name = &quot;甜品能手&quot;,
+		character = 1,
+		id = 2,
+		pic = &quot;bg_project_oceana_cg24&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA33&quot;,
+		condition_desc = {
+			{
+				{
+					300001
+				},
+				&quot;总属性&gt;2000&quot;
+			},
+			{
+				{
+					300002
+				},
+				&quot;性格-乖巧&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300001,
+				300002
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending3&quot;,
+		name = &quot;调酒师&quot;,
+		character = 1,
+		id = 3,
+		pic = &quot;bg_project_oceana_cg25&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA34&quot;,
+		condition_desc = {
+			{
+				{
+					300001
+				},
+				&quot;总属性&gt;2000&quot;
+			},
+			{
+				{
+					300003
+				},
+				&quot;性格-叛逆&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300001,
+				300003
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending4&quot;,
+		name = &quot;自然摄影&quot;,
+		character = 1,
+		id = 4,
+		pic = &quot;bg_project_oceana_cg26&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA35&quot;,
+		condition_desc = {
+			{
+				{
+					300004
+				},
+				&quot;性格-乖巧&gt;80&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300004
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending5&quot;,
+		name = &quot;爆破大师&quot;,
+		character = 1,
+		id = 5,
+		pic = &quot;bg_project_oceana_cg27&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA36&quot;,
+		condition_desc = {
+			{
+				{
+					300005
+				},
+				&quot;性格-叛逆&gt;80&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300005
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending6&quot;,
+		name = &quot;心理咨询师&quot;,
+		character = 1,
+		id = 6,
+		pic = &quot;bg_project_oceana_cg28&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA37&quot;,
+		condition_desc = {
+			{
+				{
+					300027
+				},
+				&quot;知识&gt;6000&quot;
+			},
+			{
+				{
+					300023
+				},
+				&quot;完成特殊结局事件&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300027,
+				300023
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending7&quot;,
+		name = &quot;安全专家&quot;,
+		character = 1,
+		id = 7,
+		pic = &quot;bg_project_oceana_cg29&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA38&quot;,
+		condition_desc = {
+			{
+				{
+					300028
+				},
+				&quot;实践&gt;7200&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300028
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending8&quot;,
+		name = &quot;露营指导&quot;,
+		character = 1,
+		id = 8,
+		pic = &quot;bg_project_oceana_cg30&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA39&quot;,
+		condition_desc = {
+			{
+				{
+					300029
+				},
+				&quot;感知&gt;6000&quot;
+			},
+			{
+				{
+					300024
+				},
+				&quot;外出旅游次数&gt;=20&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300029,
+				300024
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending9&quot;,
+		name = &quot;摩托骑士&quot;,
+		character = 1,
+		id = 9,
+		pic = &quot;bg_project_oceana_cg31&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA40&quot;,
+		condition_desc = {
+			{
+				{
+					300030
+				},
+				&quot;体能&gt;6000&quot;
+			},
+			{
+				{
+					300022
+				},
+				&quot;完成特殊结局事件&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300030,
+				300022
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending10&quot;,
+		name = &quot;宠物医生&quot;,
+		character = 1,
+		id = 10,
+		pic = &quot;bg_project_oceana_cg32&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA41&quot;,
+		condition_desc = {
+			{
+				{
+					300033
+				},
+				&quot;知识&gt;4000&quot;
+			},
+			{
+				{
+					300031
+				},
+				&quot;总属性&gt;10000&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300033,
+				300031
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending11&quot;,
+		name = &quot;摇滚歌手&quot;,
+		character = 1,
+		id = 11,
+		pic = &quot;bg_project_oceana_cg33&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA42&quot;,
+		condition_desc = {
+			{
+				{
+					300034
+				},
+				&quot;体能&gt;4000&quot;
+			},
+			{
+				{
+					300031
+				},
+				&quot;总属性&gt;10000&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300034,
+				300031
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending12&quot;,
+		name = &quot;闪耀明星&quot;,
+		character = 1,
+		id = 12,
+		pic = &quot;bg_project_oceana_cg34&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA43&quot;,
+		condition_desc = {
+			{
+				{
+					300035
+				},
+				&quot;感知&gt;4000&quot;
+			},
+			{
+				{
+					300031
+				},
+				&quot;总属性&gt;10000&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300035,
+				300031
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending13&quot;,
+		name = &quot;见习护士&quot;,
+		character = 1,
+		id = 13,
+		pic = &quot;bg_project_oceana_cg35&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA44&quot;,
+		condition_desc = {
+			{
+				{
+					300036
+				},
+				&quot;实践&gt;1600&quot;
+			},
+			{
+				{
+					300032
+				},
+				&quot;总属性&gt;4000&quot;
+			},
+			{
+				{
+					300003
+				},
+				&quot;性格-叛逆&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300036,
+				300032,
+				300003
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending14&quot;,
+		name = &quot;动物园园长&quot;,
+		character = 1,
+		id = 14,
+		pic = &quot;bg_project_oceana_cg36&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA45&quot;,
+		condition_desc = {
+			{
+				{
+					300037
+				},
+				&quot;感知&gt;1600&quot;
+			},
+			{
+				{
+					300032
+				},
+				&quot;总属性&gt;4000&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300037,
+				300032
+			}
+		}
+	},
+	{
+		pic_preview = &quot;oceana_ending15&quot;,
+		name = &quot;修理达人&quot;,
+		character = 1,
+		id = 15,
+		pic = &quot;bg_project_oceana_cg37&quot;,
+		performance = &quot;LINGYANGZHEYANGCHENGJIHUA46&quot;,
+		condition_desc = {
+			{
+				{
+					300038
+				},
+				&quot;体能&gt;1600&quot;
+			},
+			{
+				{
+					300032
+				},
+				&quot;总属性&gt;4000&quot;
+			}
+		},
+		condition = {
+			&quot;&amp;&amp;&quot;,
+			{
+				300038,
+				300032
+			}
+		}
+	},
+	get_id_list_by_character = {
+		{
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

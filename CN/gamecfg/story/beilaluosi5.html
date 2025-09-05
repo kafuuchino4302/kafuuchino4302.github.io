@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beilaluosi5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>beilaluosi5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;BEILALUOSI5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;飒爽之白\n\n&lt;size=45&gt;五 朦胧之中&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;北方联合，不可小瞧啊……&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;受酒精影响，意识变得有些朦胧，但是依然察觉到现在正处在一个非常可怕的状况下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官同志～还没到我房间吗～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真是的，你又去找罗西亚又去找甘古特的～要不是我，你是要被她们一直灌到早上的啊～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;背后传来了平时英姿飒爽的她绝对无法发出的软趴趴的声音。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哼，要不是我救了你，你不得被喝得烂醉如泥……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 705040,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;要向伙伴们打听我的事也行，不过……嗝，至少选点合适的对象啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我就知道你这种温柔的老好人最后肯定会变成这个样子，所以就和罗西亚打了个赌……当然，这次也是我赢了呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			say = &quot;虽然向伙伴们打听到了贝拉罗斯的各种信息，但同时也被灌了不少……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官同志…你回来了啊……Zzzzz&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			say = &quot;回到坐位时，身旁的秘书舰————贝拉罗斯一下子倒了过来。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊啦，这下可麻烦了…两个人今天都有些努力过头了啊…&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 702040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯，看起来也不能再喝了啊……虽然有些遗憾，不过今天就到此为止吧？&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			say = &quot;伙伴们都关切地看了过来。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			say = &quot;因为自己不胜酒力而让大家不能继续享受欢迎会的话就不太好了啊……&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官同志…不好意思…能送我回宿舍么……&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_107&quot;,
+			dir = 1,
+			say = &quot;——就这样被贝拉罗斯解救了。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;然后，就这样背着烂醉如泥的贝拉罗斯来到了她的房门前……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;因为北方联合的舰船们全部去了宴会，宿舍里现在一个人都没有……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 705040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官同志…怎么了…？你已经一步都走不动了哦……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 705040,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;房间门没锁哦…就差一点了……加油……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;…………不能就这样把贝拉罗斯放在门外不管啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;下定决心打开房门，将贝拉罗斯放到了她的床上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_1100&quot;,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			say = &quot;也许是因为任务完成的安心感，突然放松的意识只在一瞬间就被名为“伏特加”的北方联合强大武器彻底攻陷了……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

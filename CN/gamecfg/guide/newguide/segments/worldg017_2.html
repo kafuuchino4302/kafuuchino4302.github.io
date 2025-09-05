@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg017_2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg017_2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG017_2&quot;,
+	events = {
+		{
+			alpha = 0,
+			stories = {
+				&quot;WNX03&quot;
+			}
+		},
+		{
+			alpha = 0,
+			doFunc = function ()
+				WorldConst.GuideEnemyEnd = true
+			end
+		},
+		{
+			alpha = 0.3,
+			ui = {
+				pathIndex = -1,
+				path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/PauseBtn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -60.78,
+					posX = 43.25
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/Msgbox/window/button_container/leave&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -60.47,
+					posX = 39.02
+				}
+			}
+		},
+		{
+			alpha = 0,
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/Msgbox(Clone)/window/button_container/custom_button_3(Clone)&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -38,
+					posX = 120.46
+				}
+			}
+		},
+		{
+			delay = 1,
+			alpha = 0,
+			stories = {
+				&quot;WNX03B&quot;
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;点击撤退&quot;,
+				mode = 2,
+				dir = -1,
+				posY = -239.55,
+				posX = 101.51
+			},
+			ui = {
+				pathIndex = -999,
+				scale = 1.5,
+				path = &quot;LevelCamera/Canvas/UIMain/LevelGrid/DragLayer/plane/top&quot;,
+				pos = {
+					z = 0,
+					x = 132.58,
+					y = 0
+				},
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -50,
+					posX = 50
+				}
+			}
+		},
+		{
+			alpha = 0,
+			doFunc = function ()
+				WorldConst.GuideEnemyEnd = false
+			end
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

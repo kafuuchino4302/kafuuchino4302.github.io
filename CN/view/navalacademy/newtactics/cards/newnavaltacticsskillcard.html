@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newnavaltacticsskillcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newnavaltacticsskillcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewNavalTacticsSkillCard&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._tf = slot1
+	slot0.icon = findTF(slot0._tf, &quot;icon&quot;):GetComponent(typeof(Image))
+	slot0.descTxt = findTF(slot0._tf, &quot;descView/desc&quot;):GetComponent(typeof(Text))
+	slot0.nextTxt = findTF(slot0._tf, &quot;next&quot;):GetComponent(typeof(Text))
+end
+
+slot0.Enable = function(slot0)
+	setActive(slot0._tf, true)
+end
+
+slot0.Disable = function(slot0)
+	setActive(slot0._tf, false)
+end
+
+slot0.Update = function(slot0, slot1, slot2)
+	changeToScrollText(slot0._tf:Find(&quot;name/Text&quot;), slot1:GetName())
+
+	slot0.descTxt.text = slot1:GetTacticsDesc()
+
+	setText(slot0._tf:Find(&quot;name/level&quot;), &quot;Lv.&quot; .. slot1.level .. (slot2 and slot2 &gt; 0 and &quot;  &lt;color=#A9F548FF&gt;+&quot; .. slot2 .. &quot;&lt;/color&gt;&quot; or &quot;&quot;))
+
+	if slot1:IsMaxLevel() then
+		slot0.nextTxt.text = &quot;MAX&quot;
+	else
+		slot0.nextTxt.text = &quot;&lt;color=#A9F548FF&gt;&quot; .. slot1.exp .. &quot;&lt;/color&gt;/&quot; .. slot1:GetNextLevelExp()
+	end
+
+	LoadSpriteAsync(&quot;skillicon/&quot; .. slot1:GetIcon(), function (slot0)
+		uv0.icon.sprite = slot0
+	end)
+end
+
+slot0.Dispose = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

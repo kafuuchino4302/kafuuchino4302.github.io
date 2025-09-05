@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>educateconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>educateconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EducateConst&quot;)
+slot0.PLANS_DATA_KEY = &quot;EDUCATE_PLAN_&quot;
+slot0.SKIP_PLANS_ANIM_KEY = &quot;EDUCATE_PLAN_SKIP&quot;
+slot0.DROP_TYPE_ATTR = 1
+slot0.DROP_TYPE_RES = 2
+slot0.DROP_TYPE_ITEM = 3
+slot0.DROP_TYPE_MEMORY = 4
+slot0.DROP_TYPE_POLAROID = 5
+slot0.DROP_TYPE_BUFF = 6
+slot0.PERFORM_TYPE_ANIM = 1
+slot0.PERFORM_TYPE_OPTION = 2
+slot0.PERFORM_TYPE_MINIGAME = 3
+slot0.PERFORM_TYPE_WORD = 4
+slot0.PERFORM_TYPE_STORY = 5
+slot0.PERFORM_TYPE_BUBBLE = 6
+slot0.PERFORM_TYPE_PICTURE = 7
+slot0.WORD_TYPE_CHILD = 1
+slot0.WORD_TYPE_PLAYER = 2
+slot0.WORD_TYPE_ASIDE = 3
+slot0.STATUES_PREPARE = 1
+slot0.STATUES_NORMAL = 2
+slot0.STATUES_ENDING = 3
+slot0.STATUES_RESET = 4
+slot0.GRADE_2_COLOR = {
+	A = {
+		&quot;c2e1f1&quot;,
+		&quot;6cd2ff&quot;
+	},
+	B = {
+		&quot;c5cdff&quot;,
+		&quot;99bbff&quot;
+	},
+	C = {
+		&quot;d6d7f1&quot;,
+		&quot;bec0dd&quot;
+	},
+	D = {
+		&quot;dedede&quot;,
+		&quot;cfcfd3&quot;
+	}
+}
+slot0.REVIEW_GROUP_ID = 1000
+slot0.SYSTEM_GO_OUT = &quot;EDUCATE_SYSTEM_GO_OUT&quot;
+slot0.SYSTEM_MEMORY = &quot;EDUCATE_SYSTEM_MEMORY&quot;
+slot0.SYSTEM_POLAROID = &quot;EDUCATE_SYSTEM_POLAROID&quot;
+slot0.SYSTEM_ENDING = &quot;EDUCATE_SYSTEM_ENDING&quot;
+slot0.SYSTEM_FAVOR_AND_MIND = &quot;EDUCATE_SYSTEM_FAVOR_AND_MIND&quot;
+slot0.SYSTEM_BUFF = &quot;EDUCATE_SYSTEM_BUFF&quot;
+slot0.SYSTEM_ATTR_2 = &quot;EDUCATE_SYSTEM_ATTR_2&quot;
+slot0.SYSTEM_ATTR_3 = &quot;EDUCATE_SYSTEM_ATTR_3&quot;
+slot0.SYSTEM_BAG = &quot;EDUCATE_SYSTEM_BAG&quot;
+slot0.SYSTEM_UNLOCK_CONFIG = {
+	[slot0.SYSTEM_GO_OUT] = {
+		&quot;child_out_unlock&quot;,
+		false
+	},
+	[slot0.SYSTEM_MEMORY] = {
+		&quot;child_memory_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_POLAROID] = {
+		&quot;child_polaroid_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_ENDING] = {
+		&quot;child_ending_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_FAVOR_AND_MIND] = {
+		&quot;child_intimacy_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_BUFF] = {
+		&quot;child_buff_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_ATTR_2] = {
+		&quot;child_attr2_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_ATTR_3] = {
+		&quot;child_attr3_unlock&quot;,
+		true
+	},
+	[slot0.SYSTEM_BAG] = {
+		&quot;child_item_unlock&quot;,
+		true
+	}
+}
+slot0.SECRETARY_UNLCOK_TYPE_DEFAULT = 1
+slot0.SECRETARY_UNLCOK_TYPE_POLAROID = 2
+slot0.SECRETARY_UNLCOK_TYPE_ENDING = 3
+slot0.SECRETARY_UNLCOK_TYPE_SHOP = 4
+slot0.SECRETARY_UNLCOK_TYPE_STORY = 5
+slot0.FIRST_ENTER_PERFORM_IDS = {
+	101,
+	102,
+	103,
+	104,
+	105
+}
+slot0.AFTER_SET_CALLNAME_PERFORM_ID = 106
+slot0.ENTER_NEW_STAGE_PERFORMS = {
+	nil,
+	111,
+	113,
+	119
+}
+slot0.FIRST_ENTER_END_PERFORM = 132
+slot0.AFTER_END_PERFORM = 144
+slot0.MAIN_TASK_ID_1 = 101
+slot0.MAIN_TASK_ID_2 = 102
+slot0.FORCE_SKIP_PLAN_PERFORM = false
+slot0.SECRETARY_TYPE_SP = 7
+
+slot0.CheckAllCollectionTrack = function()
+	slot0 = 0
+	slot1 = {}
+
+	for slot5, slot6 in ipairs(getProxy(EducateProxy):GetMemories()) do
+		slot1[slot6] = true
+	end
+
+	for slot5, slot6 in ipairs(pg.child_memory.all) do
+		slot7 = pg.child_memory[slot6]
+
+		if not slot1[slot6] then
+			slot0 = -1
+
+			break
+		else
+			slot0 = slot0 + 1
+		end
+	end
+
+	if slot0 &lt; 0 then
+		return
+	end
+
+	slot2 = pg.NewStoryMgr.GetInstance()
+
+	for slot6, slot7 in ipairs(pg.child2_memory.all) do
+		if not slot2:IsPlayed(pg.child2_memory[slot7].lua) then
+			slot0 = -1
+
+			break
+		else
+			slot0 = slot0 + 1
+		end
+	end
+
+	if PlayerPrefs.GetInt(&quot;EDUCATE_ALL_COLLECTION:&quot; .. getProxy(PlayerProxy):getRawData().id, 0) &lt; slot0 then
+		PlayerPrefs.SetInt(&quot;EDUCATE_ALL_COLLECTION:&quot; .. slot3, slot0)
+		pg.GameTrackerMgr.GetInstance():Record(GameTrackerBuilder.BuildAllCollection(20003, slot0))
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

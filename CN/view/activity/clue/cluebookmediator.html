@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cluebookmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cluebookmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ClueBookMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_TASK_SUBMIT_ONESTEP = &quot;ClueBookMediator.ON_TASK_SUBMIT_ONESTEP&quot;
+slot0.OPEN_SINGLE_CLUE_GROUP = &quot;ClueBookMediator.OPEN_SINGLE_CLUE_GROUP&quot;
+slot0.OPEN_CLUE_JUMP = &quot;ClueBookMediator.OPEN_CLUE_JUMP&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_TASK_SUBMIT_ONESTEP, function (slot0, slot1, slot2, slot3)
+		uv0:sendNotification(GAME.SUBMIT_ACTIVITY_TASK, {
+			act_id = slot1,
+			task_ids = slot2,
+			callback = slot3
+		})
+	end)
+	slot0:bind(uv0.OPEN_SINGLE_CLUE_GROUP, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			viewComponent = ClueGroupSingleView,
+			mediator = ClueGroupSingleMediator,
+			data = {
+				clueGroupId = slot1
+			}
+		}))
+	end)
+	slot0:bind(uv0.OPEN_CLUE_JUMP, function (slot0, slot1)
+		uv0:sendNotification(ClueMapMediator.OPEN_CLUE_JUMP, {
+			jumpID = slot1
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.SUBMIT_ACTIVITY_TASK_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.SUBMIT_ACTIVITY_TASK_DONE then
+		if #slot3.awards &gt; 0 then
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+		end
+
+		slot0.viewComponent:UpdateView()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trainingcampmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>trainingcampmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TrainingCampMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_GET = &quot;TrainingCampMediator:ON_GET&quot;
+slot0.ON_GO = &quot;TrainingCampMediator:ON_GO&quot;
+slot0.ON_TRIGGER = &quot;TrainingCampMediator:ON_TRIGGER&quot;
+slot0.ON_SELECTABLE_GET = &quot;TrainingCampMediator:ON_SELECTABLE_GET&quot;
+slot0.ON_UPDATE = &quot;TrainingCampMediator:ON_UPDATE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_UPDATE, function (slot0, slot1)
+		uv0:sendNotification(GAME.UPDATE_TASK_PROGRESS, {
+			taskId = slot1.id
+		})
+	end)
+	slot0:bind(uv0.ON_SELECTABLE_GET, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SUBMIT_TASK, {
+			taskId = slot1.id,
+			index = slot2
+		})
+	end)
+	slot0:bind(uv0.ON_GET, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_TASK, slot1.id)
+	end)
+	slot0:bind(uv0.ON_GO, function (slot0, slot1)
+		if slot1:getConfig(&quot;scene&quot;) and #slot2 &gt; 0 then
+			if slot2[1] == &quot;LEVEL&quot; and slot2[2] and slot2[2].chapterid then
+				uv0:goToLevel(slot2[2].chapterid)
+			elseif SCENE[slot2[1]] then
+				uv0:sendNotification(GAME.GO_SCENE, SCENE[slot2[1]], slot2[2])
+			end
+		else
+			uv0:sendNotification(GAME.TASK_GO, {
+				taskVO = slot1
+			})
+		end
+	end)
+	slot0:bind(uv0.ON_TRIGGER, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, slot1)
+	end)
+end
+
+slot0.TASK_ADDED = &quot;task added&quot;
+slot0.TASK_UPDATED = &quot;task updated&quot;
+slot0.TASK_REMOVED = &quot;task removed&quot;
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		TaskProxy.TASK_UPDATED,
+		TaskProxy.TASK_REMOVED,
+		GAME.SUBMIT_TASK_DONE,
+		ActivityProxy.ACTIVITY_OPERATION_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == TaskProxy.TASK_UPDATED or slot2 == TaskProxy.TASK_REMOVED then
+		slot0.viewComponent:switchPageByMediator()
+		slot0.viewComponent:updateSwitchBtnsTag()
+	elseif slot2 == GAME.SUBMIT_TASK_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3)
+		slot0.viewComponent:switchPageByMediator()
+		slot0.viewComponent:updateSwitchBtnsTag()
+	elseif slot2 == ActivityProxy.ACTIVITY_OPERATION_DONE then
+		slot0.viewComponent:tryShowTecFixTip(slot3)
+		slot0.viewComponent:switchPageByMediator()
+		slot0.viewComponent:updateSwitchBtnsTag()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

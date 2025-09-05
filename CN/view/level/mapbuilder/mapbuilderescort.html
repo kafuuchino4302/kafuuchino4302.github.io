@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapbuilderescort.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mapbuilderescort.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MapBuilderEscort&quot;, import(&quot;.MapBuilderPermanent&quot;))
+
+slot0.GetType = function(slot0)
+	return MapBuilder.TYPEESCORT
+end
+
+slot0.getUIName = function(slot0)
+	return &quot;escort_levels&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.tpl = slot0._tf:Find(&quot;escort_level_tpl&quot;)
+	slot0.itemHolder = slot0._tf:Find(&quot;items&quot;)
+end
+
+slot0.UpdateView = function(slot0)
+	slot3 = 1
+
+	if slot0.map.rect.width / slot0.map.rect.height &lt; slot0._parentTf.rect.width / slot0._parentTf.rect.height then
+		slot3 = slot0._parentTf.rect.width / 1280
+		slot0._tf.localScale = Vector3(slot3, slot3, 1)
+	else
+		slot3 = slot0._parentTf.rect.height / 720
+		slot0._tf.localScale = Vector3(slot3, slot3, 1)
+	end
+
+	slot0.scaleRatio = slot3
+
+	setText(slot0.sceneParent.chapterName, string.split(slot0.contextData.map:getConfig(&quot;name&quot;), &quot;||&quot;)[1])
+	slot0.sceneParent.loader:GetSprite(&quot;chapterno&quot;, &quot;chapterex&quot;, slot0.sceneParent.chapterNoTitle, true)
+	uv0.super.UpdateView(slot0)
+end
+
+slot0.UpdateEscortInfo = function(slot0)
+	slot1 = getProxy(ChapterProxy)
+	slot2 = slot1:getMaxEscortChallengeTimes()
+	slot4 = slot0.sceneParent.escortBar
+
+	setText(slot4:Find(&quot;times/text&quot;), slot2 - slot1.escortChallengeTimes .. &quot;/&quot; .. slot2)
+	onButton(slot0.sceneParent, slot0.sceneParent.mapHelpBtn, function ()
+		uv0.sceneParent:HandleShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = i18n(&quot;levelScene_escort_help_tip&quot;)
+		})
+	end, SFX_PANEL)
+end
+
+slot0.UpdateMapItems = function(slot0)
+	uv0.super.UpdateMapItems(slot0)
+	slot0:UpdateEscortInfo()
+
+	slot1 = slot0.data
+	slot2 = getProxy(ChapterProxy)
+	slot2 = slot2:getEscortChapterIds()
+
+	UIItemList.StaticAlign(slot0.itemHolder, slot0.tpl, #_.filter(slot1:getChapters(), function (slot0)
+		return table.contains(uv0, slot0.id)
+	end), function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		uv0:UpdateEscortItem(slot2, uv1[slot1 + 1].id, uv1[slot1 + 1])
+	end)
+end
+
+slot0.UpdateEscortItem = function(slot0, slot1, slot2, slot3)
+	slot4 = pg.escort_template[slot2]
+
+	assert(slot4, &quot;escort template not exist: &quot; .. slot2)
+
+	slot1.name = &quot;chapter_&quot; .. slot3.id
+	slot6 = slot0.map.rect
+	slot1.anchoredPosition = Vector2(slot6.width / slot0.scaleRatio * (tonumber(slot4.pos_x) - 0.5), slot6.height / slot0.scaleRatio * (tonumber(slot4.pos_y) - 0.5))
+	slot8 = getProxy(ChapterProxy):getActiveChapter(true) and slot5.id == slot3.id
+
+	setActive(slot1:Find(&quot;fighting&quot;), slot8)
+	slot0:DeleteTween(&quot;fighting&quot; .. slot3.id)
+
+	if slot8 then
+		setImageAlpha(slot7, 1)
+		slot0:RecordTween(&quot;fighting&quot; .. slot3.id, LeanTween.alpha(slot7, 0, 0.5):setEase(LeanTweenType.easeInOutSine):setLoopPingPong().uniqueId)
+	end
+
+	GetImageSpriteFromAtlasAsync(&quot;levelmap/mapquad/&quot; .. slot4.pic, &quot;&quot;, slot1, true)
+
+	slot9 = slot1:Find(&quot;anim&quot;)
+	slot13 = ({
+		Color.green,
+		Color.yellow,
+		Color.red
+	})[table.indexof(getProxy(ChapterProxy):getEscortChapterIds(), slot2) or 1]
+
+	for slot18, slot19 in ipairs(slot9:GetComponentsInChildren(typeof(Image)):ToTable()) do
+		slot19.color = slot13
+	end
+
+	setImageColor(slot1, slot13)
+
+	slot15 = slot3.id
+
+	onButton(slot0, slot1, function ()
+		uv0:TryOpenChapterInfo(uv1)
+	end, SFX_PANEL)
+end
+
+slot0.OnShow = function(slot0)
+	uv0.super.OnShow(slot0)
+	setActive(slot0.sceneParent.mainLayer:Find(&quot;title_chapter_lines&quot;), true)
+	setActive(slot0.sceneParent.topChapter:Find(&quot;title_chapter&quot;), true)
+	setActive(slot0.sceneParent.topChapter:Find(&quot;type_escort&quot;), true)
+	setActive(slot0.sceneParent.escortBar, true)
+	setActive(slot0.sceneParent.mapHelpBtn, true)
+end
+
+slot0.OnHide = function(slot0)
+	setActive(slot0.sceneParent.mainLayer:Find(&quot;title_chapter_lines&quot;), false)
+	setActive(slot0.sceneParent.topChapter:Find(&quot;title_chapter&quot;), false)
+	setActive(slot0.sceneParent.topChapter:Find(&quot;type_escort&quot;), false)
+	setActive(slot0.sceneParent.escortBar, false)
+	setActive(slot0.sceneParent.mapHelpBtn, false)
+	uv0.super.OnHide(slot0)
+end
+
+slot0.HideFloat = function(slot0)
+	setActive(slot0.itemHolder, false)
+end
+
+slot0.ShowFloat = function(slot0)
+	setActive(slot0.itemHolder, true)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

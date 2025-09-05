@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation42.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation42.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION42&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			actorName = 20220,
+			side = 2,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFFFFF&quot;,
+			say = &quot;过去仅仅作为女仆侍奉在您左右，就足以让天狼星感到满足。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							param = &quot;Play&quot;,
+							name = &quot;shy&quot;,
+							time = 0,
+							type = &quot;action&quot;,
+							skip = true
+						},
+						{
+							skip = false,
+							time = 1,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			actorName = 20220,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			say = &quot;现在明明与{dorm3d}的关系已经……我却还是越来越贪心……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 20220,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			say = &quot;是您让天狼星改变了呢，我骄傲的{dorm3d}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;是变得更好，还是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 20220,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			say = &quot;天狼星不知道哦……天狼星只知道自己现在越发无法离开您了，我骄傲的{dorm3d}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

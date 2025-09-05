@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffdeactivecldbox.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffdeactivecldbox.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleBuffDeactiveCLDBox = class(&quot;BattleBuffDeactiveCLDBox&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffDeactiveCLDBox.__name = &quot;BattleBuffDeactiveCLDBox&quot;
+slot1 = slot0.Battle.BattleBuffDeactiveCLDBox
+
+slot1.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+end
+
+slot1.GetEffectType = function(slot0)
+	return uv0.FX_TYPE
+end
+
+slot1.onAttach = function(slot0, slot1, slot2)
+	slot1:SetCldBoxImmune(true)
+end
+
+slot1.onRemove = function(slot0, slot1, slot2)
+	slot1:SetCldBoxImmune(false)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

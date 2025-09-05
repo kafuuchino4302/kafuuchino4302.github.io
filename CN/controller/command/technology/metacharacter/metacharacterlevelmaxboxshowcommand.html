@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharacterlevelmaxboxshowcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharacterlevelmaxboxshowcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterLevelMaxBoxShowCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+
+	if not getProxy(MetaCharacterProxy) then
+		return
+	end
+
+	slot6 = nil
+
+	if getProxy(ChapterProxy):getActiveChapter() then
+		slot6 = slot4:GetChapterAutoFlag(slot5.id) == 1
+	end
+
+	if slot6 then
+		return
+	end
+
+	if slot3:getMetaSkillLevelMaxInfoList() and #slot7 &gt; 0 then
+		slot8 = &quot;&quot;
+
+		for slot12, slot13 in ipairs(slot7) do
+			slot15 = slot13.metaSkillID
+			slot16 = setColorStr(slot13.metaShipVO:getName(), COLOR_GREEN)
+			slot8 = slot12 &lt; #slot7 and slot8 .. slot16 .. &quot;、&quot; or slot8 .. slot16 .. &quot;、&quot; .. slot16
+		end
+
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;meta_skill_maxtip&quot;, slot8),
+			onYes = function ()
+				pg.m02:sendNotification(GAME.GO_SCENE, SCENE.METACHARACTER, {
+					autoOpenTactics = true,
+					autoOpenShipConfigID = uv0[1].metaShipVO.configId
+				})
+			end,
+			onClose = function ()
+				if uv0.closeFunc then
+					uv0.closeFunc()
+				end
+			end,
+			weight = LayerWeightConst.TOP_LAYER
+		})
+	end
+
+	slot3:clearMetaSkillLevelMaxInfoList()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

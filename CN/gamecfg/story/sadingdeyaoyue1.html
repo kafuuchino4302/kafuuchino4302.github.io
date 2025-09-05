@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sadingdeyaoyue1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>sadingdeyaoyue1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SADINGDEYAOYUE1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;撒丁的邀约\n\n&lt;size=45&gt;一　令世人瞩目&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;battle-boss-italy&quot;,
+			say = &quot;撒丁帝国·会议室&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;久等了，撒丁帝国的盟友们。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;关于贵方提出的世界博览会参展邀请，铁血决定应约参展。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这个结果不知二位可否满意呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = false,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这真是一个令人振奋的好消息。非常感谢，{namecode:435}阁下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;有了铁血的支持，这次博览会一定会闪耀出更加夺目的光芒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，您言重了，维内托阁下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;撒丁帝国是铁血忠实的盟友，你们想要做的事，我们自然会全力支持。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;为了确保博览会顺利举行而延长停火协议的事自然也没问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这件事是赤色中轴内的多数共识，我们已经在安排推进了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;不论过去发生了什么，未来又将发生什么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;至少当下的和平是值得每一个人珍惜的，铁血自然也不例外。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我已经将博览会的事交给了{namecode:427}，她在近日就会带队抵达罗马。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;在博览会期间，她可以全权代表铁血处理一切相关事务。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这么安排，你们看可以么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = false,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我们当然没问题。{namecode:427}办事认真可靠，她的能力是有目共睹的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;撒丁帝国由衷欢迎铁血代表团的到来~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那就太好了。我在此预祝本次由撒丁帝国主办的世界博览会能够取得圆满成功——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_italy&quot;,
+			bgm = &quot;story-italy&quot;,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;呼…………终于结束了，我们的博览会计划总算是有了个好的开头……&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯？刚才谈的不是挺顺利的…你这幅表情是怎么回事啊……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我这副表情是……压力的具现化！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我是真的完全没想到有生之年还能再见到{namecode:435}，更别提跟她开会了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;铁血这件事做的也太夸张了，不论是治疗技术还是保密水平……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;是啊~真没想到{namecode:435}居然能完好无损的回来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;不过这不也挺好么？以后不用再跟隔着通讯器都能释放压力的{namecode:440}打交道了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435}相比{namecode:440}确实更有人情味一点，不过总感觉她，不够可信……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;利托里奥，你说铁血这次不会在博览会期间发动进攻吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……好问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;按照逻辑来看，不会。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;此前由北方联合牵头的打击行动，如果不是因为{namecode:440}的惊人之举是不可能鸣金收兵的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;以后的事虽然不好说，不过现在的铁血比所有阵营都更需要这场和平。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;我觉得她应该不会趁机……去做些什么吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;怎么连你也这么不确定了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;逻辑终究是逻辑，毕竟是那个{namecode:435}，我也实在是拿不准啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;不过最起码！我们有绝对有能力保证在陆间海中不会有此类事件发生。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;只要会场不出乱子，我们也算是尽到东道主的责任了嘛~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;现在铁血表示了支持，重樱与维希教廷肯定也没问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;至于碧蓝航线……北方联合肯定会支持我们，更多的支持相信也只是时间问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这种既能扩大影响力，听起来好听又没什么成本的活动，她们是绝对不会错过的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;在世界局势有所缓和的当下，举办一场世界博览会真是再合适不过了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;倒不如说就算我们不提出来，恐怕也有别的阵营在做这个打算。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，这次是被我们撒丁帝国抢占了先机呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;届时，各国齐聚的博览会会场就是展现撒丁帝国威仪的最好舞台！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;马可波罗偶尔还是能提出来些有价值的建议啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;利托里奥，一会陪我去浴场泡个澡吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			actor = 605010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来还有场馆的设计工作，人在放松的时候更容易想出好点子哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_italy&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 605020,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;非常赞同，乐意奉陪——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haidaosuiji9-1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>haidaosuiji9-1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;HAIDAOSUIJI9-1&quot;,
+	mode = 2,
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;尽管这些蘑菇看起来有些怪异，不过只是躺上去休息一会的话，应该不会有事……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这样想着，你躺到蘑菇上开始休息。柔软如天鹅绒的触感包裹了你，意识向着黑色的{namecode:10}水中沉下去……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……当再次睁开眼的时候，自己已经身处在一处满是宝藏的洞穴当中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;陈旧但依然不失奢华的宝箱在洞穴中央的高脚石台上居高临下地俯瞰着你——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;收下这份礼物&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;……我必须立刻醒来。&quot;,
+					flag = 2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

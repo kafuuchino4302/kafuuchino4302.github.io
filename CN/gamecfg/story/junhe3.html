@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>junhe3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>junhe3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;JUNHE3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;从内到外魅力MAX！\n\n&lt;size=45&gt;三　想要低调可不容易&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;港区·街道&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;那天之后，{namecode:175}还是继续担任着秘书舰。虽然有时指挥室内还是会陷入之前那样的尴尬局面……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;此刻正和{namecode:175}一同前往演习海域的路上，一路上好像擦肩而过了不少人……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;突然想到，现在这个双方彼此之间互不对话只是低着头默默的走着路的状况……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;应该算是{namecode:175}讨厌的“显眼”情况吧？虽说也是最近才知道的……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那个……指挥官，总，总，总之聊些什么吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;{namecode:175}也有些着急，看来猜中了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;顺便也提个话题吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;嗯……那么，就问问那件事好了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;为什么这么讨厌“显眼”呢？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;问得真直接……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好吧，那就趁这个机会告诉你好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;不禁对{namecode:175}会怎样回答产生了好奇——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽然我是这样的性格，但也不是没朋友就是了——&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;那就好，放心了。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;诶，有些意外。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……看着不像在逗我，那我就继续说了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305140,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我的朋友里，有位总是想惹人注目的人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;……意思是，如果比那位朋友更显眼的话，会有什么不好的地方？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官很敏锐嘛，而且也差不多走到了，很快你就能了解详情了哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			say = &quot;和{namecode:175}边走边聊，不知不觉已经走到码头附近了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_outdoor&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;今天她的演习对手好像是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

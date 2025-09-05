@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandgenericbuilder.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandgenericbuilder.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandGenericBuilder&quot;, import(&quot;.IslandBaseBuilder&quot;))
+
+slot0.Load = function(slot0, slot1, slot2)
+	slot3 = {}
+	slot4 = nil
+
+	table.insert(slot3, function (slot0)
+		slot1 = uv0
+
+		slot1:LoadAsset(uv1, function (slot0)
+			uv0 = slot0
+
+			uv1()
+		end)
+	end)
+	table.insert(slot3, function (slot0)
+		uv0:SetupBT(uv1, uv2, slot0)
+	end)
+	seriesAsync(slot3, function ()
+		uv0(uv1)
+	end)
+end
+
+slot0.LoadAsset = function(slot0, slot1, slot2)
+	slot3 = ResourceMgr.Inst
+
+	slot3:getAssetAsync(slot1:GetAssetPath(), &quot;&quot;, typeof(GameObject), UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+		uv0(Object.Instantiate(slot0))
+	end), true, true)
+end
+
+slot0.SetupBT = function(slot0, slot1, slot2, slot3)
+	if not slot2:GetBehaviourTree() or slot4 == &quot;&quot; then
+		slot3()
+
+		return
+	end
+
+	slot5 = ResourceMgr.Inst
+
+	slot5:getAssetAsync(slot4, &quot;&quot;, typeof(NodeCanvas.BehaviourTrees.BehaviourTree), UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+		assert(slot0, uv0)
+
+		GetOrAddComponent(uv1, typeof(NodeCanvas.BehaviourTrees.BehaviourTreeOwner)).graph = Object.Instantiate(slot0)
+
+		uv2()
+	end), true, true)
+end
+
+slot0.Recycle = function(slot0, slot1, slot2)
+	Object.Destroy(slot2)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

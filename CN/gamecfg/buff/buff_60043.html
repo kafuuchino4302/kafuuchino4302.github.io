@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_60043.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_60043.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 10,
+	name = &quot;测试-随机技能-棱镜光束-发射&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;棱镜光束&quot;,
+	stack = 1,
+	id = 60043,
+	icon = 60043,
+	last_effect = &quot;hongsebuff&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onChargeWeaponBulletCreate&quot;
+			},
+			arg_list = {
+				skill_id = 60024,
+				bulletTrigger = &quot;onBulletHit&quot;,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onChargeWeaponFire&quot;
+			},
+			arg_list = {
+				count = 1,
+				delay = 7
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onBulletHit&quot;
+			},
+			arg_list = {
+				count = 50
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

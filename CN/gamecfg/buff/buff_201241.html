@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_201241.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_201241.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;2025拉斐尔活动 战车 适应性装甲&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 201241,
+	icon = 201241,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAllInStrike&quot;
+			},
+			arg_list = {
+				buff_id = 201242,
+				target = &quot;TargetShipTag&quot;,
+				ship_tag_list = {
+					&quot;BOSS&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onChargeWeaponFire&quot;
+			},
+			arg_list = {
+				buff_id = 201243,
+				target = &quot;TargetShipTag&quot;,
+				ship_tag_list = {
+					&quot;BOSS&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onTorpedoWeaponFire&quot;
+			},
+			arg_list = {
+				buff_id = 201244,
+				target = &quot;TargetShipTag&quot;,
+				ship_tag_list = {
+					&quot;BOSS&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

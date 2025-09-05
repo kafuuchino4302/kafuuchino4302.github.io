@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eggcellview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>eggcellview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EggCellView&quot;, import(&quot;.EnemyCellView&quot;))
+
+slot0.InitEggCellTransform = function(slot0)
+	slot0.tfIcon = slot0.tf:Find(&quot;icon&quot;)
+	slot0.tfBufficons = slot0.tf:Find(&quot;random_buff_container&quot;)
+	slot0.tfBossIcon = slot0.tf:Find(&quot;titleContain/bg_boss&quot;)
+	slot0.textLV = slot0.tf:Find(&quot;lv/Text&quot;)
+	slot0.tfEffectFound = slot0.tf:Find(&quot;effect_found&quot;)
+	slot0.tfEffectFoundBoss = slot0.tf:Find(&quot;effect_found_boss&quot;)
+	slot0.tfFighting = slot0.tf:Find(&quot;fighting&quot;)
+
+	setText(findTF(slot0.tfFighting, &quot;Text&quot;), i18n(&quot;ui_word_levelui2_inevent&quot;))
+
+	slot0.tfDamageCount = slot0.tf:Find(&quot;damage_count&quot;)
+	slot0.animator = GetComponent(slot0.go, typeof(Animator))
+	slot0.effectFireball = slot0.tf:Find(&quot;huoqiubaozha&quot;)
+end
+
+slot0.StartEggCellView = function(slot0, slot1, slot2)
+	if ChapterConst.EnemySize[slot1.type] == 99 then
+		setActive(slot0.tfBossIcon, true)
+		slot0:GetLoader():GetSpriteQuiet(&quot;ui/share/ship_gizmos_atlas&quot;, &quot;enemy_boss&quot;, slot0.tfBossIcon)
+	elseif ChapterConst.EnemySize[slot1.type] == 98 then
+		setActive(slot0.tfBossIcon, true)
+		slot0:GetLoader():GetSpriteQuiet(&quot;ui/share/ship_gizmos_atlas&quot;, &quot;enemy_elite&quot;, slot0.tfBossIcon)
+	else
+		setActive(slot0.tfBossIcon, false)
+	end
+
+	if ChapterConst.EnemySize[slot1.type] == 98 then
+		slot0.tfBossIcon.localScale = Vector3(0.5, 0.5, 1)
+		slot0.tfBossIcon.anchoredPosition = Vector2(61.1, -30.6)
+	else
+		slot0.tfBossIcon.localScale = Vector3(1, 1, 1)
+		slot0.tfBossIcon.anchoredPosition = Vector2(39.5, -23)
+	end
+
+	uv0.ClearExtraEffects(slot0)
+	uv0.LoadExtraEffects(slot0, slot1.effect_prefab)
+	slot0:GetLoader():GetSprite(&quot;enemies/&quot; .. slot1.icon, &quot;&quot;, slot0.tfIcon)
+	setText(slot0.textLV, slot1.level)
+	existCall(slot2)
+end
+
+slot0.UpdateEggCell = function(slot0, slot1, slot2, slot3, slot4)
+	slot5 = slot2.row
+	slot6 = slot2.column
+	slot7 = slot2.trait ~= ChapterConst.TraitLurk and slot2.flag == ChapterConst.CellFlagActive and not slot1:existFleet(FleetType.Transport, slot5, slot6)
+
+	setActive(slot0.tfFighting, slot7 and slot1:existEnemy(ChapterConst.SubjectChampion, slot5, slot6))
+
+	slot0.animator.enabled = slot7 and slot2.data &gt; 0
+
+	setActive(slot0.tfDamageCount, slot7 and slot2.data &gt; 0)
+	setActive(slot0.effectFireball, false)
+
+	if slot2.trait == ChapterConst.TraitVirgin then
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(SFX_UI_WEIGHANCHOR_ENEMY)
+	end
+
+	if slot7 then
+		EnemyCellView.RefreshEnemyTplIcons(slot0, slot3, slot1)
+	end
+
+	slot0:SetActive(slot7)
+
+	slot9 = slot2.trait == ChapterConst.TraitVirgin
+	slot10 = ChapterConst.IsBossCell(slot2)
+
+	setActive(slot0.tfEffectFound, slot9 and not slot10)
+	setActive(slot0.tfEffectFoundBoss, slot9 and slot10)
+
+	if slot9 then
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(SFX_UI_WEIGHANCHOR_ENEMY)
+	end
+
+	existCall(slot4)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

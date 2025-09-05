@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10140.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10140.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队4.0%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;4.0%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队4.6%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;4.6%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队5.2%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;5.2%(+0.8%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队6.0%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;6.0%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队6.6%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;6.6%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队7.2%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;7.2%(+0.8%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队8.0%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;8.0%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队8.6%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;8.6%(+0.6%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队9.2%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;9.2%(+0.8%)&quot;
+		}
+	},
+	{
+		desc = &quot;主炮射击时有50.0%概率恢复先锋部队10.0%耐久——“这次，一定要保护好大家”&quot;,
+		addition = {
+			&quot;10.0%&quot;
+		}
+	},
+	desc_get = &quot;主炮射击时有50.0%概率恢复先锋部队4.0%(满级10.0%)耐久——“这次，一定要保护好大家”&quot;,
+	name = &quot;白鹰之泪&quot;,
+	init_effect = &quot;&quot;,
+	id = 10140,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;主炮射击时有50.0%概率恢复先锋部队$1耐久——“这次，一定要保护好大家”&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 10140,
+	last_effect = &quot;Health&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onChargeWeaponFire&quot;
+			},
+			arg_list = {
+				rant = 5000,
+				skill_id = 10140,
+				target = &quot;TargetSelf&quot;,
+				time = 12
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

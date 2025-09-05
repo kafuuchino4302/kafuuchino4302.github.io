@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w1014.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>w1014.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 2,
+	once = true,
+	id = &quot;W1014&quot;,
+	skipTip = false,
+	scripts = {
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			actor = 900284,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;分析模块同步中：指挥官，海域中存在尚未回收的压制奖励，建议进行回收作业后再离开。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;确认&quot;,
+					flag = 0
+				},
+				{
+					content = &quot;暂时离开(压制奖励不会消失)&quot;,
+					flag = 1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

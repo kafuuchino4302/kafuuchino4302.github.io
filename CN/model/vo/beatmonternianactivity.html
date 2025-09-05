@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beatmonternianactivity.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>beatmonternianactivity.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BeatMonterNianActivity&quot;, import(&quot;.Activity&quot;))
+
+slot0.GetDataConfig = function(slot0, slot1)
+	return pg.activity_event_nianshou[tonumber(slot0:getConfig(&quot;config_id&quot;))] and slot3[slot1]
+end
+
+slot0.GetCountForHitMonster = function(slot0)
+	return (pg.TimeMgr.GetInstance():parseTimeFrom(pg.TimeMgr.GetInstance():GetServerTime() - slot0:getStartTime()) + 1) * slot0:GetDataConfig(&quot;daily_count&quot;) + slot0:GetDataConfig(&quot;first_extra_count&quot;) - slot0.data2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

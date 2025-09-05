@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yuyejinghun18.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yuyejinghun18.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;YUYEJINGHUN18&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			bgName = &quot;star_level_bg_600&quot;,
+			side = 2,
+			bgm = &quot;qe-ova-15&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;二小姐与收藏室……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;记得收藏室位于古堡的二楼，看来下一步应该前往二楼区域进行调查了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不过，现在她们都在走廊上，直接上二楼一定会被阻止。首先得想个办法才行——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;我有枪！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;原地等待一会&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = 401020,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;有疑问找{namecode:428:欧根}&quot;,
+			actorName = &quot;代理KP&quot;,
+			optionFlag = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错，你有枪，然后呢？你要用枪去威胁古堡中柔弱可怜的少女们么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			optionFlag = 1,
+			say = &quot;……还是先在原地等待一会吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;只经过了片刻等待，从墙外传来的声音就彻底消失了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			options = {
+				{
+					content = &quot;出发！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;再等一会。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;又经过了一段时间后，依然没有传来任何声音。你现在可以确信，走廊外已经没有任何人了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你穿过走廊，回到了一楼大厅。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			blackBg = true,
+			factiontag = &quot;真相只有一个&quot;,
+			bgm = &quot;stopbgm&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;城堡的楼梯很长，你总觉得自己走了很久很久……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			bgm = &quot;theme-highseasfleet-reborn&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;终于，你顺利到达了二楼，没有任何人发现你的踪迹。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你突然觉得很累，开始觉得有些头晕乏力，一些模糊的画面突然闪过你眼前……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=15）——成功！你终于想起了一件极其重要的事情！从小，你的身体就不是特别好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;恭喜，你已经回忆起了自己的能力值：体质，15。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;别看你身形高大、体态匀称、还有着不少肌肉的样子，实际上这不过是徒有其表的躯壳罢了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……多少？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;只有15点哦！骰运不济啊~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然成年后你已经不用担心一场小小的感冒就会夺走你的生命。但每当过度劳累后，你都会陷入一段时间的头晕目眩。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在这期间，你什么都做不了，只能等待身体慢慢恢复。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……看来只能稍微休息一下，再继续前进了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			blackBg = true,
+			effects = {
+				{
+					active = true,
+					name = &quot;yuyejinghun&quot;
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

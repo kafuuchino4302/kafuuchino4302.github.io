@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xinghaizhuguang21.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xinghaizhuguang21.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;XINGHAIZHUGUANG21&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;battle-ucnf&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;轰—————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			actor = 101510,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;拉菲的电子系统……正在失效……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			actor = 101510,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;小心……避开那些炸弹的爆炸范围……！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;舰载机完全被压制了，空中作战无法取得上风。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那些真的只是……量产型放出来的无人机？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;飞的确实是无人机……这一点我可以肯定。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;但是那些军舰……恐怕不是按照制造量产型的方式制造的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;呜……对面根本都不下水……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;对不起……松鲷完全帮不上忙……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			actor = 103270,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没关系没关系，只是这次恰好没遇到适合你的战场而已啦~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;等等……这难道就是这支舰队选择用如此耗能的方式悬浮在水面上的原因？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;就算真的要防备水下的威胁……这也太浪费了，它们的能源是无限的么……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;局面不利，接下来怎么说……要撤么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;圣哈辛托，你去规划一下撤退路线。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;然后，再打一会……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然对面不想杀伤我们，那我们就应该利用这一点……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;继续战斗，尽可能多收集些数据回去！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

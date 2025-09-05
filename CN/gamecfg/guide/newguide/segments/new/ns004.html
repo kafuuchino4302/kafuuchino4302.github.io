@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ns004.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ns004.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;前往&lt;color=#ff7d36&gt;编队&lt;/color&gt;，将角色编入队伍&quot;,
+	&quot;但需要注意，&lt;color=#ffde38&gt;前排先锋和后排主力都只能编入指定类型的舰种 &lt;/color&gt;&quot;,
+	&quot;&quot;,
+	&quot;点击&lt;color=#ff7d36&gt;添加&lt;/color&gt;来编入新角色&quot;,
+	&quot;选择需要上场的角色&quot;,
+	&quot;点击&lt;color=#ff7d36&gt;确定&lt;/color&gt;按钮&quot;,
+	&quot;看！新角色成功入队！舰队实力大幅度提升！&quot;,
+	&quot;让我们返回到主界面吧！&quot;
+}
+
+return {
+	id = &quot;NS004&quot;,
+	events = {
+		{
+			alpha = 0.328,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = -275,
+				posX = 168,
+				text = slot0[1]
+			},
+			ui = {
+				pathIndex = -1,
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/right/1/formation&quot;
+					else
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/right/formationButton&quot;
+					end
+				end,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -34.7,
+					posX = 68.5
+				}
+			}
+		},
+		{
+			alpha = 0.574,
+			waitScene = &quot;FormationUI&quot;,
+			style = {
+				mode = 1,
+				dir = 1,
+				posY = -100,
+				posX = 300,
+				text = slot0[2]
+			}
+		},
+		{
+			alpha = 0.371,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 122.82,
+				posX = 243.5,
+				text = slot0[4]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;/UICamera/Canvas/UIMain/FormationUI(Clone)/GridFrame/vanguard_2/tip&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -34.7,
+					posX = 68.5
+				}
+			}
+		},
+		{
+			alpha = 0.482,
+			waitScene = &quot;DockyardScene&quot;,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[5]
+			},
+			ui = {
+				pathIndex = 1,
+				path = &quot;UICamera/Canvas/UIMain/DockyardUI(Clone)/main/ship_container/ships&quot;,
+				image = {
+					source = &quot;content/ship_icon&quot;,
+					isChild = true,
+					target = &quot;content/ship_icon&quot;,
+					isRelative = true
+				},
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -107.3,
+					posX = 67.77
+				}
+			}
+		},
+		{
+			alpha = 0.363,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[6]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/blur_panel/select_panel/confirm_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -24.4,
+					posX = 65.8
+				}
+			}
+		},
+		{
+			alpha = 0.196,
+			code = -1,
+			waitScene = &quot;FormationUI&quot;,
+			style = {
+				mode = 1,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[7]
+			}
+		},
+		{
+			alpha = 0.45,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 215.7,
+				posX = -95.62,
+				text = slot0[8]
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;/UICamera/Canvas/UIMain/FormationUI(Clone)/blur_panel/top/back_btn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -40,
+					posX = 20
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

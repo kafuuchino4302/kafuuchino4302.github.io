@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandgroundsystemvo.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandgroundsystemvo.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandGroundSystemVO&quot;, import(&quot;.IslandSystemVO&quot;))
+
+slot0.GetBehaviourTree = function(slot0)
+	return nil
+end
+
+slot0.GetType = function(slot0)
+	return IslandConst.SYSTEM_TYPE_GROUND
+end
+
+slot0.GetAssetPath = function(slot0)
+	return &quot;ui/FloorTileRenderer&quot;
+end
+
+slot0.GetSize = function(slot0)
+	slot1 = IslandConst.AGORA_LEVEL_2_SIZE[#IslandConst.AGORA_LEVEL_2_SIZE]
+
+	return Vector2(slot1, slot1)
+end
+
+slot0.GetMapLeftBottomPoint = function(slot0)
+	slot2 = AgoraCalc.GetSizeCoord(slot0:GetSize())
+
+	return Vector2(slot2.x, slot2.w)
+end
+
+slot0.GetPosition = function(slot0)
+	return AgoraCalc.MapPosition2WorldPosition(slot0:GetMapLeftBottomPoint()) + IslandConst.AGORA_POSITION_OFFSET + IslandConst.AGORA_GROUND_OFFSET
+end
+
+slot0.MapPoint2GroundPoint = function(slot0, slot1)
+	return slot1 - slot0:GetMapLeftBottomPoint()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuyingyinghua17.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fuyingyinghua17.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;FUYINGYINGHUA17&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			stopbgm = true,
+			actorName = &quot;{namecode:179}&quot;,
+			say = &quot;{namecode:180}，{namecode:181}？你们那边的敌人清理干净了么，来得正好——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			actorName = &quot;{namecode:175}&quot;,
+			dir = 1,
+			bgName = &quot;bg_xinnong_cg4&quot;,
+			bgm = &quot;battle-boss-4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:179}小心！&quot;,
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			actorName = &quot;{namecode:180}？&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 301810,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;…&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302080,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 1,
+			dir = 1,
+			actorName = &quot;{namecode:181}？&quot;,
+			say = &quot;…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302210,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;住手，你们这是在做什么…？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306070,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这个感觉…和她们平时的气息有所不同&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actor = 305140,
+			say = &quot;她们不是同伴…是塞壬基于我们的数据而生产出的“棋子”！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 0,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;咕…真是恶趣味…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.3,
+					x = 20,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actor = 306070,
+			say = &quot;大家不要动摇，牢记我们的使命。守护天岩岛，消灭所有来犯之敌！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

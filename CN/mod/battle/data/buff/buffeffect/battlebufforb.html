@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebufforb.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebufforb.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = class(&quot;BattleBuffOrb&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffOrb = slot1
+slot1.__name = &quot;BattleBuffOrb&quot;
+
+slot1.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+end
+
+slot1.SetArgs = function(slot0, slot1, slot2)
+	slot3 = slot0._tempData.arg_list
+	slot0._buffID = slot3.buff_id
+	slot0._rant = slot3.rant or 10000
+	slot0._level = slot3.level or 1
+	slot0._buffLevel = slot3.buff_level or 1
+	slot0._type = slot3.type
+end
+
+slot1.onTrigger = function(slot0, slot1, slot2, slot3)
+	slot4 = slot3._bullet
+
+	if slot0._type and slot4:GetTemplate().type ~= slot0._type then
+		return
+	end
+
+	slot0:attachOrb(slot4)
+	uv0.super.onTrigger(slot0, slot1, slot2, slot3)
+end
+
+slot1.attachOrb = function(slot0, slot1)
+	slot1:AppendAttachBuff({
+		buff_id = slot0._buffID,
+		rant = slot0._rant,
+		level = slot0._level,
+		buff_level = slot0._buffLevel
+	})
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

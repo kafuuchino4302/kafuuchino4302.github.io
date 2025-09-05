@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guinu3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guinu3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;GUINU3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;凛冽如恶鬼\n\n&lt;size=45&gt;三  却非恶鬼&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;与{namecode:181}一同来到了港区后山的瀑布前——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;为了在劣势情况下也能维持冷静与从容，通过瀑布修行来磨炼意志真是最合适不过了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302090,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;二位中午好呀~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:47}，你在这里做什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302090,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我在钓鱼哦。指挥官该不会打算在瀑布那里修行吧，现在的水温很低哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;正好，关于这次修行，有件事要跟你说一下……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;虽然有点在意{namecode:181}对{namecode:47}耳语了什么，但还是毅然走向了瀑布的方向。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，听好了——不管发生什么事都不要分心，不要再像遇到胡蜂时那样失态了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;下定决心进入瀑布后，冰冷而强大的水流瞬间冲刷下来，全身都笼罩在巨大的轰鸣声中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302080,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;维持站姿，感受着冲击与轰鸣……尝试使内心平静下来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;记住，不管发生什么事都不要分心哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;{namecode:181}再三叮嘱着这个……是有什么用意吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302090,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官，不用勉强哦……还有，提前跟你说声对不起。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:47}，别说些多余的话。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;知道了知道了。咦~？好~像~有~大~鱼~咬~钩~了~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;{namecode:47}突然机械般地念叨起了什么来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哇~啊~这~条~鱼~力~气~好~大，要~拽~不~住~了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;别分心，指挥官。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302090,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;救、救~命~呀，指~挥~官——救……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;{namecode:47}落进了河里——这怎么看都是故意掉下去的吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			say = &quot;心里虽然明知这是演技，身体还是先一步行动了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊……指挥官真的来救我了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;同伴的安危确实很重要……但是身为指挥者这么不经思考的行动只会起到反效果！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;冷静观察，在{namecode:47}落水的时候我就在她身边待机，你应该对我下达救援命令，而不是莽撞的以身涉险。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……既然是指挥官的判断，我不会再继续多说什么……不过，修行失败了，重来！&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			actor = 302080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（接受了恶鬼的试炼，却没有变成真正的恶鬼。作为指挥者来说略显不足，可是作为人来说……呵呵。）&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_142&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;虽然{namecode:181}用严厉的语气催促着修行的再次展开，不过她的嘴角好像掠过了一丝转瞬即逝的微笑……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

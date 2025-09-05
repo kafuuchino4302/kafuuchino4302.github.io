@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlecannonbulletunit.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlecannonbulletunit.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleCannonBulletUnit = class(&quot;BattleCannonBulletUnit&quot;, slot0.Battle.BattleBulletUnit)
+slot0.Battle.BattleCannonBulletUnit.__name = &quot;BattleCannonBulletUnit&quot;
+slot1 = slot0.Battle.BattleCannonBulletUnit
+
+slot1.Ctor = function(slot0, slot1, slot2)
+	uv0.super.Ctor(slot0, slot1, slot2)
+end
+
+slot1.Hit = function(slot0, slot1, slot2)
+	uv0.super.Hit(slot0, slot1, slot2)
+
+	slot0._pierceCount = slot0._pierceCount - 1
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

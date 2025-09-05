@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tieyiqingfeng15.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tieyiqingfeng15.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;TIEYIQINGFENG15&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;帕克菲克洋&quot;,
+					1
+				},
+				{
+					&quot;PH港&quot;,
+					2
+				},
+				{
+					&quot;白鹰帕克菲克洋舰队主力&quot;,
+					3
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			bgm = &quot;theme-starsea-core&quot;,
+			say = &quot;重新加入战斗的PH港，此时一片繁忙景象。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			say = &quot;四处而来的舰队在此补给、维修，而后又重新起航，前往各自的战场。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			say = &quot;会议室中，舰队的决策者们亦在忙碌地分析着当前的局势。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;目前帕克菲克洋中，包括巴拿马要塞、PH港在内的各处据点均已被我方舰队夺回。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;幻境造成的人员损失虽然轻微，不过设备却遭受到了不同程度的损伤。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;各处驻防舰队都需要进行一定程度的修复和整备后，才能以最好的状态加入接下来的战斗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我方在帕克菲克洋中的港口驻地众多，能够在短时间内将其全部夺回……真是令人惊叹的效率呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是啊。原本我也以为会变成一场持久战。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;能这么快达成行动目标，还要感谢重樱提供的符咒和法戈想出的点子。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;说到符咒，我这边也有消息~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你们送去{namecode:524:圣地亚哥}司令部的符咒，已经由那边转送到星海了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;星海各部门已经恢复正常，目前正在全力处理与幻境有关的工作——比如解析和复制重樱提供的符咒之类的~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;本土虽然还有不少受到幻境影响的异常区域，不过只要解析工作顺利，用不了多久问题就能全部解决啦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;萨拉，你真可靠。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼，那是当然的~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你们不用担心后方，专心处理眼前的问题就好。现在前线战况如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107170,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;目前前线的战况稳定，不过压力正在逐步增加。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107170,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;从重樱马绍尔群岛基地方向袭击而来的敌人规模正变得越来越大。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;此时此刻，敌人分成了至少七支舰队，每支舰队都由一艘长度超过三千英尺的旗舰带领。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107120,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;三千英尺……？就算塞壬的量产型也很少有做到这么大的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错。而且这些旗舰全都搭载了护盾系统，火力也十分密集。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我用舰载机编队进行了多次袭击均无功而返。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我正在尝试进行水下打击行动对其进行斩首，以期能一次性瓦解其一整支舰队的抵抗力量。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等，不要冒进。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;工程机关已经完成了对于敌人的初步分析。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;可以认定，我们本次面对的敌人是一类特殊的噩兆实体。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;其与常见的噩兆实体不同，不是如同投影般凭空出现的，而是以某些实际存在的船体部件为基础诞生的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;建造这样一艘特殊的噩兆实体，虽然资源消耗量远小于一艘常规量产型，不过其依然需要被“制造”出来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这也就是其外观与重樱所使用的量产型具有一定相似程度的原因。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不管其创造者是谁，在设计过程中肯定使用了重樱量产型的制作技术。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这批敌人与常规噩兆实体还有另一个不同之处。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;常规噩兆实体在被击败后，会在转瞬间消失于无形，不会留下任何痕迹，就像从未存在过一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而这些敌人在被击败后，会留下某些类似混合有矿物原石的金属部件。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;根据测定结果，这些金属部件具有一定侵蚀性。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然其侵蚀性微弱，无法污染心智魔方，但依然有让电子设备受损的能力。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;邦克山女士，我们虽然还没有收到你所提到的“旗舰”的残骸样品。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过考虑到其战斗力和庞大的体积，其残骸留下来的侵蚀性绝对不低。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就算潜艇的水下突袭能成功将其击沉，在遭受其侵蚀影响后，顺利逃脱的机会也会很渺茫。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;感谢你提供的情报，星座女士，我会改变计划，慎重应对的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不好意思，我刚收到了一条来自萨摩亚群岛观测站的重要消息。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 105150,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;观测站表示，有一支敌方舰队正在离开重樱所罗门群岛基地，向着马绍尔群岛基地的方向前进。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;按照最好情况来推测，重樱舰队此刻仍然幸存，只是被困入了幻境之中，如同之前沦陷的圣诞岛基地一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 105150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而最坏情况……则是她们的抵抗已经彻底失败，舰队全军覆没。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这次我们能如此迅速的应对危局，多亏重樱在第一时间提供的帮助。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们不能见死不救。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而且所罗门群岛基地一旦被敌人彻底控制，你们在前线要面对的敌人很快就要成倍增加了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;于情于理，我都建议前去救援哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;完全同意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;邦克山，你继续指挥舰队进行防御战，稳扎稳打，不要冒进。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;尽可能收集敌方旗舰的信息，并分析其真实作战意图。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等我们成功救援重樱所罗门群岛基地后，将会从另一个方向马绍尔群岛方向接近。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;届时，我们一同夹击，将敌人一举消灭。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107170,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;遵命。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;企业，我这边还有空余舰队可用，我派遣她们去所罗门群岛支援你。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不用担心我，将她们直接派遣去邦克山的正面战场方向吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;马绍尔群岛要塞本身就有重樱舰队驻防，周边还有铁血的浮岛要塞驻防舰队。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;如果有需要，我会向铁血舰队呼叫增援的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;铁血舰队……让悉尼司令部派遣援军支援你更加稳妥吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;悉尼司令部目前正在全力调查水星纪念·META的行动轨迹，舰队也在准备应对安塔迪卡洋的局势变化。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;如果派遣舰队支援我们，安塔迪卡方向或许会出现更大危机。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			dir = 1,
+			actor = 107060,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;放心，从铁血近期的所作所为来看，她们一定会协助我们的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好吧，一切小心。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你也一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;现在威胁还没有完全肃清，幕后主使也没有暴露，就算坐阵后方也不要大意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵~放心吧。姐姐虽然远离战场了这么久，不过手艺可没生疏哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_tieyiqingfeng_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这是在我康复后，我们一同面对的第一仗，不管幕后黑手是谁，我们都要给它些颜色瞧瞧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

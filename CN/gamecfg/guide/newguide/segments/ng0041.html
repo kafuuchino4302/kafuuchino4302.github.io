@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng0041.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ng0041.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;NG0041&quot;,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;在本章战斗中，可以使用\n「支援舰队」功能&quot;,
+				mode = 1,
+				dir = 1,
+				posY = 214,
+				posX = 433
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;在「支援舰队」栏位中设置需要编入支援舰队的角色吧&quot;,
+				mode = 1,
+				dir = 1,
+				posY = 3,
+				posX = 197
+			},
+			ui = {
+				path = &quot;/OverlayCamera/Overlay/UIMain/LevelFleetSelectView(Clone)/panel/ShipList/support/1/support/emptytpl(Clone)&quot;,
+				triggerType = {
+					8
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;选择任意一名角色编入「支援舰队」&quot;,
+				mode = 1,
+				dir = -1,
+				posY = 289.2,
+				posX = -13.7
+			},
+			ui = {
+				pathIndex = 0,
+				path = &quot;/UICamera/Canvas/UIMain/DockyardUI(Clone)/main/ship_container/ships&quot;
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;点击确认&quot;,
+				mode = 1,
+				dir = 1,
+				posY = -134,
+				posX = 403
+			},
+			ui = {
+				path = &quot;/OverlayCamera/Overlay/UIMain/blur_panel/select_panel/confirm_button&quot;
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;有关支援舰队的机制说明可以随时在本界面点击问号查看哦&quot;,
+				mode = 1,
+				dir = 1,
+				posY = 93.5,
+				posX = -408.7
+			},
+			ui = {
+				path = &quot;/OverlayCamera/Overlay/UIMain/LevelFleetSelectView(Clone)/panel/Fixed/title/Image/Help&quot;,
+				fingerPos = {
+					posY = -59.74,
+					posX = 36.9
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

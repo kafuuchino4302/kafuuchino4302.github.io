@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anniversaryislandhotspringscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>anniversaryislandhotspringscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AnniversaryIslandHotSpringScene&quot;, import(&quot;view.activity.BackHills.NewYearFestival.NewYearHotSpringScene&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;AnniversaryIslandHotSpringUI&quot;
+end
+
+slot1 = 0.85
+
+slot0.init = function(slot0)
+	slot0.scrollRect = slot0._tf:Find(&quot;ScrollRect&quot;)
+	slot0.scrollContent = slot0.scrollRect:GetComponent(typeof(ScrollRect)).content
+	slot0.slotTFs = _.map(_.range(4, 15), function (slot0)
+		return uv0.scrollRect:Find(&quot;Pool&quot;):GetChild(slot0 - 1)
+	end)
+
+	table.insert(slot0.slotTFs, 1, table.remove(slot0.slotTFs, 11))
+	table.insert(slot0.slotTFs, 7, table.remove(slot0.slotTFs, 12))
+
+	slot0.slotOriginalPos = _.map(slot0.slotTFs, function (slot0)
+		return slot0.anchoredPosition
+	end)
+	slot0.slotShipPos = Clone(slot0.slotOriginalPos)
+
+	table.Foreach(slot0:GetRecordPos(), function (slot0, slot1)
+		uv0.slotShipPos[slot0] = slot1
+	end)
+
+	slot5 = slot0.scrollRect
+	slot0.poolItems = _.map(_.range(slot5:Find(&quot;Pool&quot;).childCount), function (slot0)
+		return uv0.scrollRect:Find(&quot;Pool&quot;):GetChild(slot0 - 1)
+	end)
+
+	Canvas.ForceUpdateCanvases()
+
+	slot0.scrollBGs = _.map({
+		{
+			&quot;1&quot;,
+			0.5
+		},
+		{
+			&quot;2&quot;,
+			0.6
+		},
+		{
+			&quot;3&quot;,
+			uv0
+		},
+		{
+			&quot;Pool&quot;,
+			uv0
+		},
+		{
+			&quot;4&quot;,
+			1
+		},
+		{
+			&quot;5&quot;,
+			1
+		}
+	}, function (slot0)
+		slot1 = {
+			uv0.scrollRect:Find(slot0[1]),
+			slot0[2]
+		}
+		slot1[3] = slot1[1].anchoredPosition.x
+
+		uv0:UpdateScrollContent(0, unpack(slot1))
+
+		return slot1
+	end)
+	slot0.top = slot0._tf:Find(&quot;Top&quot;)
+
+	pg.ViewUtils.SetSortingOrder(slot0._tf, -1001)
+
+	slot0.spineRoles = {}
+	slot0.washMaterial = Material.New(pg.ShaderMgr.GetInstance():GetShader(&quot;M02/Unlit_Colored_Semitransparent&quot;))
+
+	slot0.washMaterial:SetFloat(&quot;_Height&quot;, 0.5)
+end
+
+slot0.SetActivity = function(slot0, slot1)
+	slot0.activity = slot1
+
+	if not slot0.activity then
+		return
+	end
+
+	table.Foreach(slot2.data1_list, function (slot0, slot1)
+		if slot1 &gt; 0 and (uv0.data1_list[slot0] or 0) == 0 then
+			uv1.slotShipPos[slot0] = Clone(uv1.slotOriginalPos[slot0])
+		end
+	end)
+end
+
+slot0.didEnter = function(slot0)
+	uv0.super.didEnter(slot0)
+	pg.NewStoryMgr.GetInstance():Play(slot0.activity:getConfig(&quot;config_client&quot;).unlockstory)
+end
+
+slot0.UpdateView = function(slot0)
+	slot0:UpdateSlots()
+end
+
+slot0.GetRecordPos = function(slot0)
+	slot3 = {}
+
+	for slot7 = 1, #_.map(string.split(PlayerPrefs.GetString(&quot;hotspring_ship_pos_2023&quot;, &quot;&quot;), &quot;;&quot;), function (slot0)
+		return tonumber(slot0)
+	end), 2 do
+		table.insert(slot3, Vector2.New(slot2[slot7], slot2[slot7 + 1]))
+	end
+
+	return slot3
+end
+
+slot0.RecordPos = function(slot0, slot1)
+	if not slot1 then
+		return
+	end
+
+	PlayerPrefs.SetString(&quot;hotspring_ship_pos_2023&quot;, table.concat(_.reduce(slot1, {}, function (slot0, slot1)
+		table.insert(slot0, slot1.x)
+		table.insert(slot0, slot1.y)
+
+		return slot0
+	end), &quot;;&quot;))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

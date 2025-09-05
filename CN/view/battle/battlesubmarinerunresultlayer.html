@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlesubmarinerunresultlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlesubmarinerunresultlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BattleSubmarineRunResultLayer&quot;, import(&quot;..base.BaseUI&quot;))
+slot0.DURATION_WIN_FADE_IN = 0.5
+slot0.DURATION_LOSE_FADE_IN = 1.5
+slot0.DURATION_GRADE_LAST = 1.5
+slot0.DURATION_MOVE = 0.7
+slot0.DURATION_WIN_SCALE = 0.7
+
+slot0.getUIName = function(slot0)
+	return &quot;BattleResultUI&quot;
+end
+
+slot0.setPlayer = function(slot0)
+end
+
+slot0.setShips = function(slot0)
+end
+
+slot0.init = function(slot0)
+	slot0._grade = slot0:findTF(&quot;grade&quot;)
+	slot0._levelText = slot0:findTF(&quot;chapterName/Text22&quot;, slot0._grade)
+	slot0.clearFX = slot0:findTF(&quot;clear&quot;)
+	slot0._main = slot0:findTF(&quot;main&quot;)
+	slot0._blurConatiner = slot0:findTF(&quot;blur_container&quot;)
+	slot0._bg = slot0:findTF(&quot;main/jiesuanbeijing&quot;)
+	slot0._painting = slot0:findTF(&quot;painting&quot;, slot0._blurConatiner)
+	slot0._failPainting = slot0:findTF(&quot;fail&quot;, slot0._painting)
+	slot0._chat = slot0:findTF(&quot;chat&quot;, slot0._painting)
+	slot0._rightBottomPanel = slot0:findTF(&quot;dodgem_confirm&quot;, slot0._main)
+	slot0._exitBtn = slot0:findTF(&quot;confirm_btn&quot;, slot0._rightBottomPanel)
+	slot0._skipBtn = slot0:findTF(&quot;skipLayer&quot;, slot0._tf)
+	slot0.UIMain = pg.UIMgr.GetInstance().UIMain
+	slot0.overlay = pg.UIMgr.GetInstance().OverlayMain
+	slot1 = {
+		&quot;d&quot;,
+		&quot;c&quot;,
+		&quot;b&quot;,
+		&quot;a&quot;,
+		&quot;s&quot;
+	}
+	slot2 = slot0:findTF(&quot;grade/Xyz/bg13&quot;)
+	slot3 = slot0:findTF(&quot;grade/Xyz/bg14&quot;)
+	slot4, slot5, slot6 = nil
+	slot8 = slot0.contextData.score &gt; 0
+
+	setActive(slot0:findTF(&quot;jieuan01/BG/bg_victory&quot;, slot0._bg), slot8)
+	setActive(slot0:findTF(&quot;jieuan01/BG/bg_fail&quot;, slot0._bg), not slot8)
+
+	if slot8 then
+		slot6 = slot1[slot7 + 1]
+		slot4 = &quot;battlescore/battle_score_&quot; .. slot6 .. &quot;/letter_&quot; .. slot6
+		slot5 = &quot;battlescore/battle_score_&quot; .. slot6 .. &quot;/label_&quot; .. slot6
+	else
+		slot6 = slot1[1]
+		slot4 = &quot;battlescore/battle_score_&quot; .. slot6 .. &quot;/letter_&quot; .. slot6
+		slot5 = &quot;battlescore/battle_score_&quot; .. slot6 .. &quot;/label_&quot; .. slot6
+	end
+
+	LoadImageSpriteAsync(slot4, slot2, false)
+	LoadImageSpriteAsync(slot5, slot3, false)
+	SetActive(slot0._levelText, false)
+	SetActive(slot0:findTF(&quot;main/conditions&quot;), false)
+
+	slot0._ratioFitter = GetComponent(slot0._tf, typeof(AspectRatioFitter))
+	slot0._ratioFitter.enabled = true
+	slot0._ratioFitter.aspectRatio = pg.CameraFixMgr.GetInstance().targetRatio
+	slot9 = pg.CameraFixMgr.GetInstance()
+	slot0.camEventId = slot9:bind(pg.CameraFixMgr.ASPECT_RATIO_UPDATE, function (slot0, slot1)
+		uv0._ratioFitter.aspectRatio = slot1
+	end)
+end
+
+slot0.didEnter = function(slot0)
+	setText(slot0._levelText, pg.expedition_data_template[slot0.contextData.stageId].name)
+
+	slot3 = rtf(slot0._grade)
+	slot0._gradeUpperLeftPos = slot3.localPosition
+	slot3.localPosition = Vector3(0, 25, 0)
+
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+
+	slot0._grade.transform.localScale = Vector3(1.5, 1.5, 0)
+
+	LeanTween.scale(slot0._grade, Vector3(0.88, 0.88, 1), uv0.DURATION_WIN_SCALE):setOnComplete(System.Action(function ()
+		SetActive(uv0._levelText, true)
+		uv0:rankAnimaFinish()
+	end))
+
+	slot0._tf:GetComponent(typeof(Image)).color = Color.New(0, 0, 0, 0.5)
+	slot0._stateFlag = BattleResultLayer.STATE_RANK_ANIMA
+
+	onButton(slot0, slot0._skipBtn, function ()
+		uv0:skip()
+	end, SFX_CONFIRM)
+	slot0:showPainting()
+end
+
+slot0.rankAnimaFinish = function(slot0)
+	slot0._stateFlag = BattleResultLayer.STATE_REPORTED
+end
+
+slot0.showPainting = function(slot0)
+	slot1, slot2, slot3 = nil
+
+	SetActive(slot0._painting, true)
+
+	slot0.paintingName = &quot;u556&quot;
+
+	setPaintingPrefabAsync(slot0._painting, slot0.paintingName, &quot;jiesuan&quot;, function ()
+		if findTF(uv0._painting, &quot;fitter&quot;).childCount &gt; 0 then
+			ShipExpressionHelper.SetExpression(findTF(uv0._painting, &quot;fitter&quot;):GetChild(0), uv0.paintingName, &quot;win_mvp&quot;)
+		end
+	end)
+	SetActive(slot0._failPainting, false)
+
+	if slot0.contextData.score &gt; 1 then
+		slot1, slot3, slot2 = ShipWordHelper.GetWordAndCV(900180, ShipWordHelper.WORD_TYPE_MVP)
+	else
+		slot1, slot3, slot2 = ShipWordHelper.GetWordAndCV(900180, ShipWordHelper.WORD_TYPE_LOSE)
+	end
+
+	setText(slot0._chat:Find(&quot;Text&quot;), slot2)
+
+	if CHAT_POP_STR_LEN &lt; #slot0._chat:Find(&quot;Text&quot;):GetComponent(typeof(Text)).text then
+		slot4.alignment = TextAnchor.MiddleLeft
+	else
+		slot4.alignment = TextAnchor.MiddleCenter
+	end
+
+	SetActive(slot0._chat, true)
+
+	slot0._chat.transform.localScale = Vector3.New(0, 0, 0)
+	slot5 = LeanTween.moveX(rtf(slot0._painting), 50, 0.1)
+
+	slot5:setOnComplete(System.Action(function ()
+		LeanTween.scale(rtf(uv0._chat.gameObject), Vector3.New(1, 1, 1), 0.1):setEase(LeanTweenType.easeOutBack)
+	end))
+end
+
+slot0.skip = function(slot0)
+	if slot0._stateFlag == BattleResultLayer.STATE_RANK_ANIMA then
+		-- Nothing
+	elseif slot0._stateFlag == BattleResultLayer.STATE_REPORTED then
+		slot0:emit(BattleResultMediator.ON_BACK_TO_LEVEL_SCENE)
+	end
+end
+
+slot0.onBackPressed = function(slot0)
+	triggerButton(slot0._skipBtn)
+end
+
+slot0.willExit = function(slot0)
+	LeanTween.cancel(go(slot0._tf))
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+	pg.CameraFixMgr.GetInstance():disconnect(slot0.camEventId)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

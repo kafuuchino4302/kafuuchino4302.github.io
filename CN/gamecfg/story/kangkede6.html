@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kangkede6.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kangkede6.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KANGKEDE6&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;康克德与甜食\n\n&lt;size=45&gt;六　甜品试吃专员？&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;康克德开始钻研起甜品的做法——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦~原来如此，看来能轻松搞定~☆&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;完成！嘻嘻~康克德的红丝绒蛋糕~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，蛋糕看上去还行吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;看上去造型……很微妙。离好吃也还有很大差距，主要是太甜了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔~看上去还不那么满意啊。指挥官可真是挑剔呢~♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我会更加努力哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘿嘿，今天是我最喜欢的草莓圣代~&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官感觉如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			dir = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			withoutActorName = true,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;康克德的星星眼仿佛是在期待什么…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;就像是一团冰水混了大量的糖进去…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔~看来还要改进啊…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;今天的话，还是准备给你更大的惊喜~&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;的确是更大的惊喜…甜度再次升级了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;果然，还是不行吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我可真没什么长处吧……手也不太巧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;安慰她&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯？不要过分求变…只在一种甜品上持续改进……这样就好？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼，好像也有道理~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;康克德贴到了身边，能够感受她的温度。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘻嘻，那么指挥官，说定了~下一次也要当我的第一试吃专员哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

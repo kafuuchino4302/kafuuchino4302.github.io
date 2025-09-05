@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sadingdeyaoyue3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>sadingdeyaoyue3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SADINGDEYAOYUE3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;撒丁的邀约\n\n&lt;size=45&gt;三　事难巨细&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;main-arbitrationsystem-theme&quot;,
+			say = &quot;白鹰·？？？&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;嗨~指挥官，工作辛苦了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;萨拉托加？例行联络的时间还没到，外面出什么事了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;其实……司令部又收到名义上发给指挥官的私人邮件了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;…………又是{namecode:529:苏维埃同盟}发的么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;猜对了！真是的……我已经可以100%确定她是故意的了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;现在对外联络受限，她们一时联络不到也还算正常……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然理论上是这样！不过这件事北方联合肯定不知道，所以还是故意的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;……这次通讯说了什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，你知道撒丁帝国想要举办世界博览会的事了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;好像从前几天的报告里看到过，世界博览会已经很多年没举办过了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;没错~真不知道撒丁帝国是怎么突然想起来这件事的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;看来她们这次是野心勃勃地想要做一次世界焦点呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;既然是采用和平的方式，倒也没什么不好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;你提到这件事……难道说，跟北方联合的联络内容有关？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;没错！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;……该不会是，参会邀请函？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;没错~指挥官有兴趣去撒丁帝国度个假么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;……现在正是测试的紧要关头，我怎么能抛下这里不管去博览会玩呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;虽然对不住北方联合的一番好意，不过这件事就代我拒绝了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，没问题哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;至于白鹰这边，我们计划派埃塞克斯带队前往，场馆的主题也想好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;资料我一会发过来，指挥官可以当成调剂用的画册看看哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这次场馆的设计特别有科幻感，肯定会吸引全世界的目光的——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;咚咚咚——（敲门声）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101260,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官……新一轮设备调试即将开始……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101260,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;领航员小姐已经在等你了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;啊，那指挥官你先忙，我就继续去进行博览会的准备工作了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			say = &quot;嗯，你也注意休息。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 107030,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;了解~萨拉托加通讯结束。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = false,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101260,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……指挥官，累了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101260,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;累的话，就睡一觉……我去让领航员小姐……换个时间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;不用不用，我们出发吧————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

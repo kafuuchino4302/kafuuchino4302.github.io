@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldmediacollectionentrancemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldmediacollectionentrancemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldMediaCollectionEntranceMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.OPEN_RECALL = &quot;WorldMediaCollectionEntranceMediator:OPEN_RECALL&quot;
+slot0.OPEN_CRYPTOLALIA = &quot;WorldMediaCollectionEntranceMediator:OPEN_CRYPTOLALIA&quot;
+slot0.OPEN_ARCHIVE = &quot;WorldMediaCollectionEntranceMediator:OPEN_ARCHIVE&quot;
+slot0.OPEN_RECORD = &quot;WorldMediaCollectionEntranceMediator:OPEN_RECORD&quot;
+slot0.OPEN_ALBUM = &quot;WorldMediaCollectionEntranceMediator:OPEN_ALBUM&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.OPEN_CRYPTOLALIA, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.CRYPTOLALIA)
+	end)
+	slot0:bind(uv0.OPEN_RECALL, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.WORLD_COLLECTION, {
+			page = WorldMediaCollectionScene.PAGE_MEMORTY
+		})
+	end)
+	slot0:bind(uv0.OPEN_ARCHIVE, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.WORLD_COLLECTION, {
+			page = WorldMediaCollectionScene.PAGE_RECORD
+		})
+	end)
+	slot0:bind(uv0.OPEN_RECORD, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.WORLD_COLLECTION, {
+			page = WorldMediaCollectionScene.PAGE_FILE
+		})
+	end)
+	slot0:bind(uv0.OPEN_ALBUM, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.WORLD_COLLECTION, {
+			page = WorldMediaCollectionScene.PAGE_ALBUM
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot2 = slot1:getName()
+	slot3 = slot1:getBody()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

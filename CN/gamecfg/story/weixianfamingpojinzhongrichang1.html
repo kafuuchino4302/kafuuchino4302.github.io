@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weixianfamingpojinzhongrichang1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>weixianfamingpojinzhongrichang1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WEIXIANFAMINGPOJINZHONGRICHANG1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			bgm = &quot;story-richang-refreshing&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;港区·某处临时搭建的工坊内&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 11100020,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;姐姐，你已经鼓捣好久了，但还是不知道什么时候才能搞完吗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;都有点困了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;少女说着打了个哈欠，一副百无聊赖的模样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 11100030,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;娜娜，再等等吧。姐姐大人现在正在非常努力地想办法呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯！就差一点了！而且，我可能已经找到解决方案啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;梦梦，把那边的工具递给我啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊，还有娜娜，帮我把这里扶着哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 0,
+			bgName = &quot;star_level_bg_540&quot;,
+			hideOther = true,
+			actor = 11100020,
+			actorName = &quot;娜娜&quot;,
+			hidePaintObj = true,
+			say = &quot;知道啦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			subActors = {
+				{
+					paintingNoise = false,
+					actor = 11100030,
+					hidePaintObj = false,
+					dir = 1,
+					pos = {
+						x = 1125,
+						y = 0
+					}
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 0,
+			bgName = &quot;star_level_bg_540&quot;,
+			hideOther = true,
+			actor = 11100020,
+			actorName = &quot;梦梦&quot;,
+			hidePaintObj = true,
+			say = &quot;没问题，姐姐大人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			subActors = {
+				{
+					paintingNoise = false,
+					actor = 11100030,
+					hidePaintObj = false,
+					dir = 1,
+					pos = {
+						x = 1125,
+						y = 0
+					}
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_540&quot;,
+			say = &quot;一段时间后——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;奇怪……这样居然行不通吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;少女身边各种奇形怪状的零件散落一地。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;姐姐大人，是不是哪里……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;叩叩叩——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;一阵轻柔的敲门声响起，打断了少女们的谈话。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;抱歉，打扰诸位了。我是来为诸位送上下午茶的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;完美且潇洒的女仆长说着，优雅地向众人行了个礼，她身后的餐车上摆满了精致的点心。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊~已经是下午茶时间了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我完全没意识到啊~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 11100020,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;姐姐你刚才太专注了嘛~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 11100030,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，正好姐姐大人也该休息一下了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;谢谢你送来的下午茶，贝尔法斯特小姐。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;呵呵，不用客气。不过……诸位看起来好像是遇到了一些小问题？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;如果能有我能提供帮助的地方，请尽管开口。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;说到这个，贝尔法斯特小姐有认识的、擅长发明和修理机械的人现在有空吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果有同样精通这方面的人选协助，应该很快就能解决姐姐遇到的问题吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;说的也是哦！有个可以帮忙的人说不定会更快！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;现在有空的、擅长发明和修理机械的人选么……没问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			say = &quot;只见贝尔法斯特发送了几条消息后，冲少女们点了点头。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_540&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;已经约好了。在诸位品尝完下午茶，稍作休息之后，就带诸位去找她。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_148&quot;,
+			say = &quot;少女们品尝完了下午茶后，在贝尔法斯特的带领下，找到了正在调试着设备的达·芬奇。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			say = &quot;后者此刻整个上半身都钻进了一台奇怪的机器当中，只有下半身露在外面。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 608020,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePainting = true,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;抱歉抱歉~我本来以为很快就能调试好呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 608020,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePainting = true,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;稍微再等我一下下哦！唔唔……这里再这样，先这样好了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			say = &quot;达·芬奇说着，努力扭动着身体从机器里退了出来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;达·芬奇小姐，请帮帮我们。姐姐大人今天在修理机器的时候遇到了一些瓶颈……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然确实得商量一下帮忙的事情，不过……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我有个东西更好奇！达·芬奇！你在修理的那个机器是什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哦~你说这个啊，这个可是我的新发明哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 608020,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;它叫“全自动战术纠错器”！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;只要输入你的作战战术，它就会通过这样那样的原理自动生成模拟结果，来帮助你纠错哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然现在调试过程里暂时出现了一点小问题……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			say = &quot;达·芬奇有些不好意思地用手指挠了挠自己的脸颊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;方便的话，这个机器可以让我看看吗~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 608020,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;欸？可是不是菈菈小姐你们需要我的帮助才来的吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 11100010,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯！但是说不定，那台机器里也可能藏着提示呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 608020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那就……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_148&quot;,
+			say = &quot;两位少女在发明方面的话题越聊越起劲，完全忘记了彼此的初衷。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;姐姐，完全集中起来了啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 11100020,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哈啊……看姐姐这样，应该一时半会儿不会回到正题了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 11100030,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;修理超级游戏制作机的事情还有时间呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 11,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;能交到新朋友也是件开心的事，或许这样也挺好的呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			dir = 1,
+			actor = 11100020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;但是一直等在这里也太无聊啦——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;两位如果觉得无聊的话，也可以由我安排人送来一些桌面游戏，如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_148&quot;,
+			hidePaintObj = true,
+			say = &quot;娜娜与梦梦面面相觑，随后相视一笑。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 0,
+			bgName = &quot;star_level_bg_148&quot;,
+			hideOther = true,
+			actor = 11100020,
+			actorName = &quot;娜娜&amp;梦梦&quot;,
+			hidePaintObj = true,
+			say = &quot;那就麻烦你了，贝尔法斯特小姐——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			subActors = {
+				{
+					paintingNoise = false,
+					actor = 11100030,
+					hidePaintObj = false,
+					dir = 1,
+					pos = {
+						x = 1125,
+						y = 0
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

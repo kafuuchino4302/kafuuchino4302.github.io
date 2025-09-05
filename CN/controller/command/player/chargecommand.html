@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chargecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chargecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChargeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if PLATFORM_CODE == PLATFORM_JP then
+		if not pg.SdkMgr.GetInstance():YoStarCheckCanBuy() then
+			originalPrint(&quot;wait for a second, Do not click quickly~&quot;)
+
+			return
+		end
+	elseif PLATFORM_CODE == PLATFORM_US and not pg.SdkMgr.GetInstance():CheckAiriCanBuy() then
+		originalPrint(&quot;wait for a second, Do not click quickly~&quot;)
+
+		return
+	end
+
+	slot5 = getProxy(ShopsProxy):getFirstChargeList() or {}
+
+	if not slot1:getBody().shopId then
+		return
+	end
+
+	slot6 = not table.contains(slot5, slot3)
+	slot7 = Goods.Create({
+		shop_id = slot3
+	}, Goods.TYPE_CHARGE)
+	slot8 = pg.TrackerMgr.GetInstance()
+
+	slot8:Tracking(TRACKING_PURCHASE_CLICK, slot3)
+
+	slot8 = pg.ConnectionMgr.GetInstance()
+
+	slot8:Send(11501, {
+		shop_id = slot3,
+		device = PLATFORM
+	}, 11502, function (slot0)
+		if slot0.result == 0 then
+			if uv0.tradeNoPrev ~= slot0.pay_id then
+				if (PLATFORM_CODE == PLATFORM_JP or PLATFORM_CODE == PLATFORM_US) and pg.SdkMgr.GetInstance():GetIsPlatform() then
+					if PLATFORM_CODE == PLATFORM_JP then
+						slot1 = uv1:getConfig(&quot;airijp_id&quot;)
+						slot2 = slot0.url
+						slot3 = slot0.pay_id
+
+						originalPrint(&quot;请求购买的productId：&quot; .. slot1)
+						originalPrint(&quot;请求购买的url：&quot; .. slot2)
+						originalPrint(&quot;请求购买的id为：&quot; .. slot3)
+						pg.SdkMgr.GetInstance():YoStarPay(slot1, slot2, slot3)
+					elseif PLATFORM_CODE == PLATFORM_US then
+						if pg.SdkMgr.GetInstance():CheckAudit() then
+							originalPrint(&quot;serverTag:audit 请求购买物品&quot;)
+							pg.SdkMgr.GetInstance():AiriBuy(uv1:getConfig(&quot;airijp_id&quot;), &quot;audit&quot;, slot0.pay_id)
+						elseif pg.SdkMgr.GetInstance():CheckPreAudit() then
+							originalPrint(&quot;serverTag:preAudit 请求购买物品&quot;)
+							pg.SdkMgr.GetInstance():AiriBuy(uv1:getConfig(&quot;airijp_id&quot;), &quot;preAudit&quot;, slot0.pay_id)
+						elseif pg.SdkMgr.GetInstance():CheckPretest() then
+							originalPrint(&quot;serverTag:preTest 请求购买物品&quot;)
+							pg.SdkMgr.GetInstance():AiriBuy(uv1:getConfig(&quot;airijp_id&quot;), &quot;preAudit&quot;, slot0.pay_id)
+						elseif pg.SdkMgr.GetInstance():CheckGoogleSimulator() then
+							originalPrint(&quot;serverTag:test 请求购买物品&quot;)
+							pg.SdkMgr.GetInstance():AiriBuy(uv1:getConfig(&quot;airijp_id&quot;), &quot;test&quot;, slot0.pay_id)
+						else
+							originalPrint(&quot;serverTag:production 请求购买物品&quot;)
+							pg.SdkMgr.GetInstance():AiriBuy(uv1:getConfig(&quot;airijp_id&quot;), &quot;production&quot;, slot0.pay_id)
+						end
+
+						originalPrint(&quot;请求购买的airijp_id为：&quot; .. uv1:getConfig(&quot;airijp_id&quot;))
+						originalPrint(&quot;请求购买的id为：&quot; .. slot0.pay_id)
+					end
+				else
+					slot1 = uv1:firstPayDouble() and uv2
+					slot3 = getProxy(PlayerProxy):getData()
+					slot5 = uv1:RawGetConfig(&quot;money&quot;) * 100
+					slot6 = uv1:getConfig(&quot;name&quot;)
+
+					if PLATFORM_CODE == PLATFORM_CH and pg.SdkMgr.GetInstance():GetChannelUID() == &quot;21&quot; and uv3 == 1001 then
+						slot6 = &quot;特许巡游凭证(202111)&quot;
+					end
+
+					slot7 = 0
+
+					pg.SdkMgr.GetInstance():SdkPay(uv1:getConfig(&quot;id_str&quot;), slot5, slot6, slot1 and uv1:getConfig(&quot;gem&quot;) * 2 or uv1:getConfig(&quot;gem&quot;) + uv1:getConfig(&quot;extra_gem&quot;), slot8, uv1:getConfig(&quot;subject&quot;), &quot;-&quot; .. slot3.id .. &quot;-&quot; .. slot0.pay_id, slot3.name, slot0.url or &quot;&quot;, slot0.order_sign or &quot;&quot;)
+				end
+
+				uv0.tradeNoPrev = slot0.pay_id
+
+				pg.TrackerMgr.GetInstance():Tracking(TRACKING_PURCHASE, uv3)
+				getProxy(ShopsProxy):addWaitTimer()
+			else
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;charge_trade_no_error&quot;))
+			end
+		elseif slot0.result == 6 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;charge_error_count_limit&quot;))
+		elseif slot0.result == 5002 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;charge_error_disable&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;charge&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haidaorichang25.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>haidaorichang25.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HAIDAORICHANG25&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;海风与夏日的无人岛\n\n&lt;size=45&gt;乘风破浪之行&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_summerisland_map&quot;,
+			side = 2,
+			bgmDelay = 2,
+			bgm = &quot;theme-SeaAndSun-image&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;又是一个阳光明媚的大晴天。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			say = &quot;正在走向联络码头时，耳畔传来了少女碎碎念的声音——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;？？？&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;呜，太阳太舒服了……一不小心就睡过头了，衣服都没来得及换……一会到场地再换吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			say = &quot;而后，在拐角处与抱着什么东西的阿尔弗雷多撞了个满怀。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊痛痛痛！糟了，我的新闻报告……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;抱歉抱歉……&quot;,
+					flag = 1
+				}
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没关系没关系！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊，不、不是说这个的时候！指挥官赶紧帮我收拾一下报告，我要去……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;做第一节“海滨盛夏帆船比赛”的特别报道！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;……“海滨盛夏帆船比赛”？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……欸，指挥官还不知道吗？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;居、居然……！那指挥官如果想看的话一会抓紧去码头那边总之我得走了！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_summerisland_map&quot;,
+			dir = 1,
+			actor = 601080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;已经开始了啊————！！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				},
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1,
+					dur = 1,
+					x = -2500
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			say = &quot;阿尔弗雷多以闪电般的速度收拾好了报告，然后离开了现场——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			say = &quot;说起来，之前{namecode:199}提到过的惊喜环节，难道就是这场帆船比赛么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_map&quot;,
+			hidePaintObj = true,
+			say = &quot;去看看吧——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&quot;,
+					0
+				}
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;阿尔弗雷多&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;孟菲斯小姐！作为刚刚结束的A组帆船比赛的冠军，你有什么要发表的获奖感言吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;孟菲斯&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;啊，关于这个我要说的是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;阿尔弗雷多&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不不不现在还不急，等下——先让我给你拍一张照片——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			actorName = &quot;阿尔弗雷多&quot;,
+			soundeffect = &quot;event:/ui/kuaimen&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;“帆船比赛冠军将花落谁家？有力竞争者的胜利身姿——”好，就用这个标题了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.5,
+						0
+					},
+					{
+						1,
+						0,
+						0.5,
+						0.2
+					}
+				}
+			}
+		},
+		{
+			actorName = &quot;孟菲斯&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;好、好的吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;联络码头。暖阳照耀着这里的金沙碧海，空气中洋溢着运动的热情。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;啊~指挥官也过来了啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;企业是准备下一场上场了么？岸边的帆船似乎已经蓄势待发了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没错，再过一会B组的比赛就要开始了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;不远处还看到了{namecode:29}，以及突然又出现的皇家财富小姐，她们也是参赛选手？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，我们都是B组的选手，稍微热一下身就该上场了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;话说远方水面上的小船是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你说平海和宁海么？她们没有参加比赛，应该只是在玩。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;等我的比赛结束之后，如果指挥官有兴趣的话，我们一起来乘坐帆船吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;皇家财富号&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哼哼~现在就开始想比赛之后的事还太早了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;皇家财富号&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;如果不着眼于比赛上的话可是会吃大亏的哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;皇家财富号&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;海上帆船赛这种活动，你们怎么可能比得过整天与风浪为伴的我呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;企业&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那就只有比比看才知道了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;{namecode:29}&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那个……{namecode:29}也会加油的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;{namecode:29}&quot;,
+			side = 1,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;皇家财富小姐，{namecode:29}不会输给你的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;皇家财富号&quot;,
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哦吼吼~没有选择逃跑而是直接向我发出了挑战吗~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_summerisland_cg4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;皇家财富号&quot;,
+			say = &quot;勇气可嘉，尽管放马过来吧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

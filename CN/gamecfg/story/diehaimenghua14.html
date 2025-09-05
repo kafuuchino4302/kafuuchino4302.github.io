@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diehaimenghua14.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>diehaimenghua14.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DIEHAIMENGHUA14&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			bgm = &quot;xinnong-4&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;战斗还在继续…赶上了！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……海面上出现了黑色光芒？那个是………不好！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:91}，快停手！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:91}&quot;,
+			side = 1,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……哎？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;你是……？啊，这不是{namecode:182}么！你终于睡醒了啊~！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 10,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:91}，把手中的不祥之物放下吧，它能带来的只有噩梦与毁灭，这种力量不是重樱需要的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:91}&quot;,
+			side = 1,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵…今天怎么谁都想对我说教一番……明明一直躲在安全的地方睡大觉，你又懂些什么！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 0,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…妾身也不是因为自己想，才沉睡这么久的啊……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:182}&quot;,
+			say = &quot;于虚境中彷徨，眼见重樱步入危局却只能从旁坐观的无奈，妾身已经不想再经历了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:182}&quot;,
+			say = &quot;嗯…这种状态才对，此刻充盈着力量的状态才对…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;抱歉啊，让汝等久等了。{namecode:83}级三号舰{namecode:182}，现在加入战斗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:182}&quot;,
+			say = &quot;梦境也好，现实也罢。不论身处何方，妾身须行之事都不曾有任何改变…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_xinnong2_4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;余烬之{namecode:66}啊，此乃妾身守护之土，就此退场吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			stopbgm = true,
+			side = 2,
+			dir = 1,
+			actorName = &quot;{namecode:182}&quot;,
+			bgName = &quot;bg_white&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这份光芒是…梦境的消散，这样就要结束了么……&quot;,
+			flashout = {
+				dur = 1,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1.5,
+				dur = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_white&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;如果妾身能以这样的姿态直接醒来该多好啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:182}&quot;,
+			side = 2,
+			bgName = &quot;bg_white&quot;,
+			dir = 1,
+			blackBg = true,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;黑色的崩坏…与梦魇的诞生…一定要…阻止…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_white&quot;,
+			mode = 1,
+			blackBg = true,
+			soundeffect = &quot;event:/ui/fengling&quot;,
+			flashout = {
+				dur = 0.5,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

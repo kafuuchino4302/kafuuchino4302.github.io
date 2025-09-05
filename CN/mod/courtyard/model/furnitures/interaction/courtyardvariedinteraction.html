@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardvariedinteraction.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardvariedinteraction.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardVariedInteraction&quot;, import(&quot;.CourtYardInteraction&quot;))
+
+slot0.InitData = function(slot0)
+	uv0.super.InitData(slot0)
+
+	slot0.total = 1
+end
+
+slot0.GetInterActionUserCnt = function(slot0)
+	if isa(slot0.host:GetOwner(), CourtYardFurniture) then
+		return #slot1:GetUsingSlots()
+	else
+		return 1
+	end
+end
+
+slot0.GetUserAction = function(slot0)
+	return slot0.userActions[slot0:GetInterActionUserCnt()]
+end
+
+slot0.GetOwnerAction = function(slot0)
+	return slot0.ownerActions[slot0:GetInterActionUserCnt()]
+end
+
+slot0.Reset = function(slot0)
+	slot0.index = 0
+
+	slot0:Update(slot0.loop)
+end
+
+slot0.OnStepEnd = function(slot0)
+	if slot0:IsCompleteOwnerStep() then
+		slot0:DoStep()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

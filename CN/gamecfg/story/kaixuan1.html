@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kaixuan1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kaixuan1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KAIXUAN1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;骑士公主的忧郁\n\n&lt;size=45&gt;一 皇家茶会的客人&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;某日港区的午后…&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;欢迎，主人、凯旋小姐，请坐在这里&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;和凯旋一起受邀参加了皇家不定时举办的茶会&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;承蒙皇家诸位的邀请，非常荣幸能来参加下午茶会——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;凯旋边说边行了个礼&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;哼～你就是新来的自由鸢尾的小女孩吗&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;不错！自由鸢尾也是有上得了台面的人物的嘛～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;另外那边的庶民！感到荣幸吧！你可是受邀参加了女王的茶会喔！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;是！女王大人万岁！&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;看来女王殿下对凯旋印象不错…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;毕竟从各种意义上来说，确实都算是同伴呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;指挥官，莫非你刚才在想着什么无比失礼的事情？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;贝尔法斯特为大家倒了茶&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;这个口感是…大吉岭吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			say = &quot;是的，而且是新运来的春茶，这是伊丽莎白殿下也相当喜欢的品种&quot;,
+			dir = 1,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;难怪这么好喝～春茶据说是大吉岭中最珍贵，也是口感最好的呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;哼哼哼，没错，区区自由鸢尾看来也有识货的人在嘛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;……&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801010,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;茶会啊…让人不禁想起过去在自由鸢尾办过的茶会呢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			say = &quot;凯旋露出混杂着眷恋与寂寞的神情&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;下次…为她办一次自由鸢尾和维希教廷的茶会吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

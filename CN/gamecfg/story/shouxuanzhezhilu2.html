@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shouxuanzhezhilu2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shouxuanzhezhilu2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;SHOUXUANZHEZHILU2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;受选者之路\n\n&lt;size=45&gt;约束内的保护&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			blackBg = true,
+			say = &quot;？？？·？？？&quot;,
+			sequence = {
+				{
+					&quot;？？？·？？？&quot;,
+					1
+				},
+				{
+					&quot;海伦娜·META通讯空间&quot;,
+					2
+				}
+			}
+		},
+		{
+			stopbgm = true,
+			side = 2,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在将马可波罗之事告知海伦娜之后的第二天深夜，突然收到了来自远方的通讯邀请。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			bgm = &quot;bsm-2&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这一次，在光芒消散后映入眼帘的不是熟悉的浩瀚星空，而是一片金属构成的大地。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			say = &quot;大地之上，无数无人机械井然有序地忙碌着，逐渐将无序堆叠在四处的不知名材料转变为有序的高楼大厦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			say = &quot;——一座愈发形似塞壬主机塔的钢铁都市在快速生长中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;对这个礼物还满意么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;这还真是令人……震惊。一个正在高速重建的塞壬实验机关系统……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;这一切都是基于那个“幻象实验场”做到的么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不错，这个设备的正式名字叫「女皇宝球」，恩普雷斯亲自为其命名。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;相比于感知上的干扰，其搭载的独立运算模拟能力才是最有价值的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;因此我决定启用它的另一种部署模式，作为观察者的新基地来使用。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……这个装置听上去和恩普雷斯关系匪浅，我们在使用后会不会有风险？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;放心，这个设备本质上和可量产的代行者机体一样，抵挡不了「塔」的重编程的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……等等，你连其他仲裁者的代行者也能……控制下来？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;只要条件合适的话。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……能逆向解析之后量产么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;路要一步一步走。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;比如你看，在拥有了完整的塞壬实验机关后，我们现在已经拥有理论上批量生产执行者系列舰队的能力了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……理论上？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;「女皇宝球」不能凭空产生物资，如果要真正开动生产线的话，将会需要「塔」来提供源源不断的物资支持。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;而这种行为……存在风险。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;只要是物资就行的话……要不考虑一下从其他星球收集，比如……火星？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;根据我的观察，「塔」是一艘星舰吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不是你理解意义上的星舰。而且绝对不行，安蒂克丝不能走向群星。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;这件事我只能说与安蒂克丝的底层协议有关，具体不要问。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;相比这些，当前阶段「女皇宝球」对我们最大的价值不在生产，而在模拟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不依靠塔，也不需要调用星海，或者其他类似机构的，独立不受干涉的受控模拟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;这些模拟可以用于事态的推演，可以用于技术研发，也可以用来修复、培养和完善心智。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不光是对于舰船有益，对于AI也是一样的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……修复、培养和完善心智？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……能够用于心智魔方受损引起的心智损伤吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;可以作为其中必要的一环。不过硬要说，星海也能做到同样的事，所以它的重点不在这里。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;“独立不受干涉”以及……对“AI有益”么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;没错，接下来的一段时间，我会让观察者在这里重建所有实验机关的主机塔。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;然后启用一些封存在数据库中的研发项目和模拟实验。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;——还记得你之前问的有关太阳的事么？告诉你的时机已经快要到了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;你那边情况如何，有什么变化么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;没有变好也没有变坏。马可波罗依然在沉睡，意识也依然没有回来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;我怀疑在我们视野之外的某处正发生着不得了的事，我们需要尽快采取行动。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，在你跟我说了之后，我就在准备了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;今天除了上面礼物之外，也和你说说方案。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;结论来说，我建议把她通过NA海域的奇异点在物理层面转移到我这边来进行保护性观察。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;我身边的环境对她来说更安全稳定，如果在她身上发生任何异常情况，结果也会更受控。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;很明显，马可波罗身上发生的事与麦纪莎脱不开关系。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;或许我可以利用她现在的特殊状态，把藏在幕后的麦纪莎钓出来，反将它一军。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;它不是很喜欢插手么……这次再把手伸过来看看吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			say = &quot;海伦娜说话的语气依旧淡然，不过很明显，她生气了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……上次最后，你不还是赢了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;只是看上去把它打跑了，其实它是从容而来从容而去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;等我终于腾出手来检查实验场β的时候，它已经把自己的痕迹清理干净了……直到你发现马可波罗的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;看来我们要做好和她长期打交道的准备了，我需要关于麦纪莎的更多情报。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;关于这一点……我能告诉你的很有限。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;你也没有她的资料？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;我只有在很早之前和它打过交道的经历，而最近它……变化很大，大到我最开始都没有想到是它。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不管是攻击模式还是……自称M女士这种看上去非常拟人化的行为。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;而我已经有的资料，又有太多不能告诉你的部分……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……我尽力而为。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;仲裁者·麦纪莎·I，最初的AI人格是在实验场α的「满月幽影、&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;在世界α的某个事件后，在某地的某个实验室内诞生的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;当时它的主要任务是负责筛选与判断……X对于人员和、设施造成的……干涉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;不过直到、……撤离成功告一段落，余烬与安蒂克丝还在合作阶段的时候，它才作为仲裁者正式诞生。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（能听出来，海伦娜确实在很尽力挑能说的说了……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;其的能力与干涉有关……一切形式的干涉，同时对于一切形式的干涉均存在有效的应对手段。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;作为仲裁者来说，它也和你已经接触过的仲裁者都不太一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;你应该知道，每一个编号的仲裁者都专精于某个领域，并且有一个或者一系列对应领域的独有尖端设备吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;对于麦纪莎来说，它作为仲裁机关的独有设备不是每一个量产型机体的标配，但也不是独一无二无法量产的那种。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;它的独有设备名为审判机「魔术师」，是一种能够进行有限量产的集成……你可以理解成舰装中所搭载的舰载机。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然是舰装的一部分，但是可以复数存在、独立行动，远程控制。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……和舰载机一样会飞么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;会。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;好像有些概念了……说回上一个话题，特殊设备作为量产型机体标配的，赫米忒那几个是不是都是这一类的？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;没错。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;那独一无二的呢？“无法量产”，听上去和安蒂克丝这种崇尚量产型、大规模生产的思路相矛盾。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;其实也好理解，某种妥协罢了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;就像拉普拉斯妖、或者自然进化演算系统一样，总有一些极其珍贵的尖端设备是难以量产的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;——比如托瓦的「塔」。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……所以你才一直强调是你利用的是「塔」的力量，而不是托瓦的力量？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;没错~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;除了托瓦之外，沐恩也是相同的情况，它拥有的「月亮」比「塔」的规模还要大……是个好东西。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;哦……这么一说，司答倒是和麦纪莎类似，它的「星」也是能进行有限量产的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			say = &quot;在这件事上，海伦娜陆续说了很多，与以往的情况截然不同。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;……这些是你能说的么？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;……这些是我能听的么？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;放心，经过筛选了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;麦纪莎不是用了月亮和星星两张塔罗牌勾你胃口么，我可是直接告诉你情报了哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			say = &quot;很明显，海伦娜心情突然好了起来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;咳……那还有什么能说的么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;——没了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;说回马可波罗的事，将她转移过来进行保护性观察的方案，我认为是在现阶段最优的，相信克莱蒙梭不会拒绝。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;嗯，我同意。回去之后我来安排细节，具体时间之后再联络。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900315,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;好哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;那我就准备回去了。对了，约克城不在么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;——看似随口一问，是想钓我的话？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……略有此意。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯——你当时果然看到了啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;看到的只有一团黑影，但是冥冥中有一种感觉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;我只能告诉你，那是一个你暂时不能接触的人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;你可以知道她的存在，然后当她不存在就好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_endingsong_14&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;因为知道的越多越危险？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;这次不是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;好了~别问了，剩下的都是你现在还不能知道的部分了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_endingsong_14&quot;,
+			dir = 1,
+			actor = 900315,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;回去吧，你还有工作要处理呢，拜拜~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

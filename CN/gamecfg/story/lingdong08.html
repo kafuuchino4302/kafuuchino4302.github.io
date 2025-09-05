@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingdong08.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>lingdong08.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;LINGDONG08&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			say = &quot;……————&quot;,
+			side = 2,
+			blackBg = true,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom1&quot;,
+			flash = {
+				wait = 0.5,
+				delay = 0.3,
+				dur = 0.5,
+				number = 1,
+				alpha = {
+					0,
+					1
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;——啊！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			nameColor = &quot;#ff0000&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;多么凄美的烟火啊，现在已经大破的你还想怎样追上我呢？&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 1,
+			nameColor = &quot;#ff0000&quot;,
+			dir = 1,
+			say = &quot;那么，就让我给予你属于战士荣耀的终末吧，全舰炮瞄准——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;……————&quot;,
+			side = 2,
+			blackBg = true,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flash = {
+				wait = 0.2,
+				delay = 0.3,
+				dur = 0.5,
+				number = 1,
+				alpha = {
+					0,
+					1
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 404010,
+			side = 1,
+			nameColor = &quot;#ff0000&quot;,
+			dir = 1,
+			say = &quot;！！！前主炮塔“安东”被击毁！？是哪里打来的炮弹！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我也知道6英寸炮无法击穿你的装甲...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;所以，至少...也得为她们争取到一些优势...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那么...我的任务也已经完成了...捕鼠夹已经亲手合上了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;可惜的是...以后不能再为女王献上亲手沏的红茶了...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嘿嘿，抱歉抱歉，你还死不了~剩下的大鱼就交给我们来接手了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;驱逐舰队全员，掩护贝尔法斯特撤退&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			actor = 201260,
+			dir = 1,
+			hideOther = true,
+			actorName = &quot;无敌&amp;火枪手&quot;,
+			say = &quot;遵命——烟雾弹掩护开始！&quot;,
+			subActors = {
+				{
+					actor = 201270,
+					pos = {
+						x = 1125
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			dir = 1,
+			say = &quot;居然还有一支主力舰队...之前完全没有观察到动静&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			dir = 1,
+			say = &quot;知道自己的主炮无法击穿战列舰所以之前一直专门瞄着雷达塔攻击吗...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			dir = 1,
+			say = &quot;哈哈哈，彻底败给你了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205070,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			say = &quot;真不好意思，打扰你们的对决了，然而现在，你的对手是我~&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205070,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;乔治五世级战列舰三号舰——约克公爵号向您问好&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205070,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;全炮门瞄准——敌舰{namecode:433}，开火！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

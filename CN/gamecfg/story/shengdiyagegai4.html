@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shengdiyagegai4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shengdiyagegai4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SHENGDIYAGEGAI4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;闪耀☆战斗之星！\n\n&lt;size=45&gt;四　{namecode:524}、向前进～！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = -1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			actor = 107060,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯，下一场演习的时间是——嗯？&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;企业大姐头~~！呀吼~~&quot;,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.5,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;啊，是{namecode:524}么，今天看来也是状态不错的样子&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;欸嘿，每天都要保持干劲满满才行呢，不然可是会变成笨蛋的~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;…嗯，有精神总是好的&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……（盯&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;…怎么了，一直盯着我看？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;企业大姐头，好像不用“改造”，就有一股很厉害的“气场”呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;改造？…是吗，你想了解改造的意义吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嘿嘿，最近看到了好多经历过“改造”的小伙伴呢，虽然不是很明白，但是就突然觉得有些在意起来&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;呵呵…真难得，你居然会这么在意一件事情&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;不过，就我看来，你只要按你自己的步调，以你自己的方式继续走下去就可以了吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;以我自己的步调吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;嗯。这个舰队里有许多个性特点都十分鲜明的同伴，她们也各自有各自的成长方式&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;你也是一样，只要按着自己的步调走下去，总有一点能达到自己想要的突破的吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102080,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;噢、噢噢…不知怎么的，总有种被激励了的感觉？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 0,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;啊啊，从某种意义上来说，你可是仅次于我的存在，加油吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 102080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;感觉干劲都涌上来了~！有种立刻就能“变身”的感觉！难道这就是“改造”的感觉吗！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.2,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;在企业的开导下，终于达成了顿悟（？）的{namecode:524}，改造之日，已经近在咫尺了——也许&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

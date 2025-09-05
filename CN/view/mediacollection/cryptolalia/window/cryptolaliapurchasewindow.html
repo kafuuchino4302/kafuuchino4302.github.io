@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cryptolaliapurchasewindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cryptolaliapurchasewindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CryptolaliaPurchaseWindow&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;CryptolaliaPurchaseWindowui&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.icon = slot0:findTF(&quot;window/cover/icon&quot;):GetComponent(typeof(Image))
+	slot0.signature = slot0:findTF(&quot;window/cover/signature&quot;):GetComponent(typeof(Image))
+	slot0.name = slot0:findTF(&quot;window/cover/name&quot;):GetComponent(typeof(Text))
+	slot0.shipname = slot0:findTF(&quot;window/cover/shipname&quot;):GetComponent(typeof(Text))
+	slot0.gemToggle = slot0:findTF(&quot;window/gem&quot;)
+	slot0.ticketToggle = slot0:findTF(&quot;window/ticket&quot;)
+	slot0.gemCntTxt = slot0.gemToggle:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.ticketCntTxt = slot0.ticketToggle:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.exchangeBtn = slot0:findTF(&quot;exchange&quot;)
+
+	setText(slot0.gemToggle:Find(&quot;title&quot;), i18n(&quot;cryptolalia_use_gem_title&quot;))
+	setText(slot0.ticketToggle:Find(&quot;title&quot;), i18n(&quot;cryptolalia_use_ticket_title&quot;))
+	setText(slot0.exchangeBtn:Find(&quot;Text&quot;), i18n(&quot;cryptolalia_exchange&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.costType = Cryptolalia.COST_TYPE_GEM
+
+	onToggle(slot0, slot0.gemToggle, function (slot0)
+		if slot0 then
+			uv0.costType = Cryptolalia.COST_TYPE_GEM
+		end
+	end, SFX_PANEL)
+	onToggle(slot0, slot0.ticketToggle, function (slot0)
+		if slot0 then
+			uv0.costType = Cryptolalia.COST_TYPE_TICKET
+		end
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+	triggerToggle(slot0.gemToggle, true)
+
+	slot0.name.text = slot1:GetName()
+	slot0.shipname.text = slot1:GetShipName()
+
+	LoadSpriteAtlasAsync(&quot;CryptolaliaShip/&quot; .. slot1:GetShipGroupId(), &quot;cd&quot;, function (slot0)
+		if uv0.exited then
+			return
+		end
+
+		uv0.icon.sprite = slot0
+
+		uv0.icon:SetNativeSize()
+	end)
+	onButton(slot0, slot0.exchangeBtn, function ()
+		if not uv0.costType then
+			return
+		end
+
+		uv0:emit(CryptolaliaMediator.UNLOCK, uv1.id, uv0.costType)
+	end, SFX_PANEL)
+
+	slot3 = slot1:GetCost(Cryptolalia.COST_TYPE_GEM)
+	slot0.gemCntTxt.text = setColorStr(slot5, getProxy(PlayerProxy):getRawData():getResource(slot3.id) &lt; slot3.count and COLOR_RED or COLOR_GREEN) .. setColorStr(&quot;/&quot; .. slot3.count, &quot;#AFAFAF&quot;)
+	slot7 = slot1:GetCost(Cryptolalia.COST_TYPE_TICKET)
+	slot0.ticketCntTxt.text = setColorStr(slot8, slot4:getResource(slot7.id) &lt; slot7.count and COLOR_RED or COLOR_GREEN) .. setColorStr(&quot;/&quot; .. slot7.count, &quot;#AFAFAF&quot;)
+
+	triggerToggle(slot0.ticketToggle, true)
+end
+
+slot0.Hide = function(slot0)
+	uv0.super.Hide(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.exited = true
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

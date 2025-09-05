@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tutorial_handbook_task.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tutorial_handbook_task.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.tutorial_handbook_task = {
+	[100101] = {
+		name = &quot;阶段一&quot;,
+		type = 1,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100101,
+		pt = 68800,
+		unlock = {},
+		task_list = {
+			{
+				{
+					22011,
+					22016,
+					22014,
+					22012,
+					22013,
+					22015,
+					22017,
+					22018
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					20
+				}
+			}
+		}
+	},
+	[100201] = {
+		name = &quot;阶段二&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100201,
+		pt = 68801,
+		unlock = {
+			23510
+		},
+		task_list = {
+			{
+				{
+					22021,
+					22026,
+					22028,
+					22022,
+					22023,
+					22024,
+					22025,
+					22027
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					59900,
+					400
+				}
+			}
+		}
+	},
+	[100301] = {
+		name = &quot;阶段三&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100301,
+		pt = 68802,
+		unlock = {
+			23511
+		},
+		task_list = {
+			{
+				{
+					22037,
+					22035,
+					22031,
+					22032,
+					22033,
+					22034,
+					22036,
+					22038
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					20
+				}
+			}
+		}
+	},
+	[100401] = {
+		name = &quot;阶段四&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100401,
+		pt = 68803,
+		unlock = {
+			23512
+		},
+		task_list = {
+			{
+				{
+					22046,
+					22047,
+					22041,
+					22042,
+					22043,
+					22044,
+					22045,
+					22048
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					59900,
+					400
+				}
+			}
+		}
+	},
+	[100501] = {
+		name = &quot;阶段五&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100501,
+		pt = 68804,
+		unlock = {
+			23513
+		},
+		task_list = {
+			{
+				{
+					22058,
+					22057,
+					22051,
+					22052,
+					22053,
+					22054,
+					22055,
+					22056
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					20
+				}
+			}
+		}
+	},
+	[100601] = {
+		name = &quot;阶段六&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100601,
+		pt = 68805,
+		unlock = {
+			23514
+		},
+		task_list = {
+			{
+				{
+					22061,
+					22062,
+					22066,
+					22068,
+					22063,
+					22064,
+					22065,
+					22067
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					59900,
+					400
+				}
+			}
+		}
+	},
+	[100701] = {
+		name = &quot;阶段七&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100701,
+		pt = 68806,
+		unlock = {
+			23515
+		},
+		task_list = {
+			{
+				{
+					22075,
+					22078,
+					22073,
+					22071,
+					22072,
+					22074,
+					22076,
+					22077
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					20
+				}
+			}
+		}
+	},
+	[100801] = {
+		name = &quot;阶段八&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100801,
+		pt = 68807,
+		unlock = {
+			23516
+		},
+		task_list = {
+			{
+				{
+					22087,
+					22086,
+					22085,
+					22081,
+					22082,
+					22083,
+					22084,
+					22088
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					59900,
+					400
+				}
+			}
+		}
+	},
+	[100901] = {
+		name = &quot;阶段九&quot;,
+		type = 1,
+		lock_name = &quot;未解锁&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 100901,
+		pt = 68808,
+		unlock = {
+			23517
+		},
+		task_list = {
+			{
+				{
+					22098,
+					22093,
+					22092,
+					22091,
+					22094,
+					22095,
+					22096,
+					22097,
+					22099
+				},
+				{}
+			}
+		},
+		target = {
+			9
+		},
+		drop_client = {
+			{
+				{
+					2,
+					60544,
+					1
+				}
+			}
+		}
+	},
+	[200101] = {
+		name = &quot;等级&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200101,
+		pt = 68809,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23001,
+					23002
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200201] = {
+		name = &quot;建造&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200201,
+		pt = 68900,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23003,
+					23004,
+					23005,
+					23006,
+					23007
+				},
+				{}
+			}
+		},
+		target = {
+			5
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200301] = {
+		name = &quot;编队&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200301,
+		pt = 68901,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23008,
+					23009,
+					23010,
+					23011,
+					23012,
+					23013,
+					23014,
+					23015
+				},
+				{}
+			}
+		},
+		target = {
+			8
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200401] = {
+		name = &quot;出击&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200401,
+		pt = 68902,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23016,
+					23017,
+					23018,
+					23019,
+					23020,
+					23021,
+					23022,
+					23023,
+					23024,
+					23025
+				},
+				{}
+			}
+		},
+		target = {
+			10
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200501] = {
+		name = &quot;活动&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200501,
+		pt = 68903,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23026,
+					23027
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200601] = {
+		name = &quot;养成&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200601,
+		pt = 68904,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23028,
+					23029,
+					23030,
+					23031,
+					23032,
+					23033,
+					23034,
+					23035,
+					23036
+				},
+				{}
+			}
+		},
+		target = {
+			9
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200701] = {
+		name = &quot;周常&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200701,
+		pt = 68905,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23037
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200801] = {
+		name = &quot;商城&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200801,
+		pt = 68906,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23038,
+					23039
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[200901] = {
+		name = &quot;军火商店&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 200901,
+		pt = 68907,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23040
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201001] = {
+		name = &quot;战术学院&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201001,
+		pt = 68908,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23041,
+					23042
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201101] = {
+		name = &quot;食堂&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201101,
+		pt = 68909,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23043
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201201] = {
+		name = &quot;勋章收藏&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201201,
+		pt = 68910,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23044,
+					23045
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201301] = {
+		name = &quot;世界巡游&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201301,
+		pt = 68911,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23046,
+					23047
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201401] = {
+		name = &quot;邮箱&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201401,
+		pt = 68912,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23048
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201501] = {
+		name = &quot;装备&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201501,
+		pt = 68913,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23049,
+					23050,
+					23051,
+					23052,
+					23053,
+					23054,
+					23055
+				},
+				{}
+			}
+		},
+		target = {
+			7
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201601] = {
+		name = &quot;科技点&quot;,
+		type = 2,
+		lock_name = &quot;&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201601,
+		pt = 68914,
+		unlock = {},
+		task_list = {
+			{
+				{
+					23056
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201701] = {
+		name = &quot;后宅&quot;,
+		type = 2,
+		lock_name = &quot;Lv.8&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201701,
+		pt = 68915,
+		unlock = {
+			23501
+		},
+		task_list = {
+			{
+				{
+					23057,
+					23058,
+					23059
+				},
+				{}
+			}
+		},
+		target = {
+			3
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201801] = {
+		name = &quot;日常&quot;,
+		type = 2,
+		lock_name = &quot;Lv.10&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201801,
+		pt = 68916,
+		unlock = {
+			23502
+		},
+		task_list = {
+			{
+				{
+					23060,
+					23061,
+					23062,
+					23063,
+					23064,
+					23065
+				},
+				{}
+			}
+		},
+		target = {
+			6
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[201901] = {
+		name = &quot;核心商店&quot;,
+		type = 2,
+		lock_name = &quot;Lv.10&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 201901,
+		pt = 68917,
+		unlock = {
+			23502
+		},
+		task_list = {
+			{
+				{
+					23066
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202001] = {
+		name = &quot;委托&quot;,
+		type = 2,
+		lock_name = &quot;Lv.11&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202001,
+		pt = 68918,
+		unlock = {
+			23503
+		},
+		task_list = {
+			{
+				{
+					23067,
+					23068
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202101] = {
+		name = &quot;大舰队&quot;,
+		type = 2,
+		lock_name = &quot;Lv.11&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202101,
+		pt = 68919,
+		unlock = {
+			23503
+		},
+		task_list = {
+			{
+				{
+					23069,
+					23070,
+					23071,
+					23072,
+					23073
+				},
+				{}
+			}
+		},
+		target = {
+			5
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202201] = {
+		name = &quot;演习&quot;,
+		type = 2,
+		lock_name = &quot;Lv.15&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202201,
+		pt = 68920,
+		unlock = {
+			23504
+		},
+		task_list = {
+			{
+				{
+					23074,
+					23075,
+					23076,
+					23077
+				},
+				{}
+			}
+		},
+		target = {
+			4
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202301] = {
+		name = &quot;原型商店&quot;,
+		type = 2,
+		lock_name = &quot;Lv.30&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202301,
+		pt = 68921,
+		unlock = {
+			23505
+		},
+		task_list = {
+			{
+				{
+					23078,
+					23079
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202401] = {
+		name = &quot;游戏屋&quot;,
+		type = 2,
+		lock_name = &quot;Lv.30&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202401,
+		pt = 68922,
+		unlock = {
+			23505
+		},
+		task_list = {
+			{
+				{
+					23080
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202501] = {
+		name = &quot;军部研究室&quot;,
+		type = 2,
+		lock_name = &quot;Lv.30&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202501,
+		pt = 68923,
+		unlock = {
+			23505
+		},
+		task_list = {
+			{
+				{
+					23081,
+					23082,
+					23083,
+					23084
+				},
+				{}
+			}
+		},
+		target = {
+			4
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202601] = {
+		name = &quot;开发船坞&quot;,
+		type = 2,
+		lock_name = &quot;Lv.30&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202601,
+		pt = 68924,
+		unlock = {
+			23505
+		},
+		task_list = {
+			{
+				{
+					23085,
+					23086,
+					23087,
+					23088
+				},
+				{}
+			}
+		},
+		target = {
+			4
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202701] = {
+		name = &quot;养成计划&quot;,
+		type = 2,
+		lock_name = &quot;Lv.30&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202701,
+		pt = 68925,
+		unlock = {
+			23505
+		},
+		task_list = {
+			{
+				{
+					23089,
+					23090
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202801] = {
+		name = &quot;指挥喵&quot;,
+		type = 2,
+		lock_name = &quot;Lv.40&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202801,
+		pt = 68926,
+		unlock = {
+			23506
+		},
+		task_list = {
+			{
+				{
+					23091,
+					23092,
+					23093
+				},
+				{}
+			}
+		},
+		target = {
+			3
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[202901] = {
+		name = &quot;大讲堂&quot;,
+		type = 2,
+		lock_name = &quot;Lv.50&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 202901,
+		pt = 68927,
+		unlock = {
+			23507
+		},
+		task_list = {
+			{
+				{
+					23094,
+					23095
+				},
+				{}
+			}
+		},
+		target = {
+			2
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[203001] = {
+		name = &quot;装备研发&quot;,
+		type = 2,
+		lock_name = &quot;Lv.60&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 203001,
+		pt = 68928,
+		unlock = {
+			23508
+		},
+		task_list = {
+			{
+				{
+					23096
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[203101] = {
+		name = &quot;限界挑战&quot;,
+		type = 2,
+		lock_name = &quot;Lv.80&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 203101,
+		pt = 68929,
+		unlock = {
+			23509
+		},
+		task_list = {
+			{
+				{
+					23097
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[203201] = {
+		name = &quot;大型作战&quot;,
+		type = 2,
+		lock_name = &quot;Lv.80&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 203201,
+		pt = 68930,
+		unlock = {
+			23509
+		},
+		task_list = {
+			{
+				{
+					23098,
+					23099,
+					23100,
+					23101,
+					23102,
+					23103,
+					23104,
+					23105,
+					23106,
+					23107
+				},
+				{}
+			}
+		},
+		target = {
+			10
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[203301] = {
+		name = &quot;META研究室&quot;,
+		type = 2,
+		lock_name = &quot;Lv.80&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 203301,
+		pt = 68931,
+		unlock = {
+			23509
+		},
+		task_list = {
+			{
+				{
+					23108
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	[203401] = {
+		name = &quot;宿舍计划&quot;,
+		type = 2,
+		lock_name = &quot;Lv.80&quot;,
+		eng_name = &quot;HANDBOOK&quot;,
+		id = 203401,
+		pt = 68932,
+		unlock = {
+			23509
+		},
+		task_list = {
+			{
+				{
+					23109
+				},
+				{}
+			}
+		},
+		target = {
+			1
+		},
+		drop_client = {
+			{
+				{
+					2,
+					20001,
+					2
+				}
+			}
+		}
+	},
+	all = {
+		100101,
+		100201,
+		100301,
+		100401,
+		100501,
+		100601,
+		100701,
+		100801,
+		100901,
+		200101,
+		200201,
+		200301,
+		200401,
+		200501,
+		200601,
+		200701,
+		200801,
+		200901,
+		201001,
+		201101,
+		201201,
+		201301,
+		201401,
+		201501,
+		201601,
+		201701,
+		201801,
+		201901,
+		202001,
+		202101,
+		202201,
+		202301,
+		202401,
+		202501,
+		202601,
+		202701,
+		202801,
+		202901,
+		203001,
+		203101,
+		203201,
+		203301,
+		203401
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

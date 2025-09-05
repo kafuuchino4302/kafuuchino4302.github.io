@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t30402.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>t30402.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1,
+	mode = 2,
+	id = &quot;T30402&quot;,
+	once = true,
+	fadeType = 1,
+	scripts = {
+		{
+			side = 2,
+			mode = 2,
+			nameColor = &quot;#ff0000&quot;,
+			dir = -1,
+			blackBg = true,
+			bgm = &quot;story-5&quot;,
+			actor = 307040,
+			actorName = &quot;{namecode:94}&quot;,
+			say = &quot;最后的机会了，贯彻吾辈毕生修行的一击！！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			mode = 2,
+			side = 0,
+			say = &quot;啊！！&quot;,
+			bgspeed = 2,
+			blackBg = true,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 107050,
+			nameColor = &quot;#a9f548&quot;,
+			withoutPainting = true,
+			flash = {
+				wait = 0.2,
+				delay = 0.3,
+				dur = 0.5,
+				number = 1,
+				alpha = {
+					0,
+					1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 2,
+			actorShadow = true,
+			nameColor = &quot;#a9f548&quot;,
+			hideOther = true,
+			dir = -1,
+			blackBg = true,
+			side = 0,
+			say = &quot;姐姐！！&quot;,
+			actor = 107060,
+			actorName = &quot;企业&amp;大黄蜂&quot;,
+			withoutPainting = true,
+			subActors = {
+				{
+					actor = 107070,
+					pos = {
+						x = -825
+					}
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			actorName = &quot;{namecode:94}&quot;,
+			actor = 307040,
+			dir = -1,
+			blackBg = true,
+			mode = 2,
+			hideOther = true,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;至少…为那位大人挽回了一点局面呢…&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			fadeOut = 2,
+			side = 2,
+			actorName = &quot;{namecode:94}&quot;,
+			mode = 2,
+			dir = -1,
+			blackBg = true,
+			actor = 307040,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;吾辈此生亦无憾矣&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			mode = 3,
+			side = 0,
+			bgName = &quot;bg_story_10&quot;,
+			actor = 107050,
+			say = &quot;你们都哭丧着个脸干啥，我们可是打了个大胜战哦&quot;,
+			blackBg = true,
+			nameColor = &quot;#a9f548&quot;,
+			withoutPainting = true,
+			effects = {
+				{
+					active = true,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;很快，你们的名字就会响彻世界，成为后世所传颂的传奇军舰&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;很快，战争就会结束，人类将会相互理解，重新携手夺回这片大洋&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;而我们，本就是为了实现他们的理想而诞生的，这一切都是值得的&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107060,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;…不，我不能认同这些…&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;差不多到了该分别的时候了…&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;看着你们从不懂事的孩子一直成长到现在的海军王牌，一直是我最引以为傲的事&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 3,
+			side = 0,
+			bgName = &quot;bg_story_11&quot;,
+			actor = 107050,
+			bgspeed = 2,
+			blackBg = true,
+			say = &quot;带上他，“死神”以后就得靠你来照顾了&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			withoutPainting = true,
+			effects = {
+				{
+					active = true,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;带着他一起，把自由的意志传承下去&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107050,
+			mode = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			say = &quot;是你的话一定办得到的，我的妹妹…&quot;,
+			blackBg = true,
+			withoutPainting = true,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 3,
+			blankScreen = 1.5,
+			fadein = 1.5,
+			blackBg = true,
+			bgFade = true,
+			effects = {
+				{
+					active = false,
+					name = &quot;UIhuohua&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			hideOther = true,
+			mode = 2,
+			dir = -1,
+			blackBg = true,
+			say = &quot;是吗，又有无数的灵魂消散而去了&quot;,
+			fadein = 1.5,
+			actor = 307040,
+			actorName = &quot;？？？&quot;,
+			nameColor = &quot;#ff0000&quot;,
+			withoutPainting = true,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 1,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			mode = 2,
+			say = &quot;看到了吗，这耀眼的光芒&quot;,
+			dir = -1,
+			blackBg = true,
+			nameColor = &quot;#ff0000&quot;,
+			actor = 307040,
+			actorName = &quot;？？？&quot;,
+			withoutPainting = true,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 1,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			mode = 2,
+			say = &quot;这样的进化方式还真是令人感到些许哀伤呢~&quot;,
+			dir = -1,
+			blackBg = true,
+			nameColor = &quot;#ff0000&quot;,
+			actor = 307040,
+			actorName = &quot;？？？&quot;,
+			withoutPainting = true,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#ff0000&quot;,
+			say = &quot;那么，计划也该进行到下一环节了…&quot;,
+			dir = -1,
+			blackBg = true,
+			mode = 2,
+			actor = 307040,
+			actorName = &quot;？？？&quot;,
+			withoutPainting = true,
+			shake = {
+				speed = 1,
+				number = 999
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			sequenceSpd = 1,
+			mode = 1,
+			sequence = {
+				{
+					&quot; &quot;,
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

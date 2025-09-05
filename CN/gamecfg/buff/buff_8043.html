@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_8043.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_8043.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 99999,
+	name = &quot;第10章重巡使用盾buff&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;第10章重巡使用盾buff&quot;,
+	stack = 1,
+	id = 8043,
+	icon = 8043,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onShieldBroken&quot;
+			},
+			arg_list = {
+				shieldBuffID = 8042,
+				countTarget = 3,
+				countType = 8044
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				buff_id = 8044,
+				rant = 10000,
+				target = &quot;TargetSelf&quot;,
+				countType = 8044
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

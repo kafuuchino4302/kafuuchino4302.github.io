@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_17042.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_17042.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;&quot;,
+	init_effect = &quot;jinengchufablue&quot;,
+	time = 8,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 14862,
+	icon = 14862,
+	last_effect = &quot;&quot;,
+	blink = {
+		0,
+		0.7,
+		1,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			id = 1,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 6,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							0,
+							0,
+							0
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					return Vector3(3, -1.8, 0.5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, 192, 0)
+				end
+			}
+		},
+		{
+			type = &quot;BattleBuffFixVelocity&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				add = 5,
+				mul = 0
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

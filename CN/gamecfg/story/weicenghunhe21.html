@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weicenghunhe21.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>weicenghunhe21.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;WEICENGHUNHE21&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			say = &quot;巴拿马要塞西侧？ 迷雾中&quot;,
+			dir = 1,
+			bgm = &quot;hunhe-battle&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103240,
+			say = &quot;吃我一炮，再见了哟！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;轰----！&quot;,
+			dir = 1,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 106550,
+			say = &quot;疑似目标排除，塞壬指挥系统…未发现异常。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107170,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;又错了么…这是排除的第多少个疑似目标了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 106550,
+			say = &quot;二十一个…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103240,
+			say = &quot;没想到会在这里碰上塞壬的新型号啊…每一艘看上去都好可疑！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102260,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;大家加油，加油~打起精神来！只要坚持下去，总会找到我们的目标哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103240,
+			say = &quot;里诺还是一贯的有活力…很有成为拉拉队员的素质啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102260,
+			say = &quot;在乐观这一点上，我还是很有自信的~这种时候就让我为大家加油打气吧，Fight~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103240,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;也是…如果分不清指挥舰的话，就这么沿路全部干掉就是了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 103240,
+			say = &quot;用巴尔的摩的话来讲就是---英雄可不能临阵退缩啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102260,
+			say = &quot;哦？！就是这种感觉，布莱默顿小姐，Cool~!&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103240,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嘿嘿，又来了一个目标，感觉这个也很像指挥舰，要上了哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 1.2,
+					dur = 0.5,
+					x = -2500
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

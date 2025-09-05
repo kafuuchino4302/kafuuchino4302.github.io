@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200101.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200101.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;勇者标枪永久盾牌&quot;,
+	init_effect = &quot;&quot;,
+	id = 200101,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 200101,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			id = 1,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield_yongzhe&quot;,
+				count = 99999,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							5,
+							12,
+							15
+						},
+						offset = {
+							1.5,
+							0,
+							1
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					return Vector3(3.5, -0.5, 0)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, 0, 0)
+				end
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

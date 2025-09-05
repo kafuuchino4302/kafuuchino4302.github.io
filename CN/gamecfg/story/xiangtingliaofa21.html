@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiangtingliaofa21.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xiangtingliaofa21.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;XIANGTINGLIAOFA21&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgm = &quot;battle-boss-4&quot;,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哈啊…终于结束了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 0,
+			say = &quot;战斗中收集了许多恶劣海况下的作战数据，回去之后要好好分析一下……&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;对了，你知道么，埃塞克斯。早在大航海时代，百慕大三角就存在极端恶劣天气的记录了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哥伦布的远洋船队在靠近百慕大时，曾遭遇了“遮蔽了太阳与星辰”的猛烈风暴。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			expression = 1,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;一连数日，狂风呼啸、浪涛翻卷，导航仪器全部失灵。如果不是哥伦布航海经验丰富，恐怕就要葬身于此了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			dir = 1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;难道说，早在几百年前塞壬就已经潜伏在深海之中了？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 107090,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;再怎么说也太夸张了吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这种情况也许反过来想比较好——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;塞壬利用了本就存在的奇异现象和故事传说，作为自己行动痕迹的伪装。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actor = 107380,
+			say = &quot;幽灵船、大海怪、不明飞行物，海上的种种传说和怪谈也许都被塞壬利用了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;就像这一次，百慕大三角长期存在的奇异事件在第一时间掩盖了塞壬行动的情报，导致塞壬暗中完成了舰队部署。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			dir = 1,
+			actor = 107090,
+			say = &quot;归根究底，“塞壬”……究竟是什么呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…之后建议指挥部彻查一下原本认为与作战无关的异常报告好了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不过现在，继续按照原定航线前进，向中心进发了哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

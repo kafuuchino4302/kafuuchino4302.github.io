@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddailyconversation207.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddailyconversation207.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DDAILYCONVERSATION207&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;{dorm3d}，我在想，要不要干脆试试把头发盘起来呢……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			hidePaintObj = true,
+			nameColor = &quot;#FFFFFF&quot;,
+			say = &quot;毕竟头发太长，如果转身太快的话，头发可能会打到你……咳。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = true,
+							name = &quot;shuohua_sikao&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							skip = true,
+							name = &quot;Face_sikao&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							time = 2.5,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;你呢？你比较喜欢怎样的发型呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = 30221,
+			side = 2,
+			nameColor = &quot;#FFFFFF&quot;,
+			hidePaintObj = true,
+			say = &quot;不用急着回答，等下坐下来一起慢慢挑选参考看看吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

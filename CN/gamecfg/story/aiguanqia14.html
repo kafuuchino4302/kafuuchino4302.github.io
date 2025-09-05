@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aiguanqia14.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>aiguanqia14.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 2,
+	once = true,
+	id = &quot;AIGUANQIA14&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 201210,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;障碍物都清理完了，差不多该到BOSS出来的时候了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301050,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;其他的BUG也都差不多杀完了，的说&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不过话说回来，真亏你能穿着这么轻飘飘的衣服在战场上来来去去呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301110,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;就是就是！不觉得很难活动吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301050,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这话是{namecode:13}和{namecode:14}该说的吗……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10400030,
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			dir = 1,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;没问题的啦～毕竟总是穿着这套衣服又唱又跳的呢～！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101170,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;绊爱…好厉害…拉菲对于轻飘飘的衣服…不行&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 10400030,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;啊，一直这么闲聊可不行，大家要注意！不知道什么时候BOSS就会突然出现的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401230,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;爱小姐！？不看着前面很危险的哦！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;咚！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 12.75,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			actor = 10400030,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;好疼！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 10400040,
+			actorName = &quot;绊爱(伪)&quot;,
+			say = &quot;………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10400030,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = -1,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			actor = 10400030,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;啊啊啊啊啊啊啊啊啊啊啊啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 22.5,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 4
+				}
+			}
+		},
+		{
+			actor = 201210,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;绊爱(伪)！？什么时候出现的！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101170,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;绊爱…果然不厉害…拉菲，失望……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			actor = 10400030,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;拉菲酱不要这么说啦～～～～救救我呜呜呜～～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 45,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 101170,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;没办法，把BOSS打倒吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			actor = 10400030,
+			actorName = &quot;绊爱&quot;,
+			say = &quot;真是的～！怎么又是我的冒牌货啦！？就算3D模型免费开源，也有该做和不该做的事情的吧！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 301120,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;似乎装备了战舰的舰装。装甲恐怕是……“重型装甲”&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301110,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;原来如此！使用“穿甲弹”就能给予“大量伤害”对吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401230,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;敌人来了！各位，做好迎击准备！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

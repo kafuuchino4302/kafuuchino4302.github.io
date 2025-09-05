@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>s011.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>s011.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;让我们打开&lt;color=#ff7d36&gt;任务日志&lt;/color&gt;&quot;,
+	&quot;领取&lt;color=#ff7d36&gt;任务奖励&lt;/color&gt;&quot;
+}
+
+return {
+	id = &quot;S011&quot;,
+	events = {
+		{
+			alpha = 0.325,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -123,
+				posX = 87.7,
+				text = slot0[1]
+			},
+			ui = {
+				pathIndex = -1,
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/bottom/frame/task&quot;
+					else
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/bottom/taskButton&quot;
+					end
+				end,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -21.7,
+					posX = 36.96
+				}
+			}
+		},
+		{
+			alpha = 0.375,
+			waitScene = &quot;TaskScene&quot;,
+			ui = {
+				pathIndex = -1,
+				path = &quot;/UICamera/Canvas/UIMain/TaskScene(Clone)/blur_panel/adapt/left_length/frame/tagRoot/scenario&quot;,
+				triggerType = {
+					2
+				},
+				fingerPos = {
+					posY = -50,
+					posX = 40
+				}
+			}
+		},
+		{
+			alpha = 0.375,
+			waitScene = &quot;TaskScene&quot;,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 183,
+				posX = 474,
+				text = slot0[2]
+			},
+			ui = {
+				delay = 1,
+				pathIndex = -1,
+				path = &quot;/UICamera/Canvas/UIMain/TaskScene(Clone)/pages/TaskListPage(Clone)/right_panel/mask/content/0/frame/get_btn&quot;,
+				triggerType = {
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

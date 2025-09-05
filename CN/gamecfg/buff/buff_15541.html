@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_15541.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_15541.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		time = 5
+	},
+	{
+		time = 5.5
+	},
+	{
+		time = 6
+	},
+	{
+		time = 6.5
+	},
+	{
+		time = 7
+	},
+	{
+		time = 7.5
+	},
+	{
+		time = 8
+	},
+	{
+		time = 8.5
+	},
+	{
+		time = 9
+	},
+	{
+		time = 10
+	},
+	init_effect = &quot;&quot;,
+	name = &quot;&quot;,
+	time = 1,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 15541,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			id = 1,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield05&quot;,
+				count = 2,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 3,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3
+
+					return Vector3(math.sin(slot1) * 3, 0.75, math.cos(slot1) * 3)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 90, 0)
+				end
+			}
+		},
+		{
+			id = 2,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield05&quot;,
+				count = 2,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 3,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 + 2.512
+
+					return Vector3(math.sin(slot1) * 3, 0.75, math.cos(slot1) * 3)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 234, 0)
+				end
+			}
+		},
+		{
+			id = 3,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield05&quot;,
+				count = 2,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 3,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 - 2.512
+
+					return Vector3(math.sin(slot1) * 3, 0.75, math.cos(slot1) * 3)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST - 54, 0)
+				end
+			}
+		},
+		{
+			id = 4,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 4,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3
+
+					return Vector3(math.sin(slot1) * 5, 0.75, math.cos(slot1) * 5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 90, 0)
+				end
+			}
+		},
+		{
+			id = 5,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 4,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 + 1.256
+
+					return Vector3(math.sin(slot1) * 5, 0.75, math.cos(slot1) * 5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 162, 0)
+				end
+			}
+		},
+		{
+			id = 6,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 4,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 + 2.512
+
+					return Vector3(math.sin(slot1) * 5, 0.75, math.cos(slot1) * 5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 234, 0)
+				end
+			}
+		},
+		{
+			id = 7,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 4,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 - 1.256
+
+					return Vector3(math.sin(slot1) * 5, 0.75, math.cos(slot1) * 5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 18, 0)
+				end
+			}
+		},
+		{
+			id = 8,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;shield02&quot;,
+				count = 4,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 - 2.512
+
+					return Vector3(math.sin(slot1) * 5, 0.75, math.cos(slot1) * 5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST - 54, 0)
+				end
+			}
+		},
+		{
+			id = 9,
+			type = &quot;BattleBuffDamageWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				damage = 55,
+				effect = &quot;shield06&quot;,
+				count = 6,
+				attack_attribute = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3
+
+					return Vector3(math.sin(slot1) * 8, 0.75, math.cos(slot1) * 8)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 90, 0)
+				end
+			}
+		},
+		{
+			id = 10,
+			type = &quot;BattleBuffDamageWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				damage = 55,
+				effect = &quot;shield06&quot;,
+				count = 6,
+				attack_attribute = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 + ys.Battle.BattleConfig.SHIELD_CENTER_CONST_2
+
+					return Vector3(math.sin(slot1) * 8, 0.75, math.cos(slot1) * 8)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST + 210, 0)
+				end
+			}
+		},
+		{
+			id = 11,
+			type = &quot;BattleBuffDamageWall&quot;,
+			trigger = {
+				&quot;onStack&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				damage = 55,
+				effect = &quot;shield06&quot;,
+				count = 6,
+				attack_attribute = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							1.02,
+							0,
+							1.22
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					slot1 = slot0 * 3 + ys.Battle.BattleConfig.SHIELD_CENTER_CONST_4
+
+					return Vector3(math.sin(slot1) * 8, 0.75, math.cos(slot1) * 8)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, slot0 * ys.Battle.BattleConfig.SHIELD_ROTATE_CONST - 20, 0)
+				end
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

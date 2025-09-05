@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battleshrapnelbullet.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battleshrapnelbullet.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleBulletEvent
+slot2 = class(&quot;BattleShrapnelBullet&quot;, slot0.Battle.BattleBullet)
+slot0.Battle.BattleShrapnelBullet = slot2
+slot2.__name = &quot;BattleShrapnelBullet&quot;
+
+slot2.Ctor = function(slot0, slot1, slot2)
+	uv0.super.Ctor(slot0, slot1, slot2)
+end
+
+slot2.AddBulletEvent = function(slot0)
+	uv0.super.AddBulletEvent(slot0)
+	slot0._bulletData:RegisterEventListener(slot0, uv1.SPLIT, slot0.onBulletSplit)
+end
+
+slot2.RemoveBulletEvent = function(slot0)
+	uv0.super.RemoveBulletEvent(slot0)
+	slot0._bulletData:UnregisterEventListener(slot0, uv1.SPLIT)
+end
+
+slot2.onBulletSplit = function(slot0, slot1)
+	slot0:_bulletHitFunc()
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

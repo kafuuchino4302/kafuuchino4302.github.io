@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yixiangpianzhen6.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yixiangpianzhen6.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;YIXIANGPIANZHEN6&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;异向偏振\n\n&lt;size=45&gt;六 紧急授权&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			bgmDelay = 2,
+			bgm = &quot;battle-starsea-elec&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;星海基地-核心区-「银河之心」-X区&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;警告：「现实透镜」内侧出现大量新增数据，即将超出给定存储空间。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;过载风险：高。时间调解器，效能降低至80%。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;什么？……这才不到十分钟，到底是什么数据能占用我们全部的空间？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;难道说……埋藏在安克雷奇心智中的不明信息解压缩了么……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;肯定，这是当前状况下最合理的推测。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;根据紧急预案F，我将开始分配空闲存储阵列区域G104-H142，区域I472-K071至「现实透镜」。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/20/tb-20&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;进程处理中——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;海伦娜，同时将数据分流，分出一部分数据到实验区E4SR的「仙女座」中进行解析。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……好的，开始执行分流操作……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/26/tb-26&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;进程处理完毕：存储阵列已重新分配。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;警告：新增存储空间不足以应对数据膨胀速度，预计将在30秒后再次抵达处理能力上限。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;什么？将近两个存储阵列的新增容量还不够么？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;连模拟一座大都会都用不上这么大的容量啊……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;海伦娜，能继续分流数据到「仙女座」么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……不行，「仙女座」的超级计算机也到处理极限了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;孟菲斯，不能让指挥官在如此高风险的环境下继续任务了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，我明白。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;领航员小姐，行动终止，立刻断开指挥官和安克雷奇与「现实透镜」的连接。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/45/tb-45&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;回复：该提案已被指挥官拒绝，指挥官希望我再坚持一段时间以便其寻获更有用的信息。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;警告：时间调解器，效能降低至25%。时间倍率比即将达到1:60,。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;糟了……1:60不就意味着……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们在外面的一分钟相当于「现实透镜」中的一个小时……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;警告：我正在失去对透镜内时间流速比的控制。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/16/tb-16&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;警告：因为时间调解器效能的降低，我正在失去对指挥官的直接观测。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;基于现状，我将开始执行紧急预案K，关闭「星海」中优先级三及以下的项目，将释放的资源集中至「现实透镜」。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;根据数据膨胀速度推算，可以额外获得大约90秒钟处理时间。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不行，数据膨胀无休无止，谁也不知道什么时候是头。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;内外的时间流速比正在失控，我们耽误的每一秒，指挥官都会遭遇更多危险。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;孟菲斯，启用最终方案，宣布星海处于危机状态吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这样我们可以将星海的所有算力全部集中过来，进而在最短时间内恢复对于时间调解器的控制。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果不将时间倍率控制在1:5以下的话，我是没有办法将指挥官安全弹出的！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……提前拜托萨拉托加准备了这个最终保险方案真是太正确了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;海伦娜，你也没意见吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;当然……行动吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好，领航员小姐，将「星海」基地的警戒等级提高至红色，除了安保系统之外，所有资源全部分配至「现实透镜」。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/12/tb-12&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;指令已确认，请输入授权代码：&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;紧急授权代码0584，授权者，孟菲斯。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;紧急授权代码7987，授权者，海伦娜……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 112010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;紧急授权代码6982，授权者，女灶神！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			voice = &quot;event:/tb/12/tb-12&quot;,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;指令已确认，验证中————&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;一次性紧急授权代码验证完毕，授权通过。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;现在开始执行紧急指令，全系统正在转入危机应对模式——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;现在向各部门进行广播——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;各部门与人员请注意，我是「星海」主机，领航员-TB。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;风险管控协议ECP-15已经激活，现在「星海」进入红色警戒状态。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;根据协议，「星海」核心区将在十分钟后进行全面封锁，所有常规区域将在三十分钟后关停。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;此项进程不可撤销。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;各部门请保持镇静，按照预案有序前往撤离区域。请注意，这不是演习。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 900284,
+			actorName = &quot;领航员-TB&quot;,
+			hidePaintObj = true,
+			say = &quot;重复：各部门与人员请注意————&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……总算是，暂时缓解危机了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;现在开始分工。我负责指挥官的操作台，女灶神负责安克雷奇的操作台，海伦娜留在这里关注时间调解器的情况。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_starsea_core_1&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;情况紧迫，我们必须用争取到的宝贵时间尽快让局势恢复控制才行！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

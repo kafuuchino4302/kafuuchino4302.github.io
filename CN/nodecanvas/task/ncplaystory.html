@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ncplaystory.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ncplaystory.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NcPlayStory&quot;, import(&quot;..base.NodeCanvasBaseTask&quot;))
+
+slot0.OnExecute = function(slot0)
+	slot0:DoAction(slot0:GetStringArg(&quot;storyName&quot;), function ()
+		uv0:EndAction()
+	end)
+end
+
+slot0.DoAction = function(slot0, slot1, slot2)
+	if not _IslandCore then
+		return
+	end
+
+	_IslandCore:GetController():NotifiyIsland(ISLAND_EX_EVT.PLAY_STORY, {
+		name = slot1,
+		callback = slot2
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

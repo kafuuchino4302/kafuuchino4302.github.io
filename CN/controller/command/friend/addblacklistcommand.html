@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addblacklistcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>addblacklistcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AddBlackListCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if slot1:getBody():isFriend() then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;friend_player_is_friend_tip&quot;))
+
+		return
+	end
+
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(50109, {
+		id = slot2.id
+	}, 50110, function (slot0)
+		if slot0.result == 0 then
+			getProxy(FriendProxy):addIntoBlackList(uv0)
+			uv1:sendNotification(GAME.FRIEND_ADD_BLACKLIST_DONE)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;friend_addblacklist_success&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;friend_addblacklist&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

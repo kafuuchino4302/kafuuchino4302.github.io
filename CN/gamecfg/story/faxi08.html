@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>faxi08.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>faxi08.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 0.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;FAXI08&quot;,
+	continueBgm = true,
+	occlusion = 2,
+	scripts = {
+		{
+			actor = 105190,
+			side = 2,
+			stopbgm = true,
+			dir = 1,
+			say = &quot;这群狂热的宗教分子，战斗方式都是这么极端的吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 105190,
+			side = 2,
+			dir = 1,
+			say = &quot;这个炮弹是…大口径的战列舰炮弹，是那个大家伙吗？&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 105190,
+			side = 2,
+			dir = 1,
+			say = &quot;叫什么来着…让…让·保尔？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107040,
+			side = 1,
+			say = &quot;{namecode:523}&quot;,
+			dir = 1,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = &quot;1&quot;,
+			side = 0,
+			actor = 105190,
+			dir = 1,
+			say = &quot;有点意思，有她在的话似乎可以让战斗变得再激烈一点了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107040,
+			side = 1,
+			dir = 1,
+			say = &quot;…请不要忘记你身为特混舰队旗舰的职责&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 105190,
+			side = 0,
+			say = &quot;我的职责就是尽可能的消除敌方带来的威胁，减少登陆部队的牺牲&quot;,
+			dir = 1,
+			bgm = &quot;story-masazhusai&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 105190,
+			side = 0,
+			dir = 1,
+			say = &quot;那么，我出击了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103110,
+			side = 1,
+			dir = 1,
+			say = &quot;我也出击了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102090,
+			side = 1,
+			dir = 1,
+			say = &quot;等等我！！&quot;,
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101300,
+			side = 0,
+			dir = 1,
+			say = &quot;我..我来为你们护航！&quot;,
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 0,
+					number = 1
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107040,
+			side = 2,
+			dir = 1,
+			say = &quot;等…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107040,
+			side = 2,
+			dir = 1,
+			say = &quot;哎，真是拦都拦不住…这群热血的笨蛋们——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

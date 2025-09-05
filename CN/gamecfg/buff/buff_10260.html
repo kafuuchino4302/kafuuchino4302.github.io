@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10260.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10260.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升20.0%，持续8秒&quot;,
+		addition = {
+			&quot;20.0%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升22.2%，持续8秒&quot;,
+		addition = {
+			&quot;22.2%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升24.4%，持续8秒&quot;,
+		addition = {
+			&quot;24.4%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升26.6%，持续8秒&quot;,
+		addition = {
+			&quot;26.6%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升28.8%，持续8秒&quot;,
+		addition = {
+			&quot;28.8%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升31.0%，持续8秒&quot;,
+		addition = {
+			&quot;31.0%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升33.2%，持续8秒&quot;,
+		addition = {
+			&quot;33.2%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升35.4%，持续8秒&quot;,
+		addition = {
+			&quot;35.4%(+2.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升37.6%，持续8秒&quot;,
+		addition = {
+			&quot;37.6%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;开火时，有20%概率触发，自身炮击提升40.0%，持续8秒&quot;,
+		addition = {
+			&quot;40.0%&quot;
+		}
+	},
+	desc_get = &quot;开火时，有20%概率触发，自身炮击提升20.0%(满级40.0%)，持续8秒&quot;,
+	name = &quot;魔炮-Armageddon！&quot;,
+	init_effect = &quot;&quot;,
+	id = 10260,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;开火时，有20%概率触发，自身炮击提升$1，持续8秒&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 10260,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				rant = 2000,
+				skill_id = 10260,
+				target = &quot;TargetSelf&quot;,
+				time = 10
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

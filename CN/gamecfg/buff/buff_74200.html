@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_74200.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_74200.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;穿透&quot;,
+	init_effect = &quot;&quot;,
+	id = 74200,
+	picture = &quot;&quot;,
+	desc = &quot;战斗对象对我方舰队造成X次伤害后，下一次伤害倍率提高至Y倍&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 74200,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBulletHit&quot;
+			},
+			arg_list = {
+				rant = 10000,
+				buff_id = 74202,
+				index = {
+					1
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;A1&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

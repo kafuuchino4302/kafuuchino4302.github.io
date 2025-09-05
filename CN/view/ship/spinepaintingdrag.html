@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spinepaintingdrag.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>spinepaintingdrag.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SpinePaintingDrag&quot;)
+slot1 = &quot;spine_painting_idle_init_&quot;
+
+slot0.SetPaintingInitIdle = function(slot0, slot1, slot2)
+	PlayerPrefs.SetString(uv0 .. tostring(slot0) .. tostring(slot1), slot2)
+end
+
+slot0.GetPaintingInitIdle = function(slot0, slot1)
+	if PlayerPrefs.GetString(uv0 .. tostring(slot0) .. tostring(slot1)) and #slot3 &gt; 0 then
+		return slot3
+	end
+
+	return nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

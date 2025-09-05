@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>friendrefusepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>friendrefusepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;FriendRefusePage&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;FriendRefuseUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf
+	slot1 = slot1:Find(&quot;window/frame/Text&quot;)
+	slot0.context = slot1:GetComponent(typeof(Text))
+	slot1 = slot0._tf
+	slot0.remind = slot1:Find(&quot;window/remind&quot;)
+	slot1 = slot0._tf
+	slot0.confirmBtn = slot1:Find(&quot;window/confirm_btn&quot;)
+	slot1 = slot0._tf
+	slot0.cancelBtn = slot1:Find(&quot;window/cancel_btn&quot;)
+	slot1 = slot0._tf
+	slot0.closeBtn = slot1:Find(&quot;window/top/btnBack&quot;)
+	slot1 = slot0.remind
+	slot1 = slot1:Find(&quot;Text&quot;)
+	slot0.checkLabel = slot1:GetComponent(typeof(Text))
+
+	onButton(nil, slot0.cancelBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(nil, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(nil, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.isOn = false
+
+	onToggle(nil, slot0.remind, function (slot0)
+		uv0.isOn = slot0
+	end, SFX_PANEL)
+	onButton(nil, slot0.confirmBtn, function ()
+		if uv0.func then
+			uv0.func(uv0.isOn)
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1, slot2, slot3)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+
+	slot0.func = slot3
+	slot0.context.text = slot1
+
+	triggerToggle(slot0.remind, false)
+	setActive(slot0._tf, true)
+
+	slot0.checkLabel.text = slot2
+
+	slot0._tf:SetAsLastSibling()
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	setActive(slot0._tf, false)
+
+	slot0.func = nil
+	slot0.context.text = &quot;&quot;
+	slot0.checkLabel.text = &quot;&quot;
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0:Hide()
+	removeOnButton(slot0._tf)
+	removeOnButton(slot0.cancelBtn)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

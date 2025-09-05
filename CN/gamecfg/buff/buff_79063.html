@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_79063.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_79063.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 40,
+	name = &quot;防卫者AT·FIELDlv4&quot;,
+	init_effect = &quot;&quot;,
+	last_effect_cld_scale = true,
+	picture = &quot;&quot;,
+	desc = &quot;AT·FIELD&quot;,
+	stack = 1,
+	id = 79063,
+	icon = 30000003,
+	last_effect = &quot;ATdun&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffBarrier&quot;,
+			trigger = {
+				&quot;onUpdate&quot;,
+				&quot;onRemove&quot;,
+				&quot;onAttach&quot;,
+				&quot;onTakeDamage&quot;
+			},
+			arg_list = {
+				durability = 90000,
+				cld_data = {
+					box = {
+						range = 28
+					},
+					offset = {
+						0,
+						4,
+						0
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

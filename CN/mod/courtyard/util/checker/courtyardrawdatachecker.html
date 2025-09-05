@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardrawdatachecker.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardrawdatachecker.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardRawDataChecker&quot;)
+
+slot0.Check = function(slot0, slot1)
+	slot2 = {}
+	slot3 = {}
+
+	for slot7, slot8 in pairs(slot0) do
+		if not uv0.FillMap(slot3, RawFurnitureData.New(slot8)) then
+			return false, i18n1(&quot;Incorrect position&quot;)
+		end
+
+		slot2[slot8.id] = slot9
+	end
+
+	for slot7, slot8 in pairs(slot2) do
+		slot9, slot10 = uv0._CheckFurnitrue(slot8, slot2, slot1)
+
+		if not slot9 then
+			return slot9, i18n1(&quot;[&quot; .. slot8.name .. &quot;] erro:&quot; .. slot10 .. &quot;-&quot; .. slot8.id)
+		end
+	end
+
+	return true
+end
+
+slot0.FillMap = function(slot0, slot1)
+	if not slot1:MatOrPaper() and not slot1:ExistParnet() and slot1.config.belong == 1 and slot1.x and slot1.y then
+		assert(slot1.x, slot1.id)
+
+		for slot5 = slot1.x, slot1.x + slot1.sizeX - 1 do
+			for slot9 = slot1.y, slot1.y + slot1.sizeY - 1 do
+				if not slot0[slot5] then
+					slot0[slot5] = {}
+				end
+
+				if slot0[slot5][slot9] then
+					return false
+				end
+
+				slot0[slot5][slot9] = true
+			end
+		end
+	end
+
+	return true
+end
+
+slot0.CheckFurnitrue = function(slot0, slot1, slot2)
+	slot3 = {}
+	slot4 = {}
+
+	for slot8, slot9 in pairs(slot1) do
+		if not uv0.FillMap(slot4, RawFurnitureData.New(slot9)) then
+			return false, i18n1(&quot;Incorrect position&quot;)
+		end
+
+		slot3[slot9.id] = slot10
+	end
+
+	return uv0._CheckFurnitrue(slot3[slot0.id], slot3, slot2)
+end
+
+slot0._CheckFurnitrue = function(slot0, slot1, slot2)
+	slot3 = slot2.x
+	slot4 = slot2.y
+	slot5 = slot2.z
+	slot6 = slot2.w
+
+	if not slot0:IsCompletion() then
+		return false, &quot;Incomplete data&quot;
+	end
+
+	if slot0:ExistParnet() and not slot0:LegalParent(slot1[slot0.parent]) then
+		return false, &quot;Incorrect [parent -&gt; child] relation&quot;
+	end
+
+	slot8 = pairs
+	slot9 = slot0.child or {}
+
+	for slot11, slot12 in slot8(slot9) do
+		if not slot0:LegalChild(slot1[slot11]) then
+			return false, &quot;Incorrect [child -&gt; parent] relation&quot;
+		end
+	end
+
+	if not slot0:InSide(slot3, slot4, slot5, slot6) then
+		return false, &quot;out side&quot;
+	end
+
+	return true
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

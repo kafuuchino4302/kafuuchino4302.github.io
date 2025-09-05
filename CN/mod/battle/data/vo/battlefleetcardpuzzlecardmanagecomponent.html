@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlefleetcardpuzzlecardmanagecomponent.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlefleetcardpuzzlecardmanagecomponent.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleUnitEvent
+slot2 = slot0.Battle.BattleEvent
+slot3 = slot0.Battle.BattleCardPuzzleEvent
+slot4 = slot0.Battle.BattleFormulas
+slot5 = slot0.Battle.BattleConst
+slot6 = slot0.Battle.BattleConfig
+slot7 = slot0.Battle.BattleAttr
+slot8 = slot0.Battle.BattleDataFunction
+slot9 = slot0.Battle.BattleAttr
+slot10 = class(&quot;BattleFleetCardPuzzleCardManageComponent&quot;)
+slot0.Battle.BattleFleetCardPuzzleCardManageComponent = slot10
+slot10.__name = &quot;BattleFleetCardPuzzleCardManageComponent&quot;
+slot10.FUNC_NAME_SHUFFLE = &quot;Shuffle&quot;
+slot10.FUNC_NAME_POP = &quot;Pop&quot;
+slot10.FUNC_NAME_ADD = &quot;Add&quot;
+slot10.FUNC_NAME_BOTTOM = &quot;Bottom&quot;
+slot10.FUNC_NAME_REMOVE = &quot;Remove&quot;
+slot10.FUNC_NAME_SEARCH = &quot;Search&quot;
+slot10.FUNC_NAME_SORT = &quot;Sort&quot;
+slot10.FUNC_NAME_GET_LENGTH = &quot;GetLength&quot;
+slot10.SEARCH_BY_ID = &quot;ID&quot;
+slot10.SEARCH_BY_LABEL = &quot;LABEL&quot;
+slot10.SEARCH_BY_TYPE = &quot;TYPE&quot;
+
+slot10.AttachCardManager = function(slot0)
+	assert(slot0.GetCardList ~= nil, &quot;该类&gt;&gt;&quot; .. slot0.__name .. &quot;&lt;&lt;使用card puzzle卡牌管理组件需要支持接口&gt;&gt;GetCardList&lt;&lt;，并返回所有的卡牌列表&quot;)
+	assert(slot0.DispatchEvent ~= nil, &quot;该类&gt;&gt;&quot; .. slot0.__name .. &quot;&lt;&lt;使用card puzzle卡牌管理组件需要事件派发组件&quot;)
+	uv0.New(slot0)
+end
+
+slot10.DetachCardManager = function(slot0)
+	if slot0._cardManager_ == nil then
+		return
+	end
+
+	slot0._cardManager_:_destroy_()
+
+	slot0._cardManager_ = nil
+end
+
+slot10.Ctor = function(slot0, slot1)
+	slot0._target_ = slot1
+
+	slot0:_init_()
+end
+
+slot10._init_ = function(slot0)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_SHUFFLE, uv0._shuffle_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_POP, uv0._pop_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_ADD, uv0._add_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_BOTTOM, uv0._bottom_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_REMOVE, uv0._remove_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_SEARCH, uv0._search_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_SORT, uv0._sort_)
+	slot0:_overrideAttachFunc(uv0.FUNC_NAME_GET_LENGTH, uv0._getLength_)
+end
+
+slot10._overrideAttachFunc = function(slot0, slot1, slot2)
+	if slot0._target_[slot1] ~= nil then
+		slot3 = slot0._target_[slot1]
+
+		slot0._target_[slot1] = function (...)
+			uv0(...)
+			uv1(...)
+		end
+
+		return
+	end
+
+	slot0._target_[slot1] = slot2
+end
+
+slot10._destroy_ = function(slot0)
+	slot0._target_ = nil
+end
+
+slot10._add_ = function(slot0, slot1)
+	table.insert(slot0:GetCardList(), slot1)
+	slot1:SetCurrentPile(slot0:GetIndexID())
+	slot0:DispatchEvent(uv0.Event.New(uv1.UPDATE_CARDS, {
+		type = uv2.FUNC_NAME_ADD
+	}))
+end
+
+slot10._bottom_ = function(slot0, slot1)
+	table.insert(slot0:GetCardList(), 1, slot1)
+	slot0:DispatchEvent(uv0.Event.New(uv1.UPDATE_CARDS, {
+		type = uv2.FUNC_NAME_BOTTOM
+	}))
+end
+
+slot10._remove_ = function(slot0, slot1)
+	for slot6, slot7 in ipairs(slot0:GetCardList()) do
+		if slot1 == slot7 then
+			slot1:SetFromPile(slot0:GetIndexID())
+			table.remove(slot2, slot6)
+			slot0:DispatchEvent(uv0.Event.New(uv1.UPDATE_CARDS, {
+				type = uv2.FUNC_NAME_REMOVE
+			}))
+
+			return
+		end
+	end
+end
+
+slot10._shuffle_ = function(slot0)
+	slot1 = slot0:GetCardList()
+	slot2 = slot0:GetLength()
+
+	while slot2 &gt; 0 do
+		slot3 = math.random(slot2)
+		slot1[slot3] = slot1[slot2]
+		slot1[slot2] = slot1[slot3]
+		slot2 = slot2 - 1
+	end
+
+	slot0:DispatchEvent(uv0.Event.New(uv1.UPDATE_CARDS, {
+		type = uv2.FUNC_NAME_SHUFFLE
+	}))
+end
+
+slot10._pop_ = function(slot0)
+	slot1 = slot0:GetCardList()
+	slot2 = table.remove(slot1, #slot1)
+
+	slot2:SetFromPile(slot0:GetIndexID())
+
+	return slot2, slot0:DispatchEvent(uv0.Event.New(uv1.UPDATE_CARDS, {
+		type = uv2.FUNC_NAME_POP
+	}))
+end
+
+slot10._sort_ = function(slot0, slot1)
+end
+
+slot10._search_ = function(slot0, slot1)
+	slot2 = {}
+	slot3 = slot0:GetCardList()
+	slot4 = slot1.value
+
+	if slot1.type == uv0.SEARCH_BY_ID then
+		for slot9, slot10 in ipairs(slot3) do
+			if table.contains(slot4, slot10:GetCardID()) then
+				table.insert(slot2, slot10)
+			end
+		end
+	elseif slot5 == uv0.SEARCH_BY_LABEL then
+		for slot9, slot10 in ipairs(slot3) do
+			if slot10:LabelContain(slot4) then
+				table.insert(slot2, slot10)
+			end
+		end
+	elseif slot5 == uv0.SEARCH_BY_TYPE then
+		for slot9, slot10 in ipairs(slot3) do
+			if slot10:GetType() == slot4 then
+				table.insert(slot2, slot10)
+			end
+		end
+	end
+
+	if slot1.total == true then
+		return slot2
+	else
+		return {
+			slot2[math.random(#slot2)]
+		}
+	end
+end
+
+slot10._getLength_ = function(slot0)
+	return #slot0:GetCardList()
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

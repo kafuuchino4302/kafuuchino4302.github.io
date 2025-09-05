@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skill_200460.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skill_200460.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	uiEffect = &quot;&quot;,
+	name = &quot;2023俾斯麦Z活动 剧情战BOSS 剧情触发器&quot;,
+	cd = 0,
+	picture = &quot;0&quot;,
+	aniEffect = &quot;&quot;,
+	desc = &quot;&quot;,
+	painting = 0,
+	id = 200460,
+	effect_list = {
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillSummon&quot;,
+			target_choise = &quot;TargetNil&quot;,
+			arg_list = {
+				delay = 0,
+				spawnData = {
+					monsterTemplateID = 16526502,
+					score = 0,
+					delay = 0,
+					moveCast = true,
+					corrdinate = {
+						10,
+						0,
+						50
+					},
+					buffList = {},
+					phase = {
+						{
+							index = 0,
+							switchType = 1,
+							switchTo = 1,
+							switchParam = 0.1
+						},
+						{
+							switchType = 1,
+							switchTo = 0,
+							index = 1,
+							switchParam = 300,
+							story = &quot;KONGXIANGJIAOHUIDIAN31-3&quot;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

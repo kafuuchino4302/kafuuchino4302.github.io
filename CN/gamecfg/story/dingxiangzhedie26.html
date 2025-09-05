@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dingxiangzhedie26.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dingxiangzhedie26.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DINGXIANGZHEDIE26&quot;,
+	scripts = {
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			bgmDelay = 2,
+			bgm = &quot;theme-thedevilXV&quot;,
+			stopbgm = true,
+			say = &quot;此刻，一场旨在消灭仲裁者·迪贝路XV的战斗正在进行中——&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;迪贝路的「阵型」已经布置完成了，在这种状态下，不要直接攻击其本体。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;首先，我们要先消灭“恶魔”的眼睛——代行者XV「Temptation」。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;孟菲斯，情报支援。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702020,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;了解。所有代行者XV「Temptation」的位置及弱点部位已同步至联合作战系统。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 107270,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;……你，究竟是怎么做到的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702020,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;不重要。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702020,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;指挥官，请让舰载机群对这些目标同时发动攻击，就像之前在演习中对付我的时候一样。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;海伦娜，能像之前那次一样为大家提供全方位的强化么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;已经在调整中了哦~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;很好。约克城，大黄蜂，兰利，接下来拜托各位按照孟菲斯的标记发动攻击了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;放心交给我们吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 107120,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;大黄蜂大人早就想报复回去了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;轰————————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 107270,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;指挥官，打击已经完成了……目标全数被毁。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 107270,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;从速度到威力……我们的舰载机得到了全方位的性能提升，这些都是你做的么，海伦娜？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;是哦~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 107100,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;指挥官！迪贝路的高度正在下降，她要落回水面了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 9702010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;它当然会这么做，因为它要开始进行反制了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;接下来，不要去进攻“恶魔”的爪子——代行者XV「Restriction」，那些只是吸引无知之人缠斗的陷阱。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;失去了眼睛引导的爪子不过是胡乱挥舞的棍棒罢了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;在迪贝路完成「阵型」调整前，绕过爪子直扑本体。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;没问题。但是第二波舰载机准备还需要时间，你能加快这一准备过程么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;可以，但没必要。我所说的直扑，是字面意义上的哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;我有办法可以黑掉迪贝路的系统，进而让它的大多数武器设备停机。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;但是现在整片空间已经脱离了我的控制，我没法远程做到这件事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;海伦娜一边说着，一边不知从何处拿出来一个如同黑色针筒一般的设备。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;看到这个设备了么？插入迪贝路的胸口，然后大功告成。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;……原来如此，确实是字面意义上的“直扑”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;但是这种作战实在太危险了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;是哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;执行任务的人需要高速穿过代行者编织的网络，躲过迪贝路的近防炮，最后将设备精准插到迪贝路的胸口上。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;但这是我们仅有的机会。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;一旦迪贝路完成「阵型」的调整，接下来战斗就要变成消耗战了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 9702010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;别忘了这片空间的控制权已经被迪贝路接管了哦？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 101500,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……哼，只要有足够高的灵巧和速度就可以对吧？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 101500,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;区区这种事对于哈曼来说就是小菜一碟！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 101500,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;指挥官，这件事就交给哈曼来做吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 103260,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;还有我。指挥官，我跟哈曼一起去。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_zhedie_11&quot;,
+			dir = 1,
+			actor = 103260,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;必要的时候我会为她抵挡攻击，保证把哈曼送到迪贝路面前。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;…………一定注意安全。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhedie_11&quot;,
+			say = &quot;孟菲斯，规划最优航线。大家调整攻击方向，为哈曼打开前进的道路！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

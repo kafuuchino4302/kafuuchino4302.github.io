@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>renqiyixian.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>renqiyixian.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;RENQIYIXIAN&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;荣耀殿堂\n\n&lt;size=45&gt;一剪梅&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_102&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;会议结束后，在返回途中遇见了一个熟悉的身影。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;微风中，逸仙正悠然站在路旁，欣赏着一朵朵正在盛开的梅花。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;花枝随风微摇，纵使尚未接近树旁，却已经能感受到一丝丝逸散而来的清香了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;而此刻，沉迷赏花的她似乎还未注意到正从旁接近的我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;和逸仙打个招呼&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;静静站在一旁&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 502010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，午安。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			optionFlag = 2,
+			say = &quot;就这样不知过了多久……也许是借助追随飘落花瓣时的余光，她终于发现了早就站在身旁的我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 502010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……指挥官？午安。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;路过这里的时候发现树上的梅花开了，就忍不住多看了一会儿。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;（确实已经到这个季节了啊，居然完全没有注意到……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;（最近是否有点忙碌过度了呢。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 502010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，工作已经结束了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;无奈地摇头——&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;那在这个时间段会出现在这里……指挥官莫非是在偷闲？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哼哼，只是开个玩笑~您现在就差把“疲惫”二字写在脸上了呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官每天都是忙碌到最晚才休息的人——这件事没有港区的同伴会不知道哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;有时候真希望您可以多注意一下自己的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不论再怎么坚固的船也需要一个可以遮风避雨的港湾，我是这么认为的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官是怎么想的呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;船么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯，船哦，但不仅是船。对我来说，此处港区就是能为我遮风避雨的港湾，也是属于我的“家”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;对于指挥官来说呢，这座港区对您而言意味着什么呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;一时间不知道该如何回答……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵呵，指挥官被难住了呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;不知是否是错觉，逸仙的目光有些躲闪，脸颊上也有些微微泛起的红晕。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;抱歉，我失态了……最近不知道为什么偶尔会变成这样…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;在看到您的面容时，或是会不自觉放松下来，或是想要陷入凝思之中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;真是一种奇妙的感觉……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;一股寒风吹来，刮乱了逸仙秀丽的长发。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊不好……不知不觉已经是这个时间了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;逸仙稍稍握紧手中的伞，整理了一下散乱的长发。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;站立在被风卷起的花海之中的她，显得格外楚楚动人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;走吧，指挥官，剩下的工作还在向您招手哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			actor = 502010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;要不然我跟您一起回去好了，如果之后的工作有我能帮到的地方的话——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;将外套披到逸仙的身上&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 502010,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;她没有说话，只是默默闭上了双眼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_102&quot;,
+			dir = 1,
+			say = &quot;又是一阵风吹过，紧接着，由几种味道混合的香气在口鼻之中绽放。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

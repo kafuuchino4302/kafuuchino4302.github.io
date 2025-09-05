@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newprobabilityskinshopmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newprobabilityskinshopmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewProbabilitySkinShopMediator&quot;, import(&quot;.NewSkinShopMediator&quot;))
+slot0.OPEN_CHARGE_BIRTHDAY = &quot;NewProbabilitySkinShopMediator:OPEN_CHARGE_BIRTHDAY&quot;
+slot0.CHARGE = &quot;NewProbabilitySkinShopMediator:CHARGE&quot;
+slot0.OPEN_CHARGE_ITEM_PANEL = &quot;NewProbabilitySkinShopMediator:OPEN_CHARGE_ITEM_PANEL&quot;
+
+slot0.register = function(slot0)
+	uv0.super.register(slot0)
+	slot0:bind(uv0.OPEN_CHARGE_BIRTHDAY, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = ChargeBirthdayMediator,
+			viewComponent = ChargeBirthdayLayer,
+			data = {}
+		}))
+	end)
+	slot0:bind(uv0.CHARGE, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHARGE_OPERATION, {
+			shopId = slot1
+		})
+	end)
+	slot0:bind(uv0.OPEN_CHARGE_ITEM_PANEL, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = ChargeItemPanelMediator,
+			viewComponent = ChargeItemPanelLayer,
+			data = {
+				panelConfig = slot1
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	slot1 = uv0.super.listNotificationInterests(slot0)
+
+	table.insert(slot1, GAME.CHARGE_SUCCESS)
+
+	return slot1
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	uv0.super.handleNotification(slot0, slot1)
+
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.CHARGE_SUCCESS then
+		slot0.viewComponent:OnChargeSuccess(slot3.shopId)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

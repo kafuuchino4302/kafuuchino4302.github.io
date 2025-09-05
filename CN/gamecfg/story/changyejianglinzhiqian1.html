@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changyejianglinzhiqian1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>changyejianglinzhiqian1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;CHANGYEJIANGLINZHIQIAN1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			sequence = {
+				{
+					&quot;斯卡帕湾锚地·卡美洛之庭&quot;,
+					1
+				},
+				{
+					&quot;阿瓦隆之门驻防舰队&quot;,
+					2
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgmDelay = 1,
+			bgm = &quot;battle-boss-camelot&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————————————！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_camelot_1&quot;,
+			hidePaintObj = true,
+			say = &quot;阿瓦隆之门的枢纽——卡美洛之庭。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_camelot_1&quot;,
+			hidePaintObj = true,
+			say = &quot;原本是一处风景秀丽，宛如世外桃源的好地方。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_camelot_1&quot;,
+			hidePaintObj = true,
+			say = &quot;不过此刻，硝烟与炮火正逐渐从四面八方逼近着这座城堡。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;老姐，这些无法辨识又如同鬼魅一般的敌人……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;是不是和之前理查德小姐驱使的那些东西很像啊？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，我也是这么想的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;那个怪物……还是被她追到这里来了么。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;不过究竟是用什么方式入侵的……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;敌人并没有走卡美洛之庭的通道，更像是凭空从阿瓦隆之门里其他地方冒出来……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;这个人工奇异点明明只有一个对外出口才是。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;这种技术问题，要是连老姐你都不懂的话，我就更不懂啦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;也是。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;嘿嘿~老姐，你那边战况如何？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;清理的很顺利。不过……这些敌人虽然弱，但数量庞大。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;如果不能找出其进入阿瓦隆之门的途径的话，卡美洛之庭迟早会有危险。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;持久战对我们不利……通讯状况如何？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;对外通讯完全中断中——她们的通讯器实在太差了。要是能用跟我们同款的就好了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;你会做么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;老姐你都不会，我哪儿会啊！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;也是……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————————————！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;援军已抵达！声望阁下，反击阁下，久等了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 299020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;让二位久等了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;本王带人来支援了，现在情况如何？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;……伊丽莎白女王陛下？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;你，你怎么能亲自跑到这么危险的地方来啊！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;当然是来调查情况啊。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;本王只收到了阿瓦隆之门出现异常的消息，之后对内通讯就断了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这里的情况本王最熟悉，出现异常也只能由本王来排查不是？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唉……本王也是进来之后才发现里面已经打成这个样子了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;……至少这次你知道带护卫一起行动了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;阿瓦隆之门事关重大，本王自会慎重对待。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;倒不如说因为事发突然，只带了这么些人来。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所以，现在情况如何？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;入侵的敌人本身没什么威胁，但其入侵方式与入侵意图均不明。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9704040,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;从外貌与特性推测，此次进攻或许是那个伪装成好人理查德的怪物即将入侵的前兆。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……本王见到这些东西后也是这么想的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过上次那种夸张的旋风倒还没有出现。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;也许理查德想要入侵需要达成某种条件才行……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯…………所有人进入卡美洛之庭。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;和上次一样，全面封闭卡美洛之庭，我们做好固守的准备，之后见招拆招。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;倘若真是理查德入侵的话……必须将其牢牢挡在这里才行。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 202190,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下，有一股白雾出现了，正在向我们的方向迅速蔓延。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;白雾？&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————————————！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 9704030,
+			nameColor = &quot;#ffa500&quot;,
+			hidePaintObj = true,
+			say = &quot;谁在接近？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;别、别开火，自己人！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 201360,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嚯嚯嚯~！英雄登场，邪恶势力吃我一炮！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 206020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;百眼巨人前来支援！女王陛下，让您受惊了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;陛下，这里是怨仇，现在带领安塔迪卡洋舰队前来增援。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来的战斗也请让我们出一份力。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……………………？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;安塔迪卡洋舰队……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;怨仇，你们是怎么从安塔迪卡洋跑到这里来的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在不久前，我收到了您正在阿瓦隆之门中苦战的消息。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;然后立刻整备舰队，利用构建者留下的微层化混合物搭建通道来到这里的！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……本王前脚才刚到阿瓦隆之门，你远在安塔迪卡是怎么提前知道的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还有构建者留下的微层化混合物搭建通道……那是什么，你怎么知道这个的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是谁告诉你这些的？谁帮你来到这里的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;额……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_camelot_1&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………陛下您自己？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

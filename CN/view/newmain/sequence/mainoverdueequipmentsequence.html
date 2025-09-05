@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainoverdueequipmentsequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainoverdueequipmentsequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainOverDueEquipmentSequence&quot;, import(&quot;.MainSublayerSequence&quot;))
+
+slot0.Execute = function(slot0, slot1)
+	if #getProxy(EquipmentProxy):getTimeLimitShipList() &gt; 0 then
+		slot0:ShowMsgBox({
+			item2Row = true,
+			itemList = slot2,
+			content = i18n(&quot;time_limit_equip_destroy_on_ship&quot;),
+			onYes = slot1,
+			onNo = slot1
+		})
+	else
+		slot1()
+	end
+end
+
+slot0.ShowMsgBox = function(slot0, slot1)
+	pg.MsgboxMgr.GetInstance():ShowMsgBox({
+		hideNo = true,
+		type = MSGBOX_TYPE_ITEM_BOX,
+		items = slot1.itemList,
+		content = slot1.content,
+		item2Row = slot1.item2Row,
+		itemFunc = function (slot0)
+			uv0:ShowItemBox(slot0, function ()
+				uv0:ShowMsgBox(uv1)
+			end)
+		end,
+		weight = LayerWeightConst.TOP_LAYER
+	})
+end
+
+slot0.ShowItemBox = function(slot0, slot1, slot2)
+	if slot1.type == DROP_TYPE_EQUIP then
+		slot0:AddSubLayers(Context.New({
+			mediator = EquipmentInfoMediator,
+			viewComponent = EquipmentInfoLayer,
+			data = {
+				equipmentId = slot1:getConfig(&quot;id&quot;),
+				type = EquipmentInfoMediator.TYPE_DISPLAY,
+				onRemoved = slot2,
+				LayerWeightMgr_weight = LayerWeightConst.TOP_LAYER
+			}
+		}))
+	elseif slot1.type == DROP_TYPE_SPWEAPON then
+		slot0:AddSubLayers(Context.New({
+			mediator = SpWeaponInfoMediator,
+			viewComponent = SpWeaponInfoLayer,
+			data = {
+				spWeaponConfigId = slot1:getConfig(&quot;id&quot;),
+				type = SpWeaponInfoLayer.TYPE_DISPLAY,
+				onRemoved = slot2,
+				LayerWeightMgr_weight = LayerWeightConst.TOP_LAYER
+			}
+		}))
+	else
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_SINGLE_ITEM,
+			drop = slot1,
+			onNo = slot2,
+			onYes = slot2,
+			weight = LayerWeightConst.TOP_LAYER
+		})
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

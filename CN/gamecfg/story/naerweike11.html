@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naerweike11.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>naerweike11.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;NAERWEIKE11&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			nameColor = &quot;#a9f548&quot;,
+			actorName = &quot;勇敢&quot;,
+			bgName = &quot;bg_story_naerweike&quot;,
+			say = &quot;结束了！&quot;,
+			dir = 1,
+			side = 0,
+			bgm = &quot;battle-boss-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 401020,
+			side = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;……可惜。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			say = &quot;勇敢！&quot;,
+			dir = 1,
+			actor = 201200,
+			nameColor = &quot;#a9f548&quot;,
+			actorPosition = {
+				x = -1500,
+				y = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0,
+					dur = 0.5,
+					x = 2250
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 201200,
+			say = &quot;呀啊啊！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actor = 201160,
+			say = &quot;猎人！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			dir = 1,
+			actor = 201160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;可恶…是增援吗！？先、先撤——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.5,
+					dur = 0.5,
+					x = -1500
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			hideOther = true,
+			dir = -1,
+			actor = 401020,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;呼，真是难缠的对手……要是没有增援的话，这次可要一败涂地了呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401190,
+			side = 0,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;{namecode:401}，不追了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401020,
+			side = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;…从峡湾外带着其他人赶回来，又进行了这样一场激烈的战斗，我们也需要进行补给了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401180,
+			side = 0,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;抱歉，都是因为我……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 1,
+			dir = -1,
+			actor = 401020,
+			say = &quot;不怪你，{namecode:404}你的选择是对的……保存实力比无谓的勇敢要更重要。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401020,
+			side = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;对方逃了三个回去，我们的规模已经被对方了解了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 1,
+			dir = -1,
+			actor = 401020,
+			say = &quot;不出意外的话，对方的下一波攻势马上就会到来的，我们要快点回去做好准备才行。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401190,
+			side = 0,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;可是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401180,
+			side = 0,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;{namecode:405}，听{namecode:401}的话，我们先去照顾{namecode:407}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401190,
+			side = 0,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;好吧……哼，等她们的下一波攻势我再让她们好看！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

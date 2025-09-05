@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldautofightrewardlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldautofightrewardlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldAutoFightRewardLayer&quot;, BaseUI)
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldAutoFightRewardUI&quot;
+end
+
+slot1 = 0.1
+
+slot0.init = function(slot0)
+	slot0.window = slot0._tf:Find(&quot;Window&quot;)
+	slot0.boxView = slot0.window:Find(&quot;Layout/Box/ScrollView&quot;)
+	slot0.emptyTip = slot0.window:Find(&quot;Layout/Box/EmptyTip&quot;)
+	slot0.itemList = slot0.boxView:Find(&quot;Content/ItemGrid&quot;)
+	slot1 = Instantiate(slot0.itemList:GetComponent(typeof(ItemList)).prefabItem[0])
+	slot1.name = &quot;Icon&quot;
+
+	setParent(slot1, slot0.itemList:Find(&quot;GridItem/Shell&quot;))
+	setText(slot0.emptyTip, i18n(&quot;autofight_rewards_none&quot;))
+	setText(slot0.window:Find(&quot;Fixed/top/bg/obtain/title&quot;), i18n(&quot;autofight_rewards&quot;))
+	setText(slot0.boxView:Find(&quot;Content/Title/Text&quot;), i18n(&quot;battle_end_subtitle1&quot;))
+end
+
+slot0.didEnter = function(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	slot0:UpdateView()
+
+	if getProxy(MetaCharacterProxy):getMetaTacticsInfoOnEnd() and #slot1 &gt; 0 then
+		slot0.metaExpView = MetaExpView.New(slot0.window:Find(&quot;Layout&quot;), slot0.event, slot0.contextData)
+		slot2 = slot0.metaExpView
+
+		slot2:setData(slot1)
+		slot2:Reset()
+		slot2:Load()
+		slot2:ActionInvoke(&quot;Show&quot;)
+	end
+end
+
+slot0.willExit = function(slot0)
+	slot0:SkipAnim()
+
+	if slot0.metaExpView then
+		slot0.metaExpView:Destroy()
+	end
+
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+slot0.UpdateView = function(slot0)
+	slot1 = slot0.contextData
+	slot4 = slot0._tf
+
+	onButton(slot0, slot4:Find(&quot;BG&quot;), function ()
+		if uv0.isRewardAnimating then
+			uv0:SkipAnim()
+
+			return
+		end
+
+		existCall(uv1.onClose)
+		uv0:closeView()
+	end)
+
+	slot3 = slot0.window
+
+	setText(slot3:Find(&quot;Fixed/ButtonExit/pic&quot;), i18n(&quot;autofight_leave&quot;))
+
+	slot4 = slot0.window
+
+	onButton(slot0, slot4:Find(&quot;Fixed/ButtonExit&quot;), function ()
+		existCall(uv0.onClose)
+		uv1:closeView()
+	end, SFX_CANCEL)
+
+	slot2 = nowWorld()
+	slot3 = slot2.autoInfos
+
+	slot2:InitAutoInfos()
+	DropResultIntegration(slot3.drops)
+
+	slot4 = underscore.map(slot3.drops, function (slot0)
+		if slot0.type == DROP_TYPE_WORLD_COLLECTION then
+			assert(WorldCollectionProxy.GetCollectionType(slot0.id) == WorldCollectionProxy.WorldCollectionType.FILE, string.format(&quot;collection drop type error#%d&quot;, slot0.id))
+			table.insert(uv0.message, i18n(&quot;autofight_file&quot;, WorldCollectionProxy.GetCollectionTemplate(slot0.id).name))
+		else
+			return {
+				drop = slot0
+			}
+		end
+	end)
+
+	for slot8, slot9 in ipairs(slot3.salvage) do
+		DropResultIntegration(slot9)
+		underscore.each(slot9, function (slot0)
+			table.insert(uv0, {
+				drop = slot0,
+				salvage = uv1
+			})
+		end)
+	end
+
+	slot5 = true
+	slot6 = {}
+
+	setActive(slot0.boxView:Find(&quot;Content/Title&quot;), false)
+	setActive(slot0.itemList, false)
+
+	slot0.hasRewards = #slot4 &gt; 0
+
+	if slot0.hasRewards then
+		slot5 = false
+
+		table.insert(slot6, function (slot0)
+			setActive(uv0.boxView:Find(&quot;Content/Title&quot;), true)
+			setActive(uv0.itemList, true)
+			slot0()
+		end)
+
+		slot7 = CustomIndexLayer.Clone2Full(slot0.itemList, #slot4)
+
+		for slot11, slot12 in ipairs(slot4) do
+			slot14 = slot7[slot11]
+
+			updateDrop(slot14:Find(&quot;Shell/Icon&quot;), slot12.drop)
+			onButton(slot0, slot14:Find(&quot;Shell/Icon&quot;), function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+			setActive(slot14:Find(&quot;salvage&quot;), slot12.salvage)
+
+			if slot12.salvage then
+				eachChild(slot14:Find(&quot;salvage&quot;), function (slot0)
+					setActive(slot0, slot0.name == tostring(uv0.salvage))
+				end)
+			end
+		end
+
+		slot0.isRewardAnimating = true
+		slot8 = {}
+
+		for slot12 = 1, #slot4 do
+			setActive(slot7[slot12], false)
+			table.insert(slot6, function (slot0)
+				if uv0.exited then
+					return
+				end
+
+				setActive(uv1, true)
+				scrollTo(uv0.boxView:Find(&quot;Content&quot;), {
+					y = 0
+				})
+
+				uv0.LTid = LeanTween.delayedCall(uv2, System.Action(slot0)).uniqueId
+			end)
+		end
+	end
+
+	setActive(slot0.boxView:Find(&quot;Content/TextArea&quot;), false)
+
+	slot7 = {}
+
+	for slot11, slot12 in ipairs(slot3.buffs) do
+		if not slot7[slot12.id] then
+			slot7[slot12.id] = slot12.before
+		end
+	end
+
+	if underscore.any(underscore.map(pg.gameset.world_mapbuff_list.description, function (slot0)
+		if not uv0[slot0] then
+			return 0
+		else
+			return uv1:GetGlobalBuff(slot0):GetFloor() - uv0[slot0]
+		end
+	end), function (slot0)
+		return slot0 ~= 0
+	end) then
+		table.insert(slot3.message, i18n(&quot;autofight_effect&quot;, unpack(slot9)))
+	end
+
+	slot0.hasEventMsg = #slot3.message &gt; 0
+
+	if slot0.hasEventMsg then
+		slot5 = false
+		slot11 = slot0.boxView
+
+		setText(slot11:Find(&quot;Content/TextArea/Text&quot;), table.concat(slot3.message, &quot;\n&quot;))
+		table.insert(slot6, function (slot0)
+			setActive(uv0.boxView:Find(&quot;Content/TextArea&quot;), true)
+			slot0()
+		end)
+	end
+
+	setActive(slot0.boxView, not slot5)
+	setActive(slot0.emptyTip, slot5)
+	seriesAsync(slot6, function ()
+		uv0:SkipAnim()
+	end)
+end
+
+slot0.CloneIconTpl = function(slot0, slot1)
+	assert(slot0:GetComponent(typeof(ItemList)), &quot;Need a Itemlist Component for &quot; .. (slot0 and slot0.name or &quot;NIL&quot;))
+
+	slot3 = Instantiate(slot2.prefabItem[0])
+
+	if slot1 then
+		slot3.name = slot1
+	end
+
+	setParent(slot3, slot0)
+
+	return slot3
+end
+
+slot0.SkipAnim = function(slot0)
+	if not slot0.isRewardAnimating then
+		return
+	end
+
+	slot0.isRewardAnimating = nil
+
+	if slot0.LTid then
+		LeanTween.cancel(slot0.LTid)
+
+		slot0.LTid = nil
+	end
+
+	eachChild(slot0.itemList, function (slot0)
+		setActive(slot0, true)
+	end)
+	setActive(slot0.boxView:Find(&quot;Content/Title&quot;), slot0.hasRewards)
+	setActive(slot0.itemList, slot0.hasRewards)
+	setActive(slot0.boxView:Find(&quot;Content/TextArea&quot;), slot0.hasEventMsg)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

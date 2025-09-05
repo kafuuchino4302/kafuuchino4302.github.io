@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enemychaser.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>enemychaser.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EnemyChaser&quot;, import(&quot;view.miniGame.gameView.RyzaMiniGame.character.MoveEnemy&quot;))
+slot0.WeaponName = &quot;Bullet&quot;
+slot0.ConfigSkillCD = 10
+slot0.StatusOffset = {
+	Attack_E = {
+		1,
+		0
+	},
+	Attack_N = {
+		0,
+		-1
+	},
+	Attack_W = {
+		-1,
+		0
+	},
+	Attack_S = {
+		0,
+		1
+	}
+}
+
+slot0.InitUI = function(slot0, slot1)
+	uv0.super.InitUI(slot0, slot1)
+
+	slot0.hp = slot1.hp or 1
+	slot0.hpMax = slot0.hp
+	slot0.speed = slot1.speed or 2
+	slot0.skillCD = 0
+
+	slot0.mainTarget:GetComponent(typeof(DftAniEvent)):SetTriggerEvent(function ()
+		slot0 = uv0.StatusOffset[uv0.status]
+
+		uv0.responder:Create({
+			name = uv0.WeaponName,
+			pos = {
+				uv0.pos.x + slot0[1],
+				uv0.pos.y + slot0[2]
+			},
+			realPos = {
+				uv0.realPos.x + slot0[1],
+				uv0.realPos.y + slot0[2]
+			},
+			mark = string.split(uv0.status, &quot;_&quot;)[2]
+		})
+	end)
+end
+
+slot0.TimeTrigger = function(slot0, slot1)
+	uv0.super.TimeTrigger(slot0, slot1)
+
+	slot0.skillCD = slot0.skillCD - slot1
+
+	if not slot0.lock and slot0.skillCD &lt;= 0 and slot0.responder:SearchRyza(slot0, slot0.search) and (slot0.responder.reactorRyza.pos.x == slot0.pos.x or slot2.y == slot0.pos.y) and (slot2 - slot0.pos):SqrMagnitude() &gt;= 9 then
+		if (slot2 - slot0.pos).x &gt; 0 then
+			slot0:PlayAnim(&quot;Attack_E&quot;)
+		elseif slot3.x &lt; 0 then
+			slot0:PlayAnim(&quot;Attack_W&quot;)
+		elseif slot3.y &gt; 0 then
+			slot0:PlayAnim(&quot;Attack_S&quot;)
+		elseif slot3.y &lt; 0 then
+			slot0:PlayAnim(&quot;Attack_N&quot;)
+		end
+
+		slot0.skillCD = slot0.ConfigSkillCD
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

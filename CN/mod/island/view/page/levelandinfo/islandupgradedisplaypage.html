@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandupgradedisplaypage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandupgradedisplaypage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandUpgradeDisplayPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+slot1 = 1
+slot2 = 2
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandCommonUpgradeDisplayUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.onlnyLevelTr = slot0:findTF(&quot;small&quot;)
+	slot0.dropPanelTr = slot0:findTF(&quot;module&quot;)
+	slot0.unlockUIList = UIItemList.New(slot0.dropPanelTr:Find(&quot;Board/Content/award/content&quot;), slot0.dropPanelTr:Find(&quot;Board/Content/award/content/tpl&quot;))
+	slot0.canvasGroup = GetOrAddComponent(slot0._tf, typeof(CanvasGroup))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		slot0 = uv0
+
+		slot0:PlayExitAnimation(function ()
+			uv0:Hide()
+
+			if uv0.callback then
+				slot0()
+			end
+		end)
+	end, SFX_PANEL)
+end
+
+slot0.PlayExitAnimation = function(slot0, slot1)
+	slot2 = slot0.targetTr
+	slot2 = slot2:GetComponent(typeof(Animation))
+	slot3 = slot0.targetTr
+	slot3 = slot3:GetComponent(typeof(DftAniEvent))
+	slot0.canvasGroup.blocksRaycasts = false
+
+	slot3:SetEndEvent(function ()
+		uv0:SetEndEvent(nil)
+
+		uv1.canvasGroup.blocksRaycasts = true
+
+		uv2()
+	end)
+
+	if slot0.targetTr == slot0.onlnyLevelTr then
+		slot2:Play(&quot;anim_Island_commonget_onlylv_out&quot;)
+	else
+		slot2:Play(&quot;anim_Island_commonget_single_out&quot;)
+	end
+end
+
+slot0.Show = function(slot0, slot1, slot2)
+	uv0.super.Show(slot0)
+
+	slot0.callback = slot2
+	slot3 = slot0:GetIsland()
+
+	if slot1 and #slot1 &gt; 0 then
+		slot0:CommonSettings(slot3, slot0.dropPanelTr)
+		slot0:UpdateUnlockList(slot1)
+	else
+		slot0:CommonSettings(slot3, slot0.onlnyLevelTr)
+	end
+
+	setActive(slot0.onlnyLevelTr, not slot4)
+	setActive(slot0.dropPanelTr, slot4)
+
+	slot0.targetTr = slot4 and slot0.dropPanelTr or slot0.onlnyLevelTr
+
+	pg.UIMgr.GetInstance():OverlayPanel(slot0._tf, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+end
+
+slot0.Hide = function(slot0)
+	slot0.callback = nil
+
+	uv0.super.Hide(slot0)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf, slot0._parentTf)
+end
+
+slot0.CommonSettings = function(slot0, slot1, slot2)
+	slot3 = slot1:GetLevel()
+
+	setText(slot2:Find(&quot;Board/Top/LV/prev/prev_1&quot;), &quot;&lt;size=50&gt;&quot; .. slot3 - 1 .. &quot;&lt;/size&gt;&quot;)
+	setText(slot2:Find(&quot;Board/Top/LV/next/next_1&quot;), &quot;&lt;size=50&gt;&quot; .. slot3 .. &quot;&lt;/size&gt;&quot;)
+end
+
+slot0.UpdateUnlockList = function(slot0, slot1)
+	slot0.unlockUIList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			updateCustomDrop(slot2, slot3)
+			setText(slot2:Find(&quot;icon_bg/name_bg/Text&quot;), shortenString(slot3:getConfigTable().unlock_text, 5))
+			GetImageSpriteFromAtlasAsync(&quot;ui/islandupgradedisplayui_atlas&quot;, &quot;ability_type&quot; .. slot3:getConfigTable().show_type, slot2:Find(&quot;icon_bg/type&quot;))
+		end
+	end)
+	slot0.unlockUIList:align(#slot1)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

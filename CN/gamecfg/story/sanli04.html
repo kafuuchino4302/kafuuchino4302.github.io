@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sanli04.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>sanli04.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1,
+	mode = 2,
+	fadeType = 2,
+	id = &quot;SANLI04&quot;,
+	fadein = 1,
+	scripts = {
+		{
+			actor = 900050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;？？？&quot;,
+			say = &quot;没想到在这个时代还能听到如此振奋人心的发言，真是一群出色的后辈们呀！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;看来是赶上了呢，多亏发现了{namecode:95}放出的侦察机~&quot;,
+			side = 1,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			actor = 900051,
+			actorName = &quot;？？？&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actorName = &quot;？？？&quot;,
+			say = &quot;就是那个会在天上飞的玩意吗？…真是跟不上时代了呀哈哈哈&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			dir = 1,
+			actorName = &quot;{namecode:95}&quot;,
+			say = &quot;…这个声音…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;这个传说中的旗帜…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			dir = 1,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;难道真的是…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			mode = 3,
+			side = 0,
+			bgName = &quot;bg_story_mikasa&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 307050,
+			actorName = &quot;{namecode:95}&amp;{namecode:96}&quot;,
+			say = &quot;！！…重樱联合曾经的大旗舰——&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:95}&amp;{namecode:96}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_mikasa&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 307050,
+			mode = 3,
+			say = &quot;&lt;size=52.5&gt;{namecode:82}！！&lt;/size&gt;&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;UIhuohua&quot;
+				}
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;后辈们，拿出你们的气势来！战斗才刚刚开始！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;绳锯木断，滴水穿石，今日的努力将被未来铭记&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;而未来，将因你们今日的努力改变&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;再次一起奋战吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;今日晴空万里，波澜壮阔——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;新生重樱联合&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 0,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 305110,
+			mode = 3,
+			say = &quot;——出击！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

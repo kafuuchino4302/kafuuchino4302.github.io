@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baseworldbossdetailpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>baseworldbossdetailpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BaseWorldBossDetailPage&quot;, import(&quot;....base.BaseSubView&quot;))
+slot1 = {
+	[970701] = {
+		-36.45481,
+		717.0379
+	},
+	[970702] = {
+		-36.45481,
+		629.5
+	},
+	[970201] = {
+		-36.45481,
+		610.5,
+		0.95,
+		0.95
+	},
+	[970703] = {
+		818,
+		1268.1,
+		1.7,
+		1.7
+	},
+	[970401] = {
+		-58.2,
+		634.2
+	},
+	[970402] = {
+		-58.2,
+		634.2
+	},
+	[970403] = {
+		-28.2,
+		609.2,
+		0.95,
+		0.95
+	}
+}
+
+slot0.Setup = function(slot0, slot1)
+	for slot6, slot7 in pairs({
+		onBossUpdated = &quot;OnBossUpdated&quot;,
+		onRankListUpdated = &quot;OnRankListUpdated&quot;,
+		onPtUpdated = &quot;OnPtUpdated&quot;,
+		onBossProgressUpdate = &quot;OnBossProgressUpdate&quot;
+	}) do
+		slot0[slot6] = function (...)
+			uv0[uv1](uv2, ...)
+		end
+	end
+
+	slot0.proxy = slot1
+
+	slot0:AddListeners(slot0.proxy)
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.supportBtn = slot0:findTF(&quot;btns/help_btn&quot;)
+	slot0.startBtn = slot0:findTF(&quot;btns/start_btn&quot;)
+	slot0.awardBtn = slot0:findTF(&quot;btns/award_btn&quot;)
+	slot0.timeTF = slot0:findTF(&quot;btns/time&quot;)
+	slot0.leftTime = slot0:findTF(&quot;btns/time/label/Text&quot;):GetComponent(typeof(Text))
+	slot0.awardList = UIItemList.New(slot0:findTF(&quot;award_panel/list&quot;), slot0:findTF(&quot;award_panel/list/tpl&quot;))
+	slot0.levelTxt = slot0:findTF(&quot;hp/level/Text&quot;):GetComponent(typeof(Text))
+	slot0.hpTxt = slot0:findTF(&quot;hp/Text&quot;):GetComponent(typeof(Text))
+	slot0.hpSlider = slot0:findTF(&quot;hp/slider&quot;):GetComponent(typeof(Slider))
+	slot0.painting = slot0:findTF(&quot;paint&quot;)
+	slot0.infoAndRankPanel = WorldBossInfoAndRankPanel.New(slot0._tf, slot0.event)
+
+	slot0.infoAndRankPanel:SetCallback(function (slot0)
+		setGray(uv0.awardBtn, slot0, true)
+	end, function (slot0, slot1)
+		setGray(uv0.supportBtn, slot1 &lt;= slot0, true)
+		onButton(uv0, uv0.supportBtn, function ()
+			if uv1 &lt;= uv0 then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_joint_max_challenge_people_cnt&quot;))
+
+				return
+			end
+
+			if uv2.boss:isDeath() then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_joint_boss_is_death&quot;))
+			else
+				uv2:OnRescue()
+			end
+		end, SFX_PANEL)
+	end)
+	setText(slot0:findTF(&quot;btns/time/label&quot;), i18n(&quot;time_remaining_tip&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.startBtn, function ()
+		uv0:OnStart()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.awardBtn, function ()
+		if uv0.boss:GetLeftTime() &lt;= 0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_joint_boss_award_expired&quot;))
+		else
+			if uv0.boss:ShouldWaitForResult() then
+				return
+			end
+
+			uv0:emit(WorldBossMediator.ON_SUBMIT_AWARD, uv0.boss.id)
+		end
+	end, SFX_PANEL)
+end
+
+slot0.OnStart = function(slot0)
+	if slot0.boss:isDeath() then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_joint_boss_is_death&quot;))
+	elseif slot0.boss:GetLeftTime() &lt;= 0 then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_joint_boss_is_death&quot;))
+	else
+		slot0:emit(WorldBossMediator.ON_BATTLE, slot0.boss.id, false, slot0.hpSlider.value)
+	end
+end
+
+slot0.AddListeners = function(slot0, slot1)
+	slot1:AddListener(WorldBossProxy.EventPtUpdated, slot0.onPtUpdated)
+	slot1:AddListener(WorldBossProxy.EventBossUpdated, slot0.onBossUpdated)
+	slot1:AddListener(WorldBossProxy.EventRankListUpdated, slot0.onRankListUpdated)
+	slot1:AddListener(WorldBossProxy.EventUnlockProgressUpdated, slot0.onBossProgressUpdate)
+end
+
+slot0.RemoveListeners = function(slot0, slot1)
+	slot1:RemoveListener(WorldBossProxy.EventPtUpdated, slot0.onPtUpdated)
+	slot1:RemoveListener(WorldBossProxy.EventBossUpdated, slot0.onBossUpdated)
+	slot1:RemoveListener(WorldBossProxy.EventRankListUpdated, slot0.onRankListUpdated)
+	slot1:RemoveListener(WorldBossProxy.EventUnlockProgressUpdated, slot0.onBossProgressUpdate)
+end
+
+slot0.OnBossUpdated = function(slot0)
+	if slot0:isShowing() then
+		slot0:UpdateBoss()
+	end
+end
+
+slot0.OnRankListUpdated = function(slot0, slot1, slot2, slot3)
+	if slot0:isShowing() and slot0.boss and slot0.boss.id == slot3 and slot0.infoAndRankPanel and slot0.infoAndRankPanel:GetLoaded() then
+		slot0.infoAndRankPanel:FlushRank()
+	end
+end
+
+slot0.OnBossProgressUpdate = function(slot0)
+	if slot0:isShowing() then
+		slot0:OnUpdateRes()
+	end
+end
+
+slot0.OnPtUpdated = function(slot0)
+	if slot0:isShowing() then
+		slot0:OnUpdatePt()
+	end
+end
+
+slot0.UpdatePainting = function(slot0, slot1)
+	if not slot1 then
+		return
+	end
+
+	if slot0.groupId ~= slot1 then
+		slot0.groupId = slot1
+		slot2 = slot0:findTF(&quot;label&quot;):GetComponent(typeof(Image))
+		slot2.sprite = GetSpriteFromAtlas(&quot;MetaWorldboss/&quot; .. slot0.groupId, &quot;title&quot; .. slot0:GetResSuffix())
+
+		slot2:SetNativeSize()
+		setMetaPaintingPrefabAsync(slot0.painting, slot0.groupId, &quot;lihuisha&quot;, function ()
+			uv0:OnPaintingLoad()
+		end)
+
+		slot3 = nil
+
+		if WorldBossConst.MetaId2BossId(slot1) and (pg.world_joint_boss_template[slot4].p_offset or uv0[slot1]) or uv0[slot1] then
+			setAnchoredPosition(slot0.painting, {
+				x = slot3[1],
+				y = slot3[2]
+			})
+
+			slot0.painting.localScale = Vector3(slot3[3] or 1, slot3[4] or 1, 1)
+		end
+	else
+		slot0:OnPaintingLoad()
+	end
+end
+
+slot0.UpdateBoss = function(slot0)
+	slot0.boss = slot0.proxy:GetBoss()
+
+	if slot0.boss then
+		slot0:UpdateMainInfo()
+		slot0:RemoveChallengeTimer()
+		slot0:AddChanllengTimer()
+		slot0:RemoveGetAwardTimer()
+		slot0:AddGetAwaradTimer()
+	end
+end
+
+slot0.Update = function(slot0)
+	slot0:UpdateBoss()
+	slot0:Show()
+
+	if slot0.boss then
+		slot0.infoAndRankPanel:ExecuteAction(&quot;Flush&quot;, slot0.boss, slot0.proxy)
+		slot0:UpdateAward()
+		slot0:OnUpdateRes()
+		slot0:OnUpdatePt()
+	end
+end
+
+slot0.UpdateAward = function(slot0)
+	slot0.awardList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+			slot4 = {
+				count = 0,
+				type = slot3[1],
+				id = slot3[2]
+			}
+
+			updateDrop(slot2:Find(&quot;equipment/bg&quot;), slot4)
+			slot2:Find(&quot;mask/name&quot;):GetComponent(&quot;ScrollText&quot;):SetText(slot4:getConfig(&quot;name&quot;))
+			onButton(uv1, slot2, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+		end
+	end)
+	slot0.awardList:align(math.min(#slot0.boss:GetAwards(), 3))
+end
+
+slot0.UpdateMainInfo = function(slot0)
+	slot1 = slot0.boss
+	slot3 = slot1:GetHP()
+	slot4 = slot1:GetMaxHp()
+	slot0.levelTxt.text = slot1:GetLevel()
+	slot0.hpTxt.text = slot3 .. &quot;/&lt;color=#E31D15&gt;&quot; .. slot4 .. &quot;&lt;/color&gt;&quot;
+	slot0.hpSlider.value = slot3 / slot4
+	slot6 = slot1:IsExpired()
+
+	setActive(slot0.supportBtn, not slot1:isDeath() and not slot6)
+	setActive(tf(slot0.leftTime).parent, true)
+	setActive(slot0.awardBtn, slot5 and slot0.proxy:canGetSelfAward())
+	setActive(slot0.startBtn, not slot5 and not slot6)
+	slot0:UpdatePainting(slot1.config.meta_id)
+end
+
+slot0.AddChanllengTimer = function(slot0)
+	if slot0.boss:isDeath() then
+		return
+	end
+
+	slot2 = pg.TimeMgr.GetInstance()
+
+	slot4 = function()
+		uv0.leftTime.text = i18n(&quot;world_word_expired&quot;)
+
+		onNextTick(function ()
+			uv0:OnBossExpired()
+		end)
+	end
+
+	if slot1:GetExpiredTime() &lt; slot2:GetServerTime() then
+		slot4()
+	else
+		slot0.bossTimer = Timer.New(function ()
+			if uv0 - pg.TimeMgr.GetInstance():GetServerTime() &gt; 0 then
+				uv1.leftTime.text = pg.TimeMgr.GetInstance():DescCDTime(slot0)
+			else
+				uv2()
+				uv1:RemoveChallengeTimer()
+			end
+		end, 1, -1)
+
+		slot0.bossTimer:Start()
+		slot0.bossTimer.func()
+	end
+end
+
+slot0.RemoveChallengeTimer = function(slot0)
+	if slot0.bossTimer then
+		slot0.bossTimer:Stop()
+
+		slot0.bossTimer = nil
+	end
+end
+
+slot0.AddGetAwaradTimer = function(slot0)
+	if not slot0.boss:isDeath() then
+		return
+	end
+
+	slot2 = pg.TimeMgr.GetInstance()
+
+	slot4 = function()
+		uv0.leftTime.text = i18n(&quot;world_word_expired&quot;)
+
+		onNextTick(function ()
+			uv0:OnBossExpired()
+		end)
+	end
+
+	if slot1:GetExpiredTime() &lt; slot2:GetServerTime() then
+		slot4()
+	else
+		slot0.awardTimer = Timer.New(function ()
+			if uv0 - pg.TimeMgr.GetInstance():GetServerTime() &gt; 0 then
+				uv1.leftTime.text = pg.TimeMgr.GetInstance():DescCDTime(slot0)
+			else
+				uv2()
+				uv1:RemoveGetAwardTimer()
+			end
+		end, 1, -1)
+
+		slot0.awardTimer:Start()
+		slot0.awardTimer.func()
+	end
+end
+
+slot0.OnBossExpired = function(slot0)
+	slot0:emit(WorldBossMediator.ON_SELF_BOSS_OVERTIME)
+end
+
+slot0.RemoveGetAwardTimer = function(slot0)
+	if slot0.awardTimer then
+		slot0.awardTimer:Stop()
+
+		slot0.awardTimer = nil
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0.groupId then
+		slot0:OnRetPaintingPrefab()
+		retMetaPaintingPrefab(slot0.painting, slot0.groupId)
+	end
+
+	slot0:RemoveGetAwardTimer()
+	slot0:RemoveListeners(slot0.proxy)
+	slot0:RemoveChallengeTimer()
+
+	if slot0.infoAndRankPanel then
+		slot0.infoAndRankPanel:Destroy()
+
+		slot0.infoAndRankPanel = nil
+	end
+
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+slot0.OnRetPaintingPrefab = function(slot0)
+end
+
+slot0.GetResSuffix = function(slot0)
+	return &quot;&quot;
+end
+
+slot0.OnPaintingLoad = function(slot0)
+end
+
+slot0.OnUpdateRes = function(slot0)
+end
+
+slot0.OnUpdatePt = function(slot0)
+end
+
+slot0.OnRescue = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

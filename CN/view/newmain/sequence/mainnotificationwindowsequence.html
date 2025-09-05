@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainnotificationwindowsequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainnotificationwindowsequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainNotificationWindowSequence&quot;)
+
+slot0.Execute = function(slot0, slot1)
+	slot4 = {}
+
+	if #getProxy(PlayerProxy):getData().buildShipNotification &gt; 0 then
+		table.insert(slot4, function (slot0)
+			slot1 = {}
+			slot2 = getProxy(BayProxy)
+
+			for slot6, slot7 in ipairs(getProxy(PlayerProxy):getRawData().buildShipNotification) do
+				if slot2:getShipById(slot7.uid) then
+					slot8.virgin = slot7.new
+
+					table.insert(slot1, slot8)
+				else
+					pg.TipsMgr.GetInstance():ShowTips(&quot;without ship data from uid:&quot; .. slot7.uid)
+				end
+			end
+
+			pg.m02:sendNotification(GAME.CONFIRM_GET_SHIP, {
+				ships = slot1,
+				callback = slot0
+			})
+		end)
+	end
+
+	slot5 = {}
+	slot9 = Item.SKIN_ASSIGNED_TYPE
+
+	for slot9, slot10 in ipairs(getProxy(BagProxy):getItemsByType(slot9)) do
+		slot5[slot11] = slot5[slot10:getConfig(&quot;usage_arg&quot;)[1]] or {}
+
+		table.insert(slot5[slot11], {
+			type = DROP_TYPE_ITEM,
+			id = slot10.id,
+			count = slot10.count
+		})
+	end
+
+	for slot9, slot10 in pairs(slot5) do
+		if getProxy(ActivityProxy):getActivityById(slot9) and not slot11:isEnd() then
+			if math.floor((slot11.stopTime - pg.TimeMgr.GetInstance():GetServerTime()) / 86400) &lt; PlayerPrefs.GetInt(string.format(&quot;skin_select_item_act_%d_last_time&quot;, slot9), 3) then
+				table.insert(slot4, function (slot0)
+					PlayerPrefs.SetInt(string.format(&quot;skin_select_item_act_%d_last_time&quot;, uv0.id), math.floor(uv1 / 86400))
+					pg.MsgboxMgr.GetInstance():ShowMsgBox({
+						type = MSGBOX_TYPE_ITEM_BOX,
+						content = i18n(&quot;skin_exchange_timelimit&quot;, pg.TimeMgr.GetInstance():STimeDescS(uv0.stopTime, &quot;%m.%d&quot;)),
+						items = uv2,
+						onYes = function ()
+							pg.m02:sendNotification(GAME.GO_SCENE, SCENE.EQUIPSCENE, {
+								warp = StoreHouseConst.WARP_TO_MATERIAL
+							})
+						end,
+						yesText = i18n(&quot;msgbox_text_forward&quot;),
+						onNo = slot0,
+						weight = LayerWeightConst.TOP_LAYER
+					})
+				end)
+			end
+		end
+	end
+
+	if not getProxy(MailProxy).overTip and PlayerPrefs.GetString(&quot;mail_msg_tips&quot;, &quot;&quot;) ~= pg.TimeMgr.GetInstance():CurrentSTimeDesc(&quot;%Y/%m/%d&quot;) and MAIL_COUNT_LIMIT &lt; slot6.total then
+		slot9 = pg.TimeMgr.GetInstance()
+
+		PlayerPrefs.SetString(&quot;mail_msg_tips&quot;, slot9:CurrentSTimeDesc(&quot;%Y/%m/%d&quot;))
+		table.insert(slot4, function (slot0)
+			pg.m02:sendNotification(GAME.LOAD_LAYERS, {
+				parentContext = getProxy(ContextProxy):getCurrentContext(),
+				context = Context.New({
+					mediator = MailTipsWindowMediator,
+					viewComponent = MailTipsLayer,
+					data = {
+						onYes = function ()
+							pg.m02:sendNotification(GAME.GO_SCENE, SCENE.MAIL)
+						end,
+						content = i18n(&quot;warning_mail_max_3&quot;, uv0.total)
+					}
+				})
+			})
+		end)
+	end
+
+	slot6.overTip = true
+
+	seriesAsync(slot4, slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

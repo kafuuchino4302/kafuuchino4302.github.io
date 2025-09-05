@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuxingdezanmeishi19.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fuxingdezanmeishi19.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;FUXINGDEZANMEISHI19&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;「进入迷宫吧。」&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=51&gt;「手执利刃，身披重铠。」&lt;/size&gt;&quot;,
+					2
+				},
+				{
+					&quot;&lt;size=51&gt;「阿里阿德涅将成为您的指引。」&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;「代达罗斯将成为您的指引。」&lt;/size&gt; &quot;,
+					4
+				},
+				{
+					&quot;&lt;size=51&gt;「众神将成为您的指引。」&lt;/size&gt;&quot;,
+					5
+				},
+				{
+					&quot;&lt;size=51&gt;「怪物永远在中心等待着献祭。」&lt;/size&gt;&quot;,
+					6
+				},
+				{
+					&quot;&lt;size=51&gt;「怪物永远不会满足……」&lt;/size&gt;&quot;,
+					7
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_italyv2_3&quot;,
+			bgm = &quot;xinnong-3&quot;,
+			actor = 601050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;奇怪……总感觉这片区域我们刚才已经走过了哎……&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 601040,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;迷宫里四处的布置都差不多，会产生错觉很正常。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 601040,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;真正的克诺索斯迷宫就是一个由无数相似岔路构成的死亡陷阱……就连设计者本人也差点迷路在里面哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 608010,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;以前的迷宫可不会发生结构改变，我们现在面对的这个可就，唔呼呼……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 601060,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;塞壬把我们关在这里看我们走迷宫究竟有什么意义呢……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 602010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;根据资料，塞壬一直热衷于各类观察与实验，在与我们战斗的同时还会尽可能收集在此过程中产生的数据。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 602010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;或许现在我们遭遇到的状况也是它们设计的实验之一。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 607010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这种高高在上的感觉真叫人不舒服…………好像不论我们是胜是败它们都已经达成了某种目的一样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 602010,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;某种意义上的“百战百胜”啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 608010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;从科学研究的角度来看，进行实验通常是为了验证理论。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 608010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;研究者通常会首先提出一个理论，然后设计实验去证明它或者推翻它。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			actor = 608010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在无初次实验之后……也许最终研究者能够获得一个契合理论的完美实验结果，然后标志着理论得到了证实……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italyv2_3&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 608010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真在意这些塞壬究竟想用实验验证一个怎样的理论啊，唔呼呼…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

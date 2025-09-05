@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>airfightactivity.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>airfightactivity.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AirFightActivity&quot;, import(&quot;model.vo.Activity&quot;))
+
+slot0.GetMaxProgress = function(slot0)
+	return slot0:getConfig(&quot;config_data&quot;)[1]
+end
+
+slot0.GetPerDayCount = function(slot0)
+	return slot0:getConfig(&quot;config_data&quot;)[2]
+end
+
+slot0.GetPerLevelProgress = function(slot0)
+	return slot0:getConfig(&quot;config_data&quot;)[3]
+end
+
+slot0.GetLevelCount = function(slot0)
+	return slot0:GetMaxProgress() / slot0:GetPerLevelProgress()
+end
+
+slot0.readyToAchieve = function(slot0)
+	if slot0:IsTip() then
+		return false
+	end
+
+	slot1 = slot0:GetMaxProgress()
+	slot2 = slot0:GetPerDayCount()
+	slot4 = 0
+
+	for slot8 = 1, slot0:GetLevelCount() do
+		slot4 = slot4 + (slot0:getKVPList(1, slot8) or 0)
+	end
+
+	slot5 = pg.TimeMgr.GetInstance()
+
+	return slot4 &lt; math.min((slot5:DiffDay(slot0.data1, slot5:GetServerTime()) + 1) * slot2, slot1)
+end
+
+slot0.IsTip = function(slot0)
+	return pg.TimeMgr.GetInstance():GetServerTime() &lt; PlayerPrefs.GetInt(&quot;airfight_tip_&quot; .. slot0.id .. &quot;_&quot; .. getProxy(PlayerProxy):getRawData().id, 0)
+end
+
+slot0.RecordTip = function(slot0)
+	if slot0:IsTip() then
+		return
+	end
+
+	PlayerPrefs.SetInt(&quot;airfight_tip_&quot; .. slot0.id .. &quot;_&quot; .. getProxy(PlayerProxy):getRawData().id, pg.TimeMgr.GetInstance():GetTimeToNextTime())
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

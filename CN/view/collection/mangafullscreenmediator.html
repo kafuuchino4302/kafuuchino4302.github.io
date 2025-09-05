@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mangafullscreenmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mangafullscreenmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MangaFullScreenMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.APPRECIATE_MANGA_READ_DONE,
+		GAME.APPRECIATE_MANGA_LIKE_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.APPRECIATE_MANGA_READ_DONE then
+		slot4 = slot3.mangaID
+
+		if slot0.contextData.mangaContext then
+			slot0.contextData.mangaContext:updateLineAfterRead(slot4)
+		end
+	elseif slot2 == GAME.APPRECIATE_MANGA_LIKE_DONE then
+		slot0.viewComponent:updateLikeBtn()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

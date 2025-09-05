@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shadermgr.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shadermgr.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+slot0 = pg
+slot0.ShaderMgr = singletonClass(&quot;ShaderMgr&quot;)
+slot1 = slot0.ShaderMgr
+
+slot0.ShaderMgr.Init = function(slot0, slot1)
+	print(&quot;initializing shader manager...&quot;)
+	Shader.DisableKeyword(&quot;LOW_DEVICE_PERFORMANCE&quot;)
+	parallelAsync({
+		function (slot0)
+			ResourceMgr.Inst:LoadShaderAndCached(&quot;shader&quot;, slot0, false, false)
+		end,
+		function (slot0)
+			ResourceMgr.Inst:LoadShaderAndCached(&quot;l2dshader&quot;, slot0, false, false)
+		end,
+		function (slot0)
+			ResourceMgr.Inst:LoadShaderAndCached(&quot;spineshader&quot;, slot0, false, false)
+		end,
+		function (slot0)
+			slot0()
+		end,
+		function (slot0)
+			ResourceMgr.Inst:LoadShaderAndCached(&quot;custom_builtin&quot;, slot0, false, false)
+		end
+	}, function ()
+		originalPrint(&quot;所有shader加载完成&quot;)
+		uv0()
+	end)
+end
+
+slot1.GetShader = function(slot0, slot1)
+	return ResourceMgr.Inst:GetShader(slot1)
+end
+
+slot1.GetBlurMaterialSync = function(slot0)
+	if slot0.blurMaterial ~= nil then
+		return slot0.blurMaterial
+	else
+		slot0.blurMaterial = Material.New(slot0:GetShader(&quot;Hidden/MobileBlur&quot;))
+
+		slot0.blurMaterial:SetVector(&quot;_Parameter&quot;, Vector4.New(1, -1, 0, 0))
+
+		return slot0.blurMaterial
+	end
+end
+
+slot1.BlurTexture = function(slot0, slot1)
+	slot2 = ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.RenderTexture&quot;), &quot;GetTemporary&quot;, {
+		typeof(&quot;System.Int32&quot;),
+		typeof(&quot;System.Int32&quot;),
+		typeof(&quot;System.Int32&quot;)
+	}, {
+		Screen.width * 0.25,
+		Screen.height * 0.25,
+		0
+	})
+	slot3 = ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.RenderTexture&quot;), &quot;GetTemporary&quot;, {
+		typeof(&quot;System.Int32&quot;),
+		typeof(&quot;System.Int32&quot;),
+		typeof(&quot;System.Int32&quot;)
+	}, {
+		Screen.width * 0.25,
+		Screen.height * 0.25,
+		0
+	})
+	slot2.filterMode = ReflectionHelp.RefGetField(typeof(&quot;UnityEngine.FilterMode&quot;), &quot;Bilinear&quot;)
+	slot8 = {
+		typeof(&quot;UnityEngine.RenderTexture&quot;),
+		typeof(&quot;UnityEngine.RenderTexture&quot;),
+		typeof(&quot;UnityEngine.Material&quot;),
+		typeof(&quot;System.Int32&quot;)
+	}
+
+	ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.Graphics&quot;), &quot;Blit&quot;, slot8, {
+		slot1,
+		slot2,
+		slot0:GetBlurMaterialSync(),
+		0
+	})
+
+	for slot8 = 0, 1 do
+		slot4:SetVector(&quot;_Parameter&quot;, Vector4.New(1 + slot8, -1 - slot8, 0, 0))
+		ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.Graphics&quot;), &quot;Blit&quot;, {
+			typeof(&quot;UnityEngine.RenderTexture&quot;),
+			typeof(&quot;UnityEngine.RenderTexture&quot;),
+			typeof(&quot;UnityEngine.Material&quot;),
+			typeof(&quot;System.Int32&quot;)
+		}, {
+			slot2,
+			slot3,
+			slot4,
+			1
+		})
+		ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.Graphics&quot;), &quot;Blit&quot;, {
+			typeof(&quot;UnityEngine.RenderTexture&quot;),
+			typeof(&quot;UnityEngine.RenderTexture&quot;),
+			typeof(&quot;UnityEngine.Material&quot;),
+			typeof(&quot;System.Int32&quot;)
+		}, {
+			slot3,
+			slot2,
+			slot4,
+			2
+		})
+	end
+
+	ReflectionHelp.RefCallStaticMethod(typeof(&quot;UnityEngine.RenderTexture&quot;), &quot;ReleaseTemporary&quot;, {
+		typeof(&quot;UnityEngine.RenderTexture&quot;)
+	}, {
+		slot3
+	})
+
+	return slot2
+end
+
+slot1.SetSpineUIOutline = function(slot0, slot1, slot2)
+	slot5 = Material.New(slot0:GetShader(&quot;M02/Unlit Colored_Alpha_UI_Outline&quot;))
+
+	slot5:SetColor(&quot;_OutlineColor&quot;, slot2)
+	slot5:SetFloat(&quot;_OutlineWidth&quot;, 5.75)
+	slot5:SetFloat(&quot;_ThresholdEnd&quot;, 0.2)
+
+	GetComponent(slot1, &quot;SkeletonGraphic&quot;).material = slot5
+end
+
+slot1.DelSpineUIOutline = function(slot0, slot1)
+	GetComponent(slot1, &quot;SkeletonGraphic&quot;).material = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

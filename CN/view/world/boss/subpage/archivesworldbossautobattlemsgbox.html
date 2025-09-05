@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>archivesworldbossautobattlemsgbox.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>archivesworldbossautobattlemsgbox.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ArchivesWorldBossAutoBattleMsgbox&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ArchivesWorldBossAutoBattleMsgUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.contentTxt = slot0:findTF(&quot;window/msg_panel/content/time&quot;):GetComponent(typeof(Text))
+	slot0.startBtn = slot0:findTF(&quot;window/btns/start&quot;)
+	slot0.startTxt = slot0.startBtn:Find(&quot;pic&quot;):GetComponent(typeof(Text))
+	slot0.cancelBtn = slot0:findTF(&quot;window/btns/cancel&quot;)
+	slot0.cancelTxt = slot0.cancelBtn:Find(&quot;pic&quot;):GetComponent(typeof(Text))
+	slot0.closeBtn = slot0:findTF(&quot;window/top/close&quot;)
+	slot0.titleTxt = slot0:findTF(&quot;window/top/title&quot;):GetComponent(typeof(Text))
+
+	setText(slot0:findTF(&quot;window/msg_panel/content/label&quot;), i18n(&quot;world_boss_archives_stop_auto_battle_tip&quot;))
+	setText(slot0:findTF(&quot;window/msg_panel/label1&quot;), i18n(&quot;world_boss_archives_stop_auto_battle_tip1&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.cancelBtn, function ()
+		if uv0.OnNo then
+			uv0.OnNo()
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.startBtn, function ()
+		if uv0.OnYes then
+			uv0.OnYes()
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	slot0:RemoveTimer()
+
+	if slot1.onContent then
+		slot0:AddTimer(slot1)
+	else
+		slot0.contentTxt.text = slot1.content
+	end
+
+	slot0.titleTxt.text = slot1.title
+	slot0.OnYes = slot1.onYes
+	slot0.OnNo = slot1.onNo
+
+	setActive(slot0.cancelBtn, not slot1.noNo)
+
+	slot0.startTxt.text = slot1.yesText or i18n(&quot;word_ok&quot;)
+	slot0.cancelTxt.text = slot1.noText or i18n(&quot;word_cancel&quot;)
+end
+
+slot0.AddTimer = function(slot0, slot1)
+	slot0.timer = Timer.New(function ()
+		if uv0.onContent() == nil then
+			uv1:Hide()
+		end
+
+		uv1.contentTxt.text = slot0
+	end, 1, -1)
+
+	slot0.timer:Start()
+	slot0.timer.func()
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.Hide = function(slot0)
+	uv0.super.Hide(slot0)
+	slot0:RemoveTimer()
+
+	slot0.OnYes = nil
+	slot0.OnNo = nil
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

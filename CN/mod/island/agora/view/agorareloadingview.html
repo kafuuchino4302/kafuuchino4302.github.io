@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agorareloadingview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>agorareloadingview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AgoraReloadingView&quot;, import(&quot;Mod.Island.Core.View.IslandBaseSubView&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;IslandAgoraReloadingUI&quot;
+end
+
+slot0.FirstFlush = function(slot0)
+	setText(slot0:findTF(&quot;label/Text&quot;), i18n(&quot;island_agora_working&quot;))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

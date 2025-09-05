@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_112141.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_112141.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 3,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 112141,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 11,
+	color = &quot;red&quot;,
+	icon = 112110,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 112160,
+				quota = 1
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				time = 0.1,
+				minTargetNumber = 1,
+				skill_id = 112141,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				time = 0.1,
+				maxTargetNumber = 0,
+				skill_id = 112145,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				time = 0.2,
+				minTargetNumber = 1,
+				skill_id = 112141,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				time = 0.2,
+				maxTargetNumber = 0,
+				skill_id = 112145,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				stack_require = &quot;&lt;11&quot;,
+				time = 2.2,
+				skill_id = 112143
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				stack_require = &quot;&gt;=11&quot;,
+				time = 2.2,
+				skill_id = 112144
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.3,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=2&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.3,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=2&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.4,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=3&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.4,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=3&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.5,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=4&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.5,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=4&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.6,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=5&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.6,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=5&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.7,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=6&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.7,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=6&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.8,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=7&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.8,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=7&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 0.9,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=8&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 0.9,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=8&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 1,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=9&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 1,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=9&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112141,
+				time = 1.1,
+				minTargetNumber = 1,
+				stack_require = &quot;&gt;=10&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 112145,
+				time = 1.1,
+				maxTargetNumber = 0,
+				stack_require = &quot;&gt;=10&quot;,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Yumia_Skill2_Lit_fin&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

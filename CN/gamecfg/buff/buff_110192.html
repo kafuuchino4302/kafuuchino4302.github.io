@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_110192.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_110192.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	name = &quot;属性变更&quot;,
+	init_effect = &quot;jinengchufared&quot;,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;装填提升&quot;,
+	stack = 3,
+	id = 110192,
+	icon = 110190,
+	last_effect = &quot;&quot;,
+	blink = {
+		1,
+		0,
+		0,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				number = 500,
+				attr = &quot;loadSpeed&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 3,
+				countType = 110192
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 110190,
+				target = &quot;TargetSelf&quot;,
+				countType = 110192
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 110191,
+				target = &quot;TargetSelf&quot;,
+				countType = 110192
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

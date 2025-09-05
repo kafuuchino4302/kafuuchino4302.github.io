@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bossrushalvitfleetselectview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>bossrushalvitfleetselectview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BossRushAlvitFleetSelectView&quot;, import(&quot;view.activity.BossRush.BossRushFleetSelectView&quot;))
+
+slot0.GetTextColor = function(slot0)
+	return Color.NewHex(&quot;1C231F&quot;), Color.NewHex(&quot;979A98&quot;)
+end
+
+slot0.getUIName = function(slot0)
+	return &quot;BossRushAlvitFleetSelectUI&quot;
+end
+
+slot0.tempCache = function(slot0)
+	return true
+end
+
+slot0.didEnter = function(slot0)
+	uv0.super.didEnter(slot0)
+
+	slot2 = slot0._tf
+
+	removeOnButton(slot2:Find(&quot;BG&quot;))
+
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;BG/close&quot;), function ()
+		uv0:onCancelHard()
+	end, SFX_CANCEL)
+
+	slot1 = slot0._tf
+	slot0.anim = slot1:GetComponent(typeof(Animation))
+	slot1 = slot0.anim
+	slot0.animEvent = slot1:GetComponent(typeof(DftAniEvent))
+	slot1 = slot0.animEvent
+
+	slot1:SetEndEvent(function ()
+		uv0.super.onCancelHard(uv1)
+	end)
+end
+
+slot0.onCancelHard = function(slot0)
+	slot0.anim:Play(&quot;anim_kinder_fleetselect_out&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

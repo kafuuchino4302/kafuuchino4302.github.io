@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercisecountrecoverupcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>exercisecountrecoverupcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ExerciseCountRecoverUpCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = getProxy(MilitaryExerciseProxy)
+	slot4 = slot3:getSeasonInfo()
+
+	slot4:updateResetTime((function ()
+		slot1 = 3600 * SeasonInfo.RECOVER_UP_SIX_HOUR
+
+		if pg.TimeMgr.GetInstance():STimeDescS(pg.TimeMgr.GetInstance():GetServerTime(), &quot;*t&quot;).hour == 0 then
+			slot1 = 3600 * SeasonInfo.RECOVER_UP_TWELVE_HOUR
+		end
+
+		return slot1
+	end)() + pg.TimeMgr.GetInstance():GetServerTime())
+	slot4:updateExerciseCount(SeasonInfo.RECOVER_UP_COUNT)
+	slot3:updateSeasonInfo(slot4)
+
+	slot3.waiting = false
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

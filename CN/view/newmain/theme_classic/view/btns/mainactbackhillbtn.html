@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainactbackhillbtn.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainactbackhillbtn.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainActBackHillBtn&quot;, import(&quot;.MainBaseActivityBtn&quot;))
+
+slot0.GetEventName = function(slot0)
+	return &quot;event_minigame&quot;
+end
+
+slot0.OnInit = function(slot0)
+	setActive(slot0.tipTr.gameObject, slot0:IsShowTip())
+end
+
+slot0.GetActivityID = function(slot0)
+	if not checkExist(slot0.config, {
+		&quot;time&quot;
+	}) then
+		return nil
+	end
+
+	return slot1[1] == &quot;default&quot; and slot1[2] or nil
+end
+
+slot0.CustomOnClick = function(slot0)
+	if getProxy(ActivityProxy):getActivityById(slot0:GetActivityID()) and slot2:getConfig(&quot;config_client&quot;).scene then
+		slot0:emit(NewMainMediator.GO_SCENE, slot3)
+
+		return
+	end
+
+	errorMsg(&quot;not bind backhill Activity id:&quot;, slot1 or &quot;NIL&quot;)
+	slot0:OnClick()
+end
+
+slot0.IsShowTip = function(slot0)
+	if getProxy(ActivityProxy):getActivityById(slot0:GetActivityID()) then
+		if slot2:getConfig(&quot;config_client&quot;).scene then
+			slot4 = Context.New()
+
+			if IsUnityEditor then
+				assert(table.Find(SCENE, function (slot0, slot1)
+					return slot1 == uv0
+				end), &quot;not Find name in scene.lua : &quot; .. slot3)
+			end
+
+			SCENE.SetSceneInfo(slot4, slot3)
+
+			if slot4.viewComponent.IsShowMainTip then
+				return slot5(slot2)
+			end
+
+			errorMsg(&quot;scene has not function IsShowMainTip Tip Activity id:&quot;, slot1 or &quot;NIL&quot;)
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

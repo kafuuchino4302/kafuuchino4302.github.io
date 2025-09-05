@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coreawardtemplatepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>coreawardtemplatepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CoreAwardTemplatePage&quot;, import(&quot;view.activity.CorePage.CoreActivityPage&quot;))
+slot0.DropType2Name = {
+	[DROP_TYPE_EQUIP] = &quot;equip&quot;,
+	[DROP_TYPE_FURNITURE] = &quot;furniture&quot;,
+	[DROP_TYPE_EQUIPMENT_SKIN] = &quot;equip_skin&quot;,
+	[DROP_TYPE_SPWEAPON] = &quot;special_weapon&quot;
+}
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.btnList = slot0:findTF(&quot;btn_list&quot;, slot0.bg)
+	slot0.itemPanel = slot0:findTF(&quot;item_panel&quot;, slot0.bg)
+	slot0.togglesTF = slot0:findTF(&quot;toggles&quot;, slot0.itemPanel)
+	slot0.content = slot0:findTF(&quot;item_list/content&quot;, slot0.itemPanel)
+	slot0.itemList = UIItemList.New(slot0.content, slot0:findTF(&quot;tpl&quot;, slot0.content))
+
+	setText(slot0:findTF(&quot;tpl/owner/title&quot;, slot0.content), i18n(&quot;collect_page_got&quot;))
+
+	slot0.boxTF = slot0:findTF(&quot;Box&quot;)
+	slot0.boxBG = slot0:findTF(&quot;BG&quot;, slot0.boxTF)
+	slot0.panel = slot0:findTF(&quot;Panel&quot;, slot0.boxTF)
+	slot0.infoTF = slot0:findTF(&quot;Info&quot;, slot0.panel)
+	slot0.boxCloseBtn = slot0:findTF(&quot;CloseBtn&quot;, slot0.infoTF)
+	slot0.Title = slot0:findTF(&quot;Title&quot;, slot0.infoTF)
+	slot0.boxIconTF = slot0:findTF(&quot;Icon/Mask/IconTpl&quot;, slot0.infoTF)
+	slot0.boxNameText = slot0:findTF(&quot;NameText&quot;, slot0.infoTF)
+	slot0.boxNumTF = slot0:findTF(&quot;Num&quot;, slot0.infoTF)
+	slot0.boxNumTip = slot0:findTF(&quot;Text&quot;, slot0.boxNumTF)
+	slot0.boxNumText = slot0:findTF(&quot;NumText&quot;, slot0.boxNumTF)
+	slot0.boxDescText = slot0:findTF(&quot;DescText&quot;, slot0.infoTF)
+	slot0.boxSrcText = slot0:findTF(&quot;SrcText&quot;, slot0.infoTF)
+	slot0.boxSrcContent = slot0:findTF(&quot;Content&quot;, slot0.panel)
+	slot0.boxSrcTpl = slot0:findTF(&quot;SrcTpl&quot;, slot0.boxSrcContent)
+
+	onButton(slot0, slot0.boxBG, function ()
+		uv0:showBoxPanel(false)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.boxCloseBtn, function ()
+		uv0:showBoxPanel(false)
+	end, SFX_PANEL)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.guideConfig = pg.activity_limit_item_guide
+
+	slot0:BuildDatas()
+end
+
+slot0.BuildDatas = function(slot0)
+	slot1 = pg.activity_limit_item_guide.get_id_list_by_activity[slot0.activity.id] or {}
+	slot0.dataList = {}
+
+	for slot5, slot6 in ipairs(slot1) do
+		slot7 = {
+			id = slot6
+		}
+		slot7.config = slot0.guideConfig[slot7.id]
+		slot7.count = slot0.activity:getKVPList(1, slot7.id)
+
+		if slot7.config.count_storage == 1 then
+			slot7.count = Drop.New({
+				type = slot7.config.type,
+				id = slot7.config.drop_id
+			}):getOwnedCount()
+		end
+
+		table.insert(slot0.dataList, slot7)
+	end
+end
+
+slot0.GetTogglesDropTypes = function(slot0)
+	return {
+		DROP_TYPE_EQUIP,
+		DROP_TYPE_FURNITURE,
+		DROP_TYPE_EQUIPMENT_SKIN,
+		DROP_TYPE_SPWEAPON
+	}
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot0.itemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:OnUpdateItem(slot1, slot2)
+		end
+	end)
+	slot0:AddTogglesListener()
+	slot0:AddSpecialBtnListener()
+
+	slot0.curPage = slot0.curPage or slot0:GetTogglesDropTypes()[1]
+
+	triggerToggle(slot0.toggles[slot0.curPage], true)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0:BuildDatas()
+	slot0:UpdatePage(slot0.curPage)
+end
+
+slot0.AddTogglesListener = function(slot0)
+	slot0.toggles = {}
+
+	assert(#slot0:GetTogglesDropTypes() == slot0.togglesTF.childCount, &quot;dropType数量与togglesTF子节点数不匹配&quot;)
+
+	for slot5, slot6 in ipairs(slot1) do
+		slot7 = slot0:findTF(uv0.DropType2Name[slot6], slot0.togglesTF)
+
+		onToggle(slot0, slot7, function (slot0)
+			if slot0 then
+				uv0:UpdatePage(uv1)
+			end
+		end, SFX_PANEL)
+
+		slot0.toggles[slot6] = slot7
+	end
+end
+
+slot0.AddSpecialBtnListener = function(slot0)
+	slot1 = slot0.activity:getConfig(&quot;config_client&quot;)
+	slot0.furnitureThemeBtn = slot0:findTF(&quot;furniture_theme&quot;, slot0.btnList)
+
+	if slot0.furnitureThemeBtn and slot1.furniture_theme_link then
+		onButton(slot0, slot0.furnitureThemeBtn, function ()
+			slot0 = uv0.furniture_theme_link
+			slot3 = slot0[3]
+
+			uv1:DoSkip(slot0[1], slot0[2])
+		end, SFX_PANEL)
+	end
+
+	slot0.medalBtn = slot0:findTF(&quot;medal&quot;, slot0.btnList)
+
+	if slot0.medalBtn and slot1.medal_link then
+		onButton(slot0, slot0.medalBtn, function ()
+			slot0 = uv0.medal_link
+			slot3 = slot0[3]
+
+			uv1:DoSkip(slot0[1], slot0[2])
+		end, SFX_PANEL)
+	end
+
+	slot0.equipSkinBoxBtn = slot0:findTF(&quot;equip_skin_box&quot;, slot0.btnList)
+
+	if slot0.equipSkinBoxBtn and slot1.equipskin_box_link then
+		slot2 = Drop.New({
+			type = slot1.equipskin_box_link.drop_type,
+			id = slot1.equipskin_box_link.drop_id
+		})
+		slot2 = slot2:getOwnedCount()
+
+		onButton(slot0, slot0.equipSkinBoxBtn, function ()
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				type = MSGBOX_TYPE_LIKN_COLLECT_GUIDE,
+				show_type = Msgbox4LinkCollectGuide.SHOW_TYPE_NORMAL,
+				drop_type = uv0.equipskin_box_link.drop_type,
+				drop_id = uv0.equipskin_box_link.drop_id,
+				count = uv1,
+				skipable_list = uv0.equipskin_box_link.list
+			})
+		end, SFX_PANEL)
+	end
+end
+
+slot0.OnUpdateItem = function(slot0, slot1, slot2)
+	slot3 = slot0.showDataList[slot1 + 1]
+	slot4 = slot0:findTF(&quot;icon_mask/icon&quot;, slot2)
+
+	updateDrop(slot4, {
+		type = slot3.config.type,
+		id = slot3.config.drop_id
+	})
+	onButton(slot0, slot4, function ()
+		uv0:OnClickItem(uv1)
+	end, SFX_PANEL)
+	changeToScrollText(slot0:findTF(&quot;name_mask/name&quot;, slot2), Drop.New({
+		type = slot3.config.type,
+		id = slot3.config.drop_id
+	}):getName())
+	slot0:RefreshCountText(slot3, slot2)
+
+	GetOrAddComponent(slot0:findTF(&quot;owner&quot;, slot2), typeof(CanvasGroup)).alpha = slot3.count == slot3.config.count and 0.5 or 1
+
+	setActive(slot0:findTF(&quot;got&quot;, slot2), slot3.count == slot3.config.count)
+	setActive(slot0:findTF(&quot;new&quot;, slot2), slot3.config.is_new == &quot;1&quot;)
+end
+
+slot0.RefreshCountText = function(slot0, slot1, slot2)
+	setText(slot0:findTF(&quot;owner/number&quot;, slot2), slot1.count .. &quot;/&quot; .. slot1.config.count)
+end
+
+slot0.OnClickItem = function(slot0, slot1)
+	slot0:updateBoxPanel({
+		type = MSGBOX_TYPE_LIKN_COLLECT_GUIDE,
+		show_type = Msgbox4LinkCollectGuide.SHOW_TYPE_LIMIT,
+		drop_type = slot1.config.type,
+		drop_id = slot1.config.drop_id,
+		count = slot1.count,
+		count_limit = slot1.config.count,
+		skipable_list = slot1.config.link_params
+	})
+	slot0:showBoxPanel(true)
+end
+
+slot0.UpdatePage = function(slot0, slot1)
+	slot0.curPage = slot1
+	slot0.showDataList = {}
+
+	for slot5, slot6 in ipairs(slot0.dataList) do
+		if slot0.guideConfig[slot6.id].type == slot1 then
+			table.insert(slot0.showDataList, slot6)
+		end
+	end
+
+	table.sort(slot0.showDataList, CompareFuncs({
+		function (slot0)
+			return slot0.count &lt; slot0.config.count and 0 or 1
+		end,
+		function (slot0)
+			return slot0.config.order
+		end,
+		function (slot0)
+			return slot0.id
+		end
+	}))
+	slot0.itemList:align(#slot0.showDataList)
+end
+
+slot0.updateBoxPanel = function(slot0, slot1)
+	slot2 = Drop.New({
+		type = slot1.drop_type,
+		id = slot1.drop_id
+	})
+
+	updateDrop(slot0.boxIconTF, slot2)
+	changeToScrollText(slot0.boxNameText, slot2.cfg.name)
+	setText(slot0.boxDescText, SwitchSpecialChar(slot2.desc))
+	setText(slot0.boxNumTip, i18n(&quot;collect_page_got&quot;))
+
+	if slot1.show_type == Msgbox4LinkCollectGuide.SHOW_TYPE_NORMAL then
+		setText(slot0.boxNumText, slot1.count)
+	elseif slot1.show_type == Msgbox4LinkCollectGuide.SHOW_TYPE_LIMIT then
+		setText(slot0.boxNumText, string.format(&quot;%s&lt;color=#735d54&gt;/%s&lt;/color&gt;&quot;, slot1.count, slot1.count_limit or 0))
+	end
+
+	UIItemList.StaticAlign(slot0.boxSrcContent, slot0.boxSrcTpl, #slot1.skipable_list, function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.skipable_list[slot1 + 1]
+			slot4 = slot3[1]
+			slot5 = slot3[2]
+			slot8 = uv1
+
+			changeToScrollText(slot8:findTF(&quot;SrcText&quot;, slot2), slot3[3])
+
+			slot7 = uv1
+			slot7 = slot7:findTF(&quot;GoBtn&quot;, slot2)
+			slot9 = uv1
+
+			setText(slot9:findTF(&quot;go&quot;, slot7), i18n(&quot;brs_reward_tip_2&quot;))
+			onButton(uv1, slot7, function ()
+				uv0:DoSkip(uv1, uv2)
+				uv0:showBoxPanel(false)
+			end, SFX_PANEL)
+		end
+	end)
+end
+
+slot0.showBoxPanel = function(slot0, slot1)
+	setActive(slot0.boxTF, slot1)
+
+	if slot1 == true then
+		pg.UIMgr.GetInstance():BlurPanel(slot0.boxTF)
+	else
+		pg.UIMgr.GetInstance():UnOverlayPanel(slot0.boxTF)
+	end
+end
+
+slot0.DoSkip = function(slot0, slot1, slot2)
+	if slot1 == Msgbox4LinkCollectGuide.SKIP_TYPE_SCENE then
+		pg.m02:sendNotification(GAME.GO_SCENE, slot2[1], slot2[2] or {})
+	elseif slot1 == Msgbox4LinkCollectGuide.SKIP_TYPE_SCENE then
+		pg.m02:sendNotification(GAME.GO_SCENE, SCENE.ACTIVITY, {
+			id = slot2
+		})
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gameroomoreview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gameroomoreview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GameRoomOreView&quot;, import(&quot;view.miniGame.MiniGameTemplateView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;GameRoomOreUI&quot;
+end
+
+slot0.getGameController = function(slot0)
+	return OreMiniGameController
+end
+
+slot0.getShowSide = function(slot0)
+	return false
+end
+
+slot0.initPageUI = function(slot0)
+	uv0.super.initPageUI(slot0)
+
+	slot3 = slot0.rtTitlePage
+
+	onButton(slot0, slot3:Find(&quot;main/btn_help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.ore_minigame_help.tip
+		})
+	end, SFX_PANEL)
+
+	slot3 = slot0.rtTitlePage
+
+	onButton(slot0, slot3:Find(&quot;result/window/btn_finish&quot;), function ()
+		uv0:openUI(&quot;main&quot;)
+		uv0.gameController:ResetGame()
+	end, SFX_CONFIRM)
+end
+
+slot0.initOpenUISwich = function(slot0)
+	slot0.openSwitchDic = {
+		main = function ()
+			uv0:updateMainUI()
+		end,
+		pause = function ()
+			uv0.gameController:PauseGame()
+		end,
+		exit = function ()
+			uv0.gameController:PauseGame()
+		end,
+		result = function ()
+			slot0 = uv0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {}
+
+			setActive(uv0.rtTitlePage:Find(&quot;result&quot;):Find(&quot;window/now/new&quot;), getProxy(GameRoomProxy):getRoomScore(uv0:getGameRoomData().id) &lt; uv0.gameController.point)
+
+			if slot2 &lt;= slot1 then
+				slot2 = slot1
+				slot0[1] = slot1
+			end
+
+			uv0:StoreDataToServer({
+				slot2
+			})
+			setText(slot3:Find(&quot;window/high/Text&quot;), slot2)
+			setText(slot3:Find(&quot;window/now/Text&quot;), slot1)
+
+			slot4 = uv0:GetMGHubData()
+
+			uv0:SendSuccess(slot1)
+		end
+	}
+end
+
+slot0.openUI = function(slot0, slot1)
+	if not slot0.openSwitchDic then
+		slot0:initOpenUISwich()
+	end
+
+	if slot0.status then
+		setActive(slot0.rtTitlePage:Find(slot0.status), false)
+	end
+
+	if slot1 == &quot;main&quot; then
+		slot0:openCoinLayer(true)
+	else
+		slot0:openCoinLayer(false)
+	end
+
+	if slot1 then
+		setActive(slot0.rtTitlePage:Find(slot1), true)
+	end
+
+	slot0.status = slot1
+
+	switch(slot1, slot0.openSwitchDic)
+end
+
+slot0.updateMainUI = function(slot0)
+	uv0.super.updateMainUI(slot0)
+end
+
+slot0.willExit = function(slot0)
+	slot0.gameController:willExit()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

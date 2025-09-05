@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huanmengjianzouqu7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>huanmengjianzouqu7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;HUANMENGJIANZOUQU7&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;鸢尾教国·圣米歇尔山港&quot;,
+					1
+				},
+				{
+					&quot;重樱休息室&quot;,
+					2
+				},
+				{
+					&quot;7月25日&quot;,
+					3
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			bgm = &quot;story-richang-sooth&quot;,
+			say = &quot;进入重樱休息室后，发现{namecode:182:信浓}似乎正在做出门的准备。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真是奇妙，妾身正打算动身去找汝，汝却自己来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，汝此行前来是有什么事要问妾身么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;确实有一件事，不过你先说吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;也好。指挥官，妾身在来到这座鸢尾的圣米歇尔山圣堂后，产生了一种熟悉的感觉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;此处……似乎有「海若」的碎片存在。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;鸢尾的圣堂之中……有重樱神石碎片的存在……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯——大概如此。汝且看，妾身的护符就是由神石碎片雕刻而成。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;妾身虽然无法感应到此处碎片的明确位置……不过感觉本身不会错。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:182:信浓}说着，随手拿出了一个翠绿的方形护符。护符之上，经过雕琢的勾玉与樱花图案清晰可见。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			icon = {
+				scale = 1.35,
+				image = &quot;Props/story_yupai&quot;,
+				pos = {
+					0,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;倒是有个方法能够快速解决这个疑惑……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;等我联系一下克莱蒙梭，相信这个点她肯定还没睡呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			soundeffect = &quot;event:/ui/didi&quot;,
+			actorName = &quot;通讯器&quot;,
+			hidePaintObj = true,
+			say = &quot;滴————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这不是指挥官么，还有{namecode:182:信浓}阁下也在。出什么事了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;那倒没有，只是有件事想跟你核实一下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;在圣米歇尔山的圣堂之中，是否存放有重樱神石「海若」的碎片？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哦？没想到你才来不到一日，居然连这座圣堂中隐藏最深的秘密都发现了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你是怎么发现的？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;居然真的有……其实是因为{namecode:182:信浓}感应到了神石碎片的存在，我只是来找你确认一下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;“感应”么……有趣。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;过去的维希教廷时期，因为同为赤色中轴阵营， 重樱曾经与我们签订了一系列的技术交流协议。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;位于圣米歇尔山圣堂中的神石碎片也是当时依据协议交换过来的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;先是铁血，然后是维希教廷……重樱是不是用神石碎片跟赤色中轴的每一个阵营都做过交换啊……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;撒丁帝国那边据我所知是没有的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过你也清楚，{namecode:440:腓特烈大帝}掌控铁血的时候，我对于审判庭的掌控力远不如现在这般牢固。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;{namecode:182:信浓}，你对这件事有所了解么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;妾身……连神石碎片曾经被用来与铁血做过交易的事都不清楚。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;好吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（维内托也在演习会场，撒丁帝国的事倒是可以去问问她。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（不过鉴于撒丁内部的实际情况……就算真的曾经有过交换协议，维内托也未必一定知道就是了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（陆上神国事件至今仍有些疑点未能查明……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（果然……还是得尽快想办法唤醒马可波罗。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，如果你很在意这件事的话，我可以着手去调查。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;倒也不用，刚才只是随口一问。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;大晚上麻烦你了，我这边没有其他事了，你早点休息。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，你们也是哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;克莱蒙梭阁下，妾身……明日可以去看一下位于此处的神石碎片么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			paintingNoise = true,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;自然可以。明天你去找斯特拉斯堡吧，我会安排好的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;多谢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;通讯器&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;嘟————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;指挥官，妾身的疑惑已经得到了解答，该来谈谈汝之事了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;其实——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;又是噩梦么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;其实，妾身日前也做了一个噩梦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;妾身认为，梦境的世界正在崩溃中燃烧……有什么非常之事要发生了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;……“非常之事”？我们必须得尽快调查清楚。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;{namecode:182:信浓}，你今夜能去梦中调查一下么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;很遗憾，自从那个噩梦之后……妾身就不再做梦了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;妾身……似乎已经失去了对于梦境的控制权。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;梦境也不愿再向妾身展示任何景象了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，妾身可以询问一下{namecode:84:武藏}……或许能有所收获。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;……那就麻烦了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（没想到{namecode:182:信浓}竟然会对这些“噩梦”束手无策……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（看来，接连出现的噩梦确实是某种危险事态正在迫近的预兆。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（海伦娜正在忙于稳定罗德尼的情况……暂时只能靠自己了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			side = 2,
+			say = &quot;（接下来……该怎么办呢，）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

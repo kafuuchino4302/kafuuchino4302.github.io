@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ribuluodeyuanzheng5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ribuluodeyuanzheng5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;RIBULUODEYUANZHENG5&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			bgm = &quot;battle-eagleunion&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然昨夜睡得并不安稳，不过我还是在第二天准时起床，做好探索鲸鱼的准备。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;根据皇家提供的资料，昨日见到的那座散发着银光的湖泊被称为「银镜湖」。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;湖水之上见到的鲸鱼只是一个高精度的投影，真正的鲸鱼本体沉浸在湖水的深处。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;这样的安排不但是为了确保鲸鱼的安全，也是在可能的意外发生时，保护阿瓦隆本身的安全。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;所以，为了进入湖底的鲸鱼内部，我们需要首先前往被称为「银镜湖」车站的地点等待发车。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;为了确保探索行动的安全，伊丽莎白·META特意从女王之光号列车上分出了一节车厢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;本日，我们将在车厢的保护下进入鲸鱼内部，然后见机行事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;出乎意料的是，十分看重鲸鱼的海伦娜·META本日居然没有亲自前来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;她给出的说法是，她正在进行一件必须自己亲自在「塔」中才能维持稳定和顺利的事，所以暂时走不开，本日探索就不参与了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;当然，远程通讯连线是少不了的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;至于孟菲斯……嗯，两位伊丽莎白目前看起来都对白鹰有所顾虑，所以这次她只能留在外面了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;因此，本日预定与我一同进入鲸鱼内部探索的人员，除了D小姐，伊丽莎白、伊丽莎白·META之外，还有担任护卫的声望·META与谢菲尔德·META。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			bgmDelay = 2,
+			sequence = {
+				{
+					&quot;皇家·阿瓦隆之门&quot;,
+					1
+				},
+				{
+					&quot;「银镜湖」车站&quot;,
+					2
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actorScale = 0.6,
+			bgm = &quot;theme-thedeathXIII&quot;,
+			actor = 900430,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;助手~~~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 1,
+				time = 0
+			},
+			action = {
+				{
+					y = 10,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					number = 3
+				},
+				{
+					delay = 1,
+					dur = 0.35,
+					type = &quot;zoom&quot;,
+					to = {
+						0.8,
+						0.8,
+						0.8
+					}
+				},
+				{
+					y = 10,
+					type = &quot;shake&quot;,
+					delay = 1.5,
+					dur = 0.1,
+					number = 3
+				},
+				{
+					delay = 2.5,
+					dur = 0.35,
+					type = &quot;zoom&quot;,
+					to = {
+						1,
+						1,
+						1
+					}
+				},
+				{
+					y = 10,
+					type = &quot;shake&quot;,
+					delay = 3,
+					dur = 0.1,
+					number = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;刚走进车站，一个头戴兜帽的娇小身影就飞扑而来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;——然后在半空中被挡了下来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900428,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 900430,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;可恶……以后早晚拆了你[○･｀Д´･ ○]！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900326,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;指挥官，你好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702030,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;{playername}阁下，我们会在接下来的行动中保护你的安全，不过你也要注意，不要乱跑乱碰才是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;与两位META护卫打过招呼后，两位女王也走了过来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}阁下，昨天晚上一切正常么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（嗯……？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;除了做了一个奇怪的梦之外，一切正常。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;那就好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;发生什么事了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（她难道察觉到了麦纪莎的入侵行为？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，昨天晚上，我察觉到了有一股外部力量在试图入侵阿瓦隆之门，不过其在短暂尝试后就放弃了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;我连夜检查了各处，都没有发现问题，想来是入侵失败了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哼哼哼~在本王的大力投资下，阿瓦隆防御体系总算是初见成效了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（虽然其实并没有防住……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（不过仅仅是能监控到麦纪莎的入侵行为已经很厉害了……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（而且严格意义上来说……嗯，倒也不算是敌意行为。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;好啦，闲话之后有的是时间说，我们差不多该上路了~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;咳……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;出发！本王说得是差不多该出发了~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;寒暄结束，就在众人接连落座，车门徐徐关闭之际——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900488,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#FFC960&quot;,
+			actorName = &quot;格伦维尔·META&quot;,
+			say = &quot;陛下！请稍等，我有紧急情况要汇报！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;等等。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;格伦维尔，出什么事了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			bgm = &quot;theme-shallowoftheworld&quot;,
+			actor = 900488,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;呼……陛下，监控室刚才收到了一条来自外部的求救信号。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 6,
+			nameColor = &quot;#FFC960&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 900488,
+			say = &quot;有一个世界的皇家正在向我们求救。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;……除了求救内容之外，还说了什么么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#FFC960&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 900488,
+			say = &quot;「以永日之名」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 0,
+			bgName = &quot;star_level_bg_559&quot;,
+			hideOther = true,
+			dir = 1,
+			actor = 9705040,
+			actorName = &quot;&lt;color=#FFC960&gt;伊丽莎白女王·META&lt;/color&gt;&lt;color=#000000&gt;&amp;&lt;/color&gt;&lt;color=#5CE6FF&gt;伊丽莎白女王&lt;/color&gt;&quot;,
+			hidePaintObj = true,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			subActors = {
+				{
+					actor = 205010,
+					dir = 1,
+					pos = {
+						x = 1125,
+						y = 0
+					}
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;听到这句话后，两位女王迅速交换了一下眼色。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;这句话有什么含义么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这代表我们的友军陷入毁灭性危机……我们必须立刻前去救援。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;抱歉了指挥官，本王今日不能陪你去调查鲸鱼了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9705040,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			say = &quot;让{playername}阁下与我们一同前去救援如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;听起来是要前往其他实验场出兵么？我有这方面的指挥经验，可以帮忙。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不行，本次我们要前往的是一个情况未知，或许濒临毁灭的实验场救人，又没有足够的侦查时间，不确定性太强了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没商量。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 9705040,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;行吧，听你的咯~本王去整军了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，我去调试卡美洛之庭，顺便尽可能侦察一下目的地的情况。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 10,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			dir = 1,
+			actor = 900430,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我呢！我呢！我呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你……就先留在这里陪指挥官吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我会让贝法重新制定探索计划，选择陪同人员。指挥官，明天再探索如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900315,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			actorName = &quot;海伦娜·META&quot;,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;（不用，没必要改变计划。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900315,
+			side = 2,
+			bgName = &quot;star_level_bg_559&quot;,
+			actorName = &quot;海伦娜·META&quot;,
+			dir = 1,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;（告诉她们，我很快会亲自带人过来陪你进去。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_559&quot;,
+			say = &quot;于是，此事便如此决定了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_559&quot;,
+			hidePaintObj = true,
+			say = &quot;海伦娜·META将会在约四小时后带人前来，而后鲸鱼调查行动继续——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

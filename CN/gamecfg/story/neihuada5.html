@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neihuada5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neihuada5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;NEIHUADA5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;与牛仔的旅途\n\n&lt;size=45&gt;五　运动之后是休息&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;傍晚，夕日欲颓，鎏金洒满了整片荒野的大地。&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			bgm = &quot;story-richang-6&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			say = &quot;一天的骑行之旅结束，虽然全身酸痛，但依旧能感受到一种来源于亲近自然的喜悦感。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			say = &quot;斜倚在旅馆的栏杆旁，和内华达并排在一起。风从辽远的荒野吹来，带着枯草特有的微苦气味。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;少年，今天的骑行之旅感觉如何？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			say = &quot;感觉倒还不错，只是……有点太过颠簸了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哈哈哈！在马背上摸爬滚打可是牛仔的必经之路，等你习惯了这点就好了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;说起来少年，你知道牛仔为什么被称为牛仔么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;因为在以前主要负责放牛？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;不是很清楚……&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不愧是指挥官，学识渊博啊~没错，就是这样的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 2,
+			say = &quot;说起来……为什么被称为牛仔但是却不骑牛呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 2,
+			say = &quot;既然是骑马的话，不是更应该被称作马仔……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;少年哟，牛仔可不是因为骑牛而被称为牛仔，而是因为牧牛而被称为牛仔的啊！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来，要不要陪我去马厩转转？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果想亲自体验一下骑马的话，最好首先跟马儿构建一下情感基础哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			say = &quot;与内华达来到了马厩中，接下来——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			options = {
+				{
+					content = &quot;给马喂食胡萝卜&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;梳理马的鬃毛&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;帮马洗澡&quot;,
+					flag = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不错的选择~不过要注意，最好还是把胡萝卜切成小块哦。用整根胡萝卜的话可能会呛到它。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 1,
+			say = &quot;手掌托起内华达切碎的胡萝卜向马的嘴边伸去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 1,
+			say = &quot;马伸出舌头，把手掌上的胡萝卜块卷进嘴里，津津有味地咀嚼起来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;已经开心到摇头晃脑了呢~你们之间的关系肯定已经前进一大步了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;梳理鬃毛也不失为和马儿亲近的一种手段。不过不要太用力，你就当成梳理女孩子的头发好了~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 2,
+			say = &quot;接过内华达递来的毛刷，顺着鬃毛的方向轻轻梳理着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 2,
+			say = &quot;马抖了抖身体，看起来很享受的样子。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;很好~一般的马都很喜欢鬃毛被梳理的感觉哦。你们之间的关系肯定已经前进一大步了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这个难度会稍微有点高，但是很有趣哦~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 3,
+			say = &quot;用水枪缓缓冲洗着马身和马腿上的污泥。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_wild&quot;,
+			optionFlag = 3,
+			say = &quot;马看起来稍微有些不愉快，但还是乖乖地站在原地，等待着冲洗的结束。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;它看起来不太很喜欢水枪的感觉啊……不过还是乖乖等你冲完，你们之间的关系肯定已经前进一大步了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯嗯~感觉和马的感情已经联络的差不多了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_wild&quot;,
+			dir = 1,
+			actor = 105010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;少年，接下来要不要上来实际试一下？只要掌握了技巧的话，骑马可是很有趣的哦————&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

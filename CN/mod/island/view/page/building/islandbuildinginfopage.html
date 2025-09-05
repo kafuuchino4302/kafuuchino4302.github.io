@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandbuildinginfopage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandbuildinginfopage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandBuildingInfoPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandBuildingInfoTpl&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	setText(slot0:findTF(&quot;frame/tags/ship/Text&quot;), i18n(&quot;island_ship_title_info&quot;))
+	setText(slot0:findTF(&quot;frame/tags/building/Text&quot;), i18n(&quot;island_building_title_info&quot;))
+
+	slot0.shipPage = slot0:findTF(&quot;frame/shipPanel&quot;)
+	slot0.shipUIList = UIItemList.New(slot0:findTF(&quot;list/content&quot;, slot0.shipPage), slot0:findTF(&quot;list/content/tpl&quot;, slot0.shipPage))
+
+	setText(slot0:findTF(&quot;skill/title&quot;, slot0.shipPage), i18n(&quot;island_word_effect&quot;))
+
+	slot0.skillUIList = UIItemList.New(slot0:findTF(&quot;skill/list/content&quot;, slot0.shipPage), slot0:findTF(&quot;skill/list/content/tpl&quot;, slot0.shipPage))
+
+	setText(slot0:findTF(&quot;ship_num/title&quot;, slot0.shipPage), i18n(&quot;island_word_dispatch&quot;))
+
+	slot0.shipNumTF = slot0:findTF(&quot;ship_num/num&quot;, slot0.shipPage)
+	slot0.buildingPage = slot0:findTF(&quot;frame/buildingPanel&quot;)
+	slot0.buildingNameTF = slot0:findTF(&quot;name&quot;, slot0.buildingPage)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0.shipUIList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.shipList[slot1 + 1]
+
+			setText(uv0:findTF(&quot;name&quot;, slot2), slot3:GetName())
+			GetImageSpriteFromAtlasAsync(&quot;ShipYardIcon/&quot; .. IslandShip.StaticGetPrefab(slot3.id), &quot;&quot;, uv0:findTF(&quot;icon&quot;, slot2))
+
+			slot5 = slot3:GetEnergy()
+			slot6 = slot3:GetMaxEnergy()
+
+			setText(uv0:findTF(&quot;energy_bar/Text&quot;, slot2), slot5 .. &quot;/&quot; .. slot6)
+			setSlider(uv0:findTF(&quot;energy_bar&quot;, slot2), 0, 1, slot5 / slot6)
+			setText(uv0:findTF(&quot;status&quot;, slot2), slot5 &gt; 0 and i18n(&quot;island_word_working&quot;) or i18n(&quot;island_word_stop_work&quot;))
+			setText(uv0:findTF(&quot;time&quot;, slot2), slot5 / 10 .. &quot;s&quot;)
+		end
+	end)
+
+	slot1 = slot0.skillUIList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setText(slot2, pg.island_chara_skill[uv0.skillIdList[slot1 + 1]].desc)
+		end
+	end)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+
+	slot0.building = slot1
+
+	setText(slot0.buildingNameTF, slot0.building:GetName())
+
+	slot0.shipList = {}
+	slot0.skillIdList = {}
+	slot2 = 0
+
+	for slot6, slot7 in ipairs(slot0.building:GetCommissionList()) do
+		if slot7:IsUnlock() then
+			slot2 = slot2 + 1
+		end
+
+		if slot7:GetStatus() == IslandProductionCommission.STATUS_WORKING then
+			slot8 = getProxy(IslandProxy):GetIsland():GetCharacterAgency():GetShipById(slot7:GetShipId())
+
+			table.insert(slot0.shipList, slot8)
+			table.insert(slot0.skillIdList, slot8:GetMainSkill())
+		end
+	end
+
+	slot0.shipUIList:align(#slot0.shipList)
+	slot0.skillUIList:align(#slot0.skillIdList)
+	setText(slot0.shipNumTF, #slot0.shipList .. &quot;/&quot; .. slot2)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

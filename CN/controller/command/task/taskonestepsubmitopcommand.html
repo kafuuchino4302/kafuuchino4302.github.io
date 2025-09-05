@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taskonestepsubmitopcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>taskonestepsubmitopcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TaskOneStepSubmitOPCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if #slot1:getBody().resultList &gt; 0 then
+		slot4 = {}
+		slot5 = {}
+
+		for slot9, slot10 in ipairs(slot3) do
+			if slot10.isWeekTask then
+				table.insert(slot5, slot10.id)
+			else
+				table.insert(slot4, slot10)
+			end
+		end
+
+		slot6 = {}
+
+		seriesAsync({
+			function (slot0)
+				if #uv0 &gt; 0 then
+					pg.m02:sendNotification(GAME.SUBMIT_TASK_ONESTEP, {
+						resultList = uv1,
+						callback = slot0
+					})
+				else
+					slot0()
+				end
+			end,
+			function (slot0)
+				if #uv0 &gt; 0 then
+					uv1:emit(TaskMediator.ON_BATCH_SUBMIT_WEEK_TASK, uv0, slot0)
+				else
+					slot0()
+				end
+			end
+		})
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

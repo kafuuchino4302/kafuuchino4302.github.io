@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secondsummarypage5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>secondsummarypage5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SecondSummaryPage5&quot;, import(&quot;.SummaryAnimationPage&quot;))
+
+slot0.OnInit = function(slot0)
+	setText(slot0._tf:Find(&quot;window_share_1/name&quot;), slot0.summaryInfoVO.name)
+	setText(slot0._tf:Find(&quot;window_share_1/time/Text&quot;), &quot;「&quot; .. slot0.summaryInfoVO.registerTime .. &quot;」&quot;)
+	setText(slot0._tf:Find(&quot;window_share_1/day/Text&quot;), slot0.summaryInfoVO.days)
+
+	slot1 = slot0.summaryInfoVO:hasGuild()
+
+	setActive(slot0._tf:Find(&quot;window_share_2/has_guild&quot;), slot1)
+	setActive(slot0._tf:Find(&quot;window_share_2/without&quot;), not slot1)
+
+	slot2 = slot1 and slot0._tf:Find(&quot;window_share_2/has_guild&quot;) or slot0._tf:Find(&quot;window_share_2/without&quot;)
+
+	if slot1 then
+		setText(slot2:Find(&quot;guild_name/Text&quot;), &quot;「&quot; .. slot0.summaryInfoVO.guildName .. &quot;」&quot;)
+	end
+
+	setText(slot2:Find(&quot;chapter_name/Text&quot;), &quot;「&quot; .. slot0.summaryInfoVO.chapterName .. &quot;」&quot;)
+	setText(slot2:Find(&quot;number/Text&quot;), slot0.summaryInfoVO.proposeCount)
+	setText(slot0._tf:Find(&quot;window_share_3/number/Text&quot;), slot0.summaryInfoVO.medalCount)
+	setText(slot0._tf:Find(&quot;window_share_3/count/Text&quot;), slot0.summaryInfoVO.furnitureCount)
+	setText(slot0._tf:Find(&quot;window_share_3/coin/Text&quot;), slot0.summaryInfoVO.furnitureWorth)
+	setText(slot0._tf:Find(&quot;window_share_3/collection/Text&quot;), slot0.summaryInfoVO.collectionNum)
+	setText(slot0._tf:Find(&quot;window_share_3/skin/Text&quot;), slot0.summaryInfoVO.skinNum)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingsaccountjppanle.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingsaccountjppanle.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsAccountJPPanle&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsAccountJP&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return i18n(&quot;Settings_title_LoginJP&quot;)
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;  / ACCOUNT&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.userProxy = getProxy(UserProxy)
+	slot0.accountTwitterUI = findTF(slot0._tf, &quot;page1&quot;)
+	slot0.yostarBtn = findTF(findTF(slot0.accountTwitterUI, &quot;btn_layout/yostar_con&quot;), &quot;bind_yostar&quot;)
+
+	setText(findTF(slot0.yostarBtn, &quot;Text&quot;), i18n(&quot;yostar_account_btn&quot;))
+	slot0:OnRegisterEvent()
+end
+
+slot0.OnRegisterEvent = function(slot0)
+	onButton(slot0, slot0.yostarBtn, function ()
+		pg.SdkMgr.GetInstance():YoStarShowUserCenter()
+	end)
+end
+
+slot0.OnUpdate = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>painting_filte_world.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>painting_filte_world.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.painting_filte_world = {
+	{
+		name = &quot;shancheng&quot;,
+		key = 1
+	},
+	{
+		name = &quot;xizhang&quot;,
+		key = 2
+	},
+	{
+		name = &quot;wuwei&quot;,
+		key = 3
+	},
+	{
+		name = &quot;deyizhi&quot;,
+		key = 4
+	},
+	{
+		name = &quot;bominghan&quot;,
+		key = 5
+	},
+	{
+		name = &quot;feilong_alter&quot;,
+		key = 6
+	},
+	{
+		name = &quot;tiancheng_hei&quot;,
+		key = 7
+	},
+	{
+		name = &quot;mengfeisi&quot;,
+		key = 8
+	},
+	{
+		name = &quot;tbniang&quot;,
+		key = 9
+	},
+	{
+		name = &quot;dahuangfeng&quot;,
+		key = 10
+	},
+	{
+		name = &quot;mengbiliai&quot;,
+		key = 11
+	},
+	{
+		name = &quot;temperance&quot;,
+		key = 12
+	},
+	{
+		name = &quot;qiye_hei&quot;,
+		key = 13
+	},
+	{
+		name = &quot;kelifulan&quot;,
+		key = 14
+	},
+	{
+		name = &quot;jiahe&quot;,
+		key = 15
+	},
+	{
+		name = &quot;baerdimo&quot;,
+		key = 16
+	},
+	{
+		name = &quot;beierfasite&quot;,
+		key = 17
+	},
+	{
+		name = &quot;qiye&quot;,
+		key = 18
+	},
+	{
+		name = &quot;luodeni&quot;,
+		key = 19
+	},
+	{
+		name = &quot;yilishabai&quot;,
+		key = 20
+	},
+	{
+		name = &quot;chicheng&quot;,
+		key = 21
+	},
+	{
+		name = &quot;shengwang_younv&quot;,
+		key = 22
+	},
+	{
+		name = &quot;masazhusai&quot;,
+		key = 23
+	},
+	{
+		name = &quot;buzhihuo&quot;,
+		key = 24
+	},
+	{
+		name = &quot;yuekecheng_hei&quot;,
+		key = 25
+	},
+	{
+		name = &quot;qiaozhiwushi&quot;,
+		key = 26
+	},
+	{
+		name = &quot;jingang&quot;,
+		key = 27
+	},
+	{
+		name = &quot;niukasier&quot;,
+		key = 28
+	},
+	{
+		name = &quot;xuefeng&quot;,
+		key = 29
+	},
+	{
+		name = &quot;tierbici&quot;,
+		key = 30
+	},
+	{
+		name = &quot;guanghui&quot;,
+		key = 31
+	},
+	{
+		name = &quot;huangjiafangzhou_alter&quot;,
+		key = 32
+	},
+	{
+		name = &quot;unknown5&quot;,
+		key = 33
+	},
+	{
+		name = &quot;xianghe&quot;,
+		key = 34
+	},
+	{
+		name = &quot;kewei&quot;,
+		key = 35
+	},
+	{
+		name = &quot;weiershiqinwang&quot;,
+		key = 36
+	},
+	{
+		name = &quot;feilong&quot;,
+		key = 37
+	},
+	{
+		name = &quot;yatelanda&quot;,
+		key = 38
+	},
+	{
+		name = &quot;z2&quot;,
+		key = 39
+	},
+	{
+		name = &quot;ruihe&quot;,
+		key = 40
+	},
+	{
+		name = &quot;strength&quot;,
+		key = 41
+	},
+	{
+		name = &quot;safuke&quot;,
+		key = 42
+	},
+	{
+		name = &quot;changdao&quot;,
+		key = 43
+	},
+	{
+		name = &quot;shengli&quot;,
+		key = 44
+	},
+	{
+		name = &quot;shengwang&quot;,
+		key = 45
+	},
+	{
+		name = &quot;nandaketa&quot;,
+		key = 46
+	},
+	{
+		name = &quot;gelunweier&quot;,
+		key = 47
+	},
+	{
+		name = &quot;yingxianzuo&quot;,
+		key = 48
+	},
+	{
+		name = &quot;alabama&quot;,
+		key = 49
+	},
+	{
+		name = &quot;u47&quot;,
+		key = 50
+	},
+	{
+		name = &quot;beikaluolaina&quot;,
+		key = 51
+	},
+	{
+		name = &quot;dujiaoshou&quot;,
+		key = 52
+	},
+	{
+		name = &quot;kente&quot;,
+		key = 53
+	},
+	{
+		name = &quot;bushi&quot;,
+		key = 54
+	},
+	{
+		name = &quot;aisaikesi&quot;,
+		key = 55
+	},
+	{
+		name = &quot;qiye_dark_shadow&quot;,
+		key = 56
+	},
+	{
+		name = &quot;ying&quot;,
+		key = 57
+	},
+	{
+		name = &quot;xianggelila&quot;,
+		key = 58
+	},
+	{
+		name = &quot;hao&quot;,
+		key = 59
+	},
+	{
+		name = &quot;linuo&quot;,
+		key = 60
+	},
+	{
+		name = &quot;lituoliao&quot;,
+		key = 61
+	},
+	{
+		name = &quot;dahuangfeng_hei&quot;,
+		key = 62
+	},
+	{
+		name = &quot;xiefeierde&quot;,
+		key = 63
+	},
+	{
+		name = &quot;jiahezhanlie&quot;,
+		key = 64
+	},
+	{
+		name = &quot;zaoshen&quot;,
+		key = 65
+	},
+	{
+		name = &quot;yuekegongjue&quot;,
+		key = 66
+	},
+	{
+		name = &quot;juejiang&quot;,
+		key = 67
+	},
+	{
+		name = &quot;aidingbao&quot;,
+		key = 68
+	},
+	{
+		name = &quot;salatuojia&quot;,
+		key = 69
+	},
+	{
+		name = &quot;mingshi&quot;,
+		key = 70
+	},
+	{
+		name = &quot;nuofuke&quot;,
+		key = 71
+	},
+	{
+		name = &quot;hude&quot;,
+		key = 72
+	},
+	{
+		name = &quot;kubo&quot;,
+		key = 73
+	},
+	{
+		name = &quot;lumang&quot;,
+		key = 74
+	},
+	{
+		name = &quot;hermit&quot;,
+		key = 75
+	},
+	{
+		name = &quot;shentong&quot;,
+		key = 76
+	},
+	{
+		name = &quot;yanzhan&quot;,
+		key = 77
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61,
+		62,
+		63,
+		64,
+		65,
+		66,
+		67,
+		68,
+		69,
+		70,
+		71,
+		72,
+		73,
+		74,
+		75,
+		76,
+		77
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swichskinmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>swichskinmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SwichSkinMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.CHANGE_SKIN = &quot;SwichSkinMediator:CHANGE_SKIN&quot;
+slot0.BUY_ITEM = &quot;SwichSkinMediator:BUY_ITEM&quot;
+slot0.UPDATE_SKINCONFIG = &quot;SwichSkinMediator:UPDATE_SKINCONFIG&quot;
+slot0.BUY_ITEM_BY_ACT = &quot;SwichSkinMediator:BUY_ITEM_BY_ACT&quot;
+
+slot0.register = function(slot0)
+	slot0.shipVO = slot0.contextData.shipVO
+
+	if slot0.shipVO then
+		slot0.viewComponent:setShip(slot0.shipVO)
+		slot0.viewComponent:setSkinList(getProxy(ShipSkinProxy):getSkinList())
+	end
+
+	slot0:bind(uv0.BUY_ITEM_BY_ACT, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SKIN_COUPON_SHOPPING, {
+			shopId = slot1,
+			cnt = slot2
+		})
+	end)
+	slot0:bind(uv0.CHANGE_SKIN, function (slot0, slot1, slot2)
+		slot3, slot4 = ShipPhantom.UnpackMark(slot1)
+
+		uv0:sendNotification(GAME.SET_SHIP_SKIN, {
+			shipId = slot3,
+			phantomId = slot4,
+			skinId = slot2
+		})
+	end)
+	slot0:bind(uv0.BUY_ITEM, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SKIN_SHOPPIGN, {
+			id = slot1,
+			count = slot2
+		})
+	end)
+	slot0:bind(uv0.UPDATE_SKINCONFIG, function (slot0, slot1)
+		uv0:sendNotification(GAME.UPDATE_SKINCONFIG, {
+			skinId = slot1
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ShipSkinProxy.SHIP_SKINS_UPDATE,
+		GAME.SKIN_SHOPPIGN_DONE,
+		GAME.SKIN_COUPON_SHOPPING_DONE,
+		GAME.CHANGE_SKIN_UPDATE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.SKIN_SHOPPIGN_DONE or slot2 == GAME.SKIN_COUPON_SHOPPING_DONE then
+		if pg.shop_template[slot3.id] and slot4.genre == ShopArgs.SkinShop then
+			slot0:addSubLayers(Context.New({
+				mediator = NewSkinMediator,
+				viewComponent = NewSkinLayer,
+				data = {
+					skinId = slot4.effect_args[1]
+				}
+			}))
+		end
+	elseif slot2 == ShipSkinProxy.SHIP_SKINS_UPDATE then
+		slot0.viewComponent:setSkinList(getProxy(ShipSkinProxy):getSkinList())
+		slot0.viewComponent:openSelectSkinPanel()
+	elseif slot2 == GAME.CHANGE_SKIN_UPDATE and slot3 == slot0.shipVO:GetShipPhantomMark() then
+		slot0.viewComponent:setShip(slot0.contextData.shipVO)
+		slot0.viewComponent:setSkinList(getProxy(ShipSkinProxy):getSkinList())
+		slot0.viewComponent:openSelectSkinPanel()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

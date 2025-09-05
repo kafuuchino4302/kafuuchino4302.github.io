@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_103070.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_103070.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;与萨菈娜同在一个舰队时，自身航空性能提高20.0%(满级40.0%)，命中装填+10%~25%&quot;,
+	name = &quot;锁之巫女-乌璐露&quot;,
+	init_effect = &quot;&quot;,
+	id = 103070,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;与萨菈娜同在一个舰队时&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 103070,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				skill_id = 103070,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Saraana&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_11841.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_11841.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;花之牌&quot;,
+	init_effect = &quot;&quot;,
+	id = 11841,
+	time = 5,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 11840,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					11841,
+					11842,
+					11843,
+					11844
+				},
+				range = {
+					{
+						0,
+						0.07
+					},
+					{
+						0.07,
+						0.19
+					},
+					{
+						0.19,
+						0.7
+					},
+					{
+						0.7,
+						1
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

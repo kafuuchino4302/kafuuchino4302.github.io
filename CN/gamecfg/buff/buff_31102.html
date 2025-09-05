@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_31102.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_31102.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;每隔10秒，释放1次技能弹幕&quot;,
+		effect_list = {
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					skill_id = 31102,
+					time = 10,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	time = 0,
+	name = &quot;白鹰敌人技能弹幕II&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;每隔10秒，释放1次技能弹幕&quot;,
+	stack = 1,
+	id = 31102,
+	icon = 31102,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				skill_id = 31102,
+				time = 10,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

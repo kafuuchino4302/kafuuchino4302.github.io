@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipprofilemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shipprofilemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShipProfileMediator&quot;, import(&quot;...base.ContextMediator&quot;))
+slot0.CLICK_ROTATE_BTN = &quot;ShipProfileMediator:CLICK_ROTATE_BTN&quot;
+slot0.OPEN_CRYPTOLALIA = &quot;ShipProfileMediator:OPEN_CRYPTOLALIA&quot;
+slot0.OPEN_EQUIP_CODE_SHARE = &quot;ShipProfileMediator.OPEN_EQUIP_CODE_SHARE&quot;
+slot0.OPEN_PAINTING_SHOW = &quot;ShipProfileMediator.OPEN_PAINTING_SHOW&quot;
+
+slot0.register = function(slot0)
+	slot1 = getProxy(CollectionProxy)
+	slot2 = getProxy(ShipSkinProxy)
+	slot0.showTrans = slot0.contextData.showTrans
+	slot0.groupId = slot0.contextData.groupId
+	slot4 = slot0.viewComponent
+
+	slot4:setShipGroup(slot1:getShipGroup(slot0.groupId))
+
+	slot4 = slot0.viewComponent
+
+	slot4:setShowTrans(slot0.showTrans)
+
+	slot4 = slot0.viewComponent
+
+	slot4:setOwnedSkinList(slot2:getSkinList())
+	slot0:bind(uv0.OPEN_CRYPTOLALIA, function (slot0, slot1)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.CRYPTOLALIA, {
+			groupId = slot1
+		})
+	end)
+	slot0:bind(uv0.CLICK_ROTATE_BTN, function (slot0, slot1, slot2, slot3)
+		uv0:addSubLayers(Context.New({
+			mediator = ShipRotateMediator,
+			viewComponent = ShipRotateLayer,
+			data = {
+				shipGroup = slot1,
+				showTrans = slot2,
+				skin = slot3
+			},
+			onRemoved = function ()
+				setActive(uv0.viewComponent._tf, true)
+			end
+		}))
+	end)
+	slot0:bind(ShipProfileScene.SHOW_SKILL_INFO, function (slot0, slot1, slot2)
+		uv0:addSubLayers(Context.New({
+			mediator = SkillInfoMediator,
+			viewComponent = SkillInfoLayer,
+			data = {
+				skillOnShip = slot2,
+				skillId = slot1
+			}
+		}))
+	end)
+	slot0:bind(ShipProfileScene.SHOW_EVALUATION, function (slot0, slot1, slot2)
+		if slot2 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;npc_evaluation_tip&quot;))
+
+			return
+		end
+
+		uv0:sendNotification(GAME.FETCH_EVALUATION, slot1)
+	end)
+	slot0:bind(ShipProfileScene.WEDDING_REVIEW, function (slot0, slot1)
+		uv0.viewComponent:onWeddingReview(true)
+		uv0:addSubLayers(Context.New({
+			mediator = ProposeMediator,
+			viewComponent = ProposeUI,
+			data = {
+				review = true,
+				group = slot1.group,
+				skinID = slot1.skinID,
+				finishCallback = function ()
+					uv0.viewComponent:onWeddingReview(false)
+				end
+			}
+		}))
+	end)
+	slot0:bind(uv0.OPEN_EQUIP_CODE_SHARE, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = EquipCodeShareMediator,
+			viewComponent = EquipCodeShareLayer,
+			data = {
+				shipGroupId = slot1
+			}
+		}))
+	end)
+	slot0:bind(uv0.OPEN_PAINTING_SHOW, function (slot0, slot1, slot2)
+		uv0:addSubLayers(Context.New({
+			mediator = PaintingShowMediator,
+			viewComponent = PaintingShowScene,
+			data = {
+				skinId = slot1,
+				callback = slot2
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.FETCH_EVALUATION_DONE,
+		CollectionProxy.GROUP_INFO_UPDATE,
+		ShipSkinProxy.SHIP_SKINS_UPDATE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.FETCH_EVALUATION_DONE then
+		slot0:addSubLayers(Context.New({
+			mediator = ShipEvaluationMediator,
+			viewComponent = ShipEvaluationLayer,
+			data = {
+				groupId = slot3,
+				showTrans = slot0.showTrans
+			}
+		}))
+	elseif slot2 == CollectionProxy.GROUP_INFO_UPDATE then
+		if slot0.groupId == slot3 then
+			slot0.viewComponent:setShipGroup(getProxy(CollectionProxy):getShipGroup(slot4))
+			slot0.viewComponent:FlushHearts()
+		end
+	elseif slot2 == ShipSkinProxy.SHIP_SKINS_UPDATE then
+		slot0.viewComponent:setOwnedSkinList(getProxy(ShipSkinProxy):getSkinList())
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

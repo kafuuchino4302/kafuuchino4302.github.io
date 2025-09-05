@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>match3page.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>match3page.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Match3Page&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.item = slot0:findTF(&quot;item&quot;, slot0.bg)
+	slot0.items = slot0:findTF(&quot;items&quot;, slot0.bg)
+	slot0.goBtn = slot0:findTF(&quot;go&quot;, slot0.bg)
+	slot0.itemList = UIItemList.New(slot0.items, slot0.item)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.drop = slot0.activity:getConfig(&quot;config_client&quot;).drop
+	slot0.id = slot0.activity:getConfig(&quot;config_client&quot;).gameId
+	slot0.day = #slot0.drop
+end
+
+slot0.OnFirstFlush = function(slot0)
+	setActive(slot0.item, false)
+
+	slot1 = getProxy(MiniGameProxy)
+	slot4 = slot0.activity
+	slot2 = slot1:GetHubByHubId(slot4:getConfig(&quot;config_id&quot;))
+
+	setActive(slot0.item, false)
+
+	slot3 = slot0.itemList
+
+	slot3:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			slot3 = uv0
+			slot4 = uv0.drop[slot1 + 1]
+
+			updateDrop(slot3:findTF(&quot;item&quot;, slot2), {
+				type = slot4[1],
+				id = slot4[2],
+				count = slot4[3]
+			})
+			onButton(uv0, slot2, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+
+			return
+		end
+
+		if slot0 == UIItemList.EventUpdate then
+			setActive(uv0:findTF(&quot;got&quot;, slot2), slot1 &lt; uv1.usedtime)
+			setActive(uv0:findTF(&quot;mask&quot;, slot2), slot1 &gt;= uv1.usedtime + uv1.count)
+		end
+	end)
+
+	slot3 = slot0.itemList
+
+	slot3:align(slot0.day)
+	onButton(slot0, slot0.goBtn, function ()
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, uv0.id)
+	end)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.itemList:align(slot0.day)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

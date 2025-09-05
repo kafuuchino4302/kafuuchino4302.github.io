@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getremastercommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>getremastercommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GetRemasterCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = pg.ConnectionMgr.GetInstance()
+
+	slot2:Send(13503, {
+		type = 0
+	}, 13504, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(ChapterProxy)
+
+			slot1:updateDailyCount()
+
+			slot2 = Drop.New({
+				type = DROP_TYPE_VITEM,
+				id = ITEM_ID_REACT_CHAPTER_TICKET,
+				count = math.min(pg.gameset.reactivity_ticket_daily.key_value, pg.gameset.reactivity_ticket_max.key_value - slot1.remasterTickets)
+			})
+
+			uv0:sendNotification(GAME.ADD_ITEM, slot2)
+			uv0:sendNotification(GAME.GET_REMASTER_TICKETS_DONE, {
+				slot2
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;领取失败&quot;)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

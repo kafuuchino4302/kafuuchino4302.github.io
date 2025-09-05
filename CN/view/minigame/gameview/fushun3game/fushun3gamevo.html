@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fushun3gamevo.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fushun3gamevo.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Fushun3GameVo&quot;)
+slot0.TimeType = Fushun3GameConst.day_type
+slot0.TimeFlag = true
+
+slot0.ChangeTimeType = function(slot0)
+	uv0.TimeType = slot0
+
+	uv0.SetTimeFlag((uv0.TimeType == Fushun3GameConst.day_type or uv0.TimeType == Fushun3GameConst.sunset_type) and true or false)
+end
+
+slot0.GetTimeTypeData = function()
+	return Clone(Fushun3GameConst.time_data[uv0.TimeType])
+end
+
+slot0.SetTimeFlag = function(slot0)
+	uv0.TimeFlag = slot0
+end
+
+slot0.GetTimeFlag = function()
+	return uv0.TimeFlag
+end
+
+slot0.Clear = function()
+	if uv0.TypeType == Fushun3GameConst.sunset_type then
+		uv0.ChangeTimeType(Fushun3GameConst.day_type)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

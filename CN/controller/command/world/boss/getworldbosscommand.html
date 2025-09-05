@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getworldbosscommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>getworldbosscommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GetWorldBossCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = (slot1:getBody() or {}).callback
+
+	if not nowWorld().worldBossProxy then
+		return
+	end
+
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(34501, {
+		type = 0
+	}, 34502, function (slot0)
+		slot1 = uv0.worldBossProxy
+
+		slot1:Setup(slot0)
+		uv1:sendNotification(GAME.WORLD_GET_BOSS_DONE)
+
+		if not slot1:IsOpen() and slot1:GetSelfBoss() ~= nil then
+			originalPrint(&quot;Notification : boss is overtime&quot;)
+
+			slot2 = pg.ConnectionMgr.GetInstance()
+
+			slot2:Send(34513, {
+				type = 0
+			}, 34514, function (slot0)
+			end)
+		end
+
+		if uv2 then
+			uv2()
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

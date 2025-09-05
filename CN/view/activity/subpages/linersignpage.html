@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linersignpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>linersignpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LinerSignPage&quot;, import(&quot;view.base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.lockNamed = PLATFORM_CODE == PLATFORM_CH and LOCK_NAMED
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.signTF = slot0:findTF(&quot;sign&quot;, slot0.bg)
+	slot0.items = slot0:findTF(&quot;items&quot;, slot0.signTF)
+	slot0.uilist = UIItemList.New(slot0.items, slot0:findTF(&quot;tpl&quot;, slot0.items))
+	slot0.signBtn = slot0:findTF(&quot;get&quot;, slot0.signTF)
+	slot0.signGreyBtn = slot0:findTF(&quot;get_grey&quot;, slot0.signTF)
+	slot0.countText = slot0:findTF(&quot;count_bg/count&quot;, slot0.signTF)
+	slot0.namedTF = slot0:findTF(&quot;named&quot;, slot0.bg)
+	slot0.nameInput = slot0:findTF(&quot;input/nickname&quot;, slot0.namedTF)
+	slot0.sureBtn = slot0:findTF(&quot;sure&quot;, slot0.namedTF)
+	slot0.linerTF = slot0:findTF(&quot;liner&quot;, slot0.bg)
+	slot0.linerInput = slot0:findTF(&quot;name/input&quot;, slot0.linerTF)
+	slot0.linerBtn = slot0:findTF(&quot;go&quot;, slot0.linerTF)
+
+	setText(slot0:findTF(&quot;lock/Text&quot;, slot0.linerBtn), i18n(&quot;liner_sign_unlock_tip&quot;))
+
+	slot0.nameInput:GetComponent(typeof(InputField)).interactable = not slot0.lockNamed
+
+	setActive(slot0:findTF(&quot;input/pan&quot;, slot0.namedTF), not slot0.lockNamed)
+
+	slot0.linerInput:GetComponent(typeof(InputField)).interactable = not slot0.lockNamed
+
+	setActive(slot0:findTF(&quot;name/edit&quot;, slot0.linerTF), not slot0.lockNamed)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.nday = 0
+	slot0.taskProxy = getProxy(TaskProxy)
+	slot0.taskGroup = underscore.flatten(slot0.activity:getConfig(&quot;config_data&quot;))
+	slot0.taskConfig = pg.task_data_template
+	slot0.preStory = slot0.activity:getConfig(&quot;config_client&quot;).preStory
+
+	return updateActivityTaskStatus(slot0.activity)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot1 = slot0.uilist
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			slot3 = slot1 + 1
+
+			updateDrop(uv0:findTF(&quot;item_mask/item&quot;, slot2), Drop.Create(uv0.taskConfig[uv0.taskGroup[slot3]].award_display[1]))
+			onButton(uv0, slot2, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+			GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/linersignpage_atlas&quot;, &quot;D&quot; .. slot3, uv0:findTF(&quot;day&quot;, slot2), true)
+
+			return
+		end
+
+		if slot0 == UIItemList.EventUpdate then
+			slot5 = uv0.taskProxy:getTaskById(uv0.taskGroup[slot1 + 1]) or uv0.taskProxy:getFinishTaskById(slot4)
+
+			setActive(uv0:findTF(&quot;cur&quot;, slot2), slot3 == uv0.nday)
+			setActive(uv0:findTF(&quot;got&quot;, slot2), slot3 &lt; uv0.nday or slot5 and slot5:getTaskStatus() == 2)
+		end
+	end)
+	onButton(slot0, slot0.signBtn, function ()
+		if not uv0.remainCnt or uv0.remainCnt &lt;= 0 then
+			return
+		end
+
+		seriesAsync({
+			function (slot0)
+				if checkExist(uv0.activity:getConfig(&quot;config_client&quot;).story, {
+					uv0.nday
+				}, {
+					1
+				}) then
+					pg.NewStoryMgr.GetInstance():Play(slot1[uv0.nday][1], slot0)
+				else
+					slot0()
+				end
+			end,
+			function (slot0)
+				if uv0.curTaskVO:getTaskStatus() == 1 then
+					uv0:emit(ActivityMediator.ON_TASK_SUBMIT, uv0.curTaskVO, slot0)
+				else
+					slot0()
+				end
+			end
+		})
+	end, SFX_PANEL)
+
+	slot1 = getProxy(PlayerProxy)
+	slot1 = slot1:getRawData()
+	slot0.defaultName = slot1:GetName()
+
+	setInputText(slot0.nameInput, slot0.defaultName)
+	onButton(slot0, slot0.sureBtn, function ()
+		if getInputText(uv0.nameInput) == &quot;&quot; then
+			return
+		end
+
+		if slot0 ~= uv0.defaultName and not nameValidityCheck(slot0, 4, 14, {
+			&quot;spece_illegal_tip&quot;,
+			&quot;login_newPlayerScene_name_tooShort&quot;,
+			&quot;login_newPlayerScene_name_tooLong&quot;,
+			&quot;login_newPlayerScene_invalideName&quot;
+		}) then
+			return
+		end
+
+		uv0:emit(ActivityMediator.STORE_DATE, {
+			actId = ActivityConst.LINER_NAMED_ID,
+			strValue = slot0,
+			callback = function ()
+				uv0:OnUpdateFlush()
+			end
+		})
+	end, SFX_PANEL)
+	onInputEndEdit(slot0, slot0.linerInput, function (slot0)
+		if not uv0:IsNamed() then
+			return
+		end
+
+		if slot0 ~= uv0.defaultName and not nameValidityCheck(slot0, 4, 14, {
+			&quot;spece_illegal_tip&quot;,
+			&quot;login_newPlayerScene_name_tooShort&quot;,
+			&quot;login_newPlayerScene_name_tooLong&quot;,
+			&quot;login_newPlayerScene_invalideName&quot;
+		}) then
+			setInputText(uv0.linerInput, uv0.lastName)
+
+			return
+		else
+			uv0:emit(ActivityMediator.STORE_DATE, {
+				actId = ActivityConst.LINER_NAMED_ID,
+				strValue = slot0,
+				callback = function ()
+					pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;liner_name_modify&quot;))
+					uv0:OnUpdateFlush()
+				end
+			})
+		end
+	end)
+	onButton(slot0, slot0.linerBtn, function ()
+		if uv0:IsLockLiner() then
+			return
+		end
+
+		seriesAsync({
+			function (slot0)
+				if uv0.preStory and uv0.preStory ~= &quot;&quot; and not pg.NewStoryMgr.GetInstance():IsPlayed(uv0.preStory) then
+					pg.NewStoryMgr.GetInstance():Play(uv0.preStory, slot0)
+				else
+					slot0()
+				end
+			end
+		}, function ()
+			uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.LINER)
+		end)
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.nday = slot0.activity.data3
+	slot1 = slot0:IsFinishSign()
+
+	setActive(slot0.signTF, not slot1)
+	setActive(slot0.namedTF, slot1 and not slot0:IsNamed())
+	setActive(slot0.linerTF, slot1 and slot0:IsNamed())
+	setActive(slot0:findTF(&quot;lock&quot;, slot0.linerBtn), slot0:IsLockLiner())
+
+	if not slot1 then
+		slot0.curTaskVO = slot0.taskProxy:getTaskById(slot0.taskGroup[slot0.nday]) or slot0.taskProxy:getFinishTaskById(slot2)
+		slot0.remainCnt = math.min(slot0.activity:getDayIndex(), #slot0.taskGroup) - slot0.nday
+
+		if slot0.curTaskVO:getTaskStatus() == 1 then
+			slot0.remainCnt = slot0.remainCnt + 1
+		end
+
+		setActive(slot0.signBtn, slot0.remainCnt &gt; 0)
+		setActive(slot0.signGreyBtn, slot0.remainCnt &lt;= 0)
+		setText(slot0.countText, i18n(&quot;liner_sign_cnt_tip&quot;) .. slot0.remainCnt)
+		slot0.uilist:align(#slot0.taskGroup)
+	else
+		slot0.lastName = getProxy(ActivityProxy):getActivityById(ActivityConst.LINER_NAMED_ID):getStrData1()
+
+		setInputText(slot0.linerInput, slot0.lastName)
+	end
+end
+
+slot0.IsFinishSign = function(slot0)
+	slot2 = slot0.taskProxy:getTaskById(slot0.taskGroup[#slot0.taskGroup]) or slot0.taskProxy:getFinishTaskById(slot1)
+
+	return slot2 and slot2:getTaskStatus() == 2
+end
+
+slot0.IsNamed = function(slot0)
+	return getProxy(ActivityProxy):getActivityById(ActivityConst.LINER_NAMED_ID) and not slot1:isEnd() and slot1:getStrData1() ~= &quot;&quot;
+end
+
+slot0.IsLockLiner = function(slot0)
+	return not getProxy(ActivityProxy):getActivityById(ActivityConst.LINER_ID) or slot1:isEnd()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

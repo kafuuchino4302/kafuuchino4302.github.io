@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildmemberinfopage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildmemberinfopage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildMemberInfoPage&quot;, import(&quot;.GuildMemberBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;GuildMemberInfoPage&quot;
+end
+
+slot1 = {
+	{
+		value = &quot;shipCount&quot;,
+		type = 1,
+		tag = i18n(&quot;friend_resume_ship_count&quot;)
+	},
+	{
+		type = 3,
+		tag = i18n(&quot;friend_resume_collection_rate&quot;),
+		value = {
+			&quot;collectionCount&quot;
+		}
+	},
+	{
+		value = &quot;attackCount&quot;,
+		type = 1,
+		tag = i18n(&quot;friend_resume_attack_count&quot;)
+	},
+	{
+		type = 2,
+		tag = i18n(&quot;friend_resume_attack_win_rate&quot;),
+		value = {
+			&quot;attackCount&quot;,
+			&quot;winCount&quot;
+		}
+	},
+	{
+		value = &quot;pvp_attack_count&quot;,
+		type = 1,
+		tag = i18n(&quot;friend_resume_manoeuvre_count&quot;)
+	},
+	{
+		type = 2,
+		tag = i18n(&quot;friend_resume_manoeuvre_win_rate&quot;),
+		value = {
+			&quot;pvp_attack_count&quot;,
+			&quot;pvp_win_count&quot;
+		}
+	},
+	{
+		value = &quot;collect_attack_count&quot;,
+		type = 1,
+		tag = i18n(&quot;friend_event_count&quot;)
+	}
+}
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.infonameTF = slot0:findTF(&quot;frame/info/name/Text&quot;):GetComponent(typeof(Text))
+	slot0.infoiconTF = slot0:findTF(&quot;frame/info/shipicon/icon&quot;):GetComponent(typeof(Image))
+	slot0.infoduty = slot0:findTF(&quot;frame/duty&quot;):GetComponent(typeof(Image))
+	slot0.infostarsTF = slot0:findTF(&quot;frame/info/shipicon/stars&quot;)
+	slot0.infostarTF = slot0:findTF(&quot;frame/info/shipicon/stars/star&quot;)
+	slot0.infolevelTF = slot0:findTF(&quot;frame/info/level/Text&quot;):GetComponent(typeof(Text))
+	slot0.circle = slot0:findTF(&quot;frame/info/shipicon/frame&quot;)
+	slot0.resumeInfo = slot0:findTF(&quot;frame/content&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_CONFIRM)
+end
+
+slot0.Show = function(slot0, slot1, slot2, slot3, slot4)
+	slot0.guildVO = slot1
+	slot0.playerVO = slot2
+	slot0.memberVO = slot3
+
+	slot0:emit(GuildMemberMediator.OPEN_DESC_INFO, slot3)
+
+	if slot4 then
+		slot4()
+	end
+end
+
+slot0.Flush = function(slot0, slot1)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	setActive(slot0._tf, true)
+	slot0._tf:SetAsLastSibling()
+	slot0.onShowCallBack(slot0.buttonPos)
+
+	slot2 = slot0.guildVO
+	slot3 = slot0.memberVO
+	slot0.infonameTF.text = slot3.name
+	slot4 = AttireFrame.attireFrameRes(slot3, slot3.id == getProxy(PlayerProxy):getRawData().id, AttireConst.TYPE_ICON_FRAME, slot3.propose)
+
+	PoolMgr.GetInstance():GetPrefab(&quot;IconFrame/&quot; .. slot4, slot4, true, function (slot0)
+		if IsNil(uv0._tf) then
+			return
+		end
+
+		if uv0.circle then
+			slot0.name = uv1
+			findTF(slot0.transform, &quot;icon&quot;):GetComponent(typeof(Image)).raycastTarget = false
+
+			setParent(slot0, uv0.circle, false)
+		else
+			PoolMgr.GetInstance():ReturnPrefab(&quot;IconFrame/&quot; .. uv1, uv1, slot0)
+		end
+	end)
+	LoadSpriteAsync(&quot;qicon/&quot; .. Ship.New({
+		configId = slot3.icon,
+		skin_id = slot3.skinId
+	}):getPainting(), function (slot0)
+		if not IsNil(uv0.infoiconTF) then
+			uv0.infoiconTF.sprite = slot0
+		end
+	end)
+
+	slot0.infoduty.sprite = GetSpriteFromAtlas(&quot;dutyicon&quot;, &quot;icon_&quot; .. slot3.duty)
+
+	for slot12 = slot0.infostarsTF.childCount, pg.ship_data_statistics[slot3.icon].star - 1 do
+		cloneTplTo(slot0.infostarTF, slot0.infostarsTF)
+	end
+
+	for slot12 = 1, slot8 do
+		setActive(slot0.infostarsTF:GetChild(slot12 - 1), slot12 &lt;= slot5.star)
+	end
+
+	slot0.infolevelTF.text = &quot;Lv.&quot; .. slot3.level
+
+	for slot12, slot13 in ipairs(uv0) do
+		slot14 = slot0.resumeInfo:GetChild(slot12 - 1)
+
+		setText(slot14:Find(&quot;tag&quot;), slot13.tag)
+
+		slot15 = slot14:Find(&quot;tag (1)&quot;)
+
+		if slot13.type == 1 then
+			setText(slot15, slot1[slot13.value])
+		elseif slot13.type == 2 then
+			setText(slot15, string.format(&quot;%0.2f&quot;, math.max(slot1[slot13.value[2]], 0) / math.max(slot1[slot13.value[1]], 1) * 100) .. &quot;%&quot;)
+		elseif slot13.type == 3 then
+			setText(slot15, string.format(&quot;%0.2f&quot;, (slot1[slot13.value[1]] or 1) / getProxy(CollectionProxy):getCollectionTotal() * 100) .. &quot;%&quot;)
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

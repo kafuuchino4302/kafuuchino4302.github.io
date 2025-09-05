@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>collectioneventptpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>collectioneventptpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CollectionEventPtPage&quot;, import(&quot;view.base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.helpBtn = slot0:findTF(&quot;help&quot;, slot0.bg)
+	slot0.shopBtn = slot0:findTF(&quot;shop&quot;, slot0.bg)
+	slot0.eventBtn = slot0:findTF(&quot;event&quot;, slot0.bg)
+	slot0.resTF = slot0:findTF(&quot;res&quot;, slot0.bg)
+	slot0.resIcon = slot0:findTF(&quot;icon&quot;, slot0.resTF):GetComponent(typeof(Image))
+	slot0.resNum = slot0:findTF(&quot;num&quot;, slot0.resTF):GetComponent(typeof(Text))
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.shopId = slot0.activity:getConfig(&quot;config_client&quot;).shopActID
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.helpBtn, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.commission_event_tip.tip
+		})
+	end)
+	onButton(slot0, slot0.shopBtn, function ()
+		uv0:emit(ActivityMediator.GO_SHOPS_LAYER, {
+			warp = NewShopsScene.TYPE_ACTIVITY,
+			actId = uv0.shopId
+		})
+	end)
+	onButton(slot0, slot0.eventBtn, function ()
+		pg.m02:sendNotification(GAME.GO_SCENE, SCENE.EVENT)
+	end)
+
+	if PlayerPrefs.GetInt(&quot;ACTIVITY_TYPE_EVENT_&quot; .. slot0.activity.id .. &quot;_&quot; .. getProxy(PlayerProxy):getData().id) == 0 then
+		PlayerPrefs.SetInt(&quot;ACTIVITY_TYPE_EVENT_&quot; .. slot0.activity.id .. &quot;_&quot; .. slot1, 1)
+		getProxy(ActivityProxy):updateActivity(slot0.activity)
+	end
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.resNum.text = getProxy(PlayerProxy):getData():getResource(pg.activity_template[slot0.shopId].config_client.pt_id)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

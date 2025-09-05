@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducateclearnodechaincommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducateclearnodechaincommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewEducateClearNodeChainCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().id
+
+	warning(&quot;Clear Node Chain, id: &quot;, slot3)
+
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(29032, {
+		id = slot3
+	}, 29033, function (slot0)
+		if slot0.result == 0 then
+			getProxy(NewEducateProxy):GetCurChar():InitFSM(slot0.fsm)
+			uv0:sendNotification(GAME.NEW_EDUCATE_CHECK_FSM)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;NewEducate_ClearNodeChain&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item_data_battleui.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>item_data_battleui.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.item_data_battleui = {
+	[0] = {
+		name = &quot;经典主题&quot;,
+		key = &quot;Standard&quot;,
+		display_icon = &quot;ui_0&quot;,
+		unlock = &quot;默认获得&quot;,
+		is_unlock = 0,
+		rare = 2,
+		desc = &quot;经典的指挥界面，承载着无数场激烈战斗的回忆，拥有无与伦比的实用性。&quot;,
+		id = 0,
+		icon = &quot;0&quot;,
+		scene = {},
+		rare_display = {}
+	},
+	[101] = {
+		name = &quot;新版主题&quot;,
+		key = &quot;SkinNormal_20240701&quot;,
+		display_icon = &quot;ui_101&quot;,
+		unlock = &quot;默认获得&quot;,
+		is_unlock = 0,
+		rare = 2,
+		desc = &quot;采用大胆的色彩与现代化的图形元素，旨在为指挥官提供更具活力的视觉体验。&quot;,
+		id = 101,
+		icon = &quot;101&quot;,
+		scene = {},
+		rare_display = {}
+	},
+	[102] = {
+		name = &quot;赛博纪元&quot;,
+		key = &quot;SkinNormal_20240912&quot;,
+		display_icon = &quot;ui_102&quot;,
+		unlock = &quot;世界巡游十九期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;采用赛博朋克风格的设计，充满了动态效果与光影变化，为热爱科幻风格的指挥官提供沉浸式的体验。&quot;,
+		id = 102,
+		icon = &quot;102&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[103] = {
+		name = &quot;梦幻霓虹&quot;,
+		key = &quot;SkinNormal_20240913&quot;,
+		display_icon = &quot;ui_103&quot;,
+		unlock = &quot;梦幻霓虹战斗主题礼包获取&quot;,
+		is_unlock = 1,
+		rare = 4,
+		desc = &quot;色彩丰富而不失和谐，仿佛整个指挥界面都在随着音乐而律动，适合喜欢轻松氛围的指挥官。&quot;,
+		id = 103,
+		icon = &quot;103&quot;,
+		scene = {},
+		rare_display = {
+			1,
+			2,
+			3
+		}
+	},
+	[104] = {
+		name = &quot;幻光律动 &quot;,
+		key = &quot;SkinNormal_20241107&quot;,
+		display_icon = &quot;ui_104&quot;,
+		unlock = &quot;世界巡游二十期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;霓虹色彩与律动光束交相辉映，元素交织出流畅的节奏，为指挥作战带来独特的视觉体验。 &quot;,
+		id = 104,
+		icon = &quot;104&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[105] = {
+		name = &quot;光耀之庭&quot;,
+		key = &quot;SkinNormal_20250123&quot;,
+		display_icon = &quot;ui_105&quot;,
+		unlock = &quot;世界巡游二十一期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;金光闪烁的设计为指挥官带来庄重而神圣的视觉享受，让每一次战斗都如同史诗般壮丽。&quot;,
+		id = 105,
+		icon = &quot;105&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[106] = {
+		name = &quot;恶魔契约 &quot;,
+		key = &quot;SkinNormal_20250327&quot;,
+		display_icon = &quot;ui_106&quot;,
+		unlock = &quot;世界巡游二十二期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;恶魔的气息从指挥界面中溢出，流经血液覆盖的边框与不祥的法阵交织，营造出黑暗又危险的氛围。 &quot;,
+		id = 106,
+		icon = &quot;106&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[107] = {
+		name = &quot;璀璨星辰 &quot;,
+		key = &quot;SkinNormal_20250529&quot;,
+		display_icon = &quot;ui_107&quot;,
+		unlock = &quot;世界巡游二十三期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;耀眼的星光汇聚于界面中心，神秘的法阵映射着星系轮廓，每处细节都诉说着对天外的探索与征途。 &quot;,
+		id = 107,
+		icon = &quot;107&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[108] = {
+		name = &quot;自然律动&quot;,
+		key = &quot;SkinNormal_20250724&quot;,
+		display_icon = &quot;ui_108&quot;,
+		unlock = &quot;世界巡游二十四期获取&quot;,
+		is_unlock = 1,
+		rare = 3,
+		desc = &quot;飞鸟翱翔于树海界面之上，辅以律动水流等要素，营造出生机勃勃万物竞发的氛围。&quot;,
+		id = 108,
+		icon = &quot;108&quot;,
+		scene = {},
+		rare_display = {
+			1
+		}
+	},
+	[201] = {
+		name = &quot;圣诞雪境&quot;,
+		key = &quot;SkinNormal_20241209&quot;,
+		display_icon = &quot;ui_201&quot;,
+		unlock = &quot;圣诞雪境战斗主题礼包获取&quot;,
+		is_unlock = 1,
+		rare = 4,
+		desc = &quot;这款界面为喜爱冬季气氛的指挥官打造，让指挥官在驾驭战场的同时，感受浪漫的冬日氛围。&quot;,
+		id = 201,
+		icon = &quot;201&quot;,
+		scene = {},
+		rare_display = {
+			1,
+			2,
+			3
+		}
+	},
+	[202] = {
+		name = &quot;圣砂之约&quot;,
+		key = &quot;SkinNormal_20250227&quot;,
+		display_icon = &quot;ui_202&quot;,
+		unlock = &quot;圣砂之约战斗主题礼包获取&quot;,
+		is_unlock = 1,
+		rare = 4,
+		desc = &quot;古老符文与黄金纹饰交织，每处细节都诉说着尼罗河文明的不朽传说。&quot;,
+		id = 202,
+		icon = &quot;202&quot;,
+		scene = {},
+		rare_display = {
+			1,
+			2,
+			3
+		}
+	},
+	[203] = {
+		name = &quot;基因之源 &quot;,
+		key = &quot;SkinElite_20250327&quot;,
+		display_icon = &quot;ui_203&quot;,
+		unlock = &quot;基因之源战斗主题礼包获取&quot;,
+		is_unlock = 1,
+		rare = 4,
+		desc = &quot;充满未来感的指挥界面，洁净的白色面板与血色的纹路交织，营造出精密且危险的氛围。 &quot;,
+		id = 203,
+		icon = &quot;203&quot;,
+		scene = {},
+		rare_display = {
+			1,
+			2,
+			3
+		}
+	},
+	[204] = {
+		name = &quot;海滨假日&quot;,
+		key = &quot;SkinElite_20250520&quot;,
+		display_icon = &quot;ui_204&quot;,
+		unlock = &quot;海滨假日战斗主题礼包获取&quot;,
+		is_unlock = 1,
+		rare = 4,
+		desc = &quot;贝壳图案点缀在海浪界面之间，辅以沙滩木牌等要素，营造出轻松悠闲的海滨度假氛围。&quot;,
+		id = 204,
+		icon = &quot;204&quot;,
+		scene = {},
+		rare_display = {
+			1,
+			2,
+			3
+		}
+	},
+	all = {
+		0,
+		101,
+		102,
+		103,
+		104,
+		105,
+		106,
+		107,
+		108,
+		201,
+		202,
+		203,
+		204
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

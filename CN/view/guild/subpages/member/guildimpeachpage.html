@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildimpeachpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildimpeachpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildImpeachPage&quot;, import(&quot;.GuildMemberBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;GuildImpeachPage&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.impeachconfirmBtn = slot0:findTF(&quot;frame/confirm_btn&quot;)
+	slot0.impeachcancelBtn = slot0:findTF(&quot;frame/cancel_btn&quot;)
+	slot0.impeachnameTF = slot0:findTF(&quot;frame/info/name/Text&quot;, slot0._tf):GetComponent(typeof(Text))
+	slot0.impeachiconTF = slot0:findTF(&quot;frame/info/shipicon/icon&quot;, slot0._tf):GetComponent(typeof(Image))
+	slot0.impeachduty = slot0:findTF(&quot;frame/duty&quot;):GetComponent(typeof(Image))
+	slot0.impeachstarsTF = slot0:findTF(&quot;frame/info/shipicon/stars&quot;, slot0._tf)
+	slot0.impeachstarTF = slot0:findTF(&quot;frame/info/shipicon/stars/star&quot;, slot0._tf)
+	slot0.impeachlevelTF = slot0:findTF(&quot;frame/info/level/Text&quot;, slot0._tf):GetComponent(typeof(Text))
+	slot0.circle = slot0:findTF(&quot;frame/info/shipicon/frame&quot;, slot0._tf)
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.impeachcancelBtn, function ()
+		uv0:Hide()
+	end, SFX_CONFIRM)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_CONFIRM)
+end
+
+slot0.OnShow = function(slot0)
+	slot1 = slot0.guildVO
+	slot2 = slot0.playerVO
+	slot3 = slot0.memberVO
+	slot0.impeachnameTF.text = slot3.name
+	slot4 = AttireFrame.attireFrameRes(slot3, slot3.id == getProxy(PlayerProxy):getRawData().id, AttireConst.TYPE_ICON_FRAME, slot3.propose)
+
+	PoolMgr.GetInstance():GetPrefab(&quot;IconFrame/&quot; .. slot4, slot4, true, function (slot0)
+		if IsNil(uv0._tf) then
+			return
+		end
+
+		if uv0.cirCle then
+			slot0.name = uv1
+			findTF(slot0.transform, &quot;icon&quot;):GetComponent(typeof(Image)).raycastTarget = false
+
+			setParent(slot0, uv0.cirCle, false)
+		else
+			PoolMgr.GetInstance():ReturnPrefab(&quot;IconFrame/&quot; .. uv1, uv1, slot0)
+		end
+	end)
+	LoadSpriteAsync(&quot;qicon/&quot; .. Ship.New({
+		configId = slot3.icon,
+		skin_id = slot3.skinId
+	}):getPainting(), function (slot0)
+		if not IsNil(uv0.impeachiconTF) then
+			uv0.impeachiconTF.sprite = slot0
+		end
+	end)
+
+	slot0.impeachduty.sprite = GetSpriteFromAtlas(&quot;dutyicon&quot;, &quot;icon_&quot; .. slot3.duty)
+
+	for slot12 = slot0.impeachstarsTF.childCount, pg.ship_data_statistics[slot3.icon].star - 1 do
+		cloneTplTo(slot0.impeachstarTF, slot0.impeachstarsTF)
+	end
+
+	for slot12 = 1, slot8 do
+		setActive(slot0.impeachstarsTF:GetChild(slot12 - 1), slot12 &lt;= slot5.star)
+	end
+
+	slot0.impeachlevelTF.text = &quot;Lv.&quot; .. slot3.level
+
+	onButton(slot0, slot0.impeachconfirmBtn, function ()
+		if uv0.id == uv1.id then
+			return
+		end
+
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;guild_impeach_tip&quot;),
+			onYes = function ()
+				uv0:emit(GuildMemberMediator.IMPEACH, uv1.id)
+				uv0:Hide()
+			end
+		})
+	end, SFX_CONFIRM)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

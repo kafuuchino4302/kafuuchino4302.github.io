@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oreminigameview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>oreminigameview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;OreMiniGameView&quot;, import(&quot;view.miniGame.MiniGameTemplateView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;OreMiniGameUI&quot;
+end
+
+slot0.getGameController = function(slot0)
+	return OreMiniGameController
+end
+
+slot0.getShowSide = function(slot0)
+	return false
+end
+
+slot0.initPageUI = function(slot0)
+	uv0.super.initPageUI(slot0)
+
+	slot3 = slot0.rtTitlePage
+
+	onButton(slot0, slot3:Find(&quot;main/btn_help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.ore_minigame_help.tip
+		})
+	end, SFX_PANEL)
+
+	slot3 = slot0.rtTitlePage
+
+	onButton(slot0, slot3:Find(&quot;result/window/btn_finish&quot;), function ()
+		uv0:openUI(&quot;main&quot;)
+		uv0.gameController:ResetGame()
+	end, SFX_CONFIRM)
+
+	slot1 = slot0.rtTitlePage
+	slot1 = slot1:Find(&quot;main/res_bar&quot;)
+
+	LoadImageSpriteAsync(Item.getConfigData(pg.activity_template[ActivityConst.ISLAND_GAME_ID].config_client.item_id).icon, slot1:Find(&quot;icon&quot;), true)
+	setText(slot1:Find(&quot;num&quot;), slot0:GetMGHubData().count)
+	onButton(slot0, slot1, function ()
+		uv0:emit(BaseMiniGameMediator.OPEN_SUB_LAYER, {
+			mediator = IslandGameLimitMediator,
+			viewComponent = IslandGameLimitLayer
+		})
+	end, SFX_CANCEL)
+end
+
+slot0.updateMainUI = function(slot0)
+	uv0.super.updateMainUI(slot0)
+
+	slot2 = pg.activity_template[ActivityConst.ISLAND_GAME_ID].config_client.item_id
+
+	setText(slot0.rtTitlePage:Find(&quot;main/res_bar&quot;):Find(&quot;num&quot;), slot0:GetMGHubData().count)
+end
+
+slot0.willExit = function(slot0)
+	slot0.gameController:willExit()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

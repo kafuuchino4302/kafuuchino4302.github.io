@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gamehallscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gamehallscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GameHallScene&quot;, import(&quot;..base.BaseUI&quot;))
+slot0.open_with_list = false
+
+slot0.getUIName = function(slot0)
+	return &quot;GameHallUI&quot;
+end
+
+slot0.init = function(slot0)
+end
+
+slot0.didEnter = function(slot0)
+	slot0:initTopUI()
+	slot0:initHomeUI()
+
+	slot1 = findTF(slot0._tf, &quot;ad/container&quot;)
+	slot0.charController = GameHallContainerUI.New(slot1)
+	slot0.freeCoinTf = findTF(slot1, &quot;content/top/free&quot;)
+
+	onButton(slot0, slot0.freeCoinTf, function ()
+		slot3 = pg.gameset.game_coin_initial.key_value
+
+		if pg.gameset.game_coin_max.key_value - getProxy(GameRoomProxy):getCoin() == 0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;game_icon_max_full&quot;))
+		elseif slot2 &lt; slot3 then
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;game_icon_max&quot;),
+				onYes = function ()
+					uv0:emit(GameHallMediator.GET_WEEKLY_COIN)
+				end,
+				onNo = function ()
+				end
+			})
+		else
+			uv0:emit(GameHallMediator.GET_WEEKLY_COIN)
+		end
+	end, SFX_CONFIRM)
+
+	slot0.listPanelTf = findTF(slot0._tf, &quot;ad/listPanel&quot;)
+	slot0.listPanel = GameHallListPanel.New(slot0.listPanelTf, slot0)
+
+	slot0.listPanel:setVisible(GameHallScene.open_with_list)
+
+	GameHallScene.open_with_list = false
+	slot0.exchangePanelTf = findTF(slot0._tf, &quot;ad/exchangePanel&quot;)
+	slot0.parentTf = findTF(slot0._tf, &quot;ad&quot;)
+	slot0.exchangePanel = GameHallExchangePanel.New(slot0.exchangePanelTf, slot0.parentTf, slot0)
+
+	slot0:openExchangePanel(false)
+	slot0:changeTitle(false)
+
+	if (Application.targetFrameRate or 60) &gt; 60 then
+		slot2 = 60
+	end
+
+	slot0.timer = Timer.New(function ()
+		uv0:onTimer()
+	end, 1 / slot2, -1)
+
+	slot0.timer:Start()
+	slot0:updateUI()
+end
+
+slot0.initTopUI = function(slot0)
+	slot0.btnBack = findTF(slot0._tf, &quot;ad/topPanel/btnBack&quot;)
+	slot0.btnHome = findTF(slot0._tf, &quot;ad/topPanel/btnHome&quot;)
+	slot0.btnHelp = findTF(slot0._tf, &quot;ad/topPanel/btnHelp&quot;)
+	slot0.btnCoin = findTF(slot0._tf, &quot;ad/topPanel/coin&quot;)
+	slot0.textCoin = findTF(slot0._tf, &quot;ad/topPanel/coin/text&quot;)
+	slot0.coinMax = pg.gameset.game_coin_max.key_value
+	slot0.textCoinMaxTF = findTF(slot0._tf, &quot;ad/topPanel/coin/max&quot;)
+
+	setText(slot0.textCoinMaxTF, &quot;MAX:&quot; .. slot0.coinMax)
+	onButton(slot0, slot0.btnCoin, function ()
+		uv0:openExchangePanel(true)
+	end)
+	onButton(slot0, slot0.btnBack, function ()
+		if uv0.listPanel:getVisible() then
+			uv0.listPanel:setVisible(false)
+			uv0:changeTitle(false)
+			pg.SystemGuideMgr.GetInstance():Play(uv0)
+
+			return
+		end
+
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.btnHome, function ()
+		uv0:quickExitFunc()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.btnHelp, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.game_room_help.tip
+		})
+	end, SFX_CANCEL)
+end
+
+slot0.openExchangePanel = function(slot0, slot1)
+	slot0.exchangePanel:setVisible(slot1)
+end
+
+slot0.ResUISettings = function(slot0)
+	return {
+		showType = bit.bor(PlayerResUI.TYPE_OIL, PlayerResUI.TYPE_GOLD)
+	}
+end
+
+slot0.initHomeUI = function(slot0)
+	slot0.btnShop = findTF(slot0._tf, &quot;ad/btnShop&quot;)
+	slot0.btnPlay = findTF(slot0._tf, &quot;ad/btnPlay&quot;)
+
+	onButton(slot0, slot0.btnPlay, function ()
+		uv0.listPanel:setVisible(true)
+		uv0:changeTitle(true)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.btnShop, function ()
+		uv0:emit(GameHallMediator.OPEN_GAME_SHOP)
+	end, SFX_CANCEL)
+
+	slot0.topShop = findTF(slot0._tf, &quot;ad/container/content/top/btnShop&quot;)
+	slot0.topGame = findTF(slot0._tf, &quot;ad/container/content/top/btnGameList&quot;)
+
+	onButton(slot0, slot0.topGame, function ()
+		uv0.listPanel:setVisible(true)
+		uv0:changeTitle(true)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.topShop, function ()
+		uv0:emit(GameHallMediator.OPEN_GAME_SHOP)
+	end, SFX_CANCEL)
+end
+
+slot0.updateUI = function(slot0)
+	setActive(slot0.freeCoinTf, getProxy(GameRoomProxy):getWeekly())
+	setText(slot0.textCoin, getProxy(GameRoomProxy):getCoin())
+end
+
+slot0.onTimer = function(slot0)
+	slot0.charController:step()
+end
+
+slot0.changeTitle = function(slot0, slot1)
+	setActive(findTF(slot0._tf, &quot;ad/topPanel/title_list&quot;), slot1)
+	setActive(findTF(slot0._tf, &quot;ad/topPanel/title_main&quot;), not slot1)
+end
+
+slot0.onBackPressed = function(slot0)
+	if slot0.listPanel:getVisible() then
+		slot0.listPanel:setVisible(false)
+		slot0:changeTitle(false)
+
+		return
+	end
+
+	if slot0.exchangePanel:getVisible() then
+		slot0.exchangePanel:setVisible(false)
+
+		return
+	end
+
+	slot0:emit(uv0.ON_BACK_PRESSED)
+end
+
+slot0.willExit = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+
+	if slot0.listPanel:getVisible() then
+		GameHallScene.open_with_list = true
+	end
+
+	slot0.exchangePanel:dispose()
+	slot0.listPanel:dispose()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

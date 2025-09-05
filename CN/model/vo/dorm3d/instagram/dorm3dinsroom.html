@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dinsroom.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dinsroom.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dInsRoom&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1
+	slot0.roomConfigs = pg.dorm3d_rooms[slot1]
+end
+
+slot0.GetType = function(slot0)
+	return slot0:GetConfig(&quot;type&quot;)
+end
+
+slot0.GetInMap = function(slot0)
+	return slot0:GetConfig(&quot;in_map&quot;)
+end
+
+slot0.GetConfig = function(slot0, slot1)
+	return slot0.roomConfigs[slot1]
+end
+
+slot0.GetIcon = function(slot0)
+	return string.format(&quot;dorm3dselect/room_icon_%s&quot;, string.lower(slot0:GetConfig(&quot;assets_prefix&quot;)))
+end
+
+slot0.IsDownloaded = function(slot0)
+	if not getProxy(ApartmentProxy):getRoom(slot0.id) then
+		return false
+	end
+
+	return not slot1:needDownload()
+end
+
+slot0.GetCard = function(slot0)
+end
+
+slot0.IsCare = function(slot0)
+end
+
+slot0.ShouldTip = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

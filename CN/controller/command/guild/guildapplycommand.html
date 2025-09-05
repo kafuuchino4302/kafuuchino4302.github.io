@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildapplycommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildapplycommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildApplyCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.id
+
+	if wordVer(slot2.content or &quot;&quot;) &gt; 0 then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;friend_msg_forbid&quot;))
+
+		return
+	end
+
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(60005, {
+		id = slot3,
+		content = slot4
+	}, 60006, function (slot0)
+		if slot0.result == 0 then
+			uv0:sendNotification(GAME.GUILD_APPLY_DONE)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_apply_sucess&quot;))
+		elseif slot0.result == 4 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_join_cd&quot;))
+		elseif slot0.result == 6 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_apply_full&quot;))
+		elseif slot0.result == 4305 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_tip_grand_fleet_is_frozen&quot;))
+		elseif slot0.result == 4306 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_member_full&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;guild_apply_erro&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_1061.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_1061.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害5.0%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;5.0%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害6.1%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;6.1%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害7.2%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;7.2%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害8.3%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;8.3%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害9.4%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;9.4%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害10.5%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;10.5%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害11.6%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;11.6%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害12.7%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;12.7%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害13.8%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;13.8%(+1.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害15.0%，同技能效果不叠加&quot;,
+		addition = {
+			&quot;15.0%&quot;
+		}
+	},
+	desc_get = &quot;在队伍中(存活)时降低主力舰队受到的伤害5.0%(满级15.0%)，同技能效果不叠加&quot;,
+	name = &quot;侧翼掩护&quot;,
+	init_effect = &quot;&quot;,
+	id = 1061,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;在队伍中(存活)时降低主力舰队受到的伤害$1，同技能效果不叠加&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 1060,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				skill_id = 1061
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 1060,
+				target = &quot;TargetPlayerMainFleet&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

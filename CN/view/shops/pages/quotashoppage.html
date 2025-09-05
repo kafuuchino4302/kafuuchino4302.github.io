@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quotashoppage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>quotashoppage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;QuotaShopPage&quot;, import(&quot;.BaseShopPage&quot;))
+
+slot0.GetPaintingCommodityUpdateVoice = function(slot0)
+end
+
+slot0.CanOpen = function(slot0, slot1, slot2)
+	return pg.SystemOpenMgr.GetInstance():isOpenSystem(slot2.level, &quot;QuotaShop&quot;)
+end
+
+slot0.RefreshUI = function(slot0)
+	slot0:UpdateTip()
+	setActive(slot0.tipTextGo, true)
+	setActive(slot0.helpBtn, false)
+	setActive(slot0.resolveBtn, false)
+	setActive(slot0.refreshBtn, false)
+end
+
+slot0.UpdateTip = function(slot0)
+	setText(slot0.tipText, i18n(&quot;quota_shop_description&quot;))
+end
+
+slot0.OnUpdateItems = function(slot0)
+	slot0:RefreshResItemList()
+end
+
+slot0.GetResDataList = function(slot0)
+	slot1 = {}
+
+	for slot6, slot7 in ipairs(slot0.shop:GetResList()) do
+		slot8 = nil
+
+		table.insert(slot1, {
+			type = DROP_TYPE_ITEM,
+			resID = slot7,
+			cnt = not slot0.items[ChapterConst.ShamMoneyItem] and 0 or slot10.count
+		})
+	end
+
+	return slot1
+end
+
+slot0.OnUpdateCommodity = function(slot0, slot1)
+	slot2 = nil
+
+	for slot6, slot7 in pairs(slot0.cards) do
+		if slot7.goodsVO.id == slot1.id then
+			slot2 = slot7
+
+			break
+		end
+	end
+
+	if slot2 then
+		slot2:update(slot1)
+	end
+end
+
+slot0.OnInitItem = function(slot0, slot1)
+	slot2 = QuotaGoodsCard.New(slot1)
+
+	onButton(slot0, slot2.tf, function ()
+		if not uv0.goodsVO:canPurchase() then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;buy_countLimit&quot;))
+
+			return
+		end
+
+		slot0 = uv1
+
+		slot0:OnClickCommodity(uv0.goodsVO, function (slot0, slot1)
+			uv0:OnPurchase(slot0, slot1)
+		end)
+	end, SFX_PANEL)
+
+	slot0.cards[slot1] = slot2
+end
+
+slot0.OnUpdateItem = function(slot0, slot1, slot2)
+	if not slot0.cards[slot2] then
+		slot0:OnInitItem(slot2)
+
+		slot3 = slot0.cards[slot2]
+	end
+
+	slot3:update(slot0.displays[slot1 + 1])
+end
+
+slot0.OnUpdateAll = function(slot0)
+	slot0:InitCommodities()
+end
+
+slot0.OnPurchase = function(slot0, slot1, slot2)
+	slot0:emit(NewShopMainMediator.ON_QUOTA_SHOPPING, slot1.id, slot2)
+end
+
+slot0.OnDestroy = function(slot0)
+	uv0.super.OnDestroy(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

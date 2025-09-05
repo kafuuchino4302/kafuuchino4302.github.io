@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_vote_virtual_ship_data.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_vote_virtual_ship_data.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_vote_virtual_ship_data = {
+	[9979995] = {
+		name = &quot;企业·META&quot;,
+		english_name = &quot;Enterprise.META&quot;,
+		painting = &quot;qiye_dark&quot;,
+		id = 9979995,
+		desc = &quot;………………………………\n——「备注」「模拟系统并未产生故障」&quot;
+	},
+	[9979996] = {
+		name = &quot;高雄·META&quot;,
+		english_name = &quot;Takao.META&quot;,
+		painting = &quot;gaoxiong_dark&quot;,
+		id = 9979996,
+		desc = &quot;……人气投票？没兴趣，告辞。&quot;
+	},
+	[9979997] = {
+		name = &quot;约克城·META&quot;,
+		english_name = &quot;Yorktown.META&quot;,
+		painting = &quot;yuekecheng_alter&quot;,
+		id = 9979997,
+		desc = &quot;好久不见，指挥官……\n——「过去与现在的时光正在交叠，幻想与现实的边界已然模糊」\n——「警告」「模拟系统产生致命错误」「模拟程序即将终止」&quot;
+	},
+	[9979998] = {
+		name = &quot;埃塞克斯·META&quot;,
+		english_name = &quot;Essex.META&quot;,
+		painting = &quot;aisaikesi_alter&quot;,
+		id = 9979998,
+		desc = &quot;真有精神呢，指挥官，如此急于闯入这个残酷的世界么？&quot;
+	},
+	[9979999] = {
+		name = &quot;好人理查德&quot;,
+		english_name = &quot;Bonhomme Richard&quot;,
+		painting = &quot;haorenlichade_alter&quot;,
+		id = 9979999,
+		desc = &quot;——「情报缺失」「无法模拟人格对话」\n——「警告」「模拟系统产生致命错误」「模拟程序即将终止」\n▇那我就自己来说好啦▇想我了么▇指挥官▇请务必投我一票哟▇&quot;
+	},
+	[9990001] = {
+		name = &quot;观察者&quot;,
+		english_name = &quot;Observer&quot;,
+		painting = &quot;unknown2&quot;,
+		id = 9990001,
+		desc = &quot;哼哼~今天，由我担任你的向导哦，指挥官。\n惊喜么？意外么？还是说，得到了惊吓~？呵呵，要是这样就更好了。&quot;
+	},
+	[9990002] = {
+		name = &quot;测试者&quot;,
+		english_name = &quot;Tester&quot;,
+		painting = &quot;unknown1&quot;,
+		id = 9990002,
+		desc = &quot;人气投票……？一个有趣的实验。\n那么记录开始——尽管把票都投过来吧。&quot;
+	},
+	[9990003] = {
+		name = &quot;净化者&quot;,
+		english_name = &quot;Purity&quot;,
+		painting = &quot;unknown3&quot;,
+		id = 9990003,
+		desc = &quot;啊————？这又是什么麻烦差事？别……别吧，别给我投。\n要是比观察者那家伙的票数多，我会倒大霉的！&quot;
+	},
+	[9990004] = {
+		name = &quot;构建者&quot;,
+		english_name = &quot;Compiler&quot;,
+		painting = &quot;unknown5&quot;,
+		id = 9990004,
+		desc = &quot;正在调取……经典建筑设计思路……正在调取……现代建筑施工方案……\n计算完毕……已得到最优解……让我们开始改建舞台吧。\n……你说什么，我也是参赛者？&quot;
+	},
+	[9990005] = {
+		name = &quot;清除者&quot;,
+		english_name = &quot;Omitter&quot;,
+		painting = &quot;qingchuzhe&quot;,
+		id = 9990005,
+		desc = &quot;活跃于极地的新星，清除者闪亮登场！\n喜欢我的必杀技「于吞噬天地的巨口之中诞生出的璀璨星河」么！\n现场给你表演一下也没问题哦~&quot;
+	},
+	[9990006] = {
+		name = &quot;观察者零&quot;,
+		english_name = &quot;Observer-zero&quot;,
+		painting = &quot;unknown4&quot;,
+		id = 9990006,
+		desc = &quot;——「这是由迄今为止最快的计算设备构成的头脑——零将完成使命，过去如此，未来亦然。」\n——「情报缺失」「无法模拟人格对话」&quot;
+	},
+	[9990007] = {
+		name = &quot;仲裁者·恩普雷斯·III&quot;,
+		english_name = &quot;Arbiter: The Empress III&quot;,
+		painting = &quot;empress&quot;,
+		id = 9990007,
+		desc = &quot;——「待人如贵族般高傲而优雅，行事如雷霆般迅捷而狠辣——女皇，冠冕因戴在她的头顶而闪耀。」\n仲裁者·恩普雷斯·III，指挥官，这次投票活动能让余尽兴么？&quot;
+	},
+	[9990008] = {
+		name = &quot;仲裁者·海洛芬特·V&quot;,
+		english_name = &quot;Arbiter: The Hierophant V&quot;,
+		painting = &quot;hierophant&quot;,
+		id = 9990008,
+		desc = &quot;——「罗马非一日建成，律令也非一日完善。日积月累，方得始终——海洛芬特代表的不是信仰，而是坚持。」\n——「情报缺失」「无法模拟人格对话」&quot;
+	},
+	[9990009] = {
+		name = &quot;仲裁者·拉沃斯·VI&quot;,
+		english_name = &quot;Arbiter: The Lovers VI&quot;,
+		painting = &quot;lovers&quot;,
+		id = 9990009,
+		desc = &quot;——「热烈如野火、坚韧如高山，细腻如春雨，然后，至死不渝——这就是爱，这就是拉沃斯。」\n——「情报缺失」「无法模拟人格对话」&quot;
+	},
+	[9990010] = {
+		name = &quot;仲裁者·司特莲库斯·VIII&quot;,
+		english_name = &quot;Arbiter: The Strength VIII&quot;,
+		painting = &quot;strength&quot;,
+		id = 9990010,
+		desc = &quot;——「威武的铁爪，与强而有力的体魄，构成了她的代表词汇——力量。」\n……不感兴趣。我需要力量保护大家，我不需要魅力，也不需要认可……傲娇？我的爪子未尝不利，要试试么？&quot;
+	},
+	[9990011] = {
+		name = &quot;仲裁者·赫米忒·IX&quot;,
+		english_name = &quot;Arbiter: The Hermit IX&quot;,
+		painting = &quot;hermit&quot;,
+		id = 9990011,
+		desc = &quot;——「优秀的猎人，往往以猎物的形式出现——隐者的信条，由赫米忒贯彻始终。」\n人气投票……居然在举办如此休闲的活动啊。倒也不错，比起陷阱与奇谋，偶尔当当花瓶亦是别有一番风味啊。&quot;
+	},
+	[9990012] = {
+		name = &quot;仲裁者·天帕岚斯·XIV&quot;,
+		english_name = &quot;Arbiter: The Temperance XIV&quot;,
+		painting = &quot;temperance&quot;,
+		id = 9990012,
+		desc = &quot;——「刻板与腹黑并存，良善与残酷共舞——这是属于天帕岚斯的真理：平衡存于万物之间。」\n投票竞赛……呵呵呵，可以哦。为了让活动更加热闹……请让我准备一些额外的“惊喜“吧……”&quot;
+	},
+	[9990013] = {
+		name = &quot;仲裁者·迪贝路·XV&quot;,
+		english_name = &quot;Arbiter: The Devil XV&quot;,
+		painting = &quot;devil&quot;,
+		id = 9990013,
+		desc = &quot;——「精致的外表，邻家少女般的性格，带给你如恶魔般的心跳体验——迪贝路，无愧恶魔之名。」\n咦？TB写了跟相亲广告一样的介绍词呢。算啦，做一次你的邻家少女也不错，这句话留下吧。&quot;
+	},
+	[9990014] = {
+		name = &quot;仲裁者·托瓦·XVI&quot;,
+		english_name = &quot;Arbiter: The Tower XVI&quot;,
+		painting = &quot;tower&quot;,
+		id = 9990014,
+		desc = &quot;——「54 68 65 74 6F 77 65 72 65 78 69 73 74 73 66 6F 72 65 76 65 72 2E」\n——「72 6D 2D 72 66 2F 2A」\n——「警告」「模拟系统产生致命错误」「模拟程序即将终止」&quot;
+	},
+	all = {
+		9979995,
+		9979996,
+		9979997,
+		9979998,
+		9979999,
+		9990001,
+		9990002,
+		9990003,
+		9990004,
+		9990005,
+		9990006,
+		9990007,
+		9990008,
+		9990009,
+		9990010,
+		9990011,
+		9990012,
+		9990013,
+		9990014
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

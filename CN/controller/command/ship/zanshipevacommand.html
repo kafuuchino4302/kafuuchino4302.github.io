@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zanshipevacommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zanshipevacommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ZanShipEvaCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot6 = pg.ConnectionMgr.GetInstance()
+
+	slot6:Send(17105, {
+		ship_group_id = slot2.groupId,
+		discuss_id = slot2.evaId,
+		good_or_bad = slot2.operation
+	}, 17106, function (slot0)
+		slot3 = nil
+
+		if getProxy(CollectionProxy):getShipGroup(uv0) and slot2.evaluation then
+			slot3 = _.detect(slot4.evas, function (slot0)
+				return slot0.id == uv0
+			end)
+		end
+
+		if slot0.result == 0 then
+			if slot3 then
+				if uv2 == 0 then
+					slot3.good_count = slot3.good_count + 1
+				elseif uv2 == 1 then
+					slot3.bad_count = slot3.bad_count + 1
+				end
+
+				slot3.izan = true
+
+				slot2.evaluation:sortEvas()
+				slot1:updateShipGroup(slot2)
+				uv3:sendNotification(CollectionProxy.GROUP_EVALUATION_UPDATE, uv0)
+			end
+
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;zan_ship_eva_success&quot;))
+		elseif slot0.result == 7 then
+			if slot3 then
+				slot3.izan = true
+
+				slot1:updateShipGroup(slot2)
+				uv3:sendNotification(CollectionProxy.GROUP_EVALUATION_UPDATE, uv0)
+			end
+
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;zan_ship_eva_error_7&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;zan_ship_eva&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

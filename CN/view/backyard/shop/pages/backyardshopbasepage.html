@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backyardshopbasepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>backyardshopbasepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BackYardShopBasePage&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.PlayerUpdated = function(slot0, slot1)
+	slot0.player = slot1
+
+	slot0:OnPlayerUpdated()
+end
+
+slot0.DormUpdated = function(slot0, slot1)
+	slot0.dorm = slot1
+
+	slot0:OnDormUpdated()
+end
+
+slot0.FurnituresUpdated = function(slot0, slot1)
+	slot2 = slot0.dorm:GetPurchasedFurnitures()
+
+	for slot6, slot7 in ipairs(slot1) do
+		slot8 = slot2[slot7]
+
+		slot0:OnDisplayUpdated(slot8)
+		slot0:OnCardUpdated(slot8)
+	end
+end
+
+slot0.SetUp = function(slot0, slot1, slot2, slot3, slot4)
+	slot0:Show()
+
+	slot0.pageType = slot1
+	slot0.dorm = slot2
+	slot0.player = slot3
+
+	slot0:OnSetUp()
+
+	if slot4 then
+		slot4()
+	end
+end
+
+slot0.Show = function(slot0)
+	setActiveViaLayer(slot0._tf, true)
+end
+
+slot0.Hide = function(slot0)
+	setActiveViaLayer(slot0._tf, false)
+end
+
+slot0.ShowFurnitureMsgBox = function(slot0, slot1)
+	slot0.contextData.furnitureMsgBox:ExecuteAction(&quot;SetUp&quot;, slot1, slot0.dorm, slot0.player)
+end
+
+slot0.ShowThemeVOMsgBox = function(slot0, slot1)
+	slot0.contextData.themeMsgBox:ExecuteAction(&quot;SetUp&quot;, slot1, slot0.dorm, slot0.player)
+end
+
+slot0.OnSetUp = function(slot0)
+end
+
+slot0.OnPlayerUpdated = function(slot0)
+end
+
+slot0.OnDisplayUpdated = function(slot0, slot1)
+end
+
+slot0.OnCardUpdated = function(slot0, slot1)
+end
+
+slot0.OnDormUpdated = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

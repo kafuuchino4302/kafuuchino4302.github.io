@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shangying4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shangying4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SHANGYING4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;春天的赏樱大会\n\n&lt;size=45&gt;四  宴会开幕&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			actor = 306030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那么～赏樱大会～开始咯～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			withoutPainting = true,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 0,
+			actorName = &quot;众人&quot;,
+			say = &quot;噢！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306030,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;呵呵，这边准备了非常多的料理哟，尽情享受吧～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:95}姐～这个天妇罗好好吃～&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;是是…——&quot;,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 307050,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			dir = -1,
+			actor = 301110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;原来如此！大家聚在一起大吃大喝就是所谓的“赏樱大会”啊！&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;我想应该不是这样的…&quot;,
+			side = 1,
+			bgName = &quot;bg_story_school&quot;,
+			dir = 1,
+			actor = 301130,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302010,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 0,
+			dir = -1,
+			say = &quot;呒…菠萝包，好吃…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301200,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;哈欠～天气好得让人想要睡一觉了呢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301200,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;话说{namecode:11}呢？怎么没跟你们一起来&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301120,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 0,
+			dir = 1,
+			say = &quot;{namecode:11}姐姐…留下了“我去买点赏樱时可以吃的零食”的字条就出门了（远目&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301110,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_school&quot;,
+			side = 1,
+			dir = 1,
+			say = &quot;那大约…是三天前的事情了（远目&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			withoutPainting = true,
+			side = 2,
+			bgName = &quot;bg_story_school&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 0,
+			actorName = &quot;众人&quot;,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

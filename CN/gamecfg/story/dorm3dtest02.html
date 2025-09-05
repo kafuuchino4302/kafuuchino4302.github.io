@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dtest02.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dtest02.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	dialogbox = 2,
+	alpha = 0,
+	hideSkip = true,
+	hideAuto = true,
+	hideRecord = true,
+	mode = 2,
+	id = &quot;DORM3DTEST02&quot;,
+	placeholder = {
+		&quot;dorm3d&quot;
+	},
+	scripts = {
+		{
+			say = &quot;对话2&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = true,
+							name = &quot;surprise2&quot;,
+							type = &quot;action&quot;
+						},
+						{
+							skip = false,
+							time = 2,
+							type = &quot;wait&quot;
+						}
+					}
+				},
+				callbackData = {
+					hideUI = false,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		},
+		{
+			say = &quot;对话1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dispatcher = {
+				name = STORY_EVENT.TEST,
+				data = {
+					op_list = {
+						{
+							skip = false,
+							name = &quot;Tianlangxing02_Zoulangdengdai&quot;,
+							time = 0,
+							type = &quot;timeline&quot;,
+							touchs = {
+								{
+									{
+										pos = {
+											10,
+											10
+										}
+									},
+									{
+										pos = {
+											-100,
+											-10
+										}
+									},
+									{
+										pos = {
+											200,
+											-100
+										}
+									},
+									{
+										pos = {
+											-300,
+											200
+										}
+									}
+								}
+							},
+							options = {
+								{
+									{
+										content = &quot;查看《跛脚巨人》&quot;
+									},
+									{
+										content = &quot;查看《值得警戒》&quot;
+									}
+								}
+							}
+						}
+					}
+				},
+				callbackData = {
+					hideUI = true,
+					name = STORY_EVENT.TEST_DONE
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

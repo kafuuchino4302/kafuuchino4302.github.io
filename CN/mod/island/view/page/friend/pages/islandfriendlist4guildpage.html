@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandfriendlist4guildpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandfriendlist4guildpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandFriendList4GuildPage&quot;, import(&quot;.IslandFriendListPage&quot;))
+
+slot0.GetData = function(slot0, slot1)
+	if #(getProxy(GuildProxy):getRawData() and slot2:getSortMemberWithoutSelf() or {}) &lt;= 0 then
+		return slot1({})
+	end
+
+	slot4 = {}
+
+	for slot8, slot9 in pairs(slot3) do
+		table.insert(slot4, slot9.id)
+	end
+
+	slot0:emit(IslandMediator.GET_GIFT_TAG, slot4, function ()
+		uv0(uv1)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_422.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_422.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 5,
+	name = &quot;减速&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;6s减速&quot;,
+	stack = 1,
+	id = 422,
+	icon = 422,
+	last_effect = &quot;Darkness&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffFixVelocity&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				add = 0,
+				mul = -1660,
+				group = {
+					id = 422,
+					level = 2
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					358,
+					359,
+					360,
+					361
+				},
+				range = {
+					{
+						0,
+						0.244
+					},
+					{
+						0.244,
+						0.488
+					},
+					{
+						0.488,
+						0.733
+					},
+					{
+						0.733,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				rant = 5000,
+				target = &quot;TargetSelf&quot;,
+				skill_id = 422
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_5000.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_5000.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		time = 5
+	},
+	{
+		time = 5.5
+	},
+	{
+		time = 6
+	},
+	{
+		time = 6.5
+	},
+	{
+		time = 7
+	},
+	{
+		time = 7.5
+	},
+	{
+		time = 8
+	},
+	{
+		time = 8.5
+	},
+	{
+		time = 9
+	},
+	{
+		time = 10
+	},
+	time = 5,
+	name = &quot;火力干扰&quot;,
+	init_effect = &quot;&quot;,
+	id = 5000,
+	picture = &quot;&quot;,
+	desc = &quot;装填降低30%，自身伤害降低15%&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 5000,
+	last_effect = &quot;Darkness&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -3000,
+				attr = &quot;loadSpeed&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -0.15,
+				attr = &quot;damageRatioBullet&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

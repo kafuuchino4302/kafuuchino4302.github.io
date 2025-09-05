@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diehaimenghua2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>diehaimenghua2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DIEHAIMENGHUA2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;xinnong-1&quot;,
+			say = &quot;天岩岛·天守阁&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302210,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不行…我果然还是反对这么安排。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 306070,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;可是……这项决定是上层部的意思，而且你看，{namecode:182}大人也不介意嘛。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;妾身不介意哦，原本就有去本岛同{namecode:83}与{namecode:84}商谈之意，此为顺路。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 302210,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;问题不在这里…{namecode:182}大人才刚刚从沉睡中醒来，对外部的一切事物都还不熟悉…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 302210,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;现在不但要匆忙出航，而且居然让我们这些近侍全部留在岛上待命…实在是令人无法理解。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;非也…现世之事也好，重樱的内部情报亦好，妾身什么都知道。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;而且上层部不是派遣了一支舰队专门来接{namecode:182}大人过去嘛，你担心过度了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这次舰队的领舰{namecode:80}，虽然性格上有些豪放吧…不过实力可是一等一的，放心吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 302210,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;可是……算了，我决定了！这次我要陪{namecode:182}大人一起出航。&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 10,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎？！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;…部署上的改变需要重新向上层部进行申请，时间上来已经来不及了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 302210,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;如果{namecode:182}大人同意带我去的话，就能先进行舰队调动再向上层部汇报，这样的话就没有问题了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;今日的{namecode:50}稍稍有些强硬啊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 307080,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔，如果只是多{namecode:50}一人的话……妾身许可了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			actor = 302210,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;多谢{namecode:182}大人!&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			dir = 1,
+			say = &quot;（敲门声）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301810,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:182}大人，前来迎接的舰队已经接近天岩岛了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307080,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;时间差不多了，吾等出发吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307080,
+			side = 2,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:179}，{namecode:175}，天岩岛就拜托汝等了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_xinnong_cg1&quot;,
+			hideOther = true,
+			dir = 1,
+			blackBg = true,
+			actor = 305140,
+			actorName = &quot;{namecode:175}&amp;{namecode:179}&quot;,
+			say = &quot;是！\n遵命。&quot;,
+			subActors = {
+				{
+					actor = 306070,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

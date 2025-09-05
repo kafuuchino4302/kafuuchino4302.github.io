@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yumia_atelier.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yumia_atelier.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;Yumia_atelier&quot;,
+	events = {
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;炼金工房内容已解锁&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/right/activity/MainCoreActivityBtn2&quot;
+					else
+						return &quot;OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/linkBtns/MainCoreActivityBtn2&quot;
+					end
+				end
+			}
+		},
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;点击炼金工房&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;UICamera/Canvas/UIMain/ALYCoreActivityUI(Clone)/adapt/tabs/2&quot;,
+				triggerType = {
+					2,
+					true
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -60,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 70
+				}
+			}
+		},
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;让我们来看看炼金工坊出现了哪些可以调和的配方&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;UICamera/Canvas/UIMain/ALYCoreActivityUI(Clone)/page_list/ALYAtelierCompositePage(Clone)/bg/goBtn&quot;
+			}
+		},
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;点击配方可以查看调合所需要的素材内容&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			}
+		},
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;可以从采集地获得更多种类与数量的素材&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			}
+		},
+		{
+			is3dDorm = false,
+			alpha = 0.4,
+			style = {
+				text = &quot;别忘了有些关键素材需要通活动任务和据点建装获取哦&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = 0,
+				dir = 1,
+				posX = 0,
+				uiset = {}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

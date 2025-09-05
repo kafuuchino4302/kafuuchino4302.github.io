@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skill_151461.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skill_151461.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	uiEffect = &quot;&quot;,
+	name = &quot;时代新启&quot;,
+	cd = 0,
+	id = 151461,
+	picture = &quot;1&quot;,
+	desc = &quot;护航F6F+火箭AD1&quot;,
+	aniEffect = {
+		effect = &quot;jineng&quot;,
+		offset = {
+			0,
+			-2,
+			0
+		}
+	},
+	effect_list = {
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillAddBuff&quot;,
+			target_choise = &quot;TargetSelf&quot;,
+			arg_list = {
+				buff_id = 151481
+			}
+		},
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillAddBuff&quot;,
+			target_choise = &quot;TargetFleetIndex&quot;,
+			arg_list = {
+				fleetPos = &quot;Leader&quot;,
+				buff_id = 151461
+			}
+		},
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillAddBuff&quot;,
+			target_choise = &quot;TargetFleetIndex&quot;,
+			arg_list = {
+				fleetPos = &quot;Leader&quot;,
+				buff_id = 151462
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

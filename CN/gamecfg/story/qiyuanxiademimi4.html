@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qiyuanxiademimi4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>qiyuanxiademimi4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;QIYUANXIADEMIMI4&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			bgm = &quot;theme-fushun-adventure&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;推开厚重的木门，座无虚席的礼堂中，周围的欢呼声此起彼伏。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 101291,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;前辈们，都好耀眼……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 302051,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，希望我们将来也能成为像她们一样出色的毕业生！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 213012,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;唔……{namecode:48:五十铃}，你还有零食吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 302051,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;有的，记得留一些给别的同伴哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（为什么有种似曾相识的感觉……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 804010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}——找到你了。果然，这次依旧是我最先有所发现呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【人物】马塞纳。你的同学，乌洛波洛斯魔法学院第92届优秀毕业生之一。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（怎么感觉这段也……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（……等等，第92届？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 804010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们走吧，再不加快脚步的话……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……毕业典礼就要开始了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 804010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔？你怎么知道我想说什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_507&quot;,
+			actor = 804010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;无所谓啦。快走吧，大家都在等你呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;我跟在马塞纳身后，穿过热闹的新生坐席。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;周围的布置与不久前的第91届毕业典礼几乎完全相同。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 206080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们在这里哦~咦……{playername},你看起来好像没什么精神呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 807020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;难道是昨晚失眠没睡好……需要我用一下安神术么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【人物】忒修斯，你的同学，乌洛波洛斯魔法学院第92届优秀毕业生之一。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【人物】伴尔维，你的同学，乌洛波洛斯魔法学院第92届优秀毕业生之一。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（这个剧本设计，好像有意思起来了……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			soundeffect = &quot;event:/battle/firework&quot;,
+			side = 2,
+			say = &quot;——砰！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;juqing02&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			say = &quot;烟花如期而至，黑色的身影漫步登上了演讲台。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;魔法学院的第92届优秀毕业生们，野心勃勃想要干出一番大事业的无名之辈们——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;juqing02&quot;
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			fontsize = 60,
+			actor = 905020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欢迎来到魔法师的世界！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;star_level_bg_507&quot;,
+			say = &quot;而后，毕业典礼在热烈的掌声中落下了帷幕。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（那么接下来，就该去校长办公室了吧……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「打扰了。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「第92届的优秀毕业生们——还有你，{playername}。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「有重要的事情要告诉你们，跟我来。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;……你是？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【人物】{namecode:448:埃姆登}，乌洛波洛斯魔法学院校长的养女，兼任降灵学院院长。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【特别备注】请不要让她得知本圣典的存在。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（……又一条特别备注？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「各位，你们在学院的优秀表现，校长和我都一清二楚。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「因此从今日起，你们就是第92届奇渊探索队，小队指挥官则由{playername}担任。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「你们的任务是通往奇渊第三平台，并尽可能绘制地形图。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「今年的任务十分艰难，但是你们应该能够理解这次任务的意义。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 807020,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……明白。我们一定会救出那些被困在奇渊中的前辈们的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;（“被困在奇渊中的前辈们”……？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「量力而行，平安回来。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「对了，有件东西要交给你们。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 807020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这是……护身符么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「奇渊的第三平台中环境恶劣，因此，人人有份。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 206080,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;谢谢你，{namecode:448:埃姆登}小姐！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「嗯……我能为你们做的只有这些了。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_507&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「现在……回去做好相应的准备，明日就出发吧。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

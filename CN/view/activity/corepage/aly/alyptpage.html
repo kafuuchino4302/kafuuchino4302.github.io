@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alyptpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>alyptpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ALYPtPage&quot;, import(&quot;..CorePageNewPtTemplatePage&quot;))
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot1 = slot0:findTF(&quot;bg/Image_back&quot;)
+	slot0.anim = slot1:GetComponent(typeof(Animation))
+	slot1 = slot0.anim
+
+	slot1:Play(&quot;anim_AlyptPage_BackImage&quot;)
+
+	slot1 = slot0.anim
+	slot0.animEvent = slot1:GetComponent(typeof(DftAniEvent))
+	slot1 = slot0.animEvent
+
+	slot1:SetStartEvent(function ()
+		uv0._tf:GetComponent(typeof(Animation)):Play(&quot;anim_AlyptPage_In&quot;)
+	end)
+
+	slot1 = slot0._tf
+	slot0._tfanim = slot1:GetComponent(typeof(Animation))
+	slot1 = slot0._tfanim
+	slot0._tfanimEvent = slot1:GetComponent(typeof(DftAniEvent))
+	slot1 = slot0._tfanimEvent
+
+	slot1:SetEndEvent(function ()
+		setActive(uv0:findTF(&quot;bg/Image_back_Loop&quot;), true)
+		setActive(uv0:findTF(&quot;bg/VX&quot;), true)
+	end)
+
+	slot0.itemAlpha = 0
+
+	setCanvasGroupAlpha(slot0.awardTpl, slot0.itemAlpha)
+
+	slot1 = slot0._tf
+	slot0.awardanimEvent = slot1:GetComponent(typeof(DftAniEvent))
+	slot1 = slot0.awardanimEvent
+
+	slot1:SetTriggerEvent(function (slot0)
+		uv0.itemAlpha = 1
+
+		setCanvasGroupAlpha(uv0.awardTpl, uv0.itemAlpha)
+
+		for slot5 = 0, uv0.content.transform.childCount - 1 do
+			slot6 = uv0.content
+			slot6 = slot6:GetChild(slot5)
+
+			onDelayTick(function ()
+				if uv0._state == uv1.STATES.DESTROY then
+					return
+				end
+
+				setCanvasGroupAlpha(uv2, uv0.itemAlpha)
+				quickPlayAnimation(uv2, &quot;anim_AlyptPage_awardtpl_In&quot;)
+			end, 0.08)
+		end
+
+		onDelayTick(function ()
+			if uv0._state == uv1.STATES.DESTROY then
+				return
+			end
+
+			quickPlayAnimation(uv0.sptf, &quot;anim_AlyptPage_sp_award_In&quot;)
+		end, 0.08)
+	end)
+end
+
+slot0.UpdateAward = function(slot0, slot1, slot2)
+	slot3 = slot1 + 1
+
+	updateDrop(slot2:Find(&quot;icon&quot;), slot0.awardList[slot3].drop)
+	setText(slot2:Find(&quot;pt&quot;), slot0.awardList[slot3].target)
+
+	slot5 = slot3 &lt;= slot0.ptData:GetLevel()
+	slot6 = not slot5 and slot3 &lt;= slot0.ptData:GetMaxAvailableTargetIndex()
+
+	setText(slot2:Find(&quot;got/got_text&quot;), i18n(&quot;yumia_pt_4&quot;))
+	setActive(slot2:Find(&quot;got&quot;), slot5)
+	setActive(slot2:Find(&quot;get&quot;), slot6)
+	setActive(slot2:Find(&quot;lock&quot;), not slot5 and not slot6)
+	onButton(slot0, slot2, function ()
+		uv0:emit(BaseUI.ON_DROP, uv1)
+	end, SFX_PANEL)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	uv0.super.OnFirstFlush(slot0)
+	setText(slot0:findTF(&quot;Text (Legacy)&quot;, slot0.shopBtn), i18n(&quot;yumia_pt_3&quot;))
+	setText(slot0:findTF(&quot;Text (Legacy)&quot;, slot0.getBtn), i18n(&quot;yumia_pt_2&quot;))
+	setText(slot0:findTF(&quot;rule_bg/rule_text&quot;, slot0.bg), i18n(&quot;yumia_pt_1&quot;))
+	setText(slot0:findTF(&quot;pt_bg/Text (Legacy)&quot;, slot0.bg), i18n(&quot;yumia_pt_tip&quot;))
+end
+
+slot0.UpdateNextAward = function(slot0, slot1)
+	slot1 = math.min(slot1, 1)
+
+	for slot5, slot6 in pairs(slot0.importantPos) do
+		if slot1 + uv0.AWARD_OFFSET &lt; slot6.pos then
+			slot0:UpdateAward(slot6.index - 1, slot0.spAward)
+
+			break
+		elseif slot5 == #slot0.importantPos then
+			slot0:UpdateAward(slot6.index - 1, slot0.spAward)
+		end
+	end
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot1 = uv0.OFFSET * slot0.ptData:GetLevel()
+
+	if isActive(slot0._tf) then
+		slot0.scrollCom:ScrollTo(math.clamp(slot0.scrollCom:HeadIndexToValue(slot0.ptData:GetLevel()) / slot0.impTotalPos + slot1, 0, 1), true)
+	end
+
+	setText(slot0.get, i18n(&quot;word_got_pt&quot;))
+	setText(slot0.ptCount, slot0.ptData.count)
+end
+
+slot0.OnHideFlush = function(slot0)
+	onDelayTick(function ()
+		for slot3 = 0, uv0.content.transform.childCount - 1 do
+			uv0.content:GetChild(slot3):GetComponent(typeof(Animation)):Stop()
+			setCanvasGroupAlpha(uv0.content:GetChild(slot3), 0)
+		end
+	end, 0.08)
+	onDelayTick(function ()
+		setCanvasGroupAlpha(uv0.sptf, 0)
+	end, 0.08)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

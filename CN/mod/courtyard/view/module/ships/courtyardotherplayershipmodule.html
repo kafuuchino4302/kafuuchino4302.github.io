@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardotherplayershipmodule.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardotherplayershipmodule.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardOtherPlayerShipModule&quot;, import(&quot;.CourtYardShipModule&quot;))
+
+slot0.Emit = function(slot0, slot1, ...)
+	if slot1 == &quot;TouchShip&quot; or slot1 == &quot;ShipAnimtionFinish&quot; then
+		uv0.super.Emit(slot0, slot1, ...)
+	end
+end
+
+slot0.OnBeginDrag = function(slot0)
+end
+
+slot0.OnDragging = function(slot0, slot1)
+end
+
+slot0.OnDragEnd = function(slot0, slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

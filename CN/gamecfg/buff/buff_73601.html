@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_73601.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_73601.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;濒死免疫&quot;,
+	init_effect = &quot;&quot;,
+	id = 73601,
+	picture = &quot;&quot;,
+	desc = &quot;战斗对象的血量下降到X%时，有Y%概率将炮击伤害降为1&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 73600,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffFixDamage&quot;,
+			trigger = {
+				&quot;onBeforeTakeDamage&quot;
+			},
+			arg_list = {
+				value = 1,
+				rant = 5000,
+				target = &quot;TargetSelf&quot;,
+				damageAttr = {
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

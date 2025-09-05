@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netsalvageupdate.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>netsalvageupdate.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NetSalvageUpdate&quot;, import(&quot;....BaseEntity&quot;))
+slot0.Fields = {
+	id = &quot;number&quot;,
+	list = &quot;table&quot;,
+	mapId = &quot;number&quot;,
+	step = &quot;number&quot;
+}
+
+slot0.Setup = function(slot0, slot1)
+	slot0.id = slot1.group_id
+	slot0.step = slot1.cmd_collection.progress
+	slot0.list = underscore.rest(slot1.cmd_collection.progress_list, 1)
+	slot0.mapId = slot1.cmd_collection.random_id
+end
+
+slot0.Dispose = function(slot0)
+	slot0:Clear()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingssoundpanle.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingssoundpanle.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsSoundPanle&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsSound&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return i18n(&quot;Settings_title_sound&quot;)
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;  / VOICE SETTINGS&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.bgmSlider = slot0._tf:Find(&quot;settings/bgm/slider&quot;)
+	slot0.effectSlider = slot0._tf:Find(&quot;settings/sfx/slider&quot;)
+	slot0.mainSlider = slot0._tf:Find(&quot;settings/cv/slider&quot;)
+	slot0.soundRevertBtn = slot0._tf:Find(&quot;settings/buttons/reset&quot;)
+	slot0.volumeSwitchToggleOn = slot0._tf:Find(&quot;settings/buttons/soundswitch/on&quot;)
+	slot0.volumeSwitchToggleOff = slot0._tf:Find(&quot;settings/buttons/soundswitch/off&quot;)
+	slot0.isMute = PlayerPrefs.GetInt(&quot;mute_audio&quot;, 0) == 1
+
+	triggerToggle(slot0.volumeSwitchToggleOn, not slot0.isMute)
+	triggerToggle(slot0.volumeSwitchToggleOff, slot0.isMute)
+	onToggle(slot0, slot0.volumeSwitchToggleOn, function (slot0)
+		uv0:OnVolumeSwitch(slot0)
+	end, SFX_UI_TAG, SFX_UI_TAG)
+	onButton(slot0, slot0.soundRevertBtn, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;sure_resume_volume&quot;),
+			onYes = function ()
+				triggerToggle(uv0.volumeSwitchToggleOn, true)
+				setSlider(uv0.bgmSlider, 0, 1, DEFAULT_BGMVOLUME)
+				setSlider(uv0.effectSlider, 0, 1, DEFAULT_SEVOLUME)
+				setSlider(uv0.mainSlider, 0, 1, DEFAULT_CVVOLUME)
+			end
+		})
+	end, SFX_UI_CLICK)
+	setText(slot0._tf:Find(&quot;settings/buttons/soundswitch/Text&quot;), i18n(&quot;voice_control&quot;))
+	setText(slot0._tf:Find(&quot;settings/bgm/icon/Text&quot;), i18n(&quot;settings_sound_title_bgm&quot;))
+	setText(slot0._tf:Find(&quot;settings/sfx/icon/Text&quot;), i18n(&quot;settings_sound_title_effct&quot;))
+	setText(slot0._tf:Find(&quot;settings/cv/icon/Text&quot;), i18n(&quot;settings_sound_title_cv&quot;))
+end
+
+slot0.OnVolumeSwitch = function(slot0, slot1)
+	if not slot1 then
+		PlayerPrefs.SetFloat(&quot;bgm_vol_mute_setting&quot;, pg.CriMgr.GetInstance():getBGMVolume())
+		PlayerPrefs.SetFloat(&quot;se_vol_mute_setting&quot;, pg.CriMgr.GetInstance():getSEVolume())
+		PlayerPrefs.SetFloat(&quot;cv_vol_mute_setting&quot;, pg.CriMgr.GetInstance():getCVVolume())
+		pg.CriMgr.GetInstance():setBGMVolume(0)
+		pg.CriMgr.GetInstance():setSEVolume(0)
+		pg.CriMgr.GetInstance():setCVVolume(0)
+		PlayerPrefs.SetInt(&quot;mute_audio&quot;, 1)
+	else
+		pg.CriMgr.GetInstance():setBGMVolume(PlayerPrefs.GetFloat(&quot;bgm_vol_mute_setting&quot;, DEFAULT_BGMVOLUME))
+		pg.CriMgr.GetInstance():setSEVolume(PlayerPrefs.GetFloat(&quot;se_vol_mute_setting&quot;, DEFAULT_SEVOLUME))
+		pg.CriMgr.GetInstance():setCVVolume(PlayerPrefs.GetFloat(&quot;cv_vol_mute_setting&quot;, DEFAULT_CVVOLUME))
+		PlayerPrefs.SetInt(&quot;mute_audio&quot;, 0)
+	end
+
+	slot0.isMute = not slot1
+
+	slot0:UpdateSlidersState()
+end
+
+slot0.InitBgmSlider = function(slot0)
+	slot1 = pg.CriMgr.GetInstance():getBGMVolume()
+
+	if slot0.isMute then
+		slot1 = PlayerPrefs.GetFloat(&quot;bgm_vol_mute_setting&quot;, DEFAULT_BGMVOLUME)
+	end
+
+	setSlider(slot0.bgmSlider, 0, 1, slot1)
+	OnSliderWithButton(slot0, slot0.bgmSlider, function (slot0)
+		if uv0.isMute then
+			return
+		end
+
+		pg.CriMgr.GetInstance():setBGMVolume(slot0)
+	end)
+end
+
+slot0.InitEffectSlider = function(slot0)
+	slot1 = pg.CriMgr.GetInstance():getSEVolume()
+
+	if slot0.isMute then
+		slot1 = PlayerPrefs.GetFloat(&quot;se_vol_mute_setting&quot;, DEFAULT_SEVOLUME)
+	end
+
+	setSlider(slot0.effectSlider, 0, 1, slot1)
+	OnSliderWithButton(slot0, slot0.effectSlider, function (slot0)
+		if uv0.isMute then
+			return
+		end
+
+		pg.CriMgr.GetInstance():setSEVolume(slot0)
+	end)
+end
+
+slot0.InitMainSlider = function(slot0)
+	slot1 = pg.CriMgr.GetInstance():getCVVolume()
+
+	if slot0.isMute then
+		slot1 = PlayerPrefs.GetFloat(&quot;cv_vol_mute_setting&quot;, DEFAULT_CVVOLUME)
+	end
+
+	setSlider(slot0.mainSlider, 0, 1, slot1)
+	OnSliderWithButton(slot0, slot0.mainSlider, function (slot0)
+		if uv0.isMute then
+			return
+		end
+
+		pg.CriMgr.GetInstance():setCVVolume(slot0)
+	end)
+end
+
+slot0.OnUpdate = function(slot0)
+	slot0:InitBgmSlider()
+	slot0:InitEffectSlider()
+	slot0:InitMainSlider()
+	slot0:UpdateSlidersState()
+end
+
+slot0.UpdateSlidersState = function(slot0)
+	slot1 = slot0.isMute
+
+	slot0:SetSliderEnable(slot0.bgmSlider, not slot1)
+	slot0:SetSliderEnable(slot0.effectSlider, not slot1)
+	slot0:SetSliderEnable(slot0.mainSlider, not slot1)
+end
+
+slot0.SetSliderEnable = function(slot0, slot1, slot2)
+	slot2 = tobool(slot2)
+	slot1:GetComponent(&quot;Slider&quot;).interactable = slot2
+
+	setButtonEnabled(slot1:Find(&quot;up&quot;), slot2)
+	setButtonEnabled(slot1:Find(&quot;down&quot;), slot2)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

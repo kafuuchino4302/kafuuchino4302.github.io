@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yongyehuanguang25.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yongyehuanguang25.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;YONGYEHUANGUANG25&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 6,
+			side = 2,
+			dir = 1,
+			bgm = &quot;battle-boss-5&quot;,
+			actor = 408060,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;呜…{namecode:414}，我的大鱼刚刚被深水炸弹击中了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 408050,
+			say = &quot;鱼雷也都打光了…对面的护航阵型密不透风呀…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 408070,
+			say = &quot;唔...量产型舰队也快顶不住了，差不多该考虑撤退了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 408010,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;最终战果只有4艘么…算了~见好就收，大家分散撤退，注意安全！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgName = &quot;bg_hms_8&quot;,
+			bgm = &quot;bgm-royalnavy&quot;,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;攻击减弱了，潜艇装载的鱼雷有限，打光了开始撤退了么…&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202170,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这波攻击真够猛的......极地航线还是一如既往的危险刺激啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼…不过我觉得这次袭击之后就真的结束了哦，铁血应该不可能水面下埋伏更大规模的狼群了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 207010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好！终于把对面的飞机都解决了！我们的最终损失呢？&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;极地船团的36艘运输船中，有4艘沉没，3艘失去动力，另有数艘受到轻微受损…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 207010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还是损失了10%么…可恶！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;对手到底还是长期游弋在大洋中的狼群…鹰，别太自责，我们已经尽力了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207010,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唉…和司令部的联络呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还是不行，我们和司令部以及其他两支舰队的联系已经彻底中断了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;大家先去救助需要帮助的运输船，然后整顿编队继续出发吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_hms_8&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 202270,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我们的战斗已经基本结束，只能祝愿其他人也能一切顺利了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

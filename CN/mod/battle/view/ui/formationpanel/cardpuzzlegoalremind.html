@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardpuzzlegoalremind.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cardpuzzlegoalremind.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleConfig
+slot2 = slot0.Battle.BattleCardPuzzleEvent
+slot3 = slot0.Battle.BattleDataFunction
+slot0.Battle.CardPuzzleGoalRemind = class(&quot;CardPuzzleGoalRemind&quot;)
+slot4 = slot0.Battle.CardPuzzleGoalRemind
+slot4.__name = &quot;CardPuzzleGoalRemind&quot;
+
+slot4.Ctor = function(slot0, slot1)
+	slot0._go = slot1
+
+	slot0:init()
+end
+
+slot4.SetCardPuzzleComponent = function(slot0, slot1)
+	slot0._tmp = uv0.GetPuzzleDungeonTemplate(slot1:GetPuzzleDungeonID())
+
+	setText(slot0._bg:Find(&quot;text&quot;), slot0._tmp.description)
+end
+
+slot4.init = function(slot0)
+	pg.DelegateInfo.New(slot0)
+
+	slot0._tf = slot0._go.transform
+	slot0._bg = slot0._tf:Find(&quot;bg&quot;)
+
+	setText(slot0._bg:Find(&quot;label_ch&quot;), i18n(&quot;card_puzzel_goal_ch&quot;))
+	setText(slot0._bg:Find(&quot;label_en&quot;), i18n(&quot;card_puzzel_goal_en&quot;))
+
+	slot0._arrow = slot0._bg:Find(&quot;arrow&quot;)
+	slot0._openFlag = 1
+
+	onButton(slot0, slot0._bg, function ()
+		slot0 = rtf(uv0._bg).rect
+		rtf(uv0._bg).sizeDelta = Vector2(slot0.width, slot0.height + uv0._openFlag * 150)
+		uv0._openFlag = uv0._openFlag * -1
+		uv0._arrow.localScale = Vector3(1, uv0._openFlag, 1)
+	end)
+end
+
+slot4.Dispose = function(slot0)
+	pg.DelegateInfo.Dispose(slot0)
+
+	slot0._arrow = nil
+	slot0._bg = nil
+	slot0._tf = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

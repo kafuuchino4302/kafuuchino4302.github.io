@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dailylevelpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dailylevelpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DailyLevelPage&quot;, import(&quot;view.activity.CorePage.CoreActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.goBtn = slot0:findTF(&quot;bg/goBtn&quot;)
+	slot0.levelContant = slot0:findTF(&quot;bg/titleText/itemList&quot;)
+	slot0.itemGO = slot0:findTF(&quot;levelItem&quot;, slot0.levelContant)
+
+	setText(slot0:findTF(&quot;bg/titleText&quot;), i18n(&quot;open_today&quot;))
+	setText(slot0:findTF(&quot;bg/goBtn/Text&quot;), i18n(&quot;daily_level_go&quot;))
+
+	slot0.itemList = UIItemList.New(slot0.levelContant, slot0.itemGO)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.goBtn, function ()
+		pg.m02:sendNotification(GAME.GO_SCENE, SCENE.DAILYLEVEL)
+	end)
+	slot0.itemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setText(uv0:findTF(&quot;Text&quot;, slot2), pg.expedition_daily_template[uv0.activeList[slot1 + 1]].title)
+		end
+	end)
+	slot0.activity:SetLoginRedPoint()
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot2 = {}
+
+	for slot6, slot7 in ipairs(pg.expedition_daily_template.all) do
+		slot8 = pg.expedition_daily_template[slot7]
+		slot9 = slot8.limit_period
+
+		if slot8.limit_type == 1 and table.contains(slot8.weekday, tonumber(pg.TimeMgr.GetInstance():GetServerWeek())) and (not slot9 or type(slot9) ~= &quot;table&quot;) then
+			table.insert(slot2, slot7)
+		end
+	end
+
+	slot0.activeList = slot2
+
+	slot0.itemList:align(#slot2)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

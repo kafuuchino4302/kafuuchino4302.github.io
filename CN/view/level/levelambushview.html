@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelambushview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelambushview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelAmbushView&quot;, import(&quot;..base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;LevelAmbushView&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0:InitData()
+	slot0:InitUI()
+	setActive(slot0._tf, true)
+end
+
+slot0.InitData = function(slot0)
+	slot0.chapter = slot0.contextData.chapterVO
+	slot0.fleet = slot0.chapter.fleet
+	slot0.template = pg.expedition_data_template[slot0.chapter:getChapterCell(slot0.fleet.line.row, slot0.fleet.line.column).attachmentId]
+end
+
+slot0.InitUI = function(slot0)
+	slot1 = findTF(slot0._tf, &quot;window&quot;)
+
+	GetImageSpriteFromAtlasAsync(&quot;enemies/&quot; .. slot0.template.icon, &quot;&quot;, findTF(slot0._tf, &quot;window/ship/icon&quot;))
+	setText(findTF(slot0._tf, &quot;window/ship/lv/Text&quot;), slot0.template.level)
+	setText(findTF(slot0._tf, &quot;window/evade/rate&quot;), math.floor(slot0.chapter:getAmbushDodge(slot0.fleet) * 100) .. &quot;%&quot;)
+	onButton(slot0, findTF(slot0._tf, &quot;window/fight_button&quot;), function ()
+		uv0:emit(LevelMediator2.ON_OP, {
+			arg1 = 0,
+			type = ChapterConst.OpAmbush,
+			id = uv0.fleet.id
+		})
+		uv0:Destroy()
+	end, SFX_UI_WEIGHANCHOR_ATTACK)
+	onButton(slot0, findTF(slot0._tf, &quot;window/dodge_button&quot;), function ()
+		uv0:emit(LevelMediator2.ON_OP, {
+			arg1 = 1,
+			type = ChapterConst.OpAmbush,
+			id = uv0.fleet.id
+		})
+		uv0:Destroy()
+	end, SFX_UI_WEIGHANCHOR_AVOID)
+
+	slot1.localScale = Vector3(1, 0, 1)
+
+	LeanTween.scaleY(slot1.gameObject, 1, 0.3):setOnComplete(System.Action(slot0.onComplete))
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+slot0.SetFuncOnComplete = function(slot0, slot1)
+	slot0.onComplete = slot1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

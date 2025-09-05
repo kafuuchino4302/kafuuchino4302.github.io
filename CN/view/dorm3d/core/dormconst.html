@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dormconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dormconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DormConst&quot;)
+slot0.boneMap = {
+	Head = &quot;Bip001 Head&quot;,
+	LeftUpperArm = &quot;Bip001 L UpperArm&quot;,
+	RightThigh = &quot;Bip001 R Thigh&quot;,
+	LeftFoot = &quot;Bip001 L Foot&quot;,
+	RightUpperArm = &quot;Bip001 R UpperArm&quot;,
+	RightForeArm = &quot;Bip001 R Forearm&quot;,
+	RightFoot = &quot;Bip001 R Foot&quot;,
+	RightHand = &quot;Bip001 R Hand&quot;,
+	LeftThigh = &quot;Bip001 L Thigh&quot;,
+	Spine = &quot;Bip001 Spine&quot;,
+	Spine1 = &quot;Bip001 Spine1&quot;,
+	Spine2 = &quot;Bip001 Spine2&quot;,
+	LeftHand = &quot;Bip001 L Hand&quot;,
+	Pelvis = &quot;Bip001 Pelvis&quot;,
+	LeftForeArm = &quot;Bip001 L Forearm&quot;,
+	RightCalf = &quot;Bip001 R Calf&quot;,
+	LeftCalf = &quot;Bip001 L Calf&quot;
+}
+slot0.BONE_TO_TOUCH = {
+	Head = &quot;head&quot;,
+	LeftUpperArm = &quot;hand&quot;,
+	RightThigh = &quot;leg&quot;,
+	LeftFoot = &quot;leg&quot;,
+	RightFoot = &quot;leg&quot;,
+	RightLowerArm = &quot;hand&quot;,
+	Chest = &quot;chest&quot;,
+	RightUpperArm = &quot;hand&quot;,
+	RightHand = &quot;hand&quot;,
+	Butt = &quot;butt&quot;,
+	LeftThigh = &quot;leg&quot;,
+	Back = &quot;back&quot;,
+	LeftLowerArm = &quot;hand&quot;,
+	LeftHand = &quot;hand&quot;,
+	RightCalf = &quot;leg&quot;,
+	LeftCalf = &quot;leg&quot;,
+	Belly = &quot;belly&quot;
+}
+slot0.EXTRA_SYSTEMS = {
+	FurnitureSlide = &quot;FurnitureSlide&quot;
+}
+slot0.SYSTEM_LIST = {
+	slot0.EXTRA_SYSTEMS.FurnitureSlide
+}
+slot0.DEFAULT_ANIM_FADE_IN_TIME = 0.25
+slot0.LADY_MOVE_SPEED = 0.85
+slot0.LADY_ROTATE_SPEED = 10
+slot0.TRANSPARENCY_MIN_DISTANCE = 0.6
+slot0.TRANSPARENCY_MAX_DISTANCE = 1.2
+slot0.CHARACTER_CONTROLLER = {
+	stepOffset = 0.2,
+	radius = 0.08,
+	height = 1.49,
+	center = Vector3(0, 0.78, 0)
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

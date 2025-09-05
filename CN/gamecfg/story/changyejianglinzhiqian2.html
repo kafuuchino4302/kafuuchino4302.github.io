@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changyejianglinzhiqian2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>changyejianglinzhiqian2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;CHANGYEJIANGLINZHIQIAN2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			asideType = 3,
+			sequence = {
+				{
+					&quot;东欧罗巴平原&quot;,
+					1
+				},
+				{
+					&quot;装甲列车「司晨女神」&quot;,
+					2
+				},
+				{
+					&quot;？？？·？？？&quot;,
+					3
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;列车规律的颠簸让{namecode:529:苏维埃同盟}有些困倦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;不知不觉中，{namecode:529:苏维埃同盟}的意识远去了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			bgmDelay = 1,
+			bgm = &quot;theme-vichy-church&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;黑色的太阳，正静静燃烧着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					interlayer = 1001,
+					name = &quot;yuanzhou_juqing01&quot;,
+					active = true
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我记得……我正在列车上看文件。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为有些疲倦，所以眯了一会。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这么说来……这是梦？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_firedust_5&quot;,
+			hidePaintObj = true,
+			say = &quot;无人回应{namecode:529:苏维埃同盟}的自言自语，只有黑色的太阳在无声地燃烧着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……燃烧得很剧烈，但没有感受到丝毫炎热。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;反而让人觉得有些冰冷……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这幅景象究竟是……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorShadow = true,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			nameColor = &quot;#BDBDBD&quot;,
+			dir = 1,
+			actor = 900220,
+			actorName = &quot;█ █ █ █ █&quot;,
+			hidePaintObj = true,
+			say = &quot;▇▆▅■▎▃▌█▆▎▇█▎■▄▆▋▂▁▅▎▌█▊▇▊▇&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;罗西亚同志……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorShadow = true,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			nameColor = &quot;#BDBDBD&quot;,
+			dir = 1,
+			actor = 900220,
+			actorName = &quot;█ █ █ █ █&quot;,
+			hidePaintObj = true,
+			say = &quot;▅▁▂▋▄▊■▆▎▅▁▂▋▄▊■▆▎▇▆▅■&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;抱歉，我听不清你说的话，请再说一遍。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorShadow = true,
+			side = 2,
+			bgName = &quot;bg_firedust_5&quot;,
+			nameColor = &quot;#BDBDBD&quot;,
+			dir = 1,
+			actor = 900220,
+			actorName = &quot;█ █ █ █ █&quot;,
+			hidePaintObj = true,
+			say = &quot;……………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			soundeffect = &quot;event:/ui/liecheshache&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			stopbgm = true,
+			bgm = &quot;battle-deepecho&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吱——————&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;yuanzhou_juqing01&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;在列车的减速声中，{namecode:529:苏维埃同盟}睁开了双眼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;燃烧的黑日，与言语不清的罗西亚，真是奇怪的梦……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;难道是因为日有所思，所以“夜”有所梦么……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唉，还是专心处理掉眼前的事，早日结束早日返回吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:529:苏维埃同盟}整理起手边的文件，进行下车前的准备。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;此刻，极地风暴行动正在有序进行。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;原本{namecode:529:苏维埃同盟}也应该坐镇中枢指挥。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，因为收到了秘密合作方克莱蒙梭想要尽快获取计划舰「香槟」的联络。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;而黑海造船厂的技术部门给出的反馈则是——「香槟」计划遇到了一些状况，进度有延后风险。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;所以{namecode:529:苏维埃同盟}不得不离开指挥中心，来到黑海造船厂来处理一下这边的问题。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;每一艘计划舰都是独一无二的，可不是什么轻松就能量产的奇迹……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;列车广播系统&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:529:苏维埃同盟}同志，列车已到站。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;列车广播系统&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;下车前请检查随身携带的机密文件。安全局的喀琅施塔得同志正在等待您。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 900218,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;算了……车到山前必有路，走一步看一步吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

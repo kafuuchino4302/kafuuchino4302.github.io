@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainactbossrushbtn.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainactbossrushbtn.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainActBossRushBtn&quot;, import(&quot;.MainBaseActivityBtn&quot;))
+
+slot0.GetEventName = function(slot0)
+	return &quot;event_series&quot;
+end
+
+slot0.GetActivity = function(slot0)
+	slot1 = getProxy(ActivityProxy)
+
+	return _.detect(slot1:getActivitiesByType(ActivityConst.ACTIVITY_TYPE_BOSSRUSH), function (slot0)
+		return not slot0:isEnd()
+	end)
+end
+
+slot0.GetActivityID = function(slot0)
+	return slot0:GetActivity() and slot1.id
+end
+
+slot0.OnInit = function(slot0)
+	setActive(slot0.tipTr.gameObject, false)
+
+	if not slot0.config.text_pic or slot0.config.text_pic == &quot;&quot; then
+		slot0.hideSubImg = false
+		slot0._tf:Find(&quot;Image&quot;).anchoredPosition = Vector2(120, -405)
+	end
+end
+
+slot0.CustomOnClick = function(slot0)
+	pg.m02:sendNotification(GAME.GO_SCENE, SCENE.BOSSRUSH_MAIN)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

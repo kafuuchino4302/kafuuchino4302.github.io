@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equipmentskinlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>equipmentskinlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EquipmentSkinLayer&quot;, import(&quot;..base.BaseUI&quot;))
+slot0.DISPLAY = 1
+slot0.REPLACE = 2
+
+slot0.getUIName = function(slot0)
+	return &quot;EquipmentSkinInfoUI&quot;
+end
+
+slot0.setShip = function(slot0, slot1)
+	slot0.shipVO = slot1
+end
+
+slot0.init = function(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false, slot0.contextData.weight and {
+		weight = slot0.contextData.weight
+	} or {})
+
+	slot0.displayPanel = slot0:findTF(&quot;display&quot;)
+
+	setActive(slot0.displayPanel, false)
+
+	slot0.displayActions = slot0.displayPanel:Find(&quot;actions&quot;)
+	slot0.skinViewOnShipTF = slot0:findTF(&quot;replace/equipment_on_ship&quot;)
+	slot0.skinViewTF = slot0:findTF(&quot;replace/equipment&quot;)
+	slot0.replacePanel = slot0:findTF(&quot;replace&quot;)
+
+	setActive(slot0.replacePanel, false)
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SOUND_BACK)
+	onButton(slot0, slot0._tf:Find(&quot;display/top/btnBack&quot;), function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0:findTF(&quot;actions/cancel_button&quot;, slot0.replacePanel), function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SFX_PANEL)
+	onButton(slot0, slot0:findTF(&quot;actions/action_button_2&quot;, slot0.replacePanel), function ()
+		if not uv0.contextData.oldShipInfo then
+			uv0:emit(EquipmentSkinMediator.ON_EQUIP)
+		else
+			uv0:emit(EquipmentSkinMediator.ON_EQUIP_FORM_SHIP)
+		end
+	end, SFX_PANEL)
+
+	if (slot0.contextData.mode or uv0.DISPLAY) == uv0.REPLACE and slot0.shipVO then
+		slot0:initReplace()
+	elseif slot1 == uv0.DISPLAY then
+		slot0:initDisplay()
+	end
+end
+
+slot0.initDisplay = function(slot0)
+	setActive(slot0.displayPanel, true)
+	setActive(slot0.replacePanel, false)
+
+	if slot0.shipVO then
+		slot0:initDisplay4Ship()
+	else
+		eachChild(slot0.displayActions, function (slot0)
+			slot1 = slot0.gameObject.name == &quot;confirm&quot;
+
+			setActive(slot0, slot1)
+
+			if slot1 then
+				onButton(uv0, slot0, function ()
+					uv0:emit(uv1.ON_CLOSE)
+				end, SFX_PANEL)
+			end
+		end)
+	end
+
+	slot0:updateSkinView(slot0.displayPanel, slot0.contextData.skinId)
+end
+
+slot0.initDisplay4Ship = function(slot0)
+	eachChild(slot0.displayActions, function (slot0)
+		setActive(slot0, slot0.gameObject.name ~= &quot;confirm&quot;)
+		onButton(uv0, slot0, function ()
+			if uv0 == &quot;unload&quot; then
+				uv1:emit(EquipmentSkinMediator.ON_UNEQUIP)
+			elseif uv0 == &quot;replace&quot; then
+				uv1:emit(EquipmentSkinMediator.ON_SELECT)
+			end
+		end, SFX_PANEL)
+	end)
+end
+
+slot0.initReplace = function(slot0)
+	setActive(slot0.displayPanel, false)
+	setActive(slot0.replacePanel, true)
+
+	slot3 = slot0.contextData.skinId
+
+	slot0:updateSkinView(slot0.skinViewOnShipTF, slot0.shipVO:getEquipSkin(slot0.contextData.pos) or 0)
+
+	if slot0.contextData.oldShipInfo then
+		slot0:updateSkinView(slot0.skinViewTF, slot3, slot0.contextData.oldShipInfo)
+	else
+		slot0:updateSkinView(slot0.skinViewTF, slot3)
+	end
+end
+
+slot0.updateSkinView = function(slot0, slot1, slot2, slot3)
+	slot4 = slot2 ~= 0
+	slot6 = slot0:findTF(&quot;info&quot;, slot1)
+
+	if slot0:findTF(&quot;empty&quot;, slot1) then
+		setActive(slot5, not slot4)
+	end
+
+	setActive(slot6, slot4)
+
+	slot1:GetComponent(typeof(Image)).enabled = slot4
+
+	if slot4 then
+		slot7 = pg.equip_skin_template[slot2]
+
+		assert(slot7, &quot;miss config equip_skin_template &gt;&gt; &quot; .. slot2)
+
+		slot0:findTF(&quot;info/display_panel/name_container/name&quot;, slot1):GetComponent(typeof(Text)).text = slot7.name
+		slot0:findTF(&quot;info/display_panel/desc&quot;, slot1):GetComponent(typeof(Text)).text = slot7.desc
+
+		setScrollText(slot0:findTF(&quot;info/display_panel/equip_type/mask/Text&quot;, slot1), table.concat(_.map(slot7.equip_type, function (slot0)
+			return EquipType.Type2Name2(slot0)
+		end), &quot;,&quot;))
+
+		slot11 = slot0:findTF(&quot;info/play_btn&quot;, slot1)
+
+		setActive(slot11, true)
+		onButton(slot0, slot11, function ()
+			uv0:emit(EquipmentSkinMediator.ON_PREVIEW, uv1)
+		end, SFX_PANEL)
+		updateDrop(slot0:findTF(&quot;info/equip&quot;, slot1), Drop.New({
+			type = DROP_TYPE_EQUIPMENT_SKIN,
+			id = slot2
+		}))
+
+		if slot0:findTF(&quot;info/head&quot;, slot1) then
+			setActive(slot12, slot3)
+
+			if slot3 then
+				assert(slot3.id, &quot;old ship id is nil&quot;)
+				assert(slot3.pos, &quot;old ship pos is nil&quot;)
+
+				if getProxy(BayProxy):getShipById(slot3.id) then
+					setImageSprite(slot12:Find(&quot;Image&quot;), LoadSprite(&quot;qicon/&quot; .. slot13:getPainting()))
+				end
+			end
+		end
+	end
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0.UIMain)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

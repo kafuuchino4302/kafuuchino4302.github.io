@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equip_data_by_type.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>equip_data_by_type.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.equip_data_by_type = {
+	{
+		distory_resource_gold_ratio = 1,
+		type_name = &quot;舰炮&quot;,
+		equip_skin = 1,
+		equip_type = 1,
+		compare_group = 1,
+		type_name2 = &quot;舰炮(驱逐)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;舰炮&quot;,
+		equip_skin = 1,
+		equip_type = 2,
+		compare_group = 1,
+		type_name2 = &quot;舰炮(轻巡)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;舰炮&quot;,
+		equip_skin = 1,
+		equip_type = 3,
+		compare_group = 1,
+		type_name2 = &quot;舰炮(重巡)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 3,
+		type_name = &quot;舰炮&quot;,
+		equip_skin = 1,
+		equip_type = 4,
+		compare_group = 1,
+		type_name2 = &quot;舰炮(战列)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;鱼雷&quot;,
+		equip_skin = 1,
+		equip_type = 5,
+		compare_group = 2,
+		type_name2 = &quot;鱼雷&quot;
+	},
+	{
+		distory_resource_gold_ratio = 1,
+		type_name = &quot;防空炮&quot;,
+		equip_skin = 0,
+		equip_type = 6,
+		compare_group = 3,
+		type_name2 = &quot;防空炮&quot;
+	},
+	{
+		distory_resource_gold_ratio = 1,
+		type_name = &quot;战斗机&quot;,
+		equip_skin = 1,
+		equip_type = 7,
+		compare_group = 4,
+		type_name2 = &quot;战斗机&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;鱼雷机&quot;,
+		equip_skin = 1,
+		equip_type = 8,
+		compare_group = 4,
+		type_name2 = &quot;鱼雷机&quot;
+	},
+	{
+		distory_resource_gold_ratio = 3,
+		type_name = &quot;轰炸机&quot;,
+		equip_skin = 1,
+		equip_type = 9,
+		compare_group = 4,
+		type_name2 = &quot;轰炸机&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;设备&quot;,
+		equip_skin = 1,
+		equip_type = 10,
+		compare_group = 5,
+		type_name2 = &quot;设备&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;舰炮&quot;,
+		equip_skin = 1,
+		equip_type = 11,
+		compare_group = 1,
+		type_name2 = &quot;舰炮(大口径重巡)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 1,
+		type_name = &quot;水上机&quot;,
+		equip_skin = 1,
+		equip_type = 12,
+		compare_group = 5,
+		type_name2 = &quot;水上机&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;鱼雷&quot;,
+		equip_skin = 1,
+		equip_type = 13,
+		compare_group = 6,
+		type_name2 = &quot;鱼雷(潜艇)&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;设备&quot;,
+		equip_skin = 0,
+		equip_type = 14,
+		compare_group = 5,
+		type_name2 = &quot;设备&quot;
+	},
+	{
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;反潜机&quot;,
+		equip_skin = 0,
+		equip_type = 15,
+		compare_group = 5,
+		type_name2 = &quot;反潜机&quot;
+	},
+	[17] = {
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;直升机&quot;,
+		equip_skin = 0,
+		equip_type = 17,
+		compare_group = 5,
+		type_name2 = &quot;直升机&quot;
+	},
+	[18] = {
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;货物&quot;,
+		equip_skin = 0,
+		equip_type = 18,
+		compare_group = 5,
+		type_name2 = &quot;货物&quot;
+	},
+	[20] = {
+		distory_resource_gold_ratio = 2,
+		type_name = &quot;导弹&quot;,
+		equip_skin = 0,
+		equip_type = 20,
+		compare_group = 1,
+		type_name2 = &quot;导弹&quot;
+	},
+	[21] = {
+		distory_resource_gold_ratio = 1,
+		type_name = &quot;防空炮&quot;,
+		equip_skin = 0,
+		equip_type = 21,
+		compare_group = 3,
+		type_name2 = &quot;防空炮&quot;
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		17,
+		18,
+		20,
+		21
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

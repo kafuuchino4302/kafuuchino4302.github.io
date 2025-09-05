@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registerpanelview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>registerpanelview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RegisterPanelView&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;RegisterPanelView&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot0.SetShareData = function(slot0, slot1)
+	slot0.shareData = slot1
+end
+
+slot0.OnInit = function(slot0)
+	slot0.registerPanel = slot0._tf
+	slot0.registerUsername = slot0:findTF(&quot;account/username&quot;, slot0.registerPanel)
+	slot0.cancelButton = slot0:findTF(&quot;cancel_button&quot;, slot0.registerPanel)
+	slot0.confirmButton = slot0:findTF(&quot;confirm_button&quot;, slot0.registerPanel)
+
+	slot0:InitEvent()
+end
+
+slot0.InitEvent = function(slot0)
+	onButton(slot0, slot0.confirmButton, function ()
+		if getInputText(uv0.registerUsername) == &quot;&quot; then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;login_loginScene_error_noUserName&quot;))
+			ActivateInputField(uv0.registerUsername)
+
+			return
+		end
+
+		if User.New({
+			arg3 = &quot;&quot;,
+			arg2 = &quot;&quot;,
+			type = 2,
+			arg1 = slot0
+		}) then
+			uv0.event:emit(LoginMediator.ON_REGISTER, slot1)
+		end
+	end, SFX_CONFIRM)
+	onButton(slot0, slot0.cancelButton, function ()
+		uv0:emit(LoginSceneConst.SWITCH_SUB_VIEW, {
+			LoginSceneConst.DEFINE.LOGIN_PANEL_VIEW
+		})
+	end, SFX_CANCEL)
+end
+
+slot0.Clear = function(slot0)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

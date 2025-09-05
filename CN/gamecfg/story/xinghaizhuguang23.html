@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xinghaizhuguang23.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xinghaizhuguang23.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;XINGHAIZHUGUANG23&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;battle-boss-ucnf&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;轰—————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhuguang_4&quot;,
+			hidePaintObj = true,
+			say = &quot;海域中的战斗仍在继续。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;星座，你看到了么，所有受损的无人机都飞去后面那个像滚筒一样的船里了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;星座&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;战场维修中心……我想我明白那艘奇怪军舰的作用了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错，你也察觉到异常之处了么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;星座&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这支舰队格外在意战损。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们在高阶塞壬出现后就已经全力开火，可是至今都没能击落任何一艘船。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明明有好几次机会，只要对面敢于追击我们就会出现损伤的，可是它们却将受损的船立刻后撤了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;星座&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;确实……这支舰队有点过于在意战损了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;星座&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这样的话，也许可以想办法把它们逼退……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;关岛&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;集中火力，打一艘！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;星座&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg4&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;各舰注意，集中火力攻击我标出来的目标！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

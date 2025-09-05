@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kongxiangjiaohuidian32.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kongxiangjiaohuidian32.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KONGXIANGJIAOHUIDIAN32&quot;,
+	scripts = {
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			bgmDelay = 2,
+			bgm = &quot;theme-arbitrator-tower&quot;,
+			stopbgm = true,
+			say = &quot;海域中的异变，几乎是在赫米忒的管理机被瘫痪的同时出现的。&quot;,
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;震动传遍了整个空间，一个巨大的金属圆环缓缓从水面下浮起。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;正在倒悬都市中的{namecode:435}Z可以很清晰地看到，隆起的环与海域中的巨型立方体群紧密结合在了一起。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;将米德加尔特之塔包裹在了正中央。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;呼……这就是我们的外援么……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;还真是夸张啊……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;{namecode:435}倒在水面上，不远处的革律翁也开始浮现出黑色气息。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			dir = 1,
+			actor = 9708010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;{namecode:435}姐姐，你没事吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不要靠近我！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			dir = 1,
+			actor = 9708010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;没事的……姐姐，你看。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;与革律翁的状态相同，红黑色的气息也萦绕在{namecode:416}身旁。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9708010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_11&quot;,
+			say = &quot;……哎嘿，好像用力过猛了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;…………代行者舰队围过来了，还能战斗么。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_bsmre_11&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9708010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;能！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_11&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;……还没到那种时候呢！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_11&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;诸位辛苦了，我是女灶神的同伴亚利桑那。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_11&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;接下来就交给我来处理吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			nameColor = &quot;#a020f0&quot;,
+			bgName = &quot;bg_bsmre_11&quot;,
+			actor = 900325,
+			actorName = &quot;544845544F574552&quot;,
+			say = &quot;45 78 65 63 75 74 65 63 6F 6E 74 72 6F 6C 70 72 6F 74 6F 63 6F 6C 2E&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.2,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.2,
+				delay = 0.2,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_bsmre_11&quot;,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			actor = 900325,
+			actorName = &quot;544845544F574552&quot;,
+			say = &quot;49 6E 69 74 69 61 6C 69 7A 65 70 75 72 69 66 69 63 61 74 69 6F 6E 70 72 6F 67 72 61 6D 2E&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_1104&quot;,
+			say = &quot;圆环的边缘出现了耀眼的光芒，在转瞬间覆盖了整个空间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 2,
+				alpha = {
+					0,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_1104&quot;,
+			say = &quot;然后，光芒消散了————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			stopbgm = true,
+			dir = 1,
+			bgmDelay = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			bgm = &quot;theme-bismark-reborn&quot;,
+			actor = 402100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;到底发生了什么事…？海域中的污染转瞬间就消失了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashin = {
+				dur = 2,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;所有敌方单位的反应也一起全都不见了啊？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;而且……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 401990,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;咦？！！{namecode:435}大人和{namecode:416}，你们是什么时候下来的？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 405050,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;……欸？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;众人惊讶地发现，侵蚀消失了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;整片海域，连同倒悬在空中的都市都已经变为了正常状态。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;位于都市之中的{namecode:435}与{namecode:416}也几乎是在转瞬间回到了众人身边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9712010,
+			side = 2,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;开，什么玩笑………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;你怎么能主动——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;嘘，这是解决现状唯一的办法。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;海伦娜呢？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			hasPaintbg = true,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;海伦娜她现在无法脱身。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;比起这个，旁边那两个人才是你现在最需要关注的吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9712010,
+			side = 2,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;……旁边？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;受到提醒的女灶神看向刚刚从倒悬都市中返回的{namecode:435}与{namecode:416}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;红黑色气息已经将二人彻底覆盖了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9712010,
+			side = 2,
+			nameColor = &quot;#a020f0&quot;,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;……啊？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;啊？！！！！！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_bsmre_13&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;你们两个不要命了！！！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;其他人都退开！！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			side = 2,
+			say = &quot;惊慌失措的女灶神几乎是以飞行般的速度飞奔到二人身边。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_bsmre_13&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;喂，保持住意识！还能说话么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不用管我……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我已经把……限制都加回去了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;应该……过一会就好了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;去帮……{namecode:416}净化，拜托了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;……{namecode:416}是么，好的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;{namecode:416}，能听到我的声音么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9708010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;……好黑啊，{namecode:435}姐姐……你在哪里？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;……………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;情况不妙……是么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;…………………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;…………还、有救。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_bsmre_cg13&quot;,
+			mode = 1,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg13&quot;,
+			say = &quot;女灶神轻轻地蹲在{namecode:416}身旁，手中凭空出现了一个蓝色立方体。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg13&quot;,
+			say = &quot;与此同时，一个又一个，十数个蓝色立方体在她的身旁接连出现。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg13&quot;,
+			say = &quot;立方体群旋转着，似乎吸收着{namecode:416}身上溢出的黑色气息。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg13&quot;,
+			say = &quot;{namecode:416}的表情逐渐舒缓下来，但漂浮的蓝色立方体颜色却在缓慢加深。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			mode = 1,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			soundeffect = &quot;event:/ui/glassbroken&quot;,
+			say = &quot;（咔嚓————）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			say = &quot;转瞬间，女灶神手中的立方体变为了刺眼的红色，随即碎裂了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			say = &quot;一向从容不迫的女灶神也咬紧了牙关，露出痛苦的表情。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;女灶神&quot;,
+			side = 1,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;咳、咳咳…咳咳………！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;{namecode:96}&quot;,
+			side = 2,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;女灶神小姐，你没事吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;女灶神&quot;,
+			side = 1,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;咳……没事……就是需要休息一下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;女灶神&quot;,
+			side = 1,
+			bgName = &quot;bg_bsmre_cg14&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#a020f0&quot;,
+			say = &quot;（……这样一来，我们就两不相欠了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;谢绝了{namecode:96}的搀扶，女灶神将{namecode:416}从水中扶起。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;此时的{namecode:416}已经褪去了META的痕迹，完全恢复到了平时的状态。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 408040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……呼。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 406030,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;变……回来了？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			actor = 401990,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:416}！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 408040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔……不要突然抱过来啊，身上湿漉漉的……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 402100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真是的，她的身体才刚刚恢复，轻一点。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 401990,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊啊，抱歉抱歉！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 401990,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;之前真的担心死我了，还以为你再也变不回来了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 408040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嘿嘿，最后不是没事了嘛~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;看来事件已经圆满解决了呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			hasPaintbg = true,
+			paintingNoise = true,
+			dir = 1,
+			bgName = &quot;bg_bsmre_13&quot;,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;那么，善后就交给你了。相关资料已发送，请确认。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;……资料已确认，我明白了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			hasPaintbg = true,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9705030,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;亚利桑那离线。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;看来我们可以回去了？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，我已经得到了资料。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;你们只要再启动米德加尔特之塔，就可以回去了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，你……居然真的已经恢复了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;……原来如此。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;代价是，革律翁一段时间内无法战斗了，是么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嘘。接下来你打算去哪里？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;跟我一起回去——应该不可能吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，我在这里还有要做的事。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;你们回去之后，必须摧毁这个名为米德加尔特之塔的人工奇异点。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;正是它的存在才导致了这次事件的发生。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……摧毁？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你知道铁血为了修建米德加尔特之塔花费了多少资源么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;知道。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;而且我也知道做出这种决定有多么困难……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;可是，它的坐标已经被标记了，单纯的关闭没有用的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;如果不摧毁的话，终有一天，天空与大海都被侵蚀的景象会经由米德加尔特之塔到达你们的世界。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;你想看到这样的事情发生么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = -1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……我明白了。米德加尔特之塔将会被拆毁，我保证。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;很好。此处不宜久留，你们快出发吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;海域的中心，已经恢复正常的米德加尔特之塔闪烁着蓝色的光芒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;巨大的装置缓缓启动，光芒逐渐在众人的脚下聚集。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 408040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;谢谢你，女灶神姐姐！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;在{namecode:416}的呼喊声中，{namecode:435}一行人的身影从海域中消失了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;我们会再见面的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_bsmre_13&quot;,
+			say = &quot;女灶神注视着众人的离开，不一会儿，耳边便传来了通讯器的响声。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;……我还在想你什么时候才会打过来。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;……接下来你打算做什么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_bsmre_13&quot;,
+			dir = 1,
+			actor = 9712010,
+			nameColor = &quot;#a020f0&quot;,
+			hidePaintObj = true,
+			say = &quot;——仲裁者·托瓦·XVI。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

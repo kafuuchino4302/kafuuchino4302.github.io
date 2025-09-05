@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>syg006.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>syg006.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;司令部对于指挥官在之前战斗中的表现十分赞赏，所以特批开放了第二舰队的编制权限，快跟着我来吧！&quot;,
+	&quot;前往编队界面编组第二舰队。点击确认直接前往编队界面&quot;,
+	&quot;点击右侧按钮，切换到第二舰队。指引点击右侧按钮&quot;,
+	&quot;在这里就能编组第二舰队啦&quot;,
+	&quot;战争已经正式打响了，想必接下来的战斗将会越来越艰辛吧，期待您更精彩的发挥哦！&quot;
+}
+
+return {
+	id = &quot;SYG006&quot;,
+	events = {
+		{
+			alpha = 0.332,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[1]
+			}
+		},
+		{
+			alpha = 0.413,
+			style = {
+				mode = 2,
+				dir = -1,
+				scene = &quot;BIANDUI&quot;,
+				posY = 0,
+				posX = 0,
+				text = slot0[2]
+			}
+		},
+		{
+			alpha = 0.462,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 87,
+				posX = 228.09,
+				text = slot0[3]
+			},
+			ui = {
+				pathIndex = -1,
+				hideAnimtor = true,
+				path = &quot;/UICamera/Canvas/UIMain/FormationUI(Clone)/nextPage&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -45.81,
+					posX = 40.2
+				}
+			}
+		},
+		{
+			alpha = 0.442,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 121.8,
+				posX = 0,
+				text = slot0[4]
+			}
+		},
+		{
+			alpha = 0.44,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[5]
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

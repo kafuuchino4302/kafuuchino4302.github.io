@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voteshipitem.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>voteshipitem.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;VoteShipItem&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.go = slot1
+	slot0.tf = slot1.transform
+	slot0.icon = findTF(slot0.tf, &quot;mask/icon&quot;)
+	slot0.name = findTF(slot0.tf, &quot;name/Text&quot;):GetComponent(&quot;ScrollText&quot;)
+	slot0.rank = findTF(slot0.tf, &quot;Text&quot;):GetComponent(&quot;RichText&quot;)
+	slot0.riseNext = findTF(slot0.tf, &quot;rise_next&quot;)
+	slot0.riseResurgence = findTF(slot0.tf, &quot;rise_resurgence&quot;)
+
+	ClearTweenItemAlphaAndWhite(slot0.go)
+end
+
+slot0.update = function(slot0, slot1, slot2)
+	TweenItemAlphaAndWhite(slot0.go)
+
+	if slot0.voteShip ~= slot1 then
+		slot0.voteShip = slot1
+
+		slot0:flush()
+	end
+
+	slot0.rank.text = slot0:wrapRankTxt(slot2 and slot2.rank)
+
+	if not IsNil(slot0.riseNext) then
+		setActive(slot0.riseNext, slot2 and slot2.riseFlag)
+	end
+
+	if not IsNil(slot0.riseResurgence) then
+		setActive(slot0.riseResurgence, slot2 and slot2.resurgenceFlag)
+	end
+end
+
+slot0.flush = function(slot0)
+	slot3 = slot0.voteShip
+
+	LoadSpriteAsync(&quot;ShipYardIcon/&quot; .. slot3:getPainting(), function (slot0)
+		if IsNil(uv0.icon) then
+			return
+		end
+
+		setImageSprite(uv0.icon, slot0, false)
+	end)
+
+	if PLATFORM_CODE == PLATFORM_US then
+		slot0.name:SetText(slot0.voteShip:getShipName())
+	else
+		setText(go(slot0.name), shortenString(slot0.voteShip:getShipName(), 5))
+	end
+end
+
+slot1 = {
+	&quot;st&quot;,
+	&quot;nd&quot;,
+	&quot;rd&quot;
+}
+
+slot0.wrapRankTxt = function(slot0, slot1)
+	if slot1 and slot1 &lt;= 3 then
+		return string.format(&quot;&lt;material=gradient from=#FF8c1c to=#ff0000 x=0 y=-1&gt;%s&lt;size=30&gt;%s&lt;/size&gt;&lt;/material&gt;&quot;, slot1, uv0[slot1])
+	else
+		return &quot;&quot;
+	end
+end
+
+slot0.clear = function(slot0)
+	ClearTweenItemAlphaAndWhite(slot0.go)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

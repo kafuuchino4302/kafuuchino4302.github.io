@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandstoryrecorder.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandstoryrecorder.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandStoryRecorder&quot;, import(&quot;Mgr.Story.model.Record.StoryRecorder&quot;))
+slot1 = &quot;#5ce6ff&quot;
+slot2 = &quot;#39BFFF&quot;
+slot3 = &quot;#70747F&quot;
+slot4 = &quot;#BCBCBC&quot;
+slot5 = &quot;#FFFFFF&quot;
+
+slot0.Convert = function(slot0)
+	slot1 = {}
+
+	for slot5, slot6 in ipairs(slot0.recordList) do
+		slot0:Collect3DDialogueContent(slot1, slot6)
+	end
+
+	slot0.recordList = {}
+
+	return slot1
+end
+
+slot0.Collect3DDialogueContent = function(slot0, slot1, slot2)
+	table.insert(slot1, {
+		icon = slot2:GetActorIcon(),
+		name = slot2:GetActorName(),
+		nameColor = slot2:IsPlayer() and uv0 or uv1,
+		list = {
+			setColorStr(slot0:FormatContent(slot2:GetSay()), slot4 and uv0 or uv2)
+		},
+		isPlayer = slot4
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

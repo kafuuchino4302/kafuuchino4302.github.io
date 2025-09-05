@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardfeaststoreymodule.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardfeaststoreymodule.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardFeastStoreyModule&quot;, import(&quot;.CourtYardStoreyModule&quot;))
+
+slot0.GetDefaultBgm = function(slot0)
+	return pg.voice_bgm.FeastScene.default_bgm
+end
+
+slot0.InitPedestalModule = function(slot0)
+	slot0.pedestalModule = CourtYardFeastPedestalModule.New(slot0.data, slot0.bg)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

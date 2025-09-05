@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>friendsortcfg.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>friendsortcfg.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	SORT_TAG = {
+		{
+			spr = &quot;sort_login&quot;,
+			tag = i18n(&quot;word_default&quot;),
+			func = function (slot0, slot1)
+				table.sort(slot0, function (slot0, slot1)
+					if slot0.unreadCount == slot1.unreadCount then
+						if slot0.online == slot1.online then
+							if slot0.preOnLineTime == slot1.preOnLineTime then
+								return slot0.id &lt; slot1.id
+							elseif uv0 then
+								return slot0.preOnLineTime &lt; slot1.preOnLineTime
+							else
+								return slot1.preOnLineTime &lt; slot0.preOnLineTime
+							end
+						elseif uv0 then
+							return slot0.online &lt; slot1.online
+						else
+							return slot1.online &lt; slot0.online
+						end
+					else
+						return slot1.unreadCount &lt; slot0.unreadCount
+					end
+				end)
+			end
+		},
+		{
+			spr = &quot;sort_star&quot;,
+			tag = i18n(&quot;word_star&quot;),
+			func = function (slot0, slot1)
+				slot2 = pg.ship_data_statistics
+
+				table.sort(slot0, function (slot0, slot1)
+					if uv0[slot0.icon].star == uv0[slot1.icon].star then
+						if slot0.level == slot1.level then
+							return slot0.id &lt; slot1.id
+						elseif uv1 then
+							return slot0.level &lt; slot1.level
+						else
+							return slot1.level &lt; slot0.level
+						end
+					elseif uv1 then
+						return uv0[slot0.icon].star &lt; uv0[slot1.icon].star
+					else
+						return uv0[slot1.icon].star &lt; uv0[slot0.icon].star
+					end
+				end)
+			end
+		},
+		{
+			spr = &quot;sort_lv&quot;,
+			tag = i18n(&quot;word_level&quot;),
+			func = function (slot0, slot1)
+				table.sort(slot0, function (slot0, slot1)
+					if slot0.level == slot1.level then
+						return slot0.id &lt; slot1.id
+					elseif uv0 then
+						return slot0.level &lt; slot1.level
+					else
+						return slot1.level &lt; slot0.level
+					end
+				end)
+			end
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

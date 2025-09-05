@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>summarypage1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>summarypage1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SummaryPage1&quot;, import(&quot;.SummaryAnimationPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot4 = findTF(findTF(slot0._go, &quot;painting&quot;), &quot;mask/painting&quot;)
+
+	setText(findTF(findTF(slot0._go, &quot;name&quot;), &quot;Text&quot;), slot0.summaryInfoVO.name)
+
+	slot6 = {}
+
+	for slot10 = 1, findTF(slot0._go, &quot;time_line&quot;).childCount do
+		for slot16 = 1, slot5:GetChild(slot10 - 1):Find(&quot;texts&quot;).childCount do
+			if go(slot12:GetChild(slot16 - 1)).name == &quot;guildName&quot; then
+				if not (not slot0.summaryInfoVO.guildName or slot19 == &quot;&quot;) then
+					setText(slot17:Find(&quot;text/Text&quot;), &quot;「&quot; .. slot19 .. &quot;」&quot;)
+				end
+
+				setActive(slot17:Find(&quot;image&quot;), slot20)
+				setActive(slot17:Find(&quot;text&quot;), not slot20)
+			elseif slot18 == &quot;days&quot; or slot18 == &quot;furnitureCount&quot; or slot18 == &quot;furnitureWorth&quot; then
+				setText(slot17:Find(&quot;Text&quot;), slot0.summaryInfoVO[slot18])
+			elseif slot18 ~= &quot;label&quot; then
+				setText(slot17:Find(&quot;Text&quot;), &quot;「&quot; .. string.gsub(slot0.summaryInfoVO[slot18], &quot;–&quot;, &quot;-&quot;) .. &quot;」&quot;)
+			end
+		end
+
+		table.insert(slot6, slot11)
+	end
+
+	setPaintingPrefabAsync(slot4, Ship.New({
+		configId = slot0.summaryInfoVO.flagShipId
+	}):getPainting(), &quot;chuanwu&quot;)
+	setActive(slot0._go, false)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

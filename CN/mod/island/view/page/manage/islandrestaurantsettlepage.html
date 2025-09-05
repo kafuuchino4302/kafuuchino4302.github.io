@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandrestaurantsettlepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandrestaurantsettlepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandRestaurantSettlePage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandRestaurantSettleUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.titleTF = slot0._tf:Find(&quot;title/name/Text&quot;)
+	slot1 = slot0._tf:Find(&quot;window/sale&quot;)
+
+	setText(slot1:Find(&quot;title&quot;), i18n(&quot;island_manage_sale_daily&quot;))
+
+	slot0.switchToggle = slot1:Find(&quot;switch&quot;)
+
+	setText(slot0.switchToggle:Find(&quot;on/Text&quot;), i18n(&quot;island_manage_fake_price&quot;))
+	setText(slot0.switchToggle:Find(&quot;off/Text&quot;), i18n(&quot;island_manage_real_price&quot;))
+
+	slot0.saleUIList = UIItemList.New(slot1:Find(&quot;content&quot;), slot1:Find(&quot;content/tpl&quot;))
+	slot2 = slot0._tf:Find(&quot;window/remain&quot;)
+
+	setText(slot2:Find(&quot;title&quot;), i18n(&quot;island_manage_result_1&quot;))
+
+	slot0.remainUIList = UIItemList.New(slot2:Find(&quot;content&quot;), slot2:Find(&quot;content/tpl&quot;))
+	slot3 = slot0._tf:Find(&quot;window/summary&quot;)
+
+	setText(slot3:Find(&quot;title/Text&quot;), i18n(&quot;island_manage_result_3&quot;))
+
+	slot0.countTF = slot3:Find(&quot;count/info/value&quot;)
+
+	setText(slot3:Find(&quot;count/info/name&quot;), i18n(&quot;island_manage_word_cnt&quot;))
+
+	slot0.priceTF = slot3:Find(&quot;price/info/value&quot;)
+
+	setText(slot3:Find(&quot;price/info/name&quot;), i18n(&quot;island_manage_saleroom&quot;))
+
+	slot0.expSliderTF = slot3:Find(&quot;exp/info/slider&quot;)
+	slot0.expProgressTF = slot3:Find(&quot;exp/info/slider/progress&quot;)
+
+	setText(slot3:Find(&quot;exp/info/name&quot;), i18n(&quot;island_manage_shop_exp&quot;))
+	setText(slot0._tf:Find(&quot;tip&quot;), i18n(&quot;child_close_tip&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;mask&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onToggle(slot0, slot0.switchToggle, function (slot0)
+		slot1 = uv0.saleUIList
+
+		slot1:eachActive(function (slot0, slot1)
+			setActive(slot1:Find(&quot;price&quot;), uv0)
+		end)
+	end, SFX_PANEL)
+
+	slot1 = slot0.saleUIList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.saleList[slot1 + 1]
+
+			uv0:UpdateCommonItem(slot2, slot3)
+			setText(slot2:Find(&quot;price/Text&quot;), slot3.price)
+		end
+	end)
+
+	slot1 = slot0.remainUIList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateCommonItem(slot2, uv0.remainList[slot1 + 1])
+		end
+	end)
+
+	slot0.maxAttrEffect = pg.island_chara_att[1].manage_effect / 10000
+end
+
+slot0.OnShow = function(slot0, slot1, slot2)
+	slot0:BlurPanel()
+
+	slot0.callback = slot2
+	slot0.restId = slot1.restId
+	slot0.shipCnt = slot1.oldShipCnt
+	slot0.ships = {}
+	slot3 = getProxy(IslandProxy):GetIsland():GetCharacterAgency()
+
+	for slot7, slot8 in ipairs(slot1.shipIds) do
+		table.insert(slot0.ships, slot3:GetShipById(slot8))
+	end
+
+	slot7 = slot0.restId
+
+	setText(slot0.titleTF, pg.island_manage_restaurant[slot7].name)
+
+	slot0.saleList = slot1.saleList
+
+	slot0.saleUIList:align(#slot0.saleList)
+
+	slot0.remainList = slot1.remainList
+
+	slot0.remainUIList:align(#slot0.remainList)
+
+	slot0.totalPrice = 0
+	slot0.totalCnt = 0
+
+	for slot7, slot8 in ipairs(slot0.saleList) do
+		slot0.totalCnt = slot0.totalCnt + slot8.num
+		slot0.totalPrice = slot0.totalPrice + slot8.price
+	end
+
+	setText(slot0.countTF, slot0.totalCnt)
+	setText(slot0.priceTF, slot0.totalPrice)
+
+	slot4 = getProxy(IslandProxy):GetIsland():GetManageAgency():GetRestaurant(slot0.restId)
+	slot5 = slot4:GetSales()
+	slot6 = slot4:GetCanUpgradeExp()
+
+	setSlider(slot0.expSliderTF, 0, 1, slot5 / slot6)
+	setText(slot0.expProgressTF, slot5 .. &quot;/&quot; .. slot6)
+	triggerToggle(slot0.switchToggle, false)
+end
+
+slot0.UpdateCommonItem = function(slot0, slot1, slot2)
+	LoadImageSpriteAsync(&quot;island/&quot; .. pg.island_item_data_template[slot2.id].icon, slot1:Find(&quot;bg/icon&quot;))
+	setText(slot1:Find(&quot;count/Text&quot;), slot2.num)
+	setFillAmount(slot1:Find(&quot;bg/silder/bar&quot;), slot0:GetAttrsFactorsRatio(slot2.id))
+end
+
+slot0.OnHide = function(slot0)
+	slot0:UnBlurPanel()
+	existCall(slot0.callback)
+
+	slot0.callback = nil
+end
+
+slot0.GetAttrsFactorsRatio = function(slot0, slot1)
+	slot2 = pg.island_item_data_template[slot1].sub_attribute
+	slot3 = slot2[2] / 100
+
+	return (IslandRestaurantPage.CaclShipAttrFactors(slot0.ships, IslandShipAttr.MANAGE_KEY) + IslandRestaurantPage.CaclShipAttrFactors(slot0.ships, slot2[1]) * slot3) / (slot0.shipCnt * (slot0.maxAttrEffect + slot0.maxAttrEffect * slot3))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg014.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg014.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG014&quot;,
+	events = {
+		{
+			alpha = 0,
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;WG001&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;clickBtn&quot;
+			},
+			style = {
+				text = &quot;点击打开仓库&quot;,
+				mode = 2,
+				dir = 1,
+				posY = -229.8,
+				posX = 491.03
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/top/right_stage/dock/inventory_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -29.38,
+					posX = 83.93
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;IntroduceEquip&quot;
+			},
+			style = {
+				text = &quot;介绍下装备页面&quot;,
+				mode = 2,
+				dir = 1,
+				posY = -162.96,
+				posX = 194.15
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/topItems/bottom_back/types/siren_weapon&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/topItems/bottom_back/types/siren_weapon&quot;,
+				triggerType = {
+					2
+				},
+				fingerPos = {
+					posY = -34.92,
+					posX = 122.22
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_801723.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_801723.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;格伦维尔meta射子弹&quot;,
+	time = 1.5,
+	stack = 12,
+	id = 801723,
+	picture = &quot;&quot;,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCleanse&quot;,
+			pop = {},
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id_list = {
+					801722
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				buff_id = 801724
+			}
+		},
+		{
+			type = &quot;BattleBuffCleanse&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				buff_id_list = {
+					801724,
+					801725
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801721,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 2,
+				countType = 20
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801722,
+				target = &quot;TargetSelf&quot;,
+				countType = 20
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 3,
+				countType = 30
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801723,
+				target = &quot;TargetSelf&quot;,
+				countType = 30
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 4,
+				countType = 40
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801724,
+				target = &quot;TargetSelf&quot;,
+				countType = 40
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 5,
+				countType = 50
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801725,
+				target = &quot;TargetSelf&quot;,
+				countType = 50
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 6,
+				countType = 60
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801726,
+				target = &quot;TargetSelf&quot;,
+				countType = 60
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 7,
+				countType = 70
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801727,
+				target = &quot;TargetSelf&quot;,
+				countType = 70
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 8,
+				countType = 80
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801728,
+				target = &quot;TargetSelf&quot;,
+				countType = 80
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 9,
+				countType = 90
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801729,
+				target = &quot;TargetSelf&quot;,
+				countType = 90
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 10,
+				countType = 100
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801730,
+				target = &quot;TargetSelf&quot;,
+				countType = 100
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 11,
+				countType = 110
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801731,
+				target = &quot;TargetSelf&quot;,
+				countType = 110
+			}
+		},
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				countTarget = 12,
+				countType = 120
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				quota = 1,
+				skill_id = 801732,
+				target = &quot;TargetSelf&quot;,
+				countType = 120
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

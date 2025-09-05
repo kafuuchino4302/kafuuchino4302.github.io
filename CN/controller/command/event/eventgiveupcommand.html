@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventgiveupcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>eventgiveupcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EventGiveUpCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if getProxy(EventProxy):getEventInfo(slot1:getBody().id):IsActivityType() then
+		slot0:sendNotification(GAME.ACT_COLLECTION_EVENT_OP, {
+			arg2 = 0,
+			cmd = ActivityConst.COLLETION_EVENT_OP_GIVE_UP,
+			arg1 = slot3,
+			arg_list = {}
+		})
+	else
+		slot6 = pg.ConnectionMgr.GetInstance()
+
+		slot6:Send(13007, {
+			id = slot3
+		}, 13008, function (slot0)
+			if slot0.result == 0 then
+				uv0.OnCancel(uv1)
+			else
+				pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;event_giveup_fail&quot;, slot0.result))
+			end
+		end)
+	end
+end
+
+slot0.OnCancel = function(slot0)
+	pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;event_giveup_success&quot;))
+
+	slot1 = getProxy(EventProxy)
+	slot2 = slot1:getEventInfo(slot0)
+	slot2.finishTime = 0
+	slot2.shipIds = {}
+
+	slot1:updateInfoList({
+		slot2
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gameroomdoappview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gameroomdoappview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GameRoomDOAPPView&quot;, import(&quot;view.miniGame.MiniGameTemplateView&quot;))
+slot0.canSelectStage = false
+
+slot0.getUIName = function(slot0)
+	return &quot;GameRoomDOAPPUI&quot;
+end
+
+slot0.getGameController = function(slot0)
+	return DOAPPMiniGameController
+end
+
+slot0.initPageUI = function(slot0)
+	uv0.super.initPageUI(slot0)
+
+	slot3 = slot0.rtTitlePage
+
+	onButton(slot0, slot3:Find(&quot;main/btn_help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.doa_minigame_help.tip
+		})
+	end, SFX_PANEL)
+
+	slot1 = slot0:GetMGData()
+	slot1 = slot1:GetSimpleValue(&quot;story&quot;)
+	slot4 = slot0.rtTitlePage
+
+	onButton(slot0, slot4:Find(&quot;main/btn_start&quot;), function ()
+		slot0 = {}
+
+		if checkExist(uv0, {
+			uv1.stageIndex
+		}, {
+			1
+		}) then
+			table.insert(slot0, function (slot0)
+				pg.NewStoryMgr.GetInstance():Play(uv0, slot0)
+			end)
+		end
+
+		seriesAsync(slot0, function ()
+			uv0:openUI(&quot;select&quot;)
+			uv0:openCoinLayer(false)
+		end)
+	end, SFX_PANEL)
+
+	slot2 = slot0.rtTitlePage
+	slot2 = slot2:Find(&quot;select&quot;)
+
+	onButton(slot0, slot2:Find(&quot;btn_back&quot;), function ()
+		uv0:openUI(&quot;main&quot;)
+		uv0:openCoinLayer(true)
+		uv0:openCoinLayer(true)
+	end, SFX_CANCEL)
+	onButton(slot0, slot2:Find(&quot;btn/confirm&quot;), function ()
+		if not uv0.character then
+			pg.TipsMgr.GetInstance():ShowTips(&quot;without selected character&quot;)
+
+			return
+		end
+
+		uv0.gameController:ResetGame()
+		uv0.gameController:ReadyGame({
+			name = uv0.character
+		})
+		uv0:openUI(&quot;countdown&quot;)
+	end, SFX_CONFIRM)
+	eachChild(slot2:Find(&quot;content&quot;), function (slot0)
+		setText(slot0:Find(&quot;name/Text&quot;), i18n(&quot;doa_minigame_&quot; .. slot0.name))
+		onToggle(uv0, slot0, function (slot0)
+			if slot0 then
+				uv0.character = uv1.name
+
+				setAnchoredPosition(uv1:Find(uv1.name), {
+					x = 70
+				})
+				quickPlayAnimator(uv1:Find(uv1.name .. &quot;/Image&quot;), &quot;Win&quot;)
+			else
+				if uv0.character == uv1.name then
+					uv0.character = nil
+				end
+
+				setAnchoredPosition(uv1:Find(uv1.name), {
+					x = 110
+				})
+				quickPlayAnimator(uv1:Find(uv1.name .. &quot;/Image&quot;), &quot;Idle&quot;)
+			end
+		end, SFX_PANEL)
+	end)
+end
+
+slot1 = function(slot0, slot1, slot2, slot3)
+	eachChild(slot0:Find(&quot;mask&quot;), function (slot0)
+		setActive(slot0, slot0.name == uv0)
+	end)
+	setText(slot0:Find(&quot;name/Text&quot;), i18n(&quot;doa_minigame_&quot; .. slot1))
+	eachChild(slot0:Find(&quot;name/Text&quot;), function (slot0)
+		setActive(slot0, slot0.name == uv0)
+	end)
+	setActive(slot0:Find(&quot;result/lose&quot;), slot3 &lt; 0)
+	setActive(slot0:Find(&quot;result/win&quot;), slot3 &gt; 0)
+	eachChild(slot0:Find(&quot;point&quot;), function (slot0)
+		setActive(slot0, tonumber(slot0.name) &lt;= uv0)
+	end)
+end
+
+slot0.initOpenUISwich = function(slot0)
+	uv0.super.initOpenUISwich(slot0)
+
+	slot0.openSwitchDic.result = function()
+		uv0(uv1.rtTitlePage:Find(&quot;result/window/self&quot;), uv1.gameController:GetResultInfo(false))
+		uv0(uv1.rtTitlePage:Find(&quot;result/window/other&quot;), uv1.gameController:GetResultInfo(true))
+
+		slot0 = uv1:GetMGHubData()
+
+		uv1:SendSuccess(0)
+	end
+
+	slot0.openSwitchDic.select = function()
+		triggerToggle(uv0.rtTitlePage:Find(&quot;select/content/Marie&quot;), true)
+	end
+end
+
+slot0.initBackPressSwitch = function(slot0)
+	uv0.super.initBackPressSwitch(slot0)
+
+	slot0.backPressSwitchDic.select = function()
+		uv0:openUI(&quot;main&quot;)
+		uv0:openCoinLayer(true)
+	end
+end
+
+slot0.willExit = function(slot0)
+	slot0.gameController:willExit()
+end
+
+slot0.getShowSide = function(slot0)
+	return false
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

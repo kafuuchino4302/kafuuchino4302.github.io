@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandfoodcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandfoodcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandFoodCard&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._go = slot1
+	slot0._tf = slot1.transform
+	slot0.iconTF = slot0._tf:Find(&quot;bg/icon&quot;)
+	slot0.barTF = slot0._tf:Find(&quot;bg/silder/bar&quot;)
+	slot0.countTF = slot0._tf:Find(&quot;count/Text&quot;)
+	slot0.eventTF = slot0._tf:Find(&quot;event&quot;)
+	slot0.selectedTF = slot0._tf:Find(&quot;selected&quot;)
+end
+
+slot0.Update = function(slot0, slot1, slot2, slot3, slot4)
+	slot0.item = slot1
+
+	GetImageSpriteFromAtlasAsync(&quot;island/&quot; .. slot0.item:GetIcon(), &quot;&quot;, slot0.iconTF)
+	slot0:UpdateSelectedCnt(slot2)
+	setActive(slot0.eventTF, slot3)
+	setFillAmount(slot0.barTF, slot4)
+end
+
+slot0.UpdateSelectedCnt = function(slot0, slot1)
+	setText(slot0.countTF, slot0.item:GetCount() - slot1)
+	setActive(slot0.selectedTF, slot1 &gt; 0)
+end
+
+slot0.Dispose = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

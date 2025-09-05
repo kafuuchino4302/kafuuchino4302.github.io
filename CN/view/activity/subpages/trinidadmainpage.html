@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trinidadmainpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>trinidadmainpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TrinidadMainPage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+slot1 = 71136
+slot2 = 5941
+slot3 = 5941
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.btn_list = slot0:findTF(&quot;btn_list&quot;, slot0.bg)
+	slot0.buildbtn = slot0:findTF(&quot;build&quot;, slot0.btn_list)
+	slot0.build_bgtime = slot0:findTF(&quot;build_bgtime&quot;, slot0.buildbtn)
+	slot0.build_time = slot0:findTF(&quot;time&quot;, slot0.build_bgtime)
+	slot0.fightbtn = slot0:findTF(&quot;fight&quot;, slot0.btn_list)
+	slot0.shopbtn = slot0:findTF(&quot;shop&quot;, slot0.btn_list)
+	slot0.shop_bgtime = slot0:findTF(&quot;shop_bgtime&quot;, slot0.shopbtn)
+	slot0.shop_time = slot0:findTF(&quot;time&quot;, slot0.shop_bgtime)
+	slot0.Manual = slot0:findTF(&quot;Manual&quot;, slot0.bg)
+
+	SetActive(slot0.build_bgtime, false)
+	SetActive(slot0.shop_bgtime, false)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.timeMgr = pg.TimeMgr.GetInstance()
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.Manual, function ()
+		uv0:emit(ActivityMediator.ON_ADD_SUBLAYER, Context.New({
+			mediator = MedalAlbumTemplateMediator,
+			viewComponent = TowerRoseMedalAlbumView
+		}))
+	end)
+	slot0:updateUI()
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0:updateUI()
+end
+
+slot0.updateUI = function(slot0)
+	slot1, slot2 = slot0.timeMgr:inTime(pg.shop_template[uv0].time)
+	slot3 = nil
+
+	if slot2 then
+		slot3 = uv1:TimeStamps(slot0.timeMgr:Table2ServerTime(slot2))
+	end
+
+	if slot3 and slot3 ~= 0 then
+		setActive(slot0.shop_bgtime, true)
+		setText(slot0.shop_time, slot3)
+	else
+		setActive(slot0.shop_bgtime, false)
+	end
+
+	onButton(slot0, slot0.shopbtn, function ()
+		if uv0 == nil then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+			return
+		end
+
+		uv1:emit(ActivityMediator.GO_CHANGE_SHOP)
+	end)
+
+	slot4, slot5 = slot0.timeMgr:inTime(pg.activity_template[uv2].time)
+	slot6 = nil
+
+	if slot5 then
+		slot6 = uv1:TimeStamps(slot0.timeMgr:Table2ServerTime(slot5))
+	end
+
+	if slot6 and slot6 ~= 0 then
+		setActive(slot0.build_bgtime, true)
+		setText(slot0.build_time, i18n(&quot;tolovemainpage_build_countdown&quot;))
+	else
+		setActive(slot0.build_bgtime, false)
+	end
+
+	onButton(slot0, slot0.buildbtn, function ()
+		if uv0 == nil then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+			return
+		end
+
+		uv1:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.GETBOAT, {
+			page = BuildShipScene.PAGE_BUILD,
+			projectName = BuildShipScene.PROJECTS.ACTIVITY
+		})
+	end)
+	onButton(slot0, slot0.fightbtn, function ()
+		uv0:emit(ActivityMediator.BATTLE_OPERA)
+	end)
+end
+
+slot0.TimeStamps = function(slot0, slot1)
+	if math.floor(math.max(slot1 - pg.TimeMgr.GetInstance():GetServerTime(), 0) / 86400) &gt; 0 then
+		return 0
+	elseif math.floor(slot3 / 3600) &gt; 0 then
+		return i18n(&quot;time_remaining_tip&quot;) .. slot5 .. i18n(&quot;word_hour&quot;)
+	elseif math.floor(slot3 / 60) &gt; 0 then
+		return i18n(&quot;time_remaining_tip&quot;) .. slot6 .. i18n(&quot;word_minute&quot;)
+	else
+		return i18n(&quot;time_remaining_tip&quot;) .. slot3 .. i18n(&quot;word_second&quot;)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bossrushverzenkerpassedlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>bossrushverzenkerpassedlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BossRushVerZenkerPassedLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;BossRushVerZenkerPassedUI&quot;
+end
+
+slot0.didEnter = function(slot0)
+	slot1 = pg.UIMgr.GetInstance()
+
+	slot1:OverlayPanel(slot0._tf)
+
+	slot1 = {
+		word = true,
+		glow = true
+	}
+	slot3 = slot0._tf
+
+	eachChild(slot3:Find(&quot;main&quot;), function (slot0, slot1)
+		setActive(slot0, uv0[slot0.name] or slot0.name == tostring(BossRushVerZenkerPassedLayer.seriesId))
+	end)
+
+	slot3 = slot0._tf
+
+	eachChild(slot3:Find(&quot;Image/content&quot;), function (slot0, slot1)
+		setActive(slot0, slot1 &lt; uv0.contextData.maxIndex)
+	end)
+	seriesAsync({
+		function (slot0)
+			triggerToggle(uv0._tf:Find(&quot;Image/content&quot;):GetChild(uv0.contextData.curIndex - 1), true)
+			onDelayTick(slot0, 1.5)
+		end,
+		function (slot0)
+			triggerToggle(uv0._tf:Find(&quot;Image/content&quot;):GetChild(uv0.contextData.curIndex), true)
+			onDelayTick(slot0, 1.5)
+		end
+	}, function ()
+		uv0:closeView()
+	end)
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

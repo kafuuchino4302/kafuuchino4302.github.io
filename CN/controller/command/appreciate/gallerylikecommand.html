@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallerylikecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gallerylikecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GalleryLikeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot5 = slot2.likeCBFunc
+	slot6 = getProxy(AppreciateProxy)
+	slot7 = pg.ConnectionMgr.GetInstance()
+
+	slot7:Send(17505, {
+		id = slot2.picID,
+		action = slot2.isAdd
+	}, 17506, function (slot0)
+		if slot0.result == 0 then
+			if uv0 == 0 then
+				uv1:addPicIDToLikeList(uv2)
+			elseif uv0 == 1 then
+				uv1:removePicIDFromLikeList(uv2)
+			end
+
+			if uv3 then
+				uv3()
+			end
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;Like Fail&quot; .. tostring(slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

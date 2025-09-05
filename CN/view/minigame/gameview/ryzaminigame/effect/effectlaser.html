@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>effectlaser.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>effectlaser.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EffectLaser&quot;, import(&quot;view.miniGame.gameView.RyzaMiniGame.effect.TargetEffect&quot;))
+
+slot0.GetBaseOrder = function(slot0)
+	if slot0.mark == &quot;N&quot; then
+		return uv0.super.GetBaseOrder(slot0)
+	else
+		return 500
+	end
+end
+
+slot0.InitUI = function(slot0, slot1)
+	slot0.mark = slot1.mark
+
+	slot0:UpdatePos(slot0.pos)
+
+	slot2 = slot0._tf:Find(&quot;scale/&quot; .. slot0.mark)
+
+	setActive(slot2, true)
+	slot2:Find(&quot;base&quot;):GetComponent(typeof(DftAniEvent)):SetEndEvent(function ()
+		uv0:Destroy()
+	end)
+
+	if slot0.responder:CollideRyza(slot0) then
+		slot0:Calling(&quot;hit&quot;, {
+			1,
+			slot0.realPos
+		}, MoveRyza)
+	end
+end
+
+slot0.GetCollideRange = function(slot0)
+	switch(slot0.mark, {
+		N = function ()
+			uv0 = {
+				{
+					-0.5,
+					0.5
+				},
+				{
+					-25,
+					-0.5
+				}
+			}
+		end,
+		S = function ()
+			uv0 = {
+				{
+					-0.5,
+					0.5
+				},
+				{
+					0.5,
+					25
+				}
+			}
+		end,
+		W = function ()
+			uv0 = {
+				{
+					-25,
+					-0.5
+				},
+				{
+					-0.5,
+					0.5
+				}
+			}
+		end,
+		E = function ()
+			uv0 = {
+				{
+					0.5,
+					25
+				},
+				{
+					-0.5,
+					0.5
+				}
+			}
+		end
+	})
+
+	return {
+		nil
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

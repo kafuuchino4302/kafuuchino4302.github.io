@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agoradecorationview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>agoradecorationview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AgoraDecorationView&quot;, import(&quot;Mod.Island.Core.View.IslandBaseSubView&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;IslandAgoraDecorationUI&quot;
+end
+
+slot0.OnInit = function(slot0, slot1)
+	slot0._go = slot1
+	slot0._tf = slot1.transform
+
+	setParent(slot1, pg.UIMgr.GetInstance().UIMain)
+
+	slot0.cards = {}
+	slot0.scrollRect = slot0._tf:Find(&quot;panel/scrollrect&quot;):GetComponent(&quot;LScrollRect&quot;)
+	slot0.agoraSaveBtn = slot0._tf:Find(&quot;btns/save&quot;)
+	slot0.agoraUpgradeBtn = slot0._tf:Find(&quot;btns/upgrade&quot;)
+	slot0.agoraClearBtn = slot0._tf:Find(&quot;btns/clear&quot;)
+	slot0.agoraRevertBtn = slot0._tf:Find(&quot;btns/revert&quot;)
+	slot0.agoraShopBtn = slot0._tf:Find(&quot;btns/shop&quot;)
+	slot0.agoraSwitchBtn = slot0._tf:Find(&quot;btns/switch&quot;)
+	slot0.backBtn = slot0._tf:Find(&quot;panel/back&quot;)
+
+	slot0:RegisterEvent()
+	setText(slot0._tf:Find(&quot;btns/upgrade/Text&quot;), i18n1(&quot;更新&quot;))
+	setText(slot0._tf:Find(&quot;btns/clear/Text&quot;), i18n1(&quot;清空&quot;))
+	setText(slot0._tf:Find(&quot;btns/revert/Text&quot;), i18n1(&quot;还原&quot;))
+	setText(slot0._tf:Find(&quot;btns/save/Text&quot;), i18n1(&quot;保存&quot;))
+	setText(slot0._tf:Find(&quot;btns/switch/Text&quot;), i18n1(&quot;当前:室外&quot;))
+	setText(slot0._tf:Find(&quot;btns/capacity/Text&quot;), i18n1(&quot;容量: 1/1&quot;))
+	setText(slot0._tf:Find(&quot;panel/title/Text&quot;), i18n1(&quot;集会所&quot;))
+end
+
+slot0.RegisterEvent = function(slot0)
+	slot0.scrollRect.onInitItem = function(slot0)
+		uv0:OnInitItem(slot0)
+	end
+
+	slot0.scrollRect.onUpdateItem = function(slot0, slot1)
+		uv0:OnUpdateItem(slot0, slot1)
+	end
+
+	onButton(slot0, slot0.agoraSaveBtn, function ()
+		uv0:Op(&quot;Save&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.agoraUpgradeBtn, function ()
+		uv0:Op(&quot;Upgrade&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.agoraClearBtn, function ()
+		uv0:Op(&quot;ClearAll&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.agoraRevertBtn, function ()
+		uv0:Op(&quot;Revert&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.agoraShopBtn, function ()
+		pg.TipsMgr.GetInstance():ShowTips(i18n1(&quot;尚未开发&quot;))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.agoraSwitchBtn, function ()
+		pg.TipsMgr.GetInstance():ShowTips(i18n1(&quot;尚未开发&quot;))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:Op(&quot;RevertAndExit&quot;)
+	end, SFX_PANEL)
+end
+
+slot0.OnInitItem = function(slot0, slot1)
+	slot2 = AgoraDecorationCard.New(slot1)
+
+	onButton(slot0, slot2._go, function ()
+		if uv0.isUsing then
+			return
+		end
+
+		uv1:Op(&quot;PlaceItemRandonPosition&quot;, uv0.item.id)
+	end, SFX_PANEL)
+
+	slot0.cards[slot1] = slot2
+end
+
+slot0.OnUpdateItem = function(slot0, slot1, slot2)
+	if not slot0.cards[slot2] then
+		slot0:OnInitItem(slot2)
+
+		slot3 = slot0.cards[slot2]
+	end
+
+	slot4 = slot0.displays[slot1 + 1]
+
+	slot3:Update(slot4.item, slot4.isUsing)
+end
+
+slot0.GetDisplays = function(slot0)
+	slot3 = {}
+
+	for slot7, slot8 in pairs(slot0:GetView().agora:GetPlaceableList()) do
+		table.insert(slot3, {
+			item = slot8,
+			isUsing = slot1.agora:IsUsing(slot8.id)
+		})
+	end
+
+	return slot3
+end
+
+slot0.Flush = function(slot0)
+	slot0:FlushList()
+end
+
+slot0.FlushList = function(slot0)
+	slot0.displays = slot0:GetDisplays()
+
+	slot0.scrollRect:SetTotalCount(#slot0.displays)
+end
+
+slot0.OnDestroy = function(slot0)
+	slot1 = pairs
+	slot2 = slot0.cards or {}
+
+	for slot4, slot5 in slot1(slot2) do
+		slot5:Dispose()
+	end
+
+	slot0.cards = {}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

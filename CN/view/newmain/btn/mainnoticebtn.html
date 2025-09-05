@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainnoticebtn.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainnoticebtn.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainNoticeBtn&quot;, import(&quot;.MainBaseBtn&quot;))
+
+slot0.OnClick = function(slot0)
+	if #getProxy(ServerNoticeProxy):getServerNotices(false) &gt; 0 then
+		slot0:emit(NewMainMediator.OPEN_NOTICE)
+	else
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;no_notice_tip&quot;))
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

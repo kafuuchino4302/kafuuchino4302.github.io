@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equipmentrarity.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>equipmentrarity.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EquipmentRarity&quot;)
+slot0.Gray = 2
+slot0.Blue = 3
+slot0.Purple = 4
+slot0.Gold = 5
+slot0.SSR = 6
+
+slot0.Rarity2Print = function(slot0)
+	return ItemRarity.Rarity2Print(slot0 - 1)
+end
+
+slot0.correctedLevel = {
+	{
+		0
+	},
+	{
+		0
+	},
+	{
+		0,
+		7
+	},
+	{
+		0,
+		11
+	},
+	{
+		0,
+		11,
+		12,
+		13
+	},
+	{
+		0,
+		11,
+		12,
+		13
+	}
+}
+
+slot0.Rarity2CorrectedLevel = function(slot0, slot1)
+	slot3 = nil
+
+	for slot7, slot8 in ipairs(uv0.correctedLevel[slot0]) do
+		if slot8 &gt; slot1 - 1 then
+			break
+		else
+			slot3 = slot7 - 1
+		end
+	end
+
+	return i18n(&quot;equip_info_extralevel_&quot; .. slot3)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

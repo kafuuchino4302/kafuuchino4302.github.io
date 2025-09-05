@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>island3dtasktrackpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>island3dtasktrackpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Island3dTaskTrackPanel&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;Island3dTaskTrackPanel&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.emptyTF = slot0._tf:Find(&quot;empty&quot;)
+	slot0.contentTF = slot0._tf:Find(&quot;content&quot;)
+	slot0.iconTF = slot0.contentTF:Find(&quot;title/icon&quot;)
+	slot0.nameTF = slot0.contentTF:Find(&quot;title/name&quot;)
+	slot0.finishedTF = slot0.contentTF:Find(&quot;target/finished&quot;)
+	slot0.unFinishTF = slot0.contentTF:Find(&quot;target/unfinish&quot;)
+	slot0.targetUIList = UIItemList.New(slot0.unFinishTF, slot0.unFinishTF:Find(&quot;tpl&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0.targetUIList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateTargetItem(slot1, slot2)
+		end
+	end)
+	onButton(slot0, slot0.emptyTF, function ()
+		existCall(uv0.contextData.onClick)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.contentTF, function ()
+		existCall(uv0.contextData.onClick)
+	end, SFX_PANEL)
+end
+
+slot0.UpdateTargetItem = function(slot0, slot1, slot2)
+	slot3 = slot0.trackTask:GetTargetList()[slot1 + 1]
+
+	setText(slot2:Find(&quot;content/Text&quot;), slot3:getConfig(&quot;name&quot;))
+	setText(slot2:Find(&quot;content/num&quot;), string.format(&quot;(%d/%d)&quot;, slot3:GetProgress(), slot3:GetTargetNum()))
+
+	slot6 = slot3:IsFinish()
+
+	setActive(slot2:Find(&quot;status/unfinish&quot;), not slot6)
+	setActive(slot2:Find(&quot;status/finished&quot;), slot6)
+
+	GetOrAddComponent(slot2:Find(&quot;content&quot;), &quot;CanvasGroup&quot;).alpha = slot6 and 0.5 or 1
+end
+
+slot0.UpdateTrackTask = function(slot0, slot1)
+	setActive(slot0.emptyTF, slot1 == 0)
+	setActive(slot0.contentTF, slot1 ~= 0)
+
+	if slot1 ~= 0 then
+		slot0.trackTask = getProxy(IslandProxy):GetIsland():GetTaskAgency():GetTraceTask()
+
+		LoadImageSpriteAsync(&quot;islandtasktype/&quot; .. IslandTaskType.ShowTypeFields[slot0.trackTask:GetShowType()], slot0.iconTF)
+		setText(slot0.nameTF, slot0.trackTask:GetName())
+		slot0:UpdateTarget()
+
+		if tonumber(slot0.trackTask:GetTraceParam()) then
+			_IslandCore:GetController():NotifiyCore(ISLAND_EVT.TRACKING, {
+				id = slot4
+			})
+		end
+	else
+		_IslandCore:GetController():NotifiyCore(ISLAND_EVT.UNTRACKING)
+	end
+end
+
+slot0.UpdateTarget = function(slot0)
+	slot1 = not slot0.trackTask:IsSubmitImmediately() and slot0.trackTask:IsFinish()
+
+	setActive(slot0.finishedTF, slot1)
+	setActive(slot0.unFinishTF, not slot1)
+
+	if slot1 then
+		setText(slot0.finishedTF, slot0.trackTask:GetFinishedDesc())
+	else
+		slot0.targetUIList:align(#slot0.trackTask:GetTargetList())
+	end
+end
+
+slot0.UpdateTask = function(slot0, slot1)
+	if slot0.trackTask and slot0.trackTask.id == slot1.id then
+		slot0.trackTask = getProxy(IslandProxy):GetIsland():GetTaskAgency():GetTask(slot1.id)
+
+		setActive(slot0.emptyTF, not slot0.trackTask)
+		setActive(slot0.contentTF, slot0.trackTask)
+
+		if slot0.trackTask then
+			slot0:UpdateTarget()
+		end
+	end
+end
+
+slot0.Show = function(slot0)
+	uv0.super.Show(slot0)
+	slot0:UpdateTrackTask(getProxy(IslandProxy):GetIsland():GetTaskAgency():GetTraceTask() and slot1.id or 0)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

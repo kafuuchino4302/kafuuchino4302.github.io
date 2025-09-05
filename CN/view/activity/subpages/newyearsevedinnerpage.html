@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newyearsevedinnerpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newyearsevedinnerpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewYearsEveDinnerPage&quot;, import(&quot;.TemplatePage.SkinTemplatePage&quot;))
+slot1 = 3
+slot2 = 2
+slot3 = Vector2(760, -144)
+slot4 = Vector2(370, -144)
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.roleTF = slot0:findTF(&quot;mask/role_pos&quot;, slot0.bg)
+	slot0.effectNode = slot0:findTF(&quot;mofang_yanwu&quot;, slot0.bg)
+	slot0.foodTF = slot0:findTF(&quot;food&quot;, slot0.bg)
+	slot0.dialogTF = slot0:findTF(&quot;dialog&quot;, slot0.bg)
+	slot0.rightPanel = slot0:findTF(&quot;right_panel&quot;, slot0.bg)
+	slot0.helpBtn = slot0:findTF(&quot;help_btn&quot;, slot0.rightPanel)
+	slot0.titleFoodTF = slot0:findTF(&quot;menu_title/icon&quot;, slot0.rightPanel)
+	slot0.cookBtn = slot0:findTF(&quot;cook_btn&quot;, slot0.rightPanel)
+	slot0.cookProgress = slot0:findTF(&quot;progress&quot;, slot0.cookBtn)
+	slot0.cookAwardTF = slot0:findTF(&quot;award&quot;, slot0.cookBtn)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.cookActID = slot0.activity:getConfig(&quot;config_client&quot;).linkTaskPoolAct
+	slot0.cookCfg = pg.activity_template[slot0.cookActID].config_client
+	slot0.cookTaskIds = pg.activity_template[slot0.cookActID].config_data
+	slot0.totalCookCnt = #slot0.cookTaskIds
+	slot0.playerId = getProxy(PlayerProxy):getData().id
+	slot0.randomSeed = slot0:GetRandomById()
+
+	uv0.super.OnDataSetting(slot0)
+end
+
+slot0.GetRandomById = function(slot0)
+	slot1 = slot0.playerId
+	slot2 = {}
+
+	while #slot2 &lt; 7 do
+		slot3 = slot1 % 10
+
+		if math.floor(slot1 / 10) == 0 then
+			slot1 = slot0.playerId
+		end
+
+		table.insert(slot2, slot3)
+	end
+
+	return slot2
+end
+
+slot0.OnFirstFlush = function(slot0)
+	uv0.super.OnFirstFlush(slot0)
+	onButton(slot0, slot0.helpBtn, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.sevenday_nianye.tip
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.cookBtn, function ()
+		if uv0.isMoving then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tip_nianye&quot;))
+
+			return
+		end
+
+		if uv0.isEffectPlaying then
+			return
+		end
+
+		if uv0.taskProxy:getTaskVO(uv0.curTaskId):getTaskStatus() == 1 then
+			setActive(uv0.effectNode, true)
+
+			uv0.isEffectPlaying = true
+
+			uv0:managedTween(LeanTween.delayedCall, function ()
+				uv0:emit(ActivityMediator.ON_TASK_SUBMIT, uv1)
+				setActive(uv0.effectNode, false)
+
+				uv0.isEffectPlaying = false
+			end, uv1, nil)
+		end
+	end, SFX_PANEL)
+	setActive(slot0:findTF(&quot;shine&quot;, slot0.cookBtn), false)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+
+	slot0.cookAct = getProxy(ActivityProxy):getActivityById(slot0.cookActID)
+
+	assert(slot0.cookAct and not slot0.cookAct:isEnd(), &quot;自选任务池活动(type86)已结束&quot;)
+	slot0:RefreshCookData()
+	slot0:UpdateCookData()
+	slot0:UpdateCookUI()
+end
+
+slot0.RefreshCookData = function(slot0)
+	slot0.usedCnt = slot0.cookAct:getData1()
+	slot1 = pg.TimeMgr.GetInstance()
+	slot0.unlockCnt = (slot1:DiffDay(slot0.cookAct:getStartTime(), slot1:GetServerTime()) + 1) * slot0.cookAct:getConfig(&quot;config_id&quot;)
+	slot0.unlockCnt = math.min(slot0.unlockCnt, slot0.totalCookCnt)
+	slot0.remainCnt = slot0.totalCookCnt &lt;= slot0.usedCnt and 0 or slot0.unlockCnt - slot0.usedCnt
+end
+
+slot0.UpdateCookData = function(slot0)
+	slot1 = 0
+	slot0.receivedTasks = {}
+	slot2 = underscore.rest(slot0.cookTaskIds, 1)
+
+	for slot6, slot7 in ipairs(slot0.cookTaskIds) do
+		if slot0.taskProxy:getTaskVO(slot7):isReceive() then
+			table.insert(slot0.receivedTasks, slot8)
+
+			slot1 = slot1 + 1
+
+			table.removebyvalue(slot2, slot7)
+		end
+	end
+
+	table.sort(slot0.receivedTasks, function (slot0, slot1)
+		return slot0.submitTime &lt; slot1.submitTime
+	end)
+
+	slot0.receivedTasks = underscore.map(slot0.receivedTasks, function (slot0)
+		return slot0.id
+	end)
+
+	if slot0.usedCnt ~= slot1 then
+		slot0.usedCnt = slot1
+		slot3 = slot0.cookAct
+		slot3.data1 = slot0.usedCnt
+
+		getProxy(ActivityProxy):updateActivity(slot3)
+
+		return
+	end
+
+	slot3 = slot0.remainCnt == 0 and slot0.usedCnt or slot0.usedCnt + 1
+
+	if slot0.remainCnt == 0 then
+		slot0.curTaskId = slot0.receivedTasks[#slot0.receivedTasks]
+	else
+		slot0.curTaskId = slot2[slot0.randomSeed[slot3] % #slot2 + 1]
+	end
+end
+
+slot0.UpdateCookUI = function(slot0)
+	setText(slot0.cookProgress, (slot0.remainCnt == 0 and slot0.usedCnt or slot0.usedCnt + 1) .. &quot;/&quot; .. slot0.totalCookCnt)
+
+	slot2 = slot0.taskProxy:getTaskVO(slot0.curTaskId)
+	slot3 = slot2:getConfig(&quot;award_display&quot;)[1]
+
+	updateDrop(slot0.cookAwardTF, {
+		type = slot3[1],
+		id = slot3[2],
+		count = slot3[3]
+	})
+
+	slot5 = slot2:getTaskStatus() == 2
+
+	setActive(slot0:findTF(&quot;got&quot;, slot0.cookAwardTF), slot5)
+	setActive(slot0:findTF(&quot;icon_bg/count&quot;, slot0.cookAwardTF), slot5)
+	setText(slot0:findTF(&quot;Text&quot;, slot0.dialogTF), i18n(slot0.cookCfg[slot0.curTaskId][3]))
+	GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/NewYearsEveDinnerPage_atlas&quot;, slot0.cookCfg[slot0.curTaskId][2], slot0.foodTF, true)
+	GetImageSpriteFromAtlasAsync(&quot;ui/activityuipage/NewYearsEveDinnerPage_atlas&quot;, slot5 and slot0.cookCfg[slot0.curTaskId][2] .. &quot;_2&quot; or &quot;unknown&quot;, slot0.titleFoodTF, true)
+
+	slot0.prefabName = slot0.cookCfg[slot0.curTaskId][1]
+
+	pg.UIMgr.GetInstance():LoadingOn()
+	PoolMgr.GetInstance():GetSpineChar(slot0.prefabName, true, function (slot0)
+		pg.UIMgr.GetInstance():LoadingOff()
+
+		uv0.modelTf = tf(slot0)
+		uv0.modelTf.localPosition = Vector3(0, 0, 0)
+		uv0.modelTf.localScale = Vector3(1, 1, 1)
+
+		uv0:ClearRole()
+		setParent(uv0.modelTf, uv0.roleTF)
+		uv0:PlayRoleAnim()
+	end)
+end
+
+slot0.ClearRole = function(slot0)
+	slot0.isMoving = false
+
+	if LeanTween.isTweening(slot0.roleTF) then
+		LeanTween.cancel(slot0.roleTF)
+	end
+
+	removeAllChildren(slot0.roleTF)
+end
+
+slot0.PlayRoleAnim = function(slot0)
+	slot3 = slot0.modelTf:GetComponent(&quot;SpineAnimUI&quot;)
+
+	setActive(slot0.foodTF, false)
+	setActive(slot0.dialogTF, false)
+	setActive(slot0:findTF(&quot;shine&quot;, slot0.cookBtn), false)
+
+	if slot0.taskProxy:getTaskVO(slot0.curTaskId):getTaskStatus() == 2 then
+		setAnchoredPosition(slot0.roleTF, uv0)
+		slot3:SetAction(&quot;normal&quot;, 0)
+		setActive(slot0.foodTF, true)
+		setActive(slot0.dialogTF, true)
+		setActive(slot0:findTF(&quot;shine&quot;, slot0.cookBtn), not slot2 and slot0.remainCnt &gt; 0)
+	else
+		slot3:SetAction(&quot;move&quot;, 0)
+
+		slot0.isMoving = true
+
+		setAnchoredPosition(slot0.roleTF, uv1)
+		slot0:managedTween(LeanTween.moveX, function ()
+			uv0:SetAction(&quot;normal&quot;, 0)
+
+			uv1.isMoving = false
+
+			setActive(uv1.foodTF, uv2)
+			setActive(uv1.dialogTF, uv2)
+			setActive(uv1:findTF(&quot;shine&quot;, uv1.cookBtn), not uv2 and uv1.remainCnt &gt; 0)
+		end, slot0.roleTF, uv0.x, uv2):setEase(LeanTweenType.linear)
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0.prefabName and slot0.modelTf then
+		PoolMgr.GetInstance():ReturnSpineChar(slot0.prefabName, slot0.modelTf.gameObject)
+
+		slot0.prefabName = nil
+		slot0.modelTf = nil
+	end
+
+	slot0:cleanManagedTween()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

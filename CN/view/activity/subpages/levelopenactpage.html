@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelopenactpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelopenactpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelOpenActPage&quot;, import(&quot;view.base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf
+	slot1 = slot1:Find(&quot;AD/task_list/content&quot;)
+	slot0.uiList = UIItemList.New(slot1, slot1:Find(&quot;tpl&quot;))
+	slot2 = slot0.uiList
+
+	slot2:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateTask(slot2, uv0.taskVOs[slot1 + 1])
+		end
+	end)
+end
+
+slot0.OnDataSetting = function(slot0)
+	if not getProxy(TaskProxy):getTaskVO(slot0.activity:getConfig(&quot;config_data&quot;)[1][1]) then
+		pg.m02:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 1,
+			activity_id = slot1.id
+		})
+
+		return true
+	else
+		return false
+	end
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot1 = getProxy(TaskProxy)
+	slot0.taskVOs = underscore.map(slot0.activity:getConfig(&quot;config_data&quot;)[1], function (slot0)
+		return uv0:getTaskVO(slot0)
+	end)
+
+	table.sort(slot0.taskVOs, CompareFuncs({
+		function (slot0)
+			if slot0:isReceive() then
+				return 2
+			elseif slot0:isFinish() then
+				return 0
+			else
+				return 1
+			end
+		end
+	}))
+	slot0.uiList:align(#slot0.taskVOs)
+end
+
+slot0.UpdateTask = function(slot0, slot1, slot2)
+	setImageAlpha(slot1:Find(&quot;bg&quot;), slot2:getTaskStatus() == 2 and 0.5 or 1)
+	eachChild(slot1:Find(&quot;status&quot;), function (slot0)
+		setActive(slot0, slot0:GetSiblingIndex() == uv0)
+	end)
+	setCanvasGroupAlpha(slot1:Find(&quot;canvas&quot;), slot3 == 2 and 0.2 or 1)
+
+	slot5 = slot2:getConfig(&quot;desc&quot;)
+
+	if slot3 == 2 then
+		setSlider(slot4:Find(&quot;progress&quot;), 0, 1, 1)
+	else
+		slot6 = slot2:getProgress()
+		slot7 = slot2:getConfig(&quot;target_num&quot;)
+		slot5 = slot5 .. &quot; &quot; .. setColorStr(&quot;(&quot; .. slot6 .. &quot;/&quot; .. slot7 .. &quot;)&quot;, COLOR_RED)
+
+		setSlider(slot4:Find(&quot;progress&quot;), 0, slot7, slot6)
+	end
+
+	setText(slot1:Find(&quot;canvas/Text&quot;), slot5)
+
+	slot6 = underscore.rest(slot2:getConfig(&quot;award_display&quot;), 1)
+
+	while #slot6 &gt; 3 do
+		table.remove(slot6)
+	end
+
+	slot7 = UIItemList.New(slot4:Find(&quot;items&quot;), slot4:Find(&quot;items/IconTpl&quot;))
+
+	slot7:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1]
+
+			updateDrop(slot2, {
+				type = slot3[1],
+				id = slot3[2],
+				count = slot3[3]
+			})
+			onButton(uv1, slot2, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+		end
+	end)
+	slot7:align(#slot6)
+
+	if slot3 == 2 then
+		removeOnButton(slot1)
+	elseif slot3 == 1 then
+		onButton(slot0, slot1, function ()
+			uv0:emit(ActivityMediator.ON_TASK_SUBMIT, uv1)
+		end, SFX_PANEL)
+	elseif slot3 == 0 then
+		onButton(slot0, slot1, function ()
+			uv0:emit(ActivityMediator.ON_TASK_GO, uv1)
+		end, SFX_PANEL)
+	else
+		assert(false, &quot;task status error:&quot; .. slot2.id)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

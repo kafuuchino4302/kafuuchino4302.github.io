@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildcommadercommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildcommadercommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildCommaderCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.callback
+	slot5 = slot2.tip
+	slot8 = getProxy(PlayerProxy):getData()
+	slot9 = getProxy(BagProxy)
+	slot11 = {}
+
+	for slot15, slot16 in ipairs(getProxy(CommanderProxy):getPoolById(slot2.id):getConsume()) do
+		if slot16[1] == DROP_TYPE_RESOURCE then
+			if slot8:getResById(slot16[2]) &lt; slot16[3] then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_resource&quot;))
+
+				return
+			end
+		elseif slot16[1] == DROP_TYPE_ITEM and slot9:getItemCountById(slot16[2]) &lt; slot16[3] then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_item_1&quot;))
+
+			return
+		end
+
+		table.insert(slot11, Drop.Create(slot16))
+	end
+
+	slot12 = pg.ConnectionMgr.GetInstance()
+
+	slot12:Send(25002, {
+		boxid = slot3
+	}, 25003, function (slot0)
+		if slot0.result == 0 then
+			uv0:updateBox(CommanderBox.New(slot0.box))
+
+			for slot5, slot6 in ipairs(uv1) do
+				uv2:sendNotification(GAME.CONSUME_ITEM, slot6)
+			end
+
+			uv2:sendNotification(GAME.COMMANDER_ON_BUILD_DONE)
+
+			if uv3 then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;commander_build_done&quot;))
+			end
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;commander_build_erro&quot;, slot0.result))
+		end
+
+		if uv4 then
+			uv4()
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

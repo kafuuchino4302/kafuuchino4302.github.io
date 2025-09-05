@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playervitaespinebtn.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>playervitaespinebtn.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PlayerVitaeSpineBtn&quot;, import(&quot;.PlayerVitaeBaseBtn&quot;))
+
+slot0.GetBgName = function(slot0)
+	if slot0:IsHrzType() then
+		return &quot;share/btn_l2d_atlas&quot;, &quot;spine_painting_bg&quot;
+	else
+		return &quot;AdmiralUI_atlas&quot;, &quot;sp&quot;
+	end
+end
+
+slot0.IsActive = function(slot0, slot1)
+	return checkABExist(HXSet.autoHxShiftPath(&quot;spinepainting/&quot; .. slot1:getPainting()))
+end
+
+slot0.GetDefaultValue = function(slot0)
+	return getProxy(SettingsProxy):getCharacterSetting(slot0.ship.id, SHIP_FLAG_SP)
+end
+
+slot0.OnSwitch = function(slot0, slot1)
+	if (ShipSkin.GetChangeSkinData(slot0.ship:getSkinId()) and true or false) and not Live2dConst.GetLive2DArm32MatchAble() then
+		getProxy(SettingsProxy):setCharacterSetting(slot0.ship.id, SHIP_FLAG_L2D, slot1)
+	end
+
+	getProxy(SettingsProxy):setCharacterSetting(slot0.ship.id, SHIP_FLAG_SP, slot1)
+
+	return true
+end
+
+slot0.Load = function(slot0, slot1)
+	uv0.super.Load(slot0, slot1)
+
+	if slot0:IsHrzType() then
+		slot1.gameObject.name = &quot;spine&quot;
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

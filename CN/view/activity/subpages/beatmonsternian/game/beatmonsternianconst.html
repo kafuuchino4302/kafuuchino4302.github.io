@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beatmonsternianconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>beatmonsternianconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BeatMonsterNianConst&quot;)
+slot0.INPUT_TIME = 3
+slot0.ACTION_NAME_L = &quot;L&quot;
+slot0.ACTION_NAME_R = &quot;R&quot;
+slot0.ACTION_NAME_A = &quot;A&quot;
+slot0.ACTION_NAME_B = &quot;B&quot;
+slot0.MotionCombinations = {
+	BRB = &quot;isAttack8&quot;,
+	BRA = &quot;isAttack6&quot;,
+	ARA = &quot;isAttack6&quot;,
+	BBB = &quot;isAttack1&quot;,
+	ABB = &quot;isAttack4&quot;,
+	RBA = &quot;isAttack8&quot;,
+	LLA = &quot;isAttack1&quot;,
+	LBA = &quot;isAttack8&quot;,
+	RAB = &quot;isAttack4&quot;,
+	AAA = &quot;isAttack1&quot;,
+	BLB = &quot;isAttack7&quot;,
+	LRB = &quot;isAttack6&quot;,
+	RLA = &quot;isAttack2&quot;,
+	LAA = &quot;isAttack3&quot;,
+	LAB = &quot;isAttack4&quot;,
+	ALB = &quot;isAttack7&quot;,
+	ARB = &quot;isAttack8&quot;,
+	RRA = &quot;isAttack1&quot;,
+	LBB = &quot;isAttack7&quot;,
+	LRA = &quot;isAttack2&quot;,
+	LLB = &quot;isAttack5&quot;,
+	BBA = &quot;isAttack2&quot;,
+	ABA = &quot;isAttack3&quot;,
+	AAB = &quot;isAttack2&quot;,
+	BAB = &quot;isAttack3&quot;,
+	ALA = &quot;isAttack5&quot;,
+	RAA = &quot;isAttack3&quot;,
+	RLB = &quot;isAttack6&quot;,
+	BLA = &quot;isAttack5&quot;,
+	RBB = &quot;isAttack7&quot;,
+	BAA = &quot;isAttack4&quot;,
+	RRB = &quot;isAttack5&quot;
+}
+
+slot0.MatchAction = function(slot0)
+	return uv0.MotionCombinations[slot0] ~= nil
+end
+
+slot0.GetMatchAction = function(slot0)
+	return uv0.MotionCombinations[slot0]
+end
+
+slot0.GetMonsterAction = function(slot0)
+	return &quot;isAttack&quot;
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

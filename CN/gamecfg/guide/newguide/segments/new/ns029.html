@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ns029.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ns029.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;指挥官居然打败了大黄蜂，真不愧是我所看中的人才呀~&quot;,
+	&quot;我们快回港区领取演习成功的奖励吧~&quot;,
+	&quot;点击后退按钮回到主界面&quot;
+}
+
+return {
+	id = &quot;S029&quot;,
+	events = {
+		{
+			alpha = 0.17,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[1]
+			}
+		},
+		{
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[2]
+			},
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;
+			}
+		},
+		{
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 0,
+				text = slot0[3]
+			},
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

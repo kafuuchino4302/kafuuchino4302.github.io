@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>launchballtaskscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>launchballtaskscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LaunchBallTaskScene&quot;, import(&quot;..base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;LaunchBallTaskUI&quot;
+end
+
+slot0.getBGM = function(slot0)
+	return &quot;cw-story&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.taskDatas = getProxy(ActivityProxy):getActivityById(ActivityConst.MINIGAME_ZUMA_TASK):getConfig(&quot;config_client&quot;)
+	slot0.iconTpl = findTF(slot0._tf, &quot;ad/players/Viewport/Content/iconTpl&quot;)
+
+	setActive(slot0.iconTpl, false)
+
+	slot0.iconContent = findTF(slot0._tf, &quot;ad/players/Viewport/Content&quot;)
+	slot0.icons = {}
+
+	for slot5 = 1, #slot0.taskDatas do
+		slot6 = tf(instantiate(slot0.iconTpl))
+		slot7 = slot5
+		slot10 = nil
+
+		setActive(findTF(slot6, &quot;lock&quot;), not ((not LaunchBallActivityMgr.GetPlayerZhuanshuIndex(slot0.taskDatas[slot5].player) or LaunchBallActivityMgr.CheckZhuanShuAble(ActivityConst.MINIGAME_ZUMA, slot9)) and true))
+		GetSpriteFromAtlasAsync(&quot;ui/launchballtaskui_atlas&quot;, &quot;playerIcon&quot; .. slot0.taskDatas[slot5].player, function (slot0)
+			if slot0 then
+				setImageSprite(findTF(uv0, &quot;img&quot;), slot0, true)
+			end
+		end)
+		setParent(slot6, slot0.iconContent)
+		setActive(slot6, true)
+		onButton(slot0, slot6, function ()
+			if uv0 then
+				uv1:selectPlayer(uv2)
+			else
+				slot0 = nil
+
+				if uv2 == 2 then
+					slot0 = i18n(&quot;launchball_lock_Shinano&quot;)
+				elseif uv2 == 3 then
+					slot0 = i18n(&quot;launchball_lock_Yura&quot;)
+				elseif uv2 == 4 then
+					slot0 = i18n(&quot;launchball_lock_Shimakaze&quot;)
+				end
+
+				pg.TipsMgr.GetInstance():ShowTips(slot0)
+			end
+		end)
+		table.insert(slot0.icons, {
+			tf = slot6,
+			player = slot8
+		})
+	end
+
+	slot0.taskTpl = findTF(slot0._tf, &quot;ad/tasks/Viewport/Content/taskTpl&quot;)
+	slot0.taskContent = findTF(slot0._tf, &quot;ad/tasks/Viewport/Content&quot;)
+
+	setActive(slot0.taskTpl, false)
+
+	slot0.tasks = {}
+
+	onButton(slot0, findTF(slot0._tf, &quot;ad/getAll&quot;), function ()
+		if #uv0.submitTasks &gt; 1 then
+			uv0:emit(LaunchBallTaskMediator.SUBMIT_ALL, uv0.submitTasks)
+		end
+	end)
+
+	slot0.helpWindow = findTF(slot0._tf, &quot;helpWindow&quot;)
+
+	setActive(slot0.helpWindow, false)
+	onButton(slot0, findTF(slot0.helpWindow, &quot;ad&quot;), function ()
+		setActive(uv0.helpWindow, false)
+	end)
+	onButton(slot0, findTF(slot0.helpWindow, &quot;ad/btnOk&quot;), function ()
+		setActive(uv0.helpWindow, false)
+	end)
+	onButton(slot0, findTF(slot0._tf, &quot;ad/back&quot;), function ()
+		uv0:closeView()
+	end)
+	slot0:selectPlayer(1)
+end
+
+slot0.selectPlayer = function(slot0, slot1)
+	for slot5 = 1, #slot0.icons do
+		setActive(findTF(slot0.icons[slot5].tf, &quot;selected&quot;), slot0.icons[slot5].player == slot1)
+	end
+
+	slot0:updateTaskList(slot0:getTaskByPlayer(slot1))
+
+	slot0.selectPlayerId = slot1
+end
+
+slot0.updateTaskList = function(slot0, slot1)
+	slot0.submitTasks = {}
+
+	for slot5 = 1, #slot0.tasks do
+		setActive(slot0.tasks[slot5].tf, false)
+	end
+
+	slot2 = {}
+
+	for slot6 = 1, #slot1 do
+		slot7 = slot1[slot6][2]
+		slot8 = slot1[slot6][1]
+		slot10 = getProxy(TaskProxy):getFinishTaskById(slot7)
+
+		if getProxy(TaskProxy):getTaskById(slot7) then
+			table.insert(slot2, {
+				data = slot9,
+				type = slot8
+			})
+		elseif slot10 then
+			table.insert(slot2, {
+				data = slot10,
+				type = slot8
+			})
+		end
+	end
+
+	table.sort(slot2, function (slot0, slot1)
+		slot3 = slot1.data
+
+		if slot0.data:getTaskStatus() == 1 and slot3:getTaskStatus() ~= 1 then
+			return true
+		elseif slot2:getTaskStatus() ~= 1 and slot3:getTaskStatus() == 1 then
+			return false
+		elseif slot2:getTaskStatus() == 2 and slot3:getTaskStatus() ~= 2 then
+			return false
+		elseif slot2:getTaskStatus() ~= 2 and slot3:getTaskStatus() == 2 then
+			return true
+		else
+			return slot2.id &lt; slot3.id
+		end
+	end)
+
+	for slot6 = 1, #slot2 do
+		slot7 = nil
+
+		if slot6 &gt; #slot0.tasks then
+			slot7 = tf(instantiate(slot0.taskTpl))
+
+			setParent(slot7, slot0.taskContent)
+			setActive(slot7, true)
+			table.insert(slot0.tasks, {
+				tf = slot7
+			})
+		else
+			slot7 = slot0.tasks[slot6].tf
+		end
+
+		slot8 = slot2[slot6].data
+		slot10 = slot8.id
+		slot11, slot12, slot13, slot14 = nil
+		slot11 = slot8:getProgress()
+		slot12 = slot8:getTargetNumber()
+		slot14 = slot8:getConfig(&quot;award_display&quot;)[1]
+
+		setSlider(findTF(slot7, &quot;Slider&quot;), 0, 1, slot11 / slot12)
+		updateDrop(findTF(slot7, &quot;icon&quot;), {
+			type = slot14[1],
+			id = slot14[2],
+			count = slot14[3]
+		})
+		setActive(findTF(slot7, &quot;icon&quot;), true)
+		setText(findTF(slot7, &quot;desc&quot;), slot8:getConfig(&quot;desc&quot;))
+		setText(findTF(slot7, &quot;progress&quot;), slot11 .. &quot;/&quot; .. slot12)
+
+		slot16 = nil
+
+		if slot2[slot6].type == LaunchBallTaskMgr.type_series_split then
+			slot16 = i18n(&quot;launchball_spilt_series&quot;)
+		elseif slot9 == LaunchBallTaskMgr.type_close_split then
+			slot16 = i18n(&quot;launchball_spilt_mix&quot;)
+		elseif slot9 == LaunchBallTaskMgr.type_over_split then
+			slot16 = i18n(&quot;launchball_spilt_over&quot;)
+		elseif slot9 == LaunchBallTaskMgr.type_many_split then
+			slot16 = i18n(&quot;launchball_spilt_many&quot;)
+		end
+
+		if slot16 then
+			setActive(findTF(slot7, &quot;tip&quot;), true)
+		else
+			setActive(findTF(slot7, &quot;tip&quot;), false)
+		end
+
+		onButton(slot0, findTF(slot7, &quot;tip&quot;), function ()
+			setText(findTF(uv0.helpWindow, &quot;ad/desc&quot;), uv1)
+			setActive(uv0.helpWindow, true)
+		end)
+		setActive(findTF(slot7, &quot;go&quot;), slot8:getTaskStatus() == 0)
+		setActive(findTF(slot7, &quot;got&quot;), slot8:getTaskStatus() == 2)
+		setActive(findTF(slot7, &quot;get&quot;), slot8:getTaskStatus() == 1)
+		onButton(slot0, findTF(slot7, &quot;go&quot;), function ()
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.SIXTH_ANNIVERSARY_JP_DARK)
+		end)
+		onButton(slot0, findTF(slot7, &quot;get&quot;), function ()
+			pg.m02:sendNotification(GAME.SUBMIT_TASK, uv0)
+		end)
+		setActive(slot7, true)
+
+		if slot8:getTaskStatus() == 1 then
+			table.insert(slot0.submitTasks, slot8)
+		end
+	end
+
+	setActive(findTF(slot0._tf, &quot;ad/getAll&quot;), #slot0.submitTasks &gt; 1)
+end
+
+slot0.updateTasks = function(slot0)
+	slot0:selectPlayer(slot0.selectPlayerId)
+end
+
+slot0.getTaskByPlayer = function(slot0, slot1)
+	for slot5 = 1, #slot0.taskDatas do
+		if slot0.taskDatas[slot5].player == slot1 then
+			return slot0.taskDatas[slot5].task
+		end
+	end
+end
+
+slot0.willExit = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

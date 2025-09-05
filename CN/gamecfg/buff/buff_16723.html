@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_16723.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_16723.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 2,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 2,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 3,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 3,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 4,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 4,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 5,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 5,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 6,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				id = 1,
+				type = &quot;BattleBuffShieldWall&quot;,
+				trigger = {
+					&quot;onUpdate&quot;
+				},
+				arg_list = {
+					effect = &quot;leigensitebao_longdun&quot;,
+					count = 6,
+					do_when_hit = &quot;intercept&quot;,
+					bulletType = 1,
+					cld_list = {
+						{
+							box = {
+								4,
+								6,
+								9
+							},
+							offset = {
+								2,
+								0,
+								0
+							}
+						}
+					},
+					centerPosFun = function (slot0)
+						return Vector3(3, 1.5, 0.5)
+					end,
+					rotationFun = function (slot0)
+						return Vector3(0, 192, 0)
+					end
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onShieldBroken&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					shieldBuffID = 16723,
+					target = &quot;TargetSelf&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					skill_id = 16721,
+					target = &quot;TargetSelf&quot;
+				}
+			}
+		}
+	},
+	time = 8,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 16723,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 16723,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			id = 1,
+			type = &quot;BattleBuffShieldWall&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;leigensitebao_longdun&quot;,
+				count = 2,
+				do_when_hit = &quot;intercept&quot;,
+				bulletType = 1,
+				cld_list = {
+					{
+						box = {
+							4,
+							6,
+							9
+						},
+						offset = {
+							2,
+							0,
+							0
+						}
+					}
+				},
+				centerPosFun = function (slot0)
+					return Vector3(3, 1.5, 0.5)
+				end,
+				rotationFun = function (slot0)
+					return Vector3(0, 192, 0)
+				end
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onShieldBroken&quot;
+			},
+			arg_list = {
+				skill_id = 16721,
+				shieldBuffID = 16723,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				skill_id = 16721,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

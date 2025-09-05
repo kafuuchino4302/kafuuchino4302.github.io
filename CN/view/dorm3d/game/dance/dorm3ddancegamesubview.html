@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3ddancegamesubview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3ddancegamesubview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dDanceGameSubView&quot;, import(&quot;..Dorm3dGameBaseSubView&quot;))
+
+slot0.Init = function(slot0)
+	slot1 = slot0._tf
+	slot0.gamePanel = slot1:Find(&quot;main&quot;)
+	slot1 = slot0.gamePanel
+	slot0.cameraContainer = slot1:Find(&quot;camera&quot;)
+	slot1 = slot0.gamePanel
+	slot0.gameCucoloris = slot1:Find(&quot;cucoloris&quot;)
+	slot1 = slot0.gamePanel
+	slot0.gamePhotos = slot1:Find(&quot;photos&quot;)
+	slot1 = slot0.gamePanel
+	slot0.btnHide = slot1:Find(&quot;bottom/btn_hide&quot;)
+	slot1 = slot0.gamePanel
+	slot0.btnPhoto = slot1:Find(&quot;bottom/btn_photo&quot;)
+	slot1 = slot0.gamePanel
+	slot0.btnGameEnd = slot1:Find(&quot;bottom/game_end&quot;)
+	slot1 = slot0.gamePanel
+	slot0.photoCountText = slot1:Find(&quot;bottom/count&quot;)
+	slot1 = slot0.gamePanel
+	slot0.photoTpl = slot1:Find(&quot;tpl&quot;)
+	slot1 = slot0._tf
+	slot0.gameHideClickUI = slot1:Find(&quot;hide_click&quot;)
+
+	setActive(slot0.gameHideClickUI, false)
+
+	slot2 = slot0.btnGameEnd
+
+	setText(slot2:Find(&quot;Text&quot;), i18n(&quot;dorm3d_cafe_minigame3&quot;))
+	onButton(slot0, slot0.btnHide, function ()
+		setActive(uv0.gamePanel, false)
+		setActive(uv0.gameHideClickUI, true)
+		uv0.contextData.onShowOrHideBaseUI(false)
+	end, SFX_DORM_CLICK)
+	onButton(slot0, slot0.gameHideClickUI, function ()
+		setActive(uv0.gamePanel, true)
+		setActive(uv0.gameHideClickUI, false)
+		uv0.contextData.onShowOrHideBaseUI(true)
+	end, SFX_DORM_CLICK)
+	onButton(slot0, slot0.btnPhoto, function ()
+		uv0.contextData.onTakePhoto()
+	end, SFX_DORM_CLICK)
+	onButton(slot0, slot0.btnGameEnd, function ()
+		uv0.contextData.onEndGame()
+	end, SFX_DORM_CLICK)
+	onButton(slot0, slot0.gamePhotos, function ()
+		if #uv0.contextData.photoData == 0 then
+			return
+		end
+
+		uv0.contextData.onShowPhotoWindow(#uv0.contextData.photoData)
+	end)
+
+	slot0.gameConfig = pg.dorm3d_dance[slot0.contextData.groupId]
+	slot3 = slot0.cameraContainer
+	slot0.cameraItemList = UIItemList.New(slot0.cameraContainer, slot3:Find(&quot;tpl&quot;))
+	slot1 = slot0.cameraItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		uv0:UpdateCameraFunc(slot0, slot1, slot2)
+	end)
+
+	slot0.selectedCameraIndex = 1
+end
+
+slot0.UpdateCameraFunc = function(slot0, slot1, slot2, slot3)
+	slot4 = slot2 + 1
+	slot5 = slot0.gameConfig.camera_names[slot4]
+	slot6 = slot0.gameConfig.camera_tracks[slot4]
+
+	if slot1 == UIItemList.EventUpdate then
+		slot7 = slot4 == slot0.selectedCameraIndex
+
+		setActive(slot3:Find(&quot;selected&quot;), slot7)
+		setActive(slot3:Find(&quot;normal&quot;), not slot7)
+	elseif slot1 == UIItemList.EventInit then
+		setText(slot3:Find(&quot;selected/Text&quot;), slot5)
+		setText(slot3:Find(&quot;normal/Text&quot;), slot5)
+		onButton(slot0, slot3, function ()
+			if uv0.selectedCameraIndex ~= uv1 then
+				uv0.selectedCameraIndex = uv1
+
+				uv0.contextData.onSwitchCamera(uv2)
+				uv0:FlushCamera()
+			end
+		end, SFX_DORM_CLICK)
+	end
+end
+
+slot0.FlushCamera = function(slot0)
+	slot0.cameraItemList:align(#slot0.gameConfig.camera_names)
+end
+
+slot0.Flush = function(slot0)
+	setText(slot0._tf:Find(&quot;main/hint&quot;), i18n(&quot;dorm3d_cafe_minigame2&quot;, ShipGroup.getDefaultShipNameByGroupID(slot0.contextData.groupId)))
+
+	slot3 = Dorm3dDanceConst.PHOTO_TIMES &lt;= #slot0.contextData.photoData
+
+	setActive(slot0.btnPhoto, not slot3)
+	setActive(slot0.photoCountText, not slot3)
+	setText(slot0.photoCountText, slot2 .. &quot;/&quot; .. Dorm3dDanceConst.PHOTO_TIMES)
+	setActive(slot0.btnGameEnd, slot3)
+	slot0:FlushCamera()
+
+	for slot7 = 1, #slot0.contextData.cucoloris do
+		LoadImageSpriteAtlasAsync(slot0.contextData.cucoloris[slot7]:GetIcon(), &quot;&quot;, slot0.gameCucoloris:GetChild(slot7 - 1):Find(&quot;Image&quot;), true)
+	end
+
+	if slot0.gamePhotos.childCount &lt; slot2 then
+		slot4 = cloneTplTo(slot0.photoTpl, slot0.gamePhotos)
+		slot4.localPosition = Vector3(math.random(Dorm3dDanceConst.GAME_RANDOM_RANGE_POSX[1], Dorm3dDanceConst.GAME_RANDOM_RANGE_POSX[2]), math.random(Dorm3dDanceConst.GAME_RANDOM_RANGE_POSY[1], Dorm3dDanceConst.GAME_RANDOM_RANGE_POSY[2]), 0)
+		slot4.localEulerAngles = Vector3(0, 0, math.random(Dorm3dDanceConst.GAME_RANDOM_RANGE_ANGLE[1], Dorm3dDanceConst.GAME_RANDOM_RANGE_ANGLE[2]))
+
+		slot0.contextData.onShowRealImage(slot2, slot4:Find(&quot;mask/Image&quot;), slot4:Find(&quot;mask&quot;))
+	end
+end
+
+slot0.ClearPhoto = function(slot0)
+	for slot4 = slot0.gamePhotos.childCount, 1, -1 do
+		Destroy(slot0.gamePhotos:GetChild(slot4 - 1).gameObject)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

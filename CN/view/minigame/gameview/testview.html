@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>testview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TestView&quot;, import(&quot;..BaseMiniGameView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MailBoxUI2&quot;
+end
+
+slot0.init = function(slot0)
+	print(&quot;初始化&quot;)
+
+	slot0._closeBtn = slot0:findTF(&quot;main/top/btnBack&quot;)
+	slot0._btn1 = slot0:findTF(&quot;main/delete_all_button&quot;)
+	slot0._btn2 = slot0:findTF(&quot;main/get_all_button&quot;)
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._closeBtn, function ()
+		uv0:emit(uv1.ON_BACK)
+	end)
+	onButton(slot0, slot0._btn1, function ()
+		uv0:SendSuccess(1)
+	end)
+	onButton(slot0, slot0._btn2, function ()
+		uv0:SendFailure(1)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

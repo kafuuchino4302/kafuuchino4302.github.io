@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3d_accompany.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3d_accompany.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.dorm3d_accompany = {
+	{
+		sceneInfo = &quot;map_siriushostel_01|Tianlangxing_DB/SiriusHostel&quot;,
+		name = &quot;日常相伴&quot;,
+		performance_time = 20,
+		image = &quot;tianlangxing_accompany_room&quot;,
+		ship_id = 20220,
+		resource_room = 1,
+		timeline = &quot;Xiangban_shinei&quot;,
+		id = 1,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {}
+	},
+	{
+		sceneInfo = &quot;map_beach_01|Beach&quot;,
+		name = &quot;休闲相伴&quot;,
+		performance_time = 20,
+		image = &quot;tianlangxing_accompany_beach&quot;,
+		ship_id = 20220,
+		resource_room = 4,
+		timeline = &quot;Xiangban_shatan&quot;,
+		id = 2,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {
+			5,
+			4,
+			20220
+		}
+	},
+	[21] = {
+		sceneInfo = &quot;map_noshirohostel_01|Nengdai_DB/NoshiroHostel&quot;,
+		name = &quot;日常相伴&quot;,
+		performance_time = 20,
+		image = &quot;nengdai_accompany_room&quot;,
+		ship_id = 30221,
+		resource_room = 2,
+		timeline = &quot;Xiangban_shinei_ND&quot;,
+		id = 21,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {}
+	},
+	[22] = {
+		sceneInfo = &quot;map_beach_01|Beach&quot;,
+		name = &quot;休闲相伴&quot;,
+		performance_time = 20,
+		image = &quot;tianlangxing_accompany_beach&quot;,
+		ship_id = 30221,
+		resource_room = 4,
+		timeline = &quot;Xiangban_shatan_ND&quot;,
+		id = 22,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {
+			5,
+			4,
+			30221
+		}
+	},
+	[31] = {
+		sceneInfo = &quot;map_anchoragehostel_01|Ankeleiqi_DB/Anchoragehostel&quot;,
+		name = &quot;日常相伴&quot;,
+		performance_time = 20,
+		image = &quot;ankeleiqi_accompany_room&quot;,
+		ship_id = 19903,
+		resource_room = 3,
+		timeline = &quot;Xiangban_shinei_Ab&quot;,
+		id = 31,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {}
+	},
+	[32] = {
+		sceneInfo = &quot;map_beach_01|Beach&quot;,
+		name = &quot;休闲相伴&quot;,
+		performance_time = 20,
+		image = &quot;tianlangxing_accompany_beach&quot;,
+		ship_id = 19903,
+		resource_room = 4,
+		timeline = &quot;Xiangban_shatan_Ab&quot;,
+		id = 32,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {
+			5,
+			4,
+			19903
+		}
+	},
+	[111] = {
+		sceneInfo = &quot;map_newjerseyhostel_01|Xinzexi_DB/Newjerseyhostel&quot;,
+		name = &quot;日常相伴&quot;,
+		performance_time = 20,
+		image = &quot;xinzexi_accompany_room&quot;,
+		ship_id = 10517,
+		resource_room = 11,
+		timeline = &quot;Xiangban_personal&quot;,
+		id = 111,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {}
+	},
+	[112] = {
+		sceneInfo = &quot;map_publiccafe_01|Publiccafe&quot;,
+		name = &quot;休闲相伴&quot;,
+		performance_time = 20,
+		image = &quot;cafe_accompany&quot;,
+		ship_id = 10517,
+		resource_room = 16,
+		timeline = &quot;Xiangban_cafe&quot;,
+		id = 112,
+		favor = {
+			300,
+			{
+				1015,
+				1016,
+				1017
+			}
+		},
+		jump_trigger = {},
+		unlock = {
+			5,
+			16,
+			10517
+		}
+	},
+	get_id_list_by_ship_id = {
+		[20220] = {
+			1,
+			2
+		},
+		[30221] = {
+			21,
+			22
+		},
+		[19903] = {
+			31,
+			32
+		},
+		[10517] = {
+			111,
+			112
+		}
+	},
+	all = {
+		1,
+		2,
+		21,
+		22,
+		31,
+		32,
+		111,
+		112
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assistantinfo.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>assistantinfo.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+slot1 = {}
+pg.AssistantInfo = slot1
+slot1.assistantEvents = {
+	idleRandom1 = {
+		action = &quot;main_1&quot;,
+		dialog = &quot;main_1&quot;
+	},
+	idleRandom2 = {
+		action = &quot;main_2&quot;,
+		dialog = &quot;main_2&quot;
+	},
+	idleRandom3 = {
+		action = &quot;main_3&quot;,
+		dialog = &quot;main_3&quot;
+	},
+	idleRandom4 = {
+		action = &quot;idle_1&quot;,
+		dialog = &quot;main_4&quot;
+	},
+	idleRandom5 = {
+		action = &quot;idle_2&quot;,
+		dialog = &quot;main_5&quot;
+	},
+	idleRandom6 = {
+		action = &quot;idle_3&quot;,
+		dialog = &quot;main_6&quot;
+	},
+	idleRandom7 = {
+		action = &quot;main_4&quot;,
+		dialog = &quot;main_4&quot;
+	},
+	idleRandom8 = {
+		action = &quot;main_5&quot;,
+		dialog = &quot;main_5&quot;
+	},
+	idleRandom9 = {
+		action = &quot;main_7&quot;,
+		dialog = &quot;main_7&quot;
+	},
+	event_complete = {
+		action = &quot;complete&quot;,
+		dialog = &quot;expedition&quot;
+	},
+	event_login = {
+		action = &quot;login&quot;,
+		dialog = &quot;login&quot;
+	},
+	home = {
+		action = &quot;home&quot;,
+		dialog = &quot;home&quot;
+	},
+	mail = {
+		action = &quot;mail&quot;,
+		dialog = &quot;mail&quot;
+	},
+	mission = {
+		action = &quot;mission&quot;,
+		dialog = &quot;mission&quot;
+	},
+	mission_complete = {
+		action = &quot;mission_complete&quot;,
+		dialog = &quot;mission_complete&quot;
+	},
+	event_wedding = {
+		action = &quot;wedding&quot;,
+		dialog = &quot;propose&quot;
+	},
+	TouchHead = {
+		action = &quot;touch_head&quot;,
+		dialog = &quot;headtouch&quot;
+	},
+	TouchBody = {
+		action = &quot;touch_body&quot;,
+		dialog = &quot;touch&quot;
+	},
+	TouchSpecial = {
+		action = &quot;touch_special&quot;,
+		dialog = &quot;touch2&quot;
+	},
+	event_change_in = {
+		action = &quot;change_in&quot;,
+		dialog = &quot;&quot;
+	},
+	event_change_out = {
+		action = &quot;change_out&quot;,
+		dialog = &quot;&quot;
+	},
+	event_change_get = {
+		action = &quot;get&quot;,
+		dialog = &quot;&quot;
+	}
+}
+slot1.assistantTouchParts = {
+	&quot;TouchSpecial&quot;,
+	&quot;TouchHead&quot;,
+	&quot;TouchBody&quot;
+}
+slot1.assistantTouchEvents = {
+	{
+		&quot;TouchSpecial&quot;
+	},
+	{
+		&quot;TouchHead&quot;
+	},
+	{
+		&quot;TouchBody&quot;,
+		&quot;idleRandom1&quot;,
+		&quot;idleRandom2&quot;,
+		&quot;idleRandom3&quot;,
+		&quot;idleRandom4&quot;,
+		&quot;idleRandom5&quot;,
+		&quot;idleRandom6&quot;,
+		&quot;idleRandom7&quot;,
+		&quot;idleRandom8&quot;,
+		&quot;idleRandom9&quot;
+	}
+}
+slot1.useNewTouchEventShip = {
+	[205131] = {
+		assistantTouchEventsNew = {
+			{
+				&quot;TouchSpecial&quot;
+			},
+			{
+				&quot;TouchHead&quot;
+			},
+			{
+				&quot;TouchBody&quot;,
+				&quot;idleRandom1&quot;,
+				&quot;idleRandom2&quot;,
+				&quot;idleRandom3&quot;,
+				&quot;idleRandom4&quot;,
+				&quot;idleRandom5&quot;,
+				&quot;idleRandom6&quot;,
+				&quot;idleRandom8&quot;
+			}
+		}
+	}
+}
+slot1.action2Id = {
+	touch_drag19 = 120,
+	touch_drag30 = 131,
+	idle = 1,
+	touch_drag4 = 105,
+	touch_drag7 = 108,
+	win_mvp = 29,
+	touch_drag6 = 107,
+	mission = 9,
+	touch_drag23 = 124,
+	battle = 28,
+	skill = 31,
+	touch_drag12 = 113,
+	touch_drag5 = 106,
+	touch_drag32 = 133,
+	touch_idle25 = 226,
+	touch_drag3 = 104,
+	unlock = 20,
+	touch_idle2 = 203,
+	feeling5 = 26,
+	mail = 8,
+	touch_drag25 = 126,
+	touch_drag13 = 114,
+	feeling1 = 22,
+	touch_drag33 = 134,
+	touch_idle26 = 227,
+	touch_drag29 = 130,
+	touch_idle23 = 224,
+	hp_warning = 32,
+	touch_idle8 = 209,
+	feeling2 = 23,
+	touch_drag2 = 103,
+	main_3 = 4,
+	touch_drag42 = 143,
+	touch_drag15 = 116,
+	touch_drag28 = 129,
+	touch_drag35 = 136,
+	touch_drag1 = 102,
+	touch_special = 14,
+	touch_idle17 = 218,
+	touch_idle3 = 204,
+	touch_drag34 = 135,
+	main_2_ex = 302,
+	touch_drag43 = 144,
+	touch_drag8 = 109,
+	touch_drag46 = 147,
+	touch_drag47 = 148,
+	touch_drag49 = 150,
+	touch_drag18 = 119,
+	touch_drag = 101,
+	touch_drag38 = 139,
+	touch_drag50 = 151,
+	touch_idle = 201,
+	touch_idle1 = 202,
+	upgrade = 27,
+	touch_drag45 = 146,
+	mission_complete = 10,
+	main_3_ex = 303,
+	touch_idle4 = 205,
+	main_5 = 19,
+	touch_idle5 = 206,
+	touch_drag21 = 122,
+	touch_idle7 = 208,
+	touch_drag31 = 132,
+	detail = 21,
+	touch_idle9 = 210,
+	feeling3 = 24,
+	touch_idle27 = 228,
+	touch_idle11 = 212,
+	touch_drag48 = 149,
+	touch_idle13 = 214,
+	home = 7,
+	touch_idle15 = 216,
+	touch_idle14 = 215,
+	touch_drag11 = 112,
+	touch_drag24 = 125,
+	oil = 16,
+	feeling4 = 25,
+	lose = 30,
+	touch_idle16 = 217,
+	touch_drag39 = 140,
+	touch_idle18 = 219,
+	touch_idle19 = 220,
+	touch_idle20 = 221,
+	touch_idle22 = 223,
+	touch_idle12 = 213,
+	touch_drag9 = 110,
+	touch_drag26 = 127,
+	touch_drag14 = 115,
+	touch_drag22 = 123,
+	diamond = 17,
+	touch_idle24 = 225,
+	touch_body = 13,
+	get = 35,
+	touch_idle10 = 211,
+	touch_drag41 = 142,
+	touch_idle28 = 229,
+	touch_drag27 = 128,
+	touch_idle29 = 230,
+	main_1 = 2,
+	touch_drag16 = 117,
+	gold = 15,
+	touch_drag36 = 137,
+	touch_idle21 = 222,
+	touch_idle30 = 231,
+	touch_drag44 = 145,
+	touch_idle6 = 207,
+	touch_drag40 = 141,
+	touch_special_ex = 311,
+	main_2 = 3,
+	touch_drag17 = 118,
+	wedding = 11,
+	touch_drag37 = 138,
+	change_in = 33,
+	main_1_ex = 301,
+	touch_drag20 = 121,
+	complete = 5,
+	home_ex = 312,
+	main_4 = 18,
+	change_out = 34,
+	login = 6,
+	touch_head = 12,
+	touch_drag10 = 111
+}
+slot1.action2Words = {
+	&quot;main1&quot;,
+	&quot;main2&quot;,
+	&quot;main3&quot;,
+	&quot;mission&quot;,
+	&quot;mission_complete&quot;,
+	&quot;expedition&quot;,
+	&quot;login&quot;,
+	&quot;home&quot;,
+	&quot;mail&quot;,
+	&quot;touch&quot;,
+	&quot;headtouch&quot;
+}
+slot1.idleActions = {
+	slot1.action2Id.idle
+}
+slot1.IdleEvents = {
+	&quot;idleRandom1&quot;,
+	&quot;idleRandom2&quot;,
+	&quot;idleRandom3&quot;,
+	&quot;idleRandom4&quot;,
+	&quot;idleRandom5&quot;,
+	&quot;idleRandom6&quot;,
+	&quot;idleRandom7&quot;,
+	&quot;idleRandom8&quot;,
+	&quot;idleRandom9&quot;
+}
+slot1.PaintingTouchEvents = {
+	&quot;TouchBody&quot;,
+	&quot;idleRandom1&quot;,
+	&quot;idleRandom2&quot;,
+	&quot;idleRandom3&quot;,
+	&quot;idleRandom4&quot;,
+	&quot;idleRandom5&quot;,
+	&quot;idleRandom6&quot;,
+	&quot;idleRandom9&quot;
+}
+slot1.PaintingTouchParts = {
+	[&quot;3&quot;] = &quot;TouchHead&quot;,
+	[&quot;1&quot;] = &quot;TouchSpecial&quot;,
+	[&quot;2&quot;] = &quot;TouchBody&quot;
+}
+
+slot1.enable = function()
+	return HXSet.isHx()
+end
+
+slot1.getAssistantTouchEvents = function(slot0, slot1)
+	if uv0.enable() and uv0.assistantTouchParts[slot0] == &quot;TouchSpecial&quot; then
+		slot0 = 3
+	end
+
+	if uv0.useNewTouchEventShip and uv0.useNewTouchEventShip[slot1] then
+		return uv0.useNewTouchEventShip[slot1].assistantTouchEventsNew[slot0]
+	end
+
+	return uv0.assistantTouchEvents[slot0]
+end
+
+slot1.getPaintingTouchEvents = function(slot0)
+	if uv0.enable() and uv0.PaintingTouchParts[slot0] == &quot;TouchSpecial&quot; then
+		slot0 = &quot;2&quot;
+	end
+
+	return uv0.PaintingTouchParts[slot0]
+end
+
+slot1.isDisableSpecialClick = function(slot0)
+	if uv0.enable() and slot0 == &quot;touch2&quot; then
+		return true
+	end
+
+	return false
+end
+
+slot1.filterAssistantEvents = function(slot0, slot1, slot2)
+	slot3 = {}
+	slot4 = ShipWordHelper.GetMainSceneWordCnt(slot1, slot2 or 0)
+
+	for slot8, slot9 in ipairs(slot0) do
+		if string.split(uv0.assistantEvents[slot9].dialog, &quot;_&quot;)[1] == &quot;main&quot; then
+			if tonumber(slot12[2]) &lt;= slot4 then
+				table.insert(slot3, slot9)
+			end
+		else
+			table.insert(slot3, slot9)
+		end
+	end
+
+	return slot3
+end
+
+slot1.Expressions = {
+	dunkeerke = {
+		faces = {
+			mission_complete = &quot;1&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling2 = &quot;1&quot;,
+			feeling4 = &quot;2&quot;,
+			expedition = &quot;1&quot;,
+			propose = &quot;2&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;1&quot;,
+			login = &quot;1&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	masazhusai = {
+		faces = {
+			login = &quot;2&quot;,
+			win_mvp = &quot;1&quot;,
+			mission_complete = &quot;2&quot;,
+			battle = &quot;1&quot;
+		}
+	},
+	xixuegui_3 = {
+		faces = {
+			touch2 = &quot;3&quot;,
+			touch = &quot;3&quot;,
+			feeling5 = &quot;1&quot;,
+			main_3 = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			win_mvp = &quot;1&quot;,
+			home = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	safuke = {
+		faces = {
+			feeling4 = &quot;4&quot;,
+			feeling3 = &quot;9&quot;,
+			main_1 = &quot;10&quot;,
+			mail = &quot;9&quot;,
+			expedition = &quot;3&quot;,
+			lose = &quot;14&quot;,
+			home = &quot;4&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;14&quot;,
+			main_2 = &quot;7&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;6&quot;,
+			feeling5 = &quot;2&quot;,
+			profile = &quot;9&quot;,
+			mission_complete = &quot;5&quot;,
+			feeling2 = &quot;4&quot;,
+			detail = &quot;13&quot;
+		}
+	},
+	bushi = {
+		faces = {
+			touch2 = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			lose = &quot;1&quot;,
+			mission_complete = &quot;2&quot;,
+			feeling4 = &quot;2&quot;
+		}
+	},
+	banrenma = {
+		faces = {
+			login = &quot;3&quot;,
+			feeling3 = &quot;4&quot;,
+			main_1 = &quot;2&quot;,
+			feeling4 = &quot;3&quot;,
+			expedition = &quot;3&quot;,
+			touch2 = &quot;4&quot;,
+			main_2 = &quot;4&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;4&quot;
+		}
+	},
+	birui_2 = {
+		faces = {
+			touch = &quot;1&quot;,
+			feeling1 = &quot;3&quot;,
+			main_1 = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			touch_2 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	sanli_2 = {
+		faces = {
+			touch2 = &quot;2&quot;,
+			mail = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			feeling1 = &quot;3&quot;,
+			main_2 = &quot;1&quot;,
+			lose = &quot;3&quot;,
+			home = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	bangfeng_2 = {
+		faces = {
+			touch2 = &quot;2&quot;,
+			mission_complete = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			touch = &quot;2&quot;,
+			login = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;
+		}
+	},
+	luodeni_3 = {
+		faces = {
+			touch2 = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			main_2 = &quot;2&quot;,
+			login = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			home = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	zaoshen_2 = {
+		faces = {
+			touch2 = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			login = &quot;1&quot;,
+			touch = &quot;3&quot;,
+			home = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	ajiakesi_2 = {
+		faces = {
+			default = &quot;0&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			main_1 = &quot;3&quot;,
+			main_2 = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			mail = &quot;1&quot;,
+			touch2 = &quot;1&quot;,
+			propose = &quot;2&quot;,
+			login = &quot;3&quot;,
+			touch = &quot;2&quot;
+		}
+	},
+	daqinghuayu = {
+		faces = {
+			login = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			feeling4 = &quot;3&quot;,
+			expedition = &quot;2&quot;,
+			home = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	U81_2 = {
+		faces = {
+			mission_complete = &quot;1&quot;,
+			login = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			feeling2 = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			home = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	aisaikesi = {
+		faces = {
+			touch2 = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			expedition = &quot;2&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;2&quot;
+		}
+	},
+	chuixue_3 = {
+		faces = {
+			main_1 = &quot;2&quot;,
+			propose = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;3&quot;,
+			mail = &quot;3&quot;,
+			touch = &quot;1&quot;,
+			main_3 = &quot;3&quot;
+		}
+	},
+	guanghui_3 = {
+		faces = {
+			mail = &quot;4&quot;,
+			feeling1 = &quot;2&quot;,
+			main_1 = &quot;3&quot;,
+			propose = &quot;1&quot;,
+			hp_warning = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;4&quot;,
+			touch = &quot;4&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	junzhu_2 = {
+		faces = {
+			mail = &quot;2&quot;,
+			login = &quot;3&quot;,
+			main_1 = &quot;1&quot;,
+			win_mvp = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;1&quot;,
+			main_3 = &quot;1&quot;
+		}
+	},
+	lumang = {
+		faces = {
+			feeling4 = &quot;4&quot;,
+			feeling1 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			touch = &quot;10&quot;,
+			propose = &quot;5&quot;,
+			win_mvp = &quot;4&quot;,
+			home = &quot;7&quot;,
+			mission = &quot;12&quot;,
+			touch2 = &quot;7&quot;,
+			hp_warning = &quot;9&quot;,
+			main_2 = &quot;12&quot;,
+			lose = &quot;9&quot;,
+			main_3 = &quot;11&quot;,
+			feeling5 = &quot;8&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;7&quot;,
+			feeling2 = &quot;8&quot;,
+			battle = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	mingshi_3 = {
+		faces = {
+			mission_complete = &quot;2&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;1&quot;,
+			main = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			upgrade = &quot;1&quot;,
+			home = &quot;3&quot;,
+			feeling1 = &quot;4&quot;,
+			touch2 = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			hp_warning = &quot;4&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;4&quot;
+		}
+	},
+	nvjiang_2 = {
+		faces = {
+			feeling1 = &quot;3&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling5 = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;3&quot;,
+			feeling2 = &quot;1&quot;,
+			feeling4 = &quot;2&quot;,
+			touch = &quot;2&quot;
+		}
+	},
+	ouruola_3 = {
+		faces = {
+			mission_complete = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			feeling2 = &quot;3&quot;,
+			main_2 = &quot;4&quot;,
+			feeling5 = &quot;1&quot;,
+			home = &quot;1&quot;,
+			propose = &quot;4&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;3&quot;,
+			login = &quot;4&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	yilishabai_2 = {
+		faces = {
+			mail = &quot;2&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			hp_warning = &quot;1&quot;,
+			login = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	nandaketa_2 = {
+		faces = {
+			feeling1 = &quot;3&quot;,
+			home = &quot;4&quot;,
+			main_1 = &quot;1&quot;,
+			login = &quot;4&quot;,
+			feeling4 = &quot;2&quot;,
+			propose = &quot;4&quot;,
+			mission_complete = &quot;1&quot;,
+			lose = &quot;1&quot;,
+			hp_warning = &quot;3&quot;,
+			battle = &quot;3&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;4&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	dafeng = {
+		faces = {
+			touch = &quot;1&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			expedition = &quot;1&quot;,
+			hp_warning = &quot;5&quot;,
+			battle = &quot;5&quot;,
+			mail = &quot;3&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;5&quot;
+		}
+	},
+	dafeng_2 = {
+		faces = {
+			feeling1 = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			mission_complete = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;2&quot;,
+			hp_warning = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;1&quot;,
+			mail = &quot;3&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	huangchao = {
+		faces = {
+			main_2 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			win_mvp = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			propose = &quot;1&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;2&quot;
+		}
+	},
+	gaoxiong_h = {
+		faces = {
+			feeling4 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			propose = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;3&quot;,
+			lose = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			main_2 = &quot;1&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	jiahe_h = {
+		faces = {
+			propose = &quot;2&quot;,
+			feeling3 = &quot;3&quot;,
+			main_1 = &quot;1&quot;,
+			feeling1 = &quot;4&quot;,
+			mission_complete = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			home = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			win_mvp = &quot;4&quot;,
+			skill = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;4&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	lingbo_h = {
+		faces = {
+			propose = &quot;2&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			hp_warning = &quot;1&quot;,
+			win_mvp = &quot;5&quot;,
+			home = &quot;5&quot;,
+			touch2 = &quot;5&quot;,
+			skill = &quot;4&quot;,
+			main_2 = &quot;5&quot;,
+			touch = &quot;2&quot;,
+			feeling5 = &quot;5&quot;,
+			mission_complete = &quot;1&quot;,
+			headtouch = &quot;3&quot;,
+			battle = &quot;4&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	shancheng_4 = {
+		faces = {
+			home = &quot;1&quot;,
+			login = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			feeling1 = &quot;4&quot;,
+			propose = &quot;1&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			feeling2 = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;3&quot;
+		}
+	},
+	xili_h = {
+		faces = {
+			lose = &quot;2&quot;,
+			propose = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			feeling4 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			hp_warning = &quot;2&quot;,
+			home = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			upgrade = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	xiao_2 = {
+		faces = {
+			login = &quot;3&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;2&quot;
+		}
+	},
+	shengdiyage_g = {
+		faces = {
+			feeling4 = &quot;2&quot;,
+			login = &quot;4&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			upgrade = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			feeling2 = &quot;4&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;4&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	shentong_2 = {
+		faces = {
+			mail = &quot;2&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling5 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			login = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			mission_complete = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			battle = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			touch = &quot;1&quot;
+		}
+	},
+	huobi = {
+		faces = {
+			home = &quot;2&quot;,
+			feeling4 = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			win_mvp = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			headtouch = &quot;3&quot;,
+			feeling2 = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	huobi_2 = {
+		faces = {
+			lose = &quot;3&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling4 = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			upgrade = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			headtouch = &quot;1&quot;,
+			hp_warning = &quot;3&quot;,
+			login = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	keerke = {
+		faces = {
+			feeling4 = &quot;2&quot;,
+			login = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			upgrade = &quot;2&quot;,
+			mission_complete = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	keerke_2 = {
+		faces = {
+			home = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			expedition = &quot;3&quot;,
+			upgrade = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			login = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	keluoladuo = {
+		faces = {
+			feeling4 = &quot;2&quot;,
+			login = &quot;3&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			lose = &quot;1&quot;,
+			upgrade = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			feeling2 = &quot;3&quot;,
+			skill = &quot;3&quot;,
+			hp_warning = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	malilan = {
+		faces = {
+			login = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			feeling4 = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			expedition = &quot;3&quot;,
+			upgrade = &quot;2&quot;,
+			home = &quot;1&quot;,
+			lose = &quot;1&quot;,
+			feeling2 = &quot;3&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;3&quot;,
+			hp_warning = &quot;1&quot;,
+			main_2 = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	mingniabolisi = {
+		faces = {
+			lose = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			feeling4 = &quot;2&quot;,
+			feeling1 = &quot;1&quot;,
+			hp_warning = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			main_2 = &quot;1&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;3&quot;,
+			upgrade = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			battle = &quot;3&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	mingniabolisi_2 = {
+		faces = {
+			feeling4 = &quot;2&quot;,
+			feeling3 = &quot;1&quot;,
+			login = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;1&quot;,
+			lose = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			hp_warning = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	xifujiniya = {
+		faces = {
+			feeling4 = &quot;1&quot;,
+			login = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			lose = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;3&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	mengfeisi = {
+		faces = {
+			feeling4 = &quot;4&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;4&quot;,
+			feeling1 = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;4&quot;,
+			home = &quot;4&quot;,
+			lose = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			feeling2 = &quot;4&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	beili_2 = {
+		faces = {
+			login = &quot;2&quot;,
+			mail = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			feeling4 = &quot;2&quot;,
+			expedition = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;1&quot;,
+			main_2 = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	kongbu_2 = {
+		faces = {
+			feeling4 = &quot;3&quot;,
+			login = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			feeling2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	naerxun_2 = {
+		faces = {
+			feeling4 = &quot;1&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling5 = &quot;3&quot;,
+			login = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			home = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;3&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	wushiling_2 = {
+		faces = {
+			lose = &quot;3&quot;,
+			feeling3 = &quot;5&quot;,
+			feeling4 = &quot;2&quot;,
+			mail = &quot;4&quot;,
+			propose = &quot;5&quot;,
+			win_mvp = &quot;5&quot;,
+			feeling1 = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;5&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;4&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			hp_warning = &quot;3&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	heizewude = {
+		faces = {
+			upgrade = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			feeling4 = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			win_mvp = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	kangkede = {
+		faces = {
+			lose = &quot;6&quot;,
+			feeling3 = &quot;4&quot;,
+			feeling4 = &quot;2&quot;,
+			mail = &quot;4&quot;,
+			propose = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			feeling1 = &quot;5&quot;,
+			touch2 = &quot;6&quot;,
+			skill = &quot;4&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;5&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			hp_warning = &quot;5&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	kangkede_2 = {
+		faces = {
+			feeling1 = &quot;5&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			propose = &quot;1&quot;,
+			mail = &quot;3&quot;,
+			win_mvp = &quot;2&quot;,
+			lose = &quot;4&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			hp_warning = &quot;5&quot;,
+			skill = &quot;4&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;2&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;2&quot;,
+			feeling2 = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	fumilulu = {
+		faces = {
+			login = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	jiuyuan = {
+		faces = {
+			mission_complete = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			mission = &quot;2&quot;,
+			expedition = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			home = &quot;1&quot;,
+			headtouch = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			win_mvp = &quot;3&quot;,
+			lose = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			login = &quot;1&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;3&quot;,
+			feeling4 = &quot;1&quot;
+		}
+	},
+	lulutiye = {
+		faces = {
+			lose = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			main_1 = &quot;1&quot;,
+			feeling4 = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			headtouch = &quot;3&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	maoyin = {
+		faces = {
+			home = &quot;2&quot;,
+			login = &quot;2&quot;,
+			headtouch = &quot;3&quot;,
+			feeling1 = &quot;3&quot;,
+			feeling4 = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			mission = &quot;2&quot;,
+			feeling2 = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			hp_warning = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	salana = {
+		faces = {
+			lose = &quot;1&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling4 = &quot;3&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			headtouch = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	wululu = {
+		faces = {
+			lose = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;1&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;3&quot;,
+			feeling5 = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			headtouch = &quot;1&quot;,
+			hp_warning = &quot;1&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	longxiang = {
+		faces = {
+			propose = &quot;1&quot;,
+			feeling4 = &quot;4&quot;,
+			main_1 = &quot;4&quot;,
+			feeling1 = &quot;2&quot;,
+			mail = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;4&quot;,
+			hp_warning = &quot;1&quot;,
+			skill = &quot;1&quot;,
+			main_2 = &quot;3&quot;,
+			touch = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;4&quot;,
+			feeling2 = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	longxiang_2 = {
+		faces = {
+			propose = &quot;1&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;2&quot;,
+			feeling4 = &quot;3&quot;,
+			expedition = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			hp_warning = &quot;1&quot;,
+			skill = &quot;1&quot;,
+			mail = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			main_3 = &quot;3&quot;,
+			feeling5 = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			headtouch = &quot;1&quot;,
+			feeling2 = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	sipeibojue_3 = {
+		faces = {
+			mail = &quot;5&quot;,
+			login = &quot;1&quot;,
+			main_1 = &quot;1&quot;,
+			propose = &quot;2&quot;,
+			lose = &quot;7&quot;,
+			win_mvp = &quot;4&quot;,
+			home = &quot;2&quot;,
+			headtouch = &quot;6&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;4&quot;
+		}
+	},
+	yanzhan_2 = {
+		faces = {
+			feeling1 = &quot;4&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;2&quot;,
+			main_2 = &quot;6&quot;,
+			touch = &quot;1&quot;,
+			win_mvp = &quot;3&quot;,
+			home = &quot;5&quot;,
+			mail = &quot;7&quot;,
+			touch2 = &quot;1&quot;,
+			upgrade = &quot;3&quot;,
+			hp_warning = &quot;4&quot;,
+			feeling4 = &quot;7&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;5&quot;,
+			profile = &quot;4&quot;,
+			battle = &quot;3&quot;,
+			login = &quot;1&quot;
+		}
+	},
+	nigulasi_3 = {
+		faces = {
+			lose = &quot;4&quot;,
+			main_2 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			feeling2 = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			feeling4 = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;3&quot;,
+			touch = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	huonululu_4 = {
+		faces = {
+			lose = &quot;4&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			mail = &quot;2&quot;,
+			feeling1 = &quot;5&quot;,
+			profile = &quot;2&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			feeling4 = &quot;2&quot;,
+			battle = &quot;3&quot;,
+			login = &quot;1&quot;,
+			touch = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			propose = &quot;2&quot;
+		}
+	},
+	pufeng_2 = {
+		faces = {
+			main_2 = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			touch = &quot;1&quot;,
+			win_mvp = &quot;1&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			feeling4 = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;4&quot;,
+			feeling5 = &quot;4&quot;,
+			upgrade = &quot;3&quot;,
+			feeling2 = &quot;1&quot;,
+			battle = &quot;3&quot;
+		}
+	},
+	dachao_2 = {
+		faces = {
+			upgrade = &quot;3&quot;,
+			feeling3 = &quot;4&quot;,
+			feeling1 = &quot;2&quot;,
+			propose = &quot;4&quot;,
+			hp_warning = &quot;3&quot;,
+			win_mvp = &quot;4&quot;,
+			mission_complete = &quot;4&quot;,
+			touch2 = &quot;1&quot;,
+			battle = &quot;3&quot;,
+			feeling4 = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;4&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	yueke_g = {
+		faces = {
+			feeling1 = &quot;3&quot;,
+			lose = &quot;4&quot;,
+			mail = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			mission_complete = &quot;2&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;4&quot;,
+			main_2 = &quot;1&quot;,
+			touch = &quot;1&quot;
+		}
+	},
+	canglong_g = {
+		faces = {
+			feeling5 = &quot;2&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			hp_warning = &quot;1&quot;,
+			win_mvp = &quot;3&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;1&quot;,
+			feeling4 = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	feilong_g = {
+		faces = {
+			win_mvp = &quot;1&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			mission_complete = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			home = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			skill = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			feeling4 = &quot;3&quot;,
+			feeling1 = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			hp_warning = &quot;2&quot;
+		}
+	},
+	tiancheng = {
+		faces = {
+			mission_complete = &quot;1&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling5 = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			touch = &quot;2&quot;,
+			skill = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			main_2 = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	jiahezhanlie = {
+		faces = {
+			lose = &quot;2&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling2 = &quot;2&quot;,
+			mail = &quot;3&quot;,
+			feeling4 = &quot;1&quot;,
+			profile = &quot;2&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			main_2 = &quot;2&quot;,
+			feeling1 = &quot;1&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	zubing = {
+		faces = {
+			feeling1 = &quot;4&quot;,
+			feeling3 = &quot;5&quot;,
+			main_1 = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			expedition = &quot;1&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;5&quot;,
+			touch2 = &quot;4&quot;,
+			feeling4 = &quot;6&quot;,
+			propose = &quot;3&quot;,
+			mail = &quot;1&quot;,
+			touch = &quot;5&quot;,
+			main_3 = &quot;3&quot;,
+			feeling5 = &quot;5&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			login = &quot;1&quot;,
+			detail = &quot;5&quot;
+		}
+	},
+	juanbo = {
+		faces = {
+			upgrade = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			mail = &quot;2&quot;,
+			feeling1 = &quot;4&quot;,
+			win_mvp = &quot;2&quot;,
+			home = &quot;1&quot;,
+			headtouch = &quot;2&quot;,
+			touch2 = &quot;4&quot;,
+			lose = &quot;3&quot;,
+			feeling4 = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			main_2 = &quot;4&quot;,
+			touch = &quot;2&quot;,
+			main_3 = &quot;1&quot;,
+			mission = &quot;3&quot;
+		}
+	},
+	qifeng = {
+		faces = {
+			default = &quot;0&quot;,
+			feeling1 = &quot;1&quot;,
+			feeling5 = &quot;2&quot;,
+			feeling4 = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			upgrade = &quot;3&quot;,
+			propose = &quot;2&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			hp_warning = &quot;2&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;3&quot;,
+			lose = &quot;2&quot;,
+			main_3 = &quot;3&quot;
+		}
+	},
+	kelifulan_h = {
+		faces = {
+			touch = &quot;3&quot;,
+			feeling1 = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			feeling4 = &quot;2&quot;,
+			expedition = &quot;1&quot;,
+			win_mvp = &quot;1&quot;,
+			mission_complete = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			main_2 = &quot;1&quot;,
+			lose = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	xiaotiane_5 = {
+		faces = {
+			touch = &quot;2&quot;,
+			feeling3 = &quot;3&quot;,
+			main_1 = &quot;3&quot;,
+			feeling2 = &quot;1&quot;,
+			feeling1 = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	aierdeliqi_4 = {
+		faces = {
+			mail = &quot;2&quot;,
+			feeling1 = &quot;2&quot;,
+			main_1 = &quot;3&quot;,
+			feeling5 = &quot;4&quot;,
+			hp_warning = &quot;2&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;1&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;3&quot;,
+			lose = &quot;2&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	yichui_2 = {
+		faces = {
+			battle = &quot;3&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;4&quot;,
+			feeling1 = &quot;1&quot;,
+			feeling4 = &quot;6&quot;,
+			win_mvp = &quot;4&quot;,
+			home = &quot;6&quot;,
+			propose = &quot;2&quot;,
+			touch2 = &quot;6&quot;,
+			skill = &quot;3&quot;,
+			mail = &quot;2&quot;,
+			lose = &quot;5&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;4&quot;,
+			profile = &quot;6&quot;,
+			mission_complete = &quot;3&quot;,
+			hp_warning = &quot;3&quot;
+		}
+	},
+	chuyun_2 = {
+		faces = {
+			main_2 = &quot;3&quot;,
+			feeling3 = &quot;1&quot;,
+			feeling5 = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			win_mvp = &quot;3&quot;,
+			mission_complete = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;2&quot;,
+			touch = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	weiershiqinwang_4 = {
+		faces = {
+			feeling1 = &quot;4&quot;,
+			feeling3 = &quot;1&quot;,
+			main_1 = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			upgrade = &quot;2&quot;,
+			home = &quot;3&quot;,
+			mission = &quot;4&quot;,
+			touch2 = &quot;3&quot;,
+			feeling4 = &quot;3&quot;,
+			feeling5 = &quot;3&quot;,
+			battle = &quot;4&quot;,
+			login = &quot;2&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;2&quot;,
+			propose = &quot;2&quot;
+		}
+	},
+	shengluyisi_3 = {
+		faces = {
+			main_2 = &quot;1&quot;,
+			feeling3 = &quot;4&quot;,
+			main_1 = &quot;3&quot;,
+			feeling1 = &quot;2&quot;,
+			feeling2 = &quot;1&quot;,
+			upgrade = &quot;2&quot;,
+			home = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			touch2 = &quot;5&quot;,
+			feeling4 = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			login = &quot;1&quot;,
+			lose = &quot;2&quot;
+		}
+	},
+	jifeng_2 = {
+		faces = {
+			mail = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			feeling1 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			win_mvp = &quot;3&quot;,
+			home = &quot;2&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;4&quot;,
+			feeling4 = &quot;3&quot;,
+			touch = &quot;4&quot;,
+			propose = &quot;1&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;1&quot;
+		}
+	},
+	hailunna_2 = {
+		faces = {
+			mail = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			feeling1 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			win_mvp = &quot;3&quot;,
+			home = &quot;2&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;4&quot;,
+			feeling4 = &quot;3&quot;,
+			touch = &quot;4&quot;,
+			propose = &quot;1&quot;,
+			lose = &quot;4&quot;,
+			main_3 = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;1&quot;
+		}
+	},
+	hailunna_2 = {
+		faces = {
+			feeling4 = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			expedition = &quot;1&quot;,
+			upgrade = &quot;1&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			propose = &quot;2&quot;,
+			battle = &quot;3&quot;,
+			login = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;2&quot;
+		}
+	},
+	mengbiliai_2 = {
+		faces = {
+			win_mvp = &quot;4&quot;,
+			feeling3 = &quot;4&quot;,
+			feeling5 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			profile = &quot;3&quot;,
+			hp_warning = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;3&quot;,
+			main_2 = &quot;2&quot;,
+			touch = &quot;1&quot;,
+			main_3 = &quot;4&quot;
+		}
+	},
+	zubing_2 = {
+		faces = {
+			mission_complete = &quot;3&quot;,
+			feeling3 = &quot;4&quot;,
+			main_1 = &quot;4&quot;,
+			feeling5 = &quot;4&quot;,
+			propose = &quot;1&quot;,
+			win_mvp = &quot;3&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;4&quot;,
+			touch2 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;1&quot;
+		}
+	},
+	nake = {
+		faces = {
+			feeling1 = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;2&quot;,
+			feeling2 = &quot;2&quot;,
+			touch = &quot;3&quot;,
+			profile = &quot;3&quot;,
+			home = &quot;3&quot;,
+			feeling5 = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			hp_warning = &quot;2&quot;,
+			feeling4 = &quot;3&quot;,
+			lose = &quot;1&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	aidang_h = {
+		faces = {
+			main_2 = &quot;2&quot;,
+			feeling3 = &quot;2&quot;,
+			mail = &quot;2&quot;,
+			upgrade = &quot;1&quot;,
+			propose = &quot;4&quot;,
+			win_mvp = &quot;3&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			battle = &quot;4&quot;,
+			login = &quot;4&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;4&quot;
+		}
+	},
+	xili_3 = {
+		faces = {
+			upgrade = &quot;3&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling5 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			expedition = &quot;3&quot;,
+			win_mvp = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			hp_warning = &quot;3&quot;,
+			touch2 = &quot;3&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;3&quot;,
+			main_2 = &quot;3&quot;,
+			lose = &quot;2&quot;,
+			main_3 = &quot;1&quot;
+		}
+	},
+	chuchun_2 = {
+		faces = {
+			touch = &quot;1&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			win_mvp = &quot;1&quot;,
+			propose = &quot;3&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			feeling4 = &quot;3&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;3&quot;,
+			upgrade = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			feeling2 = &quot;3&quot;,
+			battle = &quot;1&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;2&quot;
+		}
+	},
+	wensensi_2 = {
+		faces = {
+			win_mvp = &quot;1&quot;,
+			feeling1 = &quot;3&quot;,
+			main_1 = &quot;1&quot;,
+			feeling2 = &quot;2&quot;,
+			expedition = &quot;2&quot;,
+			upgrade = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;3&quot;,
+			propose = &quot;1&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;2&quot;,
+			mail = &quot;2&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	shengli_2 = {
+		faces = {
+			main_2 = &quot;2&quot;,
+			feeling4 = &quot;2&quot;,
+			feeling5 = &quot;2&quot;,
+			propose = &quot;3&quot;,
+			hp_warning = &quot;2&quot;,
+			win_mvp = &quot;1&quot;,
+			home = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;2&quot;,
+			feeling1 = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	tianlangxing = {
+		faces = {
+			main_2 = &quot;2&quot;,
+			feeling3 = &quot;3&quot;,
+			feeling5 = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			propose = &quot;1&quot;,
+			upgrade = &quot;3&quot;,
+			home = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;3&quot;,
+			lose = &quot;2&quot;,
+			main_3 = &quot;3&quot;
+		}
+	},
+	yamaijia_2 = {
+		faces = {
+			hp_warning = &quot;5&quot;,
+			feeling3 = &quot;4&quot;,
+			feeling4 = &quot;2&quot;,
+			feeling1 = &quot;5&quot;,
+			main_2 = &quot;3&quot;,
+			win_mvp = &quot;6&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;4&quot;,
+			skill = &quot;2&quot;,
+			propose = &quot;2&quot;,
+			lose = &quot;5&quot;,
+			main_3 = &quot;1&quot;,
+			feeling5 = &quot;6&quot;,
+			upgrade = &quot;6&quot;,
+			battle = &quot;4&quot;,
+			login = &quot;3&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	yuekegongjue_3 = {
+		faces = {
+			main_2 = &quot;2&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling5 = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			feeling1 = &quot;1&quot;,
+			profile = &quot;3&quot;,
+			mission_complete = &quot;3&quot;,
+			mission = &quot;2&quot;,
+			touch2 = &quot;2&quot;,
+			hp_warning = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;2&quot;,
+			login = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			main_3 = &quot;3&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	tianlangxing_2 = {
+		faces = {
+			touch = &quot;1&quot;,
+			feeling1 = &quot;2&quot;,
+			main_1 = &quot;3&quot;,
+			feeling2 = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			profile = &quot;3&quot;,
+			home = &quot;1&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;3&quot;,
+			propose = &quot;1&quot;,
+			skill = &quot;2&quot;,
+			hp_warning = &quot;2&quot;,
+			login = &quot;1&quot;,
+			lose = &quot;3&quot;,
+			main_3 = &quot;1&quot;,
+			detail = &quot;1&quot;
+		}
+	},
+	xiefeierde_2 = {
+		faces = {
+			touch = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			feeling5 = &quot;1&quot;,
+			propose = &quot;1&quot;,
+			profile = &quot;3&quot;,
+			touch2 = &quot;2&quot;,
+			battle = &quot;2&quot;,
+			main_2 = &quot;3&quot;,
+			feeling1 = &quot;3&quot;,
+			main_3 = &quot;2&quot;,
+			detail = &quot;3&quot;
+		}
+	},
+	changyue = {
+		faces = {
+			mail = &quot;3&quot;,
+			feeling3 = &quot;2&quot;,
+			main_1 = &quot;3&quot;,
+			feeling5 = &quot;3&quot;,
+			propose = &quot;3&quot;,
+			win_mvp = &quot;3&quot;,
+			hp_warning = &quot;1&quot;,
+			mission = &quot;3&quot;,
+			touch2 = &quot;1&quot;,
+			skill = &quot;3&quot;,
+			battle = &quot;1&quot;,
+			main_2 = &quot;2&quot;,
+			lose = &quot;1&quot;,
+			touch1 = &quot;3&quot;
+		}
+	},
+	gelunweier = {
+		faces = {
+			feeling1 = &quot;6&quot;,
+			feeling3 = &quot;7&quot;,
+			main_1 = &quot;6&quot;,
+			propose = &quot;3&quot;,
+			expedition = &quot;5&quot;,
+			win_mvp = &quot;6&quot;,
+			home = &quot;4&quot;,
+			mission = &quot;1&quot;,
+			touch2 = &quot;2&quot;,
+			hp_warning = &quot;7&quot;,
+			feeling4 = &quot;5&quot;,
+			lose = &quot;2&quot;,
+			main_3 = &quot;4&quot;,
+			feeling5 = &quot;3&quot;,
+			mission_complete = &quot;4&quot;,
+			battle = &quot;7&quot;,
+			login = &quot;1&quot;,
+			detail = &quot;5&quot;
+		}
+	}
+}
+
+slot1.GetCvList = function()
+	slot0 = {}
+
+	for slot4, slot5 in ipairs(uv0.action2Words) do
+		if uv1.character_voice[slot5] and not uv1.AssistantInfo.isDisableSpecialClick(slot5) and slot6.unlock_condition[1] &gt;= 0 then
+			table.insert(slot0, slot6)
+		end
+	end
+
+	return slot0
+end
+
+slot1.GetCVListForProfile = function(slot0, slot1)
+	slot2 = {}
+
+	for slot6, slot7 in pairs(uv0.character_voice) do
+		if not uv0.AssistantInfo.isDisableSpecialClick(slot6) and slot7.unlock_condition[1] &gt;= 0 and slot7.l2d_action ~= &quot;&quot; then
+			if slot7.l2d_action == &quot;get&quot; then
+				if PaintingShowScene.GetSkinShowAble(slot1) then
+					table.insert(slot2, slot7)
+				end
+			elseif slot7.sp_trans_l2d == 1 then
+				if slot0 then
+					table.insert(slot2, slot7)
+				end
+			elseif slot7.sp_trans_l2d == 0 or not slot7.sp_trans_l2d then
+				table.insert(slot2, slot7)
+			end
+		end
+	end
+
+	return slot2
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

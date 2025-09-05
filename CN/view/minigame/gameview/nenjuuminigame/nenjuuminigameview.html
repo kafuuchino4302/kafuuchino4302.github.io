@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nenjuuminigameview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nenjuuminigameview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NenjuuMiniGameView&quot;, import(&quot;view.miniGame.BaseMiniGameView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;NenjuuMiniGameUI&quot;
+end
+
+slot0.openUI = function(slot0, slot1)
+	if slot0.status then
+		setActive(slot0.rtTitlePage:Find(slot0.status), false)
+	end
+
+	if slot1 then
+		setActive(slot0.rtTitlePage:Find(slot1), true)
+	end
+
+	slot0.status = slot1
+
+	switch(slot1, {
+		main = function ()
+			uv0:updateMainUI()
+		end,
+		pause = function ()
+			uv0.gameController:PauseGame()
+		end,
+		exit = function ()
+			uv0.gameController:PauseGame()
+		end,
+		result = function ()
+			setActive(uv0.rtTitlePage:Find(&quot;result&quot;):Find(&quot;window/now/new&quot;), NenjuuGameConfig.ParsingElements(uv0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {}).high &lt; uv0.gameController.point)
+
+			if slot2 &lt;= slot1 then
+				slot2 = slot1
+				slot0.high = slot1
+			end
+
+			slot0.count = slot0.count + slot1
+
+			uv0:SaveDataChange(slot0)
+			setText(slot3:Find(&quot;window/high/Text&quot;), slot2)
+			setText(slot3:Find(&quot;window/now/Text&quot;), slot1)
+
+			if uv0.stageIndex == uv0:GetMGHubData().usedtime + 1 and slot4.count &gt; 0 then
+				uv0:SendSuccess(0)
+			end
+		end
+	})
+end
+
+slot0.updateMainUI = function(slot0)
+	slot1 = slot0:GetMGHubData()
+	slot2 = slot1:getConfig(&quot;reward_need&quot;)
+	slot5 = math.min(slot1.usedtime + 1, slot1.usedtime + slot1.count)
+
+	for slot11 = 1, slot0.itemList.container.childCount do
+		slot12 = {}
+
+		if slot11 &lt;= slot3 then
+			slot12.finish = true
+		elseif slot11 &gt; slot4 then
+			slot12.lock = true
+		end
+
+		slot13 = slot6:GetChild(slot11 - 1)
+
+		setActive(slot13:Find(&quot;finish&quot;), slot12.finish)
+		setActive(slot13:Find(&quot;lock&quot;), slot12.lock)
+		setToggleEnabled(slot13, slot11 &lt;= slot5)
+		triggerToggle(slot13, slot11 == slot5)
+	end
+
+	slot0:checkGet()
+end
+
+slot0.checkGet = function(slot0)
+	if slot0:GetMGHubData().ultimate == 0 then
+		if slot1.usedtime &lt; slot1:getConfig(&quot;reward_need&quot;) then
+			return
+		end
+
+		pg.m02:sendNotification(GAME.SEND_MINI_GAME_OP, {
+			hubid = slot1.id,
+			cmd = MiniGameOPCommand.CMD_ULTIMATE,
+			args1 = {}
+		})
+	end
+end
+
+slot0.initPageUI = function(slot0)
+	slot1 = slot0._tf
+	slot0.rtTitlePage = slot1:Find(&quot;TitlePage&quot;)
+	slot1 = slot0.rtTitlePage
+	slot1 = slot1:Find(&quot;main&quot;)
+
+	onButton(slot0, slot1:Find(&quot;btn_back&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot1:Find(&quot;btn_home&quot;), function ()
+		uv0:emit(BaseUI.ON_HOME)
+	end, SFX_CANCEL)
+	onButton(slot0, slot1:Find(&quot;btn_help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip[&quot;2023spring_minigame_help&quot;].tip
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot1:Find(&quot;btn_opreation&quot;), function ()
+		setActive(uv0.rtLevel:Find(&quot;Opreation&quot;), true)
+		uv0:UpdateOpreationPage(1)
+	end, SFX_PANEL)
+
+	slot2 = slot0:GetMGData()
+	slot2 = slot2:GetSimpleValue(&quot;story&quot;)
+
+	onButton(slot0, slot1:Find(&quot;btn_start&quot;), function ()
+		slot0 = {}
+
+		if checkExist(uv0, {
+			uv1.stageIndex
+		}, {
+			1
+		}) then
+			table.insert(slot0, function (slot0)
+				pg.NewStoryMgr.GetInstance():Play(uv0, slot0)
+			end)
+		end
+
+		seriesAsync(slot0, function ()
+			uv0:openReadyPage()
+		end)
+	end, SFX_PANEL)
+
+	slot0.stageIndex = 0
+	slot4 = slot1:Find(&quot;side_panel/award/content&quot;)
+	slot0.itemList = UIItemList.New(slot4, slot4:GetChild(0))
+	slot5 = slot0.itemList
+
+	slot5:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = slot2:Find(&quot;IconTpl&quot;)
+			slot5, slot6, slot7 = unpack(uv0[slot1])
+
+			updateDrop(slot3, {
+				count = slot7,
+				id = slot6,
+				type = slot5
+			})
+			onButton(uv1, slot3, function ()
+				uv0:emit(uv1.ON_DROP, uv2)
+			end, SFX_PANEL)
+			onToggle(uv1, slot2, function (slot0)
+				if slot0 then
+					uv0.stageIndex = uv1
+				end
+			end)
+		end
+	end)
+
+	slot5 = slot0.itemList
+
+	slot5:align(#pg.mini_game[slot0:GetMGData().id].simple_config_data.drop)
+
+	slot5 = slot0.rtTitlePage
+	slot5 = slot5:Find(&quot;countdown&quot;)
+	slot6 = slot5:Find(&quot;bg/Image&quot;)
+	slot6 = slot6:GetComponent(typeof(DftAniEvent))
+
+	slot6:SetEndEvent(function ()
+		uv0:openUI()
+		uv0.gameController:StartGame()
+	end)
+
+	slot6 = slot0.rtTitlePage
+	slot6 = slot6:Find(&quot;pause&quot;)
+
+	onButton(slot0, slot6:Find(&quot;window/btn_confirm&quot;), function ()
+		uv0:openUI()
+		uv0.gameController:ResumeGame()
+	end, SFX_CONFIRM)
+
+	slot7 = slot0.rtTitlePage
+	slot7 = slot7:Find(&quot;exit&quot;)
+
+	onButton(slot0, slot7:Find(&quot;window/btn_cancel&quot;), function ()
+		uv0:openUI()
+		uv0.gameController:ResumeGame()
+	end, SFX_CANCEL)
+	onButton(slot0, slot7:Find(&quot;window/btn_confirm&quot;), function ()
+		uv0:openUI()
+		uv0.gameController:EndGame()
+	end, SFX_CONFIRM)
+
+	slot8 = slot0.rtTitlePage
+	slot8 = slot8:Find(&quot;result&quot;)
+
+	onButton(slot0, slot8:Find(&quot;window/btn_finish&quot;), function ()
+		uv0:openUI(&quot;main&quot;)
+	end, SFX_CONFIRM)
+end
+
+slot0.initLeveUI = function(slot0)
+	slot1 = slot0._tf
+	slot0.rtLevel = slot1:Find(&quot;LevelPage&quot;)
+	slot1 = slot0.rtLevel
+	slot1 = slot1:Find(&quot;Opreation&quot;)
+
+	onButton(slot0, slot1:Find(&quot;btn_back&quot;), function ()
+		setActive(uv0, false)
+	end, SFX_CANCEL)
+end
+
+slot1 = {
+	bomb = {
+		&quot;2023spring_minigame_item_firecracker&quot;
+	},
+	lantern = {
+		&quot;2023spring_minigame_item_lantern&quot;
+	},
+	ice = {
+		&quot;2023spring_minigame_skill_icewall&quot;,
+		&quot;2023spring_minigame_skill_icewall_up&quot;
+	},
+	flash = {
+		&quot;2023spring_minigame_skill_flash&quot;,
+		&quot;2023spring_minigame_skill_flash_up&quot;
+	},
+	rush = {
+		&quot;2023spring_minigame_skill_sprint&quot;,
+		&quot;2023spring_minigame_skill_sprint_up&quot;
+	},
+	blessing = {
+		&quot;2023spring_minigame_bless_speed&quot;,
+		&quot;2023spring_minigame_bless_speed_up&quot;
+	},
+	decoy = {
+		&quot;2023spring_minigame_bless_substitute&quot;,
+		&quot;2023spring_minigame_bless_substitute_up&quot;
+	}
+}
+
+slot0.UpdateOpreationPage = function(slot0, slot1)
+	slot2 = slot0.rtLevel:Find(&quot;Opreation&quot;)
+
+	setText(slot2:Find(&quot;point/Text&quot;), NenjuuGameConfig.ParsingElements(slot0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {}).count)
+
+	slot5 = nil
+	slot6 = slot2:Find(&quot;main/view/content&quot;)
+
+	UIItemList.New(slot6, slot6:Find(&quot;tpl&quot;)):make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1]
+
+			setActive(slot2:Find(&quot;empty&quot;), not slot3)
+			setActive(slot2:Find(&quot;info&quot;), slot3)
+
+			if slot3 then
+				slot4 = slot2:Find(&quot;info&quot;)
+
+				eachChild(slot4:Find(&quot;icon&quot;), function (slot0)
+					setActive(slot0, slot0.name == uv0)
+				end)
+
+				slot5 = string.split(i18n(uv1[slot3][1]), &quot;|&quot;)
+
+				setText(slot4:Find(&quot;name/Text&quot;), slot5[1])
+				setText(slot4:Find(&quot;desc&quot;), slot5[2])
+				setActive(slot4:Find(&quot;level&quot;), uv1[slot3][2])
+
+				if uv1[slot3][2] then
+					slot6 = string.split(i18n(uv1[slot3][2]), &quot;|&quot;)
+
+					for slot10 = 1, 3 do
+						setActive(slot4:Find(&quot;level/&quot; .. slot10), slot6[slot10])
+
+						if slot6[slot10] then
+							setTextColor(slot11:Find(&quot;Text&quot;), Color.NewHex(uv2.level[slot3] &lt; slot10 and &quot;8D90AFFF&quot; or &quot;535885FF&quot;))
+							changeToScrollText(slot11:Find(&quot;info&quot;), setColorStr(slot6[slot10], uv2.level[slot3] &lt; slot10 and &quot;#8D90AFFF&quot; or &quot;#535885FF&quot;))
+						end
+					end
+				end
+
+				eachChild(slot4:Find(&quot;status&quot;), function (slot0)
+					setActive(slot0, false)
+				end)
+				onButton(uv3, slot4:Find(&quot;status/btn_equip&quot;), function ()
+					uv0.item = uv1
+
+					uv2:SaveDataChange(uv0)
+					uv2:UpdateOpreationPage(uv3)
+				end, SFX_CONFIRM)
+				onButton(uv3, slot4:Find(&quot;status/btn_unlock&quot;), function ()
+					uv0.count = uv0.count - NenjuuGameConfig.SKILL_LEVEL_CONFIG[uv1].cost[uv0.level[uv1] + 1]
+					uv0.level[uv1] = uv0.level[uv1] + 1
+
+					if uv0.level[uv1] &gt; 1 then
+						pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;2023spring_minigame_tip7&quot;, uv2[1]))
+					else
+						pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;2023spring_minigame_tip6&quot;, uv2[1]))
+					end
+
+					uv3:SaveDataChange(uv0)
+					uv3:UpdateOpreationPage(uv4)
+				end, SFX_CONFIRM)
+
+				if uv2.level[slot3] &lt; #NenjuuGameConfig.SKILL_LEVEL_CONFIG[slot3].cost then
+					if uv2.count &lt; NenjuuGameConfig.SKILL_LEVEL_CONFIG[slot3].cost[uv2.level[slot3] + 1] then
+						setText(slot4:Find(&quot;status/btn_lock/point&quot;), slot6)
+						setText(slot4:Find(&quot;status/btn_lock/Text&quot;), i18n(&quot;2023spring_minigame_tip3&quot;))
+						setActive(slot4:Find(&quot;status/btn_lock&quot;), true)
+					else
+						setText(slot4:Find(&quot;status/btn_unlock/point&quot;), slot6)
+						setText(slot4:Find(&quot;status/btn_unlock/Text&quot;), i18n(&quot;2023spring_minigame_tip3&quot;))
+						setActive(slot4:Find(&quot;status/btn_unlock&quot;), true)
+					end
+				elseif slot3 == &quot;bomb&quot; or slot3 == &quot;lantern&quot; then
+					setText(slot4:Find(&quot;status/btn_equip/Text&quot;), i18n(&quot;2023spring_minigame_tip1&quot;))
+					setActive(slot4:Find(&quot;status/btn_equip&quot;), uv2.item ~= slot3)
+					setText(slot4:Find(&quot;status/btn_in/Text&quot;), i18n(&quot;2023spring_minigame_tip2&quot;))
+					setActive(slot4:Find(&quot;status/btn_in&quot;), uv2.item == slot3)
+				else
+					setActive(slot4:Find(&quot;status/unlock&quot;), true)
+				end
+			end
+		end
+	end)
+
+	for slot11, slot12 in ipairs({
+		{
+			&quot;bomb&quot;,
+			&quot;lantern&quot;
+		},
+		{
+			&quot;ice&quot;,
+			&quot;flash&quot;,
+			&quot;rush&quot;
+		},
+		{
+			&quot;blessing&quot;,
+			&quot;decoy&quot;
+		}
+	}) do
+		onToggle(slot0, slot2:Find(&quot;toggles/&quot; .. slot11), function (slot0)
+			uv0 = uv1
+			uv2 = uv3
+
+			uv4:align(4)
+			setActive(uv5:Find(&quot;main/tip&quot;), uv1 == 1)
+		end, SFX_PANEL)
+	end
+
+	triggerToggle(slot2:Find(&quot;toggles/&quot; .. slot1), true)
+end
+
+slot2 = function(slot0, slot1, slot2)
+	for slot6, slot7 in ipairs(NenjuuGameConfig.ABILITY_LIST) do
+		if slot0[slot7] then
+			slot1 = slot1 + slot2[slot7]
+		end
+	end
+
+	return slot1
+end
+
+slot0.openReadyPage = function(slot0)
+	slot1 = NenjuuGameConfig.ParsingElements(slot0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {})
+	slot2 = NenjuuGameConfig.GetStageConfig(&quot;Spring23Level_&quot; .. slot0.stageIndex)
+
+	if not slot0.abilityCache[slot0.stageIndex] then
+		slot0.abilityCache[slot0.stageIndex] = setmetatable({}, {
+			__index = slot2.ability_config
+		})
+	end
+
+	slot4 = slot0.rtLevel
+
+	setActive(slot4:Find(&quot;Ready&quot;), true)
+
+	slot5 = slot0.rtLevel
+
+	onButton(slot0, slot5:Find(&quot;Ready/bg&quot;), function ()
+		setActive(uv0.rtLevel:Find(&quot;Ready&quot;), false)
+	end, SFX_CANCEL)
+
+	slot3 = slot0.rtLevel
+	slot3 = slot3:Find(&quot;Ready/main&quot;)
+
+	eachChild(slot3:Find(&quot;title&quot;), function (slot0)
+		setActive(slot0, slot0.name == tostring(uv0.stageIndex))
+	end)
+	setText(slot3:Find(&quot;rate/Image/Text&quot;), uv0(slot0.abilityCache[slot0.stageIndex], slot2.base_rate, slot2.ability_rate))
+	setText(slot3:Find(&quot;high/Image/Text&quot;), slot1[&quot;stage_&quot; .. slot0.stageIndex])
+	setText(slot3:Find(&quot;ability_text/Text&quot;), i18n(&quot;2023spring_minigame_tip5&quot;))
+
+	slot4 = underscore.filter(NenjuuGameConfig.ABILITY_LIST, function (slot0)
+		return uv0.abilityCache[uv0.stageIndex][slot0]
+	end)
+	slot5 = UIItemList.New(slot3:Find(&quot;abilitys&quot;), slot3:Find(&quot;abilitys/tpl&quot;))
+
+	slot5:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			setActive(slot2:Find(&quot;empty&quot;), not uv0[slot1])
+			setActive(slot2:Find(&quot;enable&quot;), uv0[slot1])
+
+			if uv0[slot1] then
+				eachChild(slot2:Find(&quot;enable&quot;), function (slot0)
+					setActive(slot0, slot0.name == uv0[uv1])
+				end)
+			end
+		end
+	end)
+	slot5:align(#NenjuuGameConfig.ABILITY_LIST)
+	onButton(slot0, slot3:Find(&quot;btn_rate&quot;), function ()
+		setActive(uv0.rtLevel:Find(&quot;Ready&quot;), false)
+		uv0:openRatePage()
+	end, SFX_PANEL)
+	onButton(slot0, slot3:Find(&quot;btn_continue&quot;), function ()
+		setActive(uv0.rtLevel:Find(&quot;Ready&quot;), false)
+		uv0.gameController:ResetGame()
+		uv0.gameController:ReadyGame({
+			index = uv0.stageIndex,
+			FuShun = NenjuuGameConfig.ParsingElements(uv0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {}),
+			Nenjuu = uv0.abilityCache[uv0.stageIndex],
+			rate = uv1(uv0.abilityCache[uv0.stageIndex], uv2.base_rate, uv2.ability_rate)
+		})
+		uv0:openUI(&quot;countdown&quot;)
+	end, SFX_CONFIRM)
+end
+
+slot0.openRatePage = function(slot0)
+	slot1 = NenjuuGameConfig.ParsingElements(slot0:GetMGData():GetRuntimeData(&quot;elements&quot;) or {})
+	slot2 = NenjuuGameConfig.GetStageConfig(&quot;Spring23Level_&quot; .. slot0.stageIndex)
+
+	if not slot0.abilityCache[slot0.stageIndex] then
+		slot0.abilityCache[slot0.stageIndex] = setmetatable({}, {
+			__index = slot2.ability_config
+		})
+	end
+
+	slot4 = slot0.rtLevel
+
+	setActive(slot4:Find(&quot;Rate&quot;), true)
+
+	slot5 = slot0.rtLevel
+
+	onButton(slot0, slot5:Find(&quot;Rate/bg&quot;), function ()
+		setActive(uv0.rtLevel:Find(&quot;Rate&quot;), false)
+		uv0:openReadyPage()
+	end, SFX_CANCEL)
+
+	slot3 = slot0.rtLevel
+	slot3 = slot3:Find(&quot;Rate/main/panel&quot;)
+
+	setText(slot3:Find(&quot;info/rate/Text&quot;), uv0(slot0.abilityCache[slot0.stageIndex], slot2.base_rate, slot2.ability_rate))
+
+	slot6 = slot3:Find(&quot;view/content&quot;)
+	slot7 = UIItemList.New(slot6, slot6:Find(&quot;tpl&quot;))
+
+	slot7:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1]
+
+			setActive(slot2:Find(&quot;empty&quot;), not slot3)
+			setActive(slot2:Find(&quot;enable&quot;), slot3)
+
+			if slot3 then
+				slot4 = slot2:Find(&quot;enable&quot;)
+
+				eachChild(slot4:Find(&quot;icon&quot;), function (slot0)
+					setActive(slot0, slot0.name == uv0)
+				end)
+
+				slot5 = string.split(i18n(&quot;2023spring_minigame_nenjuu_skill&quot; .. table.indexof(NenjuuGameConfig.ABILITY_LIST, slot3)), &quot;|&quot;)
+
+				setText(slot4:Find(&quot;name/Text&quot;), slot5[1])
+				setText(slot4:Find(&quot;desc&quot;), slot5[2])
+				onToggle(uv1, slot4:Find(&quot;toggle&quot;), function (slot0)
+					uv0.abilityCache[uv0.stageIndex][uv1] = slot0
+
+					setText(uv5:Find(&quot;info/delta&quot;), (uv2(uv0.abilityCache[uv0.stageIndex], uv3.base_rate, uv3.ability_rate) - uv4 &lt; 0 and &quot;&quot; or &quot;+&quot;) .. slot1)
+				end)
+				triggerToggle(slot4:Find(&quot;toggle&quot;), uv1.abilityCache[uv1.stageIndex][slot3])
+			end
+		end
+	end)
+	slot7:align(math.min(#underscore.filter(NenjuuGameConfig.ABILITY_LIST, function (slot0)
+		return uv0.abilityCache[uv0.stageIndex][slot0] ~= nil
+	end) + 1, #NenjuuGameConfig.ABILITY_LIST))
+end
+
+slot0.initControllerUI = function(slot0)
+	slot1 = slot0._tf
+	slot1 = slot1:Find(&quot;Controller/top&quot;)
+
+	onButton(slot0, slot1:Find(&quot;btn_back&quot;), function ()
+		uv0:openUI(&quot;exit&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot1:Find(&quot;btn_pause&quot;), function ()
+		uv0:openUI(&quot;pause&quot;)
+	end)
+end
+
+slot0.SaveDataChange = function(slot0, slot1)
+	slot2 = {}
+
+	table.insert(slot2, slot1.high)
+	table.insert(slot2, slot1.count)
+	table.insert(slot2, slot1.item and table.indexof(NenjuuGameConfig.ITEM_LIST, slot1.item) or 0)
+
+	for slot6 = 1, 7 do
+		table.insert(slot2, slot1[&quot;stage_&quot; .. slot6])
+	end
+
+	for slot6, slot7 in ipairs({
+		&quot;bomb&quot;,
+		&quot;lantern&quot;,
+		&quot;ice&quot;,
+		&quot;flash&quot;,
+		&quot;rush&quot;,
+		&quot;blessing&quot;,
+		&quot;decoy&quot;
+	}) do
+		table.insert(slot2, slot1.level[slot7])
+	end
+
+	slot0:StoreDataToServer(slot2)
+end
+
+slot0.didEnter = function(slot0)
+	slot0:initPageUI()
+	slot0:initLeveUI()
+	slot0:initControllerUI()
+
+	slot0.abilityCache = {}
+	slot0.gameController = NenjuuGameController.New(slot0, slot0._tf)
+
+	slot0:openUI(&quot;main&quot;)
+end
+
+slot0.onBackPressed = function(slot0)
+	switch(slot0.status, {
+		main = function ()
+			if isActive(uv0.rtLevel:Find(&quot;Opreation&quot;)) then
+				triggerButton(uv0.rtLevel:Find(&quot;Opreation/btn_back&quot;))
+
+				return
+			end
+
+			if isActive(uv0.rtLevel:Find(&quot;Ready&quot;)) then
+				triggerButton(uv0.rtLevel:Find(&quot;Ready/bg&quot;))
+
+				return
+			end
+
+			if isActive(uv0.rtLevel:Find(&quot;Rate&quot;)) then
+				triggerButton(uv0.rtLevel:Find(&quot;Rate/bg&quot;))
+
+				return
+			end
+
+			uv1.super.onBackPressed(uv0)
+		end,
+		countdown = function ()
+		end,
+		pause = function ()
+			uv0:openUI()
+			uv0.gameController:ResumeGame()
+		end,
+		exit = function ()
+			uv0:openUI()
+			uv0.gameController:ResumeGame()
+		end,
+		result = function ()
+		end
+	}, function ()
+		assert(uv0.gameController.isStart)
+		uv0:openUI(&quot;pause&quot;)
+	end)
+end
+
+slot0.willExit = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

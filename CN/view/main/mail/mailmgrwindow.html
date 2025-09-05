@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mailmgrwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mailmgrwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MailMgrWindow&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MailMgrMsgboxUI&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot3 = slot0._tf
+
+	onButton(slot0, slot3:Find(&quot;bg&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.closeBtn = slot0:findTF(&quot;window/top/btnBack&quot;)
+
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot1 = slot0._tf
+	slot0.readBtn = slot1:Find(&quot;window/button_container/btn_read&quot;)
+
+	onButton(slot0, slot0.readBtn, function ()
+		uv0:emit(MailMediator.ON_OPERATION, {
+			cmd = &quot;read&quot;,
+			filter = uv0:GetFilterData()
+		})
+	end, SFX_CONFIRM)
+
+	slot1 = slot0._tf
+	slot0.attachBtn = slot1:Find(&quot;window/button_container/btn_get&quot;)
+
+	onButton(slot0, slot0.attachBtn, function ()
+		uv0:emit(MailMediator.ON_OPERATION, {
+			cmd = &quot;attachment&quot;,
+			filter = uv0:GetFilterData()
+		})
+	end, SFX_CONFIRM)
+
+	slot1 = slot0._tf
+	slot0.deleteBtn = slot1:Find(&quot;window/button_container/btn_delete&quot;)
+
+	onButton(slot0, slot0.deleteBtn, function ()
+		seriesAsync({
+			function (slot0)
+				pg.m02:sendNotification(GAME.MAIL_DOUBLE_CONFIREMATION_MSGBOX, {
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;main_mailLayer_quest_clear_choice&quot;),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_OPERATION, {
+				cmd = &quot;delete&quot;,
+				filter = uv0:GetFilterData()
+			})
+		end)
+	end, SFX_CONFIRM)
+
+	slot1 = {}
+	slot5 = {
+		slot6
+	}
+	slot6 = ITEM_ID_CUBE
+
+	for slot5, slot6 in pairs({
+		[DROP_TYPE_RESOURCE] = {
+			PlayerConst.ResGold,
+			PlayerConst.ResOil,
+			PlayerConst.ResExploit,
+			PlayerConst.ResDiamond
+		},
+		[DROP_TYPE_ITEM] = slot5
+	}) do
+		for slot10, slot11 in ipairs(slot6) do
+			table.insert(slot1, Drop.New({
+				type = slot5,
+				id = slot11
+			}))
+		end
+	end
+
+	if MailWaterSelect then
+		table.insert(slot1, Drop.New({
+			id = 50002,
+			type = DROP_TYPE_ITEM
+		}))
+	end
+
+	slot0.filterDic = {}
+	slot0.rtContent = slot0._tf:Find(&quot;window/frame/toggle_group/filter/content&quot;)
+
+	UIItemList.StaticAlign(slot0.rtContent, slot0.rtContent:Find(&quot;toggle_tpl&quot;), #slot1, function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			GetImageSpriteFromAtlasAsync(uv0[slot1]:getIcon(), &quot;&quot;, slot2:Find(&quot;Image&quot;))
+			onToggle(uv1, slot2, function (slot0)
+				uv0.filterDic[uv1.type .. &quot;_&quot; .. uv1.id] = slot0
+
+				if slot0 then
+					triggerToggle(uv0._tf:Find(&quot;window/frame/toggle_group/filter&quot;), true)
+				end
+			end, SFX_PANEL)
+		end
+	end)
+	eachChild(slot0._tf:Find(&quot;window/frame/toggle_group&quot;), function (slot0)
+		onToggle(uv0, slot0, function (slot0)
+			if slot0 then
+				uv0.filterType = uv1.name
+
+				if uv0.filterType == &quot;all&quot; then
+					eachChild(uv0.rtContent, function (slot0)
+						triggerToggle(slot0, false)
+					end)
+				end
+			end
+		end, SFX_PANEL)
+	end)
+	setText(slot0._tf:Find(&quot;window/top/bg/infomation/title&quot;), i18n(&quot;mail_manager_title&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/tip/Text&quot;), i18n(&quot;mail_manage_tip_1&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/tip_1/Text&quot;), i18n(&quot;mail_manager_tips_2&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/toggle_group/all/Text&quot;), i18n(&quot;mail_manage_1&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/toggle_group/filter/Text&quot;), i18n(&quot;mail_manage_2&quot;))
+	setText(slot0.attachBtn:Find(&quot;Text&quot;), i18n(&quot;mail_get_oneclick&quot;))
+	setText(slot0.readBtn:Find(&quot;Text&quot;), i18n(&quot;mail_read_oneclick&quot;))
+	setText(slot0.deleteBtn:Find(&quot;Text&quot;), i18n(&quot;mail_delete_oneclick&quot;))
+end
+
+slot0.GetFilterData = function(slot0)
+	return switch(slot0.filterType, {
+		all = function ()
+			return {
+				type = &quot;all&quot;
+			}
+		end,
+		filter = function ()
+			slot0 = {}
+
+			for slot4, slot5 in pairs(uv0.filterDic) do
+				if slot5 then
+					slot6, slot7 = unpack(string.split(slot4, &quot;_&quot;))
+
+					table.insert(slot0, Drop.New({
+						type = tonumber(slot6),
+						id = tonumber(slot7)
+					}))
+				end
+			end
+
+			return {
+				type = &quot;drops&quot;,
+				list = slot0
+			}
+		end
+	}, function ()
+		assert(false)
+	end)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	triggerToggle(slot0._tf:Find(&quot;window/frame/toggle_group/all&quot;), true)
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	uv0.super.Hide(slot0)
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

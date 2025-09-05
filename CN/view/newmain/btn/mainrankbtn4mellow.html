@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainrankbtn4mellow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainrankbtn4mellow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainRankBtn4Mellow&quot;, import(&quot;.MainRankBtn&quot;))
+
+slot0.Ctor = function(slot0, slot1, slot2)
+	uv0.super.Ctor(slot0, slot1, slot2)
+
+	slot0.rankImage = slot1:Find(&quot;root/Image&quot;):GetComponent(typeof(Image))
+end
+
+slot0.Flush = function(slot0)
+	slot1 = slot0:IsActive()
+
+	setActive(slot0._tf:Find(&quot;root/lock&quot;), not slot1)
+
+	slot0.rankImage.color = slot1 and Color(1, 1, 1, 1) or Color(0.3, 0.3, 0.3, 1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

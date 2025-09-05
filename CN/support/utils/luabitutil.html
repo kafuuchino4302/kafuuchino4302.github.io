@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luabitutil.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>luabitutil.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	[0] = &quot;0&quot;,
+	&quot;1&quot;,
+	&quot;2&quot;,
+	&quot;3&quot;,
+	&quot;4&quot;,
+	&quot;5&quot;,
+	&quot;6&quot;,
+	&quot;7&quot;,
+	&quot;8&quot;,
+	&quot;9&quot;,
+	&quot;A&quot;,
+	&quot;B&quot;,
+	&quot;C&quot;,
+	&quot;D&quot;,
+	&quot;E&quot;,
+	&quot;F&quot;,
+	&quot;G&quot;
+}
+
+slot1 = function(slot0)
+	for slot4, slot5 in pairs(uv0) do
+		if slot5 == slot0 then
+			return slot4
+		end
+	end
+
+	return 0
+end
+
+slot2 = function(slot0, slot1)
+	slot3 = {}
+
+	(function (slot0, slot1)
+		if slot0 &lt; uv0 then
+			table.insert(slot1, slot0)
+		else
+			uv1(math.floor(slot0 / uv0), slot1)
+			table.insert(slot1, slot0 % uv0)
+		end
+	end)(slot0, slot3)
+
+	return slot3
+end
+
+ConvertDec2X = function(slot0, slot1)
+	slot3 = &quot;&quot;
+
+	for slot7, slot8 in ipairs(uv0(slot0, slot1)) do
+		slot3 = slot3 .. uv1[slot8]
+	end
+
+	return slot3
+end
+
+ConvertStr2Dec = function(slot0, slot1)
+	slot2 = {}
+	slot4 = string.len(slot0)
+
+	while slot4 &gt; 0 do
+		slot2[#slot2 + 1] = uv0(string.sub(slot0, slot4, slot4))
+		slot4 = slot4 - 1
+	end
+
+	slot5 = 0
+
+	for slot9, slot10 in ipairs(slot2) do
+		slot5 = slot5 + slot10 * math.pow(slot1, slot9 - 1)
+	end
+
+	return slot5
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

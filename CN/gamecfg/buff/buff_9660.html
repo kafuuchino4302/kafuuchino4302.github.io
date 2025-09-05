@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_9660.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_9660.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;敌方夜战照明弹-照明区域效果&quot;,
+	init_effect = &quot;&quot;,
+	id = 9660,
+	time = 0.5,
+	picture = &quot;&quot;,
+	desc = &quot;回避率降低&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 9660,
+	last_effect = &quot;zhaomingdan_miaozhun&quot;,
+	blink = {
+		0.8,
+		0.8,
+		0.8,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = -0.25,
+				attr = &quot;dodgeRateExtra&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = 1,
+				attr = &quot;lockAimBias&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;C14_highlight&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildingupgradelayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildingupgradelayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildingUpgradeLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;BuildingUpgradePanel&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.btnUpgrade = slot0:findTF(&quot;window/frame/upgrade_btn&quot;)
+
+	setText(slot0:findTF(&quot;window/frame/costback/label&quot;), i18n(&quot;word_consume&quot;))
+	setText(slot0:findTF(&quot;window/frame/upgrade_btn/Image&quot;), i18n(&quot;msgbox_text_upgrade&quot;))
+
+	slot0.loader = AutoLoader.New()
+end
+
+slot0.UpdateActivity = function(slot0, slot1)
+	slot0.activity = slot1
+end
+
+slot0.didEnter = function(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	onButton(slot0, slot0:findTF(&quot;window/top/btnBack&quot;), function ()
+		uv0:closeView()
+	end)
+	onButton(slot0, slot0:findTF(&quot;mengban&quot;), function ()
+		uv0:closeView()
+	end)
+	slot0:Set(slot0.activity)
+end
+
+slot0.Set = function(slot0, slot1, slot2)
+	slot2 = slot2 or slot0.contextData.buildingID
+	slot3 = pg.activity_event_building[slot2]
+
+	assert(slot3, &quot;Can&#x27;t Find activity_event_building Config ID: &quot; .. slot2)
+
+	slot0.contextData.buildingID = slot2
+	slot5 = slot1.data1KeyValueList[2][slot2] or 1
+	slot6 = slot3.material[slot5]
+	slot8 = 0
+	slot9 = false
+
+	if not (#slot3.buff &lt;= slot5) then
+		slot9 = slot7 or slot6[1][3] &lt;= (slot1.data1KeyValueList[1][slot6[1][2]] or 0)
+	end
+
+	setText(slot0:findTF(&quot;window/top/name&quot;), slot3.name)
+	setText(slot0:findTF(&quot;window/top/name/lv&quot;), &quot;Lv.&quot; .. slot5)
+	setScrollText(slot0:findTF(&quot;window/frame/describe/text&quot;), slot3.desc)
+	setText(slot0:findTF(&quot;window/frame/content/title/lv/current&quot;), &quot;Lv.&quot; .. slot5)
+	setActive(slot0:findTF(&quot;window/frame/content/title/lv/next&quot;), not slot7)
+
+	if not slot7 then
+		setText(slot0:findTF(&quot;window/frame/content/title/lv/next&quot;), &quot;Lv.&quot; .. slot5 + 1)
+	end
+
+	slot10 = slot3.buff[slot5]
+	slot11 = pg.benefit_buff_template[slot10]
+
+	assert(slot11, &quot;Can&#x27;t Find benefit_buff_template Config ID: &quot; .. slot10)
+	setText(slot0:findTF(&quot;window/frame/content/preview/current&quot;), slot11.desc)
+	setActive(slot0:findTF(&quot;window/frame/content/preview/arrow&quot;), not slot7)
+	setActive(slot0:findTF(&quot;window/frame/content/preview/next&quot;), not slot7)
+
+	if not slot7 then
+		slot12 = slot3.buff[slot5 + 1]
+		slot11 = pg.benefit_buff_template[slot12]
+
+		assert(slot11, &quot;Can&#x27;t Find benefit_buff_template Config ID: &quot; .. slot12)
+		setText(slot0:findTF(&quot;window/frame/content/preview/next&quot;), slot11.desc)
+		slot0.loader:GetSprite(Item.getConfigData(slot8).icon, &quot;&quot;, slot0:findTF(&quot;window/frame/costback/icon&quot;))
+	end
+
+	setText(slot0:findTF(&quot;window/frame/costback/cost&quot;), not slot7 and slot3.material[slot5][1][3] or 0)
+	onButton(slot0, slot0.btnUpgrade, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;building_upgrade_tip&quot;),
+			onYes = function ()
+				if uv0 then
+					return
+				elseif uv1 then
+					uv2:emit(BuildingUpgradeMediator.ACTIVITY_OPERATION, {
+						cmd = 1,
+						activity_id = uv2.activity.id,
+						arg1 = uv3
+					})
+				else
+					pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;building_tip&quot;))
+				end
+			end
+		})
+	end)
+	setGray(slot0.btnUpgrade, slot7)
+	setButtonEnabled(slot0.btnUpgrade, not slot7)
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

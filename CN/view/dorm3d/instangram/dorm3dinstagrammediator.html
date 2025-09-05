@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dinstagrammediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dinstagrammediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dInstagramMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_DISCUSS = &quot;Dorm3dInstagramMediator:ON_DISCUSS&quot;
+slot0.ON_READ = &quot;Dorm3dInstagramMediator:ON_READ&quot;
+slot0.ON_LIKE = &quot;Dorm3dInstagramMediator:ON_LIKE&quot;
+slot0.ON_SHARE = &quot;Dorm3dInstagramMediator:ON_SHARE&quot;
+slot0.ON_EXIT = &quot;Dorm3dInstagramMediator:ON_EXIT&quot;
+slot0.BACK_PRESSED = &quot;Dorm3dInstagramMediator:BACK_PRESSED&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_DISCUSS, function (slot0, slot1, slot2, slot3)
+		uv0:sendNotification(GAME.APARTMENT_INS_OP, {
+			shipId = uv0.contextData.apartmentGroupId,
+			op = Instagram3Dorm.OP_DISCUSS,
+			id = slot1,
+			commentId = slot2,
+			index = slot3
+		})
+	end)
+	slot0:bind(uv0.ON_READ, function (slot0, slot1)
+		uv0:sendNotification(GAME.APARTMENT_INS_OP, {
+			shipId = uv0.contextData.apartmentGroupId,
+			op = Instagram3Dorm.OP_READ,
+			id = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_LIKE, function (slot0, slot1)
+		uv0:sendNotification(GAME.APARTMENT_INS_OP, {
+			shipId = uv0.contextData.apartmentGroupId,
+			op = Instagram3Dorm.OP_LIKE,
+			id = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_SHARE, function (slot0, slot1)
+		uv0:sendNotification(GAME.APARTMENT_INS_OP, {
+			shipId = uv0.contextData.apartmentGroupId,
+			op = Instagram3Dorm.OP_SHARE,
+			id = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_EXIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.APARTMENT_INS_OP, {
+			shipId = uv0.contextData.apartmentGroupId,
+			op = Instagram3Dorm.OP_EXIT,
+			id = slot1
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.APARTMENT_INS_OP_DONE,
+		uv0.BACK_PRESSED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.APARTMENT_INS_OP_DONE then
+		if slot3.op == Instagram3Dorm.OP_DISCUSS then
+			slot0.viewComponent:UpdateCommentList()
+		elseif slot3.op == Instagram3Dorm.OP_READ then
+			-- Nothing
+		elseif slot3.op == Instagram3Dorm.OP_LIKE then
+			slot0.viewComponent:OnLikeInstagram()
+		elseif slot3.op == Instagram3Dorm.OP_SHARE then
+			-- Nothing
+		elseif slot3.op == Instagram3Dorm.OP_EXIT then
+			-- Nothing
+		end
+	elseif slot2 == uv0.BACK_PRESSED then
+		slot0.viewComponent:onBackPressed()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

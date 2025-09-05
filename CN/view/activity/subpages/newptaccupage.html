@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newptaccupage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newptaccupage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewPtAccuPage&quot;, import(&quot;.TemplatePage.PtTemplatePage&quot;))
+slot0.TIME = 300
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.value2 = slot0:findTF(&quot;AD/value2&quot;)
+	slot0.sliderTxt = slot0:findTF(&quot;AD/slider/Text&quot;)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+	setText(slot0.value2, slot0.ptData:GetValue2())
+
+	slot1, slot2, slot3 = slot0.ptData:GetResProgress()
+
+	setText(slot0.sliderTxt, math.floor(math.min(slot3, 1) * 100) .. &quot;%&quot;)
+	slot0:GetWorldPtData(uv0.TIME)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

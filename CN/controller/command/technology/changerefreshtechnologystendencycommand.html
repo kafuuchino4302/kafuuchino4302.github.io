@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changerefreshtechnologystendencycommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>changerefreshtechnologystendencycommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChangeRefreshTechnologysTendencyCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(63009, {
+		id = slot2.pool_id,
+		target = slot2.tendency
+	}, 63010, function (slot0)
+		if slot0.result == 0 then
+			getProxy(TechnologyProxy):setTendency(uv0, uv1)
+			uv2:sendNotification(GAME.CHANGE_REFRESH_TECHNOLOGYS_TENDENCY_DONE)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;change_technology_refresh_erro&quot;) .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

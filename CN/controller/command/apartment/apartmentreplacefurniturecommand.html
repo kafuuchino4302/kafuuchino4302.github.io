@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartmentreplacefurniturecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>apartmentreplacefurniturecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ApartmentReplaceFurnitureCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1.body
+	slot6 = pg.ConnectionMgr.GetInstance()
+
+	slot6:Send(28007, {
+		room_id = slot2.roomId,
+		furnitures = _.map(slot2.furnitures, function (slot0)
+			return {
+				slot_id = slot0.slotId,
+				furniture_id = slot0.furnitureId
+			}
+		end)
+	}, 28008, function (slot0)
+		if slot0.result ~= 0 then
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;&quot;, slot0.result))
+			uv0:sendNotification(GAME.APARTMENT_REPLACE_FURNITURE_ERROR)
+
+			return
+		end
+
+		getProxy(ApartmentProxy):ModifyRoom(uv1, function (slot0)
+			slot0:ReplaceFurnitures(uv0)
+		end)
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_furniture_save_success&quot;))
+		uv0:sendNotification(GAME.APARTMENT_REPLACE_FURNITURE_DONE)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

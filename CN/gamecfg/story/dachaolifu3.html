@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dachaolifu3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dachaolifu3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DACHAOLIFU3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;心血来潮的夜宴\n\n&lt;size=45&gt;三 各自的欢愉&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;bsm-5&quot;,
+			say = &quot;其他人也在以各自的方式，享受着这场“心血来潮的宴会”——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 301143,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦哦哦！这边有肉！那边也有肉！这是肉肉之宴啊！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 3
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 307051,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊…一看到肉，椿就跟脱缰的野马一样跑没影子了，唉&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307051,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;算了…难得的宴会，就让她放开了吃吧。我去找荙她们一起喝酒好了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_115&quot;,
+			actor = 408041,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘿嘿嘿，我找到{namecode:413}啦！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 401234,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真是的，{namecode:413}，这可是我们铁血主办的宴会哦，作为铁血的一员怎么能这样躲在没人的角落呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 408022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;……我不擅长应付人多的场合，那里就交给你们了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 408041,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;诶～那样多没意思呀～一起来嘛，我们去找点好吃的～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401234,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯嗯！和大家打打招呼也好嘛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 408022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;好吧…既然你们都这么说了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 408041,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘿嘿，这才对嘛～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_115&quot;,
+			actor = 499011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;欢笑的伙伴，欢快的宴席…呼…真是美好…不过，也真是无趣呢……&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 499011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;再没有点有趣的“刺激”的话，我就……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 199011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哟，怎么了吗{namecode:439}？露出一脸微妙的表情～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 199011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这可是你们铁血的宴会呢！要再…怎么说呢，再high一点？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 499011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯…？是西雅图啊，还有峦？你们也来了呀……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			actor = 399012,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;晚、晚上好…铁血的宴会…感觉尽是峦没有经历过的事物呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 199011,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哈哈，所谓的宴会呀，第一重要的是开心，第二重要的是开心，第三重要的还是开心哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 199011,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不要思考那么多，全力享受就对了～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_115&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 499011,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;全力享受…吗。呵呵…说得也是，峦、西雅图，机会难得，我们一起四处逛逛吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

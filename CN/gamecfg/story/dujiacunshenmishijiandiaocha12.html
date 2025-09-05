@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dujiacunshenmishijiandiaocha12.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dujiacunshenmishijiandiaocha12.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;DUJIACUNSHENMISHIJIANDIAOCHA12&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;度假村神秘事件调查\n\n&lt;size=45&gt;番外篇：动如脱兔！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgm = &quot;stopbgm&quot;,
+			hidePaintObj = true,
+			side = 2,
+			blackBg = true,
+			say = &quot;这是在正式演出开始前发生的，某一幕故事的后续——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			bgm = &quot;cw-level&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;温泉度假村·？？？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;果然……奇怪的飞行物又出现了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……{namecode:175}阁下你快看前面！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咦？！{namecode:175}阁下————！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_village_in&quot;,
+			hidePaintObj = true,
+			say = &quot;少女环顾四周，可并没有发现{namecode:175}的身影。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;糟、糟糕……{namecode:18}跑得太快把{namecode:175}阁下落在身后了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;灯笼鬼&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;在温泉开party！&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊！！！好忙啊好忙啊~喂！你！那边的兔子小姐！&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_denglonggui&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;灯笼鬼&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;在温泉开party！&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就是你！演出马上就要开始了，你怎么还在这里磨蹭？&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_denglonggui&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……咦？是在喊{namecode:18}么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;灯笼鬼&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;在温泉开party！&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;当然啊，这里除了你还有第二只兔子么！&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_denglonggui&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;灯笼鬼&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;在温泉开party！&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;快去前面通知河童，告诉它演出就要开始了！&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_denglonggui&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;灯笼鬼&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;在温泉开party！&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我还得去通知其他妖怪！啊~忙死了~忙死了~&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_denglonggui&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_village_in&quot;,
+			mode = 1,
+			movableNode = {
+				{
+					name = &quot;story_denglonggui&quot;,
+					time = 2,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 8
+					},
+					path = {
+						{
+							-1500,
+							0
+						},
+						{
+							1500,
+							0
+						}
+					}
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;飞得好快……？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼~论速度，{namecode:18}也不会输哦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:18}，全速前进——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.5,
+					dur = 0.4,
+					x = 2500
+				}
+			}
+		},
+		{
+			actorName = &quot;河童&quot;,
+			side = 2,
+			factiontag = &quot;为了不再怕人……&quot;,
+			bgName = &quot;bg_village_in&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……演出时间……收到……&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_hetong&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;河童&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;为了不再怕人……&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……接下来……请去通知……雪女……&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_hetong&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……欸？！还要去通知雪女是么！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明白了！{namecode:18}，再次全速前进——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actorName = &quot;雪女&quot;,
+			side = 2,
+			factiontag = &quot;雪女作战中&quot;,
+			bgName = &quot;bg_village_in&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哎呀，真是可爱的小兔子~多谢你来通知我。&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_xuenv&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;雪女&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;雪女作战中&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来能拜托你去通知鸦天狗么？&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_xuenv&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;明白了！{namecode:18}，再次全速前进——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;鸦天狗&quot;,
+			side = 2,
+			factiontag = &quot;自称小生的老者&quot;,
+			bgName = &quot;bg_village_in&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;多谢你赶来通知，接下来是————&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_yatiangou&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我明白了！{namecode:18}，再次全速前进——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actorName = &quot;鸦天狗&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;自称小生的老者&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等，小生还没说让你去找谁呢！！&quot;,
+			icon = {
+				scale = 8,
+				image = &quot;Props/story_yatiangou&quot;,
+				pos = {
+					0,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			bgName = &quot;bg_village_in&quot;,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼……呼……呼…………终于全部通知完了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;妖怪剧团的演出啊……真是令人期待！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;奇怪，{namecode:18}总感觉似乎忘记了什么重要的事……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊——哇啊啊啊！！{namecode:18}把寻找{namecode:175}阁下的事忘到天边了！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actorName = &quot;通讯器&quot;,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;经常坏的通讯器&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;滴————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:18}，能听到么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呜啊啊！{namecode:175}阁下！！你平安无事真是太好了！！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………啊？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……发生什么事了么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没什么，没什么！什么事都没有哦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;噢……那就好。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我和{namecode:182}大人正在剧场会客室与妖怪剧团的剧团长协商一些事情。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你现在能赶过来么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不愧是{namecode:182}大人！已经收服妖怪剧团了吗！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呃……也不算收服，更像是合作准备惊喜之类的吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;不想引人注目&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 305140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;总之，你过来以后就知道了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;和妖怪剧团一起准备惊喜么……好有趣！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官和其他同伴们一定会喜欢的！！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_village_in&quot;,
+			factiontag = &quot;其疾如风！&quot;,
+			dir = 1,
+			actor = 301290,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:175}阁下稍等，{namecode:18}这就来与你汇合！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.5,
+					dur = 0.4,
+					x = 2500
+				}
+			}
+		},
+		{
+			side = 2,
+			blackBg = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;此时的少女们并不知道——&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;miwu_01&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;她们所准备的惊喜，在不久的将来会变成一份“惊吓”，狠狠地砸在同伴们的身上——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

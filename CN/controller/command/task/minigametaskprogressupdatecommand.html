@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigametaskprogressupdatecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>minigametaskprogressupdatecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MiniGameTaskProgressUpdateCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().taskId
+	slot4 = pg.task_data_template[slot3]
+
+	if not getProxy(TaskProxy):getTaskById(slot3) then
+		return
+	end
+
+	slot10 = pg.ConnectionMgr.GetInstance()
+
+	slot10:Send(20016, {
+		event_type = slot6:getConfig(&quot;sub_type&quot;),
+		event_target = tonumber(slot6:getConfig(&quot;target_id&quot;)),
+		event_count = slot2.progressAdd
+	}, 20017, function (slot0)
+		if slot0.result == 0 then
+			uv0:updateProgress(uv0.progress + uv1)
+			uv2:updateTask(uv0)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

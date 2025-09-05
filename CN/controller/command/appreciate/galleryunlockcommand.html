@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>galleryunlockcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>galleryunlockcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GalleryUnlockCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.unlockCBFunc
+	slot6 = getProxy(BagProxy)
+	slot8 = getProxy(PlayerProxy):getData()
+
+	for slot13, slot14 in pairs(getProxy(AppreciateProxy):getPicUnlockMaterialByID(slot2.picID)) do
+		if slot14.type == DROP_TYPE_RESOURCE then
+			if slot8:getResById(slot14.id) &lt; slot14.count then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_resource&quot;))
+
+				return
+			end
+		elseif slot14.type == DROP_TYPE_ITEM and slot6:getItemCountById(slot14.id) &lt; slot14.count then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_no_item_1&quot;))
+
+			return
+		end
+	end
+
+	slot10 = pg.ConnectionMgr.GetInstance()
+
+	slot10:Send(17501, {
+		id = slot3
+	}, 17502, function (slot0)
+		if slot0.result == 0 then
+			uv0:addPicIDToUnlockList(uv1)
+
+			for slot5, slot6 in pairs(uv0:getPicUnlockMaterialByID(uv1)) do
+				if slot6.type == DROP_TYPE_RESOURCE then
+					uv2:consume({
+						[id2res(slot6.id)] = slot6.count
+					})
+					uv3:updatePlayer(uv2)
+				elseif slot6.type == DROP_TYPE_ITEM then
+					uv4:removeItemById(slot6.id, slot6.count)
+				end
+			end
+
+			if uv5 then
+				uv5()
+			end
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;UnLock Fail, Code:&quot; .. tostring(slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

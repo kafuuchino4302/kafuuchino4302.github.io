@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dfurnitureslot.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dfurnitureslot.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dFurnitureSlot&quot;, import(&quot;model.vo.BaseVO&quot;))
+
+slot0.bindConfigTable = function(slot0)
+	return pg.dorm3d_furniture_slot_template
+end
+
+slot0.GetName = function(slot0)
+	return slot0:getConfig(&quot;name&quot;)
+end
+
+slot0.GetType = function(slot0)
+	return slot0:getConfig(&quot;type&quot;)
+end
+
+slot0.GetZoneID = function(slot0)
+	return slot0:getConfig(&quot;zone_id&quot;)
+end
+
+slot0.GetDefaultFurniture = function(slot0)
+	return slot0:getConfig(&quot;default_furniture&quot;)
+end
+
+slot0.GetFurnitureName = function(slot0)
+	return slot0:getConfig(&quot;furniture_name&quot;)
+end
+
+slot0.CanUseFurniture = function(slot0, slot1)
+	if slot1:GetType() ~= slot0:GetType() then
+		return false
+	end
+
+	if #slot1:GetTargetSlots() == 0 then
+		return true
+	end
+
+	return table.contains(slot2, slot0:GetConfigID())
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

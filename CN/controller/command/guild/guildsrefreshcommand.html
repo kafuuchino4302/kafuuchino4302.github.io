@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildsrefreshcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildsrefreshcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildsRefreshCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(60024, {
+		type = 0
+	}, 60025, function (slot0)
+		slot1 = {}
+
+		for slot5, slot6 in ipairs(slot0.guild_list) do
+			slot7 = Guild.New(slot6)
+
+			slot7:SetMaxMemberCntAddition(slot6.tech_seat)
+
+			slot8 = GuildMember.New(slot6.leader)
+
+			slot8:setDuty(GuildConst.DUTY_COMMANDER)
+			slot7:addMember(slot8)
+			table.insert(slot1, slot7)
+		end
+
+		uv0:sendNotification(GAME.GUILD_LIST_REFRESH_DONE, slot1)
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_list_refresh_sucess&quot;))
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

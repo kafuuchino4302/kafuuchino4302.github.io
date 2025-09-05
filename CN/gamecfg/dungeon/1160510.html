@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1160510.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>1160510.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = 1012500,
+	map_id = 10008,
+	bgm = &quot;battle-uta&quot;,
+	stages = {
+		{
+			stageIndex = 1,
+			failCondition = 1,
+			timeCount = 300,
+			backGroundStageID = 1,
+			passCondition = 1,
+			totalArea = {
+				-80,
+				20,
+				90,
+				70
+			},
+			playerArea = {
+				-80,
+				20,
+				45,
+				68
+			},
+			enemyArea = {},
+			mainUnitPosition = {
+				{
+					Vector3(-105, 0, 58),
+					Vector3(-105, 0, 78),
+					Vector3(-105, 0, 38)
+				},
+				[-1] = {
+					Vector3(15, 0, 58),
+					Vector3(15, 0, 78),
+					Vector3(15, 0, 38)
+				}
+			},
+			fleetCorrdinate = {
+				-80,
+				0,
+				75
+			},
+			waves = {
+				{
+					triggerType = 1,
+					waveIndex = 100,
+					preWaves = {},
+					triggerParams = {
+						timeout = 0.5
+					}
+				},
+				{
+					triggerType = 0,
+					waveIndex = 106,
+					conditionType = 0,
+					preWaves = {
+						101
+					},
+					triggerParam = {},
+					spawn = {
+						{
+							score = 0,
+							monsterTemplateID = 11600501,
+							delay = 0,
+							moveCast = true,
+							corrdinate = {
+								-15,
+								0,
+								70
+							},
+							bossData = {
+								hpBarNum = 100,
+								icon = &quot;jiuyuan&quot;
+							}
+						},
+						{
+							score = 0,
+							monsterTemplateID = 11600502,
+							delay = 0,
+							moveCast = true,
+							corrdinate = {
+								-15,
+								0,
+								50
+							},
+							bossData = {
+								hpBarNum = 100,
+								icon = &quot;fumilulu&quot;
+							}
+						}
+					}
+				},
+				{
+					triggerType = 8,
+					waveIndex = 900,
+					preWaves = {
+						106
+					},
+					triggerParams = {}
+				},
+				{
+					triggerType = 1,
+					key = true,
+					waveIndex = 211,
+					conditionType = 0,
+					preWaves = {
+						900
+					},
+					triggerParams = {
+						timeout = 0.5
+					}
+				}
+			}
+		}
+	},
+	fleet_prefab = {}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

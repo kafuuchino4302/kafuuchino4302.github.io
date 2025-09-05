@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>poxiaobinghua24.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>poxiaobinghua24.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;POXIAOBINGHUA24&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			bgm = &quot;bsm-2&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			say = &quot;大厅的门并没有关闭，但是就仿佛存在一堵看不见的墙壁阻挡一般，双脚无法迈出大厅一步。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;提示，此区域已启动安全模式，距离解除尚有1147秒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;在仿佛一切都陷入某种静滞状态的大厅中，突然出现了一个投影。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;你是……塞壬么？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;否认，本机只是设置于此用于录入和播放档案的记录机构。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;屏幕中那些正在战斗的舰队是什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;那些是前进阵线的舰队。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;前进阵线是什么……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;本机中并没有相关记录。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;那些舰队正在同什么战斗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;敌人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;敌人是塞壬么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;否认，屏幕上所呈现的只是由碎片拼凑而成的模拟，程序无法依据已知信息再现敌人的外貌特征。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;……塞壬是敌人么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;本机中并没有相关记录。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;安蒂克丝是敌人么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;本机中并没有相关记录。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;指挥这支舰队的人是谁？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;本机中并没有相关记录。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;这场战斗最后的结果怎么样？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;本机中并没有相关记录。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;…………当时也是为了保护什么而战斗么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;与现在所发生的情况相似？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;你所指挥的舰队规模与记录之中的舰队规模相差甚远。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;你所面对的敌人规模也与记录之中的敌人规模相差甚远。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;从这里撤离的路线在哪里？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			nameColor = &quot;#ffff4d&quot;,
+			dir = 1,
+			actor = 900136,
+			actorName = &quot;记录机构&quot;,
+			say = &quot;此处没有撤退的路线。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#ffff4d&quot;,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			dir = 1,
+			say = &quot;………………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;bg_cccpv2_7&quot;,
+			actorName = &quot;记录机构&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 900136,
+			nameColor = &quot;#ffff4d&quot;,
+			say = &quot;战斗，直到光芒消散为止。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

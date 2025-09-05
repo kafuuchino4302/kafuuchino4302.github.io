@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battleweaponrangesector.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battleweaponrangesector.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleWeaponRangeSector = class(&quot;BattleWeaponRangeSector&quot;)
+slot0.Battle.BattleWeaponRangeSector.__name = &quot;BattleWeaponRangeSector&quot;
+slot1 = slot0.Battle.BattleWeaponRangeSector
+
+slot1.Ctor = function(slot0, slot1)
+	slot0._tf = slot1
+
+	setActive(slot0._tf, true)
+	slot0:initSector()
+end
+
+slot1.ConfigHost = function(slot0, slot1, slot2)
+	slot0._host = slot1
+	slot0._weapon = slot2
+
+	slot0:updateSector(slot0._weapon)
+end
+
+slot1.initSector = function(slot0)
+	slot0._minRange = slot0._tf:Find(&quot;minSector&quot;)
+	slot0._minSector = slot0._minRange:Find(&quot;sector&quot;):GetComponent(typeof(Renderer)).material
+	slot0._maxRange = slot0._tf:Find(&quot;maxSector&quot;)
+	slot0._maxSector = slot0._maxRange:Find(&quot;sector&quot;):GetComponent(typeof(Renderer)).material
+end
+
+slot1.updateSector = function(slot0, slot1)
+	slot2 = slot1:GetAttackAngle()
+	slot3 = slot1._maxRangeSqr * 2
+	slot4 = slot1._minRangeSqr * 2
+	slot0._maxRange.localScale = Vector3(slot3, 1, slot3)
+	slot0._minRange.localScale = Vector3(slot4, 1, slot4)
+
+	slot0._maxSector:SetInt(&quot;_Angle&quot;, slot2)
+	slot0._minSector:SetInt(&quot;_Angle&quot;, slot2)
+end
+
+slot1.Dispose = function(slot0)
+	Destroy(slot0._tf)
+
+	slot0._host = nil
+	slot0._weapon = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

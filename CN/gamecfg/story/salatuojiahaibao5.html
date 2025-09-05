@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salatuojiahaibao5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>salatuojiahaibao5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SALATUOJIAHAIBAO5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;碧海的偶像\n\n&lt;size=45&gt;五 欢聚一刻&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;虽然发生了一点小意外，但是萨拉托加她们的《传说的小海豹》主题慈善演出还是圆满结束了&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107034,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;诶嘿嘿ー小海豹乖‐&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;小海豹游到萨拉的脚边，一点也没有抗拒萨拉抚摸它的动作，甚至亲昵地蹭了蹭她的脚踝。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;所以说嘛，要说起来保护小海豹，可不是一天两天就能做好的哦？得每天都加油才行♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;要是早点知道的话，应该能帮上更多的忙吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;提出自己也要帮忙&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 107034,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;谢谢指挥官！诶嘿嘿，本来就是打算今天的义演结束后告诉指挥官的啦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107020,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;萨拉托加，之前说的东西已经准备好了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 105200,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官也一起来吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;额？还有什么东西吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽然有点晚了，但是其实今天正好是东煌和重樱的七夕节哦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502020,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;逸仙姐她准备了不少好吃的，指挥官一定要来啊&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 502030,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;平海，肚子饿了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/firework&quot;,
+			actor = 312010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哼哼，{namecode:98}也为了不让这里的动物们受惊准备了特别的烟花喵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;说起来萨拉托加，是不是忘记了什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101400,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;嗯……是什么来着？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101020,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;需要定一下这个小海豹的名字！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊对了！忘了给传说中的小海豹起名了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 107034,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官有什么好想法吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;萨拉托加慈善活动的主角，大家守护的大海的宝物，小海豹的名字要叫什么好呢……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;小海豹……小加加……嗯！就叫“小加加”好了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;诶嘿嘿，指挥官，为了保护这片美丽的大海，今后也请和萨拉托加妹妹——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 107034,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还有“小加加”一起，努力加油吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

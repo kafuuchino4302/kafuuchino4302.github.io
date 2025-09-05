@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_event_linkgame.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_event_linkgame.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_event_linkgame = {
+	{
+		id = 1,
+		name = &quot;Stage1&quot;,
+		unlock_txt = &quot;三星通关T1&quot;,
+		story = &quot;&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				12
+			},
+			{
+				&quot;matsuri&quot;,
+				12
+			},
+			{
+				&quot;aqua&quot;,
+				12
+			}
+		}
+	},
+	{
+		id = 2,
+		name = &quot;Stage2&quot;,
+		unlock_txt = &quot;三星通关T2&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				10
+			},
+			{
+				&quot;matsuri&quot;,
+				10
+			},
+			{
+				&quot;aqua&quot;,
+				10
+			},
+			{
+				&quot;ayame&quot;,
+				6
+			}
+		},
+		story = {
+			&quot;HOLORICHANG4&quot;
+		}
+	},
+	{
+		id = 3,
+		name = &quot;Stage3&quot;,
+		unlock_txt = &quot;三星通关T3&quot;,
+		story = &quot;&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				10
+			},
+			{
+				&quot;matsuri&quot;,
+				10
+			},
+			{
+				&quot;aqua&quot;,
+				8
+			},
+			{
+				&quot;ayame&quot;,
+				8
+			}
+		}
+	},
+	{
+		id = 4,
+		name = &quot;Stage4&quot;,
+		unlock_txt = &quot;三星通关T4&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				8
+			},
+			{
+				&quot;matsuri&quot;,
+				8
+			},
+			{
+				&quot;aqua&quot;,
+				8
+			},
+			{
+				&quot;ayame&quot;,
+				8
+			},
+			{
+				&quot;mio&quot;,
+				4
+			}
+		},
+		story = {
+			&quot;HOLORICHANG5&quot;
+		}
+	},
+	{
+		id = 5,
+		name = &quot;Stage5&quot;,
+		unlock_txt = &quot;三星通关T5&quot;,
+		story = &quot;&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				6
+			},
+			{
+				&quot;matsuri&quot;,
+				6
+			},
+			{
+				&quot;aqua&quot;,
+				6
+			},
+			{
+				&quot;ayame&quot;,
+				6
+			},
+			{
+				&quot;mio&quot;,
+				6
+			},
+			{
+				&quot;shion&quot;,
+				6
+			}
+		}
+	},
+	{
+		id = 6,
+		name = &quot;Stage6&quot;,
+		unlock_txt = &quot;三星通关T6&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				8
+			},
+			{
+				&quot;matsuri&quot;,
+				8
+			},
+			{
+				&quot;aqua&quot;,
+				4
+			},
+			{
+				&quot;ayame&quot;,
+				4
+			},
+			{
+				&quot;mio&quot;,
+				4
+			},
+			{
+				&quot;shion&quot;,
+				4
+			},
+			{
+				&quot;sora&quot;,
+				4
+			}
+		},
+		story = {
+			&quot;HOLORICHANG6&quot;
+		}
+	},
+	{
+		id = 7,
+		name = &quot;Stage7&quot;,
+		unlock_txt = &quot;完成S6&quot;,
+		story = &quot;&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				8
+			},
+			{
+				&quot;matsuri&quot;,
+				4
+			},
+			{
+				&quot;aqua&quot;,
+				4
+			},
+			{
+				&quot;ayame&quot;,
+				4
+			},
+			{
+				&quot;mio&quot;,
+				4
+			},
+			{
+				&quot;shion&quot;,
+				4
+			},
+			{
+				&quot;sora&quot;,
+				4
+			},
+			{
+				&quot;Kawakaze&quot;,
+				4
+			}
+		}
+	},
+	{
+		id = 8,
+		name = &quot;EX&quot;,
+		unlock_txt = &quot;完成S1—S7&quot;,
+		story = &quot;&quot;,
+		block = {
+			{
+				&quot;fubuki&quot;,
+				4
+			},
+			{
+				&quot;matsuri&quot;,
+				4
+			},
+			{
+				&quot;aqua&quot;,
+				4
+			},
+			{
+				&quot;ayame&quot;,
+				4
+			},
+			{
+				&quot;mio&quot;,
+				4
+			},
+			{
+				&quot;shion&quot;,
+				4
+			},
+			{
+				&quot;sora&quot;,
+				4
+			},
+			{
+				&quot;Kawakaze&quot;,
+				4
+			},
+			{
+				&quot;Purifier&quot;,
+				4
+			}
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

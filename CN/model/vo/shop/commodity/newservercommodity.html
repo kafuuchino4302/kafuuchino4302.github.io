@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newservercommodity.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newservercommodity.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewServerCommodity&quot;, import(&quot;...BaseVO&quot;))
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1.id
+	slot0.configId = slot0.id
+	slot0.count = slot1.count or slot0:getConfig(&quot;goods_purchase_limit&quot;)
+	slot0.boughtRecord = {}
+	slot2 = ipairs
+	slot3 = slot1.bought_record or {}
+
+	for slot5, slot6 in slot2(slot3) do
+		slot0.boughtRecord[slot6] = true
+	end
+end
+
+slot0.bindConfigTable = function(slot0)
+	return pg.newserver_shop_template
+end
+
+slot0.CanPurchase = function(slot0)
+	return slot0.count &gt; 0
+end
+
+slot0.ReduceCnt = function(slot0, slot1)
+	slot0.count = slot0.count - slot1
+end
+
+slot0.CanPurchaseMulTimes = function(slot0, slot1)
+	return slot1 &lt;= slot0.count
+end
+
+slot0.CanPurchaseSubGoods = function(slot0, slot1)
+	if slot0:LimitPurchaseSubGoods() then
+		return not (slot0.boughtRecord[slot1] == true)
+	else
+		return true
+	end
+end
+
+slot0.UpdateBoughtRecord = function(slot0, slot1)
+	slot0.boughtRecord[slot1] = true
+end
+
+slot0.LimitPurchaseSubGoods = function(slot0)
+	return slot0:getConfig(&quot;goods_type&quot;) == 4
+end
+
+slot0.Selectable = function(slot0)
+	return slot0:getConfig(&quot;goods_type&quot;) == 2 or slot1 == 4
+end
+
+slot0.GetConsume = function(slot0)
+	return Drop.New({
+		type = slot0:getConfig(&quot;resource_category&quot;),
+		id = slot0:getConfig(&quot;resource_type&quot;),
+		count = slot0:getConfig(&quot;resource_num&quot;)
+	})
+end
+
+slot0.GetDesc = function(slot0)
+	return {
+		name = slot0:getConfig(&quot;goods_name&quot;),
+		icon = slot0:getConfig(&quot;goods_icon&quot;),
+		rarity = slot0:getConfig(&quot;goods_rarity&quot;)
+	}
+end
+
+slot0.IsOpening = function(slot0, slot1)
+	slot2 = {}
+
+	if not (slot1 + slot0:getConfig(&quot;unlock_time&quot;) &lt;= pg.TimeMgr.GetInstance():GetServerTime()) then
+		slot2.day, slot2.hour, slot9, slot10 = pg.TimeMgr.GetInstance():parseTimeFrom(slot4 - slot5)
+	end
+
+	return slot6, slot2
+end
+
+slot0.GetDropCnt = function(slot0)
+	return slot0:getConfig(&quot;num&quot;)
+end
+
+slot0.GetCanPurchaseCnt = function(slot0)
+	return slot0.count
+end
+
+slot0.GetCanPurchaseMaxCnt = function(slot0)
+	return slot0:getConfig(&quot;goods_purchase_limit&quot;)
+end
+
+slot0.GetDropType = function(slot0)
+	return slot0:getConfig(&quot;type&quot;)
+end
+
+slot0.GetSelectableGoods = function(slot0)
+	return slot0:getConfig(&quot;goods&quot;)
+end
+
+slot0.CheckTimeLimit = function(slot0)
+	slot1 = false
+	slot2 = false
+	slot3 = nil
+	slot6 = Item.getConfigData(slot0:getConfig(&quot;goods&quot;)[1])
+
+	if slot0:getConfig(&quot;type&quot;) == DROP_TYPE_VITEM and slot6.virtual_type == 22 then
+		slot1 = true
+		slot3 = true
+
+		if getProxy(ActivityProxy):getActivityById(slot6.link_id) and not slot8:isEnd() then
+			slot2 = true
+		end
+	end
+
+	return slot1, slot2, slot3
+end
+
+slot0.GetPurchasableCnt = function(slot0)
+	return slot0.count
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

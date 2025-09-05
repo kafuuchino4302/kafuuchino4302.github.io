@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_112222.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_112222.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	time = 1,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 112222,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 4,
+	color = &quot;red&quot;,
+	icon = 112220,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				maxTargetNumber = 0,
+				skill_id = 112220,
+				check_target = {
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;NinaFriedeSP&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				target = &quot;TargetSelf&quot;,
+				skill_id = 112221,
+				check_target = {
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;NinaFriedeSP&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

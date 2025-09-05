@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3d_slide_command.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3d_slide_command.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.dorm3d_slide_command = {
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 4,
+		id = 1,
+		anim = &quot;&quot;,
+		target = &quot;Point1&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 2,
+		id = 2,
+		anim = &quot;&quot;,
+		target = &quot;Point2&quot;,
+		fade_in_time = 0.8
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 3,
+		anim = &quot;&quot;,
+		target = &quot;Point2_1&quot;,
+		fade_in_time = 0.66
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 4,
+		anim = &quot;&quot;,
+		target = &quot;Point3&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 5,
+		anim = &quot;&quot;,
+		target = &quot;Point3_1&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 6,
+		anim = &quot;&quot;,
+		target = &quot;Point3_2&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.6,
+		type = 6,
+		id = 7,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point3_3&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 8,
+		anim = &quot;&quot;,
+		target = &quot;Point4&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.75,
+		type = 6,
+		id = 9,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point4_1&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 10,
+		anim = &quot;30221@swim_slide_up_03&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0.3
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 3,
+		id = 11,
+		anim = &quot;&quot;,
+		target = &quot;Point6&quot;,
+		fade_in_time = 0.6
+	},
+	{
+		wet = &quot;&quot;,
+		time = 0.33,
+		type = 6,
+		id = 12,
+		anim = &quot;swim_slide_inwater_02_rush&quot;,
+		target = &quot;Point7&quot;,
+		fade_in_time = 0.4,
+		effect = {
+			0.15,
+			&quot;vfx_down_nd&quot;
+		}
+	},
+	{
+		wet = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 13,
+		anim = &quot;swim_slide_inwater_02_stand&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0.5,
+		effect = {
+			0.1,
+			&quot;vfx_up_nd&quot;
+		}
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 1,
+		type = 6,
+		id = 14,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point8&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 15,
+		anim = &quot;&quot;,
+		target = &quot;Point9&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 16,
+		anim = &quot;&quot;,
+		target = &quot;Point10&quot;,
+		fade_in_time = 0
+	},
+	{
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 17,
+		anim = &quot;&quot;,
+		target = &quot;Point11&quot;,
+		fade_in_time = 0
+	},
+	[21] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 4,
+		id = 21,
+		anim = &quot;&quot;,
+		target = &quot;Point1&quot;,
+		fade_in_time = 0
+	},
+	[22] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 2,
+		id = 22,
+		anim = &quot;&quot;,
+		target = &quot;Point2&quot;,
+		fade_in_time = 0.8
+	},
+	[23] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 23,
+		anim = &quot;&quot;,
+		target = &quot;Point2_1&quot;,
+		fade_in_time = 0.66
+	},
+	[24] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 24,
+		anim = &quot;&quot;,
+		target = &quot;Point3&quot;,
+		fade_in_time = 0
+	},
+	[25] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 25,
+		anim = &quot;&quot;,
+		target = &quot;Point3_1&quot;,
+		fade_in_time = 0
+	},
+	[26] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 26,
+		anim = &quot;&quot;,
+		target = &quot;Point3_2&quot;,
+		fade_in_time = 0
+	},
+	[27] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.6,
+		type = 6,
+		id = 27,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point3_3&quot;,
+		fade_in_time = 0
+	},
+	[28] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 28,
+		anim = &quot;&quot;,
+		target = &quot;Point4&quot;,
+		fade_in_time = 0
+	},
+	[29] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.75,
+		type = 6,
+		id = 29,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point4_TLX&quot;,
+		fade_in_time = 0
+	},
+	[30] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 30,
+		anim = &quot;swim_slide_up_01&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0
+	},
+	[31] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 3,
+		id = 31,
+		anim = &quot;&quot;,
+		target = &quot;Point6&quot;,
+		fade_in_time = 0
+	},
+	[32] = {
+		wet = &quot;&quot;,
+		time = 1.2,
+		type = 6,
+		id = 32,
+		anim = &quot;swim_slide_inwater_01_rush&quot;,
+		target = &quot;Point7_TLX&quot;,
+		fade_in_time = 0.5,
+		effect = {
+			0.4,
+			&quot;vfx_down_tlx&quot;
+		}
+	},
+	[33] = {
+		wet = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 33,
+		anim = &quot;swim_slide_inwater_01_stand&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0,
+		effect = {
+			0.1,
+			&quot;vfx_up_tlx&quot;
+		}
+	},
+	[34] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 1,
+		type = 6,
+		id = 34,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point8&quot;,
+		fade_in_time = 0.25
+	},
+	[35] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 35,
+		anim = &quot;&quot;,
+		target = &quot;Point9&quot;,
+		fade_in_time = 0
+	},
+	[36] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 36,
+		anim = &quot;&quot;,
+		target = &quot;Point10&quot;,
+		fade_in_time = 0
+	},
+	[37] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 37,
+		anim = &quot;&quot;,
+		target = &quot;Point11_TLX&quot;,
+		fade_in_time = 0
+	},
+	[41] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 4,
+		id = 41,
+		anim = &quot;&quot;,
+		target = &quot;Point1&quot;,
+		fade_in_time = 0
+	},
+	[42] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 2,
+		id = 42,
+		anim = &quot;&quot;,
+		target = &quot;Point2&quot;,
+		fade_in_time = 0.8
+	},
+	[43] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 43,
+		anim = &quot;&quot;,
+		target = &quot;Point2_1&quot;,
+		fade_in_time = 0.66
+	},
+	[44] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 44,
+		anim = &quot;&quot;,
+		target = &quot;Point3&quot;,
+		fade_in_time = 0
+	},
+	[45] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 45,
+		anim = &quot;&quot;,
+		target = &quot;Point3_1&quot;,
+		fade_in_time = 0
+	},
+	[46] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 46,
+		anim = &quot;&quot;,
+		target = &quot;Point3_2&quot;,
+		fade_in_time = 0
+	},
+	[47] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.6,
+		type = 6,
+		id = 47,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point3_3&quot;,
+		fade_in_time = 0
+	},
+	[48] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 48,
+		anim = &quot;&quot;,
+		target = &quot;Point4&quot;,
+		fade_in_time = 0
+	},
+	[49] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0.75,
+		type = 6,
+		id = 49,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point4_AB&quot;,
+		fade_in_time = 0
+	},
+	[50] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 50,
+		anim = &quot;swim_slide_up_01&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0
+	},
+	[51] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 3,
+		id = 51,
+		anim = &quot;&quot;,
+		target = &quot;Point6&quot;,
+		fade_in_time = 0
+	},
+	[52] = {
+		wet = &quot;&quot;,
+		time = 0.6,
+		type = 6,
+		id = 52,
+		anim = &quot;swim_slide_inwater_01_rush&quot;,
+		target = &quot;Point7_AB&quot;,
+		fade_in_time = 0.5,
+		effect = {
+			0.45,
+			&quot;vfx_down_ab&quot;
+		}
+	},
+	[53] = {
+		wet = &quot;&quot;,
+		time = 0,
+		type = 5,
+		id = 53,
+		anim = &quot;swim_slide_inwater_01_stand&quot;,
+		target = &quot;&quot;,
+		fade_in_time = 0.5,
+		effect = {
+			0.1,
+			&quot;vfx_up_ab&quot;
+		}
+	},
+	[54] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 1,
+		type = 6,
+		id = 54,
+		anim = &quot;swim_slide_walk_01&quot;,
+		target = &quot;Point8&quot;,
+		fade_in_time = 0
+	},
+	[55] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 55,
+		anim = &quot;&quot;,
+		target = &quot;Point9&quot;,
+		fade_in_time = 0
+	},
+	[56] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 56,
+		anim = &quot;&quot;,
+		target = &quot;Point10&quot;,
+		fade_in_time = 0
+	},
+	[57] = {
+		wet = &quot;&quot;,
+		effect = &quot;&quot;,
+		time = 0,
+		type = 1,
+		id = 57,
+		anim = &quot;&quot;,
+		target = &quot;Point11_AB&quot;,
+		fade_in_time = 0
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

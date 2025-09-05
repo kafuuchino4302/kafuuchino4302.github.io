@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardfurnitureslot.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardfurnitureslot.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardFurnitureSlot&quot;, import(&quot;.CourtYardFurnitureBaseSlot&quot;))
+
+slot0.OnInit = function(slot0, slot1)
+	slot0.actionName = slot1[1]
+	slot0.offset = slot1[2] and Vector3(slot1[2][1], slot1[2][2], 0) or Vector3.zero
+	slot0.scale = slot1[3] and Vector3(slot1[3][1], slot1[3][2], 1) or Vector3.one
+	slot0.mask = slot1[4]
+	slot0.bodyMask = slot1[6] and {
+		offset = slot1[6][1] and Vector2(slot1[6][1][1], slot1[6][1][2]) or Vector3.zero,
+		size = slot1[6][2] and Vector2(slot1[6][2][1], slot1[6][2][2]) or Vector3.zero,
+		img = slot1[6][3]
+	}
+end
+
+slot0.GetMask = function(slot0)
+	if slot0.mask == &quot;&quot; then
+		return nil
+	end
+
+	return slot0.mask
+end
+
+slot0.OnStart = function(slot0)
+	slot0.user:UpdateInteraction({
+		action = slot0.actionName
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kelifulan4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kelifulan4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KELIFULAN4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;骑士与奖赏\n\n&lt;size=45&gt;四　比赛开始！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;篮球对抗赛当天·会场&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这一天终于来了……指挥官，我们都准备好了！比赛的指挥就靠你了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;没问题！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;大家加油！&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			actor = 102130,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;克利夫兰加油哦——！赢了再让海伦娜给你做便当哦——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;姐、姐姐！！别说了！&quot;,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102050,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102090,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊哈哈……她还是老样子啊。先不管这些，趁比赛还没开始，我们再讨论一下战术吧！时间就是金钱♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_103&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;第一回合的比赛对手是“正义海狸”队。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 101110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;让对手见识见识我们的正义吧！小海狸分队，出击！……咦？&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;太麻烦了……我做替补就好啦。&quot;,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			actor = 101140,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 101120,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哈哈哈斯彭斯又差点摔了！……啊啊啊要撞上了！&quot;,
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 1,
+					dur = 0.1,
+					x = 15,
+					number = 3
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101150,
+			side = 1,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊啊啊！要撞上撒切尔了！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102090,
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;机会来了！大家上啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			say = &quot;教练唐斯的努力也没能挽回局面，克利夫兰队大获全胜&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			actor = 102090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好，开局还不错！一口气赢下冠军吧！……不会有这么好的事吧，嘿嘿♪&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;拍拍克利夫兰的肩&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_103&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 102090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好！指挥官也睁大眼睛好好看着吧！我们会使出全力的♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

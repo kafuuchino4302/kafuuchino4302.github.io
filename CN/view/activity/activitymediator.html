@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitymediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activitymediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.EVENT_GO_SCENE = &quot;event go scene&quot;
+slot0.EVENT_OPERATION = &quot;event operation&quot;
+slot0.GO_SHOPS_LAYER = &quot;event go shop layer&quot;
+slot0.GO_SHOPS_LAYER_STEEET = &quot;event go shop layer in shopstreet&quot;
+slot0.BATTLE_OPERA = &quot;event difficult sel&quot;
+slot0.GO_BACKYARD = &quot;event go backyard&quot;
+slot0.GO_LOTTERY = &quot;event go lottery&quot;
+slot0.EVENT_COLORING_ACHIEVE = &quot;event coloring achieve&quot;
+slot0.ON_TASK_SUBMIT = &quot;event on task submit&quot;
+slot0.ON_TASK_SUBMIT_ONESTEP = &quot;event on task submit one step&quot;
+slot0.ON_TASK_GO = &quot;event on task go&quot;
+slot0.OPEN_LAYER = &quot;event OPEN_LAYER&quot;
+slot0.CLOSE_LAYER = &quot;event CLOSE_LAYER&quot;
+slot0.EVENT_PT_OPERATION = &quot;event pt op&quot;
+slot0.BLACKWHITEGRID = &quot;black white grid&quot;
+slot0.MEMORYBOOK = &quot;memory book&quot;
+slot0.RETURN_AWARD_OP = &quot;event return award op&quot;
+slot0.SHOW_AWARD_WINDOW = &quot;event show award window&quot;
+slot0.GO_DODGEM = &quot;event go dodgem&quot;
+slot0.GO_SUBMARINE_RUN = &quot;event go sumbarine run&quot;
+slot0.ON_SIMULATION_COMBAT = &quot;event simulation combat&quot;
+slot0.ON_AIRFIGHT_COMBAT = &quot;event perform airfight combat&quot;
+slot0.SPECIAL_BATTLE_OPERA = &quot;special battle opera&quot;
+slot0.NEXT_DISPLAY_AWARD = &quot;next display awards&quot;
+slot0.GO_PRAY_POOL = &quot;go pray pool&quot;
+slot0.SELECT_ACTIVITY = &quot;event select activity&quot;
+slot0.FETCH_INSTARGRAM = &quot;fetch instagram&quot;
+slot0.MUSIC_GAME_OPERATOR = &quot;get music game final prize&quot;
+slot0.SHOW_NEXT_ACTIVITY = &quot;show next activity&quot;
+slot0.OPEN_RED_PACKET_LAYER = &quot;ActivityMediator:OPEN_RED_PACKET_LAYER&quot;
+slot0.GO_MINI_GAME = &quot;ActivityMediator.GO_MINI_GAME&quot;
+slot0.GO_DECODE_MINI_GAME = &quot;ActivityMediator:GO_DECODE_MINI_GAME&quot;
+slot0.ON_BOBING_RESULT = &quot;on bobing result&quot;
+slot0.ACTIVITY_PERMANENT = &quot;ActivityMediator.ACTIVITY_PERMANENT&quot;
+slot0.FINISH_ACTIVITY_PERMANENT = &quot;ActivityMediator.FINISH_ACTIVITY_PERMANENT&quot;
+slot0.ON_SHAKE_BEADS_RESULT = &quot;on shake beads result&quot;
+slot0.GO_PERFORM_COMBAT = &quot;ActivityMediator.GO_PERFORM_COMBAT&quot;
+slot0.ON_AWARD_WINDOW = &quot;ActivityMediator:ON_AWARD_WINDOW&quot;
+slot0.GO_CARDPUZZLE_COMBAT = &quot;ActivityMediator.GO_CARDPUZZLE_COMBAT&quot;
+slot0.CHARGE = &quot;ActivityMediator.CHARGE&quot;
+slot0.BUY_ITEM = &quot;ActivityMediator.BUY_ITEM&quot;
+slot0.OPEN_CHARGE_ITEM_PANEL = &quot;ActivityMediator.OPEN_CHARGE_ITEM_PANEL&quot;
+slot0.OPEN_CHARGE_BIRTHDAY = &quot;ActivityMediator.OPEN_CHARGE_BIRTHDAY&quot;
+slot0.STORE_DATE = &quot;ActivityMediator.STORE_DATE&quot;
+slot0.ON_ACT_SHOPPING = &quot;ActivityMediator.ON_ACT_SHOPPING&quot;
+slot0.GO_MONOPOLY2024 = &quot;ActivityMediator:GO_MONOPOLY2024&quot;
+slot0.ON_ACTIVITY_TASK_SUBMIT = &quot;ActivityMediator.ON_ACTIVITY_TASK_SUBMIT&quot;
+slot0.GO_CHANGE_SHOP = &quot;go Change shop&quot;
+slot0.GO_Activity_level = &quot;go Activity level&quot;
+slot0.ON_ADD_SUBLAYER = &quot;ActivityMediator.ON_ADD_SUBLAYER&quot;
+slot0.GO_SPECIAL_EXERCISE = &quot;go Special exercise&quot;
+slot0.GO_SINGLE_PRECOMBAT = &quot;ActivityMediator.GO_SINGLE_PRECOMBAT&quot;
+slot0.ON_BOSSRUSH_MAP = &quot;ActivityMediator.ON_BOSSRUSH_MAP&quot;
+slot0.SKIP_ACTIVITY_MAP = &quot;ActivityMediator.SKIP_ACTIVITY_MAP&quot;
+slot0.OPEN_MINI_PROGRAM = &quot;ActivityMediator.OPEN_MINI_PROGRAM&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.GO_MONOPOLY2024, function (slot0, slot1, slot2)
+		uv0:addSubLayers(Context.New({
+			mediator = MonopolyCar2024Mediator,
+			viewComponent = MonopolyCar2024Scene,
+			data = {
+				actId = slot1
+			},
+			onRemoved = slot2
+		}))
+	end)
+	slot0:bind(uv0.ON_AWARD_WINDOW, function (slot0, slot1, slot2, slot3)
+		uv0.viewComponent:ShowAwardWindow(slot1, slot2, slot3)
+	end)
+	slot0:bind(uv0.GO_CHANGE_SHOP, function ()
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.SKINSHOP)
+	end)
+	slot0:bind(uv0.GO_Activity_level, function (slot0)
+		slot2, slot3 = getProxy(ChapterProxy):getLastMapForActivity()
+
+		if not slot2 or not slot1:getMapById(slot2):isUnlock() then
+			slot2 = getProxy(ChapterProxy):getActiveChapter() and slot5:getConfig(&quot;map&quot;)
+
+			if not slot5 then
+				slot2 = slot4:GetLastNormalMap()
+			end
+
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot5 and slot5.id,
+				mapIdx = slot2
+			})
+		else
+			if not chapter then
+				slot2 = slot1:GetLastNormalMap()
+			end
+
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot3,
+				mapIdx = slot2
+			})
+		end
+	end)
+	slot0:bind(uv0.ON_BOSSRUSH_MAP, function ()
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.BOSSRUSH_MAIN)
+	end)
+	slot0:bind(uv0.GO_DECODE_MINI_GAME, function (slot0)
+		pg.m02:sendNotification(GAME.REQUEST_MINI_GAME, {
+			type = MiniGameRequestCommand.REQUEST_HUB_DATA,
+			callback = function ()
+				pg.m02:sendNotification(GAME.GO_MINI_GAME, 11)
+			end
+		})
+	end)
+	slot0:bind(uv0.GO_MINI_GAME, function (slot0, slot1)
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, slot1)
+	end)
+	slot0:bind(uv0.GO_SUBMARINE_RUN, function (slot0, slot1)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_SUBMARINE_RUN,
+			stageId = slot1
+		})
+	end)
+	slot0:bind(uv0.GO_DODGEM, function (slot0)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_DODGEM,
+			stageId = ys.Battle.BattleConfig.BATTLE_DODGEM_STAGES[math.random(#ys.Battle.BattleConfig.BATTLE_DODGEM_STAGES)]
+		})
+	end)
+	slot0:bind(uv0.ON_SIMULATION_COMBAT, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_SIMULATION,
+			stageId = slot1.stageId,
+			warnMsg = slot1.warnMsg,
+			exitCallback = slot2
+		})
+	end)
+	slot0:bind(uv0.ON_AIRFIGHT_COMBAT, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_AIRFIGHT,
+			stageId = slot1.stageId,
+			exitCallback = slot2
+		})
+	end)
+	slot0:bind(uv0.RETURN_AWARD_OP, function (slot0, slot1)
+		if slot1.cmd == ActivityConst.RETURN_AWARD_OP_SHOW_AWARD_OVERVIEW then
+			uv0.viewComponent:ShowWindow(ReturnerAwardWindow, slot1.arg1)
+		elseif slot1.cmd == ActivityConst.RETURN_AWARD_OP_SHOW_RETURNER_AWARD_OVERVIEW then
+			uv0.viewComponent:ShowWindow(TaskAwardWindow, slot1.arg1)
+		else
+			uv0:sendNotification(GAME.RETURN_AWARD_OP, slot1)
+		end
+	end)
+	slot0:bind(uv0.SHOW_AWARD_WINDOW, function (slot0, slot1, slot2)
+		uv0.viewComponent:ShowWindow(slot1, slot2)
+	end)
+	slot0:bind(uv0.EVENT_PT_OPERATION, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACT_NEW_PT, slot1)
+	end)
+	slot0:bind(uv0.OPEN_LAYER, function (slot0, slot1)
+		uv0:addSubLayers(slot1)
+	end)
+	slot0:bind(uv0.OPEN_RED_PACKET_LAYER, function (slot0)
+		uv0:addSubLayers(Context.New({
+			mediator = RedPacketMediator,
+			viewComponent = RedPacketLayer
+		}))
+	end)
+	slot0:bind(uv0.CLOSE_LAYER, function (slot0, slot1)
+		if getProxy(ContextProxy):getCurrentContext():getContextByMediator(slot1) then
+			uv0:sendNotification(GAME.REMOVE_LAYERS, {
+				context = slot4
+			})
+		end
+	end)
+	slot0:bind(uv0.EVENT_OPERATION, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, slot1)
+	end)
+	slot0:bind(uv0.EVENT_GO_SCENE, function (slot0, slot1, slot2)
+		if slot1 == SCENE.SUMMER_FEAST then
+			pg.NewStoryMgr.GetInstance():Play(&quot;TIANHOUYUYI1&quot;, function ()
+				uv0:sendNotification(GAME.GO_SCENE, SCENE.SUMMER_FEAST)
+			end)
+		else
+			uv0:sendNotification(GAME.GO_SCENE, slot1, slot2)
+		end
+	end)
+	slot0:bind(uv0.BLACKWHITEGRID, function ()
+		if not getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_BLACKWHITE) then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+			return
+		end
+
+		uv0:addSubLayers(Context.New({
+			viewComponent = BlackWhiteGridLayer,
+			mediator = BlackWhiteGridMediator
+		}))
+	end)
+	slot0:bind(uv0.MEMORYBOOK, function ()
+		if not getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_PUZZLA) then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+			return
+		end
+
+		uv0:addSubLayers(Context.New({
+			viewComponent = MemoryBookLayer,
+			mediator = MemoryBookMediator
+		}))
+	end)
+	slot0:bind(uv0.GO_SHOPS_LAYER, function (slot0, slot1)
+		if not getProxy(ActivityProxy):getActivityById(slot1.actId) then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+			return
+		end
+
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.SHOP, slot1 or {
+			warp = NewShopsScene.TYPE_ACTIVITY
+		})
+	end)
+	slot0:bind(uv0.GO_SHOPS_LAYER_STEEET, function (slot0, slot1)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.SHOP, slot1 or {
+			warp = NewShopsScene.TYPE_SHOP_STREET
+		})
+	end)
+	slot0:bind(uv0.BATTLE_OPERA, function ()
+		slot1, slot2 = getProxy(ChapterProxy):getLastMapForActivity()
+
+		if not slot1 or not slot0:getMapById(slot1):isUnlock() then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+		else
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot2,
+				mapIdx = slot1
+			})
+		end
+	end)
+	slot0:bind(uv0.SKIP_ACTIVITY_MAP, function (slot0, slot1)
+		slot3, slot4 = getProxy(ChapterProxy):getLastMapForActivity(slot1)
+
+		if not slot3 or not slot2:getMapById(slot3):isUnlock() then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+		else
+			uv0:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot4,
+				mapIdx = slot3
+			})
+		end
+	end)
+	slot0:bind(uv0.OPEN_MINI_PROGRAM, function (slot0)
+		pg.SdkMgr.GetInstance():OpenMiniProgram()
+	end)
+	slot0:bind(uv0.GO_SPECIAL_EXERCISE, function ()
+		pg.m02:sendNotification(GAME.GO_SCENE, SCENE.ACT_BOSS_BATTLE)
+	end)
+	slot0:bind(uv0.SPECIAL_BATTLE_OPERA, function ()
+		slot1, slot2 = getProxy(ChapterProxy):getLastMapForActivity()
+
+		if not slot1 or not slot0:getMapById(slot1):isUnlock() then
+			slot1 = getProxy(ChapterProxy):getActiveChapter() and slot4:getConfig(&quot;map&quot;)
+
+			if not slot4 then
+				slot1 = slot3:GetLastNormalMap()
+			end
+
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot4 and slot4.id,
+				mapIdx = slot1
+			})
+		else
+			pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LEVEL, {
+				chapterId = slot2,
+				mapIdx = slot1
+			})
+		end
+	end)
+	slot0:bind(uv0.ON_ADD_SUBLAYER, function (slot0, slot1)
+		uv0:addSubLayers(slot1)
+	end)
+	slot0:bind(uv0.GO_LOTTERY, function (slot0)
+		uv0:addSubLayers(Context.New({
+			mediator = LotteryMediator,
+			viewComponent = LotteryLayer,
+			data = {
+				activityId = getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_LOTTERY).id
+			}
+		}))
+	end)
+	slot0:bind(uv0.GO_BACKYARD, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.COURTYARD)
+	end)
+	slot0:bind(uv0.EVENT_COLORING_ACHIEVE, function (slot0, slot1)
+		uv0:sendNotification(GAME.COLORING_ACHIEVE, slot1)
+	end)
+	slot0:bind(uv0.ON_TASK_SUBMIT, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SUBMIT_TASK, slot1.id, slot2)
+	end)
+	slot0:bind(uv0.ON_TASK_SUBMIT_ONESTEP, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_TASK_ONESTEP, {
+			resultList = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_TASK_GO, function (slot0, slot1)
+		uv0:sendNotification(GAME.TASK_GO, {
+			taskVO = slot1
+		})
+	end)
+	slot0:bind(uv0.GO_PRAY_POOL, function (slot0)
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.GETBOAT, {
+			goToPray = true
+		})
+	end)
+	slot0:bind(uv0.FETCH_INSTARGRAM, function (slot0, ...)
+		uv0:sendNotification(GAME.ACT_INSTAGRAM_FETCH, ...)
+	end)
+	slot0:bind(uv0.MUSIC_GAME_OPERATOR, function (slot0, ...)
+		uv0:sendNotification(GAME.SEND_MINI_GAME_OP, ...)
+	end)
+	slot0:bind(uv0.SELECT_ACTIVITY, function (slot0, slot1)
+		uv0.viewComponent:verifyTabs(slot1)
+	end)
+	slot0:bind(uv0.SHOW_NEXT_ACTIVITY, function (slot0)
+		uv0:showNextActivity()
+	end)
+	slot0:bind(uv0.ACTIVITY_PERMANENT, function (slot0, slot1)
+		if PlayerPrefs.GetString(&quot;permanent_time&quot;, &quot;&quot;) ~= pg.gameset.permanent_mark.description then
+			PlayerPrefs.SetString(&quot;permanent_time&quot;, pg.gameset.permanent_mark.description)
+			uv0.viewComponent:updateEntrances()
+		end
+
+		if getProxy(ActivityPermanentProxy):getDoingActivity() then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;activity_permanent_tips3&quot;))
+			uv0.viewComponent:verifyTabs(slot2.id)
+		else
+			uv0:addSubLayers(Context.New({
+				mediator = ActivityPermanentMediator,
+				viewComponent = ActivityPermanentLayer,
+				data = {
+					finishId = slot1
+				}
+			}))
+		end
+	end)
+	slot0:bind(uv0.FINISH_ACTIVITY_PERMANENT, function (slot0)
+		slot1 = getProxy(ActivityPermanentProxy):getDoingActivity()
+
+		assert(slot1:canPermanentFinish(), &quot;error permanent activity finish&quot;)
+		uv0:sendNotification(GAME.ACTIVITY_PERMANENT_FINISH, {
+			activity_id = slot1.id
+		})
+	end)
+	slot0:bind(uv0.GO_PERFORM_COMBAT, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_PERFORM,
+			stageId = slot1.stageId,
+			memory = slot1.memory
+		})
+	end)
+	slot0:bind(uv0.NEXT_DISPLAY_AWARD, function (slot0, slot1, slot2)
+		uv0.nextDisplayAwards = slot1
+	end)
+	slot0:bind(uv0.GO_CARDPUZZLE_COMBAT, function (slot0, slot1)
+		uv0:sendNotification(GAME.BEGIN_STAGE, {
+			system = SYSTEM_CARDPUZZLE,
+			combatID = slot1
+		})
+	end)
+	slot0:bind(uv0.CHARGE, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHARGE_OPERATION, {
+			shopId = slot1
+		})
+	end)
+	slot0:bind(uv0.BUY_ITEM, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SHOPPING, {
+			id = slot1,
+			count = slot2
+		})
+	end)
+	slot0:bind(uv0.OPEN_CHARGE_ITEM_PANEL, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = ChargeItemPanelMediator,
+			viewComponent = ChargeItemPanelLayer,
+			data = {
+				panelConfig = slot1
+			}
+		}))
+	end)
+	slot0:bind(uv0.OPEN_CHARGE_BIRTHDAY, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = ChargeBirthdayMediator,
+			viewComponent = ChargeBirthdayLayer,
+			data = {}
+		}))
+	end)
+	slot0:bind(uv0.STORE_DATE, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACTIVITY_STORE_DATE, {
+			activity_id = slot1.actId,
+			intValue = slot1.intValue or 0,
+			strValue = slot1.strValue or &quot;&quot;,
+			callback = slot1.callback
+		})
+	end)
+	slot0:bind(uv0.ON_ACT_SHOPPING, function (slot0, slot1, slot2, slot3, slot4)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			activity_id = slot1,
+			cmd = slot2,
+			arg1 = slot3,
+			arg2 = slot4
+		})
+	end)
+	slot0:bind(uv0.ON_ACTIVITY_TASK_SUBMIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_ACTIVITY_TASK, {
+			act_id = slot1.activityId,
+			task_ids = {
+				slot1.id
+			}
+		})
+	end)
+	slot0:bind(uv0.GO_SINGLE_PRECOMBAT, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = BossSinglePreCombatLiteMediator,
+			viewComponent = BossSinglePreCombatLiteLayer,
+			data = {
+				system = slot1.system,
+				stageId = slot1.stageId,
+				actId = slot1.activityID,
+				fleets = slot1.fleets
+			}
+		}))
+	end)
+	slot0.viewComponent:setActivities(slot0:getDisplayActivity())
+
+	slot2 = getProxy(PlayerProxy):getRawData()
+
+	slot0.viewComponent:setPlayer(slot2)
+	slot0.viewComponent:setFlagShip(getProxy(BayProxy):getShipById(slot2.character))
+end
+
+slot0.getDisplayActivity = function(slot0)
+	return getProxy(ActivityProxy):getPanelActivities()
+end
+
+slot0.initNotificationHandleDic = function(slot0)
+	slot0.handleDic = {
+		[ActivityProxy.ACTIVITY_ADDED] = function (slot0, slot1)
+			if slot1:getBody():getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_LOTTERY then
+				return
+			end
+
+			slot0.viewComponent:updateActivity(slot2)
+
+			if ActivityConst.AOERLIANG_TASK_ID == slot2.id then
+				slot0.viewComponent:update_task_list_auto_aoerliang(slot2)
+			end
+		end,
+		[ActivityProxy.ACTIVITY_UPDATED] = function (...)
+			uv0.handleDic[ActivityProxy.ACTIVITY_ADDED](...)
+		end,
+		[ActivityProxy.ACTIVITY_DELETED] = function (slot0, slot1)
+			slot0.viewComponent:removeActivity(slot1:getBody())
+		end,
+		[ActivityProxy.ACTIVITY_OPERATION_DONE] = function (slot0, slot1)
+			if ActivityConst.AOERLIANG_TASK_ID == slot1:getBody() then
+				return
+			end
+
+			if ActivityConst.HOLOLIVE_MORNING_ID == slot2 then
+				slot3 = slot0.viewComponent.pageDic[ActivityConst.HOLOLIVE_MORNING_ID]
+			end
+
+			slot0:showNextActivity()
+		end,
+		[ActivityProxy.ACTIVITY_SHOW_AWARDS] = function (slot0, slot1)
+			slot3 = slot1:getBody().awards
+
+			if slot0.nextDisplayAwards and #slot0.nextDisplayAwards &gt; 0 then
+				for slot7 = 1, #slot0.nextDisplayAwards do
+					table.insert(slot3, slot0.nextDisplayAwards[slot7])
+				end
+			end
+
+			slot0.nextDisplayAwards = {}
+
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3, slot2.callback)
+		end,
+		[ActivityProxy.ACTIVITY_SHOW_BB_RESULT] = function (slot0, slot1)
+			slot0.viewComponent:emit(ActivityMediator.ON_BOBING_RESULT, slot1:getBody())
+		end,
+		[ActivityProxy.ACTIVITY_SHOW_LOTTERY_AWARD_RESULT] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			slot0.viewComponent.pageDic[slot2.activityID]:showLotteryAwardResult(slot2.awards, slot2.number, slot2.callback)
+		end,
+		[ActivityProxy.ACTIVITY_SHOW_SHAKE_BEADS_RESULT] = function (slot0, slot1)
+			slot0.viewComponent:emit(ActivityMediator.ON_SHAKE_BEADS_RESULT, slot1:getBody())
+		end,
+		[GAME.COLORING_ACHIEVE_DONE] = function (slot0, slot1)
+			slot2 = slot0.viewComponent
+
+			slot2:playBonusAnim(function ()
+				slot0 = uv0
+				slot1 = uv1.viewComponent
+
+				slot1:emit(BaseUI.ON_ACHIEVE, slot0:getBody().drops, function ()
+					uv0.viewComponent:flush_coloring()
+				end)
+			end)
+		end,
+		[GAME.SUBMIT_TASK_DONE] = function (slot0, slot1)
+			slot3 = slot0.viewComponent
+
+			slot3:emit(BaseUI.ON_ACHIEVE, slot1:getBody(), function ()
+				uv0.viewComponent:updateTaskLayers()
+			end)
+		end,
+		[GAME.SUBMIT_ACTIVITY_TASK_DONE] = function (slot0, slot1)
+			slot3 = slot0.viewComponent
+
+			slot3:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards, function ()
+				uv0.viewComponent:checkAutoHideActivity()
+				uv0.viewComponent:updateTaskLayers()
+				existCall(uv1.callback)
+			end)
+		end,
+		[GAME.ACT_NEW_PT_DONE] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot2.awards, slot2.callback)
+		end,
+		[GAME.BEGIN_STAGE_DONE] = function (slot0, slot1)
+			slot0:sendNotification(GAME.GO_SCENE, SCENE.COMBATLOAD, slot1:getBody())
+		end,
+		[GAME.RETURN_AWARD_OP_DONE] = function (slot0, slot1)
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards)
+		end,
+		[VoteProxy.VOTE_ORDER_BOOK_DELETE] = function (slot0, slot1)
+		end,
+		[VoteProxy.VOTE_ORDER_BOOK_UPDATE] = function (...)
+			uv0.handleDic[VoteProxy.VOTE_ORDER_BOOK_DELETE](...)
+		end,
+		[GAME.REMOVE_LAYERS] = function (slot0, slot1)
+			if slot1:getBody().context.mediator == VoteFameHallMediator then
+				slot0.viewComponent:updateEntrances()
+			end
+
+			slot0.viewComponent:removeLayers()
+		end,
+		[GAME.MONOPOLY_AWARD_DONE] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			if slot0.viewComponent.pageDic[slot0.viewComponent.activity.id] and slot3.activity:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_MONOPOLY and slot3.onAward then
+				slot3:onAward(slot2.awards, slot2.callback)
+			elseif slot2.autoFlag then
+				slot0.viewComponent:emit(BaseUI.ON_ACHIEVE_AUTO, slot2.awards, 1, slot2.callback)
+			else
+				slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot2.awards, slot2.callback)
+			end
+		end,
+		[GAME.SEND_MINI_GAME_OP_DONE] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			seriesAsync({
+				function (slot0)
+					if #uv0.awards &gt; 0 then
+						if uv1.viewComponent then
+							uv1.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1, slot0)
+						else
+							uv1:emit(BaseUI.ON_ACHIEVE, slot1, slot0)
+						end
+					else
+						slot0()
+					end
+				end
+			}, function ()
+				uv0.viewComponent:updateTaskLayers()
+			end)
+		end,
+		[GAME.ACTIVITY_PERMANENT_START_DONE] = function (slot0, slot1)
+			slot0.viewComponent:verifyTabs(slot1:getBody().id)
+		end,
+		[GAME.ACTIVITY_PERMANENT_FINISH_DONE] = function (slot0, slot1)
+			slot0.viewComponent:emit(ActivityMediator.ACTIVITY_PERMANENT, slot1:getBody().activity_id)
+		end,
+		[GAME.MEMORYBOOK_UNLOCK_AWARD_DONE] = function (slot0, slot1)
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards)
+		end,
+		[GAME.LOAD_LAYERS] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			slot0.viewComponent:loadLayers()
+		end,
+		[GAME.CHARGE_SUCCESS] = function (slot0, slot1)
+			slot0.viewComponent:updateTaskLayers()
+			slot0.viewComponent:OnChargeSuccess(Goods.Create({
+				shop_id = slot1:getBody().shopId
+			}, Goods.TYPE_CHARGE))
+		end,
+		[GAME.SHOPPING_DONE] = function (slot0, slot1)
+			slot3 = slot0.viewComponent
+
+			slot3:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards, function ()
+				uv0.viewComponent:updateTaskLayers()
+			end)
+		end,
+		[GAME.ACT_MANUAL_SIGN_DONE] = function (slot0, slot1)
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards)
+		end,
+		[ActivityProxy.ACTIVITY_SHOP_SHOW_AWARDS] = function (slot0, slot1)
+			slot3 = slot0.viewComponent
+
+			slot3:emit(BaseUI.ON_ACHIEVE, slot1:getBody().awards, function ()
+				if getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_UR_EXCHANGE) and not slot0:isShow() and slot0:isCorePage(uv0.contextData.coreName) then
+					uv0.viewComponent:removeActivity(slot0.id)
+				end
+
+				uv0.viewComponent:updateTaskLayers()
+				existCall(uv1.callback)
+			end)
+		end
+	}
+end
+
+slot0.showNextActivity = function(slot0)
+	if not getProxy(ActivityProxy) then
+		return
+	end
+
+	if slot1:findNextAutoActivity() then
+		if slot2.id == ActivityConst.BLACK_FRIDAY_SIGNIN_ACT_ID then
+			slot0.contextData.showByNextAct = true
+
+			slot0.viewComponent:verifyTabs(ActivityConst.BLACK_FRIDAY_ACT_ID)
+		else
+			slot0.viewComponent:verifyTabs(slot2.id)
+		end
+
+		if slot2:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_7DAYSLOGIN then
+			slot0:sendNotification(GAME.ACTIVITY_OPERATION, {
+				cmd = 1,
+				activity_id = slot2.id
+			})
+		elseif slot3 == ActivityConst.ACTIVITY_TYPE_MONTHSIGN then
+			slot0:sendNotification(GAME.ACTIVITY_OPERATION, {
+				activity_id = slot2.id,
+				cmd = slot2:getSpecialData(&quot;reMonthSignDay&quot;) ~= nil and 3 or 1,
+				arg1 = slot2:getSpecialData(&quot;reMonthSignDay&quot;)
+			})
+		elseif slot3 == ActivityConst.ACTIVITY_TYPE_PROGRESSLOGIN then
+			slot0:sendNotification(GAME.ACTIVITY_OPERATION, {
+				activity_id = slot2.id,
+				cmd = slot2.data1 &lt; 7 and 1 or 2
+			})
+		elseif slot2.id == ActivityConst.SHADOW_PLAY_ID then
+			slot2.clientData1 = 1
+
+			slot0:showNextActivity()
+		end
+	elseif not slot0.viewComponent.activity then
+		slot0.viewComponent:verifyTabs(slot0.contextData.id or slot0.contextData.type and checkExist(_.detect(slot0:getDisplayActivity(), function (slot0)
+			return slot0:getConfig(&quot;type&quot;) == uv0.contextData.type
+		end), {
+			&quot;id&quot;
+		}) or 0)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

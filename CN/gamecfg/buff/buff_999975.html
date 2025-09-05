@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_999975.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_999975.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	init_effect = &quot;&quot;,
+	name = &quot;&quot;,
+	time = 15,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 999975,
+	last_effect = &quot;act_heal&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				time = 10,
+				skill_id = 999975,
+				target = &quot;TargetSelf&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				time = 10.5,
+				skill_id = 999975,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;+heal&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				time = 11,
+				skill_id = 999975,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;+heal&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				time = 11.5,
+				skill_id = 999975,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;+heal&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

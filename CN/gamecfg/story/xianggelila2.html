@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xianggelila2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xianggelila2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;XIANGGELILA2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;纪行的藏红花\n\n&lt;size=45&gt;二　同伴的烦恼&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;某日·演习海域&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;今天的常规演习科目差不多就到这里了，指挥官。接下来就回到指挥室继续剩下的总结——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;早安，指挥官，香格里拉。视察常规演习辛苦了。嗯……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;是埃塞克斯啊，早安。&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			dir = 1,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			withoutActorName = true,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;看到埃塞克斯一副欲言又止的模样，香格里拉率先打开了话匣子&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;埃塞克斯…有什么烦恼吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = -1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;！你、你怎么知道&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			dir = -1,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			withoutActorName = true,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;说起来刚才埃塞克斯的反应却是有点让人好奇。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呵呵，让我猜猜看…是不是关于下次白鹰大型演习的事情呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = -1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（小声）哇？难道你会读心术吗，香格里拉？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（小声）看这反应，你的烦恼八成还跟我们那位“前辈”脱不开关系吧~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = -1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呜…还、还是让我自己来说吧，事情是这样的——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 45,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯…想要在下次大型演习前寻找到能确切战胜企业前辈的方法，实在不行，至少也要让前辈大吃一惊…吗&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不介意的话，就让我来给你提供一点小小的帮助如何~？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = -1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真的吗！？……咳咳！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 107380,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;正好我也想验证一下自己基于记录总结的部分战斗理论，也算是麻烦埃塞克斯你来帮一次忙呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;那就…拜托了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;东煌有句古话，叫做“知己知彼，百战不殆”。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽然是古典理论，但是面对企业前辈，信息和经验的重要性自然是不用多说&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107380,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;先把至今为止的作战记录和我的“记录”总结归纳之后……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;确实如此…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯，之后再按照记录，针对企业前辈的战斗风格来给埃塞克斯你定制一个特训吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 107380,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊，指挥官也可以来观摩一下。毕竟不是什么秘密的东西&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;既然香格里拉都这么说了，就找个时间去看一下吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

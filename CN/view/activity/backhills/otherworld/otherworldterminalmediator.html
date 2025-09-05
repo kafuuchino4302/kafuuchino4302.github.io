@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>otherworldterminalmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>otherworldterminalmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;OtherworldTerminalMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_GET_PT_ALL_AWARD = &quot;OtherworldTerminalMediator.ON_GET_PT_AWARD&quot;
+slot0.ON_BUFF_LIST_CHANGE = &quot;OtherworldTerminalMediator.ON_BUFF_LIST_CHANGE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_GET_PT_ALL_AWARD, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACT_NEW_PT, {
+			cmd = 4,
+			activity_id = slot1.actId,
+			arg1 = slot1.arg1
+		})
+	end)
+	slot0:bind(uv0.ON_BUFF_LIST_CHANGE, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 3,
+			activity_id = slot1.actId,
+			arg_list = slot1.ids
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ActivityProxy.ACTIVITY_UPDATED,
+		GAME.ACT_NEW_PT_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == ActivityProxy.ACTIVITY_UPDATED then
+		if slot3.id == TerminalAdventurePage.BIND_PT_ACT_ID then
+			slot0.viewComponent:UpdateAdventurePtAct(slot4)
+		elseif slot4.id == TerminalAdventurePage.BIND_TASK_ACT_ID then
+			slot0.viewComponent:UpdateAdventureTaskAct(slot4)
+		elseif slot4.id == ActivityConst.OTHER_WORLD_TERMINAL_LOTTERY_ID then
+			slot0.viewComponent:UpdateGuardianAct(slot4)
+		end
+	elseif slot2 == GAME.ACT_NEW_PT_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+		slot0.viewComponent:UpdateAdventureTip()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

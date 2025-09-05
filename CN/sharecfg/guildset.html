@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildset.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildset.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.guildset = {
+	guild_award_consume = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_award_consume&quot;,
+		key_value = 3000
+	},
+	guild_award_duration = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_award_duration&quot;,
+		key_value = 1209600
+	},
+	guild_award_max = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_award_max&quot;,
+		key_value = 3
+	},
+	guild_award_drop = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_award_drop&quot;,
+		key_value = 53000
+	},
+	guild_active_become_regular = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_active_become_regular&quot;,
+		key_value = 100
+	},
+	store_refresh = {
+		key = &quot;store_refresh&quot;,
+		key_value = 0,
+		key_args = {
+			1,
+			5
+		}
+	},
+	store_goods_quantity = {
+		key_args = &quot;&quot;,
+		key = &quot;store_goods_quantity&quot;,
+		key_value = 10
+	},
+	store_reset_time = {
+		key_args = &quot;&quot;,
+		key = &quot;store_reset_time&quot;,
+		key_value = 1
+	},
+	store_reset_cost = {
+		key_args = &quot;&quot;,
+		key = &quot;store_reset_cost&quot;,
+		key_value = 50
+	},
+	contribution_task_num = {
+		key_args = &quot;&quot;,
+		key = &quot;contribution_task_num&quot;,
+		key_value = 3
+	},
+	contribution_limit_count = {
+		key_args = &quot;&quot;,
+		key = &quot;contribution_limit_count&quot;,
+		key_value = 0
+	},
+	base_contribution = {
+		key_args = &quot;&quot;,
+		key = &quot;base_contribution&quot;,
+		key_value = 4000
+	},
+	base_capital = {
+		key_args = &quot;&quot;,
+		key = &quot;base_capital&quot;,
+		key_value = 20000
+	},
+	guild_tech_default = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_tech_default&quot;,
+		key_value = 1000
+	},
+	operation_unlock = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_unlock&quot;,
+		key_value = 3
+	},
+	use_oil = {
+		key_args = &quot;&quot;,
+		key = &quot;use_oil&quot;,
+		key_value = 10
+	},
+	daily_task_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;daily_task_guild_active&quot;,
+		key_value = 2
+	},
+	weekly_task_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;weekly_task_guild_active&quot;,
+		key_value = 5
+	},
+	operation_duration_time = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_duration_time&quot;,
+		key_value = 5184000
+	},
+	operation_daily_boss_count = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_daily_boss_count&quot;,
+		key_value = 1
+	},
+	operation_monthly_time = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_monthly_time&quot;,
+		key_value = 2
+	},
+	operation_daily_abort = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_daily_abort&quot;,
+		key_value = 2
+	},
+	operation_event_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_event_guild_active&quot;,
+		key_value = 1
+	},
+	operation_boss_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_boss_guild_active&quot;,
+		key_value = 10
+	},
+	operation_assault_team_cd = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_assault_team_cd&quot;,
+		key_value = 1800
+	},
+	operation_member_dispatch_once = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_member_dispatch_once&quot;,
+		key_value = 4
+	},
+	operation_member_dispatch_reset = {
+		key = &quot;operation_member_dispatch_reset&quot;,
+		key_value = 0,
+		key_args = {
+			6,
+			12,
+			18,
+			21
+		}
+	},
+	operation_member_dispatch_max = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_member_dispatch_max&quot;,
+		key_value = 4
+	},
+	operation_report_max = {
+		key_args = &quot;&quot;,
+		key = &quot;operation_report_max&quot;,
+		key_value = 20
+	},
+	guild_damage_resource = {
+		key_args = &quot;&quot;,
+		key = &quot;guild_damage_resource&quot;,
+		key_value = 3000
+	},
+	node_ratio_max = {
+		key_args = &quot;&quot;,
+		key = &quot;node_ratio_max&quot;,
+		key_value = 9500
+	},
+	efficiency_value_param_base = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_value_param_base&quot;,
+		key_value = 10
+	},
+	efficiency_value_param_level = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_value_param_level&quot;,
+		key_value = 70
+	},
+	efficiency_value_param_bp = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_value_param_bp&quot;,
+		key_value = 12500
+	},
+	efficiency_param_base = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_param_base&quot;,
+		key_value = 10
+	},
+	efficiency_param_max = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_param_max&quot;,
+		key_value = 3
+	},
+	efficiency_param_normal = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_param_normal&quot;,
+		key_value = 14000
+	},
+	efficiency_param_elite = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_param_elite&quot;,
+		key_value = 28000
+	},
+	efficiency_param_times = {
+		key_args = &quot;&quot;,
+		key = &quot;efficiency_param_times&quot;,
+		key_value = 2
+	},
+	public_level_initial = {
+		key = &quot;public_level_initial&quot;,
+		key_value = 0,
+		key_args = {
+			1,
+			1,
+			1,
+			1,
+			1
+		}
+	},
+	public_level_priority = {
+		key = &quot;public_level_priority&quot;,
+		key_value = 0,
+		key_args = {
+			2,
+			3,
+			4,
+			5,
+			6
+		}
+	},
+	public_level_limit = {
+		key = &quot;public_level_limit&quot;,
+		key_value = 0,
+		key_args = {
+			30,
+			30,
+			9,
+			9,
+			12
+		}
+	},
+	public_tech_exp = {
+		key_args = &quot;&quot;,
+		key = &quot;public_tech_exp&quot;,
+		key_value = 60
+	},
+	new_daily_task_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;new_daily_task_guild_active&quot;,
+		key_value = 5
+	},
+	new_weekly_task_guild_active = {
+		key_args = &quot;&quot;,
+		key = &quot;new_weekly_task_guild_active&quot;,
+		key_value = 54
+	},
+	all = {
+		&quot;guild_award_consume&quot;,
+		&quot;guild_award_duration&quot;,
+		&quot;guild_award_max&quot;,
+		&quot;guild_award_drop&quot;,
+		&quot;guild_active_become_regular&quot;,
+		&quot;store_refresh&quot;,
+		&quot;store_goods_quantity&quot;,
+		&quot;store_reset_time&quot;,
+		&quot;store_reset_cost&quot;,
+		&quot;contribution_task_num&quot;,
+		&quot;contribution_limit_count&quot;,
+		&quot;base_contribution&quot;,
+		&quot;base_capital&quot;,
+		&quot;guild_tech_default&quot;,
+		&quot;operation_unlock&quot;,
+		&quot;use_oil&quot;,
+		&quot;daily_task_guild_active&quot;,
+		&quot;weekly_task_guild_active&quot;,
+		&quot;operation_duration_time&quot;,
+		&quot;operation_daily_boss_count&quot;,
+		&quot;operation_monthly_time&quot;,
+		&quot;operation_daily_abort&quot;,
+		&quot;operation_event_guild_active&quot;,
+		&quot;operation_boss_guild_active&quot;,
+		&quot;operation_assault_team_cd&quot;,
+		&quot;operation_member_dispatch_once&quot;,
+		&quot;operation_member_dispatch_reset&quot;,
+		&quot;operation_member_dispatch_max&quot;,
+		&quot;operation_report_max&quot;,
+		&quot;guild_damage_resource&quot;,
+		&quot;node_ratio_max&quot;,
+		&quot;efficiency_value_param_base&quot;,
+		&quot;efficiency_value_param_level&quot;,
+		&quot;efficiency_value_param_bp&quot;,
+		&quot;efficiency_param_base&quot;,
+		&quot;efficiency_param_max&quot;,
+		&quot;efficiency_param_normal&quot;,
+		&quot;efficiency_param_elite&quot;,
+		&quot;efficiency_param_times&quot;,
+		&quot;public_level_initial&quot;,
+		&quot;public_level_priority&quot;,
+		&quot;public_level_limit&quot;,
+		&quot;public_tech_exp&quot;,
+		&quot;new_daily_task_guild_active&quot;,
+		&quot;new_weekly_task_guild_active&quot;
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

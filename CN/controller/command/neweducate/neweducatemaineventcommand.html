@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducatemaineventcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducatemaineventcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewEducateMainEventCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(29011, {
+		id = slot1:getBody().id
+	}, 29012, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(NewEducateProxy):GetCurChar():GetFSM()
+
+			slot1:SetCurNode(slot0.first_node)
+			slot1:SetStystemNo(NewEducateFSM.STYSTEM.EVENT)
+
+			if slot0.first_node ~= 0 then
+				uv0:sendNotification(GAME.NEW_EDUCATE_NODE_START, {
+					node = slot0.first_node
+				})
+			else
+				uv0:sendNotification(GAME.NEW_EDUCATE_CHECK_FSM)
+			end
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;NewEducate_MainEvent: &quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

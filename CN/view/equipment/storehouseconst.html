@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>storehouseconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>storehouseconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;StoreHouseConst&quot;)
+slot0.WARP_TO_DESIGN = &quot;WARP_TO_DESIGN&quot;
+slot0.WARP_TO_MATERIAL = &quot;WARP_TO_MATERIAL&quot;
+slot0.WARP_TO_WEAPON = &quot;WARP_TO_WEAPON&quot;
+slot0.OVERVIEW = &quot;StoreHouseScene_OVERVIEW&quot;
+slot0.DESTROY = &quot;StoreHouseScene_DESTROY&quot;
+slot0.EQUIPMENT = &quot;StoreHouseScene_EQUIPMENT&quot;
+slot0.SKIN = &quot;StoreHouseScene_SKIN&quot;
+slot0.SPWEAPON = &quot;StoreHouseScene_SPWEAPON&quot;
+slot0.EQUIPMENT_INDEX_COMMON = {
+	customPanels = {
+		minHeight = 650,
+		typeIndex = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipmentTypeIndexs,
+			names = IndexConst.EquipmentTypeNames
+		},
+		equipPropertyIndex = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipPropertyIndexs,
+			names = IndexConst.EquipPropertyNames
+		},
+		equipPropertyIndex2 = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipPropertyIndexs,
+			names = IndexConst.EquipPropertyNames
+		},
+		equipAmmoIndex1 = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipAmmoIndexs_1,
+			names = IndexConst.EquipAmmoIndexs_1_Names
+		},
+		equipAmmoIndex2 = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipAmmoIndexs_2,
+			names = IndexConst.EquipAmmoIndexs_2_Names
+		},
+		equipCampIndex = {
+			mode = CustomIndexLayer.Mode.AND,
+			options = IndexConst.EquipCampIndexs,
+			names = IndexConst.EquipCampNames
+		},
+		rarityIndex = {
+			mode = CustomIndexLayer.Mode.AND,
+			options = IndexConst.EquipmentRarityIndexs,
+			names = IndexConst.RarityNames
+		},
+		extraIndex = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.EquipmentExtraIndexs,
+			names = IndexConst.EquipmentExtraNames
+		}
+	},
+	groupList = {
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_typeeng&quot;,
+			titleTxt = &quot;indexsort_type&quot;,
+			tags = {
+				&quot;typeIndex&quot;
+			}
+		},
+		{
+			dropdown = true,
+			titleENTxt = &quot;indexsort_indexeng&quot;,
+			titleTxt = &quot;indexsort_index&quot;,
+			tags = {
+				&quot;equipPropertyIndex&quot;,
+				&quot;equipPropertyIndex2&quot;,
+				&quot;equipAmmoIndex1&quot;,
+				&quot;equipAmmoIndex2&quot;
+			}
+		},
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_campeng&quot;,
+			titleTxt = &quot;indexsort_camp&quot;,
+			tags = {
+				&quot;equipCampIndex&quot;
+			}
+		},
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_rarityeng&quot;,
+			titleTxt = &quot;indexsort_rarity&quot;,
+			tags = {
+				&quot;rarityIndex&quot;
+			}
+		},
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_indexeng&quot;,
+			titleTxt = &quot;indexsort_extraindex&quot;,
+			tags = {
+				&quot;extraIndex&quot;
+			}
+		}
+	},
+	dropdownLimit = {
+		equipPropertyIndex = {
+			include = {
+				typeIndex = IndexConst.EquipmentTypeAll
+			},
+			exclude = {}
+		},
+		equipPropertyIndex2 = {
+			include = {
+				typeIndex = IndexConst.EquipmentTypeEquip
+			},
+			exclude = {
+				typeIndex = IndexConst.EquipmentTypeAll
+			}
+		},
+		equipAmmoIndex1 = {
+			include = {
+				typeIndex = IndexConst.BitAll({
+					IndexConst.EquipmentTypeSmallCannon,
+					IndexConst.EquipmentTypeMediumCannon,
+					IndexConst.EquipmentTypeBigCannon
+				})
+			},
+			exclude = {
+				typeIndex = IndexConst.EquipmentTypeAll
+			}
+		},
+		equipAmmoIndex2 = {
+			include = {
+				typeIndex = IndexConst.BitAll({
+					IndexConst.EquipmentTypeWarshipTorpedo,
+					IndexConst.EquipmentTypeSubmaraineTorpedo
+				})
+			},
+			exclude = {
+				typeIndex = IndexConst.EquipmentTypeAll
+			}
+		}
+	}
+}
+slot0.SPWEAPON_INDEX_COMMON = {
+	customPanels = {
+		typeIndex = {
+			mode = CustomIndexLayer.Mode.OR,
+			options = IndexConst.SpWeaponTypeIndexs,
+			names = IndexConst.SpWeaponTypeNames
+		},
+		rarityIndex = {
+			mode = CustomIndexLayer.Mode.AND,
+			options = IndexConst.SpWeaponRarityIndexs,
+			names = IndexConst.SpWeaponRarityNames
+		}
+	},
+	groupList = {
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_typeeng&quot;,
+			titleTxt = &quot;indexsort_type&quot;,
+			tags = {
+				&quot;typeIndex&quot;
+			}
+		},
+		{
+			dropdown = false,
+			titleENTxt = &quot;indexsort_rarityeng&quot;,
+			titleTxt = &quot;indexsort_rarity&quot;,
+			tags = {
+				&quot;rarityIndex&quot;
+			}
+		}
+	}
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

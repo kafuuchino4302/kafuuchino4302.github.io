@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>assetbundleeditor.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>assetbundleeditor.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+slot0 = pg
+slot1 = class(&quot;AssetBundle&quot;, slot0.AssetBundle)
+slot0.AssetBundleEditor = slot1
+
+slot1.Load = function(slot0, slot1, slot2, slot3)
+	assert(not slot0.ab)
+
+	slot0.abs = {}
+
+	if slot1 then
+		onNextTick(function ()
+			existCall(uv0, uv1)
+		end)
+	else
+		existCall(slot3, slot0)
+
+		return slot0
+	end
+end
+
+slot1.LoadAssetSync = function(slot0, slot1, ...)
+	return ResourceMgr.Inst:getAssetSync(slot0.path, slot0:ChangeAssetName(slot1), ...)
+end
+
+slot1.LoadAssetAsync = function(slot0, slot1, slot2, slot3, ...)
+	return ResourceMgr.Inst:getAssetAsync(slot0.path, slot0:ChangeAssetName(slot1), slot2, UnityEngine.Events.UnityAction_UnityEngine_Object(slot3), ...)
+end
+
+slot1.GetAllAssetNames = function(slot0)
+	return table.CArrayToArray(ReflectionHelp.RefCallMethod(typeof(ResourceMgr), &quot;GetAssetBundleAllAssetNames&quot;, ResourceMgr.Inst, {
+		typeof(&quot;System.String&quot;)
+	}, {
+		slot0.path
+	}))
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

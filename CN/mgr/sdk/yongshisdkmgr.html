@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yongshisdkmgr.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yongshisdkmgr.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot1 = YongshiSdkMgr.inst
+slot2 = &quot;com.hkmanjuu.azurlane.gp.mc&quot;
+slot3 = &quot;com.hkmanjuu.azurlane.gp&quot;
+slot4 = &quot;com.hkmanjuu.azurlane.ios1&quot;
+
+StartSdkLogin = function()
+	Timer.New(function ()
+		uv0:OnLoginTimeOut()
+	end, 30, 1):Start()
+end
+
+GoLoginScene = function()
+	if not pg.m02 then
+		originalPrint(&quot;game is not start&quot;)
+
+		return
+	end
+
+	pg.m02:sendNotification(GAME.GO_SCENE, SCENE.LOGIN)
+	gcAll()
+end
+
+SDKLogined = function(slot0, slot1, slot2, slot3)
+	if not pg.m02 then
+		originalPrint(&quot;game is not start&quot;)
+
+		return
+	end
+
+	pg.SdkMgr.GetInstance().airi_uid = slot1 or &quot;test&quot;
+
+	pg.m02:sendNotification(GAME.PLATFORM_LOGIN_DONE, {
+		user = User.New({
+			type = 1,
+			arg1 = slot0,
+			arg2 = slot1,
+			arg3 = slot2,
+			arg4 = slot3
+		})
+	})
+end
+
+SDKLogouted = function(slot0)
+	if not pg.m02 then
+		originalPrint(&quot;game is not start&quot;)
+
+		return
+	end
+
+	pg.m02:sendNotification(GAME.LOGOUT, {
+		code = slot0
+	})
+end
+
+PaySuccess = function(slot0, slot1)
+	if not pg.m02 then
+		originalPrint(&quot;game is not start&quot;)
+
+		return
+	end
+
+	getProxy(ShopsProxy):removeWaitTimer()
+	originalPrint(slot0 + &quot; - &quot; + slot1)
+	pg.m02:sendNotification(GAME.CHARGE_CONFIRM, {
+		payId = slot0,
+		bsId = slot1
+	})
+end
+
+PayFailed = function(slot0, slot1)
+	if not pg.m02 then
+		originalPrint(&quot;game is not start&quot;)
+
+		return
+	end
+
+	getProxy(ShopsProxy):removeWaitTimer()
+
+	if not tonumber(slot1) then
+		return
+	end
+
+	pg.m02:sendNotification(GAME.CHARGE_FAILED, {
+		payId = slot0,
+		code = slot1
+	})
+end
+
+GetUserInfoSuccess = function()
+end
+
+GetUserInfoFailed = function()
+end
+
+slot5 = function(slot0, slot1, slot2)
+	if slot0 == YongshiSdkUserBindInfo.FACEBOOK then
+		pg.TipsMgr.GetInstance():ShowTips(slot1 .. &quot;facebook&quot; .. slot2)
+	elseif slot0 == YongshiSdkUserBindInfo.APPLE then
+		pg.TipsMgr.GetInstance():ShowTips(slot1 .. &quot;Apple Id&quot; .. slot2)
+	elseif slot0 == YongshiSdkUserBindInfo.GOOGLE then
+		pg.TipsMgr.GetInstance():ShowTips(slot1 .. &quot;google&quot; .. slot2)
+	elseif slot0 == YongshiSdkUserBindInfo.PHONE then
+		if slot1 == &quot;解綁&quot; then
+			slot1 = &quot;换绑&quot;
+		end
+
+		pg.TipsMgr.GetInstance():ShowTips(slot1 .. &quot;手機&quot; .. slot2)
+	else
+		print(&quot;this platform is not supported&quot;)
+	end
+end
+
+BindSuccess = function(slot0)
+	uv0(slot0, &quot;綁定&quot;, &quot;成功&quot;)
+	pg.m02:sendNotification(GAME.CHT_SOCIAL_LINK_STATE_CHANGE, slot0)
+end
+
+BindFailed = function(slot0, slot1)
+	if slot1 and slot1 ~= &quot;&quot; then
+		pg.TipsMgr.GetInstance():ShowTips(slot1)
+	else
+		uv0(slot0, &quot;綁定&quot;, &quot;失敗&quot;)
+	end
+end
+
+UnBindSuccess = function(slot0)
+	uv0(slot0, &quot;解綁&quot;, &quot;成功&quot;)
+	pg.m02:sendNotification(GAME.CHT_SOCIAL_LINK_STATE_CHANGE)
+end
+
+UnBindFailed = function(slot0, slot1)
+	if slot1 and slot1 ~= &quot;&quot; then
+		pg.TipsMgr.GetInstance():ShowTips(slot1)
+	else
+		uv0(slot0, &quot;解綁&quot;, &quot;失敗&quot;)
+	end
+end
+
+OnDeepLinking = function(slot0)
+	pg.YongshiDeepLinkingMgr.GetInstance():SetData(slot0)
+end
+
+return {
+	CheckPretest = function ()
+		return NetConst.GATEWAY_HOST == &quot;ts-all-login.azurlane.tw&quot; and (NetConst.GATEWAY_PORT == 11001 or NetConst.GATEWAY_PORT == 11101) or IsUnityEditor
+	end,
+	InitSDK = function ()
+		uv0:Init()
+	end,
+	GoSDkLoginScene = function ()
+		uv0:GoLoginScene()
+	end,
+	LoginSdk = function (slot0)
+		uv0:Login(0)
+	end,
+	TryLoginSdk = function ()
+		uv0:TryLogin()
+	end,
+	SdkGateWayLogined = function ()
+		uv0:OnGatewayLogined()
+	end,
+	SdkLoginGetaWayFailed = function ()
+		uv0:OnLoginGatewayFailed()
+	end,
+	IsBindApple = function ()
+		return uv0.bindInfo:IsBindApple()
+	end,
+	IsBindFaceBook = function ()
+		return uv0.bindInfo:IsBindFaceBook()
+	end,
+	IsBindGoogle = function ()
+		return uv0.bindInfo:IsBindGoogle()
+	end,
+	IsBindPhone = function ()
+		return uv0.bindInfo:IsBindPhone()
+	end,
+	BindApple = function ()
+		uv0:BindApple()
+	end,
+	BindFaceBook = function ()
+		uv0:BindFaceBook()
+	end,
+	BindGoogle = function ()
+		uv0:BindGoogle()
+	end,
+	BindPhone = function ()
+		uv0:BindPhone()
+	end,
+	UnBindPhone = function ()
+		uv0:UnBindPhone()
+	end,
+	UnBindApple = function ()
+		uv0:UnBindApple()
+	end,
+	UnBindFaceBook = function ()
+		uv0:UnBindFaceBook()
+	end,
+	UnBindGoogle = function ()
+		uv0:UnBindGoogle()
+	end,
+	CanTriggerDeepLinking = function ()
+		return uv0:CanTriggerDeepLinking()
+	end,
+	TriggerDeepLinking = function ()
+		uv0:TriggerDeepLinking()
+	end,
+	SdkPay = function (slot0, slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9)
+		slot14 = getProxy(ServerProxy):getLastServer(getProxy(UserProxy):getData().uid)
+		slot15 = slot14.id
+		slot17 = getProxy(PlayerProxy):getRawData()
+
+		uv0:Pay(slot0, slot2, slot5, slot1, &quot;1&quot;, slot3, &quot;1&quot;, slot15, slot14.name, slot15, slot17.id, slot17.name, slot17.level, slot8, &quot;1&quot;, slot4, slot6, slot9)
+	end,
+	UserEventUpload = function (slot0)
+		uv0:UserEventUpload(slot0)
+	end,
+	LogoutSDK = function ()
+		uv0:LocalLogout()
+	end,
+	BindCPU = function ()
+		uv0:callSdkApi(&quot;bindCpu&quot;, nil)
+	end,
+	DeleteAccount = function ()
+		uv0:Delete()
+	end,
+	OnAndoridBackPress = function ()
+		PressBack()
+	end,
+	ShareImg = function (slot0, slot1)
+		uv0:Share(slot0)
+	end,
+	GetBiliServerId = function ()
+		slot0 = uv0.serverId
+
+		originalPrint(&quot;serverId : &quot; .. slot0)
+
+		return slot0
+	end,
+	GetChannelUID = function ()
+		slot0 = uv0.channelUID
+
+		originalPrint(&quot;channelUID : &quot; .. slot0)
+
+		return slot0
+	end,
+	GetLoginType = function ()
+		return uv0.loginType
+	end,
+	GetIsPlatform = function ()
+		return uv0.isPlatform
+	end,
+	GetPackageCode = function (slot0)
+		if slot0 == uv0 then
+			return &quot;2&quot;
+		elseif slot0 == uv1 then
+			return &quot;1&quot;
+		elseif slot0 == uv2 then
+			return &quot;3&quot;
+		end
+
+		return &quot;0&quot;
+	end,
+	QueryWithProduct = function ()
+		if uv0 == Application.identifier then
+			return
+		end
+
+		slot0 = {}
+
+		for slot5, slot6 in pairs(pg.pay_data_display.all) do
+			table.insert(slot0, slot1[slot6].id_str)
+		end
+
+		uv1:Query(slot0)
+	end,
+	GetProduct = function (slot0)
+		return uv0:GetProduct(slot0)
+	end
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

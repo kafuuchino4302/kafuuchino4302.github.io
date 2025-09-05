@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yinghua3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yinghua3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;YINGHUA3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			actor = 307060,
+			side = 2,
+			dir = 1,
+			say = &quot;自从开战后，这片海域就再也不允许进入了，原来是被塞壬一直侵占着…这下就说得通了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			dir = 1,
+			say = &quot;不过…我们这次回来究竟是要寻找什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307050,
+			side = 1,
+			say = &quot;看到重樱的御神木了吗？这几年来，它正一直以飞快的速度枯萎，我们这次来，就是希望能够找到拯救它的方法&quot;,
+			dir = 1,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 1,
+			dir = 1,
+			say = &quot;新生重樱联合的组建虽然比我们想象中的来得顺利，但是…为了对抗那股强大的力量，我们还需要一个必不可少的存在..&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			side = 0,
+			dir = 1,
+			say = &quot;你说的难道是…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 1,
+			dir = 1,
+			say = &quot;没错，那孩子一直都在这里，在重樱的中心&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 1,
+			dir = 1,
+			say = &quot;——我能感觉得到她，她一直都在这里默默的接受着内心的谴责…我们..必须解救她&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			dir = 1,
+			say = &quot;那还等什么，赶紧的，让我们把这些碍事的家伙们全部干掉先！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 307020,
+			stopbgm = true,
+			say = &quot;新生重樱联合那班家伙们冲着御神木去了——这样下去，她们也许会相见的&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 0,
+			say = &quot;碍事的家伙总是清理不完，真是让人头疼…&quot;,
+			dir = 1,
+			blackBg = true,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 0,
+			dir = 1,
+			blackBg = true,
+			say = &quot;不过，那孩子充其量就是一个不谙世事的傀儡罢了，就算她们现在找到了她也无济于事&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 0,
+			dir = 1,
+			blackBg = true,
+			say = &quot;自从她走出了那步棋之后，就已经没有利用的价值了呵呵呵&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 1,
+			dir = 1,
+			blackBg = true,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 0,
+			dir = 1,
+			blackBg = true,
+			say = &quot;又有谁会想到，所谓的信仰、所谓的牺牲，都是为了真神降临所铺垫的序曲罢了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 0,
+			dir = 1,
+			blackBg = true,
+			say = &quot;我们只需要耐心的等待…对~等待那位大人的降临，将这一切终结~呵呵呵呵…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

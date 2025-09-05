@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>micaidushidexunzongzhe7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>micaidushidexunzongzhe7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;MICAIDUSHIDEXUNZONGZHE7&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			mode = 1,
+			bgName = &quot;bg_spycity_2&quot;,
+			bgm = &quot;story-antarctica-serious&quot;,
+			stopbgm = true,
+			asideType = 4,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			rectOffset = {
+				400,
+				400,
+				400,
+				400
+			},
+			sequence = {
+				{
+					&quot;&lt;size=45&gt;Chapter-6-说来话长&lt;/size&gt;&quot;,
+					0.5
+				},
+				{
+					&quot;&lt;size=45&gt;Scene：闹市区仓库&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=45&gt;Time：19:20&lt;/size&gt;&quot;,
+					1.5
+				},
+				{
+					&quot;&lt;size=45&gt;Date：6月26日&lt;/size&gt;&quot;,
+					2
+				},
+				{
+					&quot;&lt;size=45&gt;在得到了{namecode:547:曾克}警部手中持有重要情报的线索后，你离开了观光列车。&lt;/size&gt;&quot;,
+					2.5
+				},
+				{
+					&quot;&lt;size=45&gt;你顺着地址，找到了零课位于闹市区的仓库据点。&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=45&gt;一进入仓库，{namecode:547:曾克}警部的呼救声就从负一楼深处传来……&lt;/size&gt;&quot;,
+					3.5
+				}
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_116&quot;,
+			live2dIdleIndex = 2,
+			bgm = &quot;story-nonightcity&quot;,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;救命啊——有没有人，快来帮帮我——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;啊——太好了，顾问，快、快把我放下来！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;……你是，{namecode:547:曾克}警部？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;这里不是零课的秘密据点么，你为什么会被关在这里？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;唉，这个就说来话长了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;事情还要从十三年前的那个雨夜说起……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;真的好长……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;（直接走流程还是……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;{namecode:547:曾克}警部，你是卧底吗？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;（顺着剧本情景继续演下去……）&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;卧、卧底？！怎么可能！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;卧底不是我，是那个女人啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 1,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;（这下快多了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 1,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;那个女人是谁？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;是警校的{namecode:165:吾妻}老师！她就是卧底！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;她袭击我是为了伪造证据，准备要将所有的罪名都推到我身上！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;但其实都是她！昨天的档案馆也是她炸的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 1,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;好，我知道了。剩下的事我来接手吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;那是一个月黑风高的夜晚，即使时间已经过去了那么多年，我依然无法忘记那一夜发生的事……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;当时我还在上中学，那天的我去游乐园参加同学聚会，因为玩得太开心了没注意到时间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;等到最后决定回家的时候，时间已经很晚了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;天阴森森的，还下着小雨，我一个人又惊又慌，心里只想着早点回家……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;结果没注意，绕到了一条小巷子里。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;借着昏暗的路灯，我发现了在巷子的尽头，站着两个鬼鬼祟祟的黑衣人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;她们似乎正在进行一些见不得人的交易……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;好奇心战胜了恐惧，我偷偷接近她们，想要看清楚她们究竟在做什么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;然后……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;……然后在你专心看交易的时候，没注意到她们还有一个同伙从背后接近袭击了你？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;然后给你灌下了某种毒药，然后等你醒过来之后就发现身体变小了……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;……咦？那倒没有……不过我确实是被发现了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;我在走路的时候没注意踢倒了一个易拉罐，引起了她们的警觉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;之后我就被吓得掉头就跑，她们就在后面紧追不舍……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;我跑她们就追，她们追我就更拼命地跑……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;不知道过了多久……慌不择路的我撞上了一个柔软的身躯。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;她没有责备我，也没有问发生了什么事，而是直接转身冲上去跟那两个可疑的人搏斗，并且把她们都打跑了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;之后我才知道，她是警校的教官——{namecode:165:吾妻}老师。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;然后我就立志要去当警察了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;考上警校，成为{namecode:165:吾妻}老师的学生！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;然后，三年时光一晃而过，时间来到了十年之前……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;（…………真的太长了！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;（她们拍摄用的胶卷难道不用钱么……那都是港区的预算啊。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;停，{namecode:547:曾克}警部，说重点。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;是谁袭击了你，袭击者为什么能进入零课的据点？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;是{namecode:165:吾妻}老师！我怎么也没想到……袭击我的竟然是{namecode:165:吾妻}老师！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;她竟然是卧底！昨天的档案馆也是她炸的！她袭击我是为了伪造证据，将所有的罪名都推到我身上！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;至于她为什么能知道这个零课的秘密据点，事情还要从六年前说起……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;那时候……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;停——！已经可以了，知道这些已经足够了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;你是什么时候被袭击的，{namecode:165:吾妻}老师离开多久了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;唔……大约半小时前！当时我正在……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			portrait = &quot;zhihuiguan&quot;,
+			optionFlag = 2,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;好——！剩下的事我来接手吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;拜托了，特别顾问！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_116&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404071,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;啊，等等——走之前先把我放下来啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			dir = 1,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			factiontag = &quot;导演&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_116&quot;,
+			say = &quot;CUT~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

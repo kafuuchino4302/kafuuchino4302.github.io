@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>limitchallengereqcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>limitchallengereqcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LimitChallengeReqCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(24020, {
+		type = 1
+	}, 24021, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(LimitChallengeProxy)
+
+			slot1:setTimeDataFromServer(slot0.times)
+			slot1:setAwardedDataFromServer(slot0.awards)
+			slot1:setCurMonthPassedIDList(slot0.pass_ids)
+			uv0:sendNotification(LimitChallengeConst.REQ_CHALLENGE_INFO_DONE)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

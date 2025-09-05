@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg_backup_005.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg_backup_005.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG005&quot;,
+	events = {
+		{
+			alpha = 0.269,
+			code = {
+				&quot;clickShopItem&quot;
+			},
+			style = {
+				text = &quot;点击购买商品&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 33.55,
+				posX = 270.5
+			},
+			baseui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/shop&quot;
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/shop/frame/scrollview/view/item_tpl&quot;,
+				delay = 0.4,
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/shop/frame/scrollview/view/item_tpl&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -144.22,
+					posX = 121.85
+				},
+				image = {
+					target = &quot;icon/icon_bg/icon&quot;,
+					source = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/shop/frame/scrollview/view/item_tpl/icon/icon_bg/icon&quot;,
+					isRelative = true
+				}
+			}
+		},
+		{
+			alpha = 0,
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/Msgbox(Clone)/window/button_container/custom_button_1(Clone)&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/Msgbox(Clone)/window/button_container/custom_button_1(Clone)&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -34.25,
+					posX = 80.9
+				}
+			}
+		},
+		{
+			alpha = 0,
+			waitScene = &quot;AwardInfoLayer&quot;,
+			style = {
+				text = &quot;关闭奖励界面&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 33.55,
+				posX = 270.5
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/AwardInfoUI(Clone)/items/close&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -43.62,
+					posX = 114.51
+				}
+			}
+		},
+		{
+			alpha = 0.17,
+			code = {
+				&quot;close&quot;
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/top/title/back_button&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/top/title/back_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -48,
+					posX = 62.5
+				}
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;playStory2&quot;
+			},
+			stories = {
+				&quot;WG004&quot;
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;leavePort&quot;
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/top/title/back_button&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldPortUI(Clone)/top/title/back_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -48,
+					posX = 62.5
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

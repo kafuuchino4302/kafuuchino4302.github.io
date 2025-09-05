@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_110010.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_110010.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;&quot;,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 110010,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 110010,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			pop = {},
+			arg_list = {
+				minTargetNumber = 1,
+				buff_id = 110011,
+				isBuffStackByCheckTarget = true,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Senran&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffField&quot;,
+			trigger = {},
+			arg_list = {
+				buff_id = 110016,
+				target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Senran&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBulletAttr&quot;,
+			trigger = {
+				&quot;onBulletCreate&quot;
+			},
+			arg_list = {
+				number = 1,
+				attr = &quot;cri&quot;,
+				index = {
+					110010
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				buff_id = 110013,
+				target = &quot;TargetSelf&quot;,
+				time = 12
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBulletKill&quot;
+			},
+			arg_list = {
+				initialCD = true,
+				time = 10,
+				buff_id = 110025,
+				maxTargetNumber = 0,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Asuka_spw&quot;
+				},
+				killer_weapon_id = {
+					163630,
+					163620
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBulletKill&quot;
+			},
+			arg_list = {
+				initialCD = true,
+				time = 10,
+				buff_id = 110035,
+				minTargetNumber = 1,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Asuka_spw&quot;
+				},
+				killer_weapon_id = {
+					163630,
+					163620
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

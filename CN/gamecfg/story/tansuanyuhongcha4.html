@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tansuanyuhongcha4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tansuanyuhongcha4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;TANSUANYUHONGCHA4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;碳酸与红茶\n\n&lt;size=45&gt;四 惊喜&amp;惊吓&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;只要再转过前面的街角，就到两家咖啡店的位置了。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;皇家午茶&lt;Queen&#x27;s Tea&gt;与莱茵咖啡馆 Café im Rhine，从名字开始就很有阵营特色的两家店。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;听说现在已经成为港区最热闹的地方了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;其实正式开业是昨天，不过因为工作日程原因……总之，现在总算是空下来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 0,
+			bgName = &quot;bg_main_day&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			hideOther = true,
+			actor = 402041,
+			actorName = &quot;{namecode:424}&amp;佩内洛珀&quot;,
+			hidePaintObj = true,
+			say = &quot;指、指挥官！\n指挥官——！&quot;,
+			subActors = {
+				{
+					actor = 202292,
+					hidePaintObj = true,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 402041,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;欸？你、你是皇家的……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 202292,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;铁血的？！难道也是来……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;突然，从拐角处冒出了两个一脸惊讶的身影。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 402041,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指、指挥官，请…来我们这边的店里坐坐吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 402041,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;这里是我们的传单……现在店里最新推出了好喝的碳酸咖啡！请、请务必要来尝试一下！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 202292,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;那个……要是选择休息之处的话，请一定要选择我们皇家这边哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 202292,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;至于理由的话……因为我们皇家的服务肯定会更好？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_main_day&quot;,
+			hideOther = true,
+			dir = 1,
+			actor = 402041,
+			actorName = &quot;{namecode:424}&amp;佩内洛珀&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官————&quot;,
+			subActors = {
+				{
+					actor = 202292,
+					hidePaintObj = true,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;还没到店门口就遭遇到了重大抉择选项，现在应该——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;Surprise！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;？！！&quot;,
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 0,
+			bgName = &quot;bg_main_day&quot;,
+			actor = 402041,
+			dir = 1,
+			actorName = &quot;{namecode:424}&amp;佩内洛珀&quot;,
+			hideOther = true,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;哇啊啊啊啊！&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			subActors = {
+				{
+					actor = 202292,
+					hidePaintObj = true,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;突然，身穿女仆装（？）的大青花鱼，从路边的箱子（？）里蹦了出来。&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;抱歉抱歉，本来只是埋伏在这个必经之路上想吓吓指挥官呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;不过一直在路上拦着指挥官不放的你们也有一点点错哦！箱子里太闷，我已经等不下去了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 402041,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;说的也是…不应该一直把指挥官拦在路上……对不起！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 202292,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;非常抱歉……那我就先回店里等你了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			say = &quot;{namecode:424}和佩内洛珀都转身离开，四周暂时只剩下了穿着女仆装（？）的大青花鱼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;多谢解围！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;为什么是女仆装？&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;…………&quot;,
+					flag = 3
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官在说什么话我完全听不懂哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;现在还是秘密！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;嘿嘿~既然吓人的目的达到了，我就先走咯~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			actor = 108022,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;两家店我都去过了，首先要去哪家真是难以抉择呢~指挥官加油哦~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_day&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;是啊，难题依旧存在……究竟应该先去哪家呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

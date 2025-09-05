@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildtaskcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildtaskcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildTaskCard&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._tf = slot1
+	slot0._go = go(slot1)
+	slot0.acceptBtn = slot0._tf:Find(&quot;accept&quot;)
+	slot0.icon = slot0._tf:Find(&quot;icon&quot;):GetComponent(typeof(Image))
+	slot0.descTxt = slot0._tf:Find(&quot;desc/Text&quot;):GetComponent(typeof(Text))
+	slot0.publicResTxt = slot0._tf:Find(&quot;res_1/Text&quot;):GetComponent(typeof(Text))
+	slot0.privateResTxt = slot0._tf:Find(&quot;res_2/Text&quot;):GetComponent(typeof(Text))
+	slot0._tf:Find(&quot;res_1/label&quot;):GetComponent(typeof(Text)).text = i18n(&quot;guild_public_awards&quot;)
+	slot0._tf:Find(&quot;res_2/label&quot;):GetComponent(typeof(Text)).text = i18n(&quot;guild_private_awards&quot;)
+end
+
+slot0.Update = function(slot0, slot1)
+	slot0.task = slot1
+	slot0.icon.sprite = GetSpriteFromAtlas(&quot;ui/GuildMainUI_atlas&quot;, &quot;frame_&quot; .. slot1:GetScale())
+	slot0.descTxt.text = slot1:GetDesc()
+	slot0.publicResTxt.text = slot1:GetCaptailAward()
+	slot0.privateResTxt.text = slot1:GetPrivateAward()
+end
+
+slot0.Destroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

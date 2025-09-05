@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandfriendsearchpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandfriendsearchpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandFriendSearchPage&quot;, import(&quot;view.friend.subPages.FriendSearchPage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandFriendSearchUI&quot;
+end
+
+slot0.onInitItem = function(slot0, slot1)
+	uv0.super.onInitItem(slot0, slot1)
+
+	slot5 = slot0.searchItems[slot1].tf
+
+	onButton(slot0, slot5:Find(&quot;frame/island_btn&quot;), function ()
+		uv0:emit(IslandFriendMediator.ENTER_ISLAND, friendItem.friendVO.id)
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

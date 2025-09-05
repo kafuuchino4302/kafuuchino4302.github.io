@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attachmenttransporttargetcell.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>attachmenttransporttargetcell.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AttachmentTransportTargetCell&quot;, import(&quot;view.level.cell.StaticCellView&quot;))
+
+slot0.GetOrder = function(slot0)
+	return ChapterConst.CellPriorityAttachment
+end
+
+slot0.Update = function(slot0)
+	slot1 = slot0.info
+
+	if IsNil(slot0.go) then
+		slot0:PrepareBase(&quot;transport_target&quot;)
+
+		slot2 = slot0:GetLoader()
+
+		slot2:GetPrefab(&quot;leveluiview/Tpl_TransportTarget&quot;, &quot;Tpl_TransportTarget&quot;, function (slot0)
+			setParent(slot0, uv0.tf)
+
+			tf(slot0).anchoredPosition3D = Vector3.zero
+			uv0.attachTw = LeanTween.moveY(tf(slot0), 10, 1.5):setEase(LeanTweenType.easeInOutSine):setLoopPingPong().uniqueId
+
+			uv0:ResetCanvasOrder()
+			uv0:Update()
+		end)
+	end
+end
+
+slot0.RemoveTween = function(slot0)
+	if slot0.attachTw then
+		LeanTween.cancel(slot0.attachTw)
+	end
+
+	slot0.attachTw = nil
+end
+
+slot0.Clear = function(slot0)
+	slot0:RemoveTween()
+	uv0.super.Clear(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

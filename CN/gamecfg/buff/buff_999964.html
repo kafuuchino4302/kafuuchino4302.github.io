@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_999964.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_999964.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;&quot;,
+	time = 0,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 999964,
+	last_effect = &quot;&quot;,
+	blink = {
+		0,
+		0.5,
+		0.7,
+		0.6,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBeforeFatalDamage&quot;
+			},
+			arg_list = {
+				buff_id = 999967,
+				target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;999999&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onBeforeFatalDamage&quot;
+			},
+			arg_list = {
+				buff_id = 999967,
+				target = &quot;TargetAllHarm&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onBulletHitBefore&quot;
+			},
+			arg_list = {
+				count = 4
+			}
+		},
+		{
+			type = &quot;BattleBuffCancelBuff&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				count = 1,
+				countType = 999957
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				skill_id = 999965,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wsatlasright.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wsatlasright.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WSAtlasRight&quot;, import(&quot;...BaseEntity&quot;))
+slot0.Fields = {
+	btnSettings = &quot;userdata&quot;,
+	btnSwitch = &quot;userdata&quot;,
+	rtDisplayIcon = &quot;userdata&quot;,
+	transform = &quot;userdata&quot;,
+	rtNameBg = &quot;userdata&quot;,
+	rtDisplayPanel = &quot;userdata&quot;,
+	isDisplay = &quot;boolean&quot;,
+	world = &quot;table&quot;,
+	rtMapInfo = &quot;userdata&quot;,
+	wsWorldInfo = &quot;table&quot;,
+	rtBg = &quot;userdata&quot;,
+	rtWorldInfo = &quot;userdata&quot;
+}
+
+slot0.Setup = function(slot0)
+	pg.DelegateInfo.New(slot0)
+	slot0:Init()
+end
+
+slot0.Dispose = function(slot0)
+	slot0.wsWorldInfo:Dispose()
+	pg.DelegateInfo.Dispose(slot0)
+	slot0:Clear()
+end
+
+slot0.Init = function(slot0)
+	slot1 = slot0.transform
+	slot0.rtBg = slot1:Find(&quot;bg&quot;)
+	slot0.rtNameBg = slot1:Find(&quot;name_bg&quot;)
+	slot0.rtDisplayIcon = slot1:Find(&quot;line/display_icon&quot;)
+	slot0.rtDisplayPanel = slot1:Find(&quot;line/display_panel&quot;)
+	slot0.rtWorldInfo = slot0.rtDisplayPanel:Find(&quot;world_info&quot;)
+	slot0.btnSettings = slot0.rtDisplayPanel:Find(&quot;btns/settings_btn&quot;)
+	slot0.btnSwitch = slot0.rtDisplayPanel:Find(&quot;btns/switch_btn&quot;)
+
+	setText(slot0.rtWorldInfo:Find(&quot;power/bg/Word&quot;), i18n(&quot;world_total_power&quot;))
+	setText(slot0.rtWorldInfo:Find(&quot;explore/mileage/Text&quot;), i18n(&quot;world_mileage&quot;))
+	setText(slot0.rtWorldInfo:Find(&quot;explore/pressing/Text&quot;), i18n(&quot;world_pressing&quot;))
+
+	slot0.wsWorldInfo = WSWorldInfo.New()
+	slot0.wsWorldInfo.transform = slot0.rtWorldInfo
+
+	slot0.wsWorldInfo:Setup()
+	setActive(slot0.rtWorldInfo, nowWorld():IsSystemOpen(WorldConst.SystemWorldInfo))
+	setText(slot0.rtDisplayIcon:Find(&quot;name&quot;), i18n(&quot;world_map_title_tips&quot;))
+	onButton(slot0, slot0.rtDisplayIcon, function ()
+		uv0.isDisplay = not uv0.isDisplay
+
+		uv0:Collapse()
+	end, SFX_PANEL)
+
+	slot0.isDisplay = true
+
+	slot0:Collapse()
+end
+
+slot0.Collapse = function(slot0)
+	slot0.rtDisplayIcon:Find(&quot;icon&quot;).localScale = slot0.isDisplay and Vector3.one or Vector3(-1, 1, 1)
+
+	setActive(slot0.rtDisplayPanel, slot0.isDisplay)
+	setActive(slot0.rtBg, slot0.isDisplay)
+	setActive(slot0.rtNameBg, not slot0.isDisplay)
+end
+
+slot0.SetOverSize = function(slot0, slot1)
+	slot0.rtBg.offsetMax = Vector2(-slot1, slot0.rtBg.offsetMax.y)
+	slot0.rtNameBg.offsetMax = Vector2(-slot1, slot0.rtNameBg.offsetMax.y)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

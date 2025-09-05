@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jufengyuchenmianzhihai18.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>jufengyuchenmianzhihai18.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;JUFENGYUCHENMIANZHIHAI18&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			bgm = &quot;theme-ganjisawai&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;冈依沙瓦号座舰的舰长室中，一场颇具浪漫气息的晚宴正在进行中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;{playername}阁下，希望晚餐能够合您的胃口。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;虽然旅途之中无法做到尽善尽美……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;不过……呵呵，一定比幻想号提供给您的食物好多了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;典雅又华丽的船舱中，丰盛的晚餐已经备好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;烛光摇曳，伴随着不知名香料的气息，屋内充满了神秘的氛围。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;不过——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;船外，密集的炮火正在无情轰炸着陷入黑暗的大海。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（每一击……都相当于执行者水平的炮击。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（这一火力增强的情况，是在它搭载了女神主机之后才出现的……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;不用担心，外面的那些敌人已经不成气候了，你的同伴们不会有问题的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;请惬意地享受晚餐吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我想……我们还有些事要先说清楚。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;边吃边聊嘛，不喜欢么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……好吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;姑且拿起摆放在餐桌上的小餐包尝了一口。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……是咖喱面包？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;呵呵~看上去，你似乎想和我开诚布公谈一谈？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你的目的，一开始就是转移女神主机，对吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;不错，所以我确实没想到，当时你会那么干脆地认同我转移女神主机的方案。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果我不认同，今天我们还能平安离开这片沉眠之海么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;哎呀，{playername}阁下这是在说什么呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;这些敌人和我可没有任何关系哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;不要忘记，此前……我也因为这些敌人的袭击而陷入危险境地呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯，我相信你之前遇到的困境是真实的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过，那是在你进入圣殿，接触到女神主机之前。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在接触到女神主机之后呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;接触到之后，我就拥有了消灭敌人的绝对力量哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;就像现在这样。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;如同展示力量一般，一轮齐射在海面上引起了夺目的火光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你是从什么时候，将我们一同算计在内的？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在恰好救了维达，见到了她的特米娜露之后么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还是说，你会去找维达……一开始就是为了特米娜露呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;很显然，在转移女神主机的过程中，特米娜露的协助是必须的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;呼，你的疑心病真重呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你的演技也很好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我在之前一度真的相信了你与青春之泉遗迹中发生的事毫无关系。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;呵呵~多谢阁下的夸奖。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么再往前推，你对于这场突然出现的异常事件，究竟了解多少？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你对于这些所谓的“旧世遗产”，究竟了解多少？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;这一路之上，我并未作出伤害诸位之事，阁下可否认同？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果除去欺骗的部分的话，倒确实如此。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;呵呵~这部分的话，你不说我不说，谁也不会发现，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我为什么要替你保守秘密？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;这一次，针对女神主机的状态——你对我们所说的情报中，不是也有所保留么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（……？！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;{playername}阁下，我可以告诉你，我不是你的敌人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;至于其他的事——现在并没有那么重要，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;少女故作无辜地耸了耸肩。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;放松些吧，毕竟这姑且也算是庆功宴？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;而且，难得的烛光晚餐，不必将气氛弄得这么僵硬吧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;当听到“放松”这两个字的时候，无尽的倦意忽然涌起。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;冈依沙瓦号，你……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;抱歉啦~你一开始的谨慎是对的，我确实下了药。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;不过不在菜里，而在香里。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;少女露出了一个甜美的笑容。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nextBgName = &quot;bg_jufengv2_cg7&quot;,
+			mode = 8,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			blurTimeFactor = {
+				1,
+				1
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;指挥官&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			hidePaintObj = true,
+			say = &quot;眼皮沉重到无法抬起，视野中的一切正在变得模糊不清。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_jufengv2_cg7&quot;,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			hidePainting = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			actorYFlip = true,
+			say = &quot;放心吧，你的同伴不会有事的，我以冈依沙瓦号之名保证。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			blackBg = true,
+			say = &quot;意识逐渐远去之时，似乎先一步落入了一个温暖而柔软的怀抱中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;睡吧，睡吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;无需告别之语。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			factiontag = &quot;浮动宝库&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 9600070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为，我们必将再次相见——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

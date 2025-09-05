@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worlddetailmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worlddetailmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldDetailMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.OnShipInfo = &quot;WorldDetailMediator:OnShipInfo&quot;
+slot0.OnCmdSkill = &quot;WorldDetailMediator.OnCmdSkill&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.OnShipInfo, function (slot0, slot1, slot2)
+		slot3 = WorldConst.FetchWorldShip(slot1)
+		uv0.contextData.fleetId = slot3.fleetId
+		uv0.contextData.toggle = slot2
+
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.SHIPINFO, {
+			shipId = slot3.id,
+			shipVOs = nowWorld():GetFleet(slot3.fleetId):GetShipVOs(true)
+		})
+	end)
+	slot0:bind(uv0.OnCmdSkill, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = CommanderSkillMediator,
+			viewComponent = CommanderSkillLayer,
+			data = {
+				isWorld = true,
+				skill = slot1
+			}
+		}))
+	end)
+	slot0.viewComponent:setPlayerInfo(getProxy(PlayerProxy):getRawData())
+	slot0.viewComponent:setFleets(nowWorld():GetFleets())
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		PlayerProxy.UPDATED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == PlayerProxy.UPDATED then
+		slot0.viewComponent:setPlayerInfo(getProxy(PlayerProxy):getRawData())
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,5262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child2_site_display.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>child2_site_display.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.child2_site_display = setmetatable({
+	__name = &quot;child2_site_display&quot;,
+	get_id_list_by_type = {
+		{
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14,
+			15,
+			16,
+			17,
+			18,
+			19,
+			20,
+			21,
+			22,
+			23,
+			24,
+			25,
+			26,
+			27,
+			28,
+			29
+		},
+		[3] = {
+			1
+		},
+		[4] = {
+			2
+		},
+		[2] = {
+			3
+		},
+		[5] = {
+			4101,
+			4102,
+			4103,
+			4104,
+			4105,
+			4106,
+			4107,
+			4108,
+			4109,
+			4110,
+			4111,
+			4112,
+			4113,
+			4114,
+			4115,
+			4116,
+			4117,
+			4118,
+			4119,
+			4120,
+			4121,
+			4122,
+			4123,
+			4124,
+			4125,
+			4126,
+			4127,
+			4128,
+			4129,
+			4130,
+			4131,
+			4132,
+			4133,
+			4134,
+			4135,
+			4136,
+			4137,
+			4138,
+			4139,
+			4140,
+			4141,
+			4142,
+			4143,
+			4144,
+			4145,
+			4146,
+			4160,
+			4161,
+			4162,
+			4163,
+			4164,
+			4165,
+			4166,
+			4167,
+			4168,
+			4169,
+			4170,
+			4171,
+			4172,
+			4173,
+			4174,
+			4175,
+			4201,
+			4202,
+			4203,
+			4204,
+			4205,
+			4206,
+			4207,
+			4208,
+			4209,
+			4210,
+			4211,
+			4212,
+			4213,
+			4214,
+			4215,
+			4216,
+			4217,
+			4218,
+			4219,
+			4220,
+			4221,
+			4222,
+			4223,
+			4224,
+			4225,
+			4226,
+			4227,
+			4228,
+			4229,
+			4230,
+			4231,
+			4232,
+			4233,
+			4234,
+			4235,
+			4236,
+			4237,
+			4238,
+			4239,
+			4240,
+			4241,
+			4242,
+			4243,
+			4244,
+			4245,
+			4246,
+			4260,
+			4261,
+			4262,
+			4263,
+			4264,
+			4265,
+			4266,
+			4267,
+			4268,
+			4269,
+			4270,
+			4271,
+			4272,
+			4273,
+			4274,
+			4275,
+			4301,
+			4302,
+			4303,
+			4304,
+			4305,
+			4306,
+			4307,
+			4308,
+			4309,
+			4310,
+			4311,
+			4312,
+			4313,
+			4314,
+			4315,
+			4316,
+			4317,
+			4318,
+			4319,
+			4320,
+			4321,
+			4322,
+			4323,
+			4324,
+			4325,
+			4326,
+			4327,
+			4328,
+			4329,
+			4330,
+			4331,
+			4332,
+			4333,
+			4334,
+			4335,
+			4336,
+			4337,
+			4338,
+			4339,
+			4340,
+			4341,
+			4342,
+			4343,
+			4344,
+			4345,
+			4346,
+			4360,
+			4361,
+			4362,
+			4363,
+			4364,
+			4365,
+			4366,
+			4367,
+			4368,
+			4369,
+			4370,
+			4371,
+			4372,
+			4373,
+			4374,
+			4375,
+			4401,
+			4402,
+			4403,
+			4404,
+			4405,
+			4406,
+			4407,
+			4408,
+			4409,
+			4410,
+			4411,
+			4412,
+			4413,
+			4414,
+			4415,
+			4416,
+			4417,
+			4418,
+			4419,
+			4420,
+			4421,
+			4422,
+			4423,
+			4424,
+			4425,
+			4426,
+			4427,
+			4428,
+			4429,
+			4430,
+			4431,
+			4432,
+			4433,
+			4434,
+			4435,
+			4436,
+			4437,
+			4438,
+			4439,
+			4440,
+			4441,
+			4442,
+			4443,
+			4444,
+			4445,
+			4446,
+			4460,
+			4461,
+			4462,
+			4463,
+			4464,
+			4465,
+			4466,
+			4467,
+			4468,
+			4469,
+			4470,
+			4471,
+			4472,
+			4473,
+			4474,
+			4475
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		4101,
+		4102,
+		4103,
+		4104,
+		4105,
+		4106,
+		4107,
+		4108,
+		4109,
+		4110,
+		4111,
+		4112,
+		4113,
+		4114,
+		4115,
+		4116,
+		4117,
+		4118,
+		4119,
+		4120,
+		4121,
+		4122,
+		4123,
+		4124,
+		4125,
+		4126,
+		4127,
+		4128,
+		4129,
+		4130,
+		4131,
+		4132,
+		4133,
+		4134,
+		4135,
+		4136,
+		4137,
+		4138,
+		4139,
+		4140,
+		4141,
+		4142,
+		4143,
+		4144,
+		4145,
+		4146,
+		4160,
+		4161,
+		4162,
+		4163,
+		4164,
+		4165,
+		4166,
+		4167,
+		4168,
+		4169,
+		4170,
+		4171,
+		4172,
+		4173,
+		4174,
+		4175,
+		4201,
+		4202,
+		4203,
+		4204,
+		4205,
+		4206,
+		4207,
+		4208,
+		4209,
+		4210,
+		4211,
+		4212,
+		4213,
+		4214,
+		4215,
+		4216,
+		4217,
+		4218,
+		4219,
+		4220,
+		4221,
+		4222,
+		4223,
+		4224,
+		4225,
+		4226,
+		4227,
+		4228,
+		4229,
+		4230,
+		4231,
+		4232,
+		4233,
+		4234,
+		4235,
+		4236,
+		4237,
+		4238,
+		4239,
+		4240,
+		4241,
+		4242,
+		4243,
+		4244,
+		4245,
+		4246,
+		4260,
+		4261,
+		4262,
+		4263,
+		4264,
+		4265,
+		4266,
+		4267,
+		4268,
+		4269,
+		4270,
+		4271,
+		4272,
+		4273,
+		4274,
+		4275,
+		4301,
+		4302,
+		4303,
+		4304,
+		4305,
+		4306,
+		4307,
+		4308,
+		4309,
+		4310,
+		4311,
+		4312,
+		4313,
+		4314,
+		4315,
+		4316,
+		4317,
+		4318,
+		4319,
+		4320,
+		4321,
+		4322,
+		4323,
+		4324,
+		4325,
+		4326,
+		4327,
+		4328,
+		4329,
+		4330,
+		4331,
+		4332,
+		4333,
+		4334,
+		4335,
+		4336,
+		4337,
+		4338,
+		4339,
+		4340,
+		4341,
+		4342,
+		4343,
+		4344,
+		4345,
+		4346,
+		4360,
+		4361,
+		4362,
+		4363,
+		4364,
+		4365,
+		4366,
+		4367,
+		4368,
+		4369,
+		4370,
+		4371,
+		4372,
+		4373,
+		4374,
+		4375,
+		4401,
+		4402,
+		4403,
+		4404,
+		4405,
+		4406,
+		4407,
+		4408,
+		4409,
+		4410,
+		4411,
+		4412,
+		4413,
+		4414,
+		4415,
+		4416,
+		4417,
+		4418,
+		4419,
+		4420,
+		4421,
+		4422,
+		4423,
+		4424,
+		4425,
+		4426,
+		4427,
+		4428,
+		4429,
+		4430,
+		4431,
+		4432,
+		4433,
+		4434,
+		4435,
+		4436,
+		4437,
+		4438,
+		4439,
+		4440,
+		4441,
+		4442,
+		4443,
+		4444,
+		4445,
+		4446,
+		4460,
+		4461,
+		4462,
+		4463,
+		4464,
+		4465,
+		4466,
+		4467,
+		4468,
+		4469,
+		4470,
+		4471,
+		4472,
+		4473,
+		4474,
+		4475
+	}
+}, confHX)
+pg.base = pg.base or {}
+pg.base.child2_site_display = {
+	{
+		param = 0,
+		name = &quot;生活体验&quot;,
+		event_icon = &quot;&quot;,
+		type = 3,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_166&quot;,
+		title = &quot;生活体验&quot;,
+		desc = &quot;可以消耗行动力获得金钱&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;&quot;,
+		id = 1,
+		position = {
+			292,
+			-310
+		}
+	},
+	{
+		param = 0,
+		name = &quot;外出旅游&quot;,
+		event_icon = &quot;&quot;,
+		type = 4,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_1&quot;,
+		title = &quot;外出旅游&quot;,
+		desc = &quot;可以消耗行动力获得心情&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;&quot;,
+		id = 2,
+		position = {
+			-471,
+			-206
+		}
+	},
+	{
+		param = 0,
+		name = &quot;商店&quot;,
+		event_icon = &quot;&quot;,
+		type = 2,
+		icon = &quot;&quot;,
+		banner = &quot;site_travel_1&quot;,
+		title = &quot;商店&quot;,
+		desc = &quot;商店&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;&quot;,
+		id = 3,
+		position = {
+			-263,
+			-111
+		}
+	},
+	[6] = {
+		param = 1,
+		name = &quot;独角兽&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;dujiaoshou&quot;,
+		banner = &quot;map_char_11&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;独角兽正站在树下，低着头似乎在思考着什么。\n\n（独角兽的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 6,
+		position = {
+			-529,
+			45
+		}
+	},
+	[7] = {
+		param = 2,
+		name = &quot;独角兽&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;dujiaoshou&quot;,
+		banner = &quot;map_char_11&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;独角兽在花园附近，看上去似乎心情很不错的样子。\n\n（独角兽的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 7,
+		position = {
+			331,
+			533
+		}
+	},
+	[8] = {
+		param = 3,
+		name = &quot;独角兽&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;dujiaoshou&quot;,
+		banner = &quot;map_char_11&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;在商业街附近看到了独角兽，要去和她聊聊吗？\n\n（独角兽的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 8,
+		position = {
+			-190,
+			225
+		}
+	},
+	[9] = {
+		param = 4,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;dujiaoshou&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 9,
+		position = {
+			0,
+			0
+		}
+	},
+	[10] = {
+		param = 5,
+		name = &quot;海天&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;haitian&quot;,
+		banner = &quot;map_char_13&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;海天坐在公园的长椅上，手拿纸笔，时而凝望飘落的花瓣，时而写下几笔。\n\n（海天的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 10,
+		position = {
+			-479,
+			328
+		}
+	},
+	[11] = {
+		param = 6,
+		name = &quot;海天&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;haitian&quot;,
+		banner = &quot;map_char_13&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;在图书馆偶遇了海天，她今天似乎心情不错的样子。\n\n（海天的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 11,
+		position = {
+			-404,
+			468
+		}
+	},
+	[12] = {
+		param = 7,
+		name = &quot;海天&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;haitian&quot;,
+		banner = &quot;map_char_13&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;遇到了海天，要去和她聊聊吗？\n\n（海天的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 12,
+		position = {
+			-839.4,
+			339.5
+		}
+	},
+	[13] = {
+		param = 8,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;haitian&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 13,
+		position = {
+			0,
+			0
+		}
+	},
+	[14] = {
+		param = 9,
+		name = &quot;安克雷奇&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;ankeleiqi&quot;,
+		banner = &quot;map_char_12&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;安克雷奇正坐在地上，认真地摆弄着一堆彩色卡纸，时不时露出开心的笑容。\n\n（安克雷奇的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 14,
+		position = {
+			-237.8,
+			-298.3
+		}
+	},
+	[15] = {
+		param = 10,
+		name = &quot;安克雷奇&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;ankeleiqi&quot;,
+		banner = &quot;map_char_12&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;在码头边遇到了安克雷奇，她正在折一只纸船。\n\n（安克雷奇的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 15,
+		position = {
+			-489.6,
+			-473
+		}
+	},
+	[16] = {
+		param = 11,
+		name = &quot;安克雷奇&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;ankeleiqi&quot;,
+		banner = &quot;map_char_12&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;安克雷奇正在看着故事绘本描摹插画，要去和她聊聊吗？\n\n（安克雷奇的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 16,
+		position = {
+			518,
+			125
+		}
+	},
+	[17] = {
+		param = 12,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;ankeleiqi&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;blue&quot;,
+		event_title = &quot;&quot;,
+		id = 17,
+		position = {
+			0,
+			0
+		}
+	},
+	[18] = {
+		param = 13,
+		name = &quot;{namecode:491}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;yade&quot;,
+		banner = &quot;map_char_21&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;{namecode:491}正坐在咖啡店里，一边吃着精致的甜点一边刷着手机，时不时露出狡黠的笑容。\n\n（{namecode:491}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 18,
+		position = {
+			608.5,
+			-57
+		}
+	},
+	[19] = {
+		param = 14,
+		name = &quot;{namecode:491}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;yade&quot;,
+		banner = &quot;map_char_21&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;遇到{namecode:491}的时候，她正靠在树下认真看书，要去聊聊吗？\n\n（{namecode:491}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 19,
+		position = {
+			276,
+			-569
+		}
+	},
+	[20] = {
+		param = 15,
+		name = &quot;{namecode:491}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;yade&quot;,
+		banner = &quot;map_char_21&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;{namecode:491}正在研究什么有趣的事情，看起来心情不错的样子，要去聊聊吗？\n\n（{namecode:491}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 20,
+		position = {
+			-98,
+			-608
+		}
+	},
+	[21] = {
+		param = 16,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;yade&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 21,
+		position = {
+			0,
+			0
+		}
+	},
+	[22] = {
+		param = 17,
+		name = &quot;凶猛&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;xiongmeng&quot;,
+		banner = &quot;map_char_22&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;在小镇的围墙边，凶猛正专注地用喷漆在墙上创作着她的“艺术”。\n\n（凶猛的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 22,
+		position = {
+			-698,
+			419
+		}
+	},
+	[23] = {
+		param = 18,
+		name = &quot;凶猛&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;xiongmeng&quot;,
+		banner = &quot;map_char_22&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;凶猛正站在她完成的涂鸦墙前，一边吃着零食一边得意地欣赏自己的作品。\n\n（凶猛的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 23,
+		position = {
+			-621.5,
+			286.5
+		}
+	},
+	[24] = {
+		param = 19,
+		name = &quot;凶猛&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;xiongmeng&quot;,
+		banner = &quot;map_char_22&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;凶猛正对着一张地图写写画画，时不时露出得意的笑容。\n\n（凶猛的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 24,
+		position = {
+			233,
+			359
+		}
+	},
+	[25] = {
+		param = 20,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;xiongmeng&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 25,
+		position = {
+			0,
+			0
+		}
+	},
+	[26] = {
+		param = 21,
+		name = &quot;{namecode:439}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;luoen&quot;,
+		banner = &quot;map_char_23&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;{namecode:439}正在美食街提供的烘焙厨房里专注地调配着什么，时不时露出意味深长的微笑。\n\n（{namecode:439}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 26,
+		position = {
+			23,
+			501
+		}
+	},
+	[27] = {
+		param = 22,
+		name = &quot;{namecode:439}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;luoen&quot;,
+		banner = &quot;map_char_23&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;{namecode:439}正在农场里喂食小动物，脸上带着令人捉摸不透的微笑。\n\n（{namecode:439}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 27,
+		position = {
+			629,
+			113
+		}
+	},
+	[28] = {
+		param = 23,
+		name = &quot;{namecode:439}&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;luoen&quot;,
+		banner = &quot;map_char_23&quot;,
+		title = &quot;拜访&quot;,
+		desc = &quot;{namecode:439}正在修剪花园里的玫瑰，脸上挂着温柔的笑容。\n\n（{namecode:439}的某些特质似乎可以影响娜比娅的性格...要不要前去拜访呢?）&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 28,
+		position = {
+			350,
+			167
+		}
+	},
+	[29] = {
+		param = 24,
+		name = &quot;不显示&quot;,
+		event_icon = &quot;&quot;,
+		type = 1,
+		icon = &quot;luoen&quot;,
+		banner = &quot;site_event_1&quot;,
+		title = &quot;不显示&quot;,
+		desc = &quot;不显示&quot;,
+		bg = &quot;red&quot;,
+		event_title = &quot;&quot;,
+		id = 29,
+		position = {
+			0,
+			0
+		}
+	},
+	[4101] = {
+		param = 4101,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4101,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4102] = {
+		param = 4102,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4102,
+		position = {
+			150,
+			45
+		}
+	},
+	[4103] = {
+		param = 4103,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4103,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4104] = {
+		param = 4104,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4104,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4105] = {
+		param = 4105,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4105,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4106] = {
+		param = 4106,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4106,
+		position = {
+			-149,
+			56
+		}
+	},
+	[4107] = {
+		param = 4107,
+		name = &quot;香醇小站&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_171&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启香醇小站的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4107,
+		position = {
+			368,
+			-141
+		}
+	},
+	[4108] = {
+		param = 4108,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4108,
+		position = {
+			-56,
+			144
+		}
+	},
+	[4109] = {
+		param = 4109,
+		name = &quot;水族馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_173&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启水族馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4109,
+		position = {
+			480,
+			-143
+		}
+	},
+	[4110] = {
+		param = 4110,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4110,
+		position = {
+			-415,
+			43
+		}
+	},
+	[4111] = {
+		param = 4111,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4111,
+		position = {
+			-322,
+			427
+		}
+	},
+	[4112] = {
+		param = 4112,
+		name = &quot;转角书屋&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启转角书屋的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4112,
+		position = {
+			17,
+			221
+		}
+	},
+	[4113] = {
+		param = 4113,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4113,
+		position = {
+			-147,
+			-80
+		}
+	},
+	[4114] = {
+		param = 4114,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4114,
+		position = {
+			425,
+			-288
+		}
+	},
+	[4115] = {
+		param = 4115,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4115,
+		position = {
+			442,
+			273
+		}
+	},
+	[4116] = {
+		param = 4116,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4116,
+		position = {
+			42,
+			523
+		}
+	},
+	[4117] = {
+		param = 4117,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4117,
+		position = {
+			-267,
+			528
+		}
+	},
+	[4118] = {
+		param = 4118,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4118,
+		position = {
+			-66,
+			480
+		}
+	},
+	[4119] = {
+		param = 4119,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4119,
+		position = {
+			-161,
+			435
+		}
+	},
+	[4120] = {
+		param = 4120,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4120,
+		position = {
+			-372,
+			291
+		}
+	},
+	[4121] = {
+		param = 4121,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4121,
+		position = {
+			29,
+			-496
+		}
+	},
+	[4122] = {
+		param = 4122,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4122,
+		position = {
+			-391,
+			-351
+		}
+	},
+	[4123] = {
+		param = 4123,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4123,
+		position = {
+			111,
+			302
+		}
+	},
+	[4124] = {
+		param = 4124,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4124,
+		position = {
+			-283,
+			324
+		}
+	},
+	[4125] = {
+		param = 4125,
+		name = &quot;音乐教室&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_599&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音乐教室的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4125,
+		position = {
+			-93,
+			324
+		}
+	},
+	[4126] = {
+		param = 4126,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4126,
+		position = {
+			228,
+			122
+		}
+	},
+	[4127] = {
+		param = 4127,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4127,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4128] = {
+		param = 4128,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4128,
+		position = {
+			76,
+			-176
+		}
+	},
+	[4129] = {
+		param = 4129,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4129,
+		position = {
+			-35.4,
+			2.5
+		}
+	},
+	[4130] = {
+		param = 4130,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4130,
+		position = {
+			681,
+			263
+		}
+	},
+	[4131] = {
+		param = 4131,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4131,
+		position = {
+			497,
+			525
+		}
+	},
+	[4132] = {
+		param = 4132,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4132,
+		position = {
+			643,
+			447
+		}
+	},
+	[4133] = {
+		param = 4133,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4133,
+		position = {
+			45,
+			78
+		}
+	},
+	[4134] = {
+		param = 4134,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4134,
+		position = {
+			11,
+			-268
+		}
+	},
+	[4135] = {
+		param = 4135,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4135,
+		position = {
+			-13.8,
+			-120.2
+		}
+	},
+	[4136] = {
+		param = 4136,
+		name = &quot;山畔池塘&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_510&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启山畔池塘的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4136,
+		position = {
+			208,
+			542
+		}
+	},
+	[4137] = {
+		param = 4137,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4137,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4138] = {
+		param = 4138,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4138,
+		position = {
+			415,
+			419
+		}
+	},
+	[4139] = {
+		param = 4139,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;阳光下，一家复古机车店静静地等待着有缘人的到访……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4139,
+		position = {
+			-314,
+			163
+		}
+	},
+	[4140] = {
+		param = 4140,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_604&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;娜比娅的脚步在电影院门前不由自主地停了下来……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4140,
+		position = {
+			-246,
+			-490
+		}
+	},
+	[4141] = {
+		param = 4141,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_118&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;废弃园区里，一片空旷的水泥场地诉说着往日的喧嚣……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4141,
+		position = {
+			446,
+			10
+		}
+	},
+	[4142] = {
+		param = 4142,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;午后的图书馆里，一本被翻开的书静静地躺在桌面上……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4142,
+		position = {
+			-420,
+			470
+		}
+	},
+	[4143] = {
+		param = 4143,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;书店的心理学区一如既往地安静，书架上一排排书籍仿佛在等待着有缘人的翻阅……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4143,
+		position = {
+			107,
+			159
+		}
+	},
+	[4144] = {
+		param = 4144,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;夕阳为公园镀上一层温暖的橘色，长椅静静地见证着生命中那些重要的决定……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4144,
+		position = {
+			-694,
+			140
+		}
+	},
+	[4145] = {
+		param = 4145,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4145,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4146] = {
+		param = 4146,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4146,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4160] = {
+		param = 4160,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4160,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4161] = {
+		param = 4161,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4161,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4162] = {
+		param = 4162,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4162,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4163] = {
+		param = 4163,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4163,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4164] = {
+		param = 4164,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4164,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4165] = {
+		param = 4165,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4165,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4166] = {
+		param = 4166,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4166,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4167] = {
+		param = 4167,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4167,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4168] = {
+		param = 4168,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4168,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4169] = {
+		param = 4169,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4169,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4170] = {
+		param = 4170,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4170,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4171] = {
+		param = 4171,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4171,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4172] = {
+		param = 4172,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4172,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4173] = {
+		param = 4173,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4173,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4174] = {
+		param = 4174,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4174,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4175] = {
+		param = 4175,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4175,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4201] = {
+		param = 4201,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4201,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4202] = {
+		param = 4202,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4202,
+		position = {
+			150,
+			45
+		}
+	},
+	[4203] = {
+		param = 4203,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4203,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4204] = {
+		param = 4204,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4204,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4205] = {
+		param = 4205,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4205,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4206] = {
+		param = 4206,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4206,
+		position = {
+			-149,
+			56
+		}
+	},
+	[4207] = {
+		param = 4207,
+		name = &quot;香醇小站&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_171&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启香醇小站的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4207,
+		position = {
+			368,
+			-141
+		}
+	},
+	[4208] = {
+		param = 4208,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4208,
+		position = {
+			-56,
+			144
+		}
+	},
+	[4209] = {
+		param = 4209,
+		name = &quot;水族馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_173&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启水族馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4209,
+		position = {
+			480,
+			-143
+		}
+	},
+	[4210] = {
+		param = 4210,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4210,
+		position = {
+			-415,
+			43
+		}
+	},
+	[4211] = {
+		param = 4211,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4211,
+		position = {
+			-322,
+			427
+		}
+	},
+	[4212] = {
+		param = 4212,
+		name = &quot;转角书屋&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启转角书屋的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4212,
+		position = {
+			17,
+			221
+		}
+	},
+	[4213] = {
+		param = 4213,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4213,
+		position = {
+			-147,
+			-80
+		}
+	},
+	[4214] = {
+		param = 4214,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4214,
+		position = {
+			425,
+			-288
+		}
+	},
+	[4215] = {
+		param = 4215,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4215,
+		position = {
+			442,
+			273
+		}
+	},
+	[4216] = {
+		param = 4216,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4216,
+		position = {
+			42,
+			523
+		}
+	},
+	[4217] = {
+		param = 4217,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4217,
+		position = {
+			-267,
+			528
+		}
+	},
+	[4218] = {
+		param = 4218,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4218,
+		position = {
+			-66,
+			480
+		}
+	},
+	[4219] = {
+		param = 4219,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4219,
+		position = {
+			-161,
+			435
+		}
+	},
+	[4220] = {
+		param = 4220,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4220,
+		position = {
+			-372,
+			291
+		}
+	},
+	[4221] = {
+		param = 4221,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4221,
+		position = {
+			29,
+			-496
+		}
+	},
+	[4222] = {
+		param = 4222,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4222,
+		position = {
+			-391,
+			-351
+		}
+	},
+	[4223] = {
+		param = 4223,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4223,
+		position = {
+			111,
+			302
+		}
+	},
+	[4224] = {
+		param = 4224,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4224,
+		position = {
+			-283,
+			324
+		}
+	},
+	[4225] = {
+		param = 4225,
+		name = &quot;音乐教室&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_599&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音乐教室的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4225,
+		position = {
+			-93,
+			324
+		}
+	},
+	[4226] = {
+		param = 4226,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4226,
+		position = {
+			228,
+			122
+		}
+	},
+	[4227] = {
+		param = 4227,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4227,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4228] = {
+		param = 4228,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4228,
+		position = {
+			76,
+			-176
+		}
+	},
+	[4229] = {
+		param = 4229,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4229,
+		position = {
+			-35.4,
+			2.5
+		}
+	},
+	[4230] = {
+		param = 4230,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4230,
+		position = {
+			681,
+			263
+		}
+	},
+	[4231] = {
+		param = 4231,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4231,
+		position = {
+			497,
+			525
+		}
+	},
+	[4232] = {
+		param = 4232,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4232,
+		position = {
+			643,
+			447
+		}
+	},
+	[4233] = {
+		param = 4233,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4233,
+		position = {
+			45,
+			78
+		}
+	},
+	[4234] = {
+		param = 4234,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4234,
+		position = {
+			11,
+			-268
+		}
+	},
+	[4235] = {
+		param = 4235,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4235,
+		position = {
+			-13.8,
+			-120.2
+		}
+	},
+	[4236] = {
+		param = 4236,
+		name = &quot;山畔池塘&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_510&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启山畔池塘的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4236,
+		position = {
+			208,
+			542
+		}
+	},
+	[4237] = {
+		param = 4237,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4237,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4238] = {
+		param = 4238,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4238,
+		position = {
+			415,
+			419
+		}
+	},
+	[4239] = {
+		param = 4239,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;阳光下，一家复古机车店静静地等待着有缘人的到访……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4239,
+		position = {
+			-314,
+			163
+		}
+	},
+	[4240] = {
+		param = 4240,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_604&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;娜比娅的脚步在电影院门前不由自主地停了下来……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4240,
+		position = {
+			-246,
+			-490
+		}
+	},
+	[4241] = {
+		param = 4241,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_118&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;废弃园区里，一片空旷的水泥场地诉说着往日的喧嚣……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4241,
+		position = {
+			446,
+			10
+		}
+	},
+	[4242] = {
+		param = 4242,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;午后的图书馆里，一本被翻开的书静静地躺在桌面上……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4242,
+		position = {
+			-420,
+			470
+		}
+	},
+	[4243] = {
+		param = 4243,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;书店的心理学区一如既往地安静，书架上一排排书籍仿佛在等待着有缘人的翻阅……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4243,
+		position = {
+			107,
+			159
+		}
+	},
+	[4244] = {
+		param = 4244,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;夕阳为公园镀上一层温暖的橘色，长椅静静地见证着生命中那些重要的决定……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4244,
+		position = {
+			-694,
+			140
+		}
+	},
+	[4245] = {
+		param = 4245,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4245,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4246] = {
+		param = 4246,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4246,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4260] = {
+		param = 4260,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4260,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4261] = {
+		param = 4261,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4261,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4262] = {
+		param = 4262,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4262,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4263] = {
+		param = 4263,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4263,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4264] = {
+		param = 4264,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4264,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4265] = {
+		param = 4265,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4265,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4266] = {
+		param = 4266,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4266,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4267] = {
+		param = 4267,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4267,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4268] = {
+		param = 4268,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4268,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4269] = {
+		param = 4269,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4269,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4270] = {
+		param = 4270,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4270,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4271] = {
+		param = 4271,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4271,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4272] = {
+		param = 4272,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4272,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4273] = {
+		param = 4273,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4273,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4274] = {
+		param = 4274,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4274,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4275] = {
+		param = 4275,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4275,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4301] = {
+		param = 4301,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4301,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4302] = {
+		param = 4302,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4302,
+		position = {
+			150,
+			45
+		}
+	},
+	[4303] = {
+		param = 4303,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4303,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4304] = {
+		param = 4304,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4304,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4305] = {
+		param = 4305,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4305,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4306] = {
+		param = 4306,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4306,
+		position = {
+			-149,
+			56
+		}
+	},
+	[4307] = {
+		param = 4307,
+		name = &quot;香醇小站&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_171&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启香醇小站的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4307,
+		position = {
+			368,
+			-141
+		}
+	},
+	[4308] = {
+		param = 4308,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4308,
+		position = {
+			-56,
+			144
+		}
+	},
+	[4309] = {
+		param = 4309,
+		name = &quot;水族馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_173&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启水族馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4309,
+		position = {
+			480,
+			-143
+		}
+	},
+	[4310] = {
+		param = 4310,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4310,
+		position = {
+			-415,
+			43
+		}
+	},
+	[4311] = {
+		param = 4311,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4311,
+		position = {
+			-322,
+			427
+		}
+	},
+	[4312] = {
+		param = 4312,
+		name = &quot;转角书屋&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启转角书屋的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4312,
+		position = {
+			17,
+			221
+		}
+	},
+	[4313] = {
+		param = 4313,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4313,
+		position = {
+			-147,
+			-80
+		}
+	},
+	[4314] = {
+		param = 4314,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4314,
+		position = {
+			425,
+			-288
+		}
+	},
+	[4315] = {
+		param = 4315,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4315,
+		position = {
+			442,
+			273
+		}
+	},
+	[4316] = {
+		param = 4316,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4316,
+		position = {
+			42,
+			523
+		}
+	},
+	[4317] = {
+		param = 4317,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4317,
+		position = {
+			-267,
+			528
+		}
+	},
+	[4318] = {
+		param = 4318,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4318,
+		position = {
+			-66,
+			480
+		}
+	},
+	[4319] = {
+		param = 4319,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4319,
+		position = {
+			-161,
+			435
+		}
+	},
+	[4320] = {
+		param = 4320,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4320,
+		position = {
+			-372,
+			291
+		}
+	},
+	[4321] = {
+		param = 4321,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4321,
+		position = {
+			29,
+			-496
+		}
+	},
+	[4322] = {
+		param = 4322,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4322,
+		position = {
+			-391,
+			-351
+		}
+	},
+	[4323] = {
+		param = 4323,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4323,
+		position = {
+			111,
+			302
+		}
+	},
+	[4324] = {
+		param = 4324,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4324,
+		position = {
+			-283,
+			324
+		}
+	},
+	[4325] = {
+		param = 4325,
+		name = &quot;音乐教室&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_599&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音乐教室的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4325,
+		position = {
+			-93,
+			324
+		}
+	},
+	[4326] = {
+		param = 4326,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4326,
+		position = {
+			228,
+			122
+		}
+	},
+	[4327] = {
+		param = 4327,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4327,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4328] = {
+		param = 4328,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4328,
+		position = {
+			76,
+			-176
+		}
+	},
+	[4329] = {
+		param = 4329,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4329,
+		position = {
+			-35.4,
+			2.5
+		}
+	},
+	[4330] = {
+		param = 4330,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4330,
+		position = {
+			681,
+			263
+		}
+	},
+	[4331] = {
+		param = 4331,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4331,
+		position = {
+			497,
+			525
+		}
+	},
+	[4332] = {
+		param = 4332,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4332,
+		position = {
+			643,
+			447
+		}
+	},
+	[4333] = {
+		param = 4333,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4333,
+		position = {
+			45,
+			78
+		}
+	},
+	[4334] = {
+		param = 4334,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4334,
+		position = {
+			11,
+			-268
+		}
+	},
+	[4335] = {
+		param = 4335,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4335,
+		position = {
+			-13.8,
+			-120.2
+		}
+	},
+	[4336] = {
+		param = 4336,
+		name = &quot;山畔池塘&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_510&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启山畔池塘的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4336,
+		position = {
+			208,
+			542
+		}
+	},
+	[4337] = {
+		param = 4337,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4337,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4338] = {
+		param = 4338,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4338,
+		position = {
+			415,
+			419
+		}
+	},
+	[4339] = {
+		param = 4339,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;阳光下，一家复古机车店静静地等待着有缘人的到访……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4339,
+		position = {
+			-314,
+			163
+		}
+	},
+	[4340] = {
+		param = 4340,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_604&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;娜比娅的脚步在电影院门前不由自主地停了下来……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4340,
+		position = {
+			-246,
+			-490
+		}
+	},
+	[4341] = {
+		param = 4341,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_118&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;废弃园区里，一片空旷的水泥场地诉说着往日的喧嚣……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4341,
+		position = {
+			446,
+			10
+		}
+	},
+	[4342] = {
+		param = 4342,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;午后的图书馆里，一本被翻开的书静静地躺在桌面上……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4342,
+		position = {
+			-420,
+			470
+		}
+	},
+	[4343] = {
+		param = 4343,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;书店的心理学区一如既往地安静，书架上一排排书籍仿佛在等待着有缘人的翻阅……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4343,
+		position = {
+			107,
+			159
+		}
+	},
+	[4344] = {
+		param = 4344,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;夕阳为公园镀上一层温暖的橘色，长椅静静地见证着生命中那些重要的决定……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4344,
+		position = {
+			-694,
+			140
+		}
+	},
+	[4345] = {
+		param = 4345,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4345,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4346] = {
+		param = 4346,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4346,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4360] = {
+		param = 4360,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4360,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4361] = {
+		param = 4361,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4361,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4362] = {
+		param = 4362,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4362,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4363] = {
+		param = 4363,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4363,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4364] = {
+		param = 4364,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4364,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4365] = {
+		param = 4365,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4365,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4366] = {
+		param = 4366,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4366,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4367] = {
+		param = 4367,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4367,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4368] = {
+		param = 4368,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4368,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4369] = {
+		param = 4369,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4369,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4370] = {
+		param = 4370,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4370,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4371] = {
+		param = 4371,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4371,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4372] = {
+		param = 4372,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4372,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4373] = {
+		param = 4373,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4373,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4374] = {
+		param = 4374,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4374,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4375] = {
+		param = 4375,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4375,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4401] = {
+		param = 4401,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4401,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4402] = {
+		param = 4402,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4402,
+		position = {
+			150,
+			45
+		}
+	},
+	[4403] = {
+		param = 4403,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4403,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4404] = {
+		param = 4404,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4404,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4405] = {
+		param = 4405,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4405,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4406] = {
+		param = 4406,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4406,
+		position = {
+			-149,
+			56
+		}
+	},
+	[4407] = {
+		param = 4407,
+		name = &quot;香醇小站&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_171&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启香醇小站的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4407,
+		position = {
+			368,
+			-141
+		}
+	},
+	[4408] = {
+		param = 4408,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4408,
+		position = {
+			-56,
+			144
+		}
+	},
+	[4409] = {
+		param = 4409,
+		name = &quot;水族馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_173&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启水族馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4409,
+		position = {
+			480,
+			-143
+		}
+	},
+	[4410] = {
+		param = 4410,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4410,
+		position = {
+			-415,
+			43
+		}
+	},
+	[4411] = {
+		param = 4411,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4411,
+		position = {
+			-322,
+			427
+		}
+	},
+	[4412] = {
+		param = 4412,
+		name = &quot;转角书屋&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启转角书屋的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4412,
+		position = {
+			17,
+			221
+		}
+	},
+	[4413] = {
+		param = 4413,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4413,
+		position = {
+			-147,
+			-80
+		}
+	},
+	[4414] = {
+		param = 4414,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4414,
+		position = {
+			425,
+			-288
+		}
+	},
+	[4415] = {
+		param = 4415,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4415,
+		position = {
+			442,
+			273
+		}
+	},
+	[4416] = {
+		param = 4416,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4416,
+		position = {
+			42,
+			523
+		}
+	},
+	[4417] = {
+		param = 4417,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4417,
+		position = {
+			-267,
+			528
+		}
+	},
+	[4418] = {
+		param = 4418,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4418,
+		position = {
+			-66,
+			480
+		}
+	},
+	[4419] = {
+		param = 4419,
+		name = &quot;学院&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_7&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启学院的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4419,
+		position = {
+			-161,
+			435
+		}
+	},
+	[4420] = {
+		param = 4420,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4420,
+		position = {
+			-372,
+			291
+		}
+	},
+	[4421] = {
+		param = 4421,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4421,
+		position = {
+			29,
+			-496
+		}
+	},
+	[4422] = {
+		param = 4422,
+		name = &quot;漫海商坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_168&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启漫海商坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4422,
+		position = {
+			-391,
+			-351
+		}
+	},
+	[4423] = {
+		param = 4423,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4423,
+		position = {
+			111,
+			302
+		}
+	},
+	[4424] = {
+		param = 4424,
+		name = &quot;校图书馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启校图书馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4424,
+		position = {
+			-283,
+			324
+		}
+	},
+	[4425] = {
+		param = 4425,
+		name = &quot;音乐教室&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_599&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音乐教室的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4425,
+		position = {
+			-93,
+			324
+		}
+	},
+	[4426] = {
+		param = 4426,
+		name = &quot;体育馆&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_601&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启体育馆的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4426,
+		position = {
+			228,
+			122
+		}
+	},
+	[4427] = {
+		param = 4427,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4427,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4428] = {
+		param = 4428,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4428,
+		position = {
+			76,
+			-176
+		}
+	},
+	[4429] = {
+		param = 4429,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4429,
+		position = {
+			-35.4,
+			2.5
+		}
+	},
+	[4430] = {
+		param = 4430,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4430,
+		position = {
+			681,
+			263
+		}
+	},
+	[4431] = {
+		param = 4431,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4431,
+		position = {
+			497,
+			525
+		}
+	},
+	[4432] = {
+		param = 4432,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4432,
+		position = {
+			643,
+			447
+		}
+	},
+	[4433] = {
+		param = 4433,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4433,
+		position = {
+			45,
+			78
+		}
+	},
+	[4434] = {
+		param = 4434,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4434,
+		position = {
+			11,
+			-268
+		}
+	},
+	[4435] = {
+		param = 4435,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4435,
+		position = {
+			-13.8,
+			-120.2
+		}
+	},
+	[4436] = {
+		param = 4436,
+		name = &quot;山畔池塘&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_510&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启山畔池塘的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4436,
+		position = {
+			208,
+			542
+		}
+	},
+	[4437] = {
+		param = 4437,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4437,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4438] = {
+		param = 4438,
+		name = &quot;静谧之峰&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_155&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启静谧之峰的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4438,
+		position = {
+			415,
+			419
+		}
+	},
+	[4439] = {
+		param = 4439,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_5&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;阳光下，一家复古机车店静静地等待着有缘人的到访……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4439,
+		position = {
+			-314,
+			163
+		}
+	},
+	[4440] = {
+		param = 4440,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_604&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;娜比娅的脚步在电影院门前不由自主地停了下来……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4440,
+		position = {
+			-246,
+			-490
+		}
+	},
+	[4441] = {
+		param = 4441,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_118&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;废弃园区里，一片空旷的水泥场地诉说着往日的喧嚣……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4441,
+		position = {
+			446,
+			10
+		}
+	},
+	[4442] = {
+		param = 4442,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_519&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;午后的图书馆里，一本被翻开的书静静地躺在桌面上……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4442,
+		position = {
+			-420,
+			470
+		}
+	},
+	[4443] = {
+		param = 4443,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_515&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;书店的心理学区一如既往地安静，书架上一排排书籍仿佛在等待着有缘人的翻阅……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4443,
+		position = {
+			107,
+			159
+		}
+	},
+	[4444] = {
+		param = 4444,
+		name = &quot;&quot;,
+		event_icon = &quot;site_ending&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;夕阳为公园镀上一层温暖的橘色，长椅静静地见证着生命中那些重要的决定……&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4444,
+		position = {
+			-694,
+			140
+		}
+	},
+	[4445] = {
+		param = 4445,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4445,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4446] = {
+		param = 4446,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4446,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4460] = {
+		param = 4460,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4460,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4461] = {
+		param = 4461,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4461,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4462] = {
+		param = 4462,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4462,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4463] = {
+		param = 4463,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4463,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4464] = {
+		param = 4464,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4464,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4465] = {
+		param = 4465,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4465,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4466] = {
+		param = 4466,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4466,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4467] = {
+		param = 4467,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4467,
+		position = {
+			188,
+			-63
+		}
+	},
+	[4468] = {
+		param = 4468,
+		name = &quot;度假庄园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_3&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启度假庄园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4468,
+		position = {
+			-625,
+			542
+		}
+	},
+	[4469] = {
+		param = 4469,
+		name = &quot;美食坊&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_4&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启美食坊的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4469,
+		position = {
+			535,
+			-240
+		}
+	},
+	[4470] = {
+		param = 4470,
+		name = &quot;音浪市集&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_161&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启音浪市集的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4470,
+		position = {
+			-375,
+			-160
+		}
+	},
+	[4471] = {
+		param = 4471,
+		name = &quot;海滨公园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_2&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启海滨公园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4471,
+		position = {
+			-603,
+			149
+		}
+	},
+	[4472] = {
+		param = 4472,
+		name = &quot;商业街&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启商业街的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4472,
+		position = {
+			-83,
+			-222
+		}
+	},
+	[4473] = {
+		param = 4473,
+		name = &quot;童心乐园&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_181&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启童心乐园的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4473,
+		position = {
+			129,
+			-427
+		}
+	},
+	[4474] = {
+		param = 4474,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4474,
+		position = {
+			79,
+			-31
+		}
+	},
+	[4475] = {
+		param = 4475,
+		name = &quot;游乐场&quot;,
+		event_icon = &quot;site_event&quot;,
+		type = 5,
+		icon = &quot;&quot;,
+		banner = &quot;map_event_108&quot;,
+		title = &quot;随机事件&quot;,
+		desc = &quot;开启游乐场的随机事件&quot;,
+		bg = &quot;&quot;,
+		event_title = &quot;site_event_name&quot;,
+		id = 4475,
+		position = {
+			188,
+			-63
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

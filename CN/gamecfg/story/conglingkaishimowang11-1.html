@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conglingkaishimowang11-1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>conglingkaishimowang11-1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;CONGLINGKAISHIMOWANG11-1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_518&quot;,
+			bgm = &quot;theme-richelieu&quot;,
+			say = &quot;通向守望要塞的宽阔道路上，一场激烈的战斗正在进行着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_518&quot;,
+			say = &quot;咻————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			movableNode = {
+				{
+					name = &quot;jiulaimu_zhanlie&quot;,
+					time = 2,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 1.3
+					},
+					path = {
+						{
+							-1500,
+							0
+						},
+						{
+							1500,
+							0
+						}
+					}
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;给我，闪开——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;王国军二级魔法师&quot;,
+			dir = 1,
+			actor = 801030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;圣女大人小心——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			movableNode = {
+				{
+					name = &quot;jiulaimu_zhanlie&quot;,
+					time = 2,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 1.3
+					},
+					path = {
+						{
+							-1500,
+							0
+						},
+						{
+							1500,
+							0
+						}
+					}
+				},
+				{
+					name = &quot;jiulaimu_zhanlie&quot;,
+					time = 2,
+					delay = 0.5,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 1.3
+					},
+					path = {
+						{
+							-1600,
+							200
+						},
+						{
+							1500,
+							0
+						}
+					}
+				},
+				{
+					name = &quot;jiulaimu_zhanlie&quot;,
+					time = 2,
+					delay = 1,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 1.3
+					},
+					path = {
+						{
+							-1700,
+							-200
+						},
+						{
+							1500,
+							0
+						}
+					}
+				},
+				{
+					name = &quot;jiulaimu_zhanlie&quot;,
+					time = 2,
+					delay = 1.8,
+					spine = {
+						action = &quot;move&quot;,
+						scale = 1.3
+					},
+					path = {
+						{
+							-1800,
+							100
+						},
+						{
+							1500,
+							0
+						}
+					}
+				}
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;王国军二级魔法师&quot;,
+			dir = 1,
+			actor = 801040,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;给我冻结吧——“冰冻锁链”！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;多谢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;王国军二级魔法师&quot;,
+			dir = 1,
+			actor = 801040,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;圣女大人，我们这次是轻装出行。敌众我寡，不宜久战！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我知道……但是也不能因此放着逃难的村民不管。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;决定了……我来拖住魔物，你们掩护村民撤离。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;王国军二级魔法师&quot;,
+			dir = 1,
+			actor = 801030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这、这可不行啊，圣女大人！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……没有其他办法了，执行命令。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_518&quot;,
+			say = &quot;与此同时，在战场的另一边——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;发动袭击的黑暗啾莱姆骑士……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;竟然真的是魔王军……而且还是最令旅人胆寒的魔王天空猎杀队？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在抵抗的那几个是王国军的人么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那、那是神圣教会的圣女殿下？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;圣女殿下怎么会离开王都？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;见习神官&quot;,
+			dir = 1,
+			actor = 236031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哥哥……看上去战况不太妙。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;见习神官&quot;,
+			dir = 1,
+			actor = 236031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;王国军那边要顶不住了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_518&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;做好准备，我们去帮忙！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

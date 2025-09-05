@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child_item.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>child_item.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.child_item = {
+	{
+		name = &quot;啾啾奶茶&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;口感醇厚，入口丝滑~&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[101]&quot;,
+		id = 1,
+		icon = &quot;1&quot;,
+		display = {
+			{
+				2,
+				2,
+				2
+			}
+		}
+	},
+	{
+		name = &quot;草莓牛奶&quot;,
+		rarity = 1,
+		type = 4,
+		is_show = 1,
+		desc = &quot;绝对不会出错的口味。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[102]&quot;,
+		id = 2,
+		icon = &quot;2&quot;,
+		display = {
+			{
+				2,
+				2,
+				1
+			}
+		}
+	},
+	{
+		name = &quot;柠檬蜂蜜饮&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;得在柠檬发苦之前一口气喝掉它！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[103]&quot;,
+		id = 3,
+		icon = &quot;3&quot;,
+		display = {
+			{
+				1,
+				104,
+				10
+			},
+			{
+				1,
+				102,
+				10
+			}
+		}
+	},
+	{
+		name = &quot;香蕉椰椰&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;香蕉与椰奶的组合，气息既独特又浓厚。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[104]&quot;,
+		id = 4,
+		icon = &quot;4&quot;,
+		display = {
+			{
+				1,
+				101,
+				10
+			},
+			{
+				1,
+				102,
+				10
+			}
+		}
+	},
+	{
+		name = &quot;蜜瓜双球&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;将蜜瓜的清甜与糖浆结合，是甜食爱好者的福音。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[105]&quot;,
+		id = 5,
+		icon = &quot;5&quot;,
+		display = {
+			{
+				1,
+				104,
+				10
+			},
+			{
+				1,
+				103,
+				10
+			}
+		}
+	},
+	{
+		name = &quot;雪顶奶昔&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;先吃雪顶还是先喝奶昔？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[106]&quot;,
+		id = 6,
+		icon = &quot;6&quot;,
+		display = {
+			{
+				2,
+				2,
+				3
+			}
+		}
+	},
+	[11] = {
+		name = &quot;蛋包饭&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;软嫩的欧姆蛋和带着番茄酸甜的炒饭，美味！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111]&quot;,
+		id = 11,
+		icon = &quot;11&quot;,
+		display = {
+			{
+				1,
+				101,
+				10
+			},
+			{
+				1,
+				103,
+				10
+			}
+		}
+	},
+	[12] = {
+		name = &quot;酥皮浓汤&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;脆口的酥皮沾着温暖可口的浓汤让人赞不绝口。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[112]&quot;,
+		id = 12,
+		icon = &quot;12&quot;,
+		display = {
+			{
+				1,
+				303,
+				1
+			}
+		}
+	},
+	[13] = {
+		name = &quot;马卡龙&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;酥脆的甜食能让人心情变好。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[113]&quot;,
+		id = 13,
+		icon = &quot;13&quot;,
+		display = {
+			{
+				1,
+				306,
+				1
+			}
+		}
+	},
+	[14] = {
+		name = &quot;西瓜奶油披萨&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;会让披萨原教旨主义震怒的创新口味。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[114]&quot;,
+		id = 14,
+		icon = &quot;14&quot;,
+		display = {
+			{
+				1,
+				305,
+				1
+			}
+		}
+	},
+	[15] = {
+		name = &quot;香蕉可丽饼&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;普通的香蕉奶油的可丽饼。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[115]&quot;,
+		id = 15,
+		icon = &quot;15&quot;,
+		display = {
+			{
+				1,
+				304,
+				2
+			}
+		}
+	},
+	[16] = {
+		name = &quot;肉排三明治&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;大块肉排加上吐司面包，汁水四溢，分量十足。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[116]&quot;,
+		id = 16,
+		icon = &quot;16&quot;,
+		display = {
+			{
+				1,
+				301,
+				2
+			}
+		}
+	},
+	[17] = {
+		name = &quot;罗勒炖肉&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;浓香四溢，搭配上罗勒的香气，别是一番美味。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[117]&quot;,
+		id = 17,
+		icon = &quot;17&quot;,
+		display = {
+			{
+				1,
+				302,
+				2
+			}
+		}
+	},
+	[21] = {
+		name = &quot;初学者钓竿&quot;,
+		rarity = 2,
+		type = 3,
+		is_show = 1,
+		desc = &quot;最适合初学者的钓竿。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[121]&quot;,
+		id = 21,
+		icon = &quot;21&quot;,
+		display = {
+			{
+				1,
+				101,
+				10
+			},
+			{
+				1,
+				104,
+				5
+			}
+		}
+	},
+	[22] = {
+		name = &quot;铁斧头&quot;,
+		rarity = 2,
+		type = 3,
+		is_show = 1,
+		desc = &quot;金斧头还是银斧头？——原来是铁斧头啊。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[122]&quot;,
+		id = 22,
+		icon = &quot;22&quot;,
+		display = {
+			{
+				1,
+				101,
+				15
+			}
+		}
+	},
+	[23] = {
+		name = &quot;进阶者钓竿&quot;,
+		rarity = 3,
+		type = 3,
+		is_show = 1,
+		desc = &quot;适合进阶者使用的钓竿，闪着微微银光。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[123]&quot;,
+		id = 23,
+		icon = &quot;23&quot;,
+		display = {
+			{
+				1,
+				101,
+				20
+			},
+			{
+				1,
+				104,
+				10
+			}
+		}
+	},
+	[24] = {
+		name = &quot;银斧头&quot;,
+		rarity = 3,
+		type = 3,
+		is_show = 1,
+		desc = &quot;金斧头还是银斧头？——这次是银斧头呢！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[124]&quot;,
+		id = 24,
+		icon = &quot;24&quot;,
+		display = {
+			{
+				1,
+				101,
+				30
+			}
+		}
+	},
+	[25] = {
+		name = &quot;大师级钓竿&quot;,
+		rarity = 4,
+		type = 3,
+		is_show = 1,
+		desc = &quot;只有钓鱼大师才能驾驭的王者级钓竿！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[125]&quot;,
+		id = 25,
+		icon = &quot;25&quot;,
+		display = {
+			{
+				1,
+				306,
+				5
+			}
+		}
+	},
+	[26] = {
+		name = &quot;金斧头&quot;,
+		rarity = 4,
+		type = 3,
+		is_show = 1,
+		desc = &quot;金斧头还是银斧头？——最趁手的果然是金斧头！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[126]&quot;,
+		id = 26,
+		icon = &quot;26&quot;,
+		display = {
+			{
+				1,
+				305,
+				5
+			}
+		}
+	},
+	[31] = {
+		name = &quot;《从零开始的皇家女仆生活》&quot;,
+		rarity = 1,
+		type = 1,
+		is_show = 1,
+		desc = &quot;讲述了笨手笨脚的女仆学习料理，屡战屡败，屡败屡战的故事。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[131]&quot;,
+		id = 31,
+		icon = &quot;31&quot;,
+		display = {
+			{
+				1,
+				102,
+				10
+			},
+			{
+				1,
+				103,
+				5
+			}
+		}
+	},
+	[32] = {
+		name = &quot;《十五行诗》&quot;,
+		rarity = 1,
+		type = 1,
+		is_show = 1,
+		desc = &quot;经典名著，引人深思，就是行数不太对劲。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[132]&quot;,
+		id = 32,
+		icon = &quot;32&quot;,
+		display = {
+			{
+				1,
+				103,
+				10
+			},
+			{
+				1,
+				104,
+				5
+			}
+		}
+	},
+	[33] = {
+		name = &quot;《舰装养护指南》&quot;,
+		rarity = 1,
+		type = 1,
+		is_show = 1,
+		desc = &quot;专业性极强的书籍。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[133]&quot;,
+		id = 33,
+		icon = &quot;33&quot;,
+		display = {
+			{
+				1,
+				102,
+				10
+			},
+			{
+				1,
+				101,
+				5
+			}
+		}
+	},
+	[34] = {
+		name = &quot;《如何俘获指挥官的心？》&quot;,
+		rarity = 2,
+		type = 1,
+		is_show = 1,
+		desc = &quot;书中内容简单直白，但是好像不太适合学习。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[134]&quot;,
+		id = 34,
+		icon = &quot;34&quot;,
+		display = {
+			{
+				1,
+				103,
+				30
+			}
+		}
+	},
+	[35] = {
+		name = &quot;《天才创造指北！》&quot;,
+		rarity = 2,
+		type = 1,
+		is_show = 1,
+		desc = &quot;充斥着浓郁个人特色的发明指南，但感觉大部分派不上用场。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[135]&quot;,
+		id = 35,
+		icon = &quot;35&quot;,
+		display = {
+			{
+				1,
+				102,
+				30
+			}
+		}
+	},
+	[36] = {
+		name = &quot;《心动假期旅游指南》&quot;,
+		rarity = 2,
+		type = 1,
+		is_show = 1,
+		desc = &quot;罗列着各种与大海、无人岛等地点有关的旅游指南。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[136]&quot;,
+		id = 36,
+		icon = &quot;36&quot;,
+		display = {
+			{
+				1,
+				104,
+				30
+			}
+		}
+	},
+	[41] = {
+		name = &quot;唱片&quot;,
+		rarity = 3,
+		type = 2,
+		is_show = 1,
+		desc = &quot;一张唱片，里面收录着什么风格的音乐呢？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[141]&quot;,
+		id = 41,
+		icon = &quot;41&quot;,
+		display = {
+			{
+				1,
+				304,
+				3
+			}
+		}
+	},
+	[42] = {
+		name = &quot;麦克风&quot;,
+		rarity = 3,
+		type = 2,
+		is_show = 1,
+		desc = &quot;内置混响，音质饱满细腻，K歌的不二之选。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[142]&quot;,
+		id = 42,
+		icon = &quot;42&quot;,
+		display = {
+			{
+				1,
+				301,
+				3
+			}
+		}
+	},
+	[43] = {
+		name = &quot;单簧管&quot;,
+		rarity = 3,
+		type = 2,
+		is_show = 1,
+		desc = &quot;音色嘹亮的木管乐器，据说非常难学。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[143]&quot;,
+		id = 43,
+		icon = &quot;43&quot;,
+		display = {
+			{
+				1,
+				301,
+				2
+			},
+			{
+				1,
+				306,
+				2
+			}
+		}
+	},
+	[44] = {
+		name = &quot;竖琴&quot;,
+		rarity = 4,
+		type = 2,
+		is_show = 1,
+		desc = &quot;声域宽广，余音悠长。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[144]&quot;,
+		id = 44,
+		icon = &quot;44&quot;,
+		display = {
+			{
+				1,
+				301,
+				5
+			}
+		}
+	},
+	[45] = {
+		name = &quot;小提琴&quot;,
+		rarity = 4,
+		type = 2,
+		is_show = 1,
+		desc = &quot;音色洪亮，张力十足。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[145]&quot;,
+		id = 45,
+		icon = &quot;45&quot;,
+		display = {
+			{
+				1,
+				302,
+				3
+			},
+			{
+				1,
+				301,
+				5
+			}
+		}
+	},
+	[46] = {
+		name = &quot;钢琴&quot;,
+		rarity = 4,
+		type = 2,
+		is_show = 1,
+		desc = &quot;高雅与优美的代名词。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[146]&quot;,
+		id = 46,
+		icon = &quot;46&quot;,
+		display = {
+			{
+				1,
+				302,
+				5
+			}
+		}
+	},
+	[47] = {
+		name = &quot;小号&quot;,
+		rarity = 4,
+		type = 2,
+		is_show = 1,
+		desc = &quot;音色明亮锐利，兼具嘹亮与优美。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[147]&quot;,
+		id = 47,
+		icon = &quot;47&quot;,
+		display = {
+			{
+				1,
+				302,
+				3
+			},
+			{
+				1,
+				305,
+				2
+			}
+		}
+	},
+	[51] = {
+		name = &quot;白珍珠&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;磨成粉的话，会不会有什么神奇美白的效果呢？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[151]&quot;,
+		id = 51,
+		icon = &quot;51&quot;,
+		display = {
+			{
+				1,
+				302,
+				2
+			}
+		}
+	},
+	[52] = {
+		name = &quot;贝壳摆件&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;将贝壳打磨后制成的摆件。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[152]&quot;,
+		id = 52,
+		icon = &quot;52&quot;,
+		display = {
+			{
+				1,
+				303,
+				5
+			}
+		}
+	},
+	[53] = {
+		name = &quot;章鱼玩偶&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;以“熟透了的章鱼”为设计理念制作的玩偶，真的会有人喜欢吗？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[153]&quot;,
+		id = 53,
+		icon = &quot;53&quot;,
+		display = {
+			{
+				1,
+				303,
+				2
+			}
+		}
+	},
+	[54] = {
+		name = &quot;许愿瓶&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;据说把愿望写好后再丢进海里，就会实现。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[154]&quot;,
+		id = 54,
+		icon = &quot;54&quot;,
+		display = {
+			{
+				1,
+				304,
+				5
+			}
+		}
+	},
+	[55] = {
+		name = &quot;神奇海螺&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;为什么不问问神奇海螺呢？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[155]&quot;,
+		id = 55,
+		icon = &quot;55&quot;,
+		display = {
+			{
+				1,
+				304,
+				2
+			},
+			{
+				1,
+				302,
+				1
+			}
+		}
+	},
+	[56] = {
+		name = &quot;椰子&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;虽然是专卖纪念品的商店，但是也会卖卖椰子呢。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[156]&quot;,
+		id = 56,
+		icon = &quot;56&quot;,
+		display = {
+			{
+				1,
+				306,
+				2
+			},
+			{
+				1,
+				305,
+				1
+			}
+		}
+	},
+	[101] = {
+		name = &quot;白灼生菜&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;新鲜的食材，往往只需要简单的烹饪和调味。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111215]&quot;,
+		id = 101,
+		icon = &quot;101&quot;,
+		display = {
+			{
+				1,
+				103,
+				20
+			}
+		}
+	},
+	[102] = {
+		name = &quot;蜜汁猪排&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;最后刷上蜂蜜，再送入烤箱……一口下去肉香四溢。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111216]&quot;,
+		id = 102,
+		icon = &quot;102&quot;,
+		display = {
+			{
+				1,
+				102,
+				20
+			}
+		}
+	},
+	[103] = {
+		name = &quot;酥皮浓汤&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;脆口的酥皮沾着温暖可口的浓汤让人赞不绝口。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111217]&quot;,
+		id = 103,
+		icon = &quot;12&quot;,
+		display = {
+			{
+				1,
+				104,
+				20
+			}
+		}
+	},
+	[104] = {
+		name = &quot;饺子拼盘&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;人生就像一盘饺子，你永远不知道下一颗是什么滋味。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111218]&quot;,
+		id = 104,
+		icon = &quot;104&quot;,
+		display = {
+			{
+				1,
+				101,
+				20
+			}
+		}
+	},
+	[105] = {
+		name = &quot;麻婆豆腐&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;人见人爱的家常料理。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111219]&quot;,
+		id = 105,
+		icon = &quot;105&quot;,
+		display = {
+			{
+				1,
+				301,
+				1
+			}
+		}
+	},
+	[106] = {
+		name = &quot;香蕉可丽饼&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;普通的香蕉奶油的可丽饼。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111220]&quot;,
+		id = 106,
+		icon = &quot;15&quot;,
+		display = {
+			{
+				1,
+				302,
+				1
+			}
+		}
+	},
+	[107] = {
+		name = &quot;杂煮锅&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;甜甜的汤汁、美味的蔬菜和肉，再裹上蛋液~好吃！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111221]&quot;,
+		id = 107,
+		icon = &quot;107&quot;,
+		display = {
+			{
+				1,
+				304,
+				1
+			}
+		}
+	},
+	[108] = {
+		name = &quot;迷迭香羊排&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;肉质细腻，味道鲜美。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111222]&quot;,
+		id = 108,
+		icon = &quot;108&quot;,
+		display = {
+			{
+				1,
+				303,
+				1
+			}
+		}
+	},
+	[109] = {
+		name = &quot;肉排三明治&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;大块肉排加上吐司面包，汁水四溢，分量十足。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111223]&quot;,
+		id = 109,
+		icon = &quot;16&quot;,
+		display = {
+			{
+				1,
+				305,
+				1
+			}
+		}
+	},
+	[110] = {
+		name = &quot;神秘料理&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;在试吃之前，没人知道是什么味道。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[111224]&quot;,
+		id = 110,
+		icon = &quot;110&quot;,
+		display = {
+			{
+				1,
+				306,
+				1
+			}
+		}
+	},
+	[121] = {
+		name = &quot;画作&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;被仔细装裱起来的画作。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[121109]&quot;,
+		id = 121,
+		icon = &quot;121&quot;,
+		display = {
+			{
+				1,
+				104,
+				20
+			}
+		}
+	},
+	[131] = {
+		name = &quot;小河虾&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;钓上来小河虾，收获聊胜于无。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[120211]&quot;,
+		id = 131,
+		icon = &quot;131&quot;,
+		display = {
+			{
+				1,
+				103,
+				10
+			}
+		}
+	},
+	[132] = {
+		name = &quot;小鱼&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;钓上来的小鱼，运气还不错。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[120212]&quot;,
+		id = 132,
+		icon = &quot;132&quot;,
+		display = {
+			{
+				1,
+				101,
+				10
+			}
+		}
+	},
+	[134] = {
+		name = &quot;大鱼&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;钓上来的大鱼，可以加餐了！&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[120214]&quot;,
+		id = 134,
+		icon = &quot;134&quot;,
+		display = {
+			{
+				1,
+				104,
+				10
+			}
+		}
+	},
+	[135] = {
+		name = &quot;龙虾&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;龙虾一只！不过为什么龙虾会上钩呢……？&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[120215]&quot;,
+		id = 135,
+		icon = &quot;135&quot;,
+		display = {
+			{
+				1,
+				102,
+				10
+			}
+		}
+	},
+	[151] = {
+		name = &quot;写真&quot;,
+		rarity = 2,
+		type = 4,
+		is_show = 1,
+		desc = &quot;特地洗出来的写真，会被放进相册里好好收藏。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[131111]&quot;,
+		id = 151,
+		icon = &quot;151&quot;,
+		display = {
+			{
+				1,
+				103,
+				20
+			}
+		}
+	},
+	[161] = {
+		name = &quot;纪念奖章-文学大奖赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与文学大奖赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[170640]&quot;,
+		id = 161,
+		icon = &quot;161&quot;,
+		display = {}
+	},
+	[162] = {
+		name = &quot;纪念奖章-摄影大赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与摄影大赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[130540]&quot;,
+		id = 162,
+		icon = &quot;162&quot;,
+		display = {}
+	},
+	[163] = {
+		name = &quot;纪念奖章-运动大赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与运动大赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[160340]&quot;,
+		id = 163,
+		icon = &quot;163&quot;,
+		display = {}
+	},
+	[164] = {
+		name = &quot;纪念奖章-绘画大奖赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与绘画大奖赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[170740]&quot;,
+		id = 164,
+		icon = &quot;164&quot;,
+		display = {}
+	},
+	[165] = {
+		name = &quot;纪念奖章-厨神大赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与厨神大赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[110504]&quot;,
+		id = 165,
+		icon = &quot;165&quot;,
+		display = {}
+	},
+	[166] = {
+		name = &quot;纪念奖章-钓鱼达人赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与钓鱼达人赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[120504]&quot;,
+		id = 166,
+		icon = &quot;166&quot;,
+		display = {}
+	},
+	[167] = {
+		name = &quot;纪念奖章-歌者之声大奖赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与歌者之声大奖赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[170840]&quot;,
+		id = 167,
+		icon = &quot;167&quot;,
+		display = {}
+	},
+	[168] = {
+		name = &quot;纪念奖章-明日之星大赛&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;参与明日之星大赛获得的纪念奖章。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[140404]&quot;,
+		id = 168,
+		icon = &quot;168&quot;,
+		display = {}
+	},
+	[201] = {
+		name = &quot;成长目标完成纪念·Ⅰ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+10 金钱+60 体能+20&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[701]&quot;,
+		id = 201,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				101,
+				20
+			},
+			{
+				2,
+				1,
+				60
+			},
+			{
+				2,
+				2,
+				10
+			}
+		}
+	},
+	[202] = {
+		name = &quot;成长目标完成纪念·Ⅰ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+10 金钱+60 智慧+20&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[702]&quot;,
+		id = 202,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				102,
+				20
+			},
+			{
+				2,
+				1,
+				60
+			},
+			{
+				2,
+				2,
+				10
+			}
+		}
+	},
+	[203] = {
+		name = &quot;成长目标完成纪念·Ⅰ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+10 金钱+60 气质+20&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[703]&quot;,
+		id = 203,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				103,
+				20
+			},
+			{
+				2,
+				1,
+				60
+			},
+			{
+				2,
+				2,
+				10
+			}
+		}
+	},
+	[204] = {
+		name = &quot;成长目标完成纪念·Ⅰ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+10 金钱+60 感知+20&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[704]&quot;,
+		id = 204,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				104,
+				20
+			},
+			{
+				2,
+				1,
+				60
+			},
+			{
+				2,
+				2,
+				10
+			}
+		}
+	},
+	[205] = {
+		name = &quot;成长目标完成纪念·Ⅱ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+15 金钱+100 体能+100&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[705]&quot;,
+		id = 205,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				101,
+				100
+			},
+			{
+				2,
+				1,
+				100
+			},
+			{
+				2,
+				2,
+				15
+			}
+		}
+	},
+	[206] = {
+		name = &quot;成长目标完成纪念·Ⅱ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+15 金钱+100 智慧+100&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[706]&quot;,
+		id = 206,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				102,
+				100
+			},
+			{
+				2,
+				1,
+				100
+			},
+			{
+				2,
+				2,
+				15
+			}
+		}
+	},
+	[207] = {
+		name = &quot;成长目标完成纪念·Ⅱ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+15 金钱+100 气质+100&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[707]&quot;,
+		id = 207,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				103,
+				100
+			},
+			{
+				2,
+				1,
+				100
+			},
+			{
+				2,
+				2,
+				15
+			}
+		}
+	},
+	[208] = {
+		name = &quot;成长目标完成纪念·Ⅱ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+15 金钱+100 感知+100&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[708]&quot;,
+		id = 208,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				104,
+				100
+			},
+			{
+				2,
+				1,
+				100
+			},
+			{
+				2,
+				2,
+				15
+			}
+		}
+	},
+	[209] = {
+		name = &quot;成长目标完成纪念·Ⅲ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+150 运动+10 实践+5 细心+5&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[709]&quot;,
+		id = 209,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				305,
+				10
+			},
+			{
+				1,
+				306,
+				5
+			},
+			{
+				1,
+				303,
+				5
+			},
+			{
+				2,
+				1,
+				150
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[210] = {
+		name = &quot;成长目标完成纪念·Ⅲ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+150 实践+10 想象+5 表现+5&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[710]&quot;,
+		id = 210,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				306,
+				10
+			},
+			{
+				1,
+				304,
+				5
+			},
+			{
+				1,
+				301,
+				5
+			},
+			{
+				2,
+				1,
+				150
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[211] = {
+		name = &quot;成长目标完成纪念·Ⅲ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+150 细心+10 想象+10&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[711]&quot;,
+		id = 211,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				303,
+				10
+			},
+			{
+				1,
+				304,
+				10
+			},
+			{
+				2,
+				1,
+				150
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[212] = {
+		name = &quot;成长目标完成纪念·Ⅲ&quot;,
+		rarity = 3,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+150 表现+10 乐理+10&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[712]&quot;,
+		id = 212,
+		icon = &quot;201&quot;,
+		display = {
+			{
+				1,
+				301,
+				10
+			},
+			{
+				1,
+				302,
+				10
+			},
+			{
+				2,
+				1,
+				150
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[213] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 运动+30&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[713]&quot;,
+		id = 213,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				305,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[214] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 想象+30&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[715]&quot;,
+		id = 214,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				304,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[215] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 细心+30&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[718]&quot;,
+		id = 215,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				303,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[216] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 实践+30 &quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[714]&quot;,
+		id = 216,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				306,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[217] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 乐理+30&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[717]&quot;,
+		id = 217,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				302,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[218] = {
+		name = &quot;成长目标完成纪念·Ⅳ&quot;,
+		rarity = 4,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成成长目标的奖励\n心情+20 金钱+200 表现+30&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[716]&quot;,
+		id = 218,
+		icon = &quot;202&quot;,
+		display = {
+			{
+				1,
+				301,
+				30
+			},
+			{
+				2,
+				1,
+				200
+			},
+			{
+				2,
+				2,
+				20
+			}
+		}
+	},
+	[301] = {
+		name = &quot;主线目标奖章&quot;,
+		rarity = 1,
+		type = 4,
+		is_show = 1,
+		desc = &quot;完成主线目标的纪念奖章，持有后全属性+1。&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[720]&quot;,
+		id = 301,
+		icon = &quot;10016&quot;,
+		display = {
+			{
+				1,
+				101,
+				1
+			},
+			{
+				1,
+				102,
+				1
+			},
+			{
+				1,
+				103,
+				1
+			},
+			{
+				1,
+				104,
+				1
+			}
+		}
+	},
+	[302] = {
+		name = &quot;成长目标进度点数&quot;,
+		rarity = 1,
+		type = 4,
+		is_show = 0,
+		desc = &quot;成长目标任务的完成进度点数&quot;,
+		usage = &quot;usage_drop&quot;,
+		usage_arg = &quot;[721]&quot;,
+		id = 302,
+		icon = &quot;10015&quot;,
+		display = {}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		101,
+		102,
+		103,
+		104,
+		105,
+		106,
+		107,
+		108,
+		109,
+		110,
+		121,
+		131,
+		132,
+		134,
+		135,
+		151,
+		161,
+		162,
+		163,
+		164,
+		165,
+		166,
+		167,
+		168,
+		201,
+		202,
+		203,
+		204,
+		205,
+		206,
+		207,
+		208,
+		209,
+		210,
+		211,
+		212,
+		213,
+		214,
+		215,
+		216,
+		217,
+		218,
+		301,
+		302
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_902320.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_902320.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	time = 0,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 902320,
+	picture = &quot;&quot;,
+	desc = &quot;装备效率提高&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 14340,
+	last_effect = &quot;&quot;,
+	shipInfoScene = {
+		equip = {
+			{
+				number = 15,
+				check_label = {
+					&quot;MG&quot;
+				},
+				label = {
+					&quot;MG&quot;
+				}
+			}
+		}
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddProficiency&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.15,
+				label = {
+					&quot;MG&quot;
+				},
+				index = {
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

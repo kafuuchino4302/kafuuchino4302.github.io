@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldcruisescene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldcruisescene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldCruiseScene&quot;, import(&quot;view.base.BaseUI&quot;))
+slot0.optionsPath = {
+	&quot;top/home&quot;
+}
+slot0.PAGE_AWARD = &quot;award&quot;
+slot0.PAGE_TASK = &quot;task&quot;
+slot0.PAGE_SHOP = &quot;shop&quot;
+slot1 = slot0.PAGE_AWARD
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldCruiseUI&quot;
+end
+
+slot0.preload = function(slot0, slot1)
+	slot3 = function()
+		uv1.shop = CruiseShop.New(uv0:GetNormalList(), uv0:GetNormalGroupList())
+
+		uv0:SetCruiseShop(uv1.shop)
+		uv2()
+	end
+
+	if getProxy(ShopsProxy):ShouldRefreshChargeList() then
+		pg.m02:sendNotification(GAME.GET_CHARGE_LIST, {
+			callback = slot3
+		})
+	else
+		slot3()
+	end
+end
+
+slot0.setShop = function(slot0, slot1)
+	slot0.shop = slot1
+end
+
+slot0.setPlayer = function(slot0, slot1)
+	slot0.player = slot1
+end
+
+slot0.setActivity = function(slot0, slot1)
+	slot0.activity = slot1
+
+	for slot5, slot6 in pairs(slot1:GetCrusingInfo()) do
+		slot0[slot5] = slot6
+	end
+
+	slot0.contextData.phase = slot0.phase
+end
+
+slot0.init = function(slot0)
+	slot0.topUI = slot0._tf:Find(&quot;top&quot;)
+	slot0.titleTF = slot0.topUI:Find(&quot;title/Text&quot;)
+	slot0.helpBtn = slot0.topUI:Find(&quot;help&quot;)
+	slot0.gemResBtn = slot0.topUI:Find(&quot;res/gem&quot;)
+	slot0.gemValue = slot0.gemResBtn:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.ticketResBtn = slot0.topUI:Find(&quot;res/ticket&quot;)
+	slot0.ticketValue = slot0.ticketResBtn:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.dayTxt = slot0.topUI:Find(&quot;day/Text&quot;):GetComponent(typeof(Text))
+	slot0.phaseTF = slot0._tf:Find(&quot;frame/phase&quot;)
+
+	setText(slot0.phaseTF:Find(&quot;progress&quot;), i18n(&quot;cruise_phase_title&quot;))
+
+	slot0.pages = {
+		[uv0.PAGE_AWARD] = WorldCruiseAwardPage.New(slot0._tf:Find(&quot;frame/award_container&quot;), slot0.event, slot0.contextData),
+		[uv0.PAGE_TASK] = WorldCruiseTaskPage.New(slot0._tf:Find(&quot;frame/task_container&quot;), slot0.event, slot0.contextData),
+		[uv0.PAGE_SHOP] = WorldCruiseShopPage.New(slot0._tf:Find(&quot;frame/shop_container&quot;), slot0.event, slot0.contextData)
+	}
+	slot0.togglesTF = slot0._tf:Find(&quot;frame/toggles&quot;)
+
+	eachChild(slot0.togglesTF, function (slot0)
+		onButton(uv0, slot0, function ()
+			uv0.contextData.page = uv1.name
+
+			uv0:SwitchPage()
+		end, SFX_PANEL)
+	end)
+
+	slot2 = slot0.togglesTF:Find(&quot;shop&quot;)
+
+	if #slot0.shop:GetCommodities() == 0 then
+		onButton(slot0, slot2, function ()
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;cruise_shop_no_open&quot;))
+		end, SFX_PANEL)
+	end
+
+	setActive(slot2:Find(&quot;lock&quot;), slot1)
+	setText(slot2:Find(&quot;lock/Text&quot;), i18n(&quot;cruise_shop_no_open&quot;))
+
+	slot0.contextData.windowForCharge = WorldCruiseChargePage.New(slot0._tf, slot0.event)
+end
+
+slot0.didEnter = function(slot0)
+	LoadImageSpriteAtlasAsync(&quot;bg/&quot; .. pg.battlepass_event_pt[slot0.activity.id].bg, &quot;&quot;, slot0._tf:Find(&quot;bg&quot;), true)
+	onButton(slot0, slot0.topUI:Find(&quot;title/back&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.helpBtn, function ()
+		pg.NewStyleMsgboxMgr.GetInstance():Show(pg.NewStyleMsgboxMgr.TYPE_COMMON_HELP, {
+			helps = i18n(&quot;battlepass_main_help_&quot; .. pg.battlepass_event_pt[uv0.activity.id].map_name)
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.gemResBtn, function ()
+		pg.playerResUI:ClickGem()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.ticketResBtn, function ()
+		shoppingBatchNewStyle(Goods.CRUISE_QUICK_TASK_TICKET_ID, {
+			id = Item.QUICK_TASK_PASS_TICKET_ID
+		}, 20, &quot;build_ship_quickly_buy_stone&quot;)
+	end, SFX_PANEL)
+
+	slot1 = slot0.activity.stopTime - pg.TimeMgr.GetInstance():GetServerTime()
+	slot0.dayTxt.text = i18n(&quot;battlepass_main_time_title&quot;) .. i18n(&quot;battlepass_main_time&quot;, math.floor(slot1 / 86400), math.floor(slot1 % 86400 / 3600))
+
+	slot0:UpdateRes()
+	slot0:UpdatePhase()
+	slot0:UpdateAwardTip()
+	triggerButton(slot0.togglesTF:Find(slot0.contextData.page or uv0))
+end
+
+slot0.UpdateRes = function(slot0)
+	slot0.gemValue.text = slot0.player:getTotalGem()
+	slot0.ticketValue.text = getProxy(BagProxy):getItemCountById(Item.QUICK_TASK_PASS_TICKET_ID)
+end
+
+slot0.UpdatePhase = function(slot0)
+	setText(slot0.phaseTF:Find(&quot;Text&quot;), &quot;&lt;size=27&gt;lv.&lt;/size&gt;&quot; .. slot0.phase)
+
+	if slot0.phase &lt; #slot0.awardList then
+		slot1 = slot0.phase == 0 and 0 or slot0.awardList[slot0.phase].pt
+		slot2 = slot0.pt - slot1
+		slot3 = slot0.awardList[slot0.phase + 1].pt - slot1
+
+		setSlider(slot0.phaseTF:Find(&quot;slider&quot;), 0, slot3, slot2)
+		setText(slot0.phaseTF:Find(&quot;progress/Text&quot;), slot2 .. &quot;/&quot; .. slot3)
+	else
+		setSlider(slot0.phaseTF:Find(&quot;slider&quot;), 0, 1, 1)
+		setText(slot0.phaseTF:Find(&quot;progress/Text&quot;), &quot;MAX&quot;)
+	end
+
+	slot0.contextData.phase = slot0.phase
+end
+
+slot0.OnChargeSuccess = function(slot0, slot1)
+	slot0.contextData.windowForCharge:ExecuteAction(&quot;ShowUnlockWindow&quot;, slot1)
+end
+
+slot0.UpdateAwardTip = function(slot0)
+	setActive(slot0.togglesTF:Find(&quot;award/tip&quot;), #slot0.activity:GetCrusingUnreceiveAward() &gt; 0)
+end
+
+slot0.SwitchPage = function(slot0)
+	for slot4, slot5 in pairs(slot0.pages) do
+		if slot4 == slot0.contextData.page then
+			slot5:ExecuteAction(&quot;Flush&quot;)
+		else
+			slot5:ExecuteAction(&quot;Hide&quot;)
+		end
+	end
+
+	eachChild(slot0.togglesTF, function (slot0)
+		setActive(slot0:Find(&quot;unselected&quot;), slot0.name ~= uv0.contextData.page)
+		setActive(slot0:Find(&quot;selected&quot;), slot0.name == uv0.contextData.page)
+	end)
+
+	slot1 = slot0.contextData.page == uv0.PAGE_SHOP
+
+	setActive(slot0._tf:Find(&quot;shop_bg&quot;), slot1)
+	setActive(slot0.phaseTF, not slot1)
+	setText(slot0.titleTF, slot1 and i18n(&quot;cruise_shop_title&quot;) or i18n(&quot;cruise_title_&quot; .. pg.battlepass_event_pt[slot0.activity.id].map_name))
+end
+
+slot0.UpdateView = function(slot0)
+	slot0.pages[slot0.contextData.page]:ExecuteAction(&quot;Flush&quot;)
+end
+
+slot0.UpdateAwardPage = function(slot0)
+	slot0:UpdateAwardTip()
+	slot0.pages[uv0.PAGE_AWARD]:ExecuteAction(&quot;UpdateActivity&quot;, slot0.activity)
+end
+
+slot0.UpdateTaskPage = function(slot0)
+	slot0.pages[uv0.PAGE_TASK]:ExecuteAction(&quot;UpdateActivity&quot;, slot0.activity)
+end
+
+slot0.UpdateShopPage = function(slot0)
+	slot0.pages[uv0.PAGE_SHOP]:ExecuteAction(&quot;UpdateShop&quot;, slot0.shop)
+	slot0:UpdateView()
+end
+
+slot0.onBackPressed = function(slot0)
+	if slot0.contextData.windowForCharge and slot0.contextData.windowForCharge:GetLoaded() and slot0.contextData.windowForCharge:isShowing() then
+		slot0.contextData.windowForCharge:Hide()
+
+		return
+	end
+
+	uv0.super.onBackPressed(slot0)
+end
+
+slot0.willExit = function(slot0)
+	if slot0.contextData.windowForCharge then
+		slot0.contextData.windowForCharge:Destroy()
+
+		slot0.contextData.windowForCharge = nil
+	end
+
+	for slot4, slot5 in pairs(slot0.pages) do
+		slot5:Destroy()
+
+		slot5 = nil
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

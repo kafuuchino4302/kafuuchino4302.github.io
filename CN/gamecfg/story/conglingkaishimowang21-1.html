@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conglingkaishimowang21-1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>conglingkaishimowang21-1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;CONGLINGKAISHIMOWANG21-1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_176&quot;,
+			bgm = &quot;story-mmorpg&quot;,
+			say = &quot;枯萎森林，前往中部据点的路上——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……情况有变，立刻改变计划。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;谢菲，发生什么事了？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;中部据点此刻正在跟魔王军交战。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……与魔王军交战？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;连续失去两座据点似乎让魔王意识到了危险，她决定派遣一个新的代理人接管中部要塞。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;看来这个接管过程并不顺利……总而言之，两方的军队已经打成一团了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_176&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;听上去感觉有可乘之机啊~指挥官，我们快去看看吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			bgm = &quot;story-oldcastle-carnival&quot;,
+			say = &quot;我们终于进入中部要塞内部时，战斗已经接近了尾声。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼大小姐&quot;,
+			dir = 1,
+			actor = 404041,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咳……没想到……本小姐最后会是这样的结局。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼女仆长&quot;,
+			dir = 1,
+			actor = 405041,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;别担心大小姐……我陪你一起走。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;居、居然这么快就将两个吸血鬼都打倒了？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			portrait = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;？？？&quot;,
+			side = 2,
+			actorName = &quot;？？？&quot;,
+			say = &quot;哈哈哈，汝等是碰巧路过的冒险者么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;？？？&quot;,
+			side = 2,
+			actorName = &quot;？？？&quot;,
+			say = &quot;也好也好，吾如此威武的身姿若是无人见证，那就实在太可惜了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……你是什么人？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;？？？&quot;,
+			side = 2,
+			actorName = &quot;？？？&quot;,
+			say = &quot;吾？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_156&quot;,
+			bgm = &quot;login-2022401us&quot;,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = &quot;login&quot;,
+			say = &quot;吾乃吸血鬼，名为吸血鬼的没有任何缺点的最强最完美的究极吸血鬼哦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;此次依据魔王大人的命令来接管这座中部要塞。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;没想到，这群羸弱的旧世代如此冥顽不化，吾就随手送她们解脱咯。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，这个吸血鬼确实很强。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;但是她的状态并不如她说的那么好，她已经受伤了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错，我也发现了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不过她的恢复速度实在惊人，下手要趁早。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;使用“情报分析”技能&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			say = &quot;冒险终端显示，对面确实是一个没有任何弱点的强力吸血鬼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			say = &quot;但现在的生命值只有最大值的一半不到。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			say = &quot;除此之外，情报分析技能还在房间中发现了一些其它的东西。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（……折叠在空间中的陷阱，吸血鬼女仆在消散前放出但没来得及使用的么。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（说不定一会用得上……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;——大家调整站位，准备战斗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;嚯？居然敢主动挑战吾？汝等这是自寻死路！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;完美究极吸血鬼&quot;,
+			dir = 1,
+			actor = 201233,
+			nameColor = &quot;#FF9B93&quot;,
+			live2d = true,
+			say = &quot;那就让汝等见识一下完美究极吸血鬼的力量吧——！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

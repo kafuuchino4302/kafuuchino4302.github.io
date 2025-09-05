@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bossrushcmdformationmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>bossrushcmdformationmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BossRushCMDFormationMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+	slot0.viewComponent:updateFleet(slot0.contextData.fleet)
+	slot0.viewComponent:setCommanderPrefabs(getProxy(CommanderProxy):getPrefabFleet())
+	slot0.viewComponent:setCallback(slot0.contextData.callback)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		CommanderProxy.PREFAB_FLEET_UPDATE,
+		GAME.COMMANDER_ACTIVITY_FORMATION_OP_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == nil then
+		-- Nothing
+	elseif slot2 == CommanderProxy.PREFAB_FLEET_UPDATE then
+		slot0.viewComponent:setCommanderPrefabs(getProxy(CommanderProxy):getPrefabFleet())
+	elseif slot2 == GAME.COMMANDER_ACTIVITY_FORMATION_OP_DONE then
+		slot0.viewComponent:updateRecordFleet()
+		slot0.viewComponent:updateDesc()
+		slot0.viewComponent:updateRecordPanel()
+	end
+end
+
+slot0.remove = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ray.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ray.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = rawget
+slot2 = Vector3
+slot3 = {
+	direction = slot2.zero,
+	origin = slot2.zero
+}
+slot4 = tolua.initget(slot3)
+
+slot3.__index = function(slot0, slot1)
+	if uv0(uv1, slot1) == nil and uv0(uv2, slot1) ~= nil then
+		return slot2(slot0)
+	end
+
+	return slot2
+end
+
+slot3.__call = function(slot0, slot1, slot2)
+	return uv0.New(slot1, slot2)
+end
+
+slot3.New = function(slot0, slot1)
+	slot2 = {
+		direction = slot0:Normalize(),
+		origin = slot1
+	}
+
+	uv0(slot2, uv1)
+
+	return slot2
+end
+
+slot3.GetPoint = function(slot0, slot1)
+	slot2 = slot0.direction * slot1
+
+	slot2:Add(slot0.origin)
+
+	return slot2
+end
+
+slot3.Get = function(slot0)
+	slot1 = slot0.origin
+	slot2 = slot0.direction
+
+	return slot1.x, slot1.y, slot1.z, slot2.x, slot2.y, slot2.z
+end
+
+slot3.__tostring = function(slot0)
+	return string.format(&quot;Origin:(%f,%f,%f),Dir:(%f,%f, %f)&quot;, slot0.origin.x, slot0.origin.y, slot0.origin.z, slot0.direction.x, slot0.direction.y, slot0.direction.z)
+end
+
+UnityEngine.Ray = slot3
+
+setmetatable(slot3, slot3)
+
+return slot3
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

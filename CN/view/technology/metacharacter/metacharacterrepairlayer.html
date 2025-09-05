@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharacterrepairlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharacterrepairlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterRepairLayer&quot;, import(&quot;...base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MetaCharacterRepairUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0:initTipText()
+	slot0:initData()
+	slot0:findUI()
+	slot0:addListener()
+
+	for slot4, slot5 in ipairs(MetaCharacterConst.REPAIR_ATTRS) do
+		if not slot0.curMetaCharacterVO:getAttrVO(slot5):isLock() then
+			triggerToggle(slot0.attrTFList[slot5], true)
+
+			break
+		end
+	end
+end
+
+slot0.didEnter = function(slot0)
+	slot0:doRepairProgressPanelAni()
+	slot0:updateAttrListPanel()
+	slot0:updateRepairBtn()
+	slot0:updateDetailPanel()
+	slot0:TryPlayGuide()
+end
+
+slot0.willExit = function(slot0)
+end
+
+slot0.onBackPressed = function(slot0)
+	if isActive(slot0.repairEffectBoxPanel) then
+		slot0:closeRepairEffectBoxPanel()
+
+		return
+	elseif isActive(slot0.detailPanel) then
+		slot0:closeDetailPanel()
+
+		return
+	else
+		slot0:emit(uv0.ON_BACK_PRESSED)
+	end
+end
+
+slot0.initTipText = function(slot0)
+	setText(slot0:findTF(&quot;Repair/AttrListPanel/AttrItemContainer/AttrItemCannon/SelectedPanel/AttrRepairTipText&quot;), i18n(&quot;meta_repair&quot;))
+	setText(slot0:findTF(&quot;Repair/AttrListPanel/AttrItemContainer/AttrItemTorpedo/SelectedPanel/AttrRepairTipText&quot;), i18n(&quot;meta_repair&quot;))
+	setText(slot0:findTF(&quot;Repair/AttrListPanel/AttrItemContainer/AttrItemAir/SelectedPanel/AttrRepairTipText&quot;), i18n(&quot;meta_repair&quot;))
+	setText(slot0:findTF(&quot;Repair/AttrListPanel/AttrItemContainer/AttrItemReload/SelectedPanel/AttrRepairTipText&quot;), i18n(&quot;meta_repair&quot;))
+end
+
+slot0.initData = function(slot0)
+	slot0.metaCharacterProxy = getProxy(MetaCharacterProxy)
+	slot0.bayProxy = getProxy(BayProxy)
+	slot0.attrTFList = {}
+	slot0.curAttrName = nil
+	slot0.curMetaShipID = slot0.contextData.shipID
+	slot0.curShipVO = nil
+	slot0.curMetaCharacterVO = nil
+
+	slot0:updateData()
+end
+
+slot0.findUI = function(slot0)
+	slot0.repairPanel = slot0:findTF(&quot;Repair&quot;)
+	slot0.attrListPanel = slot0:findTF(&quot;AttrListPanel&quot;, slot0.repairPanel)
+	slot0.attrItemContainer = slot0:findTF(&quot;AttrItemContainer&quot;, slot0.attrListPanel)
+	slot0.attrCannonTF = slot0:findTF(&quot;AttrItemCannon&quot;, slot0.attrItemContainer)
+	slot0.attrTorpedoTF = slot0:findTF(&quot;AttrItemTorpedo&quot;, slot0.attrItemContainer)
+	slot0.attrAirTF = slot0:findTF(&quot;AttrItemAir&quot;, slot0.attrItemContainer)
+	slot0.attrReloadTF = slot0:findTF(&quot;AttrItemReload&quot;, slot0.attrItemContainer)
+	slot0.attrTFList.cannon = slot0.attrCannonTF
+	slot0.attrTFList.torpedo = slot0.attrTorpedoTF
+	slot0.attrTFList.air = slot0.attrAirTF
+	slot0.attrTFList.reload = slot0.attrReloadTF
+	slot0.repairPercentText = slot0:findTF(&quot;SynProgressPanel/SynRate/NumTextText&quot;, slot0.repairPanel)
+	slot0.repairSliderTF = slot0:findTF(&quot;SynProgressPanel/Slider&quot;, slot0.repairPanel)
+	slot0.repairBtn = slot0:findTF(&quot;RepairBtn&quot;, slot0.repairPanel)
+	slot0.repairBtnDisable = slot0:findTF(&quot;RepairBtnDisable&quot;, slot0.repairPanel)
+	slot0.showDetailLine = slot0:findTF(&quot;ShowDetailLine&quot;)
+	slot0.showDetailBtn = slot0:findTF(&quot;ShowDetailBtn&quot;, slot0.showDetailLine)
+	slot0.detailPanel = slot0:findTF(&quot;Detail&quot;)
+	slot0.detailBG = slot0:findTF(&quot;BG&quot;, slot0.detailPanel)
+	slot0.detailTF = slot0:findTF(&quot;Panel&quot;, slot0.detailPanel)
+	slot0.detailCloseBtn = slot0:findTF(&quot;CloseBtn&quot;, slot0.detailTF)
+	slot0.detailLineTpl = slot0:findTF(&quot;DetailLineTpl&quot;, slot0.detailTF)
+	slot0.detailItemTpl = slot0:findTF(&quot;DetailItemTpl&quot;, slot0.detailTF)
+	slot0.detailItemContainer = slot0:findTF(&quot;ScrollView/Viewport/Content&quot;, slot0.detailTF)
+	slot0.repairEffectBoxPanel = slot0:findTF(&quot;RepairEffectBox&quot;)
+end
+
+slot0.addListener = function(slot0)
+	for slot4, slot5 in pairs(slot0.attrTFList) do
+		onToggle(slot0, slot5, function (slot0)
+			if slot0 == true then
+				uv0.curAttrName = uv1
+
+				uv0:updateRepairBtn()
+			else
+				uv0.curAttrName = nil
+
+				uv0:updateRepairBtn(true)
+			end
+		end, SFX_PANEL)
+	end
+
+	onButton(slot0, slot0.repairBtn, function ()
+		pg.m02:sendNotification(GAME.REPAIR_META_CHARACTER, {
+			shipID = uv0.curMetaShipID,
+			attr = uv0.curAttrName
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.showDetailBtn, function ()
+		if not isActive(uv0.detailPanel) then
+			uv0:openDetailPanel()
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.showDetailLine, function ()
+		if not isActive(uv0.detailPanel) then
+			uv0:openDetailPanel()
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.detailCloseBtn, function ()
+		uv0:closeDetailPanel()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.detailBG, function ()
+		uv0:closeDetailPanel()
+	end, SFX_CANCEL)
+end
+
+slot0.TryPlayGuide = function(slot0)
+	pg.SystemGuideMgr.GetInstance():PlayByGuideId(&quot;NG0027&quot;)
+end
+
+slot0.doRepairProgressPanelAni = function(slot0)
+	slot2 = GetComponent(slot0.repairSliderTF, typeof(Slider))
+	slot2.minValue = 0
+	slot2.maxValue = 1
+	slot3 = slot2.value
+
+	if slot0.curMetaCharacterVO:getRepairRate() &gt; 0 then
+		slot5 = slot0:managedTween(LeanTween.value, nil, go(slot0.repairSliderTF), slot3, slot1, 0.5)
+		slot5 = slot5:setOnUpdate(System.Action_float(function (slot0)
+			uv0:updateRepairProgressPanel(slot0)
+		end))
+
+		slot5:setOnComplete(System.Action(function ()
+			uv0:updateRepairProgressPanel(uv1)
+		end))
+	else
+		slot0:updateRepairProgressPanel(slot1)
+	end
+end
+
+slot0.updateRepairProgressPanel = function(slot0, slot1)
+	slot2 = slot1 or slot0.curMetaCharacterVO:getRepairRate()
+
+	setSlider(slot0.repairSliderTF, 0, 1, slot2)
+	setText(slot0.repairPercentText, string.format(&quot;%d&quot;, slot2 * 100))
+end
+
+slot0.updateAttrListPanel = function(slot0)
+	for slot4, slot5 in ipairs(MetaCharacterConst.REPAIR_ATTRS) do
+		slot0:updateAttrItem(slot0.attrTFList[slot5], slot5)
+	end
+end
+
+slot0.updateAttrItem = function(slot0, slot1, slot2)
+	slot3 = slot0:findTF(&quot;LockPanel&quot;, slot1)
+	slot4 = slot0:findTF(&quot;UnSelectPanel&quot;, slot1)
+
+	GetComponent(slot0:findTF(&quot;TitleImg&quot;, slot0:findTF(&quot;SelectedPanel&quot;, slot1)), &quot;Image&quot;):SetNativeSize()
+
+	if slot0.curMetaCharacterVO:getAttrVO(slot2):isLock() then
+		setActive(slot4, false)
+		setActive(slot5, false)
+		setActive(slot3, true)
+
+		slot1:GetComponent(&quot;Toggle&quot;).interactable = false
+	else
+		slot9 = slot1:GetComponent(&quot;Toggle&quot;)
+
+		setActive(slot4, not slot9.isOn)
+		setActive(slot5, slot9.isOn)
+		setActive(slot3, false)
+
+		slot9.interactable = true
+		slot13 = slot0:findTF(&quot;AttrRepairValue/Image&quot;, slot5)
+		slot14 = slot0:findTF(&quot;AttrRepairValue/NextValueText&quot;, slot5)
+		slot15 = slot0:findTF(&quot;IconTpl&quot;, slot5)
+		slot17 = slot0:findTF(&quot;NumText&quot;, slot0:findTF(&quot;ItemCount&quot;, slot5))
+		slot18 = slot7:getAddition()
+
+		setText(slot0:findTF(&quot;ValueText&quot;, slot4), &quot;+&quot; .. slot18)
+		setText(slot0:findTF(&quot;ValueText&quot;, slot5), &quot;+&quot; .. slot18)
+		setText(slot0:findTF(&quot;AttrRepairValue/CurValueText&quot;, slot5), &quot;+&quot; .. slot18)
+
+		slot21 = nil
+		slot21 = (slot7:isMaxLevel() or slot7:getItem()) and slot7:getItemByLevel(slot7:getLevel() - 1)
+
+		if getProxy(BagProxy):getItemCountById(slot21:getItemId()) &lt; slot21:getTotalCnt() then
+			slot24 = setColorStr(slot24, COLOR_RED)
+		end
+
+		setText(slot17, slot24 .. &quot;/&quot; .. slot23)
+		updateDrop(slot15, {
+			type = DROP_TYPE_ITEM,
+			id = slot22,
+			count = slot23
+		}, {
+			hideName = true
+		})
+		onButton(slot0, slot15, function ()
+			uv0:emit(BaseUI.ON_DROP, uv1)
+		end, SFX_PANEL)
+		setActive(slot13, not slot20)
+		setActive(slot14, not slot20)
+
+		if slot20 then
+			setText(slot14, slot18)
+		else
+			setText(slot14, &quot;+&quot; .. slot18 + slot21:getAdditionValue())
+		end
+
+		if slot20 then
+			setActive(slot15, false)
+			setActive(slot16, false)
+		else
+			setActive(slot15, true)
+			setActive(slot16, true)
+		end
+	end
+end
+
+slot0.updateRepairBtn = function(slot0, slot1)
+	if slot1 == true then
+		setActive(slot0.repairBtn, false)
+		setActive(slot0.repairBtnDisable, false)
+
+		return
+	end
+
+	slot2 = slot0.curMetaCharacterVO:getAttrVO(slot0.curAttrName)
+	slot5 = nil
+	slot5 = (slot2:isMaxLevel() or slot2:getItem()) and slot2:getItemByLevel(slot2:getLevel() - 1)
+	slot9 = slot5:getTotalCnt() &lt;= getProxy(BagProxy):getItemCountById(slot5:getItemId())
+
+	if slot4 then
+		setActive(slot0.repairBtn, false)
+		setActive(slot0.repairBtnDisable, false)
+	elseif not slot9 then
+		setActive(slot0.repairBtn, false)
+		setActive(slot0.repairBtnDisable, true)
+	else
+		setActive(slot0.repairBtn, true)
+		setActive(slot0.repairBtnDisable, false)
+	end
+end
+
+slot0.updateDetailItem = function(slot0, slot1, slot2)
+	slot4 = slot0:findTF(&quot;LockPanel&quot;, slot1)
+	slot6 = slot2.progress
+
+	setText(slot0:findTF(&quot;TipText&quot;, slot4), i18n(&quot;meta_repair_effect_unlock&quot;, slot6))
+	setActive(slot4, slot6 &gt; slot0.curMetaCharacterVO:getRepairRate() * 100)
+
+	slot13 = UIItemList.New(slot0:findTF(&quot;LineContainer&quot;, slot1), slot0.detailLineTpl)
+
+	slot13:make(function (slot0, slot1, slot2)
+		slot3 = uv0:findTF(&quot;AttrLine&quot;, slot2)
+		slot4 = uv0:findTF(&quot;UnlockTipLine&quot;, slot2)
+		slot5 = uv0:findTF(&quot;Text&quot;, slot2)
+
+		if slot0 == UIItemList.EventUpdate then
+			if slot1 + 1 == 1 then
+				setActive(slot3, false)
+				setActive(slot4, false)
+				setActive(slot5, true)
+				setText(slot5, i18n(&quot;meta_repair_effect_unlock&quot;, uv1))
+
+				return
+			end
+
+			if slot1 &lt;= uv2 + 1 then
+				setActive(slot3, true)
+				setActive(slot4, false)
+
+				slot9 = uv3[slot1 - 1]
+				slot10 = slot9[1]
+
+				setImageSprite(uv0:findTF(&quot;AttrIcon&quot;, slot3), LoadSprite(&quot;attricon&quot;, slot10))
+				setText(uv0:findTF(&quot;AttrNameText&quot;, slot3), AttributeType.Type2Name(slot10))
+				setText(uv0:findTF(&quot;NumText&quot;, slot3), &quot;+&quot; .. slot9[2])
+			else
+				setActive(slot3, false)
+				setActive(slot4, true)
+				setScrollText(uv0:findTF(&quot;Text&quot;, slot4), uv4[slot1 - 1 - uv2])
+			end
+		end
+	end)
+	slot13:align(#slot2:getAttrAdditionList() + #slot2:getDescs() + 1)
+end
+
+slot0.updateDetailPanel = function(slot0)
+	setActive(slot0.detailPanel, false)
+
+	slot0.detailList = UIItemList.New(slot0.detailItemContainer, slot0.detailItemTpl)
+
+	slot0.detailList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv1:updateDetailItem(slot2, uv0[slot1 + 1])
+		end
+	end)
+	slot0.detailList:align(#slot0.curMetaCharacterVO:getEffects())
+end
+
+slot0.updateData = function(slot0)
+	slot0.curShipVO = slot0.bayProxy:getShipById(slot0.curMetaShipID)
+	slot0.curMetaCharacterVO = slot0.curShipVO:getMetaCharacter()
+end
+
+slot0.checkSpecialEffect = function(slot0)
+	slot2 = slot0.bayProxy:getShipById(slot0.curMetaShipID):getMetaCharacter()
+	slot3 = slot2:getRepairRate() * 100
+	slot4 = slot0.curMetaCharacterVO:getRepairRate() * 100
+
+	for slot9, slot10 in ipairs(slot2:getEffects()) do
+		if slot4 &lt; slot10.progress and slot11 &lt;= slot3 then
+			slot0:openRepairEffectBoxPanel(slot10)
+
+			break
+		end
+	end
+end
+
+slot0.openRepairEffectBoxPanel = function(slot0, slot1)
+	slot7 = slot1.progress
+	slot8 = slot0:findTF(&quot;BG&quot;, slot0.repairEffectBoxPanel)
+
+	onButton(slot0, slot0:findTF(&quot;Box/BtnContainer/ConfirmBtn&quot;, slot0.repairEffectBoxPanel), function ()
+		uv0:closeRepairEffectBoxPanel()
+	end, SFX_CANCEL)
+
+	slot10 = slot0:findTF(&quot;Box/Panel/TypeRepairEffect&quot;, slot0.repairEffectBoxPanel)
+	slot12 = UIItemList.New(slot10, slot0:findTF(&quot;DetailLineTpl&quot;, slot10))
+
+	slot12:make(function (slot0, slot1, slot2)
+		slot3 = uv0:findTF(&quot;AttrLine&quot;, slot2)
+		slot4 = uv0:findTF(&quot;UnlockTipLine&quot;, slot2)
+
+		if slot0 == UIItemList.EventUpdate then
+			if slot1 + 1 == 1 then
+				setActive(slot3, false)
+				setActive(slot4, true)
+				setScrollText(uv0:findTF(&quot;Text&quot;, slot4), i18n(&quot;meta_repair_effect_special&quot;, uv1))
+			elseif slot1 &gt; 1 and slot1 &lt;= 1 + uv2 then
+				setActive(slot3, true)
+				setActive(slot4, false)
+
+				slot8 = uv3[slot1 - 1]
+				slot9 = slot8[1]
+
+				setImageSprite(uv0:findTF(&quot;AttrIcon&quot;, slot3), LoadSprite(&quot;attricon&quot;, slot9))
+				setText(uv0:findTF(&quot;AttrNameText&quot;, slot3), AttributeType.Type2Name(slot9))
+				setText(uv0:findTF(&quot;NumText&quot;, slot3), &quot;+&quot; .. slot8[2])
+			elseif slot1 &gt; 1 + uv2 and slot1 &lt;= uv4 then
+				setActive(slot3, false)
+				setActive(slot4, true)
+				setScrollText(uv0:findTF(&quot;Text&quot;, slot4), uv5[slot1 - (1 + uv2)])
+			end
+		end
+	end)
+	slot12:align(1 + #slot1:getAttrAdditionList() + #slot1:getDescs())
+	setActive(slot0.repairEffectBoxPanel, true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0.repairEffectBoxPanel, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+end
+
+slot0.closeRepairEffectBoxPanel = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0.repairEffectBoxPanel)
+	setActive(slot0.repairEffectBoxPanel, false)
+end
+
+slot0.openDetailPanel = function(slot0)
+	setActive(slot0.detailPanel, true)
+
+	slot1 = pg.UIMgr.GetInstance()
+
+	slot1:BlurPanel(slot0.detailPanel, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+
+	slot0.isOpening = true
+	slot1 = slot0:managedTween(LeanTween.value, nil, go(slot0.detailTF), slot0.detailTF.rect.width, 0, 0.3)
+	slot1 = slot1:setOnUpdate(System.Action_float(function (slot0)
+		setAnchoredPosition(uv0.detailTF, {
+			x = slot0
+		})
+	end))
+
+	slot1:setOnComplete(System.Action(function ()
+		uv0.isOpening = nil
+	end))
+end
+
+slot0.closeDetailPanel = function(slot0)
+	if slot0.isClosing or slot0.isOpening then
+		return
+	end
+
+	slot0.isClosing = true
+	slot1 = slot0:managedTween(LeanTween.value, nil, go(slot0.detailTF), 0, slot0.detailTF.rect.width, 0.3)
+	slot1 = slot1:setOnUpdate(System.Action_float(function (slot0)
+		setAnchoredPosition(uv0.detailTF, {
+			x = slot0
+		})
+	end))
+
+	slot1:setOnComplete(System.Action(function ()
+		uv0.isClosing = nil
+
+		setActive(uv0.detailPanel, false)
+		pg.UIMgr.GetInstance():UnblurPanel(uv0.detailPanel)
+	end))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

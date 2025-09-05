@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_29512.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_29512.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	time = 0,
+	name = &quot;专属弹幕&quot;,
+	init_effect = &quot;&quot;,
+	id = 29512,
+	picture = &quot;&quot;,
+	desc = &quot;主炮每进行10次攻击，触发专属弹幕-恰巴耶夫II&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 29510,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				countTarget = 10,
+				countType = 29510,
+				index = {
+					1
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				skill_id = 29512,
+				target = &quot;TargetSelf&quot;,
+				countType = 29510
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

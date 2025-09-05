@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_201.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_201.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;弹药充足&quot;,
+	init_effect = &quot;&quot;,
+	id = 201,
+	picture = &quot;&quot;,
+	desc = &quot;舰队伤害提高10%&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 201,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.1,
+				attr = &quot;damageRatioBullet&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;danyaochongzu&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCleanse&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				buff_id = 17793
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg016.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg016.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG016&quot;,
+	events = {
+		{
+			alpha = 0,
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;WNG08&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.2,
+			code = {
+				&quot;getSlgTilePos&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world get slg tile pos&quot;,
+					body = {
+						row = 2,
+						column = 2
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;ShowClickArea&quot;
+			},
+			style = {
+				text = &quot;长按对象可以切换分析模式&quot;,
+				mode = 2,
+				dir = -1,
+				posY = -320,
+				posX = 9.1
+			},
+			showSign = {
+				longPress = 1,
+				type = 2,
+				signList = {
+					{
+						pos = &quot;useCachePos&quot;,
+						signType = 4
+					}
+				},
+				clickArea = {
+					160,
+					140
+				}
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;openDetail&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world scanner display&quot;,
+					body = {
+						row = 2,
+						column = 2,
+						open = 1
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.4,
+			code = {
+				&quot;getCompassDangerousPos&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world get scanner pos&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;explainDetail&quot;
+			},
+			style = {
+				text = &quot;玩家可以在分析仪模式下查看战斗对象的情报或者调查点的信息.&quot;,
+				mode = 2,
+				dir = 1,
+				posY = -200,
+				posX = 357
+			},
+			showSign = {
+				type = 3,
+				signList = {
+					{
+						pos = &quot;useCachePos&quot;,
+						signType = 5
+					}
+				},
+				clickArea = {
+					548,
+					561
+				}
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;closeDetail&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world scanner display&quot;,
+					body = {
+						open = 0
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

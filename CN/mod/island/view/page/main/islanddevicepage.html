@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islanddevicepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islanddevicepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandDevicePage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandDeviceUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.systemTimeUtil = LocalSystemTimeUtil.New()
+	slot0.exitBtn = slot0._tf:Find(&quot;panel/exit&quot;)
+	slot0.timeTxt = slot0._tf:Find(&quot;panel/time&quot;):GetComponent(typeof(Text))
+	slot0.electricTF = slot0._tf:Find(&quot;panel/battery/electric&quot;)
+	slot0.btnEmptyTF = slot0._tf:Find(&quot;panel/content_empty&quot;)
+	slot0.btnContainer = slot0._tf:Find(&quot;panel/content&quot;)
+	slot0.btnTpl = slot0.btnContainer:Find(&quot;tpl&quot;)
+
+	setActive(slot0.btnTpl, false)
+
+	slot0.bannerTF = slot0._tf:Find(&quot;panel/banner&quot;)
+	slot0.bannerEmptyTF = slot0._tf:Find(&quot;panel/banner_empty&quot;)
+	slot0.scrollSnap = BannerScrollRect4Mellow.New(slot0.bannerTF:Find(&quot;mask/content&quot;), slot0.bannerTF:Find(&quot;dots&quot;))
+	slot0.animationPlayer = slot0._tf:GetComponent(typeof(Animation))
+	slot0.dftAniEvent = slot0._tf:GetComponent(typeof(DftAniEvent))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf:Find(&quot;close&quot;), function ()
+		uv0.dftAniEvent:SetEndEvent(function ()
+			uv0.dftAniEvent:SetEndEvent(nil)
+			uv0:Hide()
+		end)
+		uv0.animationPlayer:Play(&quot;IslandDeviceUI_out&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.exitBtn, function ()
+		uv0:emit(BaseUI.ON_HOME)
+	end, SFX_PANEL)
+	setActive(slot0.exitBtn, not ISLAND_PLAYER_TESTING)
+	slot0:InitBtns()
+	slot0:InitBanner()
+end
+
+slot0.InitBtns = function(slot0)
+	slot0.btns = {}
+	slot1 = pg.island_main_btns.get_id_list_by_main_type[2]
+	slot5 = {
+		function (slot0)
+			return pg.island_main_btns[slot0].order
+		end,
+		slot6
+	}
+
+	slot6 = function(slot0)
+		return slot0
+	end
+
+	table.sort(slot1, CompareFuncs(slot5))
+
+	for slot5, slot6 in ipairs(slot1) do
+		slot0.btns[pg.island_main_btns[slot6].btn_name] = IslandDeviceBaseBtn.New(cloneTplTo(slot0.btnTpl, slot0.btnContainer), slot0.event, slot6)
+	end
+end
+
+slot0.InitBanner = function(slot0)
+	slot1 = slot0:GetBannerDisplays()
+	slot0.banners = slot1
+
+	for slot5 = 0, #slot1 - 1 do
+		slot7 = slot0.scrollSnap
+		slot7 = slot7:AddChild()
+
+		LoadImageSpriteAsync(&quot;island/islandbanner/&quot; .. slot1[slot5 + 1].pic, slot7)
+		onButton(slot0, slot7, function ()
+			uv0:BannerSkip(uv1)
+		end, SFX_MAIN)
+	end
+
+	slot0.scrollSnap:SetUp()
+end
+
+slot0.OnShow = function(slot0)
+	slot0:AddTimer()
+	slot0:Flush()
+	slot0:FlushBattery()
+	slot0:FlushTime()
+	slot0:emitCore(ISLAND_EVT.DEVIEE_STATE_CHANGE, true)
+
+	if IslandCameraMgr.instance then
+		IslandCameraMgr.instance:ActiveVirtualCamera(IslandConst.FOCUS_CAMERA_NAME)
+	end
+end
+
+slot0.Flush = function(slot0)
+	for slot4, slot5 in pairs(slot0.btns) do
+		slot5:Flush()
+	end
+
+	slot2 = #slot0:GetBannerDisplays() ~= 0
+
+	setActive(slot0.bannerEmptyTF, not slot2)
+	setActive(slot0.bannerTF, slot2)
+
+	if slot2 then
+		if #slot0.banners ~= #slot1 then
+			slot0.scrollSnap:Reset()
+			slot0:InitBanner()
+		else
+			slot0.scrollSnap:Resume()
+		end
+	end
+end
+
+slot0.FlushBattery = function(slot0)
+	if SystemInfo.batteryLevel &lt; 0 then
+		slot1 = 1
+	end
+
+	setFillAmount(slot0.electricTF, slot1)
+end
+
+slot0.FlushTime = function(slot0)
+	slot1 = slot0.systemTimeUtil
+
+	slot1:SetUp(function (slot0, slot1, slot2)
+		uv0.timeTxt.text = slot0 .. &quot;:&quot; .. slot1
+	end)
+end
+
+slot0.AddTimer = function(slot0)
+	slot0:RemoveTimer()
+
+	slot0.timer = Timer.New(function ()
+		uv0:FlushBattery()
+		uv0:FlushTime()
+	end, 60, -1)
+
+	slot0.timer:Start()
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.OnHide = function(slot0)
+	slot0:RemoveTimer()
+	slot0:emitCore(ISLAND_EVT.DEVIEE_STATE_CHANGE, false)
+
+	if IslandCameraMgr.instance then
+		IslandCameraMgr.instance:ActiveVirtualCamera(IslandConst.FOLLOW_CAMERA_NAME)
+	end
+end
+
+slot0.OnDisable = function(slot0)
+	slot0:OnHide()
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.systemTimeUtil:Dispose()
+
+	slot0.systemTimeUtil = nil
+
+	slot0.scrollSnap:Dispose()
+
+	slot0.scrollSnap = nil
+
+	for slot4, slot5 in pairs(slot0.btns) do
+		slot5:Dispose()
+	end
+
+	slot0.btns = nil
+end
+
+slot0.GetBannerDisplays = function(slot0)
+	return underscore(pg.island_banner.all):chain():map(function (slot0)
+		return pg.island_banner[slot0]
+	end):select(function (slot0)
+		return pg.TimeMgr.GetInstance():inTime(slot0.time)
+	end):value()
+end
+
+slot0.BannerSkip = function(slot0, slot1)
+	pg.GameTrackerMgr.GetInstance():Record(GameTrackerBuilder.BuildIslandDeviceBanner(slot1.id))
+
+	if slot1.type == IslandConst.BANNER_TYPE_OPEN_URL then
+		Application.OpenURL(slot1.param)
+	elseif slot1.type == IslandConst.BANNER_TYPE_SWITCH_MAP then
+		slot0.dftAniEvent:SetEndEvent(function ()
+			uv0.dftAniEvent:SetEndEvent(nil)
+			uv0:Hide()
+			uv0:emit(IslandBaseMediator.SWITCH_MAP, unpack(uv1.param))
+		end)
+		slot0.animationPlayer:Play(&quot;IslandDeviceUI_out&quot;)
+	elseif slot1.type == IslandConst.BANNER_TYPE_OPEN_PAGE then
+		slot0:Hide()
+		slot0:emit(IslandMediator.OPEN_PAGE, slot1.param[1], slot1.param[2])
+	elseif slot1.type == IslandConst.BANNER_TYPE_SURVEY then
+		slot2, slot3 = getProxy(ActivityProxy):isSurveyOpen()
+
+		if slot2 then
+			pg.m02:sendNotification(GAME.SURVEY_REQUEST, {
+				surveyID = slot3,
+				surveyUrlStr = getSurveyUrl(slot3)
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_not_start&quot;))
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

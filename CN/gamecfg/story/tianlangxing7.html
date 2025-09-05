@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tianlangxing7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tianlangxing7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;TIANLANGXING7&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;天狼星改造计划\n\n&lt;size=45&gt;七 星光闪耀于夜空&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;level&quot;,
+			say = &quot;战斗仅仅持续了几分钟。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			say = &quot;到达塞壬出没的海域时，塞壬已经化为了在海面上漂浮的残骸了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			actor = 205010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;什么嘛！把本王的主力部队的风头给抢光了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.15,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 205020,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;陛下，就算是想宣示武力，也不用对舰载机用上主力部队吧……打倒敌人的是皇家海军，结果也挺好的不是吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哼！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_battle_night&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;story-2&quot;,
+			actor = 205020,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过…果然不愧是强化过对空能力的黛朵级——&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205020,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不对，能展示出如此身手，应该还是多亏了那时指挥官瞬间做出的判断吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			say = &quot;如果是天狼星一定可以做到——让她单独出击的决定正是出于这份信赖&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			say = &quot;而结果正好证明了这个决定是正确的。仅此而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			say = &quot;就这样，身着白色蔷薇礼裙的天狼星凯旋归来了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			actor = 202201,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;天狼星已为您扫清了前进道路，我骄傲的主人&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			dir = 1,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			withoutActorName = true,
+			actor = 202201,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;她静静的，优雅地把手伸向这边。仿佛夜色中的大海也是宴会的舞池一般&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202201,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;无论身着什么样的服饰，我都是您的女仆，必将全力实现您的期望&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			actor = 202201,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;如果您希望的话，那么天狼星会变的比任何人都耀眼，比任何人都美丽&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202201,
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;无论在宴会舞台的灯光下，还是硝烟弥漫的战场上，请让我一直看着您，陪伴在您的身边，直到永远——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_battle_night&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;此刻的天狼星是如此美丽，如同寒冬的钻石一般，闪耀动人&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

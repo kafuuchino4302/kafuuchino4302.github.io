@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dphotolayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dphotolayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dPhotoLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;Dorm3dPhotoUI&quot;
+end
+
+slot1 = {
+	&quot;/OverlayCamera/Overlay/UIOverlay/TipPanel(Clone)&quot;
+}
+slot0.PANEL = {
+	ACTION = 1,
+	LIGHTING = 3,
+	CAMERA = 2
+}
+
+slot0.init = function(slot0)
+	slot0.centerPanel = slot0._tf:Find(&quot;Center&quot;)
+	slot0.normalPanel = slot0._tf:Find(&quot;Center/Normal&quot;)
+
+	setActive(slot0.normalPanel, true)
+
+	slot0.settingPanel = slot0._tf:Find(&quot;Center/Settings&quot;)
+	slot0.btnAction = slot0.settingPanel:Find(&quot;Action&quot;)
+	slot0.btnCamera = slot0.settingPanel:Find(&quot;Camera&quot;)
+	slot0.btnLighting = slot0.settingPanel:Find(&quot;Lighting&quot;)
+	slot0.panelAction = slot0.settingPanel:Find(&quot;ActionSelect&quot;)
+
+	setActive(slot0.panelAction, false)
+	setActive(slot0.panelAction:Find(&quot;Mask&quot;), false)
+
+	slot0.panelCamera = slot0.settingPanel:Find(&quot;CameraSettings&quot;)
+
+	setActive(slot0.panelCamera, false)
+
+	slot0.panelLightning = slot0.settingPanel:Find(&quot;LightningSettings&quot;)
+
+	setActive(slot0.panelLightning, false)
+
+	slot0.listZones = slot0._tf:Find(&quot;ZoneList&quot;)
+
+	setActive(slot0.listZones, false)
+
+	slot0.zoneMask = slot0.listZones:Find(&quot;Mask&quot;)
+	slot0.btnHideUI = slot0._tf:Find(&quot;Center/HideUI&quot;)
+	slot0.btnReset = slot0._tf:Find(&quot;Center/Reset&quot;)
+	slot0.btnFreeze = slot0._tf:Find(&quot;Center/Freeze&quot;)
+	slot0.btnMove = slot0._tf:Find(&quot;Center/Move&quot;)
+	slot0.btnZone = slot0._tf:Find(&quot;Center/Zone&quot;)
+	slot0.btnAr = slot0._tf:Find(&quot;Center/Ar&quot;)
+	slot0.ARchecker = GetComponent(slot0.btnAr.gameObject, &quot;ARChecker&quot;)
+	slot0.btnAnimSpeed = slot0._tf:Find(&quot;Center/AnimSpeed&quot;)
+	slot0.listAnimSpeed = slot0.btnAnimSpeed:Find(&quot;Bar&quot;)
+
+	setActive(slot0.listAnimSpeed, false)
+
+	slot0.textAnimSpeed = slot0.btnAnimSpeed:Find(&quot;Text&quot;)
+	slot0.hideuiMask = slot0._tf:Find(&quot;RightTop/Mask&quot;)
+
+	setActive(slot0.hideuiMask, false)
+
+	slot0.btnFilm = slot0._tf:Find(&quot;RightTop/Film/Film&quot;)
+	slot0.filmTime = slot0._tf:Find(&quot;RightTop/FilmTime&quot;)
+
+	setActive(slot0.filmTime, false)
+
+	slot0.shareUI = slot0._tf:Find(&quot;ShareUI&quot;)
+
+	setActive(slot0.shareUI, false)
+
+	slot0.ysScreenShoter = slot0._tf:Find(&quot;Shoter&quot;):GetComponent(typeof(YSTool.YSScreenShoter))
+	slot0.btnMenuSmall = slot0._tf:Find(&quot;Center/MenuSmall&quot;)
+	slot0.btnMenu = slot0._tf:Find(&quot;Center/Menu&quot;)
+
+	setActive(slot0.panelAction:Find(&quot;Layout/Regular/Index&quot;), false)
+	setText(slot0.panelCamera:Find(&quot;Layout/DepthOfField/Title/Text&quot;), i18n(&quot;dorm3d_photo_len&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/DepthOfField/Switch/Title&quot;), i18n(&quot;dorm3d_photo_depthoffield&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField/FocusDistance/Title&quot;), i18n(&quot;dorm3d_photo_focusdistance&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField/BlurRadius/Title&quot;), i18n(&quot;dorm3d_photo_focusstrength&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Paramaters/Title/Text&quot;), i18n(&quot;dorm3d_photo_paramaters&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Paramaters/PostExposure/PostExposure/Title&quot;), i18n(&quot;dorm3d_photo_postexposure&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Paramaters/Saturation/Saturation/Title&quot;), i18n(&quot;dorm3d_photo_saturation&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Paramaters/Contrast/Contrast/Title&quot;), i18n(&quot;dorm3d_photo_contrast&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Other/Title/Text&quot;), i18n(&quot;dorm3d_photo_Others&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Other/HideCharacter/Title&quot;), i18n(&quot;dorm3d_photo_hidecharacter&quot;))
+	setText(slot0.panelCamera:Find(&quot;Layout/Other/FaceCamera/Title&quot;), i18n(&quot;dorm3d_photo_facecamera&quot;))
+	setText(slot0.panelLightning:Find(&quot;Layout/Title/Filter/Name&quot;), i18n(&quot;dorm3d_photo_filter&quot;))
+	setText(slot0.panelLightning:Find(&quot;Layout/Title/Filter/Selected&quot;), i18n(&quot;dorm3d_photo_filter&quot;))
+	setText(slot0.panelAction:Find(&quot;Layout/Title/Regular/Name&quot;), i18n(&quot;dorm3d_photo_regular_anim&quot;))
+	setText(slot0.panelAction:Find(&quot;Layout/Title/Regular/Selected&quot;), i18n(&quot;dorm3d_photo_regular_anim&quot;))
+	setText(slot0.panelAction:Find(&quot;Layout/Title/Special/Name&quot;), i18n(&quot;dorm3d_photo_special_anim&quot;))
+	setText(slot0.panelAction:Find(&quot;Layout/Title/Special/Selected&quot;), i18n(&quot;dorm3d_photo_special_anim&quot;))
+
+	slot0.mainCamera = GameObject.Find(&quot;BackYardMainCamera&quot;):GetComponent(typeof(Camera))
+	slot0.stopRecBtn = slot0:findTF(&quot;stopRec&quot;)
+	slot0.videoTipPanel = slot0:findTF(&quot;videoTipPanel&quot;)
+
+	setActive(slot0.videoTipPanel, false)
+
+	slot0.loader = AutoLoader.New()
+end
+
+slot0.SetSceneRoot = function(slot0, slot1)
+	slot0.scene = slot1
+end
+
+slot0.SetRoom = function(slot0, slot1)
+	slot0.room = slot1
+end
+
+slot0.SetGroupId = function(slot0, slot1)
+	slot0.groupId = slot1
+end
+
+slot0.onBackPressed = function(slot0)
+	if slot0.recordState then
+		triggerButton(slot0.btnFilm)
+
+		return
+	end
+
+	if slot0.activeSetting then
+		triggerButton(slot0._tf:Find(&quot;Center/Settings/Back&quot;))
+
+		return
+	end
+
+	slot0:closeView()
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._tf:Find(&quot;Center/Normal/Back&quot;), function ()
+		uv0:onBackPressed()
+	end, SFX_CANCEL)
+
+	slot1 = slot0.normalPanel:Find(&quot;Zoom/Slider&quot;)
+
+	setSlider(slot1, 0, 1, 0)
+	onSlider(slot0, slot1, function (slot0)
+		uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetPhotoCameraHeight&quot;, slot0)
+	end)
+	setActive(slot1, false)
+	setActive(slot0._tf:Find(&quot;Center/Stick&quot;), false)
+
+	slot0.activeSetting = false
+
+	onButton(slot0, slot0._tf:Find(&quot;Center/Normal/Settings&quot;), function ()
+		uv0.activeSetting = true
+
+		quickPlayAnimation(uv0._tf:Find(&quot;Center&quot;), &quot;anim_dorm3d_photo_normal_out&quot;)
+		uv0:UpdateActionPanel()
+		uv0:UpdateCameraPanel()
+		uv0:UpdateLightingPanel()
+	end, SFX_PANEL)
+	onButton(slot0, slot0._tf:Find(&quot;Center/Settings/Back&quot;), function ()
+		uv0.activeSetting = false
+
+		quickPlayAnimation(uv0._tf:Find(&quot;Center&quot;), &quot;anim_dorm3d_photo_normal_in&quot;)
+	end, SFX_CANCEL)
+
+	slot0.hideUI = false
+
+	onButton(slot0, slot0.btnHideUI, function ()
+		if uv0.hideUI then
+			return
+		end
+
+		setActive(uv0.hideuiMask, true)
+		setActive(uv0.centerPanel, false)
+
+		uv0.hideUI = true
+	end, SFX_PANEL)
+	onButton(slot0, slot0.hideuiMask, function ()
+		if not uv0.hideUI then
+			return
+		end
+
+		setActive(uv0.centerPanel, true)
+		setActive(uv0.hideuiMask, false)
+
+		uv0.hideUI = false
+	end)
+	onButton(slot0, slot0.btnReset, function ()
+		uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetPhotoCameraPosition&quot;)
+	end, SFX_PANEL)
+
+	slot0.recordState = false
+
+	onButton(slot0, slot0.btnFilm, function ()
+		slot0 = function(slot0)
+			setActive(uv0.centerPanel, slot0)
+
+			uv0:findTF(&quot;RightTop&quot;):GetComponent(&quot;CanvasGroup&quot;).alpha = slot0 and 1 or 0
+		end
+
+		if not uv0.recordState then
+			slot1 = function(slot0)
+				if not slot0 then
+					uv0(true)
+
+					uv1.recordState = false
+
+					LeanTween.moveX(uv1.stopRecBtn, uv1.stopRecBtn.rect.width, 0.15)
+				else
+					uv1.recordState = true
+				end
+			end
+
+			slot2 = function()
+				setActive(uv0.stopRecBtn, true)
+				LeanTween.moveX(uv0.stopRecBtn, 0, 0.15):setOnComplete(System.Action(function ()
+					uv0.SetMute(true)
+
+					uv1.recordFilePath = YSNormalTool.RecordTool.GenRecordFilePath()
+
+					YSNormalTool.RecordTool.StartRecording(uv2, uv1.recordFilePath)
+				end))
+			end
+
+			seriesAsync({
+				function (slot0)
+					PermissionHelper.Request3DDorm(slot0, nil)
+				end,
+				function (slot0)
+					uv0(false)
+
+					if not PlayerPrefs.GetInt(&quot;hadShowForVideoTipDorm&quot;, 0) or slot1 &lt;= 0 then
+						PlayerPrefs.SetInt(&quot;hadShowForVideoTipDorm&quot;, 1)
+
+						uv1:findTF(&quot;Text&quot;, uv1.videoTipPanel):GetComponent(&quot;Text&quot;).text = i18n(&quot;word_take_video_tip&quot;)
+
+						onButton(uv1, uv1.videoTipPanel, function ()
+							setActive(uv0.videoTipPanel, false)
+							uv1()
+						end)
+						setActive(uv1.videoTipPanel, true)
+					else
+						uv2()
+					end
+				end
+			})
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.stopRecBtn, function ()
+		uv0.recordState = false
+
+		slot0 = function(slot0)
+			if slot0 and PLATFORM == PLATFORM_ANDROID then
+				pg.MsgboxMgr.GetInstance():ShowMsgBox({
+					content = i18n(&quot;word_save_video&quot;),
+					onNo = function ()
+						if System.IO.File.Exists(uv0.recordFilePath) then
+							System.IO.File.Delete(uv0.recordFilePath)
+						end
+					end,
+					onYes = function ()
+						YSNormalTool.MediaTool.SaveVideoToAlbum(uv0.recordFilePath, function (slot0, slot1)
+							if slot0 then
+								pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;word_save_ok&quot;))
+
+								if System.IO.File.Exists(uv0.recordFilePath) then
+									System.IO.File.Delete(uv0.recordFilePath)
+								end
+							end
+						end)
+					end
+				})
+			end
+
+			uv0.recordState = false
+		end
+
+		slot1 = function(slot0)
+			setActive(uv0.centerPanel, slot0)
+
+			uv0:findTF(&quot;RightTop&quot;):GetComponent(&quot;CanvasGroup&quot;).alpha = slot0 and 1 or 0
+		end
+
+		if not LeanTween.isTweening(go(uv0.stopRecBtn)) then
+			LeanTween.moveX(uv0.stopRecBtn, uv0.stopRecBtn.rect.width, 0.15):setOnComplete(System.Action(function ()
+				setActive(uv0.stopRecBtn, false)
+				seriesAsync({
+					function (slot0)
+						YSNormalTool.RecordTool.StopRecording(uv0)
+						uv1(true)
+						uv2.SetMute(false)
+						pg.m02:sendNotification(GAME.APARTMENT_TRACK, Dorm3dTrackCommand.BuildDataCamera(uv3.scene.apartment:GetConfigID(), 2, uv3.room:GetConfigID(), Dorm3dTrackCommand.BuildCameraMsg(uv3.room:GetCameraZones()[uv3.zoneIndex]:GetName(), Dorm3dCameraAnim.New({
+							configId = uv3.animID
+						}):GetStateName(), uv3.cameraSettings.depthOfField.focusDistance.value, uv3.cameraSettings.depthOfField.blurRadius.value, uv3.cameraSettings.postExposure.value, uv3.cameraSettings.contrast.value, uv3.cameraSettings.saturate.value)))
+					end
+				})
+			end))
+		end
+	end)
+	setActive(slot0.stopRecBtn, false)
+	onButton(slot0, slot0._tf:Find(&quot;RightTop/Film/Switch&quot;), function ()
+		GetOrAddComponent(uv0._tf:Find(&quot;RightTop/Film&quot;), typeof(CanvasGroup)).blocksRaycasts = false
+
+		quickPlayAnimation(uv0._tf:Find(&quot;RightTop&quot;), &quot;anim_dorm3d_photo_FtoS&quot;)
+	end, SFX_PANEL)
+
+	slot5 = slot0._tf
+
+	onButton(slot0, slot5:Find(&quot;RightTop/Shot/Shot&quot;), function ()
+		slot0 = function(slot0)
+			setActive(uv0.centerPanel, slot0)
+			setActive(uv0._tf:Find(&quot;RightTop&quot;), slot0)
+
+			if PlayerPrefs.GetInt(SHOW_TOUCH_EFFECT, 1) &gt; 0 then
+				setActive(pg.UIMgr.GetInstance().OverlayEffect, slot0)
+			end
+		end
+
+		slot1 = function(slot0)
+			warning(&quot;截图结果：&quot; .. tostring(slot0))
+		end
+
+		slot2 = function(slot0, slot1)
+			uv0:emit(Dorm3dPhotoMediator.SHARE_PANEL, slot1, slot0)
+			getProxy(Dorm3dChatProxy):TriggerEvent({
+				{
+					value = 1,
+					event_type = 160,
+					ship_id = uv0.scene.apartment:GetConfigID()
+				}
+			})
+			pg.m02:sendNotification(GAME.APARTMENT_TRACK, Dorm3dTrackCommand.BuildDataCamera(uv0.scene.apartment:GetConfigID(), 1, uv0.room:GetConfigID(), Dorm3dTrackCommand.BuildCameraMsg(uv0.room:GetCameraZones()[uv0.zoneIndex]:GetName(), Dorm3dCameraAnim.New({
+				configId = uv0.animID
+			}):GetStateName(), uv0.cameraSettings.depthOfField.focusDistance.value, uv0.cameraSettings.depthOfField.blurRadius.value, uv0.cameraSettings.postExposure.value, uv0.cameraSettings.contrast.value, uv0.cameraSettings.saturate.value)))
+		end
+
+		BLHX.Rendering.HotUpdate.ScreenShooterPass.TakePhoto(uv0.mainCamera, function (slot0)
+			uv0(true)
+			uv1(Tex2DExtension.EncodeToJPG(slot0), slot0)
+		end)
+	end, &quot;ui-dorm_photograph&quot;)
+
+	GetOrAddComponent(slot0._tf:Find(&quot;RightTop/Film&quot;), typeof(CanvasGroup)).blocksRaycasts = false
+
+	onButton(slot0, slot0._tf:Find(&quot;RightTop/Shot/Switch&quot;), function ()
+		GetOrAddComponent(uv0._tf:Find(&quot;RightTop/Film&quot;), typeof(CanvasGroup)).blocksRaycasts = true
+
+		quickPlayAnimation(uv0._tf:Find(&quot;RightTop&quot;), &quot;anim_dorm3d_photo_StoF&quot;)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnAnimSpeed, function ()
+		setActive(uv0.listAnimSpeed, not isActive(uv0.listAnimSpeed))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnZone, function ()
+		setActive(uv0.listZones, not isActive(uv0.listZones))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.zoneMask, function ()
+		setActive(uv0.listZones, false)
+	end)
+	onButton(slot0, slot0.btnAr, function ()
+		uv0.ARchecker:StartCheck(function (slot0)
+			if PLATFORM == PLATFORM_WINDOWSEDITOR then
+				slot0 = -1
+			end
+
+			originalPrint(&quot;AR CODE: &quot; .. slot0)
+			uv0:emit(Dorm3dPhotoMediator.GO_AR, slot0)
+		end)
+	end)
+	onButton(slot0, slot0.btnMove, function ()
+		uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SwitchPhotoCamera&quot;)
+
+		uv0.freeMode = not uv0.freeMode
+
+		setActive(uv1, uv0.freeMode)
+		setActive(uv2, uv0.freeMode)
+		setActive(uv0.btnMove:Find(&quot;Selected&quot;), uv0.freeMode)
+	end)
+	onButton(slot0, slot0.btnMenuSmall, function ()
+		setActive(uv0.btnMenuSmall, false)
+		setActive(uv0.btnMenu, true)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnMenu:Find(&quot;Collapse&quot;), function ()
+		setActive(uv0.btnMenu, false)
+		setActive(uv0.btnMenuSmall, true)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnMenu, function ()
+		uv0:emit(Dorm3dPhotoMediator.OPEN_SKIN_SELECT_LAYER, uv0.groupId, uv0.scene.ladyDict[uv0.groupId], function (slot0, slot1, slot2)
+			uv0:OnSwitchSkin(slot0, slot1, slot2)
+		end, not uv0.scene.room:isPersonalRoom())
+	end, SFX_PANEL)
+
+	slot0.activePanel = 1
+	slot4 = {
+		{
+			btn = slot0.btnAction,
+			On = function ()
+				uv0:UpdateActionPanel()
+			end,
+			Off = function ()
+			end
+		},
+		{
+			btn = slot0.btnCamera,
+			On = function ()
+				uv0:UpdateCameraPanel()
+			end,
+			Off = function ()
+			end
+		},
+		{
+			btn = slot0.btnLighting,
+			On = function ()
+				uv0:UpdateLightingPanel()
+			end,
+			Off = function ()
+			end
+		}
+	}
+
+	table.Ipairs(slot4, function (slot0, slot1)
+		onToggle(uv0, slot1.btn, function (slot0)
+			if not slot0 then
+				return
+			end
+
+			table.Ipairs(uv0, function (slot0, slot1)
+				if slot0 == uv0 then
+					return
+				end
+
+				slot1.Off()
+			end)
+
+			uv2.activePanel = uv1
+
+			uv3.On()
+		end, SFX_PANEL)
+	end)
+	(function ()
+		triggerToggle(({
+			uv0.panelAction:Find(&quot;Layout/Title/Regular&quot;),
+			uv0.panelAction:Find(&quot;Layout/Title/Special&quot;)
+		})[1], true)
+	end)()
+	(function ()
+		triggerToggle(({
+			uv0.panelLightning:Find(&quot;Layout/Title/Filter&quot;)
+		})[1], true)
+	end)()
+
+	slot0.zoneIndex = 1
+
+	slot0:InitData()
+	slot0:FirstEnterZone()
+	triggerToggle(slot4[slot0.activePanel].btn, true)
+	slot0:UpdateZoneList()
+end
+
+slot0.InitData = function(slot0)
+	slot0.cameraSettings = Clone(slot0.scene:GetCameraSettings())
+	slot0.settingHideCharacter = false
+	slot0.settingFaceCamera = true
+	slot0.settingFilterIndex = nil
+	slot0.settingFilterStrength = 1
+
+	slot0:RefreshData()
+end
+
+slot0.RefreshData = function(slot0)
+	slot2 = slot0.room:GetCameraZones()[slot0.zoneIndex]
+	slot0.animID = slot2:GetRegularAnimsByShipId(slot0.groupId)[1]:GetConfigID()
+
+	slot4 = function(slot0, slot1)
+		slot0.min = slot1[1]
+		slot0.max = slot1[2]
+		slot0.value = math.clamp(slot0.value, slot1[1], slot1[2])
+	end
+
+	slot4(slot0.cameraSettings.depthOfField.focusDistance, slot2:GetFocusDistanceRange())
+	slot4(slot0.cameraSettings.depthOfField.blurRadius, slot2:GetDepthOfFieldBlurRange())
+	slot4(slot0.cameraSettings.postExposure, slot2:GetExposureRange())
+	slot4(slot0.cameraSettings.contrast, slot2:GetContrastRange())
+	slot4(slot0.cameraSettings.saturate, slot2:GetSaturationRange())
+
+	slot0.animSpeeds = slot2:GetAnimSpeeds()
+	slot0.animSpeed = 1
+end
+
+slot0.FirstEnterZone = function(slot0)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;EnterPhotoMode&quot;, slot0.room:GetCameraZones()[slot0.zoneIndex], Dorm3dCameraAnim.New({
+		configId = slot0.animID
+	}):GetStateName())
+	slot0:UpdateAnimSpeedPanel()
+end
+
+slot0.SwitchZone = function(slot0)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SwitchCameraZone&quot;, slot0.room:GetCameraZones()[slot0.zoneIndex], Dorm3dCameraAnim.New({
+		configId = slot0.animID
+	}):GetStateName())
+
+	if slot0.timerAnim then
+		slot0.timerAnim:Stop()
+
+		slot0.timerAnim = nil
+	end
+
+	slot0.animPlaying = nil
+
+	slot0:UpdateActionPanel()
+	slot0:UpdateCameraPanel()
+	slot0:UpdateLightingPanel()
+	slot0:UpdateAnimSpeedPanel()
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetCharacterAnimSpeed&quot;, slot0.animSpeed)
+end
+
+slot0.UpdateZoneList = function(slot0)
+	slot1 = slot0.room
+
+	(function ()
+		slot1 = uv0.btnZone
+		slot2 = uv1[uv0.zoneIndex]
+
+		setText(slot1:Find(&quot;Text&quot;), slot2:GetName())
+
+		slot1 = uv0.listZones
+		slot2 = uv0.listZones
+		slot2 = slot2:Find(&quot;List&quot;)
+
+		UIItemList.StaticAlign(slot1:Find(&quot;List&quot;), slot2:GetChild(0), #uv1, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			slot1 = slot1 + 1
+
+			setText(slot2:Find(&quot;Name&quot;), uv0[slot1]:GetName())
+			setTextColor(slot2:Find(&quot;Name&quot;), uv1.zoneIndex == slot1 and Color.NewHex(&quot;5CCAFF&quot;) or Color.NewHex(&quot;FFFFFF99&quot;))
+			setActive(slot2:Find(&quot;Line&quot;), slot1 &lt; #uv0)
+		end)
+	end)()
+
+	slot4 = slot0.listZones
+	slot5 = slot0.listZones
+	slot5 = slot5:Find(&quot;List&quot;)
+
+	UIItemList.StaticAlign(slot4:Find(&quot;List&quot;), slot5:GetChild(0), #slot1:GetCameraZones(), function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		slot1 = slot1 + 1
+
+		onButton(uv0, slot2, function ()
+			if uv0.zoneIndex == uv1 then
+				return
+			end
+
+			uv0.zoneIndex = uv1
+
+			uv0:RefreshData()
+			uv0:SwitchZone()
+			setActive(uv0.listZones, false)
+			uv2()
+		end, SFX_PANEL)
+	end)
+end
+
+slot2 = 0.2
+
+slot0.UpdateActionPanel = function(slot0)
+	if not slot0.activeSetting then
+		return
+	end
+
+	if slot0.activePanel ~= uv0.PANEL.ACTION then
+		return
+	end
+
+	slot1 = slot0.room:GetCameraZones()[slot0.zoneIndex]
+	slot3 = slot0.panelAction:Find(&quot;Layout/Regular/Scroll/Viewport/Content&quot;)
+	slot5 = slot0.panelAction:Find(&quot;Layout/Special/Scroll/Viewport/Content&quot;)
+
+	setActive(slot0.panelAction:Find(&quot;Layout/Title/Special&quot;), #slot1:GetAllSpecialList(slot0.room.id) &gt; 0)
+
+	slot8 = function(slot0, slot1)
+		if uv0.animPlaying then
+			return
+		end
+
+		if uv0.animID == slot0:GetConfigID() then
+			return
+		end
+
+		slot3 = uv0:GetAnimPlayList(slot2)
+		slot4 = Dorm3dCameraAnim.New({
+			configId = uv0.animID
+		}):GetFinishAnimID()
+		uv0.animID = slot2
+
+		uv1()
+		uv0:BlockActionPanel(true)
+
+		uv0.animPlaying = true
+		slot6 = table.indexof(slot3, _.detect(slot3, function (slot0)
+			return slot0:GetConfigID() == uv0
+		end)) or 0
+		slot6 = slot1:Find(&quot;Slider&quot;):GetComponent(typeof(Slider))
+
+		setActive(slot1:Find(&quot;Slider&quot;), true)
+
+		slot7 = function()
+			setActive(uv0:Find(&quot;Selected&quot;), true)
+			setActive(uv0:Find(&quot;Slider&quot;), false)
+			uv1:BlockActionPanel(false)
+
+			uv1.animPlaying = nil
+		end
+
+		if #_.rest(slot3, slot6 + 1) == 0 then
+			slot7()
+
+			return
+		end
+
+		slot8 = function(slot0, slot1, slot2)
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;PlayEnterSceneAnim&quot;, slot0:GetEnterSceneAnim(), slot2 ~= slot1)
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;PlayEnterExtraItem&quot;, slot0:GetEnterExtraItem(), slot2 ~= slot1)
+		end
+
+		slot9 = _.reduce(slot3, 0, function (slot0, slot1)
+			return slot0 + math.max(uv0, slot1:GetAnimTime())
+		end)
+
+		if uv0.timerAnim then
+			uv0.timerAnim:Stop()
+		end
+
+		uv0.animInfo = {
+			index = 1,
+			passedTime = 0,
+			ratio = 0,
+			animPlayList = slot3,
+			totalTime = slot9,
+			startStamp = Time.time
+		}
+		uv0.timerAnim = FrameTimer.New(function ()
+			slot0 = uv0.animInfo
+			slot2 = math.max(uv1, slot0.animPlayList[slot0.index]:GetAnimTime())
+			slot5 = math.min(1, slot0.ratio + (Time.time - slot0.startStamp) * uv0.animSpeed / slot2)
+			uv2.value = (slot0.passedTime + slot2 * slot5) / uv3
+
+			if slot5 &lt; 1 then
+				return
+			end
+
+			slot0.index = slot0.index + 1
+			slot0.ratio = 0
+			slot0.passedTime = slot0.passedTime + slot2
+			slot0.startStamp = slot4
+
+			if #slot1:GetStartPoint() &gt; 0 then
+				uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetCurrentCharPoint&quot;, slot7)
+			end
+
+			if slot0.index &gt; #slot0.animPlayList then
+				uv4()
+				uv0.timerAnim:Stop()
+
+				uv0.timerAnim = nil
+				uv0.animInfo = nil
+
+				return
+			end
+
+			slot8 = slot0.animPlayList[slot0.index]
+
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;PlayCurrentSingleAction&quot;, slot8:GetStateName(), nil, 0)
+			uv5(slot8, uv6, uv7)
+		end, 1, -1)
+		slot10 = uv0.animInfo.animPlayList[1]
+
+		if slot5 == 1 then
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SwitchCurrentAnim&quot;, slot10:GetStateName())
+			onNextTick(function ()
+				if #uv0:GetStartPoint() == 0 then
+					slot0 = uv1:GetWatchCameraName()
+				end
+
+				uv2.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetCurrentCharPoint&quot;, slot0)
+				uv2.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SyncCurrentInterestTransform&quot;)
+				uv3(uv0, uv4, uv5)
+
+				if uv2.freeMode then
+					slot1 = uv2.scene.cameras[uv2.scene.CAMERA.PHOTO_FREE]
+					slot2 = slot1:GetComponent(typeof(UnityEngine.CharacterController))
+					slot3 = slot1.transform.forward
+					slot3.y = 0
+
+					slot3:Normalize()
+
+					slot4 = slot3 * -0.01
+
+					slot2:Move(slot4)
+					slot2:Move(-slot4)
+				end
+			end)
+		else
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;PlayCurrentSingleAction&quot;, slot10:GetStateName(), nil, 0)
+			slot8(slot10, slot2, slot4)
+		end
+
+		uv0.timerAnim:Start()
+	end
+
+	UIItemList.StaticAlign(slot3, slot3:GetChild(0), #slot1:GetRegularAnimsByShipId(slot0.groupId), function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		slot3 = uv0[slot1 + 1]
+
+		setText(slot2:Find(&quot;Name&quot;), slot3:GetName())
+		GetImageSpriteFromAtlasAsync(string.format(&quot;Dorm3DPhoto/%s&quot;, slot3:GetZoneIcon()), &quot;&quot;, slot2:Find(&quot;Icon&quot;))
+		setActive(slot2:Find(&quot;Slider&quot;), false)
+		setActive(slot2:Find(&quot;Selected&quot;), false)
+		onButton(uv1, slot2, function ()
+			uv0(uv1, uv2)
+		end)
+	end)
+
+	slot9 = function()
+		UIItemList.StaticAlign(uv0, uv0:GetChild(0), #uv1, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			slot5 = slot2:Find(&quot;Actions&quot;)
+
+			UIItemList.StaticAlign(slot5, slot5:GetChild(0), #uv0[slot1 + 1].anims, function (slot0, slot1, slot2)
+				if slot0 ~= UIItemList.EventUpdate then
+					return
+				end
+
+				setActive(slot2:Find(&quot;Selected&quot;), uv0[slot1 + 1]:GetConfigID() == uv1.animID)
+				setActive(slot2:Find(&quot;Slider&quot;), slot3:GetConfigID() == uv1.animID and tobool(uv1.timerAnim))
+			end)
+		end)
+	end
+
+	slot11 = function(slot0, slot1)
+		slot2 = slot1:Find(&quot;Actions&quot;)
+
+		UIItemList.StaticAlign(slot2, slot2:GetChild(0), #slot0.anims, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			slot3 = uv0[slot1 + 1]
+			slot6 = uv1:CheckFurnitureIdInZone(uv2.furnitureId) and uv3.room:IsFurnitureSetIn(uv2.furnitureId)
+
+			SetActive(slot2:Find(&quot;Other&quot;), not slot6)
+			SetActive(slot2:Find(&quot;Name&quot;), slot6)
+
+			if slot6 then
+				onButton(uv3, slot2, function ()
+					uv0(uv1, uv2)
+				end)
+				setText(slot2:Find(&quot;Name&quot;), slot3:GetName())
+			else
+				removeOnButton(slot2)
+
+				if not slot4 then
+					warnText = i18n(&quot;dorm3d_photo_active_zone&quot;, slot3:GetZoneName())
+				else
+					warnText = i18n(&quot;dorm3d_furniture_replace_tip&quot;)
+				end
+
+				setText(slot2:Find(&quot;Other/Content&quot;), warnText)
+			end
+
+			GetImageSpriteFromAtlasAsync(string.format(&quot;Dorm3DPhoto/%s&quot;, slot3:GetZoneIcon()), &quot;&quot;, slot2:Find(&quot;Icon&quot;))
+			setActive(slot2:Find(&quot;Slider&quot;), false)
+			setActive(slot2:Find(&quot;Selected&quot;), false)
+		end)
+	end
+
+	setActive(slot5, #slot4 &gt; 0)
+	UIItemList.StaticAlign(slot5, slot5:GetChild(0), #slot4, function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		slot3 = uv0[slot1 + 1]
+		slot4 = Dorm3dFurniture.New({
+			configId = slot3.furnitureId
+		})
+		slot5 = tobool(_.detect(uv1.room:GetFurnitures(), function (slot0)
+			return slot0:GetConfigID() == uv0.furnitureId
+		end))
+
+		setText(slot2:Find(&quot;Button/Name&quot;), slot4:GetName())
+		GetImageSpriteFromAtlasAsync(slot4:GetIcon(), &quot;&quot;, slot2:Find(&quot;Button/Icon&quot;))
+		setActive(slot2:Find(&quot;Button/Lock&quot;), not slot5)
+		setActive(slot2:Find(&quot;Button/BG&quot;), slot5)
+
+		slot7 = nil
+
+		setImageColor(slot2:Find(&quot;Button/BG&quot;), (not uv2:CheckFurnitureIdInZone(slot3.furnitureId) or Color.New(1, 1, 1, 0.8509803921568627)) and Color.New(0.788235294117647, 0.788235294117647, 0.788235294117647, 0.8509803921568627))
+		onButton(uv1, slot2:Find(&quot;Button&quot;), function ()
+			if not uv0 then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_furniture_locked&quot;))
+
+				return
+			end
+
+			if uv1.settingSpecialFurnitureIndex == uv2 then
+				uv1.settingSpecialFurnitureIndex = nil
+			else
+				uv1.settingSpecialFurnitureIndex = uv2
+			end
+
+			uv3()
+		end)
+		uv4(slot3, slot2)
+	end)
+	(function ()
+		UIItemList.StaticAlign(uv0, uv0:GetChild(0), #uv1, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			setActive(slot2:Find(&quot;Button/Active&quot;), uv0.settingSpecialFurnitureIndex == slot1 + 1)
+			setActive(slot2:Find(&quot;Actions&quot;), uv0.settingSpecialFurnitureIndex == slot1)
+		end)
+		uv3()
+	end)()
+	(function ()
+		UIItemList.StaticAlign(uv0, uv0:GetChild(0), #uv1, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			setActive(slot2:Find(&quot;Selected&quot;), uv0[slot1 + 1]:GetConfigID() == uv1.animID)
+			setActive(slot2:Find(&quot;Slider&quot;), slot3:GetConfigID() == uv1.animID and tobool(uv1.timerAnim))
+		end)
+		UIItemList.StaticAlign(uv3, uv3:GetChild(0), #uv4, function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			slot5 = slot2:Find(&quot;Actions&quot;)
+
+			UIItemList.StaticAlign(slot5, slot5:GetChild(0), #uv0[slot1 + 1].anims, function (slot0, slot1, slot2)
+				if slot0 ~= UIItemList.EventUpdate then
+					return
+				end
+
+				setActive(slot2:Find(&quot;Selected&quot;), uv0[slot1 + 1]:GetConfigID() == uv1.animID)
+				setActive(slot2:Find(&quot;Slider&quot;), slot3:GetConfigID() == uv1.animID and tobool(uv1.timerAnim))
+			end)
+		end)
+	end)()
+end
+
+slot0.BlockActionPanel = function(slot0, slot1)
+end
+
+slot0.GetAnimPlayList = function(slot0, slot1)
+	slot2 = slot1
+	slot3 = {}
+	slot4 = 100
+
+	while true do
+		if not Dorm3dCameraAnim.New({
+			configId = slot2
+		}) then
+			return slot3
+		end
+
+		table.insert(slot3, 1, slot5)
+
+		if slot5:GetPreAnimID() == 0 then
+			return slot3
+		end
+
+		assert(slot4 - 1 &gt; 0)
+	end
+end
+
+slot0.UpdateCameraPanel = function(slot0)
+	if not slot0.activeSetting then
+		return
+	end
+
+	if slot0.activePanel ~= uv0.PANEL.CAMERA then
+		return
+	end
+
+	(function ()
+		slot0 = uv0.panelCamera:Find(&quot;Layout/DepthOfField/Switch/Toggle&quot;)
+
+		triggerToggle(slot0, uv0.cameraSettings.depthOfField.enabled)
+		onToggle(uv0, slot0, function (slot0)
+			uv0.cameraSettings.depthOfField.enabled = slot0
+
+			setActive(uv0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField&quot;), uv0.cameraSettings.depthOfField.enabled)
+			uv0:RefreshCamera()
+		end, SFX_UI_TAG, SFX_UI_CANCEL)
+	end)()
+	setActive(slot0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField&quot;), slot0.cameraSettings.depthOfField.enabled)
+	(function ()
+		slot0 = uv0.cameraSettings.depthOfField.focusDistance
+		slot1 = uv0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField/FocusDistance/Slider&quot;)
+
+		setSlider(slot1, slot0.min, slot0.max, slot0.value)
+		onSlider(uv0, slot1, function (slot0)
+			uv0.value = slot0
+
+			uv1:RefreshCamera()
+		end)
+	end)()
+	(function ()
+		slot0 = uv0.cameraSettings.depthOfField.blurRadius
+		slot1 = uv0.panelCamera:Find(&quot;Layout/DepthOfField/DepthOfField/BlurRadius/Slider&quot;)
+
+		setSlider(slot1, slot0.min, slot0.max, slot0.value)
+		onSlider(uv0, slot1, function (slot0)
+			uv0.value = slot0
+
+			uv1:RefreshCamera()
+		end)
+	end)()
+
+	slot0.paramIndex = slot0.paramIndex or 1
+
+	table.Ipairs({
+		&quot;PostExposure&quot;,
+		&quot;Saturation&quot;,
+		&quot;Contrast&quot;
+	}, function (slot0, slot1)
+		onButton(uv0, uv0.panelCamera:Find(&quot;Layout/Paramaters/Icons&quot;):GetChild(slot0 - 1), function ()
+			uv0.paramIndex = uv1
+
+			uv2()
+		end, SFX_PANEL)
+	end)
+	(function ()
+		table.Ipairs(uv0, function (slot0, slot1)
+			setActive(uv0.panelCamera:Find(&quot;Layout/Paramaters/Icons&quot;):GetChild(slot0 - 1):Find(&quot;Selected&quot;), slot0 == uv0.paramIndex)
+			setActive(uv0.panelCamera:Find(&quot;Layout/Paramaters/&quot; .. slot1), slot0 == uv0.paramIndex)
+		end)
+	end)()
+	(function ()
+		slot0 = uv0.cameraSettings.postExposure
+		slot1 = uv0.panelCamera:Find(&quot;Layout/Paramaters/PostExposure/PostExposure/Slider&quot;)
+		slot2 = slot1:Find(&quot;Background/Fill&quot;)
+
+		onSlider(uv0, slot1, function (slot0)
+			uv0.value = slot0
+			slot1 = (slot0 - uv0.min) / (uv0.max - uv0.min)
+			uv1.anchorMin = Vector2.New(math.min(slot1, 0.5), 0)
+			uv1.anchorMax = Vector2.New(math.max(slot1, 0.5), 1)
+			uv1.offsetMin = Vector2.zero
+			uv1.offsetMax = Vector2.zero
+
+			uv2:RefreshCamera()
+		end)
+		setSlider(slot1, slot0.min, slot0.max, slot0.value)
+	end)()
+	(function ()
+		slot0 = uv0.cameraSettings.contrast
+		slot1 = uv0.panelCamera:Find(&quot;Layout/Paramaters/Contrast/Contrast/Slider&quot;)
+		slot2 = slot1:Find(&quot;Background/Fill&quot;)
+
+		onSlider(uv0, slot1, function (slot0)
+			uv0.value = slot0
+			slot1 = (slot0 - uv0.min) / (uv0.max - uv0.min)
+			uv1.anchorMin = Vector2.New(math.min(slot1, 0.5), 0)
+			uv1.anchorMax = Vector2.New(math.max(slot1, 0.5), 1)
+			uv1.offsetMin = Vector2.zero
+			uv1.offsetMax = Vector2.zero
+
+			uv2:RefreshCamera()
+		end)
+		setSlider(slot1, slot0.min, slot0.max, slot0.value)
+	end)()
+	(function ()
+		slot0 = uv0.cameraSettings.saturate
+		slot1 = uv0.panelCamera:Find(&quot;Layout/Paramaters/Saturation/Saturation/Slider&quot;)
+		slot2 = slot1:Find(&quot;Background/Fill&quot;)
+
+		onSlider(uv0, slot1, function (slot0)
+			uv0.value = slot0
+			slot1 = (slot0 - uv0.min) / (uv0.max - uv0.min)
+			uv1.anchorMin = Vector2.New(math.min(slot1, 0.5), 0)
+			uv1.anchorMax = Vector2.New(math.max(slot1, 0.5), 1)
+			uv1.offsetMin = Vector2.zero
+			uv1.offsetMax = Vector2.zero
+
+			uv2:RefreshCamera()
+		end)
+		setSlider(slot1, slot0.min, slot0.max, slot0.value)
+	end)()
+	(function ()
+		slot0 = uv0.panelCamera:Find(&quot;Layout/Other/FaceCamera/Toggle&quot;)
+
+		triggerToggle(slot0, uv0.settingFaceCamera)
+		onToggle(uv0, slot0, function (slot0)
+			uv0.settingFaceCamera = slot0
+
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;EnableCurrentHeadIK&quot;, slot0)
+		end, SFX_UI_TAG, SFX_UI_CANCEL)
+	end)()
+	(function ()
+		slot0 = uv0.panelCamera:Find(&quot;Layout/Other/HideCharacter/Toggle&quot;)
+
+		triggerToggle(slot0, uv0.settingHideCharacter)
+		onToggle(uv0, slot0, function (slot0)
+			uv0.settingHideCharacter = slot0
+
+			if slot0 then
+				uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;HideCharacterBylayer&quot;)
+			else
+				uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertCharacterBylayer&quot;)
+			end
+		end, SFX_UI_TAG, SFX_UI_CANCEL)
+	end)()
+end
+
+slot0.RefreshCamera = function(slot0)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SettingCamera&quot;, slot0.cameraSettings)
+end
+
+slot0.UpdateAnimSpeedPanel = function(slot0)
+	slot1 = function()
+		if not uv0.timerAnim then
+			return
+		end
+
+		slot0 = uv0.animInfo
+		slot4 = Time.time
+		slot0.ratio = math.min(1, slot0.ratio + (slot4 - slot0.startStamp) * uv0.animSpeed / math.max(uv1, slot0.animPlayList[slot0.index]:GetAnimTime()))
+		slot0.startStamp = slot4
+	end
+
+	slot2 = slot0.animSpeeds
+
+	UIItemList.StaticAlign(slot0.listAnimSpeed, slot0.listAnimSpeed:GetChild(0), #slot2, function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		slot1 = #uv0 - slot1
+		slot3 = uv0[slot1]
+
+		setText(slot2:Find(&quot;Name&quot;), slot3)
+		setText(slot2:Find(&quot;Selected&quot;), slot3)
+		setActive(slot2:Find(&quot;Line&quot;), slot1 ~= #uv0)
+		onButton(uv1, slot2, function ()
+			if uv0.animSpeed == uv1 then
+				return
+			end
+
+			uv2()
+
+			uv0.animSpeed = uv1
+
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetCharacterAnimSpeed&quot;, uv1)
+			uv0:UpdateAnimSpeedPanel()
+		end, SFX_PANEL)
+	end)
+	onButton(slot0, slot0.btnFreeze, function ()
+		slot0 = 0
+
+		if uv0.animSpeed ~= 0 then
+			uv0.lastAnimSpeed = uv0.animSpeed
+		else
+			slot0 = uv0.lastAnimSpeed or 1
+			uv0.lastAnimSpeed = nil
+		end
+
+		uv1()
+
+		uv0.animSpeed = slot0
+
+		uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetCharacterAnimSpeed&quot;, slot0)
+		uv0:UpdateAnimSpeedPanel()
+	end, SFX_PANEL)
+	UIItemList.StaticAlign(slot0.listAnimSpeed, slot0.listAnimSpeed:GetChild(0), #slot2, function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		setActive(slot2:Find(&quot;Name&quot;), uv1.animSpeed ~= uv0[#uv0 - slot1])
+		setActive(slot2:Find(&quot;Selected&quot;), uv1.animSpeed == slot3)
+	end)
+	setActive(slot0.btnFreeze:Find(&quot;Icon&quot;), slot0.animSpeed ~= 0)
+	setActive(slot0.btnFreeze:Find(&quot;Selected&quot;), slot0.animSpeed == 0)
+	setText(slot0.textAnimSpeed, i18n(&quot;dorm3d_photo_animspeed&quot;, string.format(&quot;%.1f&quot;, slot0.animSpeed)))
+end
+
+slot0.UpdateLightingPanel = function(slot0)
+	if not slot0.activeSetting then
+		return
+	end
+
+	if slot0.activePanel ~= uv0.PANEL.LIGHTING then
+		return
+	end
+
+	slot1 = {}
+
+	for slot5, slot6 in ipairs(pg.dorm3d_camera_volume_template.all) do
+		table.insert(slot1, slot6)
+	end
+
+	table.sort(slot1, function (slot0, slot1)
+		return slot0 &lt; slot1
+	end)
+
+	slot2 = function()
+		if not uv0.settingFilterIndex then
+			uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertVolumeProfile&quot;)
+
+			return
+		end
+
+		uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetVolumeProfile&quot;, pg.dorm3d_camera_volume_template[uv1[uv0.settingFilterIndex]].volume, uv0.settingFilterStrength)
+	end
+
+	UIItemList.StaticAlign(slot0.panelLightning:Find(&quot;Layout/Filter/List&quot;), slot0.panelLightning:Find(&quot;Layout/Filter/List&quot;):GetChild(0), #slot1, function (slot0, slot1, slot2)
+		if slot0 ~= UIItemList.EventUpdate then
+			return
+		end
+
+		slot3 = pg.dorm3d_camera_volume_template[uv0[slot1 + 1]]
+
+		setText(slot2:Find(&quot;Name&quot;), slot3.name)
+
+		slot3.icon = &quot;&quot;
+
+		if slot3.icon ~= &quot;&quot; then
+			GetImageSpriteFromAtlasAsync(string.format(&quot;Dorm3DPhoto/%s&quot;, slot3.icon), &quot;&quot;, slot2:Find(&quot;BG&quot;))
+		end
+
+		if uv1.settingFilterIndex == slot1 then
+			setActive(slot2:Find(&quot;Selected&quot;), true)
+		else
+			setActive(slot2:Find(&quot;Selected&quot;), false)
+		end
+
+		slot4, slot5 = ApartmentProxy.CheckUnlockConfig(slot3.unlock)
+
+		setActive(slot2:Find(&quot;lock&quot;), not slot4)
+
+		if not slot4 then
+			setText(slot2:Find(&quot;lock/Image/Text&quot;), slot3.unlock_text)
+		end
+
+		onButton(uv1, slot2, function ()
+			if not uv0 then
+				pg.TipsMgr.GetInstance():ShowTips(uv1)
+
+				return
+			end
+
+			slot0 = uv2.settingFilterIndex
+
+			if uv2.settingFilterIndex ~= uv3 then
+				uv2.settingFilterIndex = uv3
+			else
+				uv2.settingFilterIndex = nil
+			end
+
+			uv4()
+
+			if slot0 then
+				setActive(uv2.panelLightning:Find(&quot;Layout/Filter/List&quot;):GetChild(slot0 - 1):Find(&quot;Selected&quot;), false)
+			end
+
+			if uv2.settingFilterIndex == uv3 then
+				setActive(uv5:Find(&quot;Selected&quot;), true)
+			end
+		end, SFX_PANEL)
+	end)
+	setActive(slot0.panelLightning:Find(&quot;Layout/Filter/Slider&quot;), false)
+end
+
+slot0.OnSwitchSkin = function(slot0, slot1, slot2, slot3)
+	seriesAsync({
+		function (slot0)
+			if uv0.settingHideCharacter then
+				uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertCharacterBylayer&quot;)
+			end
+
+			uv1:SwitchCharacterSkin(uv2, uv3, slot0)
+		end,
+		function (slot0)
+			setActive(uv0.ladySafeCollider, true)
+
+			if not uv1.animInfo then
+				return slot0()
+			end
+
+			for slot5 = #uv1.animInfo.animPlayList, 1, -1 do
+				if #slot1.animPlayList[slot5]:GetStartPoint() &gt; 0 then
+					uv1.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetCurrentCharPoint&quot;, slot7)
+
+					break
+				end
+
+				if slot5 == 1 then
+					uv1.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetCurrentCharPoint&quot;, uv1.room:GetCameraZones()[uv1.zoneIndex]:GetWatchCameraName())
+				end
+			end
+
+			uv1.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SyncCurrentInterestTransform&quot;)
+
+			slot2 = slot1.animPlayList[#slot1.animPlayList]
+
+			uv1.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;PlayCurrentSingleAction&quot;, slot2:GetStateName())
+			uv1.scene.ladyDict[uv2].ladyAnimator:Update(slot2:GetAnimTime())
+			uv1.timerAnim:Stop()
+
+			uv1.timerAnim = nil
+			uv1.animInfo = nil
+			uv1.animPlaying = nil
+
+			slot0()
+		end,
+		function ()
+			uv0:UpdateActionPanel()
+
+			if uv0.settingHideCharacter then
+				uv0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;HideCharacterBylayer&quot;)
+			end
+		end
+	})
+end
+
+slot0.SetMute = function(slot0)
+	if slot0 then
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_CV&quot;, 0)
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_BGM&quot;, 0)
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_SE&quot;, 0)
+	else
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_CV&quot;, pg.CriMgr.GetInstance():getCVVolume())
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_BGM&quot;, pg.CriMgr.GetInstance():getBGMVolume())
+		CriWare.CriAtom.SetCategoryVolume(&quot;Category_SE&quot;, pg.CriMgr.GetInstance():getSEVolume())
+	end
+end
+
+slot0.willExit = function(slot0)
+	slot0.loader:Clear()
+
+	if slot0.timerAnim then
+		slot0.timerAnim:Stop()
+
+		slot0.timerAnim = nil
+	end
+
+	if slot0.animSpeed ~= 1 then
+		slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;SetCharacterAnimSpeed&quot;, 1)
+	end
+
+	if slot0.settingHideCharacter then
+		slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertCharacterBylayer&quot;)
+	end
+
+	if not slot0.settingFaceCamera then
+		slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;EnableCurrentHeadIK&quot;, true)
+	end
+
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetSceneItemAnimators&quot;)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ResetCharacterExtraItem&quot;)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertCharacterLight&quot;)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertVolumeProfile&quot;)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;RevertCameraSettings&quot;)
+	slot0.scene:emit(Dorm3dRoomTemplateScene.PHOTO_CALL, &quot;ExitPhotoMode&quot;)
+end
+
+slot0.SetPhotoCameraSliderValue = function(slot0, slot1)
+	setSlider(slot0.normalPanel:Find(&quot;Zoom/Slider&quot;), 0, 1, slot1)
+end
+
+slot0.SetPhotoStickDelta = function(slot0, slot1)
+	slot1 = slot1 * 0.5
+	slot2 = slot0._tf:Find(&quot;Center/Stick&quot;)
+
+	setAnchoredPosition(slot2:Find(&quot;Handler&quot;), Vector2.New(slot2.rect.height * slot1.x, slot2.rect.width * slot1.y))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

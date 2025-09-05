@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animeloginpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>animeloginpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AnimeLoginPage&quot;, import(&quot;.TemplatePage.LoginTemplatePage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.dayProgressImg = slot0:findTF(&quot;DayProgress&quot;)
+	slot0.awardImg = slot0:findTF(&quot;Award&quot;)
+	slot0.maskImg = slot0:findTF(&quot;Mask&quot;, slot0.awardImg)
+
+	addSlip(SLIP_TYPE_HRZ, slot0.awardImg, function ()
+		if uv0.curShowDay &gt; 1 then
+			triggerButton(uv0.arrowLeft)
+		end
+	end, function ()
+		if uv0.curShowDay &lt; uv0.allDaycount then
+			triggerButton(uv0.arrowRight)
+		end
+	end)
+
+	slot0.arrowLeft = slot0:findTF(&quot;ArrowLeft&quot;)
+	slot0.arrowRight = slot0:findTF(&quot;ArrowRight&quot;)
+
+	onButton(slot0, slot0.arrowLeft, function ()
+		uv0.curShowDay = uv0.curShowDay - 1
+
+		uv0:updateAwardInfo(uv0.curShowDay)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.arrowRight, function ()
+		uv0.curShowDay = uv0.curShowDay + 1
+
+		uv0:updateAwardInfo(uv0.curShowDay)
+	end, SFX_PANEL)
+
+	slot0.pointTpl = slot0:findTF(&quot;Point&quot;)
+	slot0.pointContainer = slot0:findTF(&quot;PointList&quot;)
+	slot0.pointUIItemList = UIItemList.New(slot0.pointContainer, slot0.pointTpl)
+	slot1 = slot0.pointUIItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0:findTF(&quot;Selected&quot;, slot2)
+
+			if slot1 + 1 &lt;= uv0.nday then
+				setImageAlpha(slot2, 1)
+			else
+				setImageAlpha(slot2, 0.3)
+			end
+
+			setActive(slot3, slot1 == uv0.curShowDay)
+		end
+	end)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.config = pg.activity_7_day_sign[slot0.activity:getConfig(&quot;config_id&quot;)]
+	slot0.allDaycount = #slot0.config.front_drops
+	slot0.nday = slot0.activity.data1
+	slot0.curShowDay = slot0.nday
+end
+
+slot0.OnFirstFlush = function(slot0)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.nday = slot0.activity.data1
+	slot0.curShowDay = slot0.nday
+
+	slot0:updateAwardInfo(slot0.curShowDay)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+slot0.updateAwardInfo = function(slot0, slot1)
+	setImageSprite(slot0.dayProgressImg, GetSpriteFromAtlas(&quot;ui/activityuipage/animelogin_atlas&quot;, &quot;tianshu_&quot; .. slot1), true)
+	setImageSprite(slot0.awardImg, GetSpriteFromAtlas(&quot;ui/activityuipage/animelogin_atlas&quot;, &quot;icon_&quot; .. slot1), true)
+	setActive(slot0.maskImg, slot1 &lt;= slot0.nday)
+	setActive(slot0.arrowLeft, slot1 ~= 1)
+	setActive(slot0.arrowRight, slot1 ~= slot0.allDaycount)
+	slot0.pointUIItemList:align(slot0.allDaycount)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

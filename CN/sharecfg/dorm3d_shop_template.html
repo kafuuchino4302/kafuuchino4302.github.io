@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3d_shop_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3d_shop_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.dorm3d_shop_template = setmetatable({
+	__name = &quot;dorm3d_shop_template&quot;,
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26
+	}
+}, confHX)
+pg.base = pg.base or {}
+pg.base.dorm3d_shop_template = {
+	{
+		rarity = 4,
+		name = &quot;甜蜜心事&quot;,
+		type = 1,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 121,
+		id = 1,
+		order = &quot;8&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270101
+		},
+		banners = {
+			&quot;banner_furniture121&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;午后遐乡&quot;,
+		type = 1,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 122,
+		id = 2,
+		order = &quot;11&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270103
+		},
+		banners = {
+			&quot;banner_furniture122&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;柔软怀抱&quot;,
+		type = 1,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 221,
+		id = 3,
+		order = &quot;9&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270201
+		},
+		banners = {
+			&quot;banner_furniture221&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;对坐之谈&quot;,
+		type = 1,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 222,
+		id = 4,
+		order = &quot;14&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270202
+		},
+		banners = {
+			&quot;banner_furniture222&quot;
+		}
+	},
+	{
+		rarity = 5,
+		name = &quot;圣诞雪橇沙发套组&quot;,
+		type = 1,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 151,
+		id = 5,
+		order = &quot;1&quot;,
+		panel = {
+			1
+		},
+		shop_id = {
+			270104
+		},
+		banners = {
+			&quot;banner_furniture151&quot;
+		}
+	},
+	{
+		rarity = 5,
+		name = &quot;暖意入梦&quot;,
+		type = 1,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 251,
+		id = 6,
+		order = &quot;2&quot;,
+		panel = {
+			1
+		},
+		shop_id = {
+			270105
+		},
+		banners = {
+			&quot;banner_furniture251&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;童心下午茶&quot;,
+		type = 1,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 321,
+		id = 7,
+		order = &quot;10&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270301
+		},
+		banners = {
+			&quot;banner_furniture321&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;星河满船&quot;,
+		type = 1,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 322,
+		id = 8,
+		order = &quot;13&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270302
+		},
+		banners = {
+			&quot;banner_furniture322&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;清扫工具箱&quot;,
+		type = 2,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 2022001,
+		id = 9,
+		order = &quot;16&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260301
+		},
+		banners = {
+			&quot;banner_gift2022001&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;茶享套装&quot;,
+		type = 2,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 2022002,
+		id = 10,
+		order = &quot;19&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260302
+		},
+		banners = {
+			&quot;banner_gift2022002&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;素色物语 &quot;,
+		type = 2,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 3022101,
+		id = 11,
+		order = &quot;17&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260321
+		},
+		banners = {
+			&quot;banner_gift3022101&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;彩虹心语&quot;,
+		type = 2,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 1990301,
+		id = 12,
+		order = &quot;18&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260331
+		},
+		banners = {
+			&quot;banner_gift1990301&quot;
+		}
+	},
+	{
+		rarity = 3,
+		name = &quot;浪漫满分&quot;,
+		type = 2,
+		room_id = 0,
+		unlock = &quot;&quot;,
+		item_id = 1021002,
+		id = 13,
+		order = &quot;998&quot;,
+		panel = {
+			5
+		},
+		shop_id = {
+			260101,
+			260102,
+			260103,
+			260104,
+			260105
+		},
+		banners = {
+			&quot;banner_test&quot;
+		}
+	},
+	{
+		rarity = 3,
+		name = &quot;蛋糕礼盒&quot;,
+		type = 2,
+		room_id = 0,
+		unlock = &quot;&quot;,
+		item_id = 1021003,
+		id = 14,
+		order = &quot;999&quot;,
+		panel = {
+			5
+		},
+		shop_id = {
+			260201,
+			260202
+		},
+		banners = {
+			&quot;banner_test&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;天狼星沙滩邀请函&quot;,
+		type = 3,
+		room_id = 20220,
+		unlock = &quot;&quot;,
+		item_id = 4,
+		id = 15,
+		order = &quot;4&quot;,
+		panel = {
+			2
+		},
+		shop_id = {
+			270110
+		},
+		banners = {
+			&quot;banner_beach1&quot;,
+			&quot;banner_beach2&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;{namecode:50}沙滩邀请函&quot;,
+		type = 3,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 4,
+		id = 16,
+		order = &quot;5&quot;,
+		panel = {
+			2
+		},
+		shop_id = {
+			270111
+		},
+		banners = {
+			&quot;banner_beach3&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;安克雷奇沙滩邀请函&quot;,
+		type = 3,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 4,
+		id = 17,
+		order = &quot;6&quot;,
+		panel = {
+			2
+		},
+		shop_id = {
+			270112
+		},
+		banners = {
+			&quot;banner_beach4&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;能量修复仪&quot;,
+		type = 2,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 3022102,
+		id = 18,
+		order = &quot;12&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260322
+		},
+		banners = {
+			&quot;banner_gift3022102&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;星球一隅&quot;,
+		type = 1,
+		room_id = 10517,
+		unlock = &quot;&quot;,
+		item_id = 1151,
+		id = 19,
+		order = &quot;8&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			271101
+		},
+		banners = {
+			&quot;banner_furniture1151&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;水晶糖&quot;,
+		type = 2,
+		room_id = 10517,
+		unlock = &quot;&quot;,
+		item_id = 1051701,
+		id = 20,
+		order = &quot;15&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260401
+		},
+		banners = {
+			&quot;banner_gift1051701&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;{namecode:199}咖啡馆邀请函&quot;,
+		type = 3,
+		room_id = 10517,
+		unlock = &quot;&quot;,
+		item_id = 16,
+		id = 21,
+		order = &quot;8&quot;,
+		panel = {
+			2
+		},
+		shop_id = {
+			270113
+		},
+		banners = {
+			&quot;banner_cafe1&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;安逸时光&quot;,
+		type = 1,
+		room_id = 30221,
+		unlock = &quot;&quot;,
+		item_id = 223,
+		id = 22,
+		order = &quot;8&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270203
+		},
+		banners = {
+			&quot;banner_furniture223&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;动感飞轮&quot;,
+		type = 1,
+		room_id = 10517,
+		unlock = &quot;&quot;,
+		item_id = 1152,
+		id = 23,
+		order = &quot;7&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270204
+		},
+		banners = {
+			&quot;banner_furniture1152&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;精致画框 &quot;,
+		type = 2,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 1990302,
+		id = 24,
+		order = &quot;3&quot;,
+		panel = {
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			260332
+		},
+		banners = {
+			&quot;banner_gift1990302&quot;
+		}
+	},
+	{
+		rarity = 5,
+		name = &quot;滨海欢愉&quot;,
+		type = 1,
+		room_id = 0,
+		unlock = &quot;&quot;,
+		item_id = 401,
+		id = 25,
+		order = &quot;7&quot;,
+		panel = {
+			1
+		},
+		shop_id = {
+			270401
+		},
+		banners = {
+			&quot;banner_furniture401&quot;
+		}
+	},
+	{
+		rarity = 4,
+		name = &quot;云中甜梦&quot;,
+		type = 1,
+		room_id = 19903,
+		unlock = &quot;&quot;,
+		item_id = 323,
+		id = 26,
+		order = &quot;8&quot;,
+		panel = {
+			1,
+			2,
+			3,
+			4
+		},
+		shop_id = {
+			270303
+		},
+		banners = {
+			&quot;banner_furniture323&quot;
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

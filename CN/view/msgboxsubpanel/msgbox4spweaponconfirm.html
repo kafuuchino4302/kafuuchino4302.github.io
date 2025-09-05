@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>msgbox4spweaponconfirm.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>msgbox4spweaponconfirm.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Msgbox4SpweaponConfirm&quot;, import(&quot;.MsgboxSubPanel&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;Msgbox4SpweaponConfirm&quot;
+end
+
+slot0.OnRefresh = function(slot0, slot1)
+	if slot1.op == SpWeapon.CONFIRM_OP_DISCARD then
+		setText(slot0._tf:Find(&quot;Desc&quot;), i18n(&quot;spweapon_ui_change_attr_text1&quot;))
+		setText(slot0._tf:Find(&quot;Tip&quot;), i18n(&quot;spweapon_ui_change_attr_text2&quot;))
+
+		slot3 = slot1.attrs[1]
+
+		setText(slot0._tf:Find(&quot;Desc (1)/Attr&quot;), slot3[1])
+		setText(slot0._tf:Find(&quot;Desc (1)/Value1&quot;), setColorStr(slot3[2], &quot;#ffde38&quot;))
+		setText(slot0._tf:Find(&quot;Desc (1)/Value2&quot;), setColorStr(slot3[3], COLOR_GREY))
+		setText(slot0._tf:Find(&quot;Desc (1)/Symbol&quot;), &quot;&quot;)
+
+		slot4 = slot1.attrs[2]
+
+		setText(slot0._tf:Find(&quot;Desc (2)/Attr&quot;), slot4[1])
+		setText(slot0._tf:Find(&quot;Desc (2)/Value1&quot;), setColorStr(slot4[2], &quot;#ffde38&quot;))
+		setText(slot0._tf:Find(&quot;Desc (2)/Value2&quot;), setColorStr(slot4[3], COLOR_GREY))
+		setText(slot0._tf:Find(&quot;Desc (2)/Symbol&quot;), &quot;&quot;)
+	elseif slot2 == SpWeapon.CONFIRM_OP_EXCHANGE then
+		setText(slot0._tf:Find(&quot;Desc&quot;), i18n(&quot;spweapon_ui_keep_attr_text1&quot;))
+		setText(slot0._tf:Find(&quot;Tip&quot;), i18n(&quot;spweapon_ui_keep_attr_text2&quot;))
+
+		slot3 = slot1.attrs[1]
+
+		setText(slot0._tf:Find(&quot;Desc (1)/Attr&quot;), slot3[1])
+		setText(slot0._tf:Find(&quot;Desc (1)/Value1&quot;), slot3[2])
+		setText(slot0._tf:Find(&quot;Desc (1)/Value2&quot;), setColorStr(slot3[3], &quot;#92fc63&quot;))
+		setText(slot0._tf:Find(&quot;Desc (1)/Symbol&quot;), &quot;&gt;&quot;)
+
+		slot4 = slot1.attrs[2]
+
+		setText(slot0._tf:Find(&quot;Desc (2)/Attr&quot;), slot4[1])
+		setText(slot0._tf:Find(&quot;Desc (2)/Value1&quot;), slot4[2])
+		setText(slot0._tf:Find(&quot;Desc (2)/Value2&quot;), setColorStr(slot4[3], &quot;#92fc63&quot;))
+		setText(slot0._tf:Find(&quot;Desc (2)/Symbol&quot;), &quot;&gt;&quot;)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

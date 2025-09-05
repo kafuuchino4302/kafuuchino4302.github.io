@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharactertacticsinforequestcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharactertacticsinforequestcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterTacticsInfoRequestCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot4 = &quot;&quot;
+
+	for slot8, slot9 in ipairs(slot1:getBody().idList) do
+		slot4 = slot4 .. slot9 .. &quot;, &quot;
+	end
+
+	print(&quot;63317 request tactics exp detail info:&quot;, slot4)
+
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(63317, {
+		ship_id_list = slot3
+	}, 63318, function (slot0)
+		print(&quot;63318 requset success&quot;)
+
+		slot1 = getProxy(MetaCharacterProxy)
+
+		if slot0.info_list then
+			for slot6, slot7 in ipairs(slot2) do
+				slot1:setMetaTacticsInfo(slot7)
+			end
+		else
+			errorMsg(&quot;63318 error, data.info_list is null!&quot;)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>island001.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>island001.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;Island001&quot;,
+	events = {
+		{
+			alpha = 0.6,
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/Island3dTaskAcceptUI(Clone)&quot;
+			}
+		},
+		{
+			alpha = 0.6,
+			style = {
+				text = &quot;信息对抗模拟测试关卡中，并非通过「摇杆」操作先锋角色。点击海面时，将消耗「移动指令」次数进行移动。 *「移动指令」会随时间自动累积。&quot;,
+				mode = 1,
+				dir = -1,
+				posY = -240,
+				posX = 120
+			},
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/IslandUI(Clone)/bottom/list/mapBtn&quot;
+			}
+		},
+		{
+			alpha = 0.6,
+			style = {
+				text = &quot;满足指令所需「费用」条件时，将指令拖出指令区域释放，可以打出指令。「费用」会随时间自动累积，上限为10。&quot;,
+				mode = 1,
+				dir = 1,
+				posY = -160,
+				posX = 100
+			},
+			ui = {
+				pathIndex = 1,
+				path = &quot;/OverlayCamera/Overlay/UIMain/ad/ui/mapGuide&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandshipbreakoutpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandshipbreakoutpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandShipBreakoutPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandShipBreakoutUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.uiStarPreList = UIItemList.New(slot0:findTF(&quot;frame_1/star/prev&quot;), slot0:findTF(&quot;frame_1/star/prev/tpl&quot;))
+	slot0.uiStarNextList = UIItemList.New(slot0:findTF(&quot;frame_1/star/now&quot;), slot0:findTF(&quot;frame_1/star/now/tpl&quot;))
+	slot0.prevLevelTxt = slot0:findTF(&quot;frame_1/level/prev&quot;):GetComponent(typeof(Text))
+	slot0.nextLevelTxt = slot0:findTF(&quot;frame_1/level/now&quot;):GetComponent(typeof(Text))
+	slot0.skillTxt = slot0:findTF(&quot;frame_1/skill/Text&quot;):GetComponent(typeof(Text))
+	slot0.skillLabelTxt = slot0:findTF(&quot;frame_1/skill/now&quot;):GetComponent(typeof(Text))
+	slot0.uiAttrList = UIItemList.New(slot0:findTF(&quot;frame_3/attrs&quot;), slot0:findTF(&quot;frame_3/attrs/tpl&quot;))
+	slot0.uiConsumeList = UIItemList.New(slot0:findTF(&quot;frame_2/comsume&quot;), slot0:findTF(&quot;frame_2/comsume/tpl&quot;))
+	slot0.upgradeBtn = slot0:findTF(&quot;btn_confirm&quot;)
+	slot0.closeBtn = slot0:findTF(&quot;frame_1/close&quot;)
+
+	setText(slot0:findTF(&quot;frame_1/title&quot;), i18n(&quot;island_ship_breakout&quot;))
+	setText(slot0:findTF(&quot;frame_2/consume_title/Text&quot;), i18n(&quot;island_ship_breakout_consume&quot;))
+	setText(slot0.upgradeBtn:Find(&quot;Text&quot;), i18n(&quot;island_chara_breakout_button&quot;))
+end
+
+slot0.AddListeners = function(slot0)
+	slot0:AddListener(GAME.ISLAND_SHIP_BREAKOUT_DONE, slot0.OnBreakOutDone)
+end
+
+slot0.RemoveListeners = function(slot0)
+	slot0:RemoveListener(GAME.ISLAND_SHIP_BREAKOUT_DONE, slot0.OnBreakOutDone)
+end
+
+slot0.OnBreakOutDone = function(slot0)
+	slot0:Hide()
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.OnShow = function(slot0, slot1)
+	slot2 = Clone(slot1)
+
+	slot2:UpgradeBreakOut()
+	slot0:BlurPanel(slot2, slot1)
+	slot0:UpdateBreakOutLevel(slot2, slot1)
+	slot0:UpdateLevel(slot2, slot1)
+	slot0:UpdateSkill(slot2, slot1)
+	slot0:UpdateAttrs(slot2, slot1)
+	slot0:UpdateConsume(slot2, slot1)
+	slot0:UpdateUpgradeBtn(slot1)
+end
+
+slot0.UpdateBreakOutLevel = function(slot0, slot1, slot2)
+	slot0.uiStarPreList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setActive(slot2:Find(&quot;Image&quot;), slot1 + 1 &lt;= uv0:GetBreakLevel())
+		end
+	end)
+	slot0.uiStarPreList:align(slot2:GetBreakMaxLevel())
+	slot0.uiStarNextList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setActive(slot2:Find(&quot;Image&quot;), slot1 + 1 &lt;= uv0:GetBreakLevel())
+		end
+	end)
+	slot0.uiStarNextList:align(slot1:GetBreakMaxLevel())
+end
+
+slot0.UpdateLevel = function(slot0, slot1, slot2)
+	slot0.prevLevelTxt.text = &quot;Lv.&quot; .. slot2:GetMaxLevel()
+	slot0.nextLevelTxt.text = &quot;Lv.&quot; .. slot1:GetMaxLevel()
+end
+
+slot0.UpdateSkill = function(slot0, slot1, slot2)
+	slot3 = not slot2:GetSkill():IsUnlock()
+
+	if slot1:GetSkill():IsUnlock() and slot3 then
+		slot0.skillTxt.text = slot2:GetSkill():GetName()
+		slot0.skillLabelTxt.text = i18n(&quot;island_ship_newskill_unlock&quot;)
+	else
+		slot0.skillTxt.text = &quot;&quot;
+		slot0.skillLabelTxt.text = &quot;&quot;
+	end
+end
+
+slot0.UpdateAttrs = function(slot0, slot1, slot2)
+	slot3 = slot1:GetGrowthAtt()
+	slot4 = slot2:GetGrowthAtt()
+
+	slot0.uiAttrList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = IslandShipAttr.ATTRS[slot1 + 1]
+			slot2:Find(&quot;grade_bg&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/IslandShipUI_atlas&quot;, IslandShipAttr.Grade2Img(uv0:GetAttrGrade(slot3))[2])
+
+			setText(slot2:Find(&quot;name&quot;), IslandShipAttr.ToChinese(slot3))
+			setText(slot2:Find(&quot;value&quot;), &quot;+&quot; .. (uv1[slot3] or 0) .. &quot;  &gt;&gt;&gt;  +&quot; .. (uv2[slot3] or 0))
+		end
+	end)
+	slot0.uiAttrList:align(#IslandShipAttr.ATTRS)
+end
+
+slot0.UpdateConsume = function(slot0, slot1, slot2)
+	slot4 = getProxy(IslandProxy):GetIsland():GetInventoryAgency()
+
+	slot0.uiConsumeList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			updateCustomDrop(slot2, slot3)
+
+			slot4 = uv1:GetOwnCount(slot3.id)
+
+			setText(slot2:Find(&quot;icon_bg/count_bg/count&quot;), setColorStr(slot4, slot3.count &lt;= slot4 and COLOR_GREEN or COLOR_RED) .. &quot;/&quot; .. slot3.count)
+		end
+	end)
+	slot0.uiConsumeList:align(#slot2:GetBreakoutMatrials())
+end
+
+slot0.UpdateUpgradeBtn = function(slot0, slot1)
+	slot3 = getProxy(IslandProxy)
+	slot3 = slot3:GetIsland()
+	slot3 = slot3:GetInventoryAgency()
+
+	setGray(slot0.upgradeBtn, not _.all(slot1:GetBreakoutMatrials(), function (slot0)
+		return slot0.count &lt;= uv0:GetOwnCount(slot0.id)
+	end), true)
+	onButton(slot0, slot0.upgradeBtn, function ()
+		if not uv0 then
+			return
+		end
+
+		uv1:emit(IslandMediator.SHIP_BREAKOUT, uv2.id)
+	end, SFX_PANEL)
+end
+
+slot0.OnHide = function(slot0)
+	slot0:UnBlurPanel()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

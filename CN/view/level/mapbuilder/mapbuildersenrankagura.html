@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mapbuildersenrankagura.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mapbuildersenrankagura.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MapBuilderSenrankagura&quot;, import(&quot;.MapBuilderNormal&quot;))
+
+slot0.GetType = function(slot0)
+	return MapBuilder.TYPESENRANKAGURA
+end
+
+slot0.OnShow = function(slot0)
+	uv0.super.OnShow(slot0)
+	setImageSprite(slot0.sceneParent.actEliteBtn, GetSpriteFromAtlas(&quot;ui/levelmainscene_atlas&quot;, &quot;btn_challenge&quot;), true)
+end
+
+slot0.OnHide = function(slot0)
+	setImageSprite(slot0.sceneParent.actEliteBtn, GetSpriteFromAtlas(&quot;ui/levelmainscene_atlas&quot;, &quot;btn_elite&quot;), true)
+	uv0.super.OnHide(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

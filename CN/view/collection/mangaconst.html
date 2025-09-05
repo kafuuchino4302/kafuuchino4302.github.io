@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mangaconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mangaconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">MangaConst = {}
+slot0 = MangaConst
+slot0.Version = 0
+slot0.NewCount = 0
+
+slot0.setVersionAndNewCount = function()
+	slot0 = #pg.cartoon.all
+	uv0.Version = pg.cartoon[pg.cartoon.all[slot0]].mark
+	slot2 = 0
+
+	for slot6 = slot0, 1, -1 do
+		if pg.cartoon[pg.cartoon.all[slot6]].mark == uv0.Version then
+			slot2 = slot2 + 1
+		elseif slot8 &lt; uv0.Version then
+			break
+		end
+	end
+
+	uv0.NewCount = slot2
+end
+
+slot0.MANGA_PATH_PREFIX = &quot;mangapic/&quot;
+slot0.SET_MANGA_LIKE = 0
+slot0.CANCEL_MANGA_LIKE = 1
+
+slot0.isMangaEverReadByID = function(slot0)
+	return table.contains(getProxy(AppreciateProxy):getMangaReadIDList(), slot0)
+end
+
+slot0.isMangaNewByID = function(slot0)
+	slot1 = pg.cartoon[slot0]
+
+	assert(slot1, &quot;Manga info is null, ID:&quot; .. tostring(slot0))
+
+	return uv0.Version &lt;= slot1.mark
+end
+
+slot0.isMangaLikeByID = function(slot0)
+	return table.contains(getProxy(AppreciateProxy):getMangaLikeIDList(), slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>towerclimbingmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>towerclimbingmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TowerClimbingMediator&quot;, import(&quot;...base.ContextMediator&quot;))
+slot0.ON_FINISH = &quot;TowerClimbingMediator:ON_FINISH&quot;
+slot0.ON_MODIFY_DATA = &quot;TowerClimbingMediator:ON_MODIFY_DATA&quot;
+slot0.ON_COLLECTION = &quot;TowerClimbingMediator:ON_COLLECTION&quot;
+slot0.ON_RECORD_MAP_SCORE = &quot;TowerClimbingMediator:ON_RECORD_MAP_SCORE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_RECORD_MAP_SCORE, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SEND_MINI_GAME_OP, {
+			hubid = 9,
+			cmd = MiniGameOPCommand.CMD_SPECIAL_GAME,
+			args1 = {
+				MiniGameDataCreator.TowerClimbingGameID,
+				4,
+				slot2,
+				slot1
+			}
+		})
+	end)
+	slot0:bind(uv0.ON_COLLECTION, function (slot0)
+		uv0:addSubLayers(Context.New({
+			viewComponent = TowerClimbingCollectionLayer,
+			mediator = TowerClimbingCollectionMediator
+		}))
+	end)
+	slot0:bind(uv0.ON_FINISH, function (slot0, slot1, slot2, slot3)
+		if slot3 &lt; slot1 then
+			uv0:sendNotification(GAME.SEND_MINI_GAME_OP, {
+				hubid = 9,
+				cmd = MiniGameOPCommand.CMD_SPECIAL_GAME,
+				args1 = {
+					MiniGameDataCreator.TowerClimbingGameID,
+					3,
+					slot1,
+					slot2
+				}
+			})
+		end
+
+		if getProxy(MiniGameProxy):GetHubByGameId(MiniGameDataCreator.TowerClimbingGameID).count &lt;= 0 then
+			return
+		end
+
+		uv0:sendNotification(GAME.SEND_MINI_GAME_OP, {
+			hubid = 9,
+			cmd = MiniGameOPCommand.CMD_COMPLETE,
+			args1 = {},
+			id = MiniGameDataCreator.TowerClimbingGameID
+		})
+	end)
+	slot0:bind(uv0.ON_MODIFY_DATA, function (slot0, slot1)
+		uv0:sendNotification(GAME.MODIFY_MINI_GAME_DATA, {
+			id = MiniGameDataCreator.TowerClimbingGameID,
+			map = slot1
+		})
+	end)
+
+	if getProxy(MiniGameProxy):GetMiniGameData(MiniGameDataCreator.TowerClimbingGameID) and not slot1:GetRuntimeData(&quot;isInited&quot;) then
+		slot0:sendNotification(GAME.SEND_MINI_GAME_OP, {
+			hubid = 9,
+			cmd = MiniGameOPCommand.CMD_SPECIAL_GAME,
+			args1 = {
+				MiniGameDataCreator.TowerClimbingGameID,
+				1
+			}
+		})
+	else
+		slot0.viewComponent:Start()
+	end
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.SEND_MINI_GAME_OP_DONE,
+		GAME.REMOVE_LAYERS
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.SEND_MINI_GAME_OP_DONE then
+		seriesAsync({
+			function (slot0)
+				if #uv0.awards &gt; 0 then
+					uv1.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1, slot0)
+				else
+					slot0()
+				end
+			end
+		})
+		slot0.viewComponent:OnSendMiniGameOPDone(slot3)
+	elseif slot2 == GAME.REMOVE_LAYERS and slot3.context.mediator == TowerClimbingCollectionMediator then
+		slot0.viewComponent:UpdateTip()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

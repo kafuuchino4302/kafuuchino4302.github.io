@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wsporttask.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wsporttask.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WSPortTask&quot;, import(&quot;...BaseEntity&quot;))
+slot0.Fields = {
+	btnOnGoing = &quot;userdata&quot;,
+	txDesc = &quot;userdata&quot;,
+	onDrop = &quot;function&quot;,
+	transform = &quot;userdata&quot;,
+	timer = &quot;number&quot;,
+	btnInactive = &quot;userdata&quot;,
+	btnFinished = &quot;userdata&quot;,
+	task = &quot;table&quot;,
+	rtRarity = &quot;userdata&quot;,
+	rtType = &quot;userdata&quot;,
+	progress = &quot;userdata&quot;,
+	txProgress = &quot;userdata&quot;,
+	onButton = &quot;function&quot;,
+	rtName = &quot;userdata&quot;,
+	rfAwardPanle = &quot;userdata&quot;,
+	rfItemTpl = &quot;userdata&quot;
+}
+slot0.Listeners = {
+	onTaskUpdate = &quot;OnTaskUpdate&quot;
+}
+
+slot0.Build = function(slot0, slot1)
+	pg.DelegateInfo.New(slot0)
+	slot0:Init(slot1)
+end
+
+slot0.Dispose = function(slot0)
+	pg.DelegateInfo.Dispose(slot0)
+	slot0:Clear()
+end
+
+slot0.Init = function(slot0, slot1)
+	slot0.transform = slot1
+	slot0.rtType = slot1:Find(&quot;type&quot;)
+	slot0.rtRarity = slot1:Find(&quot;rarity&quot;)
+	slot0.rtName = slot1:Find(&quot;name&quot;)
+	slot0.txDesc = slot1:Find(&quot;desc&quot;)
+	slot0.btnInactive = slot1:Find(&quot;button/inactive&quot;)
+	slot0.btnOnGoing = slot1:Find(&quot;button/ongoing&quot;)
+	slot0.btnFinished = slot1:Find(&quot;button/finished&quot;)
+	slot0.progress = slot1:Find(&quot;name/slider&quot;)
+	slot0.txProgress = slot1:Find(&quot;name/slider_progress&quot;)
+	slot0.rfAwardPanle = slot1:Find(&quot;award_panel/content&quot;)
+	slot0.rfItemTpl = slot1:Find(&quot;item_tpl&quot;)
+end
+
+slot0.Setup = function(slot0, slot1)
+	slot0.task = slot1
+
+	slot0:OnTaskUpdate()
+end
+
+slot0.OnTaskUpdate = function(slot0)
+	setImageColor(slot0.rtName, slot0.task.config.type == 5 and Color(0.058823529411764705, 0.0784313725490196, 0.10980392156862745, 0.3) or Color(0.5450980392156862, 0.596078431372549, 0.8196078431372549, 0.3))
+	setText(slot0.rtName:Find(&quot;Text&quot;), slot0.task.config.name)
+	setText(slot0.txDesc, slot0.task.config.description)
+	GetImageSpriteFromAtlasAsync(&quot;ui/worldportui_atlas&quot;, pg.WorldToastMgr.Type2PictrueName[slot0.task.config.type], slot0.rtType, true)
+	GetImageSpriteFromAtlasAsync(&quot;ui/worldportui_atlas&quot;, &quot;rarity_&quot; .. slot0.task.config.rank, slot0.rtRarity, true)
+	removeAllChildren(slot0.rfAwardPanle)
+
+	for slot5, slot6 in ipairs(slot0.task.config.show) do
+		slot7 = cloneTplTo(slot0.rfItemTpl, slot0.rfAwardPanle)
+
+		updateDrop(slot7, {
+			type = slot6[1],
+			id = slot6[2],
+			count = slot6[3]
+		})
+		onButton(slot0, slot7, function ()
+			uv0.onDrop(uv1)
+		end, SFX_PANEL)
+		setActive(slot7, true)
+	end
+
+	setActive(slot0.rfItemTpl, false)
+	setActive(slot0.btnInactive, slot0.task:getState() == WorldTask.STATE_INACTIVE)
+	setActive(slot0.btnOnGoing, slot2 == WorldTask.STATE_ONGOING)
+	setActive(slot0.btnFinished, slot2 == WorldTask.STATE_FINISHED)
+	setActive(slot0.txProgress, false)
+	setActive(slot0.progress, false)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

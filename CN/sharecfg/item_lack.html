@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item_lack.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>item_lack.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.item_lack = {
+	{
+		config_client = &quot;&quot;,
+		id = 1,
+		drop_type = 2,
+		itemids = {
+			59900
+		},
+		description = {
+			{
+				&quot;完成困难关卡&quot;,
+				{
+					&quot;scene level&quot;,
+					{
+						eliteDefault = true
+					}
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 2,
+		drop_type = 2,
+		itemids = {
+			59003
+		},
+		description = {
+			{
+				&quot;进行军事演习&quot;,
+				{
+					&quot; scene militaryexercise&quot;
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 3,
+		drop_type = 2,
+		itemids = {
+			16001,
+			16002,
+			16003,
+			16011,
+			16012,
+			16013,
+			16021,
+			16022,
+			16023
+		},
+		description = {
+			{
+				&quot;进行海域突进每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 301
+					}
+				},
+				0
+			},
+			{
+				&quot;军火商概率出售&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 2
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托概率获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			},
+			{
+				&quot;舰队商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 7
+					}
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 4,
+		drop_type = 2,
+		itemids = {
+			16004,
+			16014,
+			16024
+		},
+		description = {
+			{
+				&quot;进行海域突进每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 301
+					}
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 5,
+		drop_type = 2,
+		itemids = {
+			17001,
+			17011,
+			17021,
+			17031,
+			17041
+		},
+		description = {
+			{
+				&quot;进行商船护卫每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 201
+					}
+				},
+				0
+			},
+			{
+				&quot;出征主线第1章及其后的关卡&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			},
+			{
+				&quot;军火商概率出售&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 2
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 6,
+		drop_type = 2,
+		itemids = {
+			17002,
+			17012,
+			17022,
+			17032,
+			17042
+		},
+		description = {
+			{
+				&quot;进行商船护卫每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 201
+					}
+				},
+				0
+			},
+			{
+				&quot;出征主线第3章及其后的关卡&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						leastChapterId = 301
+					}
+				},
+				0
+			},
+			{
+				&quot;军火商概率出售&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 2
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;舰队商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 7
+					}
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 7,
+		drop_type = 2,
+		itemids = {
+			17003,
+			17013,
+			17023,
+			17033,
+			17043
+		},
+		description = {
+			{
+				&quot;进行商船护卫每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 201
+					}
+				},
+				0
+			},
+			{
+				&quot;出征主线第6章及其后的关卡&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						leastChapterId = 601
+					}
+				},
+				0
+			},
+			{
+				&quot;军火商概率出售&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 2
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;舰队商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 7
+					}
+				},
+				0
+			}
+		}
+	},
+	{
+		config_client = &quot;&quot;,
+		id = 8,
+		drop_type = 2,
+		itemids = {
+			17004,
+			17014,
+			17024,
+			17034,
+			17044
+		},
+		description = {
+			{
+				&quot;进行商船护卫每日挑战&quot;,
+				{
+					&quot;scene dailylevel&quot;,
+					{
+						dailyLevelId = 201
+					}
+				},
+				0
+			},
+			{
+				&quot;舰队商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 7
+					}
+				},
+				0
+			}
+		}
+	},
+	[51] = {
+		config_client = &quot;&quot;,
+		id = 51,
+		drop_type = 2,
+		itemids = {
+			42001,
+			42002,
+			42003,
+			42004,
+			42005,
+			42006
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[52] = {
+		config_client = &quot;&quot;,
+		id = 52,
+		drop_type = 2,
+		itemids = {
+			42011,
+			42012,
+			42013,
+			42014,
+			42015,
+			42016
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[53] = {
+		config_client = &quot;&quot;,
+		id = 53,
+		drop_type = 2,
+		itemids = {
+			42021,
+			42022,
+			42023,
+			42024,
+			42025
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[54] = {
+		config_client = &quot;&quot;,
+		id = 54,
+		drop_type = 2,
+		itemids = {
+			42031,
+			42032,
+			42033,
+			42034,
+			42035
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[55] = {
+		config_client = &quot;&quot;,
+		id = 55,
+		drop_type = 2,
+		itemids = {
+			42041,
+			42042,
+			42043,
+			42044,
+			42045
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[56] = {
+		config_client = &quot;&quot;,
+		id = 56,
+		drop_type = 2,
+		itemids = {
+			42051,
+			42052,
+			42053,
+			42054,
+			42055
+		},
+		description = {
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[101] = {
+		config_client = &quot;&quot;,
+		id = 101,
+		drop_type = 2,
+		itemids = {
+			18001,
+			18002
+		},
+		description = {
+			{
+				&quot;完成任意章主线困难的第1节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 1,
+						leastChapterId = 10101
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托概率获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[102] = {
+		config_client = &quot;&quot;,
+		id = 102,
+		drop_type = 2,
+		itemids = {
+			18011,
+			18012
+		},
+		description = {
+			{
+				&quot;完成任意章主线困难的第2节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 2,
+						leastChapterId = 10102
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托概率获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[103] = {
+		config_client = &quot;&quot;,
+		id = 103,
+		drop_type = 2,
+		itemids = {
+			18021,
+			18022
+		},
+		description = {
+			{
+				&quot;完成任意章主线困难的第3节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 3,
+						leastChapterId = 10103
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托概率获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[104] = {
+		config_client = &quot;&quot;,
+		id = 104,
+		drop_type = 2,
+		itemids = {
+			18031,
+			18032
+		},
+		description = {
+			{
+				&quot;完成任意章主线困难的第4节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 4,
+						leastChapterId = 10104
+					}
+				},
+				0
+			},
+			{
+				&quot;部分军事委托概率获取&quot;,
+				{
+					&quot;scene event&quot;
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[111] = {
+		config_client = &quot;&quot;,
+		id = 111,
+		drop_type = 2,
+		itemids = {
+			18003
+		},
+		description = {
+			{
+				&quot;完成第3章及其后主线困难的第1节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 1,
+						leastChapterId = 10301
+					}
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[112] = {
+		config_client = &quot;&quot;,
+		id = 112,
+		drop_type = 2,
+		itemids = {
+			18013
+		},
+		description = {
+			{
+				&quot;完成第3章及其后主线困难的第2节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 2,
+						leastChapterId = 10302
+					}
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[113] = {
+		config_client = &quot;&quot;,
+		id = 113,
+		drop_type = 2,
+		itemids = {
+			18023
+		},
+		description = {
+			{
+				&quot;完成第3章及其后主线困难的第3节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 3,
+						leastChapterId = 10303
+					}
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[114] = {
+		config_client = &quot;&quot;,
+		id = 114,
+		drop_type = 2,
+		itemids = {
+			18033
+		},
+		description = {
+			{
+				&quot;完成第3章及其后主线困难的第4节&quot;,
+				{
+					&quot;scene level&quot;,
+					{},
+					{
+						mapType = 2,
+						lastDigit = 4,
+						leastChapterId = 10304
+					}
+				},
+				0
+			},
+			{
+				&quot;进行部分科研项目&quot;,
+				{
+					&quot;technology&quot;
+				},
+				0
+			},
+			{
+				&quot;勋章商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 8
+					}
+				},
+				0
+			}
+		}
+	},
+	[201] = {
+		config_client = &quot;&quot;,
+		id = 201,
+		drop_type = 2,
+		itemids = {
+			59762
+		},
+		description = {
+			{
+				&quot;参与限时活动【厌战的特别训练】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[202] = {
+		config_client = &quot;&quot;,
+		id = 202,
+		drop_type = 2,
+		itemids = {
+			59749
+		},
+		description = {
+			{
+				&quot;参与限时活动【闪耀的战斗之星】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[203] = {
+		config_client = &quot;&quot;,
+		id = 203,
+		drop_type = 2,
+		itemids = {
+			59844
+		},
+		description = {
+			{
+				&quot;参与限时活动【龙腾虎跃】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[204] = {
+		config_client = &quot;&quot;,
+		id = 204,
+		drop_type = 2,
+		itemids = {
+			59845
+		},
+		description = {
+			{
+				&quot;参与限时活动【龙腾虎跃】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[205] = {
+		config_client = &quot;&quot;,
+		id = 205,
+		drop_type = 2,
+		itemids = {
+			59843
+		},
+		description = {
+			{
+				&quot;参与限时活动【啾啾大胃王】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			},
+			{
+				&quot;原型商店兑换&quot;,
+				{
+					&quot;scene shop&quot;,
+					{
+						warp = 6
+					}
+				},
+				0
+			}
+		}
+	},
+	[206] = {
+		config_client = &quot;&quot;,
+		id = 206,
+		drop_type = 2,
+		itemids = {
+			59853
+		},
+		description = {
+			{
+				&quot;参与限时活动【电气功率增幅中】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			}
+		}
+	},
+	[207] = {
+		config_client = &quot;&quot;,
+		id = 207,
+		drop_type = 2,
+		itemids = {
+			59851
+		},
+		description = {
+			{
+				&quot;参与限时活动【美意延年】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			}
+		}
+	},
+	[208] = {
+		config_client = &quot;&quot;,
+		id = 208,
+		drop_type = 2,
+		itemids = {
+			59854
+		},
+		description = {
+			{
+				&quot;参与限时活动【抚顺大冒险IV复刻】&quot;,
+				{
+					&quot;&quot;
+				},
+				0
+			}
+		}
+	},
+	[209] = {
+		config_client = &quot;&quot;,
+		id = 209,
+		drop_type = 2,
+		itemids = {
+			18101
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[210] = {
+		config_client = &quot;&quot;,
+		id = 210,
+		drop_type = 2,
+		itemids = {
+			18102
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[211] = {
+		config_client = &quot;&quot;,
+		id = 211,
+		drop_type = 2,
+		itemids = {
+			18103
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[212] = {
+		config_client = &quot;&quot;,
+		id = 212,
+		drop_type = 2,
+		itemids = {
+			18104
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[213] = {
+		config_client = &quot;&quot;,
+		id = 213,
+		drop_type = 2,
+		itemids = {
+			18105
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[214] = {
+		config_client = &quot;&quot;,
+		id = 214,
+		drop_type = 2,
+		itemids = {
+			18106
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[215] = {
+		config_client = &quot;&quot;,
+		id = 215,
+		drop_type = 2,
+		itemids = {
+			18107
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[216] = {
+		config_client = &quot;&quot;,
+		id = 216,
+		drop_type = 2,
+		itemids = {
+			18108
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[217] = {
+		config_client = &quot;&quot;,
+		id = 217,
+		drop_type = 2,
+		itemids = {
+			18109
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[218] = {
+		config_client = &quot;&quot;,
+		id = 218,
+		drop_type = 2,
+		itemids = {
+			18110
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[219] = {
+		config_client = &quot;&quot;,
+		id = 219,
+		drop_type = 2,
+		itemids = {
+			18111
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[220] = {
+		config_client = &quot;&quot;,
+		id = 220,
+		drop_type = 2,
+		itemids = {
+			18112
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[221] = {
+		config_client = &quot;&quot;,
+		id = 221,
+		drop_type = 2,
+		itemids = {
+			18113
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[222] = {
+		config_client = &quot;&quot;,
+		id = 222,
+		drop_type = 2,
+		itemids = {
+			18114
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[223] = {
+		config_client = &quot;&quot;,
+		id = 223,
+		drop_type = 2,
+		itemids = {
+			18115
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[224] = {
+		config_client = &quot;&quot;,
+		id = 224,
+		drop_type = 2,
+		itemids = {
+			18116
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[225] = {
+		config_client = &quot;&quot;,
+		id = 225,
+		drop_type = 2,
+		itemids = {
+			18117
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[226] = {
+		config_client = &quot;&quot;,
+		id = 226,
+		drop_type = 2,
+		itemids = {
+			18118
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[227] = {
+		config_client = &quot;&quot;,
+		id = 227,
+		drop_type = 2,
+		itemids = {
+			18119
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[228] = {
+		config_client = &quot;&quot;,
+		id = 228,
+		drop_type = 2,
+		itemids = {
+			18120
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[229] = {
+		config_client = &quot;&quot;,
+		id = 229,
+		drop_type = 2,
+		itemids = {
+			18121
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[230] = {
+		config_client = &quot;&quot;,
+		id = 230,
+		drop_type = 2,
+		itemids = {
+			18122
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[231] = {
+		config_client = &quot;&quot;,
+		id = 231,
+		drop_type = 2,
+		itemids = {
+			18123
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[232] = {
+		config_client = &quot;&quot;,
+		id = 232,
+		drop_type = 2,
+		itemids = {
+			18124
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[233] = {
+		config_client = &quot;&quot;,
+		id = 233,
+		drop_type = 2,
+		itemids = {
+			18125
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[234] = {
+		config_client = &quot;&quot;,
+		id = 234,
+		drop_type = 2,
+		itemids = {
+			18126
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			}
+		}
+	},
+	[235] = {
+		config_client = &quot;&quot;,
+		id = 235,
+		drop_type = 2,
+		itemids = {
+			18127
+		},
+		description = {
+			{
+				&quot;参与大型作战&quot;,
+				{
+					&quot;scene level&quot;
+				},
+				0
+			},
+			{
+				&quot;合成获得&quot;,
+				{
+					&quot;BaseUI:ON_ITEM&quot;,
+					{
+						itemId = 18126
+					}
+				}
+			}
+		}
+	},
+	get_id_list_by_drop_type = {
+		[2] = {
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			51,
+			52,
+			53,
+			54,
+			55,
+			56,
+			101,
+			102,
+			103,
+			104,
+			111,
+			112,
+			113,
+			114,
+			201,
+			202,
+			203,
+			204,
+			205,
+			206,
+			207,
+			208,
+			209,
+			210,
+			211,
+			212,
+			213,
+			214,
+			215,
+			216,
+			217,
+			218,
+			219,
+			220,
+			221,
+			222,
+			223,
+			224,
+			225,
+			226,
+			227,
+			228,
+			229,
+			230,
+			231,
+			232,
+			233,
+			234,
+			235
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		101,
+		102,
+		103,
+		104,
+		111,
+		112,
+		113,
+		114,
+		201,
+		202,
+		203,
+		204,
+		205,
+		206,
+		207,
+		208,
+		209,
+		210,
+		211,
+		212,
+		213,
+		214,
+		215,
+		216,
+		217,
+		218,
+		219,
+		220,
+		221,
+		222,
+		223,
+		224,
+		225,
+		226,
+		227,
+		228,
+		229,
+		230,
+		231,
+		232,
+		233,
+		234,
+		235
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

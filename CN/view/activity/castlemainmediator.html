@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>castlemainmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>castlemainmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CastleMainMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.CASTLE_ACT_OP = &quot;castle act op&quot;
+slot0.ADD_ITEM = &quot;add item&quot;
+slot0.UPDATE_ACTIVITY = &quot;update activity&quot;
+slot0.CASTLE_FIRST_STORY_OP_DONE = &quot;castle first story op done&quot;
+slot0.ON_TASK_SUBMIT = &quot;on task submit&quot;
+slot0.UPDATE_GUIDE = &quot;CastleMainMediator.UPDATE_GUIDE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.CASTLE_ACT_OP, function (slot0, slot1)
+		uv0:sendNotification(GAME.CASTLE_ACT_OP, slot1)
+	end)
+	slot0:bind(uv0.ON_TASK_SUBMIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_TASK_ONESTEP, {
+			resultList = slot1
+		})
+	end)
+	slot0:bind(uv0.ADD_ITEM, function (slot0, slot1)
+	end)
+	slot0:bind(uv0.UPDATE_ACTIVITY, function (slot0, slot1)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 2,
+			activity_id = slot1.id
+		})
+	end)
+	slot0:bind(uv0.UPDATE_GUIDE, function (slot0, slot1)
+		uv0:sendNotification(GAME.STORY_UPDATE, {
+			storyId = slot1
+		})
+	end)
+end
+
+slot0.initNotificationHandleDic = function(slot0)
+	slot0.handleDic = {
+		[GAME.CASTLE_STORY_OP_DONE] = function (slot0, slot1)
+			slot0.viewComponent:StoryActEnd(slot1:getBody().number[1])
+		end,
+		[GAME.CASTLE_DICE_OP_DONE] = function (slot0, slot1)
+			slot2 = slot1:getBody()
+
+			slot0.viewComponent:RollDice(slot2.number[1], slot2.number[2])
+		end,
+		[GAME.CASTLE_FIRST_STORY_OP_DONE] = function (slot0, slot1)
+			slot0.viewComponent:FirstStory()
+		end,
+		[GAME.SUBMIT_TASK_DONE] = function (slot0, slot1)
+			slot3 = slot0.viewComponent
+
+			slot3:emit(BaseUI.ON_ACHIEVE, slot1:getBody(), function ()
+				uv0.viewComponent:UpdateFlush()
+			end)
+		end
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

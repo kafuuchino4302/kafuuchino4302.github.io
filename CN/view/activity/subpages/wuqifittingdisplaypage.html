@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wuqifittingdisplaypage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wuqifittingdisplaypage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WuQiFittingDisplayPage&quot;, import(&quot;view.base.BaseActivityPage&quot;))
+slot0.blueprintGroupId = 39904
+
+slot0.OnInit = function(slot0)
+	slot0.btnClick = slot0._tf:Find(&quot;bg/click_area&quot;)
+	slot0.rtAnim = slot0._tf:Find(&quot;bg/CircleBlue02&quot;)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot1 = slot0.rtAnim
+	slot1 = slot1:GetComponent(typeof(DftAniEvent))
+
+	slot1:SetEndEvent(function (slot0)
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.SHIPBLUEPRINT, {
+			shipGroupId = uv0.blueprintGroupId
+		})
+	end)
+	onButton(slot0, slot0.btnClick, function ()
+		slot0, slot1 = pg.SystemOpenMgr.GetInstance():isOpenSystem(getProxy(PlayerProxy):getData().level, &quot;TechnologyMediator&quot;)
+
+		if not slot0 then
+			pg.TipsMgr.GetInstance():ShowTips(slot1)
+
+			return
+		end
+
+		setActive(uv0.rtAnim, true)
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildeventtimerview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildeventtimerview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildEventTimerView&quot;)
+
+slot0.Flush = function(slot0, slot1, slot2)
+	slot0.text = slot1
+
+	slot0:RemoveEndEventTimer()
+
+	if slot2:GetLeftTime() &lt; 86400 then
+		slot0.timer = Timer.New(function ()
+			slot0 = uv0:GetLeftTime()
+
+			uv1:UpdateText(&quot;&lt;size=31&gt;&lt;color=#FF3838&gt;&quot; .. pg.TimeMgr.GetInstance():DescCDTime(slot0) .. &quot;&lt;/color&gt;&lt;/size&gt;&quot;)
+
+			if slot0 &lt;= 0 then
+				uv1:OnOver()
+			end
+		end, 1, -1)
+
+		slot0.timer.func()
+	else
+		slot4, slot5, slot6, slot7 = pg.TimeMgr.GetInstance():parseTimeFrom(slot3)
+
+		assert(slot4 &gt; 0)
+
+		if slot5 &lt;= 0 and (slot6 &gt; 0 or slot7 &gt; 0) then
+			slot5 = slot5 + 1
+		end
+
+		slot8 = string.format(&quot;%s&quot; .. i18n(&quot;word_date&quot;) .. &quot;%s&quot; .. i18n(&quot;word_hour&quot;), slot4, slot5)
+
+		if slot4 &lt; 7 then
+			slot8 = &quot;&lt;size=31&gt;&lt;color=#FF3838&gt;&quot; .. slot8 .. &quot;&lt;/color&gt;&lt;/size&gt;&quot;
+		end
+
+		slot0:UpdateText(slot8)
+
+		if slot6 * 60 + slot7 &lt;= 0 then
+			slot9 = 3600
+		end
+
+		slot0.timer = Timer.New(function ()
+			uv0:Flush(uv1, uv2)
+		end, math.min(slot3 - 86400, slot9) + 2, 1)
+	end
+
+	slot0.timer:Start()
+end
+
+slot0.UpdateText = function(slot0, slot1)
+	slot0.text.text = slot1
+end
+
+slot0.RemoveEndEventTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.OnOver = function(slot0)
+	slot0:RemoveEndEventTimer()
+	pg.m02:sendNotification(GAME.GUILD_GET_ACTIVATION_EVENT, {
+		force = true
+	})
+end
+
+slot0.Dispose = function(slot0)
+	slot0:RemoveEndEventTimer()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

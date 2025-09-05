@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldallocatemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldallocatemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldAllocateMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+	slot0.viewComponent:setItem(slot0.contextData.itemVO)
+	slot0.viewComponent:setFleets(slot0.contextData.fleetList)
+	slot0.viewComponent:setConfirmCallback(slot0.contextData.confirmCallback)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.WORLD_ITEM_USE_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.WORLD_ITEM_USE_DONE then
+		slot0.viewComponent:flush(slot3.item)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

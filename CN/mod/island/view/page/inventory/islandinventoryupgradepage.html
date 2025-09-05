@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandinventoryupgradepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandinventoryupgradepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandInventoryUpgradePage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandInventoryUpgradeUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.consumeList = UIItemList.New(slot0:findTF(&quot;frame/bottom/consume/list&quot;), slot0:findTF(&quot;frame/bottom/consume/list/tpl&quot;))
+	slot0.maxLevelTip = slot0:findTF(&quot;frame/bottom/bg/max_level&quot;)
+	slot0.capacityTxt = slot0:findTF(&quot;frame/bottom/capacity/Text&quot;):GetComponent(typeof(Text))
+	slot0.confirmBtn = slot0:findTF(&quot;frame/confirm&quot;)
+	slot0.levelTxt = slot0:findTF(&quot;frame/top/level&quot;):GetComponent(typeof(Text))
+	slot0.nextLevelTxt = slot0:findTF(&quot;frame/top/level/next&quot;):GetComponent(typeof(Text))
+	slot0.maxLevelTxt = slot0:findTF(&quot;frame/top/max_level&quot;):GetComponent(typeof(Text))
+	slot0.closeBtn = slot0:findTF(&quot;frame/top/close&quot;)
+
+	setText(slot0:findTF(&quot;frame/top/title&quot;), i18n(&quot;island_bag_upgrade_tip&quot;))
+	setText(slot0:findTF(&quot;frame/bottom/Text&quot;), i18n(&quot;island_bag_upgrade_req&quot;))
+	setText(slot0:findTF(&quot;frame/bottom/bg/max_level&quot;), i18n(&quot;island_bag_upgrade_max_level&quot;))
+	setText(slot0:findTF(&quot;frame/bottom/capacity/label&quot;), i18n(&quot;island_bag_upgrade_capacity&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if not getProxy(IslandProxy):GetIsland():GetInventoryAgency():CanUpgrade() then
+			return
+		end
+
+		uv0:emit(IslandMediator.ON_UPGRADE_INVENTORY)
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0)
+	uv0.super.Show(slot0)
+
+	slot1 = getProxy(IslandProxy):GetIsland()
+
+	slot0:UpdateConsume(slot1)
+	slot0:UpdateAddition(slot1)
+	slot0:UpdateStyle(slot1)
+end
+
+slot0.UpdateStyle = function(slot0, slot1)
+	slot3 = slot1:GetInventoryAgency():IsMaxLevel()
+
+	setActive(slot0.confirmBtn, not slot3)
+	setActive(slot0.maxLevelTxt.gameObject, slot3)
+	setActive(slot0.levelTxt.gameObject, not slot3)
+
+	if slot3 then
+		slot0.maxLevelTxt.text = &quot;Lv.&quot; .. slot2:GetLevel()
+	end
+
+	setActive(slot0.maxLevelTip, slot3)
+	setGray(slot0.confirmBtn, not slot2:CanUpgrade(), true)
+end
+
+slot0.UpdateAddition = function(slot0, slot1)
+	slot2 = slot1:GetInventoryAgency()
+	slot3 = slot2:GetCapacity()
+	slot4 = slot2:GetLevel()
+	slot0.capacityTxt.text = &quot;&lt;color=#393a3c&gt;&quot; .. slot3 .. &quot;&lt;/color&gt;&lt;color=#39bfff&gt; + &quot; .. slot2:GetNextCapacity(slot4 + 1) - slot3 .. &quot;&lt;/color&gt;&quot;
+	slot0.levelTxt.text = &quot;Lv.&quot; .. slot4
+	slot0.nextLevelTxt.text = &quot;Lv.&quot; .. slot4 + 1
+end
+
+slot0.UpdateConsume = function(slot0, slot1)
+	slot0.consumeList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot4 = Drop.Create(uv0[slot1 + 1])
+
+			updateCustomDrop(slot2, slot4)
+
+			slot5 = slot4:getOwnedCount()
+
+			setText(slot2:Find(&quot;icon_bg/count_bg/count&quot;), setColorStr(slot5, slot4.count &lt;= slot5 and COLOR_GREEN or COLOR_RED) .. &quot;/&quot; .. slot4.count)
+		end
+	end)
+	slot0.consumeList:align(#slot1:GetInventoryAgency():GetUpgradeConsume())
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

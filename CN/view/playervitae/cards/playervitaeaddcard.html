@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playervitaeaddcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>playervitaeaddcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PlayerVitaeAddCard&quot;, import(&quot;.PlayerVitaeBaseCard&quot;))
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf
+	slot0.line1 = slot1:Find(&quot;line1&quot;)
+	slot1 = slot0._tf
+	slot0.line2 = slot1:Find(&quot;line2&quot;)
+	slot1 = slot0._tf
+	slot0.txt = slot1:Find(&quot;Text&quot;)
+
+	onButton(slot0, slot0._tf, function ()
+		if uv0.inEdit then
+			return
+		end
+
+		if not uv0.canCilick then
+			return
+		end
+
+		uv0:emit(PlayerVitaeMediator.CHANGE_PAINT, nil)
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdate = function(slot0, slot1, slot2, slot3, slot4)
+	slot5 = slot4 == PlayerVitaeShipsPage.RANDOM_FLAG_SHIP_PAGE
+	slot0.canCilick = not slot5
+
+	setActive(slot0.line1, not slot5)
+	setActive(slot0.line2, not slot5)
+	setActive(slot0.txt, not slot5)
+end
+
+slot0.EditCard = function(slot0, slot1)
+	slot0.inEdit = slot1
+
+	setActive(slot0.mask, slot1)
+end
+
+slot0.Disable = function(slot0)
+	uv0.super.Disable(slot0)
+	slot0:EditCard(false)
+end
+
+slot0.OnDispose = function(slot0)
+	slot0:Disable()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

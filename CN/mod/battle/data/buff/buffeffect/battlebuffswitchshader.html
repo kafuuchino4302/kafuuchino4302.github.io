@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffswitchshader.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffswitchshader.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleBuffSwitchShader = class(&quot;BattleBuffSwitchShader&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffSwitchShader.__name = &quot;BattleBuffSwitchShader&quot;
+slot1 = slot0.Battle.BattleBuffSwitchShader
+
+slot1.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+end
+
+slot1.SetArgs = function(slot0, slot1, slot2)
+	slot0._shader = slot0._tempData.arg_list.shader
+	slot0._invisible = slot0._tempData.arg_list.invisible or 0.7
+end
+
+slot1.onAttach = function(slot0, slot1, slot2, slot3)
+	slot1:SwitchShader(slot0._shader, nil, {
+		invisible = slot0._invisible
+	})
+end
+
+slot1.onRemove = function(slot0, slot1, slot2, slot3)
+	slot1:SwitchShader(&quot;COLORED_ALPHA&quot;)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

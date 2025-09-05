@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandrankcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandrankcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandRankCard&quot;)
+slot0.TYPE_SELF = 1
+slot0.TYPE_OTHER = 2
+
+slot0.Ctor = function(slot0, slot1, slot2)
+	slot0._go = slot1
+	slot0._tf = slot1.transform
+	slot0._type = slot2
+	slot0.bgTF = slot0._tf:Find(&quot;bg&quot;)
+	slot0.rankText = slot0._tf:Find(&quot;rank&quot;):GetComponent(typeof(Text))
+	slot0.notOnTF = slot0._tf:Find(&quot;not_on&quot;)
+	slot0.iconTF = slot0._tf:Find(&quot;icon_bg/icon&quot;)
+	slot0.nameText = slot0._tf:Find(&quot;name&quot;):GetComponent(typeof(Text))
+	slot0.levelText = slot0._tf:Find(&quot;level&quot;):GetComponent(typeof(Text))
+	slot0.ptText = slot0._tf:Find(&quot;pt&quot;):GetComponent(typeof(Text))
+
+	setText(slot0._tf:Find(&quot;island&quot;), i18n(&quot;island_season_charts_level&quot;))
+
+	slot0.awardsTF = slot0._tf:Find(&quot;awards&quot;)
+end
+
+slot0.Update = function(slot0, slot1, slot2)
+	slot0.rankVO = slot1
+	slot0.rankText.text = slot1.rank &gt; 9 and slot1.rank or &quot;0&quot; .. slot1.rank
+	slot0.nameText.text = slot1.name
+	slot0.levelText.text = &quot;Lv.&quot; .. slot1.lv
+	slot0.ptText.text = slot1.power
+
+	GetImageSpriteFromAtlasAsync(&quot;ui/islandseasonrankui_atlas&quot;, &quot;bg&quot; .. (slot1.rank &lt; 4 and slot1.rank or 0), slot0.bgTF)
+
+	slot4 = slot0._type ~= uv0.TYPE_SELF or slot1.rank &gt; 0
+
+	setActive(slot0.rankText, slot4 and slot1.rank &gt; 3)
+	setActive(slot0.notOnTF, not slot4)
+	GetImageSpriteFromAtlasAsync(&quot;qicon/&quot; .. pg.ship_skin_template[slot1.skinId].prefab, &quot;&quot;, slot0.iconTF)
+	UIItemList.StaticAlign(slot0.awardsTF, slot0.awardsTF:Find(&quot;tpl&quot;), #IslandSeason.GetAwardsByRank(slot2, slot1.rank), function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			updateCustomDrop(slot2, uv0[slot1 + 1])
+		end
+	end)
+end
+
+slot0.Dispose = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

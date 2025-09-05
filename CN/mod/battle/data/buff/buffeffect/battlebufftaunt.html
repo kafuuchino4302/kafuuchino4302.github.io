@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebufftaunt.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebufftaunt.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleAttr
+slot2 = class(&quot;BattleBuffTaunt&quot;, slot0.Battle.BattleBuffEffect)
+slot0.Battle.BattleBuffTaunt = slot2
+slot2.__name = &quot;BattleBuffTaunt&quot;
+
+slot2.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+
+	slot0._tauntActive = false
+end
+
+slot2.SetArgs = function(slot0, slot1, slot2)
+	slot0._guardTargetFilter = slot0._tempData.arg_list.guardTarget
+	slot0._handleCloak = slot1:GetCloak() ~= nil
+end
+
+slot2.onTrigger = function(slot0, slot1, slot2, slot3)
+	if not slot0._handleCloak then
+		return
+	end
+
+	slot5 = true
+
+	for slot9, slot10 in ipairs(slot0:getTargetList(slot1, slot0._guardTargetFilter, slot0._tempData.arg_list)) do
+		slot5 = slot5 and uv0.IsCloak(slot10)
+	end
+
+	if not slot5 and not slot0._tauntActive then
+		slot0:forceToExpose(slot1)
+	elseif slot5 and slot0._tauntActive then
+		slot0:releaseExpose(slot1)
+	end
+end
+
+slot2.onRemove = function(slot0, slot1, slot2, slot3)
+	slot0:releaseExpose(slot1)
+end
+
+slot2.forceToExpose = function(slot0, slot1)
+	if not slot0._handleCloak then
+		return
+	end
+
+	slot0._tauntActive = true
+	slot2 = slot1:GetCloak()
+
+	slot2:ForceToMax()
+	slot2:UpdateTauntExpose(true)
+end
+
+slot2.releaseExpose = function(slot0, slot1)
+	if not slot0._handleCloak then
+		return
+	end
+
+	slot0._tauntActive = false
+
+	slot1:GetCloak():UpdateTauntExpose(false)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

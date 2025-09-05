@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commanderskilllayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>commanderskilllayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CommanderSkillLayer&quot;, import(&quot;..base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;CommanderSkillUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot1 = slot0.contextData.skill
+	slot0.backBtn = slot0:findTF(&quot;top/btnBack&quot;)
+	slot0.skillInfoName = slot0:findTF(&quot;panel/bg/skill_name&quot;)
+	slot0.skillInfoLv = slot0:findTF(&quot;panel/bg/skill_lv&quot;)
+	slot0.skillInfoIntro = slot0:findTF(&quot;panel/bg/help_panel/skill_intro&quot;)
+	slot0.skillInfoIcon = slot0:findTF(&quot;panel/bg/skill_icon&quot;)
+	slot0.buttonList = slot0:findTF(&quot;panel/buttonList&quot;)
+	slot0.skillDescTF = slot0:findTF(&quot;panel/bg/help_panel/Viewport/content/introTF&quot;)
+	slot0.skillDescContent = slot0:findTF(&quot;panel/bg/help_panel/Viewport/content&quot;)
+
+	setText(slot0.skillInfoName, slot1:getConfig(&quot;name&quot;))
+	setText(slot0.skillInfoLv, &quot;Lv.&quot; .. slot1:getLevel())
+
+	slot0.skillDescList = UIItemList.New(slot0.skillDescContent, slot0.skillDescTF)
+
+	GetImageSpriteFromAtlasAsync(&quot;commanderskillicon/&quot; .. slot1:getConfig(&quot;icon&quot;), &quot;&quot;, slot0.skillInfoIcon)
+	slot0:SetLocaliza()
+end
+
+slot0.SetLocaliza = function(slot0)
+	setText(slot0:findTF(&quot;top/title_list/infomation/title&quot;), i18n(&quot;words_information&quot;))
+	setText(slot0:findTF(&quot;panel/buttonList/ok_button/Image&quot;), i18n(&quot;word_ok&quot;))
+end
+
+slot0.didEnter = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0:findTF(&quot;panel/buttonList/ok_button&quot;), function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end, SFX_CONFIRM)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+
+	slot0.commonFlag = defaultValue(slot0.contextData.commonFlag, true)
+
+	slot0:UpdateList()
+end
+
+slot0.UpdateList = function(slot0)
+	slot1 = slot0.contextData.skill
+	slot2 = slot1:getConfig(&quot;lv&quot;)
+	slot4 = slot1:getConfig(&quot;lv&quot;)
+
+	slot0.skillDescList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+			slot5 = uv1:GetColor(slot3.lv &lt;= uv2)
+
+			setText(slot2, &quot;&lt;color=&quot; .. slot5 .. &quot;&gt;&quot; .. uv1:GetDesc(uv1.commonFlag, slot3) .. (uv2 &lt; slot3.lv and &quot;(Lv.&quot; .. slot3.lv .. i18n(&quot;word_take_effect&quot;) .. &quot;)&quot; or &quot;&quot;) .. &quot;&lt;/color&gt;&quot;)
+			setText(slot2:Find(&quot;level&quot;), &quot;&lt;color=&quot; .. slot5 .. &quot;&gt;&quot; .. &quot;Lv.&quot; .. slot3.lv .. &quot;&lt;/color&gt;&quot;)
+		end
+	end)
+	slot0.skillDescList:align(#slot1:GetSkillGroup())
+end
+
+slot0.GetDesc = function(slot0, slot1, slot2)
+	if not slot1 and slot2.desc_world and slot2.desc_world ~= &quot;&quot; then
+		return slot2.desc_world
+	else
+		return slot2.desc
+	end
+end
+
+slot0.GetColor = function(slot0, slot1)
+	return &quot;#FFFFFFFF&quot;
+end
+
+slot0.willExit = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+slot0.onBackPressed = function(slot0)
+	triggerButton(slot0.backBtn)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

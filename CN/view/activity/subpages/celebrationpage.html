@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>celebrationpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>celebrationpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CelebrationPage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.rtMarks = slot0._tf:Find(&quot;AD/progress&quot;)
+	slot0.rtFinish = slot0._tf:Find(&quot;AD/award&quot;)
+	slot0.rtBtns = slot0._tf:Find(&quot;AD/btn_list&quot;)
+end
+
+slot0.OnDataSetting = function(slot0)
+	if slot0.ptData then
+		slot0.ptData:Update(slot0.activity)
+	else
+		slot0.ptData = ActivityPtData.New(slot0.activity)
+	end
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot3 = slot0.rtBtns
+
+	onButton(slot0, slot3:Find(&quot;go&quot;), function ()
+		uv0:emit(ActivityMediator.OPEN_LAYER, Context.New({
+			mediator = HolidayVillaShopMediator,
+			viewComponent = HolidayVillaShopLayer
+		}))
+	end, SFX_PANEL)
+
+	slot3 = slot0.rtBtns
+
+	onButton(slot0, slot3:Find(&quot;get&quot;), function ()
+		uv0:emit(ActivityMediator.EVENT_PT_OPERATION, {
+			cmd = 4,
+			activity_id = uv0.ptData:GetId(),
+			arg1 = uv0.ptData:GetCurrTarget()
+		})
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot1 = slot0.ptData:GetCurrTarget()
+	slot2 = slot0.ptData:GetLevel()
+
+	for slot7 = 1, slot0.rtMarks.childCount do
+		setActive(slot0.rtMarks:GetChild(slot7 - 1):Find(&quot;icon&quot;), slot7 &lt;= slot1)
+		setActive(slot8:Find(&quot;mark&quot;), slot1 &lt; slot7)
+	end
+
+	setActive(slot0.rtBtns:Find(&quot;get&quot;), slot2 == 0 and slot1 &gt;= 7)
+	setActive(slot0.rtBtns:Find(&quot;got&quot;), slot2 &gt; 0)
+	setActive(slot0.rtBtns:Find(&quot;go&quot;), slot1 &lt; 7)
+	setActive(slot0.rtBtns:Find(&quot;red&quot;), slot2 == 0 and slot1 &gt;= 7 and slot2 ~= 1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

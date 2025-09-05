@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activityselectableshoppage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activityselectableshoppage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivitySelectableShopPage&quot;, import(&quot;.ActivityShopPage&quot;))
+
+slot0.CustomInit = function(slot0)
+	slot0.purchaseWindow = ActivityShopPurchasePanel.New(slot0._tf, slot0.event)
+
+	slot0:SetPurchaseConfirmCb()
+end
+
+slot0.UpdateShop = function(slot0, ...)
+	uv0.super.UpdateShop(slot0, ...)
+
+	if slot0.purchaseWindow:isShowing() then
+		slot0.purchaseWindow:ExecuteAction(&quot;Hide&quot;)
+	end
+end
+
+slot0.SetPurchaseConfirmCb = function(slot0, slot1)
+	assert(&quot;false&quot;, &quot;请参考MetaShopPage实现该方法&quot;)
+end
+
+slot0.OnInitItem = function(slot0, slot1)
+	slot2 = ActivityGoodsCard.New(slot1)
+
+	onButton(slot0, slot2.tf, function ()
+		if uv0.goodsVO:Selectable() then
+			uv1.purchaseWindow:ExecuteAction(&quot;Show&quot;, {
+				icon = &quot;props/21000&quot;,
+				id = uv0.goodsVO.id,
+				count = uv0.goodsVO:getConfig(&quot;num_limit&quot;),
+				type = uv0.goodsVO:getConfig(&quot;commodity_type&quot;),
+				price = uv0.goodsVO:getConfig(&quot;resource_num&quot;),
+				displays = uv0.goodsVO:getConfig(&quot;commodity_id_list&quot;),
+				num = uv0.goodsVO:getConfig(&quot;num&quot;)
+			})
+		else
+			slot0 = uv1
+
+			slot0:OnClickCommodity(uv0.goodsVO, function (slot0, slot1)
+				uv0:OnPurchase(slot0, slot1)
+			end)
+		end
+	end, SFX_PANEL)
+
+	slot0.cards[slot1] = slot2
+end
+
+slot0.OnDestroy = function(slot0)
+	uv0.super.OnDestroy(slot0)
+	slot0.purchaseWindow:Destroy()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

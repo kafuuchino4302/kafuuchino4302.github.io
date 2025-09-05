@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_holiday_collection.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_holiday_collection.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_holiday_collection = {
+	{
+		name = &quot;货物码头区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 1
+	},
+	{
+		name = &quot;别墅生活区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 2
+	},
+	{
+		name = &quot;室内娱乐区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 3
+	},
+	{
+		name = &quot;室外娱乐区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 4
+	},
+	{
+		name = &quot;海滩区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 5
+	},
+	{
+		name = &quot;灯塔区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 6
+	},
+	[18] = {
+		name = &quot;别墅内的美食评选&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_606&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA9&quot;,
+		site_id = 18
+	},
+	[19] = {
+		name = &quot;旧物改造小队登场！&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_570&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA10&quot;,
+		site_id = 19
+	},
+	[20] = {
+		name = &quot;人生飞行棋&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_571&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA11&quot;,
+		site_id = 20
+	},
+	[21] = {
+		name = &quot;露营与星星&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_701&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA12&quot;,
+		site_id = 21
+	},
+	[22] = {
+		name = &quot;报告！有人在庭院里偷偷种菜！&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_520&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA13&quot;,
+		site_id = 22
+	},
+	[23] = {
+		name = &quot;户外网球双打比赛&quot;,
+		type = 2,
+		icon = &quot;bg_villaisland_cg1&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA14&quot;,
+		site_id = 23
+	},
+	[24] = {
+		name = &quot;凉亭诗会，文学少女集结！&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_570&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA15&quot;,
+		site_id = 24
+	},
+	[25] = {
+		name = &quot;各显神通的钓鱼大赛&quot;,
+		type = 2,
+		icon = &quot;bg_villaisland_cg2&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA16&quot;,
+		site_id = 25
+	},
+	[26] = {
+		name = &quot;劲爆摇滚颠覆音乐会！&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_599&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA17&quot;,
+		site_id = 26
+	},
+	[27] = {
+		name = &quot;差点被困终生的大冒险！&quot;,
+		type = 2,
+		icon = &quot;star_level_bg_148&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA18&quot;,
+		site_id = 27
+	},
+	[28] = {
+		name = &quot;特拉法尔加&quot;,
+		type = 3,
+		icon = &quot;201381&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA19&quot;,
+		site_id = 28
+	},
+	[29] = {
+		name = &quot;勇气&quot;,
+		type = 3,
+		icon = &quot;201391&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA20&quot;,
+		site_id = 29
+	},
+	[30] = {
+		name = &quot;{namecode:97}&quot;,
+		type = 3,
+		icon = &quot;307076&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA21&quot;,
+		site_id = 30
+	},
+	[31] = {
+		name = &quot;可畏&quot;,
+		type = 3,
+		icon = &quot;900507&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA22&quot;,
+		site_id = 31
+	},
+	[32] = {
+		name = &quot;{namecode:531}&quot;,
+		type = 3,
+		icon = &quot;900509&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA23&quot;,
+		site_id = 32
+	},
+	[33] = {
+		name = &quot;特立尼达&quot;,
+		type = 3,
+		icon = &quot;202361&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA24&quot;,
+		site_id = 33
+	},
+	[34] = {
+		name = &quot;狮&quot;,
+		type = 3,
+		icon = &quot;205161&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA25&quot;,
+		site_id = 34
+	},
+	[35] = {
+		name = &quot;君主&quot;,
+		type = 3,
+		icon = &quot;900508&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA26&quot;,
+		site_id = 35
+	},
+	[36] = {
+		name = &quot;{namecode:292}&quot;,
+		type = 3,
+		icon = &quot;399062&quot;,
+		luaID = &quot;HAIDAOBIESHUDUJIAJIHUA27&quot;,
+		site_id = 36
+	},
+	[41] = {
+		name = &quot;别邸客厅&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 41
+	},
+	[42] = {
+		name = &quot;别邸餐厅&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 42
+	},
+	[43] = {
+		name = &quot;泳池&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 43
+	},
+	[44] = {
+		name = &quot;庄园桌游室&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 44
+	},
+	[45] = {
+		name = &quot;庄园台球室&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 45
+	},
+	[46] = {
+		name = &quot;庄园美术馆&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 46
+	},
+	[47] = {
+		name = &quot;庄园地下游戏室&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 47
+	},
+	[48] = {
+		name = &quot;庄园前门&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 48
+	},
+	[49] = {
+		name = &quot;露天烧烤区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 49
+	},
+	[50] = {
+		name = &quot;别墅正门&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 50
+	},
+	[51] = {
+		name = &quot;庭院&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 51
+	},
+	[52] = {
+		name = &quot;塔楼&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 52
+	},
+	[53] = {
+		name = &quot;湖心亭&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 53
+	},
+	[54] = {
+		name = &quot;大浴场&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 54
+	},
+	[55] = {
+		name = &quot;户外网球场&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 55
+	},
+	[56] = {
+		name = &quot;海滨休息区&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 56
+	},
+	[57] = {
+		name = &quot;露天广场&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 57
+	},
+	[58] = {
+		name = &quot;蔚蓝浅湾&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 58
+	},
+	[59] = {
+		name = &quot;金色沙滩&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 59
+	},
+	[60] = {
+		name = &quot;灯塔地下室&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 60
+	},
+	[61] = {
+		name = &quot;后山&quot;,
+		type = 1,
+		icon = &quot;&quot;,
+		luaID = &quot;&quot;,
+		site_id = 61
+	},
+	all = {
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

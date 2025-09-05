@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3d_guide02.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3d_guide02.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;DORM3D_GUIDE02&quot;,
+	events = {
+		{
+			alpha = 0,
+			style = {
+				text = &quot;先和天狼星互动一下吧！&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = -269,
+				dir = 1,
+				posX = 641,
+				uiset = {}
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4,
+						pos = {
+							-23,
+							-97,
+							0
+						}
+					}
+				},
+				clickArea = {
+					500,
+					880
+				}
+			}
+		},
+		{
+			alpha = 0,
+			notifies = {
+				{
+					notify = &quot;Dorm3dRoomMediator.GUIDE_CLICK_LADY&quot;,
+					body = {}
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			delay = 2,
+			style = {
+				text = &quot;和她说说话吧！&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = -217,
+				dir = 1,
+				posX = -137,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;UICamera/Canvas/UIMain/Dorm3dMainUI(Clone)/UI/watch/Role/Talk&quot;
+			}
+		},
+		{
+			alpha = 0.4,
+			ui = {
+				pathIndex = -1,
+				path = &quot;UICamera/Canvas/UIMain/Dorm3dMainUI(Clone)/UI/watch/btn_back&quot;
+			}
+		},
+		{
+			alpha = 0,
+			delay = 1,
+			notifies = {
+				{
+					notify = &quot;story update&quot;,
+					body = {
+						storyId = &quot;DORM3D_GUIDE02&quot;
+					}
+				}
+			}
+		},
+		{
+			notifies = {
+				{
+					notify = &quot;Dorm3dRoomMediator.GUIDE_CHECK_LEVEL_UP&quot;,
+					body = {}
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/LevelUpWindow/bg&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/LevelUpWindow/bg/Image&quot;
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;领取到了新的礼物呢，去看看吧&quot;,
+				mode = 1,
+				char = &quot;char&quot;,
+				posY = -230,
+				dir = 1,
+				posX = -425,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/Dorm3dAwardInfoUI(Clone)/bg&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/Dorm3dAwardInfoUI(Clone)/bg/dot&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

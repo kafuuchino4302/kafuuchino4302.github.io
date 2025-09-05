@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainmusicplayerview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainmusicplayerview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainMusicPlayerView&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MusicPlayer&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.rtPanel = slot0._tf:Find(&quot;panel&quot;)
+	slot0.rtContainer = slot0.rtPanel:Find(&quot;view/container&quot;)
+	slot0.playLoopBtn = slot0.rtContainer:Find(&quot;PlayTypeBtn&quot;)
+	slot0.likeToggle = slot0.rtContainer:Find(&quot;LikeBtn&quot;)
+	slot0.preBtn = slot0.rtContainer:Find(&quot;PreBtn&quot;)
+	slot0.nextBtn = slot0.rtContainer:Find(&quot;NextBtn&quot;)
+	slot0.btnExtend = slot0.rtPanel:Find(&quot;extend&quot;)
+	slot0.btnIcon = slot0.rtContainer:Find(&quot;icon&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	slot0.bgmMgr = pg.BgmMgr.GetInstance()
+
+	onButton(slot0, slot0.btnExtend, function ()
+		uv0.isOpen = not uv0.isOpen
+
+		setActive(uv0.btnExtend:Find(&quot;on&quot;), not uv0.isOpen)
+		setActive(uv0.btnExtend:Find(&quot;off&quot;), uv0.isOpen)
+		LeanTween.size(uv0.rtPanel, Vector2(uv0.isOpen and 460 or 130, uv0.rtPanel.sizeDelta.y), 0.3)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.preBtn, function ()
+		if not uv0.musicPlayer then
+			return
+		end
+
+		uv0.musicPlayer:Last()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.nextBtn, function ()
+		if not uv0.musicPlayer then
+			return
+		end
+
+		uv0.musicPlayer:Next()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.playLoopBtn, function ()
+		slot0 = getProxy(AppreciateProxy):getMusicPlayerLoopType()
+
+		switch(slot0, {
+			list = function ()
+				uv0 = &quot;random&quot;
+			end,
+			random = function ()
+				uv0 = &quot;one&quot;
+			end,
+			one = function ()
+				uv0 = &quot;list&quot;
+			end
+		})
+		pg.m02:sendNotification(GAME.APPRECIATE_CHANGE_MUSIC_PLAY_LOOP_TYPE, {
+			loopType = slot0
+		})
+		uv0:updatePlayType(slot0)
+
+		if uv0.musicPlayer then
+			uv0.musicPlayer:ChangeData({
+				loopType = slot0
+			})
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.likeToggle, function ()
+		pg.m02:sendNotification(GAME.APPRECIATE_MUSIC_LIKE, {
+			musicID = pg.music_collect_config[uv0.musicPlayer:GetCurrentMusicId()].id,
+			isAdd = uv0.isLike and 1 or 0
+		})
+
+		uv0.isLike = not uv0.isLike
+
+		setActive(uv0.likeToggle:Find(&quot;On&quot;), uv0.isLike)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnIcon, function ()
+		if not uv0.isOpen then
+			return
+		end
+
+		pg.m02:sendNotification(GAME.GO_SCENE, SCENE.COLLECTSHIP, {
+			toggle = CollectionScene.MUSIC_INDEX
+		})
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	setActive(slot0.btnExtend, slot1)
+
+	if slot1 then
+		slot0.isOpen = false
+	else
+		slot0.isOpen = true
+	end
+
+	setActive(slot0.btnExtend:Find(&quot;on&quot;), not slot0.isOpen)
+	setActive(slot0.btnExtend:Find(&quot;off&quot;), slot0.isOpen)
+	assert(slot0.bgmMgr:GetNow() == &quot;MainMusicPlayer&quot;)
+
+	slot0.musicPlayer = slot0.bgmMgr:GetMusicPlayer()
+	slot0.isLike = getProxy(AppreciateProxy):isLikedByMusicID(slot0.musicPlayer:GetCurrentMusicId())
+
+	slot0:UpdatePlayerDisplay()
+	slot0:updatePlayType()
+	slot0.bgmMgr:RegisterMusicCallback(slot0.__cname, &quot;MainMusicPlayer&quot;, {
+		startCall = function (slot0)
+			uv0.isLike = getProxy(AppreciateProxy):isLikedByMusicID(uv0.musicPlayer:GetCurrentMusicId())
+
+			uv0:UpdatePlayerDisplay()
+		end
+	})
+	uv0.super.Show(slot0)
+end
+
+slot0.UpdatePlayerDisplay = function(slot0)
+	GetImageSpriteFromAtlasAsync(MusicCollectionConst.MUSIC_COVER_PATH_PREFIX .. pg.music_album[pg.music_collect_config[slot0.musicPlayer:GetCurrentMusicId()].album_id].cover, &quot;&quot;, slot0.rtContainer:Find(&quot;icon/face&quot;), false)
+	setActive(slot0.rtContainer:Find(&quot;LikeBtn/On&quot;), slot0.isLike)
+end
+
+slot0.updatePlayType = function(slot0, slot1)
+	slot1 = slot1 or getProxy(AppreciateProxy):getMusicPlayerLoopType()
+
+	eachChild(slot0.playLoopBtn, function (slot0, slot1)
+		setActive(slot0, slot0.name == uv0)
+	end)
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.bgmMgr:UnregisterMusicCallback(slot0.__cname)
+
+	slot0.bgmMgr = nil
+	slot0.musicPlayer = nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

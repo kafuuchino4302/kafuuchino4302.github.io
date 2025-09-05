@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge2inforequestcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>challenge2inforequestcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Challenge2InfoRequestCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().callback
+	slot6 = getProxy(ChallengeProxy)
+
+	if not getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_CHALLENGE) or slot5:isEnd() then
+		return
+	end
+
+	slot7 = pg.ConnectionMgr.GetInstance()
+
+	slot7:Send(24004, {
+		activity_id = slot5.id
+	}, 24005, function (slot0)
+		if slot0.result == 0 then
+			uv0:updateSeasonChallenge(slot0.current_challenge)
+
+			for slot4, slot5 in ipairs(slot0.user_challenge) do
+				uv0:updateCurrentChallenge(slot5)
+			end
+
+			if uv1 then
+				uv1()
+			end
+
+			uv2:sendNotification(GAME.CHALLENGE2_INFO_DONE)
+		else
+			originalPrint(&quot;reqquest challenge info fail, data.result: &quot; .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>specialweaponactpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>specialweaponactpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SpecialWeaponActPage&quot;, import(&quot;.LevelOpenActPage&quot;))
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+	setText(slot0._tf:Find(&quot;AD/task_list/content/tpl/status/got/Text&quot;), i18n(&quot;word_status_inEventFinished&quot;))
+	setText(slot0._tf:Find(&quot;AD/tips/Text&quot;), i18n(&quot;spweapon_activity_ui_text1&quot;))
+	setText(slot0._tf:Find(&quot;AD/tips/Text (1)&quot;), i18n(&quot;spweapon_activity_ui_text2&quot;))
+end
+
+slot0.UpdateTask = function(slot0, slot1, slot2)
+	uv0.super.UpdateTask(slot0, slot1, slot2)
+	setCanvasGroupAlpha(slot1:Find(&quot;canvas&quot;), 1)
+	setActive(slot1:Find(&quot;mask&quot;), slot2:getTaskStatus() == 2)
+
+	slot5 = slot2:getConfig(&quot;desc&quot;)
+
+	if slot3 == 2 then
+		setSlider(slot4:Find(&quot;progress&quot;), 0, 1, 1)
+	else
+		slot6 = slot2:getProgress()
+		slot7 = slot2:getConfig(&quot;target_num&quot;)
+		slot5 = slot5 .. &quot; &quot; .. setColorStr(&quot;(&quot; .. slot6 .. &quot;/&quot; .. slot7 .. &quot;)&quot;, &quot;#FFD585FF&quot;)
+
+		setSlider(slot4:Find(&quot;progress&quot;), 0, slot7, slot6)
+	end
+
+	setText(slot1:Find(&quot;canvas/Text&quot;), slot5)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

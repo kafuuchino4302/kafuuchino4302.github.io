@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>archivesworldbossmsgboxpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>archivesworldbossmsgboxpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ArchivesWorldBossMsgboxPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ArchivesWorldBossMsgboxUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.yesBtn = slot0:findTF(&quot;Box/ConfirmBtn&quot;)
+	slot0.cancelBtn = slot0:findTF(&quot;Box/CancelBtn&quot;)
+	slot0.contentTxt = slot0:findTF(&quot;Box/Text&quot;):GetComponent(typeof(Text))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.yesBtn, function ()
+		if uv0.onYes then
+			uv0.onYes()
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.cancelBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+
+	slot0.contentTxt.text = slot1.content
+	slot0.onYes = slot1.onYes
+end
+
+slot0.Hide = function(slot0)
+	uv0.super.Hide(slot0)
+
+	if slot0.onYes then
+		slot0.onYes = nil
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

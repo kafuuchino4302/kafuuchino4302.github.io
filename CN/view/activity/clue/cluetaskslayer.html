@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cluetaskslayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>cluetaskslayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ClueTasksLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ClueTasksUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.white_closebtn = slot0:findTF(&quot;white_close&quot;)
+	slot0.bg = slot0:findTF(&quot;BG&quot;)
+	slot0.Close = slot0.bg:Find(&quot;close&quot;)
+	slot0.list = slot0.bg:Find(&quot;panel/list&quot;)
+	slot0.frame = slot0.bg:Find(&quot;frame&quot;)
+	slot0.UIlist = UIItemList.New(slot0.list, slot0.frame)
+	slot0.getall = slot0.bg:Find(&quot;get_all&quot;)
+end
+
+slot0.ShouldShowTip = function()
+	slot1 = getProxy(TaskProxy)
+
+	for slot7 = 1, #getProxy(ActivityProxy):getActivityById(ActivityConst.Valleyhospital_TASK):getConfig(&quot;config_data&quot;) do
+		if slot1:getTaskVO(slot3[slot7]):getTaskStatus() == 1 then
+			return true
+		end
+	end
+
+	return false
+end
+
+slot0.didEnter = function(slot0)
+	slot0:InitData()
+	setActive(slot0.frame, false)
+	onButton(slot0, slot0.Close, function ()
+		uv0:closeView()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.white_closebtn, function ()
+		uv0:closeView()
+	end, SFX_PANEL)
+	slot0:UpdateView()
+	onButton(slot0, slot0.getall, function ()
+		uv0:GetAllAward()
+	end)
+	setText(slot0.getall:Find(&quot;Text&quot;), i18n(&quot;other_world_task_get_all&quot;))
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf, false)
+end
+
+slot0.UpdateView = function(slot0)
+	setActive(slot0.getall, slot0.ShouldShowTip())
+	slot0.UIlist:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0:UpdateList(slot1, slot2, uv0.config_data)
+		end
+	end)
+	slot0.UIlist:align(#slot0.config_data)
+end
+
+slot0.GetAllAward = function(slot0)
+	slot1 = getProxy(PlayerProxy)
+	slot2 = {}
+
+	for slot6, slot7 in pairs(slot0.config_data) do
+		slot0.taskvo = slot0.taskProxy:getFinishTaskById(slot0.config_data[slot6])
+		slot0.task = slot0.taskProxy:getTaskVO(slot0.config_data[slot6])
+
+		if slot0.task:getTaskStatus() == 1 then
+			table.insert(slot2, slot0.config_data[slot6])
+		end
+	end
+
+	slot0:emit(ClueTasksMediator.ON_TASK_SUBMIT_ONESTEP, slot0.taskActivityId, slot2)
+end
+
+slot0.InitData = function(slot0)
+	slot0.taskActivityId = ActivityConst.Valleyhospital_TASK
+	slot0.taskProxy = getProxy(TaskProxy)
+	slot0.activity = getProxy(ActivityProxy):getActivityById(slot0.taskActivityId)
+	slot0.config_data = slot0.activity:getConfig(&quot;config_data&quot;)
+end
+
+slot0.UpdateList = function(slot0, slot1, slot2, slot3)
+	slot5 = slot0:findTF(&quot;frame&quot;, slot2)
+	slot6 = slot0.taskProxy:getTaskVO(slot3[slot1 + 1])
+
+	setText(slot2:Find(&quot;desc&quot;), slot6:getConfig(&quot;desc&quot;))
+
+	slot8 = slot6:getProgress()
+	slot9 = slot6:getConfig(&quot;target_num&quot;)
+
+	setText(slot2:Find(&quot;progress&quot;), slot8 .. &quot;/&quot; .. slot9)
+	setSlider(slot2:Find(&quot;slider&quot;), 0, slot9, slot8)
+	slot0:updateAwards(slot6:getConfig(&quot;award_display&quot;), slot2:Find(&quot;awards&quot;), slot2:GetChild(0))
+
+	slot13 = slot0:findTF(&quot;get_btn&quot;, slot2)
+
+	setActive(slot0:findTF(&quot;go_btn&quot;, slot2), slot6:getTaskStatus() == 0)
+	setActive(slot13, slot15 == 1)
+	setActive(slot0:findTF(&quot;got_btn&quot;, slot2), slot15 == 2)
+	SetActive(slot2:Find(&quot;tip&quot;), slot15 == 1)
+	onButton(slot0, slot13, function ()
+		uv0:emit(ClueTasksMediator.ON_TASK_SUBMIT_ONESTEP, uv0.taskActivityId, {
+			uv1.id
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot12, function ()
+		uv0:emit(ClueTasksMediator.ON_TASK_GO, uv1)
+	end, SFX_PANEL)
+end
+
+slot0.updateAwards = function(slot0, slot1, slot2, slot3)
+	for slot9 = slot2.childCount, #_.slice(slot1, 1, 3) - 1 do
+		cloneTplTo(slot3, slot2)
+	end
+
+	for slot9 = 1, slot2.childCount do
+		slot11 = slot9 &lt;= #slot4
+
+		setActive(slot2:GetChild(slot9 - 1), slot11)
+
+		if slot11 then
+			slot12 = slot4[slot9]
+
+			updateDrop(findTF(slot10, &quot;mask&quot;), {
+				type = slot12[1],
+				id = slot12[2],
+				count = slot12[3]
+			})
+			onButton(slot0, slot10:Find(&quot;mask&quot;), function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

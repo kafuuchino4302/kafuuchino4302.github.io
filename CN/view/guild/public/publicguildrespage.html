@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>publicguildrespage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>publicguildrespage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PublicGuildResPage&quot;, import(&quot;..subPages.main.GuildResPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot1 = &quot;blue&quot;
+	slot0.contributionBg.sprite = GetSpriteFromAtlas(&quot;ui/GuildMainUI_atlas&quot;, &quot;res_&quot; .. slot1)
+	slot0.captailBg.sprite = GetSpriteFromAtlas(&quot;ui/GuildMainUI_atlas&quot;, &quot;res_&quot; .. slot1)
+
+	setActive(slot0.captailBg.gameObject, false)
+end
+
+slot0.Update = function(slot0, slot1)
+	slot0.resContributionTxt.text = slot1:getResource(8)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

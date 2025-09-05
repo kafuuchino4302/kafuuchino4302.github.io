@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>educatebottompanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>educatebottompanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EducateBottomPanel&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;EducateBottomPanel&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0.contentTF = slot0:findTF(&quot;content&quot;)
+	slot0.planBtn = slot0:findTF(&quot;btns/schedule&quot;, slot0.contentTF)
+	slot0.mapBtn = slot0:findTF(&quot;btns/map&quot;, slot0.contentTF)
+
+	setText(slot0:findTF(&quot;tips/limit/Text&quot;, slot0.mapBtn), i18n(&quot;child_option_limit&quot;))
+
+	slot0.schoolBtn = slot0:findTF(&quot;btns/enter_school&quot;, slot0.contentTF)
+	slot0.upgradeBtn = slot0:findTF(&quot;btns/system_upgrade&quot;, slot0.contentTF)
+	slot0.targetSetBtn = slot0:findTF(&quot;btns/target_set&quot;, slot0.contentTF)
+	slot0.endingBtn = slot0:findTF(&quot;btns/ending&quot;, slot0.contentTF)
+	slot0.resetBtn = slot0:findTF(&quot;btns/reset&quot;, slot0.contentTF)
+
+	slot0:addListener()
+
+	slot0.targetSetDays = getProxy(EducateProxy):GetTaskProxy():GetTargetSetDays()
+
+	slot0:Flush()
+end
+
+slot0.addListener = function(slot0)
+	onButton(slot0, slot0.planBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_GO_SCENE, SCENE.EDUCATE_SCHEDULE)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.mapBtn, function ()
+		if isActive(uv0:findTF(&quot;lock&quot;, uv0.mapBtn)) then
+			return
+		end
+
+		uv0:emit(EducateBaseUI.EDUCATE_GO_SCENE, SCENE.EDUCATE_MAP)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.schoolBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_ON_MSG_TIP, {
+			content = i18n(&quot;child_school_sure_tip&quot;),
+			onYes = function ()
+				setActive(uv0.schoolBtn, false)
+				uv0:updateTargetSetBtn()
+
+				if EducateConst.ENTER_NEW_STAGE_PERFORMS[2] then
+					pg.PerformMgr.GetInstance():PlayOne(slot0, function ()
+						uv0:playGuide(&quot;tb_9_1&quot;)
+						uv0:onEnterVirtualStage()
+					end)
+				else
+					uv0:playGuide(&quot;tb_9_1&quot;)
+					uv0:onEnterVirtualStage()
+				end
+
+				getProxy(EducateProxy):GetPlanProxy():ClearLocalPlansData()
+			end
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.upgradeBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_ON_MSG_TIP, {
+			content = i18n(&quot;child_upgrade_sure_tip&quot;),
+			onYes = function ()
+				setActive(uv0.upgradeBtn, false)
+				uv0:updateTargetSetBtn()
+
+				if EducateConst.ENTER_NEW_STAGE_PERFORMS[getProxy(EducateProxy):GetCharData():GetStage() + 1] then
+					pg.PerformMgr.GetInstance():PlayOne(slot1, function ()
+						uv0:onEnterVirtualStage()
+					end)
+				else
+					uv0:onEnterVirtualStage()
+				end
+
+				getProxy(EducateProxy):GetPlanProxy():ClearLocalPlansData()
+			end
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.targetSetBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_GO_SUBLAYER, Context.New({
+			mediator = EducateTargetSetMediator,
+			viewComponent = EducateTargetSetLayer
+		}))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.endingBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_ON_MSG_TIP, {
+			content = i18n(&quot;child_end_sure_tip&quot;),
+			onYes = function ()
+				pg.PerformMgr.GetInstance():PlayOne(EducateConst.FIRST_ENTER_END_PERFORM, function ()
+					uv0:emit(EducateMediator.ON_ENDING_TRIGGER)
+				end)
+			end
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.resetBtn, function ()
+		uv0:emit(EducateBaseUI.EDUCATE_ON_MSG_TIP, {
+			content = i18n(&quot;child_reset_sure_tip&quot;),
+			onYes = function ()
+				uv0:emit(EducateMediator.ON_GAME_RESET)
+			end
+		})
+	end, SFX_PANEL)
+
+	slot1 = &quot;anim_educate_bottom_show&quot;
+
+	if slot0.contextData and slot0.contextData.isMainEnter then
+		slot1 = &quot;anim_educate_bottom_in&quot;
+	end
+
+	slot0._tf:GetComponent(typeof(Animation)):Play(slot1)
+end
+
+slot0.playGuide = function(slot0, slot1)
+	if not pg.NewStoryMgr.GetInstance():IsPlayed(slot1) then
+		pg.NewGuideMgr.GetInstance():Play(slot1)
+		pg.m02:sendNotification(GAME.STORY_UPDATE, {
+			storyId = slot1
+		})
+	end
+end
+
+slot0.onEnterVirtualStage = function(slot0)
+	getProxy(EducateProxy):SetVirtualStage(true)
+	slot0:emit(EducateMediator.ENTER_VIRTUAL_STAGE)
+end
+
+slot0.Flush = function(slot0)
+	if not slot0:GetLoaded() then
+		return
+	end
+
+	slot0.curTime = getProxy(EducateProxy):GetCurTime()
+	slot0.status = getProxy(EducateProxy):GetGameStatus()
+	slot2 = getProxy(EducateProxy):InVirtualStage()
+
+	setActive(slot0:findTF(&quot;lock&quot;, slot0.mapBtn), not EducateHelper.IsSystemUnlock(EducateConst.SYSTEM_GO_OUT) or slot2)
+	setActive(slot0.planBtn, slot0.status ~= EducateConst.STATUES_ENDING and slot0.status ~= EducateConst.STATUES_RESET)
+	setActive(slot0.mapBtn, slot0.status ~= EducateConst.STATUES_ENDING and slot0.status ~= EducateConst.STATUES_RESET)
+	slot0:updateMapBtnTips()
+	setActive(slot0.schoolBtn, slot0:isSchoolBtnShow() and not slot2)
+	setActive(slot0.upgradeBtn, slot0:isUpgradeBtnShow() and not slot2)
+	slot0:updateTargetSetBtn()
+	setActive(slot0.endingBtn, slot0.status == EducateConst.STATUES_ENDING)
+	setActive(slot0.resetBtn, slot0.status == EducateConst.STATUES_RESET)
+
+	if isActive(slot0.schoolBtn) or isActive(slot0.upgradeBtn) or isActive(slot0.targetSetBtn) then
+		setActive(slot0.planBtn, false)
+	end
+end
+
+slot0.isSchoolBtnShow = function(slot0)
+	return slot0.status == EducateConst.STATUES_PREPARE and EducateHelper.IsSameDay(slot0.curTime, slot0.targetSetDays[2])
+end
+
+slot0.isUpgradeBtnShow = function(slot0)
+	return slot0.status == EducateConst.STATUES_PREPARE and (EducateHelper.IsSameDay(slot0.curTime, slot0.targetSetDays[3]) or EducateHelper.IsSameDay(slot0.curTime, slot0.targetSetDays[4]))
+end
+
+slot0.isTargetSetBtnShow = function(slot0)
+	return slot0.status == EducateConst.STATUES_PREPARE and not isActive(slot0.schoolBtn) and not isActive(slot0.upgradeBtn)
+end
+
+slot0.updateTargetSetBtn = function(slot0)
+	slot1 = slot0:isTargetSetBtnShow()
+
+	setActive(slot0.targetSetBtn, slot1)
+
+	if slot1 then
+		setActive(slot0:findTF(&quot;lock&quot;, slot0.mapBtn), true)
+	end
+end
+
+slot0.updateMapBtnTips = function(slot0)
+	EducateTipHelper.GetSiteUnlockTipIds()
+
+	slot1 = getProxy(EducateProxy)
+	slot1 = slot1:GetShowSiteIds()
+
+	setActive(slot0:findTF(&quot;tips/new&quot;, slot0.mapBtn), underscore.any(slot1, function (slot0)
+		return EducateTipHelper.IsShowNewTip(EducateTipHelper.NEW_SITE, slot0)
+	end))
+	setActive(slot0:findTF(&quot;tips/limit&quot;, slot0.mapBtn), underscore.any(slot1, function (slot0)
+		slot1 = getProxy(EducateProxy)
+
+		return underscore.any(slot1:GetOptionsBySiteId(slot0), function (slot0)
+			return slot0:IsShowLimit()
+		end)
+	end))
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

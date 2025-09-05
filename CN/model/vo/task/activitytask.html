@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitytask.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activitytask.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityTask&quot;, import(&quot;.Task&quot;))
+
+slot0.Ctor = function(slot0, slot1, slot2)
+	slot0.actId = slot1
+	slot0.id = slot2.id
+	slot0.configId = slot0.id
+	slot0.progress = slot2.progress or 0
+	slot0.acceptTime = slot2.accept_time or 0
+	slot0.submitTime = slot2.submit_time or 0
+	slot0._isOver = false
+
+	slot0:initConfig()
+end
+
+slot0.isFinish = function(slot0)
+	return slot0:getConfig(&quot;target_num&quot;) &lt;= slot0:getProgress()
+end
+
+slot0.setOver = function(slot0)
+	slot0._isOver = true
+	slot0.progress = slot0:getConfig(&quot;target_num&quot;)
+end
+
+slot0.isOver = function(slot0)
+	return slot0._isOver
+end
+
+slot0.isActivitySubmit = function(slot0)
+	if slot0.type == 16 and slot0.subType == 1006 then
+		return true
+	elseif slot0.type == 6 and slot0.subType == 1006 then
+		return true
+	end
+
+	return false
+end
+
+slot0.getProgress = function(slot0)
+	slot1 = nil
+
+	if slot0:isActivitySubmit() then
+		slot3 = tonumber(slot0:getConfig(&quot;target_id_2&quot;))
+
+		if getProxy(ActivityProxy):getActivityById(pg.activity_drop_type[tonumber(slot0:getConfig(&quot;target_id&quot;))].activity_id) then
+			slot1 = slot5:getVitemNumber(slot3)
+		else
+			warning(&quot;找不到活动数据中物品得的数量&quot;)
+
+			slot1 = 0
+		end
+	elseif slot0.type == 6 and slot0.subType == TASK_SUB_TYPE_PT then
+		if getProxy(ActivityProxy):getActivityById(tonumber(slot0:getConfig(&quot;target_id_2&quot;))) then
+			slot1 = slot3.data1 or 0
+		else
+			warning(&quot;找不到活动数据中物品得的数量&quot;, slot0.id)
+
+			slot1 = 0
+		end
+	elseif slot0:getConfig(&quot;target_num&quot;) &lt; slot0.progress then
+		slot1 = slot0:getConfig(&quot;target_num&quot;)
+	end
+
+	return slot1 or 0
+end
+
+slot0.getTarget = function(slot0)
+	return slot0.target
+end
+
+slot0.isReceive = function(slot0)
+	return false
+end
+
+slot0.isSubmit = function(slot0)
+	if slot0.subType == 1006 then
+		return true
+	end
+
+	return false
+end
+
+slot0.getTaskStatus = function(slot0)
+	if slot0:getConfig(&quot;target_num&quot;) &lt;= slot0.progress then
+		return 1
+	end
+
+	return 0
+end
+
+slot0.onAdded = function(slot0)
+end
+
+slot0.updateProgress = function(slot0, slot1)
+	slot0.progress = slot1
+end
+
+slot0.isSelectable = function(slot0)
+	return false
+end
+
+slot0.judgeOverflow = function(slot0, slot1, slot2, slot3)
+	return false, false
+end
+
+slot0.IsUrTask = function(slot0)
+	return false
+end
+
+slot0.GetRealType = function(slot0)
+	return 6
+end
+
+slot0.isNew = function(slot0)
+	if slot0:isFinish() or slot0:isOver() or slot0:isCircle() then
+		return false
+	end
+
+	if slot0.actType == ActivityConst.ACTIVITY_TYPE_TASK_RYZA then
+		if slot0.groupIndex ~= 1 and PlayerPrefs.GetInt(&quot;ryza_task_&quot; .. getProxy(PlayerProxy):getRawData().id .. &quot;_&quot; .. slot0.id) ~= 1 then
+			return true
+		end
+
+		return false
+	end
+
+	return false
+end
+
+slot0.changeNew = function(slot0)
+	if slot0.actType == ActivityConst.ACTIVITY_TYPE_TASK_RYZA and slot0.groupIndex ~= 1 and PlayerPrefs.GetInt(&quot;ryza_task_&quot; .. getProxy(PlayerProxy):getRawData().id .. &quot;_&quot; .. slot0.id) ~= 1 then
+		PlayerPrefs.SetInt(&quot;ryza_task_&quot; .. getProxy(PlayerProxy):getRawData().id .. &quot;_&quot; .. slot0.id, 1)
+	end
+end
+
+slot0.ShowOnTaskScene = function(slot0)
+	return false
+end
+
+slot0.getConfig = function(slot0, slot1)
+	return slot0.configData[slot1]
+end
+
+slot0.isAvatarTask = function(slot0)
+	return false
+end
+
+slot0.initConfig = function(slot0)
+	slot0.actConfig = pg.activity_template[slot0.actId]
+	slot0.actType = slot0.actConfig.type
+	slot0.groups = Activity.Create({
+		id = slot0.actId
+	}):GetTaskIdsByDay()
+
+	for slot5 = 1, #slot0.groups do
+		if table.contains(slot0.groups[slot5], slot0.id) then
+			slot0.groupIndex = slot5
+		end
+	end
+
+	slot0.configData = pg.task_data_template[slot0.id]
+	slot0.target = slot0.configData.target_num
+	slot0.type = slot0.configData.type
+	slot0.subType = slot0.configData.sub_type
+	slot0.targetId1 = slot0.configData.target_id
+	slot0.targetId2 = slot0.configData.target_id_2
+	slot0.autoCommit = slot0.configData.auto_commit == 1
+
+	if slot0.actType == ActivityConst.ACTIVITY_TYPE_TASK_RYZA then
+		-- Nothing
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

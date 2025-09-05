@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_5001.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_5001.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续5.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;5.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续5.5秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;5.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续6.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;6.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续6.5秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;6.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续7.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;7.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续7.5秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;7.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续8.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;8.0(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续8.5秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;8.5(+0.5)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续9.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;9.0(+1)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续10.0秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+		addition = {
+			&quot;10.0&quot;
+		}
+	},
+	desc_get = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续5秒(满级15秒)，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+	name = &quot;火力干扰&quot;,
+	init_effect = &quot;&quot;,
+	id = 5001,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;每隔20秒，有25%的概率发动，中幅降低敌方单个单位射速与伤害，持续$1秒，优先对精英目标（人形单位）生效，同技能效果不叠加&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 5000,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				buff_id = 5002,
+				target = &quot;TargetSelf&quot;,
+				time = 20
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guild_boss_event.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guild_boss_event.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.guild_boss_event = {
+	[90001] = {
+		id = 90001,
+		name = &quot;北方海域的敌影&quot;,
+		report = &quot;成功解除海域威胁。敌方旗舰是经过特殊改装的执棋者，这会是又一次塞壬实验么？获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b1_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70001,
+			{
+				70001
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				258
+			},
+			{
+				2,
+				54018,
+				6
+			}
+		}
+	},
+	[90002] = {
+		id = 90002,
+		name = &quot;查尔斯环礁的异状&quot;,
+		report = &quot;成功击败了型号特殊的探索者。太好了，如果放任它继续巡游，我们的运输航线将会受到严重破坏！获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b1_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70002,
+			{
+				70002
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				298
+			},
+			{
+				2,
+				54018,
+				8
+			}
+		}
+	},
+	[90003] = {
+		id = 90003,
+		name = &quot;NA海域的幽灵&quot;,
+		report = &quot;前日报告中神出鬼没的“幽灵”被确认为经过改造的领洋者，现在已被舰队成功摧毁，整片区域暂时安全了。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b2_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70011,
+			{
+				70011
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				278
+			},
+			{
+				2,
+				54018,
+				7
+			}
+		}
+	},
+	[90004] = {
+		id = 90004,
+		name = &quot;绿地海的巨兽&quot;,
+		report = &quot;一时阻塞航线的不明敌人已被舰队摧毁。经辨认，确认为某种破局者的改型。北方的航线重新恢复通畅了。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b2_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70012,
+			{
+				70012
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				328
+			},
+			{
+				2,
+				54018,
+				9
+			}
+		}
+	},
+	[90005] = {
+		id = 90005,
+		name = &quot;巴弗因湾的莫布拉&quot;,
+		report = &quot;造成巨大破坏的敌人，虽然外观上看起来与测试者相似，但是行为模式上则更偏向执行者系列，也许是某种测试者的量产型？获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b2_1&quot;,
+		painting = &quot;guild_event_boss_2&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70013,
+			{
+				70013
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				388
+			},
+			{
+				2,
+				54018,
+				12
+			}
+		}
+	},
+	[90006] = {
+		id = 90006,
+		name = &quot;尼德罗斯之泉&quot;,
+		report = &quot;成功消灭了型号特殊的探索者。似乎它从一开始就没有与我们作战的意图，而是在寻找着什么东西......获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b3_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70021,
+			{
+				70021
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				308
+			},
+			{
+				2,
+				54018,
+				8
+			}
+		}
+	},
+	[90007] = {
+		id = 90007,
+		name = &quot;布丽根的海妖&quot;,
+		report = &quot;击败了布丽根港外的塞壬舰队，消除了港口的危机。值得注意的是，敌方旗舰为某种破局者的改型。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b3_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70022,
+			{
+				70022
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				368
+			},
+			{
+				2,
+				54018,
+				11
+			}
+		}
+	},
+	[90008] = {
+		id = 90008,
+		name = &quot;阿克斯胡斯的亡灵&quot;,
+		report = &quot;净化者似乎应该为阿克斯胡斯发生的袭击负责，不过战斗中的它行为模式上更偏向执行者系列，这是...净化者的机体量产版？获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b3_1&quot;,
+		painting = &quot;guild_event_boss_3&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70023,
+			{
+				70023
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				438
+			},
+			{
+				2,
+				54018,
+				15
+			}
+		}
+	},
+	[90009] = {
+		id = 90009,
+		name = &quot;萨塔弗隆加夜战&quot;,
+		report = &quot;舰队在巡航时遭遇并击败了特殊型号的追迹者，萨塔弗隆加海域能享受一段时间平静的夜晚了。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b4_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70031,
+			{
+				70031
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				348
+			},
+			{
+				2,
+				54018,
+				10
+			}
+		}
+	},
+	[90010] = {
+		id = 90010,
+		name = &quot;星雨岛攻略战&quot;,
+		report = &quot;成功清理了控制星雨岛周边的敌人，确认敌方旗舰为经过特殊改装的执棋者。群岛作战计划可以进入下一阶段了。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b4_1&quot;,
+		painting = &quot;&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70032,
+			{
+				70032
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				418
+			},
+			{
+				2,
+				54018,
+				14
+			}
+		}
+	},
+	[90011] = {
+		id = 90011,
+		name = &quot;埃隆勃特姆防御战&quot;,
+		report = &quot;击败了塞壬对于埃隆勃特姆发动的反扑，这片区域暂时安全了。针对战斗中疑似发现数个构建者存在的报告，情报部门将会着手进行调查。获得以下奖励：&quot;,
+		main_num = 1,
+		pic = &quot;b4_1&quot;,
+		painting = &quot;guild_event_boss_4&quot;,
+		submarine_num = 1,
+		expedition_id = {
+			70033,
+			{
+				70033
+			}
+		},
+		formula = {
+			150,
+			0,
+			0,
+			0,
+			3.8e-05,
+			1.1,
+			0,
+			0,
+			1
+		},
+		award = {
+			{
+				2,
+				59008
+			},
+			{
+				2,
+				54018
+			}
+		},
+		award_report = {
+			{
+				2,
+				59008,
+				498
+			},
+			{
+				2,
+				54018,
+				18
+			}
+		}
+	},
+	all = {
+		90001,
+		90002,
+		90003,
+		90004,
+		90005,
+		90006,
+		90007,
+		90008,
+		90009,
+		90010,
+		90011
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

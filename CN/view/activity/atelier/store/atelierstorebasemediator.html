@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atelierstorebasemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>atelierstorebasemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AtelierStoreBaseMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+	slot0:bind(AtelierMaterialDetailMediator.SHOW_DETAIL, function (slot0, slot1)
+		slot3 = nil
+
+		uv0:addSubLayers(Context.New({
+			mediator = AtelierMaterialDetailMediator,
+			viewComponent = (slot1:GetVersion() ~= 1 or AtelierMaterialDetailLayer) and AtelierMaterialDetailYumiaLayer,
+			data = {
+				material = slot1
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		AtelierCompositeMediator.OPEN_FORMULA
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == AtelierCompositeMediator.OPEN_FORMULA then
+		slot0.viewComponent:closeView()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

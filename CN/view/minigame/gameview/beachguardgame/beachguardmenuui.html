@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beachguardmenuui.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>beachguardmenuui.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BeachGuardMenuUI&quot;)
+slot26 = {
+	{
+		{
+			img = &quot;char_1&quot;,
+			img_desc = &quot;char_1_desc&quot;,
+			id = 900913,
+			icon = &quot;char_1_icon&quot;,
+			desc = &quot;beach_guard_chaijun&quot;
+		},
+		{
+			img = &quot;char_2&quot;,
+			img_desc = &quot;char_2_desc&quot;,
+			id = 319011,
+			icon = &quot;char_2_icon&quot;,
+			desc = &quot;beach_guard_jianye&quot;
+		},
+		{
+			img = &quot;char_3&quot;,
+			img_desc = &quot;char_3_desc&quot;,
+			id = 605021,
+			icon = &quot;char_3_icon&quot;,
+			desc = &quot;beach_guard_lituoliao&quot;
+		},
+		{
+			img = &quot;char_4&quot;,
+			img_desc = &quot;char_4_desc&quot;,
+			id = 102231,
+			icon = &quot;char_4_icon&quot;,
+			desc = &quot;beach_guard_bominghan&quot;
+		},
+		{
+			img = &quot;char_5&quot;,
+			img_desc = &quot;char_5_desc&quot;,
+			id = 302211,
+			icon = &quot;char_5_icon&quot;,
+			desc = &quot;beach_guard_nengdai&quot;
+		},
+		{
+			icon = &quot;m_craft_icon&quot;,
+			img = &quot;m_craft&quot;,
+			name = &quot;beach_guard_m_craft_name&quot;,
+			desc = &quot;beach_guard_m_craft&quot;
+		},
+		{
+			icon = &quot;m_atk_icon&quot;,
+			img = &quot;m_atk&quot;,
+			name = &quot;beach_guard_m_atk_name&quot;,
+			desc = &quot;beach_guard_m_atk&quot;
+		},
+		{
+			icon = &quot;m_guard_icon&quot;,
+			img = &quot;m_guard&quot;,
+			name = &quot;beach_guard_m_guard_name&quot;,
+			desc = &quot;beach_guard_m_guard&quot;
+		}
+	},
+	{
+		{
+			icon = &quot;e1_icon&quot;,
+			img = &quot;e1&quot;,
+			name = &quot;beach_guard_e1&quot;,
+			desc = &quot;beach_guard_e1_desc&quot;
+		},
+		{
+			icon = &quot;e2_icon&quot;,
+			img = &quot;e2&quot;,
+			name = &quot;beach_guard_e2&quot;,
+			desc = &quot;beach_guard_e2_desc&quot;
+		},
+		{
+			icon = &quot;e3_icon&quot;,
+			img = &quot;e3&quot;,
+			name = &quot;beach_guard_e3&quot;,
+			desc = &quot;beach_guard_e3_desc&quot;
+		},
+		{
+			icon = &quot;e4_icon&quot;,
+			img = &quot;e4&quot;,
+			name = &quot;beach_guard_e4&quot;,
+			desc = &quot;beach_guard_e4_desc&quot;
+		},
+		{
+			icon = &quot;e5_icon&quot;,
+			img = &quot;e5&quot;,
+			name = &quot;beach_guard_e5&quot;,
+			desc = &quot;beach_guard_e5_desc&quot;
+		},
+		{
+			icon = &quot;e6_icon&quot;,
+			img = &quot;e6&quot;,
+			name = &quot;beach_guard_e6&quot;,
+			desc = &quot;beach_guard_e6_desc&quot;
+		},
+		{
+			icon = &quot;e7_icon&quot;,
+			img = &quot;e7&quot;,
+			name = &quot;beach_guard_e7&quot;,
+			desc = &quot;beach_guard_e7_desc&quot;
+		}
+	},
+	{}
+}
+
+slot0.Ctor = function(slot0, slot1, slot2, slot3)
+	slot0._tf = slot1
+	slot0._event = slot3
+	slot0._gameData = slot2
+	slot0.menuUI = findTF(slot0._tf, &quot;ui/menuUI&quot;)
+	slot0.battleScrollRect = GetComponent(findTF(slot0.menuUI, &quot;ad/battList&quot;), typeof(ScrollRect))
+	slot0.totalTimes = slot0._gameData.total_times
+	slot0.battleItems = {}
+	slot0.dropItems = {}
+	slot4 = GetComponent(findTF(slot0.menuUI, &quot;desc&quot;), typeof(Image))
+
+	slot4:SetNativeSize()
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;ad/rightPanelBg/arrowUp&quot;), function ()
+		if uv0.battleScrollRect.normalizedPosition.y + 1 / (uv0.totalTimes - 4) &gt; 1 then
+			slot0 = 1
+		end
+
+		scrollTo(uv0.battleScrollRect, 0, slot0)
+	end, SFX_CANCEL)
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;ad/rightPanelBg/arrowDown&quot;), function ()
+		if uv0.battleScrollRect.normalizedPosition.y - 1 / (uv0.totalTimes - 4) &lt; 0 then
+			slot0 = 0
+		end
+
+		scrollTo(uv0.battleScrollRect, 0, slot0)
+	end, SFX_CANCEL)
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;ad/btnBack&quot;), function ()
+		uv0._event:emit(BeachGuardGameView.CLOSE_GAME)
+	end, SFX_CANCEL)
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;btnRule&quot;), function ()
+		uv0._event:emit(BeachGuardGameView.SHOW_RULE)
+	end, SFX_CANCEL)
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;btnStart&quot;), function ()
+		uv0._event:emit(BeachGuardGameView.READY_START)
+	end, SFX_CANCEL)
+	onButton(slot0._event, findTF(slot0.menuUI, &quot;ad/btnGameBook&quot;), function ()
+		if isActive(uv0.bookUI) then
+			setActive(uv0.bookUI, false)
+			uv0._event:emit(BeachGuardGameView.OPEN_BOOK, false)
+		else
+			uv0._event:emit(BeachGuardGameView.OPEN_BOOK, true)
+			setActive(uv0.bookUI, true)
+		end
+	end, SFX_CANCEL)
+
+	slot5 = findTF(slot0.menuUI, &quot;tplBattleItem&quot;)
+	slot6 = slot0._gameData.drop
+
+	for slot10 = 1, 7 do
+		slot11 = tf(instantiate(slot5))
+		slot11.name = &quot;battleItem_&quot; .. slot10
+
+		setParent(slot11, findTF(slot0.menuUI, &quot;ad/battList/Viewport/Content&quot;))
+		GetSpriteFromAtlasAsync(slot0._gameData.path, &quot;battleDesc&quot; .. slot10, function (slot0)
+			if slot0 then
+				setImageSprite(findTF(uv0, &quot;state_open/desc&quot;), slot0, true)
+				setImageSprite(findTF(uv0, &quot;state_clear/desc&quot;), slot0, true)
+				setImageSprite(findTF(uv0, &quot;state_current/desc&quot;), slot0, true)
+				setImageSprite(findTF(uv0, &quot;state_closed/desc&quot;), slot0, true)
+			end
+		end)
+
+		slot13 = findTF(slot11, &quot;icon&quot;)
+
+		updateDrop(slot13, {
+			type = slot6[slot10][1],
+			id = slot6[slot10][2],
+			amount = slot6[slot10][3]
+		})
+		onButton(slot0._event, slot13, function ()
+			uv0._event:emit(BaseUI.ON_DROP, uv1)
+		end, SFX_PANEL)
+		table.insert(slot0.dropItems, slot13)
+		setActive(slot11, true)
+		table.insert(slot0.battleItems, slot11)
+	end
+
+	slot0.bookUI = findTF(slot0.menuUI, &quot;bookUI&quot;)
+
+	setActive(slot0.bookUI, false)
+
+	slot11 = SFX_PANEL
+
+	onButton(slot0._event, findTF(slot0.bookUI, &quot;bottom&quot;), function ()
+		if isActive(uv0.bookUI) then
+			setActive(uv0.bookUI, false)
+		end
+	end, slot11)
+
+	slot0.selectTagIndex = nil
+	slot0.selectGridIndex = nil
+	slot0.bookUITags = {}
+	slot0.grids = {}
+	slot0.iconImage = findTF(slot0.bookUI, &quot;bg/icon/img&quot;)
+	slot0.iconDesc = findTF(slot0.bookUI, &quot;bg/icon/img_desc&quot;)
+	slot0.descBoundTxt = findTF(slot0.bookUI, &quot;bg/descBound/desc&quot;)
+	slot0.descBoundTitle = findTF(slot0.bookUI, &quot;bg/descBound/title&quot;)
+	slot7 = 8
+
+	for slot11 = 1, 3 do
+		slot12 = slot11
+		slot13 = findTF(slot0.bookUI, &quot;bg/tag&quot; .. slot11)
+
+		if slot11 == 3 then
+			setActive(slot13, false)
+		end
+
+		onButton(slot0._event, slot13, function ()
+			uv0:selectBookTag(uv1)
+		end, SFX_PANEL)
+		table.insert(slot0.bookUITags, slot13)
+	end
+
+	slot8 = findTF(slot0.bookUI, &quot;bg/gridTpl&quot;)
+
+	for slot12 = 1, slot7 do
+		slot13 = slot12
+		slot14 = tf(instantiate(slot8))
+
+		setActive(slot14, true)
+		setParent(slot14, findTF(slot0.bookUI, &quot;container/Viewport/Content&quot;))
+		onButton(slot0._event, slot14, function ()
+			uv0:selectGrid(uv1)
+		end, SFX_PANEL)
+		table.insert(slot0.grids, slot14)
+	end
+
+	slot0:selectBookTag(1)
+end
+
+slot0.selectBookTag = function(slot0, slot1)
+	if slot0.selectTagIndex ~= slot1 then
+		slot0.selectTagIndex = slot1
+		slot0.bookDatas = uv0[slot1]
+
+		for slot5 = 1, #slot0.bookUITags do
+			if slot1 == slot5 then
+				setActive(findTF(slot0.bookUITags[slot5], &quot;select&quot;), true)
+			else
+				setActive(findTF(slot0.bookUITags[slot5], &quot;select&quot;), false)
+			end
+		end
+
+		for slot5 = 1, #slot0.grids do
+			slot6 = slot0.grids[slot5]
+
+			if slot5 &lt;= #slot0.bookDatas then
+				slot7 = slot0.bookDatas[slot5]
+				slot9 = nil
+
+				setText(findTF(slot6, &quot;name&quot;), (not slot7.id or pg.ship_data_statistics[slot7.id].name) and i18n(slot7.name))
+				setImageSprite(findTF(slot6, &quot;icon&quot;), GetSpriteFromAtlas(slot0._gameData.path, slot7.icon), true)
+				setActive(slot6, true)
+			else
+				setActive(slot6, false)
+			end
+		end
+
+		slot0.selectGridIndex = nil
+
+		slot0:selectGrid(1)
+	end
+end
+
+slot0.selectGrid = function(slot0, slot1)
+	if slot0.selectGridIndex ~= slot1 then
+		slot0.selectGridIndex = slot1
+		slot2 = slot0.bookDatas[slot1]
+
+		for slot6 = 1, #slot0.grids do
+			slot7 = slot0.grids[slot6]
+
+			if slot6 == slot1 then
+				setActive(findTF(slot7, &quot;select&quot;), true)
+			else
+				setActive(findTF(slot7, &quot;select&quot;), false)
+			end
+		end
+
+		if slot2.img then
+			setImageSprite(slot0.iconImage, GetSpriteFromAtlas(slot0._gameData.path, slot2.img), true)
+			setActive(slot0.iconImage, true)
+		else
+			setActive(slot0.iconImage, false)
+		end
+
+		if slot2.img_desc then
+			setImageSprite(slot0.iconDesc, GetSpriteFromAtlas(slot0._gameData.path, slot2.img_desc), true)
+			setActive(slot0.iconDesc, true)
+		else
+			setActive(slot0.iconDesc, false)
+		end
+
+		setText(slot0.descBoundTxt, i18n(slot2.desc))
+	end
+end
+
+slot0.updateBookUI = function(slot0)
+end
+
+slot0.show = function(slot0, slot1)
+	setActive(slot0.menuUI, slot1)
+end
+
+slot0.update = function(slot0, slot1)
+	slot2 = slot0:getGameUsedTimes(slot1)
+	slot3 = slot0:getGameTimes(slot1)
+
+	for slot7 = 1, #slot0.battleItems do
+		setActive(findTF(slot0.battleItems[slot7], &quot;state_open&quot;), false)
+		setActive(findTF(slot0.battleItems[slot7], &quot;state_closed&quot;), false)
+		setActive(findTF(slot0.battleItems[slot7], &quot;state_clear&quot;), false)
+		setActive(findTF(slot0.battleItems[slot7], &quot;state_current&quot;), false)
+
+		if slot7 &lt;= slot2 then
+			SetParent(slot0.dropItems[slot7], findTF(slot0.battleItems[slot7], &quot;state_clear/icon&quot;))
+			setActive(slot0.dropItems[slot7], true)
+			setActive(findTF(slot0.battleItems[slot7], &quot;state_clear&quot;), true)
+		elseif slot7 == slot2 + 1 and slot3 &gt;= 1 then
+			setActive(findTF(slot0.battleItems[slot7], &quot;state_current&quot;), true)
+			SetParent(slot0.dropItems[slot7], findTF(slot0.battleItems[slot7], &quot;state_current/icon&quot;))
+			setActive(slot0.dropItems[slot7], true)
+		elseif slot2 &lt; slot7 and slot7 &lt;= slot2 + slot3 then
+			setActive(findTF(slot0.battleItems[slot7], &quot;state_open&quot;), true)
+			SetParent(slot0.dropItems[slot7], findTF(slot0.battleItems[slot7], &quot;state_open/icon&quot;))
+			setActive(slot0.dropItems[slot7], true)
+		else
+			setActive(findTF(slot0.battleItems[slot7], &quot;state_closed&quot;), true)
+			SetParent(slot0.dropItems[slot7], findTF(slot0.battleItems[slot7], &quot;state_closed/icon&quot;))
+			setActive(slot0.dropItems[slot7], true)
+		end
+	end
+
+	if 1 - (slot2 - 3 &lt; 0 and 0 or slot2 - 3) / (slot0.totalTimes - 4) &gt; 1 then
+		slot5 = 1
+	end
+
+	scrollTo(slot0.battleScrollRect, 0, slot5)
+	setActive(findTF(slot0.menuUI, &quot;btnStart/tip&quot;), slot3 &gt; 0)
+	slot0:CheckGet(slot1)
+end
+
+slot0.CheckGet = function(slot0, slot1)
+	setActive(findTF(slot0.menuUI, &quot;got&quot;), false)
+
+	if slot0:getUltimate(slot1) and slot2 ~= 0 then
+		setActive(findTF(slot0.menuUI, &quot;got&quot;), true)
+	end
+
+	if slot2 == 0 then
+		if slot0:getGameUsedTimes(slot1) &lt; slot0._gameData.total_times then
+			return
+		end
+
+		pg.m02:sendNotification(GAME.SEND_MINI_GAME_OP, {
+			hubid = slot1.id,
+			cmd = MiniGameOPCommand.CMD_ULTIMATE,
+			args1 = {}
+		})
+		setActive(findTF(slot0.menuUI, &quot;got&quot;), true)
+	end
+end
+
+slot0.getGameTimes = function(slot0, slot1)
+	return slot1.count
+end
+
+slot0.getGameUsedTimes = function(slot0, slot1)
+	return slot1.usedtime
+end
+
+slot0.getUltimate = function(slot0, slot1)
+	return slot1.ultimate
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bossaward.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>bossaward.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BossAward&quot;, import(&quot;....BaseEntity&quot;))
+slot0.Fields = {
+	bossId = &quot;number&quot;,
+	duetime = &quot;number&quot;,
+	rank = &quot;number&quot;,
+	config = &quot;table&quot;,
+	acceptTime = &quot;number&quot;,
+	level = &quot;number&quot;
+}
+
+slot0.Setup = function(slot0, slot1)
+	slot0.bossId = slot1.bossId
+	slot0.config = pg.world_joint_boss_template[slot0.bossId]
+	slot0.level = slot1.level
+	slot0.rank = slot1.rank
+	slot0.duetime = slot1.duetime
+	slot0.acceptTime = slot1.accept_time or 0
+end
+
+slot0.IsReceived = function(slot0)
+	return slot0.acceptTime &gt; 0
+end
+
+slot0.GetAwards = function(slot0)
+	return slot0.config.drop_show
+end
+
+slot0.IsExpired = function(slot0)
+	return slot0.duetime &lt;= pg.TimeMgr.GetInstance():GetServerTime()
+end
+
+slot0.GetExpiredTime = function(slot0, ...)
+	return slot0.duetime
+end
+
+slot0.GetBossName = function(slot0)
+	return slot0.config.name
+end
+
+slot0.GetRank = function(slot0)
+	return slot0.rank
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

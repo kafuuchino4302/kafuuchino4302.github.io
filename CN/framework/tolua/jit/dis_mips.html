@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dis_mips.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dis_mips.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = type
+slot1 = string.byte
+slot2 = string.format
+slot3 = string.match
+slot4 = string.gmatch
+slot5 = table.concat
+slot6 = require(&quot;bit&quot;)
+slot7 = slot6.band
+slot8 = slot6.bor
+slot9 = slot6.tohex
+slot10 = slot6.lshift
+slot11 = slot6.rshift
+slot12 = slot6.arshift
+slot31 = {
+	[0] = {
+		[0] = {
+			[0] = &quot;nop&quot;,
+			_ = &quot;sllDTA&quot;,
+			shift = 0,
+			mask = -1
+		},
+		{
+			[0] = &quot;movfDSC&quot;,
+			&quot;movtDSC&quot;,
+			shift = 16,
+			mask = 1
+		},
+		{
+			[0] = &quot;srlDTA&quot;,
+			&quot;rotrDTA&quot;,
+			shift = 21,
+			mask = 1
+		},
+		&quot;sraDTA&quot;,
+		&quot;sllvDTS&quot;,
+		false,
+		{
+			[0] = &quot;srlvDTS&quot;,
+			&quot;rotrvDTS&quot;,
+			shift = 6,
+			mask = 1
+		},
+		&quot;sravDTS&quot;,
+		&quot;jrS&quot;,
+		&quot;jalrD1S&quot;,
+		&quot;movzDST&quot;,
+		&quot;movnDST&quot;,
+		&quot;syscallY&quot;,
+		&quot;breakY&quot;,
+		false,
+		&quot;sync&quot;,
+		&quot;mfhiD&quot;,
+		&quot;mthiS&quot;,
+		&quot;mfloD&quot;,
+		&quot;mtloS&quot;,
+		&quot;dsllvDST&quot;,
+		false,
+		&quot;dsrlvDST&quot;,
+		&quot;dsravDST&quot;,
+		&quot;multST&quot;,
+		&quot;multuST&quot;,
+		&quot;divST&quot;,
+		&quot;divuST&quot;,
+		&quot;dmultST&quot;,
+		&quot;dmultuST&quot;,
+		&quot;ddivST&quot;,
+		&quot;ddivuST&quot;,
+		&quot;addDST&quot;,
+		&quot;addu|moveDST0&quot;,
+		&quot;subDST&quot;,
+		&quot;subu|neguDS0T&quot;,
+		&quot;andDST&quot;,
+		&quot;or|moveDST0&quot;,
+		&quot;xorDST&quot;,
+		&quot;nor|notDST0&quot;,
+		false,
+		false,
+		&quot;sltDST&quot;,
+		&quot;sltuDST&quot;,
+		&quot;daddDST&quot;,
+		&quot;dadduDST&quot;,
+		&quot;dsubDST&quot;,
+		&quot;dsubuDST&quot;,
+		&quot;tgeSTZ&quot;,
+		&quot;tgeuSTZ&quot;,
+		&quot;tltSTZ&quot;,
+		&quot;tltuSTZ&quot;,
+		&quot;teqSTZ&quot;,
+		false,
+		&quot;tneSTZ&quot;,
+		false,
+		&quot;dsllDTA&quot;,
+		false,
+		&quot;dsrlDTA&quot;,
+		&quot;dsraDTA&quot;,
+		&quot;dsll32DTA&quot;,
+		false,
+		&quot;dsrl32DTA&quot;,
+		&quot;dsra32DTA&quot;,
+		shift = 0,
+		mask = 63
+	},
+	{
+		[0] = &quot;bltzSB&quot;,
+		&quot;bgezSB&quot;,
+		&quot;bltzlSB&quot;,
+		&quot;bgezlSB&quot;,
+		false,
+		false,
+		false,
+		false,
+		&quot;tgeiSI&quot;,
+		&quot;tgeiuSI&quot;,
+		&quot;tltiSI&quot;,
+		&quot;tltiuSI&quot;,
+		&quot;teqiSI&quot;,
+		false,
+		&quot;tneiSI&quot;,
+		false,
+		&quot;bltzalSB&quot;,
+		&quot;bgezalSB&quot;,
+		&quot;bltzallSB&quot;,
+		&quot;bgezallSB&quot;,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		&quot;synciSO&quot;,
+		shift = 16,
+		mask = 31
+	},
+	&quot;jJ&quot;,
+	&quot;jalJ&quot;,
+	&quot;beq|beqz|bST00B&quot;,
+	&quot;bne|bnezST0B&quot;,
+	&quot;blezSB&quot;,
+	&quot;bgtzSB&quot;,
+	&quot;addiTSI&quot;,
+	&quot;addiu|liTS0I&quot;,
+	&quot;sltiTSI&quot;,
+	&quot;sltiuTSI&quot;,
+	&quot;andiTSU&quot;,
+	&quot;ori|liTS0U&quot;,
+	&quot;xoriTSU&quot;,
+	&quot;luiTU&quot;,
+	{
+		[0] = {
+			[0] = &quot;mfc0TDW&quot;,
+			nil,
+			nil,
+			nil,
+			&quot;mtc0TDW&quot;,
+			[14.0] = &quot;wrpgprDT&quot;,
+			[10.0] = &quot;rdpgprDT&quot;,
+			shift = 21,
+			mask = 15,
+			[11] = {
+				[0] = &quot;diT0&quot;,
+				&quot;eiT0&quot;,
+				shift = 5,
+				mask = 1
+			}
+		},
+		{
+			&quot;tlbr&quot;,
+			&quot;tlbwi&quot;,
+			nil,
+			nil,
+			nil,
+			&quot;tlbwr&quot;,
+			nil,
+			&quot;tlbp&quot;,
+			[24.0] = &quot;eret&quot;,
+			[32.0] = &quot;wait&quot;,
+			mask = 63,
+			[31.0] = &quot;deret&quot;,
+			shift = 0
+		},
+		shift = 25,
+		mask = 1
+	},
+	{
+		[0] = &quot;mfc1TG&quot;,
+		&quot;dmfc1TG&quot;,
+		&quot;cfc1TG&quot;,
+		&quot;mfhc1TG&quot;,
+		&quot;mtc1TG&quot;,
+		&quot;dmtc1TG&quot;,
+		&quot;ctc1TG&quot;,
+		&quot;mthc1TG&quot;,
+		{
+			[0] = &quot;bc1fCB&quot;,
+			&quot;bc1tCB&quot;,
+			&quot;bc1flCB&quot;,
+			&quot;bc1tlCB&quot;,
+			shift = 16,
+			mask = 3
+		},
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		{
+			[0] = &quot;add.sFGH&quot;,
+			&quot;sub.sFGH&quot;,
+			&quot;mul.sFGH&quot;,
+			&quot;div.sFGH&quot;,
+			&quot;sqrt.sFG&quot;,
+			&quot;abs.sFG&quot;,
+			&quot;mov.sFG&quot;,
+			&quot;neg.sFG&quot;,
+			&quot;round.l.sFG&quot;,
+			&quot;trunc.l.sFG&quot;,
+			&quot;ceil.l.sFG&quot;,
+			&quot;floor.l.sFG&quot;,
+			&quot;round.w.sFG&quot;,
+			&quot;trunc.w.sFG&quot;,
+			&quot;ceil.w.sFG&quot;,
+			&quot;floor.w.sFG&quot;,
+			false,
+			{
+				[0] = &quot;movf.sFGC&quot;,
+				&quot;movt.sFGC&quot;,
+				shift = 16,
+				mask = 1
+			},
+			&quot;movz.sFGT&quot;,
+			&quot;movn.sFGT&quot;,
+			false,
+			&quot;recip.sFG&quot;,
+			&quot;rsqrt.sFG&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;cvt.d.sFG&quot;,
+			false,
+			false,
+			&quot;cvt.w.sFG&quot;,
+			&quot;cvt.l.sFG&quot;,
+			&quot;cvt.ps.sFGH&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;c.f.sVGH&quot;,
+			&quot;c.un.sVGH&quot;,
+			&quot;c.eq.sVGH&quot;,
+			&quot;c.ueq.sVGH&quot;,
+			&quot;c.olt.sVGH&quot;,
+			&quot;c.ult.sVGH&quot;,
+			&quot;c.ole.sVGH&quot;,
+			&quot;c.ule.sVGH&quot;,
+			&quot;c.sf.sVGH&quot;,
+			&quot;c.ngle.sVGH&quot;,
+			&quot;c.seq.sVGH&quot;,
+			&quot;c.ngl.sVGH&quot;,
+			&quot;c.lt.sVGH&quot;,
+			&quot;c.nge.sVGH&quot;,
+			&quot;c.le.sVGH&quot;,
+			&quot;c.ngt.sVGH&quot;,
+			shift = 0,
+			mask = 63
+		},
+		{
+			[0] = &quot;add.dFGH&quot;,
+			&quot;sub.dFGH&quot;,
+			&quot;mul.dFGH&quot;,
+			&quot;div.dFGH&quot;,
+			&quot;sqrt.dFG&quot;,
+			&quot;abs.dFG&quot;,
+			&quot;mov.dFG&quot;,
+			&quot;neg.dFG&quot;,
+			&quot;round.l.dFG&quot;,
+			&quot;trunc.l.dFG&quot;,
+			&quot;ceil.l.dFG&quot;,
+			&quot;floor.l.dFG&quot;,
+			&quot;round.w.dFG&quot;,
+			&quot;trunc.w.dFG&quot;,
+			&quot;ceil.w.dFG&quot;,
+			&quot;floor.w.dFG&quot;,
+			false,
+			{
+				[0] = &quot;movf.dFGC&quot;,
+				&quot;movt.dFGC&quot;,
+				shift = 16,
+				mask = 1
+			},
+			&quot;movz.dFGT&quot;,
+			&quot;movn.dFGT&quot;,
+			false,
+			&quot;recip.dFG&quot;,
+			&quot;rsqrt.dFG&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;cvt.s.dFG&quot;,
+			false,
+			false,
+			false,
+			&quot;cvt.w.dFG&quot;,
+			&quot;cvt.l.dFG&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;c.f.dVGH&quot;,
+			&quot;c.un.dVGH&quot;,
+			&quot;c.eq.dVGH&quot;,
+			&quot;c.ueq.dVGH&quot;,
+			&quot;c.olt.dVGH&quot;,
+			&quot;c.ult.dVGH&quot;,
+			&quot;c.ole.dVGH&quot;,
+			&quot;c.ule.dVGH&quot;,
+			&quot;c.df.dVGH&quot;,
+			&quot;c.ngle.dVGH&quot;,
+			&quot;c.deq.dVGH&quot;,
+			&quot;c.ngl.dVGH&quot;,
+			&quot;c.lt.dVGH&quot;,
+			&quot;c.nge.dVGH&quot;,
+			&quot;c.le.dVGH&quot;,
+			&quot;c.ngt.dVGH&quot;,
+			shift = 0,
+			mask = 63
+		},
+		false,
+		false,
+		{
+			[32.0] = &quot;cvt.s.wFG&quot;,
+			[33.0] = &quot;cvt.d.wFG&quot;,
+			shift = 0,
+			mask = 63
+		},
+		{
+			[32.0] = &quot;cvt.s.lFG&quot;,
+			[33.0] = &quot;cvt.d.lFG&quot;,
+			shift = 0,
+			mask = 63
+		},
+		{
+			[0] = &quot;add.psFGH&quot;,
+			&quot;sub.psFGH&quot;,
+			&quot;mul.psFGH&quot;,
+			false,
+			false,
+			&quot;abs.psFG&quot;,
+			&quot;mov.psFG&quot;,
+			&quot;neg.psFG&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			{
+				[0] = &quot;movf.psFGC&quot;,
+				&quot;movt.psFGC&quot;,
+				shift = 16,
+				mask = 1
+			},
+			&quot;movz.psFGT&quot;,
+			&quot;movn.psFGT&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;cvt.s.puFG&quot;,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			&quot;cvt.s.plFG&quot;,
+			false,
+			false,
+			false,
+			&quot;pll.psFGH&quot;,
+			&quot;plu.psFGH&quot;,
+			&quot;pul.psFGH&quot;,
+			&quot;puu.psFGH&quot;,
+			&quot;c.f.psVGH&quot;,
+			&quot;c.un.psVGH&quot;,
+			&quot;c.eq.psVGH&quot;,
+			&quot;c.ueq.psVGH&quot;,
+			&quot;c.olt.psVGH&quot;,
+			&quot;c.ult.psVGH&quot;,
+			&quot;c.ole.psVGH&quot;,
+			&quot;c.ule.psVGH&quot;,
+			&quot;c.psf.psVGH&quot;,
+			&quot;c.ngle.psVGH&quot;,
+			&quot;c.pseq.psVGH&quot;,
+			&quot;c.ngl.psVGH&quot;,
+			&quot;c.lt.psVGH&quot;,
+			&quot;c.nge.psVGH&quot;,
+			&quot;c.le.psVGH&quot;,
+			&quot;c.ngt.psVGH&quot;,
+			shift = 0,
+			mask = 63
+		},
+		shift = 21,
+		mask = 31
+	},
+	false,
+	{
+		[0] = &quot;lwxc1FSX&quot;,
+		&quot;ldxc1FSX&quot;,
+		false,
+		false,
+		false,
+		&quot;luxc1FSX&quot;,
+		false,
+		false,
+		&quot;swxc1FSX&quot;,
+		&quot;sdxc1FSX&quot;,
+		false,
+		false,
+		false,
+		&quot;suxc1FSX&quot;,
+		false,
+		&quot;prefxMSX&quot;,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		&quot;alnv.psFGHS&quot;,
+		false,
+		&quot;madd.sFRGH&quot;,
+		&quot;madd.dFRGH&quot;,
+		false,
+		false,
+		false,
+		false,
+		&quot;madd.psFRGH&quot;,
+		false,
+		&quot;msub.sFRGH&quot;,
+		&quot;msub.dFRGH&quot;,
+		false,
+		false,
+		false,
+		false,
+		&quot;msub.psFRGH&quot;,
+		false,
+		&quot;nmadd.sFRGH&quot;,
+		&quot;nmadd.dFRGH&quot;,
+		false,
+		false,
+		false,
+		false,
+		&quot;nmadd.psFRGH&quot;,
+		false,
+		&quot;nmsub.sFRGH&quot;,
+		&quot;nmsub.dFRGH&quot;,
+		false,
+		false,
+		false,
+		false,
+		&quot;nmsub.psFRGH&quot;,
+		false,
+		shift = 0,
+		mask = 63
+	},
+	&quot;beql|beqzlST0B&quot;,
+	&quot;bnel|bnezlST0B&quot;,
+	&quot;blezlSB&quot;,
+	&quot;bgtzlSB&quot;,
+	&quot;daddiTSI&quot;,
+	&quot;daddiuTSI&quot;,
+	false,
+	false,
+	{
+		[0] = &quot;maddST&quot;,
+		&quot;madduST&quot;,
+		&quot;mulDST&quot;,
+		false,
+		&quot;msubST&quot;,
+		&quot;msubuST&quot;,
+		[32.0] = &quot;clzDS&quot;,
+		[63.0] = &quot;sdbbpY&quot;,
+		mask = 63,
+		shift = 0,
+		[33.0] = &quot;cloDS&quot;
+	},
+	&quot;jalxJ&quot;,
+	false,
+	{
+		[0] = &quot;extTSAK&quot;,
+		&quot;dextmTSAP&quot;,
+		nil,
+		&quot;dextTSAK&quot;,
+		&quot;insTSAL&quot;,
+		nil,
+		&quot;dinsuTSEQ&quot;,
+		&quot;dinsTSAL&quot;,
+		[59.0] = &quot;rdhwrTD&quot;,
+		shift = 0,
+		mask = 63,
+		[32] = {
+			nil,
+			&quot;wsbhDT&quot;,
+			[24.0] = &quot;sehDT&quot;,
+			[16.0] = &quot;sebDT&quot;,
+			shift = 6,
+			mask = 31
+		},
+		[36] = {
+			nil,
+			&quot;dsbhDT&quot;,
+			[5.0] = &quot;dshdDT&quot;,
+			shift = 6,
+			mask = 31
+		}
+	},
+	&quot;lbTSO&quot;,
+	&quot;lhTSO&quot;,
+	&quot;lwlTSO&quot;,
+	&quot;lwTSO&quot;,
+	&quot;lbuTSO&quot;,
+	&quot;lhuTSO&quot;,
+	&quot;lwrTSO&quot;,
+	false,
+	&quot;sbTSO&quot;,
+	&quot;shTSO&quot;,
+	&quot;swlTSO&quot;,
+	&quot;swTSO&quot;,
+	false,
+	false,
+	&quot;swrTSO&quot;,
+	&quot;cacheNSO&quot;,
+	&quot;llTSO&quot;,
+	&quot;lwc1HSO&quot;,
+	&quot;lwc2TSO&quot;,
+	&quot;prefNSO&quot;,
+	false,
+	&quot;ldc1HSO&quot;,
+	&quot;ldc2TSO&quot;,
+	&quot;ldTSO&quot;,
+	&quot;scTSO&quot;,
+	&quot;swc1HSO&quot;,
+	&quot;swc2TSO&quot;,
+	false,
+	false,
+	&quot;sdc1HSO&quot;,
+	&quot;sdc2TSO&quot;,
+	&quot;sdTSO&quot;
+}
+slot32 = {
+	[0] = &quot;r0&quot;,
+	&quot;r1&quot;,
+	&quot;r2&quot;,
+	&quot;r3&quot;,
+	&quot;r4&quot;,
+	&quot;r5&quot;,
+	&quot;r6&quot;,
+	&quot;r7&quot;,
+	&quot;r8&quot;,
+	&quot;r9&quot;,
+	&quot;r10&quot;,
+	&quot;r11&quot;,
+	&quot;r12&quot;,
+	&quot;r13&quot;,
+	&quot;r14&quot;,
+	&quot;r15&quot;,
+	&quot;r16&quot;,
+	&quot;r17&quot;,
+	&quot;r18&quot;,
+	&quot;r19&quot;,
+	&quot;r20&quot;,
+	&quot;r21&quot;,
+	&quot;r22&quot;,
+	&quot;r23&quot;,
+	&quot;r24&quot;,
+	&quot;r25&quot;,
+	&quot;r26&quot;,
+	&quot;r27&quot;,
+	&quot;r28&quot;,
+	&quot;sp&quot;,
+	&quot;r30&quot;,
+	&quot;ra&quot;
+}
+
+slot33 = function(slot0, slot1, slot2)
+	slot3 = slot0.pos
+	slot4 = &quot;&quot;
+
+	if slot0.rel and slot0.symtab[slot0.rel] then
+		slot4 = &quot;\t-&gt;&quot; .. slot5
+	end
+
+	if slot0.hexdump &gt; 0 then
+		slot0.out(uv0(&quot;%08x  %s  %-7s %s%s\n&quot;, slot0.addr + slot3, uv1(slot0.op), slot1, uv2(slot2, &quot;, &quot;), slot4))
+	else
+		slot0.out(uv0(&quot;%08x  %-7s %s%s\n&quot;, slot0.addr + slot3, slot1, uv2(slot2, &quot;, &quot;), slot4))
+	end
+
+	slot0.pos = slot3 + 4
+end
+
+slot34 = function(slot0)
+	return uv0(slot0, &quot;.long&quot;, {
+		&quot;0x&quot; .. uv1(slot0.op)
+	})
+end
+
+slot35 = function(slot0)
+	slot1 = slot0.pos
+	slot2, slot3, slot4, slot5 = uv0(slot0.code, slot1 + 1, slot1 + 4)
+
+	return uv1(uv2(slot2, 24), uv2(slot3, 16), uv2(slot4, 8), slot5)
+end
+
+slot36 = function(slot0)
+	slot1 = slot0.pos
+	slot2, slot3, slot4, slot5 = uv0(slot0.code, slot1 + 1, slot1 + 4)
+
+	return uv1(uv2(slot5, 24), uv2(slot4, 16), uv2(slot3, 8), slot2)
+end
+
+slot37 = function(slot0)
+	slot1 = slot0:get()
+	slot2 = {}
+	slot3 = nil
+	slot0.op = slot1
+	slot0.rel = nil
+	slot4 = uv0[uv1(slot1, 26)]
+
+	while uv2(slot4) ~= &quot;string&quot; do
+		if not slot4 then
+			return uv3(slot0)
+		end
+
+		slot4 = slot4[uv4(uv1(slot1, slot4.shift), slot4.mask)] or slot4._
+	end
+
+	slot5, slot6 = uv5(slot4, &quot;^([a-z0-9_.]*)(.*)&quot;)
+	slot7, slot8 = uv5(slot6, &quot;|([a-z0-9_.|]*)(.*)&quot;)
+
+	if slot7 then
+		slot6 = slot8
+	end
+
+	for slot12 in uv6(slot6, &quot;.&quot;) do
+		slot13 = nil
+
+		if slot12 == &quot;S&quot; then
+			slot13 = uv7[uv4(uv1(slot1, 21), 31)]
+		elseif slot12 == &quot;T&quot; then
+			slot13 = uv7[uv4(uv1(slot1, 16), 31)]
+		elseif slot12 == &quot;D&quot; then
+			slot13 = uv7[uv4(uv1(slot1, 11), 31)]
+		elseif slot12 == &quot;F&quot; then
+			slot13 = &quot;f&quot; .. uv4(uv1(slot1, 6), 31)
+		elseif slot12 == &quot;G&quot; then
+			slot13 = &quot;f&quot; .. uv4(uv1(slot1, 11), 31)
+		elseif slot12 == &quot;H&quot; then
+			slot13 = &quot;f&quot; .. uv4(uv1(slot1, 16), 31)
+		elseif slot12 == &quot;R&quot; then
+			slot13 = &quot;f&quot; .. uv4(uv1(slot1, 21), 31)
+		elseif slot12 == &quot;A&quot; then
+			slot13 = uv4(uv1(slot1, 6), 31)
+		elseif slot12 == &quot;E&quot; then
+			slot13 = uv4(uv1(slot1, 6), 31) + 32
+		elseif slot12 == &quot;M&quot; then
+			slot13 = uv4(uv1(slot1, 11), 31)
+		elseif slot12 == &quot;N&quot; then
+			slot13 = uv4(uv1(slot1, 16), 31)
+		elseif slot12 == &quot;C&quot; then
+			if uv4(uv1(slot1, 18), 7) == 0 then
+				slot13 = nil
+			end
+		elseif slot12 == &quot;K&quot; then
+			slot13 = uv4(uv1(slot1, 11), 31) + 1
+		elseif slot12 == &quot;P&quot; then
+			slot13 = uv4(uv1(slot1, 11), 31) + 33
+		elseif slot12 == &quot;L&quot; then
+			slot13 = uv4(uv1(slot1, 11), 31) - slot3 + 1
+		elseif slot12 == &quot;Q&quot; then
+			slot13 = uv4(uv1(slot1, 11), 31) - slot3 + 33
+		elseif slot12 == &quot;I&quot; then
+			slot13 = uv8(uv9(slot1, 16), 16)
+		elseif slot12 == &quot;U&quot; then
+			slot13 = uv4(slot1, 65535)
+		elseif slot12 == &quot;O&quot; then
+			slot2[#slot2] = uv10(&quot;%d(%s)&quot;, uv8(uv9(slot1, 16), 16), slot3)
+		elseif slot12 == &quot;X&quot; then
+			slot2[#slot2] = uv10(&quot;%s(%s)&quot;, uv7[uv4(uv1(slot1, 16), 31)], slot3)
+		elseif slot12 == &quot;B&quot; then
+			slot13 = slot0.addr + slot0.pos + uv8(uv9(slot1, 16), 16) * 4 + 4
+			slot0.rel = slot13
+			slot13 = uv10(&quot;0x%08x&quot;, slot13)
+		elseif slot12 == &quot;J&quot; then
+			slot14 = slot0.addr + slot0.pos
+			slot13 = slot14 - uv4(slot14, 268435455) + uv4(slot1, 67108863) * 4
+			slot0.rel = slot13
+			slot13 = uv10(&quot;0x%08x&quot;, slot13)
+		elseif slot12 == &quot;V&quot; then
+			if uv4(uv1(slot1, 8), 7) == 0 then
+				slot13 = nil
+			end
+		elseif slot12 == &quot;W&quot; then
+			if uv4(slot1, 7) == 0 then
+				slot13 = nil
+			end
+		elseif slot12 == &quot;Y&quot; then
+			if uv4(uv1(slot1, 6), 1048575) == 0 then
+				slot13 = nil
+			end
+		elseif slot12 == &quot;Z&quot; then
+			if uv4(uv1(slot1, 6), 1023) == 0 then
+				slot13 = nil
+			end
+		elseif slot12 == &quot;0&quot; then
+			if slot3 == &quot;r0&quot; or slot3 == 0 then
+				slot14 = #slot2
+				slot2[slot14] = nil
+				slot3 = slot2[slot14 - 1]
+
+				if slot7 then
+					slot15, slot16 = uv5(slot7, &quot;([^|]*)|(.*)&quot;)
+
+					if slot15 then
+						slot7 = slot16
+						slot5 = slot15
+					else
+						slot5 = slot7
+					end
+				end
+			end
+		elseif slot12 == &quot;1&quot; then
+			if slot3 == &quot;ra&quot; then
+				slot2[#slot2] = nil
+			end
+		else
+			assert(false)
+		end
+
+		if slot13 then
+			slot2[#slot2 + 1] = slot13
+			slot3 = slot13
+		end
+	end
+
+	return uv11(slot0, slot5, slot2)
+end
+
+slot38 = function(slot0, slot1, slot2)
+	slot1 = slot1 or 0
+	slot3 = slot2 and slot1 + slot2 or #slot0.code
+	slot3 = slot3 - slot3 % 4
+	slot0.pos = slot1 - slot1 % 4
+	slot0.rel = nil
+
+	while slot0.pos &lt; slot3 do
+		uv0(slot0)
+	end
+end
+
+return {
+	create = function (slot0, slot1, slot2)
+		return {
+			code = slot0,
+			addr = slot1 or 0,
+			out = slot2 or io.write,
+			symtab = {},
+			disass = uv0,
+			hexdump = 8,
+			get = uv1
+		}
+	end,
+	create_el = function (slot0, slot1, slot2)
+		slot3 = uv0(slot0, slot1, slot2)
+		slot3.get = uv1
+
+		return slot3
+	end,
+	disass = function (slot0, slot1, slot2)
+		uv0(slot0, slot1, slot2):disass()
+	end,
+	disass_el = function (slot0, slot1, slot2)
+		uv0(slot0, slot1, slot2):disass()
+	end,
+	regname = function (slot0)
+		if slot0 &lt; 32 then
+			return uv0[slot0]
+		end
+
+		return &quot;f&quot; .. slot0 - 32
+	end
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

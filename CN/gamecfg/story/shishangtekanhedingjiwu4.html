@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shishangtekanhedingjiwu4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shishangtekanhedingjiwu4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;SHISHANGTEKANHEDINGJIWU4&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			expression = 3,
+			side = 2,
+			spine = true,
+			dir = 1,
+			bgName = &quot;star_level_bg_150&quot;,
+			bgm = &quot;story-richang-light&quot;,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;亲爱的客人，到我这里坐下吧，无论吃饭还是聊天，都由我来陪着你哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（人称用的是“我”和“你”……？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;仔细打量了一番哈尔福德，虽然她的脸上带着甜美明媚的笑容，但眸中却毫无光彩。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（以哈尔福德喜欢工作的程度来说，不应该会这样……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（难道是那个绿头猫威胁了她什么么？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……干嘛一直盯着吾？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;哈尔福德收起了刚刚的笑容，微鼓着双颊看向我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我在想你是不是被{namecode:98:明石}胁迫了，不然不至于这么明显的状态不对。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没有啦，{namecode:98:明石}并没有胁迫吾，吾只是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;她抱着“小德拉”玩偶，轻轻呼出一口气，犹豫了一会儿才继续往下说。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;吾只是有些不满这份工作过于轻松……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;因为这份工作只要求吾用“甜美可爱的口吻”坐在这里陪汝聊天而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;吾真的能心安理得地获得工作的报酬么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			fontsize = 24,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;而且陪伴对象是汝的话，怎么想都是奖励吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;那就不当做工作，如何？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 1,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然如此，那就不把它视作工作，如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 1,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;单纯视为陪我聊天，会不会令你安心一些？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯……听起来好像也可以……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不对、不可以！工作就是工作，不可以跟其他事情混为一谈的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;吾可是很认真地对待这份工作的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;在得知要陪汝的时候，吾可是连玩偶都精挑细选、仔细培训过的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;哈尔福德慌乱地将玩偶举到面前，似乎是在掩饰自己的害羞。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;给玩偶的培训？难道它们还会说话么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这是吾的比喻！玩偶当然不会说话，但是吾可是认真将它们打扮了一番。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;吾总结的陪伴要义第一条，就是要用可爱的外表治愈吾的眷属。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……怎么样，看着可爱的玩偶小德拉，汝有没有被治愈到？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;没有的话……唔，汝也可以另选自己喜欢的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;直到被治愈了为止！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这个沙发上的全都可以任由我选么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;自然！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;那，选哈尔福德也可以？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那，选哈尔福德也可以么？毕竟哈尔福德也在沙发上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哈？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;少女惊讶出声，回味过我话中的意思后，白皙的脸颊上染上了粉霞，眼眸满是羞赧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;吾可不是玩偶，吾可是高贵的第一百二十六任血族亲王！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;汝只是我的眷属而已！怎能提出这样的请求？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;我开玩笑的。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;是哈尔福德事先同意的。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 1,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;和你开个玩笑，缓和一下你因为工作太简单而不安的情绪而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 1,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;现在有没有感觉好一点？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			fontsize = 24,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;原来只是玩笑么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不管了！总之吾当真了哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 2,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;是哈尔福德事先同意的，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 2,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;当我问这个沙发上是不是可以任意挑选的时候，你说“自然”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 2,
+			hideRecordIco = true,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;而且你也只说了……“另选我喜欢的”，可没限制说只能挑选玩偶。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;汝……汝……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;尔后，娇小可爱的少女起身，鼓着脸颊坐到了我的怀中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;柔软的兔耳轻轻擦过我的脸颊，而她将红透的脸慢慢埋入我的肩窝。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_150&quot;,
+			spine = true,
+			dir = 1,
+			actor = 199051,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;亲爱的客人，这样子……汝有被治愈到么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_8507.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_8507.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;武器攻击速度加快0.5倍&quot;,
+	init_effect = &quot;&quot;,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;武器攻击速度加快0.5倍&quot;,
+	stack = 1,
+	id = 8057,
+	icon = 8057,
+	last_effect = &quot;lansebuff&quot;,
+	blink = {
+		0,
+		0.7,
+		1,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttrRatio&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = 50,
+				attr = &quot;loadspeed&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

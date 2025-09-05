@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_151222.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_151222.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.62,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 10,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.64,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 20,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.66,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 30,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.68,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 40,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.7,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 50,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.72,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 60,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.74,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 70,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.76,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 80,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.78,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 90,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					skill_id = 151223
+				}
+			}
+		}
+	},
+	{
+		effect_list = {
+			{
+				type = &quot;BattleBuffDOT&quot;,
+				trigger = {
+					&quot;onUpdate&quot;,
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					k = 0.8,
+					attr = &quot;cannonPower&quot;,
+					time = 3,
+					cloakExpose = 10,
+					exposeGroup = 20516,
+					dotType = 20516,
+					number = 100,
+					infective = {
+						target_choise = {
+							&quot;TargetAllHelp&quot;,
+							&quot;TargetNearest&quot;
+						}
+					}
+				}
+			},
+			{
+				type = &quot;BattleBuffAddTag&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					tag = &quot;shiyan&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffAddAttr&quot;,
+				trigger = {
+					&quot;onAttach&quot;,
+					&quot;onRemove&quot;
+				},
+				arg_list = {
+					number = 0.1,
+					attr = &quot;injureRatio&quot;
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onAttach&quot;
+				},
+				arg_list = {
+					skill_id = 151222
+				}
+			},
+			{
+				type = &quot;BattleBuffCastSkill&quot;,
+				trigger = {
+					&quot;onSink&quot;
+				},
+				arg_list = {
+					maxTargetNumber = 2,
+					exceptCaster = true,
+					skill_id = 151223,
+					check_target = {
+						&quot;TargetAllHelp&quot;,
+						&quot;TargetShipTag&quot;
+					},
+					ship_tag_list = {
+						&quot;shiyan&quot;
+					}
+				}
+			}
+		}
+	},
+	time = 0,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	id = 151222,
+	icon = 151220,
+	last_effect = &quot;zhuoshao&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffDOT&quot;,
+			trigger = {
+				&quot;onUpdate&quot;,
+				&quot;onSink&quot;
+			},
+			arg_list = {
+				k = 0.62,
+				attr = &quot;cannonPower&quot;,
+				time = 3,
+				cloakExpose = 10,
+				exposeGroup = 20516,
+				dotType = 20516,
+				number = 10,
+				infective = {
+					target_choise = {
+						&quot;TargetAllHelp&quot;,
+						&quot;TargetNearest&quot;
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffAddTag&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				tag = &quot;shiyan&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				number = 0.1,
+				attr = &quot;injureRatio&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				skill_id = 151222
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onSink&quot;
+			},
+			arg_list = {
+				skill_id = 151223
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

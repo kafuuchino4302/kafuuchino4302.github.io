@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>stage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Stage&quot;, import(&quot;.BaseVO&quot;))
+slot0.SubmarinStage = 15
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.configId = slot1.id
+	slot0.id = slot0.configId
+	slot0.score = slot1.score
+	slot0.out_time = slot1.out_time or 0
+end
+
+slot0.bindConfigTable = function(slot0)
+	return pg.expedition_data_template
+end
+
+slot0.isFinish = function(slot0)
+	return slot0.score and slot0.score &gt; 1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

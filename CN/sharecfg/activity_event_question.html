@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_event_question.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_event_question.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_event_question = {
+	[71] = {
+		question = &quot;看不到北极星的南半球，水手用来导航的天体是（）&quot;,
+		answer_right = &quot;南十字座&quot;,
+		answer_false1 = &quot;南极星&quot;,
+		type = 1,
+		id = 71,
+		wrong_time = 30,
+		answer_false3 = &quot;半人马座α星&quot;,
+		answer_false2 = &quot;人马座&quot;
+	},
+	[72] = {
+		question = &quot;取得过间接击沉潜艇战绩的食材是（） &quot;,
+		answer_right = &quot;土豆&quot;,
+		answer_false1 = &quot;火鸡&quot;,
+		type = 1,
+		id = 72,
+		wrong_time = 30,
+		answer_false3 = &quot;青椒&quot;,
+		answer_false2 = &quot;菠菜&quot;
+	},
+	[73] = {
+		question = &quot;不属于损管部队职责范围的是（） &quot;,
+		answer_right = &quot;晕船&quot;,
+		answer_false1 = &quot;火灾&quot;,
+		type = 1,
+		id = 73,
+		wrong_time = 30,
+		answer_false3 = &quot;机械损坏&quot;,
+		answer_false2 = &quot;进水&quot;
+	},
+	[74] = {
+		question = &quot;海上航行时，和地面通讯能信赖的手段是（） &quot;,
+		answer_right = &quot;长波无线电&quot;,
+		answer_false1 = &quot;信鸽&quot;,
+		type = 1,
+		id = 74,
+		wrong_time = 30,
+		answer_false3 = &quot;游泳健将&quot;,
+		answer_false2 = &quot;空心邮件炮弹&quot;
+	},
+	[75] = {
+		question = &quot;哪怕是特殊情况下，也不能当成燃料扔进蒸汽锅炉的是（） &quot;,
+		answer_right = &quot;炮弹发射药&quot;,
+		answer_false1 = &quot;去掉纽扣的制服&quot;,
+		type = 1,
+		id = 75,
+		wrong_time = 30,
+		answer_false3 = &quot;厨师拿来的肥肉&quot;,
+		answer_false2 = &quot;拆了把手的门板&quot;
+	},
+	[76] = {
+		question = &quot;对护航编队保护商船免受潜艇攻击基本无法起作用的是（）&quot;,
+		answer_right = &quot;拖着破雷卫航行&quot;,
+		answer_false1 = &quot;全方向声纳探听&quot;,
+		type = 1,
+		id = 76,
+		wrong_time = 30,
+		answer_false3 = &quot;间歇性调整航向&quot;,
+		answer_false2 = &quot;借助侦察机探路&quot;
+	},
+	[77] = {
+		question = &quot;船只航行灯的布置方式是（）&quot;,
+		answer_right = &quot;左红右绿顶白&quot;,
+		answer_false1 = &quot;左红右黄&quot;,
+		type = 1,
+		id = 77,
+		wrong_time = 30,
+		answer_false3 = &quot;前红后蓝&quot;,
+		answer_false2 = &quot;前绿后橙顶粉&quot;
+	},
+	[78] = {
+		question = &quot;养成计划中最新加入的角色是（）&quot;,
+		answer_right = &quot;领洋者&quot;,
+		answer_false1 = &quot;领航员&quot;,
+		type = 2,
+		id = 78,
+		wrong_time = 30,
+		answer_false3 = &quot;潜伏者&quot;,
+		answer_false2 = &quot;探索者&quot;
+	},
+	[79] = {
+		question = &quot;弹药匮乏状态下我方造成的伤害会变为原先的（） &quot;,
+		answer_right = &quot;50%&quot;,
+		answer_false1 = &quot;30%&quot;,
+		type = 2,
+		id = 79,
+		wrong_time = 30,
+		answer_false3 = &quot;70%&quot;,
+		answer_false2 = &quot;60%&quot;
+	},
+	[80] = {
+		question = &quot;开启作战档案需要消耗的档案密钥存储上限是（） &quot;,
+		answer_right = &quot;60&quot;,
+		answer_false1 = &quot;50&quot;,
+		type = 2,
+		id = 80,
+		wrong_time = 30,
+		answer_false3 = &quot;70&quot;,
+		answer_false2 = &quot;40&quot;
+	},
+	[81] = {
+		question = &quot;以下哪种游戏行为会消耗石油（） &quot;,
+		answer_right = &quot;主线出击&quot;,
+		answer_false1 = &quot;抚顺大冒险&quot;,
+		type = 2,
+		id = 81,
+		wrong_time = 30,
+		answer_false3 = &quot;演习&quot;,
+		answer_false2 = &quot;限界挑战&quot;
+	},
+	[82] = {
+		question = &quot;目前游戏中指挥官等级上限是（） &quot;,
+		answer_right = &quot;200&quot;,
+		answer_false1 = &quot;100&quot;,
+		type = 2,
+		id = 82,
+		wrong_time = 30,
+		answer_false3 = &quot;180&quot;,
+		answer_false2 = &quot;150&quot;
+	},
+	[83] = {
+		question = &quot;后宅最多可以扩建（）次 &quot;,
+		answer_right = &quot;3&quot;,
+		answer_false1 = &quot;1&quot;,
+		type = 2,
+		id = 83,
+		wrong_time = 30,
+		answer_false3 = &quot;5&quot;,
+		answer_false2 = &quot;2&quot;
+	},
+	[84] = {
+		question = &quot;游戏中单纵阵突入阵型会降低（）属性 &quot;,
+		answer_right = &quot;机动&quot;,
+		answer_false1 = &quot;炮击&quot;,
+		type = 2,
+		id = 84,
+		wrong_time = 30,
+		answer_false3 = &quot;防空&quot;,
+		answer_false2 = &quot;雷击&quot;
+	},
+	all = {
+		71,
+		72,
+		73,
+		74,
+		75,
+		76,
+		77,
+		78,
+		79,
+		80,
+		81,
+		82,
+		83,
+		84
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

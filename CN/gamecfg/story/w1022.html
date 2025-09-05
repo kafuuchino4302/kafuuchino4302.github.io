@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w1022.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>w1022.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 2,
+	once = true,
+	id = &quot;W1022&quot;,
+	skipTip = false,
+	scripts = {
+		{
+			paintingNoise = true,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 900284,
+			say = &quot;能源模块已就位，设备启动成功，正在分析中……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 900284,
+			say = &quot;分析成功。已解析的情报能够为舰队的后续作战提供帮助。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			actor = 900284,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;请选择需要提升的适应性类型：&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;[适应性·攻击]提升&quot;,
+					flag = 0
+				},
+				{
+					content = &quot;[适应性·耐久]提升&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;[适应性·效能]提升&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;不做选择&quot;,
+					flag = 3
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

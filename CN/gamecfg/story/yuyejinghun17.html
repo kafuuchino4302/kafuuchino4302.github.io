@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yuyejinghun17.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yuyejinghun17.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;YUYEJINGHUN17&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			bgName = &quot;star_level_bg_600&quot;,
+			side = 2,
+			bgm = &quot;qe-ova-15&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;二小姐与收藏室……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;记得收藏室位于古堡的二楼，看来下一步应该前往二楼区域进行调查了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不过，现在她们都在走廊上，直接上二楼一定会被阻止。首先得想个办法才行——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;我有枪！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;制作吸引注意力的道具。&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = 401020,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;有疑问找{namecode:428:欧根}&quot;,
+			actorName = &quot;代理KP&quot;,
+			optionFlag = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错，你有枪。但是你想通过将人引开的方式消除目击者，而不是通过字面意义上消除目击者的方式消除目击者。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401020,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;有疑问找{namecode:428:欧根}&quot;,
+			actorName = &quot;代理KP&quot;,
+			optionFlag = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因此，仅仅有枪还不够，你还需要某些能够吸引注意力的其它道具。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你下定了决心，开始在房间的杂物里寻找着能用得上的材料。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;眼前数目众多的杂物让你陷入了沉思，你的大脑开始飞速运转……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107060,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;享受剧本吧&quot;,
+			actorName = &quot;一本正经的KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=43）成功。你顺利抓住了差点一闪而过的灵光，记忆的拼图再次显现了一块新的区域。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107060,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;享受剧本吧&quot;,
+			actorName = &quot;一本正经的KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;身为一名优秀的调查员，为了能够顺利地在案件中生存下来，你曾经无师自通了一门神奇的技能——陷阱制作。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107060,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;享受剧本吧&quot;,
+			actorName = &quot;一本正经的KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你已回忆起技能：陷阱制作，熟练程度，入门。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;为什么是陷阱制作？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;又不是野外求生！&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;这又谁设计的？&quot;,
+					flag = 3
+				}
+			},
+			location = {
+				&quot;角色卡内容解锁&quot;,
+				3
+			}
+		},
+		{
+			portrait = 401020,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			actorName = &quot;代理KP&quot;,
+			optionFlag = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;某个可爱又迷人的反派角色。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咳……陷阱的用途多种多样，只要发挥适当的想象力，就能起到意想不到的效果！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;任何能够有助于脱身的技能，对于调查员来说都是十分宝贵的哦！更何况陷阱还带点破坏力呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;布里斯托尔说的有道理。现在大厅中有桌椅、木板，以及礼炮、烟花、纸巾……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;感觉，足够做出一个能够引发巨大动静的炸弹了……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你开始着手制作陷阱，虽然你的手艺还不够熟练，但是你完全相信这个多次救你于水火的技能。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 301160,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;NA-NO-DA！&quot;,
+			actorName = &quot;运势高涨的KP大人&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=1）——{namecode:22:雪风}大人的投掷结果，依然是大成功哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……好可怕！咳咳……这一次，你所拥有的技能依旧没有辜负你的期待。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你成功做出了一枚银光闪闪的炸弹，但是具体威力如何目前不得而知。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;炸弹加上枪，对于一次只为吸引注意力的行动来说足够了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_600&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你露出了满意的微笑，并开始了自己的计划——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			bgm = &quot;theme-highseasfleet-reborn&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;一段时间后————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你的计划很简单，只要炸弹爆炸，就能弄出足够大的动静吸引所有人的注意力。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在此期间你就可以趁机溜上二楼完成调查。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在完成了炸弹引线的设置后，你回到了观景台，静静等待着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=71），判定失败。不论你怎么等待，炸弹都没有爆炸。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……难道是，引线的设置出问题了。不过没关系，我有枪！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在察觉到问题后，你在观景台上找到了一个角度绝佳的位置，然后瞄准炸弹，开枪射击——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=98），射击大失败。由于技艺不精，子弹打中了相隔甚远的罗马柱，年久失修的柱体因此损坏了很大一部分。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不仅如此~太过强大的后坐力还将羸弱的你推倒在地，一阵刺痛从尾椎骨蔓延开来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这时候枪里还有子弹么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还有两发。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;那我申请再进行一次射击检定。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（d100=53），失败。由于技艺不精，第二颗子弹依旧没射中原定目标，不过它射穿了壁炉的挡板。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……还有最后一发子弹，再进行一次射击检定！我申请让{namecode:22:雪风}KP来投！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 301160,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;NA-NO-DA！&quot;,
+			actorName = &quot;运势高涨的KP大人&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;噢~看在你连续两次失败的份上，接下来就包在{namecode:22:雪风}大人身上吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等……如果让{namecode:22:雪风}来投的话，岂不就会……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 301160,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;NA-NO-DA！&quot;,
+			actorName = &quot;运势高涨的KP大人&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:22:雪风}大人的投掷结果是——（d100=1）大成功！子弹成功命中了炸弹并引发了爆炸！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;太好了！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;不愧是{namecode:22:雪风}大人！&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = 301160,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;NA-NO-DA！&quot;,
+			actorName = &quot;运势高涨的KP大人&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼，接下来要进行爆炸的威力判定。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 301160,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;NA-NO-DA！&quot;,
+			actorName = &quot;运势高涨的KP大人&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:22:雪风}大人的投掷结果是——（d100=1），依然是大成功！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哇……这样岂不是就达成了？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……达成了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………继，继续吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咳咳~炸弹爆炸的威力显然超出了你的想象，而经过破坏的柱子与壁炉更是加剧了这一爆炸带来的结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;Boom！震耳欲聋的爆炸声响彻城堡，可怜的城堡仿佛一只在地震中瑟瑟发抖的小猫。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你听到了木头断裂的声音，石块崩塌的声音，地动山摇的声音——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咯啦——噼——咯啦——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			factiontag = &quot;子曰：&quot;,
+			actorName = &quot;文学少女KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你的视野陷入了黑暗——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			blackBg = true,
+			factiontag = &quot;子曰：&quot;,
+			bgm = &quot;story-oldcastle-carnival&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;现在，为各位播报新闻一则。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			factiontag = &quot;子曰：&quot;,
+			blackBg = true,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;本日凌晨1时，位于阿卡姆北郊外的莱顿古堡内发生了一起爆炸事故。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			factiontag = &quot;子曰：&quot;,
+			blackBg = true,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;警方与救援人员已在第一时间赶往现场，目前已经发现死者6名。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			factiontag = &quot;子曰：&quot;,
+			blackBg = true,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;其中包括了布莱克勋爵的两名女儿，以及城堡内的管家、女仆和厨师三人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			factiontag = &quot;子曰：&quot;,
+			blackBg = true,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;同时警方在坍塌处发现了人造爆炸物的痕迹，这或许是城堡发生爆炸事故的主要原因。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 502070,
+			side = 2,
+			actorName = &quot;文学少女KP&quot;,
+			factiontag = &quot;子曰：&quot;,
+			blackBg = true,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;而另一名死者身份未知，警方表示，这位身份不明的死者很有可能就是造成这起悲剧的真凶——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			bgm = &quot;story-oldcastle-carnival&quot;,
+			sequence = {
+				{
+					&quot;古堡调查实录\n\n&lt;size=45&gt;BE-05-今夜，无人生还&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgm = &quot;theme-ijndailymeeting&quot;,
+			say = &quot;…………没想到这样都能触发死亡结局。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;所以埃塞克斯……你是从中途就发现不妙了么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯……从你让{namecode:22:雪风}投骰开始。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真不愧是指挥官啊，这个结局超难触发的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;首先，这个结局必须要成功制作出威力最大的炸弹，然后还要想到用枪去引爆炸弹！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;之后要连续失败两次，其中还要有一次大失败破坏石柱！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 101490,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;没有人比我更懂kp&quot;,
+			actorName = &quot;传奇调查员KP（自称）&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;第三次必须要成功引爆炸弹，且大成功，否则无法做到与前面的布局形成连锁反应！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;也就是说，必须按照大成功-失败-大失败-失败-大成功-大成功的顺序，才能触发这个结局？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是……一般人……通常达不成这种苛刻的条件吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 107090,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			factiontag = &quot;真相只有一个&quot;,
+			actorName = &quot;一本正经的后辈KP&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我本来以为这是个绝对不可能触发的结局……真不知道指挥官算是幸运还是不幸呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_159&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……不愧是你，埃塞克斯！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

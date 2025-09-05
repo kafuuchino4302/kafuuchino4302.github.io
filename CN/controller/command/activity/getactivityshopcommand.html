@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getactivityshopcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>getactivityshopcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GetActivityShopCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot7 = getProxy(ShopsProxy)
+	slot8 = {}
+
+	_.each(getProxy(ActivityProxy):getActivitiesByType(ActivityConst.ACTIVITY_TYPE_SHOP), function (slot0)
+		if slot0 and not slot0:isEnd() and slot0:getConfig(&quot;config_id&quot;) == 0 then
+			uv0[slot0.id] = ActivityShop.New(slot0)
+
+			uv1:addActivityShops(uv0)
+		end
+	end)
+	slot0:sendNotification(GAME.GET_ACTIVITY_SHOP_DONE)
+
+	if slot1:getBody() and slot2.callback then
+		slot3(slot8)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

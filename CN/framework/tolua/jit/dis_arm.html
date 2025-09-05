@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dis_arm.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dis_arm.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = type
+slot1 = string.sub
+slot2 = string.byte
+slot3 = string.format
+slot4 = string.match
+slot5 = string.gmatch
+slot6 = table.concat
+slot7 = require(&quot;bit&quot;)
+slot8 = slot7.band
+slot10 = slot7.ror
+slot11 = slot7.tohex
+slot12 = slot7.lshift
+slot13 = slot7.rshift
+slot14 = slot7.arshift
+slot25 = {
+	{
+		[0] = &quot;strtDL&quot;,
+		&quot;ldrtDL&quot;,
+		nil,
+		nil,
+		&quot;strbtDL&quot;,
+		&quot;ldrbtDL&quot;,
+		shift = 20,
+		mask = 5
+	},
+	shift = 21,
+	mask = 9,
+	_ = {
+		[0] = &quot;strDL&quot;,
+		&quot;ldrDL&quot;,
+		nil,
+		nil,
+		&quot;strbDL&quot;,
+		&quot;ldrbDL&quot;,
+		shift = 20,
+		mask = 5
+	}
+}
+slot28 = {
+	[0] = &quot;andDNPs&quot;,
+	&quot;eorDNPs&quot;,
+	&quot;subDNPs&quot;,
+	&quot;rsbDNPs&quot;,
+	&quot;addDNPs&quot;,
+	&quot;adcDNPs&quot;,
+	&quot;sbcDNPs&quot;,
+	&quot;rscDNPs&quot;,
+	&quot;tstNP&quot;,
+	&quot;teqNP&quot;,
+	&quot;cmpNP&quot;,
+	&quot;cmnNP&quot;,
+	&quot;orrDNPs&quot;,
+	&quot;movDPs&quot;,
+	&quot;bicDNPs&quot;,
+	&quot;mvnDPs&quot;,
+	shift = 21,
+	mask = 15
+}
+slot36 = {
+	[0] = {
+		shift = 4,
+		mask = 9,
+		[9] = {
+			[0] = {
+				[0] = {
+					[0] = &quot;mulNMSs&quot;,
+					&quot;mlaNMSDs&quot;,
+					&quot;umaalDNMS&quot;,
+					&quot;mlsDNMS&quot;,
+					&quot;umullDNMSs&quot;,
+					&quot;umlalDNMSs&quot;,
+					&quot;smullDNMSs&quot;,
+					&quot;smlalDNMSs&quot;,
+					shift = 21,
+					mask = 7
+				},
+				{
+					[0] = &quot;swpDMN&quot;,
+					false,
+					false,
+					false,
+					&quot;swpbDMN&quot;,
+					false,
+					false,
+					false,
+					&quot;strexDMN&quot;,
+					&quot;ldrexDN&quot;,
+					&quot;strexdDN&quot;,
+					&quot;ldrexdDN&quot;,
+					&quot;strexbDMN&quot;,
+					&quot;ldrexbDN&quot;,
+					&quot;strexhDN&quot;,
+					&quot;ldrexhDN&quot;,
+					shift = 20,
+					mask = 15
+				},
+				shift = 24,
+				mask = 1
+			},
+			{
+				[0] = &quot;strhDL&quot;,
+				&quot;ldrhDL&quot;,
+				shift = 20,
+				mask = 1
+			},
+			{
+				[0] = &quot;ldrdDL&quot;,
+				&quot;ldrsbDL&quot;,
+				shift = 20,
+				mask = 1
+			},
+			{
+				[0] = &quot;strdDL&quot;,
+				&quot;ldrshDL&quot;,
+				shift = 20,
+				mask = 1
+			},
+			shift = 5,
+			mask = 3
+		},
+		_ = {
+			shift = 20,
+			mask = 25,
+			[16] = {
+				[0] = {
+					[0] = {
+						[0] = &quot;mrsD&quot;,
+						&quot;msrM&quot;,
+						shift = 21,
+						mask = 1
+					},
+					{
+						&quot;bxM&quot;,
+						false,
+						&quot;clzDM&quot;,
+						shift = 21,
+						mask = 3
+					},
+					{
+						&quot;bxjM&quot;,
+						shift = 21,
+						mask = 3
+					},
+					{
+						&quot;blxM&quot;,
+						shift = 21,
+						mask = 3
+					},
+					false,
+					{
+						[0] = &quot;qaddDMN&quot;,
+						&quot;qsubDMN&quot;,
+						&quot;qdaddDMN&quot;,
+						&quot;qdsubDMN&quot;,
+						shift = 21,
+						mask = 3
+					},
+					false,
+					{
+						&quot;bkptK&quot;,
+						shift = 21,
+						mask = 3
+					},
+					shift = 4,
+					mask = 7
+				},
+				{
+					[0] = {
+						[0] = &quot;smlabbNMSD&quot;,
+						&quot;smlatbNMSD&quot;,
+						&quot;smlabtNMSD&quot;,
+						&quot;smlattNMSD&quot;,
+						shift = 5,
+						mask = 3
+					},
+					{
+						[0] = &quot;smlawbNMSD&quot;,
+						&quot;smulwbNMS&quot;,
+						&quot;smlawtNMSD&quot;,
+						&quot;smulwtNMS&quot;,
+						shift = 5,
+						mask = 3
+					},
+					{
+						[0] = &quot;smlalbbDNMS&quot;,
+						&quot;smlaltbDNMS&quot;,
+						&quot;smlalbtDNMS&quot;,
+						&quot;smlalttDNMS&quot;,
+						shift = 5,
+						mask = 3
+					},
+					{
+						[0] = &quot;smulbbNMS&quot;,
+						&quot;smultbNMS&quot;,
+						&quot;smulbtNMS&quot;,
+						&quot;smulttNMS&quot;,
+						shift = 5,
+						mask = 3
+					},
+					shift = 21,
+					mask = 3
+				},
+				shift = 7,
+				mask = 1
+			},
+			_ = {
+				shift = 0,
+				mask = 4294967295.0,
+				[slot7.bor(3785359360.0)] = &quot;nop&quot;,
+				_ = slot28
+			}
+		}
+	},
+	{
+		[16.0] = &quot;movwDW&quot;,
+		mask = 31,
+		[20.0] = &quot;movtDW&quot;,
+		shift = 20,
+		[22.0] = &quot;msrNW&quot;,
+		[18] = {
+			[0] = &quot;nopv6&quot;,
+			_ = &quot;msrNW&quot;,
+			shift = 0,
+			mask = 983295
+		},
+		_ = slot28
+	},
+	slot25,
+	{
+		[0] = slot25,
+		{
+			[0] = false,
+			{
+				[0] = &quot;sadd16DNM&quot;,
+				&quot;sasxDNM&quot;,
+				&quot;ssaxDNM&quot;,
+				&quot;ssub16DNM&quot;,
+				&quot;sadd8DNM&quot;,
+				false,
+				false,
+				&quot;ssub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;qadd16DNM&quot;,
+				&quot;qasxDNM&quot;,
+				&quot;qsaxDNM&quot;,
+				&quot;qsub16DNM&quot;,
+				&quot;qadd8DNM&quot;,
+				false,
+				false,
+				&quot;qsub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;shadd16DNM&quot;,
+				&quot;shasxDNM&quot;,
+				&quot;shsaxDNM&quot;,
+				&quot;shsub16DNM&quot;,
+				&quot;shadd8DNM&quot;,
+				false,
+				false,
+				&quot;shsub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			false,
+			{
+				[0] = &quot;uadd16DNM&quot;,
+				&quot;uasxDNM&quot;,
+				&quot;usaxDNM&quot;,
+				&quot;usub16DNM&quot;,
+				&quot;uadd8DNM&quot;,
+				false,
+				false,
+				&quot;usub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;uqadd16DNM&quot;,
+				&quot;uqasxDNM&quot;,
+				&quot;uqsaxDNM&quot;,
+				&quot;uqsub16DNM&quot;,
+				&quot;uqadd8DNM&quot;,
+				false,
+				false,
+				&quot;uqsub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;uhadd16DNM&quot;,
+				&quot;uhasxDNM&quot;,
+				&quot;uhsaxDNM&quot;,
+				&quot;uhsub16DNM&quot;,
+				&quot;uhadd8DNM&quot;,
+				false,
+				false,
+				&quot;uhsub8DNM&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;pkhbtDNMU&quot;,
+				false,
+				&quot;pkhtbDNMU&quot;,
+				{
+					_ = &quot;sxtab16DNMU&quot;,
+					[15.0] = &quot;sxtb16DMU&quot;,
+					shift = 16,
+					mask = 15
+				},
+				&quot;pkhbtDNMU&quot;,
+				&quot;selDNM&quot;,
+				&quot;pkhtbDNMU&quot;,
+				shift = 5,
+				mask = 7
+			},
+			false,
+			{
+				[0] = &quot;ssatDxMu&quot;,
+				&quot;ssat16DxM&quot;,
+				&quot;ssatDxMu&quot;,
+				{
+					_ = &quot;sxtabDNMU&quot;,
+					[15.0] = &quot;sxtbDMU&quot;,
+					shift = 16,
+					mask = 15
+				},
+				&quot;ssatDxMu&quot;,
+				false,
+				&quot;ssatDxMu&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;ssatDxMu&quot;,
+				&quot;revDM&quot;,
+				&quot;ssatDxMu&quot;,
+				{
+					_ = &quot;sxtahDNMU&quot;,
+					[15.0] = &quot;sxthDMU&quot;,
+					shift = 16,
+					mask = 15
+				},
+				&quot;ssatDxMu&quot;,
+				&quot;rev16DM&quot;,
+				&quot;ssatDxMu&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				shift = 5,
+				mask = 7,
+				[3] = {
+					_ = &quot;uxtab16DNMU&quot;,
+					[15.0] = &quot;uxtb16DMU&quot;,
+					shift = 16,
+					mask = 15
+				}
+			},
+			false,
+			{
+				[0] = &quot;usatDwMu&quot;,
+				&quot;usat16DwM&quot;,
+				&quot;usatDwMu&quot;,
+				{
+					_ = &quot;uxtabDNMU&quot;,
+					[15.0] = &quot;uxtbDMU&quot;,
+					shift = 16,
+					mask = 15
+				},
+				&quot;usatDwMu&quot;,
+				false,
+				&quot;usatDwMu&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = &quot;usatDwMu&quot;,
+				&quot;rbitDM&quot;,
+				&quot;usatDwMu&quot;,
+				{
+					_ = &quot;uxtahDNMU&quot;,
+					[15.0] = &quot;uxthDMU&quot;,
+					shift = 16,
+					mask = 15
+				},
+				&quot;usatDwMu&quot;,
+				&quot;revshDM&quot;,
+				&quot;usatDwMu&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				shift = 12,
+				mask = 15,
+				[15] = {
+					&quot;smuadNMS&quot;,
+					&quot;smuadxNMS&quot;,
+					&quot;smusdNMS&quot;,
+					&quot;smusdxNMS&quot;,
+					shift = 5,
+					mask = 7
+				},
+				_ = {
+					[0] = &quot;smladNMSD&quot;,
+					&quot;smladxNMSD&quot;,
+					&quot;smlsdNMSD&quot;,
+					&quot;smlsdxNMSD&quot;,
+					shift = 5,
+					mask = 7
+				}
+			},
+			false,
+			false,
+			false,
+			{
+				[0] = &quot;smlaldDNMS&quot;,
+				&quot;smlaldxDNMS&quot;,
+				&quot;smlsldDNMS&quot;,
+				&quot;smlsldxDNMS&quot;,
+				shift = 5,
+				mask = 7
+			},
+			{
+				[0] = {
+					_ = &quot;smmlaNMSD&quot;,
+					[15.0] = &quot;smmulNMS&quot;,
+					shift = 12,
+					mask = 15
+				},
+				{
+					_ = &quot;smmlarNMSD&quot;,
+					[15.0] = &quot;smmulrNMS&quot;,
+					shift = 12,
+					mask = 15
+				},
+				false,
+				false,
+				false,
+				false,
+				&quot;smmlsNMSD&quot;,
+				&quot;smmlsrNMSD&quot;,
+				shift = 5,
+				mask = 7
+			},
+			false,
+			false,
+			{
+				[0] = {
+					_ = &quot;usada8NMSD&quot;,
+					[15.0] = &quot;usad8NMS&quot;,
+					shift = 12,
+					mask = 15
+				},
+				shift = 5,
+				mask = 7
+			},
+			false,
+			{
+				nil,
+				&quot;sbfxDMvw&quot;,
+				shift = 5,
+				mask = 3
+			},
+			{
+				nil,
+				&quot;sbfxDMvw&quot;,
+				shift = 5,
+				mask = 3
+			},
+			{
+				[0] = {
+					_ = &quot;bfiDMvX&quot;,
+					[15.0] = &quot;bfcDvX&quot;,
+					shift = 0,
+					mask = 15
+				},
+				shift = 5,
+				mask = 3
+			},
+			{
+				[0] = {
+					_ = &quot;bfiDMvX&quot;,
+					[15.0] = &quot;bfcDvX&quot;,
+					shift = 0,
+					mask = 15
+				},
+				shift = 5,
+				mask = 3
+			},
+			{
+				nil,
+				&quot;ubfxDMvw&quot;,
+				shift = 5,
+				mask = 3
+			},
+			{
+				nil,
+				&quot;ubfxDMvw&quot;,
+				shift = 5,
+				mask = 3
+			},
+			shift = 20,
+			mask = 31
+		},
+		shift = 4,
+		mask = 1
+	},
+	{
+		[0] = {
+			[0] = &quot;stmdaNR&quot;,
+			&quot;stmNR&quot;,
+			{
+				[45.0] = &quot;pushR&quot;,
+				_ = &quot;stmdbNR&quot;,
+				shift = 16,
+				mask = 63
+			},
+			&quot;stmibNR&quot;,
+			shift = 23,
+			mask = 3
+		},
+		{
+			[0] = &quot;ldmdaNR&quot;,
+			{
+				_ = &quot;ldmNR&quot;,
+				[61.0] = &quot;popR&quot;,
+				shift = 16,
+				mask = 63
+			},
+			&quot;ldmdbNR&quot;,
+			&quot;ldmibNR&quot;,
+			shift = 23,
+			mask = 3
+		},
+		shift = 20,
+		mask = 1
+	},
+	{
+		[0] = &quot;bB&quot;,
+		&quot;blB&quot;,
+		shift = 24,
+		mask = 1
+	},
+	{
+		shift = 8,
+		mask = 15,
+		[10] = {
+			[0] = {
+				[0] = &quot;vmovFmDN&quot;,
+				&quot;vstmFNdr&quot;,
+				shift = 23,
+				mask = 3,
+				_ = {
+					[0] = &quot;vstrFdl&quot;,
+					{
+						[13.0] = &quot;vpushFdr&quot;,
+						_ = &quot;vstmdbFNdr&quot;,
+						shift = 16,
+						mask = 15
+					},
+					shift = 21,
+					mask = 1
+				}
+			},
+			{
+				[0] = &quot;vmovFDNm&quot;,
+				{
+					[13.0] = &quot;vpopFdr&quot;,
+					_ = &quot;vldmFNdr&quot;,
+					shift = 16,
+					mask = 15
+				},
+				shift = 23,
+				mask = 3,
+				_ = {
+					[0] = &quot;vldrFdl&quot;,
+					&quot;vldmdbFNdr&quot;,
+					shift = 21,
+					mask = 1
+				}
+			},
+			shift = 20,
+			mask = 1
+		},
+		[11] = {
+			[0] = {
+				[0] = &quot;vmovGmDN&quot;,
+				&quot;vstmGNdr&quot;,
+				shift = 23,
+				mask = 3,
+				_ = {
+					[0] = &quot;vstrGdl&quot;,
+					{
+						[13.0] = &quot;vpushGdr&quot;,
+						_ = &quot;vstmdbGNdr&quot;,
+						shift = 16,
+						mask = 15
+					},
+					shift = 21,
+					mask = 1
+				}
+			},
+			{
+				[0] = &quot;vmovGDNm&quot;,
+				{
+					[13.0] = &quot;vpopGdr&quot;,
+					_ = &quot;vldmGNdr&quot;,
+					shift = 16,
+					mask = 15
+				},
+				shift = 23,
+				mask = 3,
+				_ = {
+					[0] = &quot;vldrGdl&quot;,
+					&quot;vldmdbGNdr&quot;,
+					shift = 21,
+					mask = 1
+				}
+			},
+			shift = 20,
+			mask = 1
+		},
+		_ = {
+			shift = 0,
+			mask = 0
+		}
+	},
+	{
+		[0] = {
+			[0] = {
+				shift = 8,
+				mask = 15,
+				[10] = {
+					[0] = &quot;vmlaF.dnm&quot;,
+					&quot;vmlsF.dnm&quot;,
+					[147456.0] = &quot;vfnmsF.dnm&quot;,
+					[163840.0] = &quot;vfmaF.dnm&quot;,
+					[131072.0] = &quot;vdivF.dnm&quot;,
+					mask = 180225,
+					[32769.0] = &quot;vnmulF.dnm&quot;,
+					[16384.0] = &quot;vnmlsF.dnm&quot;,
+					[32768.0] = &quot;vmulF.dnm&quot;,
+					[16385.0] = &quot;vnmlaF.dnm&quot;,
+					[163841.0] = &quot;vfmsF.dnm&quot;,
+					[180224.0] = &quot;vmovF.dY&quot;,
+					[49153.0] = &quot;vsubF.dnm&quot;,
+					[49152.0] = &quot;vaddF.dnm&quot;,
+					shift = 6,
+					[147457.0] = &quot;vfnmaF.dnm&quot;,
+					[180225] = {
+						[0] = &quot;vmovF.dm&quot;,
+						&quot;vabsF.dm&quot;,
+						[512.0] = &quot;vnegF.dm&quot;,
+						[2048.0] = &quot;vcmpF.dm&quot;,
+						[4096.0] = &quot;vcvt.f32.u32Fdm&quot;,
+						mask = 7681,
+						[513.0] = &quot;vsqrtF.dm&quot;,
+						[2560.0] = &quot;vcmpzF.d&quot;,
+						[2049.0] = &quot;vcmpeF.dm&quot;,
+						[4097.0] = &quot;vcvt.f32.s32Fdm&quot;,
+						[6144.0] = &quot;vcvtr.u32F.dm&quot;,
+						[2561.0] = &quot;vcmpzeF.d&quot;,
+						[6656.0] = &quot;vcvtr.s32F.dm&quot;,
+						[6145.0] = &quot;vcvt.u32F.dm&quot;,
+						[6657.0] = &quot;vcvt.s32F.dm&quot;,
+						shift = 7,
+						[3585.0] = &quot;vcvtG.dF.m&quot;
+					}
+				},
+				[11] = {
+					[0] = &quot;vmlaG.dnm&quot;,
+					&quot;vmlsG.dnm&quot;,
+					[147456.0] = &quot;vfnmsG.dnm&quot;,
+					[163840.0] = &quot;vfmaG.dnm&quot;,
+					[131072.0] = &quot;vdivG.dnm&quot;,
+					mask = 180225,
+					[32769.0] = &quot;vnmulG.dnm&quot;,
+					[16384.0] = &quot;vnmlsG.dnm&quot;,
+					[32768.0] = &quot;vmulG.dnm&quot;,
+					[16385.0] = &quot;vnmlaG.dnm&quot;,
+					[163841.0] = &quot;vfmsG.dnm&quot;,
+					[180224.0] = &quot;vmovG.dY&quot;,
+					[49153.0] = &quot;vsubG.dnm&quot;,
+					[49152.0] = &quot;vaddG.dnm&quot;,
+					shift = 6,
+					[147457.0] = &quot;vfnmaG.dnm&quot;,
+					[180225] = {
+						[0] = &quot;vmovG.dm&quot;,
+						&quot;vabsG.dm&quot;,
+						[512.0] = &quot;vnegG.dm&quot;,
+						[2048.0] = &quot;vcmpG.dm&quot;,
+						[4096.0] = &quot;vcvt.f64.u32GdFm&quot;,
+						mask = 7681,
+						[513.0] = &quot;vsqrtG.dm&quot;,
+						[2560.0] = &quot;vcmpzG.d&quot;,
+						[2049.0] = &quot;vcmpeG.dm&quot;,
+						[4097.0] = &quot;vcvt.f64.s32GdFm&quot;,
+						[6144.0] = &quot;vcvtr.u32FdG.m&quot;,
+						[2561.0] = &quot;vcmpzeG.d&quot;,
+						[6656.0] = &quot;vcvtr.s32FdG.m&quot;,
+						[6145.0] = &quot;vcvt.u32FdG.m&quot;,
+						[6657.0] = &quot;vcvt.s32FdG.m&quot;,
+						shift = 7,
+						[3585.0] = &quot;vcvtF.dG.m&quot;
+					}
+				}
+			},
+			{
+				shift = 8,
+				mask = 15,
+				[10] = {
+					[0] = &quot;vmovFnD&quot;,
+					&quot;vmovFDn&quot;,
+					[14.0] = &quot;vmsrD&quot;,
+					shift = 20,
+					mask = 15,
+					[15] = {
+						_ = &quot;vmrsD&quot;,
+						[15.0] = &quot;vmrs&quot;,
+						shift = 12,
+						mask = 15
+					}
+				}
+			},
+			shift = 4,
+			mask = 1
+		},
+		&quot;svcT&quot;,
+		shift = 24,
+		mask = 1
+	}
+}
+slot37 = {
+	[0] = false,
+	{
+		shift = 0,
+		mask = 0
+	},
+	{
+		shift = 0,
+		mask = 0
+	},
+	{
+		shift = 0,
+		mask = 0
+	},
+	false,
+	&quot;blxB&quot;,
+	{
+		shift = 0,
+		mask = 0
+	},
+	{
+		shift = 0,
+		mask = 0
+	}
+}
+slot38 = {
+	[0] = &quot;r0&quot;,
+	&quot;r1&quot;,
+	&quot;r2&quot;,
+	&quot;r3&quot;,
+	&quot;r4&quot;,
+	&quot;r5&quot;,
+	&quot;r6&quot;,
+	&quot;r7&quot;,
+	&quot;r8&quot;,
+	&quot;r9&quot;,
+	&quot;r10&quot;,
+	&quot;r11&quot;,
+	&quot;r12&quot;,
+	&quot;sp&quot;,
+	&quot;lr&quot;,
+	&quot;pc&quot;
+}
+slot39 = {
+	[0] = &quot;eq&quot;,
+	&quot;ne&quot;,
+	&quot;hs&quot;,
+	&quot;lo&quot;,
+	&quot;mi&quot;,
+	&quot;pl&quot;,
+	&quot;vs&quot;,
+	&quot;vc&quot;,
+	&quot;hi&quot;,
+	&quot;ls&quot;,
+	&quot;ge&quot;,
+	&quot;lt&quot;,
+	&quot;gt&quot;,
+	&quot;le&quot;,
+	&quot;al&quot;
+}
+slot40 = {
+	[0] = &quot;lsl&quot;,
+	&quot;lsr&quot;,
+	&quot;asr&quot;,
+	&quot;ror&quot;
+}
+
+slot41 = function(slot0, slot1, slot2)
+	slot3 = slot0.pos
+	slot4 = &quot;&quot;
+
+	if slot0.rel then
+		if slot0.symtab[slot0.rel] then
+			slot4 = &quot;\t-&gt;&quot; .. slot5
+		elseif uv0(slot0.op, 234881024) ~= 167772160 then
+			slot4 = &quot;\t; 0x&quot; .. uv1(slot0.rel)
+		end
+	end
+
+	if slot0.hexdump &gt; 0 then
+		slot0.out(uv2(&quot;%08x  %s  %-5s %s%s\n&quot;, slot0.addr + slot3, uv1(slot0.op), slot1, uv3(slot2, &quot;, &quot;), slot4))
+	else
+		slot0.out(uv2(&quot;%08x  %-5s %s%s\n&quot;, slot0.addr + slot3, slot1, uv3(slot2, &quot;, &quot;), slot4))
+	end
+
+	slot0.pos = slot3 + 4
+end
+
+slot42 = function(slot0)
+	return uv0(slot0, &quot;.long&quot;, {
+		&quot;0x&quot; .. uv1(slot0.op)
+	})
+end
+
+slot43 = function(slot0, slot1, slot2)
+	slot3 = uv0[uv1(uv2(slot1, 16), 15)]
+	slot4, slot5 = nil
+
+	if not (uv1(slot1, 67108864) == 0) and uv1(slot1, 33554432) == 0 then
+		slot5 = uv1(slot1, 4095)
+
+		if uv1(slot1, 8388608) == 0 then
+			slot5 = -slot5
+		end
+
+		if slot3 == &quot;pc&quot; then
+			slot0.rel = slot0.addr + slot2 + 8 + slot5
+		end
+
+		slot5 = &quot;#&quot; .. slot5
+	elseif slot6 and uv1(slot1, 4194304) ~= 0 then
+		slot5 = uv1(slot1, 15) + uv1(uv2(slot1, 4), 240)
+
+		if uv1(slot1, 8388608) == 0 then
+			slot5 = -slot5
+		end
+
+		if slot3 == &quot;pc&quot; then
+			slot0.rel = slot0.addr + slot2 + 8 + slot5
+		end
+
+		slot5 = &quot;#&quot; .. slot5
+	else
+		slot5 = uv0[uv1(slot1, 15)]
+
+		if not slot6 then
+			if uv1(slot1, 4064) == 0 then
+				-- Nothing
+			elseif uv1(slot1, 4064) == 96 then
+				slot5 = uv3(&quot;%s, rrx&quot;, slot5)
+			else
+				if uv1(uv2(slot1, 7), 31) == 0 then
+					slot7 = 32
+				end
+
+				slot5 = uv3(&quot;%s, %s #%d&quot;, slot5, uv4[uv1(uv2(slot1, 5), 3)], slot7)
+			end
+		end
+
+		if uv1(slot1, 8388608) == 0 then
+			slot5 = &quot;-&quot; .. slot5
+		end
+	end
+
+	slot4 = (slot5 ~= &quot;#0&quot; or uv3(&quot;[%s]&quot;, slot3)) and (uv1(slot1, 16777216) ~= 0 or uv3(&quot;[%s], %s&quot;, slot3, slot5)) and uv3(&quot;[%s, %s]&quot;, slot3, slot5)
+
+	if uv1(slot1, 18874368) == 18874368 then
+		slot4 = slot4 .. &quot;!&quot;
+	end
+
+	return slot4
+end
+
+slot44 = function(slot0, slot1, slot2)
+	slot3 = uv0[uv1(uv2(slot1, 16), 15)]
+	slot4 = uv1(slot1, 255) * 4
+
+	if uv1(slot1, 8388608) == 0 then
+		slot4 = -slot4
+	end
+
+	if slot3 == &quot;pc&quot; then
+		slot0.rel = slot0.addr + slot2 + 8 + slot4
+	end
+
+	if slot4 == 0 then
+		return uv3(&quot;[%s]&quot;, slot3)
+	else
+		return uv3(&quot;[%s, #%d]&quot;, slot3, slot4)
+	end
+end
+
+slot45 = function(slot0, slot1, slot2, slot3)
+	if slot1 == &quot;s&quot; then
+		return uv0(&quot;s%d&quot;, 2 * uv1(uv2(slot0, slot2), 15) + uv1(uv2(slot0, slot3), 1))
+	else
+		return uv0(&quot;d%d&quot;, uv1(uv2(slot0, slot2), 15) + uv1(uv2(slot0, slot3 - 4), 16))
+	end
+end
+
+slot46 = function(slot0)
+	slot1 = slot0.pos
+	slot2, slot3, slot4, slot5 = uv0(slot0.code, slot1 + 1, slot1 + 4)
+	slot6 = uv1(uv2(slot5, 24), uv2(slot4, 16), uv2(slot3, 8), slot2)
+	slot7 = {}
+	slot8 = &quot;&quot;
+	slot9, slot10, slot11, slot12 = nil
+	slot0.op = slot6
+	slot0.rel = nil
+	slot14 = nil
+
+	if uv3(slot6, 28) == 15 then
+		slot14 = uv4[uv5(uv3(slot6, 25), 7)]
+	else
+		if slot13 ~= 14 then
+			slot8 = uv6[slot13]
+		end
+
+		slot14 = uv7[uv5(uv3(slot6, 25), 7)]
+	end
+
+	while uv8(slot14) ~= &quot;string&quot; do
+		if not slot14 then
+			return uv9(slot0)
+		end
+
+		slot14 = slot14[uv5(uv3(slot6, slot14.shift), slot14.mask)] or slot14._
+	end
+
+	slot10, slot16 = uv10(slot14, &quot;^([a-z0-9]*)(.*)&quot;)
+
+	if uv11(slot16, 1, 1) == &quot;.&quot; then
+		slot15, slot11 = uv10(slot11, &quot;^([a-z0-9.]*)(.*)&quot;)
+		slot8 = slot8 .. slot15
+	end
+
+	for slot18 in uv12(slot11, &quot;.&quot;) do
+		slot19 = nil
+
+		if slot18 == &quot;D&quot; then
+			slot19 = uv13[uv5(uv3(slot6, 12), 15)]
+		elseif slot18 == &quot;N&quot; then
+			slot19 = uv13[uv5(uv3(slot6, 16), 15)]
+		elseif slot18 == &quot;S&quot; then
+			slot19 = uv13[uv5(uv3(slot6, 8), 15)]
+		elseif slot18 == &quot;M&quot; then
+			slot19 = uv13[uv5(slot6, 15)]
+		elseif slot18 == &quot;d&quot; then
+			slot19 = uv14(slot6, slot12, 12, 22)
+		elseif slot18 == &quot;n&quot; then
+			slot19 = uv14(slot6, slot12, 16, 7)
+		elseif slot18 == &quot;m&quot; then
+			slot19 = uv14(slot6, slot12, 0, 5)
+		elseif slot18 == &quot;P&quot; then
+			if uv5(slot6, 33554432) ~= 0 then
+				slot19 = uv15(uv5(slot6, 255), 2 * uv5(uv3(slot6, 8), 15))
+			else
+				slot19 = uv13[uv5(slot6, 15)]
+
+				if uv5(slot6, 4080) ~= 0 then
+					slot7[#slot7 + 1] = slot19
+					slot20 = uv16[uv5(uv3(slot6, 5), 3)]
+					slot21 = nil
+
+					if uv5(slot6, 3984) == 0 then
+						if slot20 == &quot;ror&quot; then
+							slot20 = &quot;rrx&quot;
+						else
+							slot21 = &quot;#32&quot;
+						end
+					else
+						slot21 = uv5(slot6, 16) == 0 and &quot;#&quot; .. uv5(uv3(slot6, 7), 31) or uv13[uv5(uv3(slot6, 8), 15)]
+					end
+
+					if slot10 == &quot;mov&quot; then
+						slot10 = slot20
+						slot19 = slot21
+					elseif slot21 then
+						slot19 = uv17(&quot;%s %s&quot;, slot20, slot21)
+					else
+						slot19 = slot20
+					end
+				end
+			end
+		elseif slot18 == &quot;L&quot; then
+			slot19 = uv18(slot0, slot6, slot1)
+		elseif slot18 == &quot;l&quot; then
+			slot19 = uv19(slot0, slot6, slot1)
+		elseif slot18 == &quot;B&quot; then
+			slot20 = slot0.addr + slot1 + 8 + uv20(uv2(slot6, 8), 6)
+
+			if slot13 == 15 then
+				slot20 = slot20 + uv5(uv3(slot6, 23), 2)
+			end
+
+			slot0.rel = slot20
+			slot19 = &quot;0x&quot; .. uv21(slot20)
+		elseif slot18 == &quot;F&quot; then
+			slot12 = &quot;s&quot;
+		elseif slot18 == &quot;G&quot; then
+			slot12 = &quot;d&quot;
+		elseif slot18 == &quot;.&quot; then
+			slot8 = slot8 .. (slot12 == &quot;s&quot; and &quot;.f32&quot; or &quot;.f64&quot;)
+		elseif slot18 == &quot;R&quot; then
+			if uv5(slot6, 2097152) ~= 0 and #slot7 == 1 then
+				slot7[1] = slot7[1] .. &quot;!&quot;
+			end
+
+			slot20 = {}
+
+			for slot24 = 0, 15 do
+				if uv5(uv3(slot6, slot24), 1) == 1 then
+					slot20[#slot20 + 1] = uv13[slot24]
+				end
+			end
+
+			slot19 = &quot;{&quot; .. uv22(slot20, &quot;, &quot;) .. &quot;}&quot;
+		elseif slot18 == &quot;r&quot; then
+			if uv5(slot6, 2097152) ~= 0 and #slot7 == 2 then
+				slot7[1] = slot7[1] .. &quot;!&quot;
+			end
+
+			slot20 = tonumber(uv11(slot9, 2))
+			slot21 = uv5(slot6, 255)
+
+			if slot12 == &quot;d&quot; then
+				slot21 = uv3(slot21, 1)
+			end
+
+			slot7[#slot7] = uv17(&quot;{%s-%s%d}&quot;, slot9, slot12, slot20 + slot21 - 1)
+		elseif slot18 == &quot;W&quot; then
+			slot19 = uv5(slot6, 4095) + uv5(uv3(slot6, 4), 61440)
+		elseif slot18 == &quot;T&quot; then
+			slot19 = &quot;#0x&quot; .. uv21(uv5(slot6, 16777215), 6)
+		elseif slot18 == &quot;U&quot; then
+			if uv5(uv3(slot6, 7), 31) == 0 then
+				slot19 = nil
+			end
+		elseif slot18 == &quot;u&quot; then
+			slot19 = uv5(uv3(slot6, 7), 31)
+
+			if uv5(slot6, 64) == 0 then
+				if slot19 == 0 then
+					slot19 = nil
+				else
+					slot19 = &quot;lsl #&quot; .. slot19
+				end
+			elseif slot19 == 0 then
+				slot19 = &quot;asr #32&quot;
+			else
+				slot19 = &quot;asr #&quot; .. slot19
+			end
+		elseif slot18 == &quot;v&quot; then
+			slot19 = uv5(uv3(slot6, 7), 31)
+		elseif slot18 == &quot;w&quot; then
+			slot19 = uv5(uv3(slot6, 16), 31)
+		elseif slot18 == &quot;x&quot; then
+			slot19 = uv5(uv3(slot6, 16), 31) + 1
+		elseif slot18 == &quot;X&quot; then
+			slot19 = uv5(uv3(slot6, 16), 31) - slot9 + 1
+		elseif slot18 == &quot;Y&quot; then
+			slot19 = uv5(uv3(slot6, 12), 240) + uv5(slot6, 15)
+		elseif slot18 == &quot;K&quot; then
+			slot19 = &quot;#0x&quot; .. uv21(uv5(uv3(slot6, 4), 65520) + uv5(slot6, 15), 4)
+		elseif slot18 == &quot;s&quot; then
+			if uv5(slot6, 1048576) ~= 0 then
+				slot8 = &quot;s&quot; .. slot8
+			end
+		else
+			assert(false)
+		end
+
+		if slot19 then
+			slot9 = slot19
+
+			if uv8(slot19) == &quot;number&quot; then
+				slot19 = &quot;#&quot; .. slot19
+			end
+
+			slot7[#slot7 + 1] = slot19
+		end
+	end
+
+	return uv23(slot0, slot10 .. slot8, slot7)
+end
+
+slot47 = function(slot0, slot1, slot2)
+	slot1 = slot1 or 0
+	slot3 = slot2 and slot1 + slot2 or #slot0.code
+	slot0.pos = slot1
+	slot0.rel = nil
+
+	while slot0.pos &lt; slot3 do
+		uv0(slot0)
+	end
+end
+
+return {
+	create = function (slot0, slot1, slot2)
+		return {
+			code = slot0,
+			addr = slot1 or 0,
+			out = slot2 or io.write,
+			symtab = {},
+			disass = uv0,
+			hexdump = 8
+		}
+	end,
+	disass = function (slot0, slot1, slot2)
+		uv0(slot0, slot1, slot2):disass()
+	end,
+	regname = function (slot0)
+		if slot0 &lt; 16 then
+			return uv0[slot0]
+		end
+
+		return &quot;d&quot; .. slot0 - 16
+	end
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

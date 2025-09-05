@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>billboardmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>billboardmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BillboardMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.FETCH_RANKS = &quot;BillboardMediator:FETCH_RANKS&quot;
+slot0.OPEN_RIVAL_INFO = &quot;BillboardMediator:OPEN_RIVAL_INFO&quot;
+
+slot0.register = function(slot0)
+	slot1 = getProxy(BillboardProxy)
+	slot2 = slot0.contextData.page or PowerRank.TYPE_POWER
+	slot3 = slot0.contextData.act_id or checkExist(PowerRank:getActivityByRankType(slot2), {
+		&quot;id&quot;
+	})
+
+	slot0.viewComponent:updateRankList(slot2, slot1:getRankList(slot2, slot3), slot1:getPlayerRankData(slot2, slot3), slot3)
+	slot0:bind(uv0.FETCH_RANKS, function (slot0, slot1, slot2)
+		if uv0:canFetch(slot1, slot2) then
+			uv1:sendNotification(GAME.GET_POWERRANK, {
+				type = slot1,
+				activityId = slot2
+			})
+		else
+			uv1.viewComponent:updateRankList(slot1, uv0:getRankList(slot1, slot2), uv0:getPlayerRankData(slot1, slot2), slot2)
+			uv1.viewComponent:filter(slot1, slot2)
+		end
+	end)
+	slot0:bind(uv0.OPEN_RIVAL_INFO, function (slot0, slot1)
+		uv0:sendNotification(GAME.GET_RIVAL_INFO, slot1)
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.GET_POWERRANK_DONE,
+		GAME.GET_RIVAL_INFO_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.GET_POWERRANK_DONE then
+		slot0.viewComponent:updateRankList(slot3.type, slot3.list, slot3.playerRankinfo, slot3.activityId)
+		slot0.viewComponent:filter(slot3.type, slot3.activityId)
+	elseif slot2 == GAME.GET_RIVAL_INFO_DONE then
+		slot0:addSubLayers(Context.New({
+			viewComponent = RivalInfoLayer,
+			mediator = RivalInfoMediator,
+			data = {
+				rival = slot3.rival,
+				type = RivalInfoLayer.TYPE_DISPLAY
+			}
+		}))
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

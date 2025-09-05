@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandblackwhitlistcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandblackwhitlistcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandBlackWhitListCard&quot;, import(&quot;.IslandFriendCard&quot;))
+
+slot0.Ctor = function(slot0, slot1)
+	uv0.super.Ctor(slot0, slot1)
+
+	slot0.removeBtn = slot1.transform:Find(&quot;remove&quot;)
+
+	setText(slot0.removeBtn:Find(&quot;Text&quot;), i18n(&quot;island_btn_label_remove&quot;))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

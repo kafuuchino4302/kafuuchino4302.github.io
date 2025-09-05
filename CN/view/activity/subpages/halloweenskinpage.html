@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>halloweenskinpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>halloweenskinpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;HalloweenSkinPage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.stage = slot0:findTF(&quot;AD/Text&quot;):GetComponent(typeof(Text))
+	slot0.goBtn = slot0:findTF(&quot;AD/go_btn&quot;)
+	slot0.gotBtn = slot0:findTF(&quot;AD/got_btn&quot;)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	slot2 = slot0.activity
+	slot0.tasks = _.flatten(slot2:getConfig(&quot;config_data&quot;))
+
+	onButton(slot0, slot0.goBtn, function ()
+		if uv0:LastTaskBeFinished() then
+			return
+		end
+
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.NAVALACADEMYSCENE)
+	end, SFX_PANEL)
+end
+
+slot0.LastTaskBeFinished = function(slot0)
+	if getProxy(TaskProxy):getTaskVO(slot0.tasks[#slot0.tasks]) and slot3:isReceive() then
+		return true
+	end
+
+	return false
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot1 = slot0.activity
+	slot2 = 0
+	slot3 = getProxy(TaskProxy)
+
+	for slot7 = #slot0.tasks, 1, -1 do
+		if slot3:getTaskVO(slot0.tasks[slot7]) and slot9:isReceive() then
+			slot2 = slot7
+		elseif slot9 and not slot9:isReceive() then
+			slot2 = slot7 - 1
+		end
+	end
+
+	slot0.stage.text = slot2 .. &quot;/&quot; .. #slot0.tasks
+
+	setActive(slot0.gotBtn, slot0:LastTaskBeFinished())
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg151.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg151.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG151&quot;,
+	events = {
+		{
+			alpha = 0.3,
+			style = {
+				text = &quot;点击进入储物仓。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -249.82,
+				posX = 273.42
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/right_stage/btn_list/dock/inventory_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -34.8,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 68.8
+				}
+			}
+		},
+		{
+			delay = 1,
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;GWORLD104D&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			style = {
+				text = &quot;点击材料分页，查看在大型作战中获得的装备研发材料。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -230.76,
+				posX = 243.3
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/topItems/bottom_back/types/material&quot;,
+				triggerType = {
+					2
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -45.83,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 77.5
+				}
+			}
+		},
+		{
+			delay = 1,
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;GWORLD104E&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			style = {
+				text = &quot;点击装备分页，查看仓库中的装备。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -283.25,
+				posX = 554.45
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/topItems/bottom_back/types/siren_weapon&quot;,
+				triggerType = {
+					2
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -32.73,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 49.82
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 1,
+			style = {
+				text = &quot;点击进行筛选。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 302.77,
+				posX = 327.4
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/blur_panel/adapt/top/buttons/index_button&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -72.88,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 0
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/CustomIndexUI(Clone)/index_panel/layout/container/indexsort_extraindex/bg/3&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -39.49,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 78.72
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/CustomIndexUI(Clone)/index_panel/layout/btns/ok&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -30.15,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 64.95
+				}
+			}
+		},
+		{
+			delay = 1.5,
+			code = {
+				&quot;playStory&quot;
+			},
+			stories = {
+				&quot;GWORLD104F&quot;
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.5,
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/WorldInventoryUI(Clone)/blur_panel/adapt/top/back_btn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -72.88,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 65
+				}
+			}
+		},
+		{
+			notifies = {
+				{
+					notify = &quot;story update&quot;,
+					body = {
+						storyId = &quot;WorldG141&quot;
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

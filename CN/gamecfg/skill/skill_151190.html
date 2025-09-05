@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skill_151190.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skill_151190.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	uiEffect = &quot;&quot;,
+	name = &quot;&quot;,
+	cd = 0,
+	id = 151190,
+	desc = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleSkillTeleport&quot;,
+			target_choise = {
+				&quot;TargetAllHarm&quot;,
+				&quot;TargetLowestHP&quot;
+			},
+			arg_list = {
+				targetRelativeCorrdinate = {
+					vrt = 0,
+					hrz = 0
+				}
+			}
+		},
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillAddBuff&quot;,
+			target_choise = &quot;TargetSelf&quot;,
+			arg_list = {
+				buff_id = 151191
+			}
+		},
+		{
+			target_choise = &quot;TargetSelf&quot;,
+			type = &quot;BattleSkillManualWeaponReloadBoost&quot;,
+			arg_list = {
+				value = 3,
+				weaponType = &quot;TorpedoWeapon&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

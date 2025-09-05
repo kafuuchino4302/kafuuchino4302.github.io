@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newservershopsinglewindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newservershopsinglewindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewServerShopSingleWindow&quot;, import(&quot;..msgbox.ShopSingleWindow&quot;))
+
+slot0.InitWindow = function(slot0, slot1, slot2)
+	slot3 = {
+		id = slot1:getConfig(&quot;goods&quot;)[1],
+		type = slot1:getConfig(&quot;type&quot;),
+		count = slot1:getConfig(&quot;num&quot;)
+	}
+
+	onButton(slot0, slot0.confirmBtn, function ()
+		if uv0 then
+			uv0(uv1, 1, uv2:getConfig(&quot;name&quot;))
+		end
+
+		uv3:Close()
+	end, SFX_CANCEL)
+	updateDrop(slot0.itemTF:Find(&quot;left/IconTpl&quot;), slot3)
+	UpdateOwnDisplay(slot0.itemOwnTF, slot3)
+	RegisterDetailButton(slot0, slot0.itemDetailTF, slot3)
+
+	slot4 = slot3.type == DROP_TYPE_SHIP
+
+	SetActive(slot0.itemTF:Find(&quot;ship_group&quot;), slot4)
+
+	if slot4 then
+		slot6 = tobool(getProxy(CollectionProxy):getShipGroup(pg.ship_data_template[slot3.id].group_type))
+
+		SetActive(slot5:Find(&quot;unlocked&quot;), slot6)
+		SetActive(slot5:Find(&quot;locked&quot;), not slot6)
+	end
+
+	slot0.descTF.text = slot3.desc or slot3:getConfig(&quot;desc&quot;)
+	slot0.nameTF.text = slot3:getConfig(&quot;name&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

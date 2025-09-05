@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>world504c.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>world504c.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;WORLD504C&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			paintingNoise = true,
+			side = 2,
+			voice = &quot;event:/tb/17/tb-17&quot;,
+			dir = 1,
+			bgm = &quot;battle-boss-4&quot;,
+			actor = 900284,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;分析模块同步中：指挥官，通过前方区域的航线被塞壬的封锁设施阻挡。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;强行摧毁和绕行都要花费不少时间啊，最好还是能直接摧毁供能设施。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;领航员小姐，向周边舰队逐次询问一下吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			voice = &quot;event:/tb/12/tb-12&quot;,
+			actor = 900284,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指令已确认：正在逐次确认中————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			voice = &quot;event:/tb/32/tb-32&quot;,
+			actor = 900284,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，接收到一支舰队的联络请求，通讯联络接入中——————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;呼呼，需要帮助么指挥官~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（鲁莽……太随便了！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;咳……指挥官您好，我是来自自由鸢尾的“魔法使”倔强，刚才在通讯器中显得十分鲁莽的那位是同样隶属于自由鸢尾的鲁莽。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;自由鸢尾的“魔法使”？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;“鲁莽”的鲁莽？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊，不用在意，魔法使是开玩笑的……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（刚刚还在说我！倔强不也在通讯里对指挥官说了奇怪的话！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（嘘——嘘————！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;总、总之，我们，以及我们所代表的自由鸢尾很荣幸能够与您并肩作战，指挥官。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;才不是呢！都怪倔强乱介绍！虽然我的名字叫鲁莽，可是我一点都不鲁莽哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			dir = 1,
+			optionFlag = 2,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;很荣幸与您并肩战斗，大名鼎鼎的指挥官~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801040,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			paintingNoise = true,
+			say = &quot;就在不久前，我们发现了一处疑似塞壬在海域中设置的供能设施。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;只要把它炸掉，海域中的障碍物就会消失了吧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;根据以往的经验是这样的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			actor = 801030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那就放心交给我们吧！自由鸢尾舰队，出击！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>usdeftaskwindowview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>usdeftaskwindowview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;USDefTaskWindowView&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.Load = function(slot0)
+	slot0._tf = findTF(slot0._parentTf, &quot;USDefTaskWindow&quot;)
+	slot0._go = go(slot0._tf)
+
+	pg.DelegateInfo.New(slot0)
+	slot0:OnInit()
+end
+
+slot0.Destroy = function(slot0)
+	slot0:Hide()
+end
+
+slot0.OnInit = function(slot0)
+	slot0:initData()
+	slot0:initUI()
+	slot0:updateProgress()
+	slot0:updateTaskList()
+	slot0:Show()
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+slot0.initData = function(slot0)
+	slot0.taskIDList = Clone(pg.task_data_template[slot0.contextData:getConfig(&quot;config_client&quot;)[1]].target_id)
+	slot0.taskProxy = getProxy(TaskProxy)
+	slot0.taskVOList = {}
+
+	for slot5, slot6 in ipairs(slot0.taskIDList) do
+		table.insert(slot0.taskVOList, slot0.taskProxy:getTaskVO(slot6))
+	end
+end
+
+slot0.initUI = function(slot0)
+	slot0.bg = slot0:findTF(&quot;BG&quot;)
+	slot0.curNumTextTF = slot0:findTF(&quot;ProgressPanel/CurNumText&quot;)
+	slot0.totalNumText = slot0:findTF(&quot;ProgressPanel/TotalNumText&quot;)
+	slot0.taskTpl = slot0:findTF(&quot;TaskTpl&quot;)
+	slot0.taskContainer = slot0:findTF(&quot;TaskList/Viewport/Content&quot;)
+	slot0.taskList = UIItemList.New(slot0.taskContainer, slot0.taskTpl)
+
+	onButton(slot0, slot0.bg, function ()
+		uv0:Destroy()
+	end, SFX_CANCEL)
+end
+
+slot0.updateProgress = function(slot0)
+	slot1 = #slot0.taskIDList
+	slot2 = 0
+
+	for slot6, slot7 in ipairs(slot0.taskVOList) do
+		if slot7:getTaskStatus() &gt;= 1 then
+			slot2 = slot2 + 1
+		end
+	end
+
+	setText(slot0.curNumTextTF, string.format(&quot;%2d&quot;, slot2))
+	setText(slot0.totalNumText, string.format(&quot;%2d&quot;, slot1))
+end
+
+slot0.updateTaskList = function(slot0)
+	slot0.taskList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot1 = slot1 + 1
+			slot3 = uv0.taskVOList[slot1]
+			slot7 = uv0:findTF(&quot;ItemBG/Icon&quot;, slot2)
+			slot8 = uv0:findTF(&quot;ItemBG/Finished&quot;, slot2)
+
+			setText(uv0:findTF(&quot;IndexText&quot;, slot2), string.format(&quot;%02d&quot;, slot1))
+			setText(uv0:findTF(&quot;TaskIndexText&quot;, slot2), &quot;TASK-&quot; .. string.format(&quot;%02d&quot;, slot1))
+			setText(uv0:findTF(&quot;DescText&quot;, slot2), slot3:getConfig(&quot;desc&quot;))
+
+			if not pg.ship_data_statistics[tonumber(slot3:getConfig(&quot;target_id&quot;))] then
+				slot10 = 205054
+			end
+
+			LoadImageSpriteAsync(&quot;SquareIcon/&quot; .. pg.ship_skin_template[pg.ship_data_statistics[slot10].skin_id].painting, slot7)
+			setActive(slot8, slot3:getTaskStatus() &gt;= 1)
+		end
+	end)
+	slot0.taskList:align(#slot0.taskIDList)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

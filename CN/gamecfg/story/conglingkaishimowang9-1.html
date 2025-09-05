@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conglingkaishimowang9-1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>conglingkaishimowang9-1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;CONGLINGKAISHIMOWANG9-1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			bgm = &quot;story-mmorpg&quot;,
+			say = &quot;银滩岛——一处位于王都西面镜湖中心的小岛。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			say = &quot;在经过艰苦的努力，提交了制作万能治疗药水所需的各类素材99个之后，药剂师努比亚人终于与我们一同踏上了旅途。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			say = &quot;此刻，载着我们穿越湖水的小船已经靠岸，我们正式踏上了这座小岛。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			say = &quot;不过放眼望去，除了茂密的森林与凌乱的岩石外，岛上什么都没有。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呃……北方之塔在哪里？而且这片岛屿绿油油的，也不像银滩……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咱们不会来错地方了吧……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼呼呼……不用担心，不用担心~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你们现在看不到高塔，只是因为老师用魔法把高塔隐藏起来了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;毕竟老师是个喜欢清净的人嘛……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;至于这片岛屿的名字，老师曾经跟我说过，这里在上古时代曾是一片冰原，所以才会被称为银滩吧？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;总之——接下来就看我的好了~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			say = &quot;努比亚人得意地走向了一处空地，面对一颗枯树鞠了一躬，然后清了清嗓子。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;智慧之魔女阿尔汉格尔斯克老师！您的弟子药剂师努比亚人来看您啦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			side = 2,
+			say = &quot;远方的空气中出现了一阵肉眼可见的扭曲抖动。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			say = &quot;转瞬间，一座由黑色金属构成的高塔就凭空出现了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;散发着红光的黑色高塔……这、这这简直像是魔王军据点啊！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼呼呼，别担心~这只是老师的个人品味，和魔王军绝对无关啦！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_unnamearea_1&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;各位请随我来，我带你们进塔~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_177&quot;,
+			bgm = &quot;theme-ijndailymeeting&quot;,
+			say = &quot;高塔的顶层，魔女端坐在法阵中的座椅上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;我已知晓你们的来意……请回吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咦？！抚顺大人还什么都没说呢！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;笨——老师是智慧魔女，当然什么都知道了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;可是为什么呀老师，那可是被诅咒纠缠千年的曾经讨伐过魔王的大魔法师！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我觉得我们应该为她解除诅咒！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;唉……你还是和以前一样，没什么长进。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;这样好了，你们小队里的一个人对我很有用。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;如果你们的指挥官能留在这里，当我的弟子的话，我就告诉你们解除诅咒的方法。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;智慧魔女的弟子么……听上去倒是不错。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;对吧~你留在我这里，不但能尽情的学习各种知识与魔法，还能知晓世间万物的奥秘哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等、等等！成为老师的弟子，可不只是拜个师这么简单！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那可是要一直留在塔里学习的啊！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;直到通过一百年后，老师设置的初级考试之后才能出塔！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……要学习一百年？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊哈哈哈……你可真会开玩笑，这也太夸张了吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;努比亚人可没有开玩笑哦。作为智慧魔女的弟子，学习个一百年不是理所当然的事嘛！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;见习神官&quot;,
+			dir = 1,
+			actor = 236031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不行……哥哥不能留在这里一百年。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;勇者&quot;,
+			dir = 1,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就是说啊，我们还肩负着一同打倒魔王的使命呢！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;这样啊……强扭的瓜不甜，我就给你们一个证明自己的机会吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;只要能通过我的试炼，我就告诉你们解除诅咒的方法。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;神官&quot;,
+			dir = 1,
+			actor = 202341,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;智慧魔女的试炼……是要进行猜谜游戏么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;按理说应该是这样的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;不过你们小队的指挥官情报分析能力实在厉害，不论我出什么谜题，你们都能轻松破解吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;所以我决定，用战斗考验的老套形式。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_177&quot;,
+			factiontag = &quot;智慧魔女&quot;,
+			dir = 1,
+			actor = 705062,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;你们准备好了么，我要释放考验内容了哦——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>praypoolbuildcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>praypoolbuildcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PrayPoolBuildCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.shipIDList
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(11202, {
+		cmd = 1,
+		activity_id = ActivityConst.ACTIVITY_PRAY_POOL,
+		arg1 = slot2.pooltype,
+		arg2 = slot4[1],
+		arg3 = slot4[2],
+		arg_list = {}
+	}, 11203, function (slot0)
+		if slot0.result == 0 then
+			getProxy(PrayProxy):updatePageState(PrayProxy.STAGE_BUILD_SUCCESS)
+			uv0:sendNotification(PrayPoolConst.BUILD_PRAY_POOL_SUCCESS, PrayProxy.STAGE_BUILD_SUCCESS)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tip_pray_build_pool_success&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tip_pray_build_pool_fail&quot;))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

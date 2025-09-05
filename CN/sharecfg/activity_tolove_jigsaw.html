@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_tolove_jigsaw.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_tolove_jigsaw.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_tolove_jigsaw = {
+	{
+		desc_demand = &quot;如果有办法让天狼星做的料理变美味的话……&quot;,
+		portrait_up = &quot;tianlangxing&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO2&quot;,
+		ship_id = 202201,
+		id = 1,
+		item_icon = &quot;liaolijun&quot;,
+		desc_bubble = &quot;美味的秘诀吗？应该在于仔细而精确吧？我有想法了~！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150440,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150440,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;想要提高销售额，无论什么手段都可以喵。&quot;,
+		portrait_up = &quot;mingshi&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO3&quot;,
+		ship_id = 312013,
+		id = 2,
+		item_icon = &quot;wengwengjun&quot;,
+		desc_bubble = &quot;哇~！这次的委托看起来有点复杂呢！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150460,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150460,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;如果能一直偷懒就好了，欸嘿嘿……这种夸张的要求能满足吗？&quot;,
+		portrait_up = &quot;changdao&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO4&quot;,
+		ship_id = 106013,
+		id = 3,
+		item_icon = &quot;yinshenpenwu&quot;,
+		desc_bubble = &quot;嗯……只要不被人发现就可以吧？&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150480,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150480,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;事先声明……姐姐我不是喜欢加班，但如果无论如何都要加班的话……&quot;,
+		portrait_up = &quot;dipulaikesi&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO5&quot;,
+		ship_id = 903031,
+		id = 4,
+		item_icon = &quot;yinshenerhuan&quot;,
+		desc_bubble = &quot;只要通过“情绪控制”让自己感觉高兴就行了吧？应该没问题！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150500,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150500,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;我种了很多指挥官喜欢的蔬菜~但是长得有点慢呢，有什么办法吗？&quot;,
+		portrait_up = &quot;weizhang&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO6&quot;,
+		ship_id = 305131,
+		id = 5,
+		item_icon = &quot;jiguangqiang&quot;,
+		desc_bubble = &quot;这个很轻松哦！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150520,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150520,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;对于喜欢调查不可思议事件的人来说，如果时时刻刻都有强烈的氛围感就太棒了~！&quot;,
+		portrait_up = &quot;bulisituoer&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO7&quot;,
+		ship_id = 101491,
+		id = 6,
+		item_icon = &quot;fenweijun&quot;,
+		desc_bubble = &quot;很有意思呢～！有干劲啦！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150540,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150540,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	{
+		desc_demand = &quot;本王贵为皇家女王，当然会希望追求更极致的皇家气质！&quot;,
+		portrait_up = &quot;yilishabai&quot;,
+		portrait_down = &quot;lala_tolove&quot;,
+		after_story = &quot;WEIXIANFAMINGPOJINZHONGWEITUO8&quot;,
+		ship_id = 205011,
+		id = 7,
+		item_icon = &quot;hualitoushi&quot;,
+		desc_bubble = &quot;这个轻松，就交给我吧！&quot;,
+		need = {
+			1,
+			441,
+			200
+		},
+		reward = {
+			3,
+			150560,
+			1
+		},
+		show_award = {
+			{
+				3,
+				150560,
+				1
+			}
+		},
+		desc_step = {
+			&quot;· 提交$1个「能量晶屑」（$2/$3) &quot;,
+			&quot;（通关任意活动关卡或第三章及之后的主线关卡可以取得）&quot;,
+			&quot;· 拼接收集到的元器件&quot;,
+			&quot;· 绘制电路（一笔画联通所有元器件）&quot;
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

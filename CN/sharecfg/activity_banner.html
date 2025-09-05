@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_banner.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_banner.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_banner = {
+	{
+		type = 2,
+		id = 1,
+		pic = &quot;temp1&quot;,
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		},
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					11
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		time = &quot;stop&quot;,
+		type = 2,
+		id = 2,
+		pic = &quot;temp2&quot;,
+		param = {
+			&quot;scene get boat&quot;,
+			{
+				projectName = &quot;new&quot;,
+				page = 1
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 3,
+		pic = &quot;temp3&quot;,
+		param = {
+			&quot;scene core activity&quot;,
+			{
+				coreName = &quot;TianYuTianYuanCoreActivityUI&quot;
+			}
+		},
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					12
+				},
+				{
+					12,
+					0,
+					0
+				}
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 4,
+		pic = &quot;temp4&quot;,
+		param = {
+			&quot;scene equip&quot;,
+			{
+				designPage = 2,
+				warp = &quot;WARP_TO_DESIGN&quot;
+			}
+		},
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					12
+				},
+				{
+					12,
+					0,
+					0
+				}
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 5,
+		pic = &quot;temp5&quot;,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 2
+			}
+		},
+		time = {
+			{
+				{
+					2025,
+					8,
+					28
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					11
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 6,
+		pic = &quot;temp6&quot;,
+		param = {
+			&quot;scene dailylevel&quot;
+		},
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					11
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		param = &quot;50101&quot;,
+		type = 3,
+		id = 7,
+		pic = &quot;temp7&quot;,
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					12
+				},
+				{
+					12,
+					0,
+					0
+				}
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 8,
+		pic = &quot;temp8&quot;,
+		param = {
+			&quot;metacharacter&quot;
+		},
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					12
+				},
+				{
+					12,
+					0,
+					0
+				}
+			}
+		}
+	},
+	{
+		type = 2,
+		id = 9,
+		pic = &quot;temp9&quot;,
+		param = {
+			&quot;dorm 3d select&quot;
+		},
+		time = {
+			{
+				{
+					2025,
+					8,
+					28
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					11
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	[90] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 9,
+		id = 90,
+		pic = &quot;temp99&quot;
+	},
+	[91] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 9,
+		id = 91,
+		pic = &quot;temp98&quot;
+	},
+	[95] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 11,
+		id = 95,
+		pic = &quot;temp100&quot;
+	},
+	[99] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 12,
+		id = 99,
+		pic = &quot;limit_skin&quot;
+	},
+	[100] = {
+		param = &quot;饺子|广受欢迎的传统特色食物！&lt;color=#6dd329&gt;（提高经验加成5%，持续60分钟）&lt;/color&gt;&quot;,
+		time = &quot;stop&quot;,
+		type = 10,
+		id = 100,
+		pic = &quot;dumpling&quot;
+	},
+	[101] = {
+		param = &quot;镜饼|要开了才能吃哦？&lt;color=#6dd329&gt;（提高经验加成5%，持续60分钟）&lt;/color&gt;&quot;,
+		time = &quot;stop&quot;,
+		type = 10,
+		id = 101,
+		pic = &quot;jingbing&quot;
+	},
+	[200] = {
+		param = &quot;&quot;,
+		time = &quot;always&quot;,
+		type = 13,
+		id = 200,
+		pic = &quot;autumn&quot;
+	},
+	[201] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 13,
+		id = 201,
+		pic = &quot;christmas&quot;
+	},
+	[202] = {
+		param = &quot;&quot;,
+		time = &quot;stop&quot;,
+		type = 13,
+		id = 202,
+		pic = &quot;winter&quot;
+	},
+	get_id_list_by_type = {
+		[2] = {
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			8,
+			9
+		},
+		[3] = {
+			7
+		},
+		[9] = {
+			90,
+			91
+		},
+		[11] = {
+			95
+		},
+		[12] = {
+			99
+		},
+		[10] = {
+			100,
+			101
+		},
+		[13] = {
+			200,
+			201,
+			202
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		90,
+		91,
+		95,
+		99,
+		100,
+		101,
+		200,
+		201,
+		202
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

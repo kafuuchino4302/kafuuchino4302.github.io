@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandachievement.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandachievement.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAchievement&quot;, import(&quot;model.vo.BaseVO&quot;))
+slot0.STATUS = {
+	GET = &quot;get&quot;,
+	NORMAL = &quot;noraml&quot;,
+	GOT = &quot;got&quot;
+}
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1
+	slot0.configId = slot0.id
+end
+
+slot0.bindConfigTable = function(slot0)
+	return pg.island_achievement
+end
+
+slot0.SetStatus = function(slot0, slot1)
+	slot0.status = slot1
+end
+
+slot0.GetStatus = function(slot0)
+	return slot0.status
+end
+
+slot0.GetStage = function(slot0)
+	return slot0:getConfig(&quot;stage&quot;)
+end
+
+slot0.IsHideType = function(slot0)
+	return slot0:getConfig(&quot;show_type&quot;) == 2
+end
+
+slot0.GetType = function(slot0)
+	return slot0:getConfig(&quot;target_type&quot;)
+end
+
+slot0.GetParam = function(slot0)
+	return slot0:getConfig(&quot;target_value1&quot;)
+end
+
+slot0.GetNum = function(slot0)
+	return slot0:getConfig(&quot;target_num&quot;)
+end
+
+slot0.GetAwards = function(slot0)
+	if slot0:getConfig(&quot;award_display&quot;) == &quot;&quot; then
+		return {}
+	end
+
+	return underscore.map(slot1, function (slot0)
+		return Drop.Create(slot0)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

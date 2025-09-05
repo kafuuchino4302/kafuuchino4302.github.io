@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shengyongqu19.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shengyongqu19.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;SHENGYONGQU19&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 6,
+			side = 2,
+			dir = -1,
+			bgm = &quot;hunhe-battle&quot;,
+			actor = 901030,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;哈--哈哈，怎么了倔强，今天的“魔法”状态也不佳么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801040,
+			side = 2,
+			expression = 3,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;你不提起来我都差点忘了……很不巧，今天魔法准备可是完全状态。你给我过来，我让你亲身领教一下真正的魔法！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 901030,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = -1,
+			say = &quot;我~才~不~要~呢~看招！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.7,
+					dur = 0.5,
+					x = -2500
+				}
+			}
+		},
+		{
+			say = &quot;轰------！&quot;,
+			dir = 1,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801030,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔，对面一直故意保持着距离和我们高速兜圈子，动力系统很难瞄准啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我们的这个意图也被发现了么…也是，阿尔及利亚不可能这点都猜不出来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802020,
+			side = 2,
+			expression = 3,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不过，被发现也无所谓就是了。继续尝试包围她，只要破坏了动力系统就是我们的胜利！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802020,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在行动之前，大家汇报一下受损情况。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801030,
+			side = 2,
+			expression = 4,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;鲁莽状态良好~目前为止，只受到了一点擦伤哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801040,
+			side = 2,
+			expression = 1,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;倔强一样。只在不关键的地方受到了几下擦伤，完全不影响战斗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;命运女神，二、二号塔中度受损，还有、动力系统轻微受损……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.4,
+					x = 30,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 801040,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎？！怎么回事……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……看来我们虽然在默契的彼此手下留情，但是，沃克兰没有对命运女神手下留情呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呜………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801030,
+			side = 2,
+			expression = 2,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;沃克兰，欺负人是不好的…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 802020,
+			side = 2,
+			expression = 3,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没办法，看来我们需要改变一下方针了。不只是动力系统，火力系统和其他不关键的模块也一并瞄准进行攻击，大家没有意见吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 801040,
+			side = 2,
+			expression = 1,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没意见，皇家的同伴也是同伴，怎么能让同伴在战场上因为我们的私心而白白受伤呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

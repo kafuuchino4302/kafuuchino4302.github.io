@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spweaponstorehousemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>spweaponstorehousemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SpWeaponStoreHouseMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_COMPOSITE = &quot;SpWeaponStoreHouseMediator:ON_COMPOSITE&quot;
+slot0.ON_UNEQUIP = &quot;SpWeaponStoreHouseMediator:ON_UNEQUIP&quot;
+slot0.OPEN_EQUIPMENT_INDEX = &quot;OPEN_EQUIPMENT_INDEX&quot;
+
+slot0.register = function(slot0)
+	slot0:BindEvent()
+
+	slot2 = getProxy(BayProxy):getShipById(slot0.contextData.shipId)
+
+	slot0.viewComponent:setShip(slot2)
+
+	if slot2 and slot0.contextData.mode == StoreHouseConst.EQUIPMENT then
+		slot0.contextData.qiutBtn = slot2:GetSpWeapon()
+	end
+
+	_.each(SpWeapon.bindConfigTable().all, function (slot0)
+		if SpWeapon.New({
+			id = slot0
+		}):IsCraftable() and (not uv0 or not uv0:IsSpWeaponForbidden(slot1)) then
+			table.insert(uv1, slot1)
+		end
+	end)
+	slot0.viewComponent:SetCraftList({})
+	slot0:UpdateSpWeapons()
+	slot0.viewComponent:setPlayer(getProxy(PlayerProxy):getData())
+end
+
+slot0.UpdateSpWeapons = function(slot0)
+	slot2 = getProxy(BayProxy):GetSpWeaponsInShips(getProxy(BayProxy):RawGetShipById(slot0.contextData.shipId))
+
+	for slot7, slot8 in ipairs(_.values(getProxy(EquipmentProxy):GetSpWeapons())) do
+		if not slot1 or not slot1:IsSpWeaponForbidden(slot8) then
+			table.insert(slot2, slot8)
+		end
+	end
+
+	slot0.viewComponent:setEquipments(slot2)
+end
+
+slot0.BindEvent = function(slot0)
+	slot0:bind(uv0.ON_UNEQUIP, function (slot0)
+		uv0:sendNotification(GAME.EQUIP_SPWEAPON_TO_SHIP, {
+			shipId = uv0.contextData.shipId
+		})
+	end)
+	slot0:bind(uv0.OPEN_EQUIPMENT_INDEX, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			viewComponent = CustomIndexLayer,
+			mediator = CustomIndexMediator,
+			data = slot1
+		}))
+	end)
+	slot0:bind(uv0.ON_COMPOSITE, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = SpWeaponUpgradeMediator,
+			viewComponent = SpWeaponUpgradeLayer,
+			data = {
+				spWeaponConfigId = slot1,
+				shipId = uv0.contextData.shipId
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		PlayerProxy.UPDATED,
+		BayProxy.SHIP_UPDATED,
+		GAME.EQUIP_SPWEAPON_TO_SHIP_DONE,
+		EquipmentProxy.SPWEAPONS_UPDATED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == BayProxy.SHIP_UPDATED then
+		if slot3.id == slot0.contextData.shipId then
+			slot0.viewComponent:setShip(slot3)
+		end
+	elseif slot2 == PlayerProxy.UPDATED then
+		slot0.viewComponent:setPlayer(slot3)
+	elseif slot2 == GAME.EQUIP_SPWEAPON_TO_SHIP_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_BACK)
+	elseif slot2 == EquipmentProxy.SPWEAPONS_UPDATED then
+		slot0:UpdateSpWeapons()
+		slot0.viewComponent:setEquipmentUpdate()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

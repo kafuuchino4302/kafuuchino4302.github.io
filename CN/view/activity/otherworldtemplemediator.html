@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>otherworldtemplemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>otherworldtemplemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;OtherWorldTempleMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.OPEN_TERMINAL = &quot;OPEN_TERMINAL&quot;
+slot0.SHOW_CHAR_AWARDS = &quot;SHOW_CHAR_AWARDS&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.OPEN_TERMINAL, function ()
+		uv0:addSubLayers(Context.New({
+			mediator = OtherworldTerminalMediator,
+			viewComponent = OtherworldTerminalLayer
+		}))
+	end)
+	slot0:bind(uv0.SHOW_CHAR_AWARDS, function (slot0, slot1, slot2)
+		uv0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot1, slot2)
+	end)
+end
+
+slot0.onUIAvalible = function(slot0)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ActivityProxy.ACTIVITY_OPERATION_DONE,
+		ActivityProxy.ACTIVITY_LOTTERY_SHOW_AWARDS,
+		GAME.ZERO_HOUR_OP_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == ActivityProxy.ACTIVITY_OPERATION_DONE then
+		if slot3 == ActivityConst.OTHER_WORLD_TERMINAL_LOTTERY_ID then
+			slot0.viewComponent:updateActivity()
+			slot0.viewComponent:displayTempleCharAward()
+		end
+	elseif slot2 == ActivityProxy.ACTIVITY_LOTTERY_SHOW_AWARDS then
+		slot4 = slot0.viewComponent
+
+		slot4:emit(BaseUI.ON_ACHIEVE, slot3.awards, function ()
+			if uv0.callback then
+				uv0.callback()
+			end
+		end)
+	elseif slot2 == GAME.ZERO_HOUR_OP_DONE then
+		-- Nothing
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

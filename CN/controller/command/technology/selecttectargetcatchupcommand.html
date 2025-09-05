@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selecttectargetcatchupcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>selecttectargetcatchupcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SelectTecTargetCatchupCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(63011, {
+		version = slot2.tecID,
+		target = slot2.charID
+	}, 63012, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(TechnologyProxy)
+			slot2 = uv0.tecID
+			slot3 = uv1
+
+			if uv1 ~= 0 then
+				slot1:setCurCatchupTecInfo(slot2, slot3)
+			end
+
+			uv2:sendNotification(GAME.SELECT_TEC_TARGET_CATCHUP_DONE, {
+				tecID = slot2
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;Error Code&quot; .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

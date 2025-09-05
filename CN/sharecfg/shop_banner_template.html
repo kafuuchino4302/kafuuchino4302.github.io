@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop_banner_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shop_banner_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.shop_banner_template = {
+	[10] = {
+		name = &quot;banner_big&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;shopbanner/shop_skin&quot;,
+		id = 10,
+		relation_param = &quot;&quot;,
+		order = 10,
+		time = {
+			{
+				{
+					2025,
+					9,
+					4
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					11
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		},
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		}
+	},
+	[11] = {
+		name = &quot;banner_big&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;shopbanner/shop_skin2&quot;,
+		id = 11,
+		relation_param = &quot;&quot;,
+		order = 9,
+		time = {
+			{
+				{
+					2025,
+					8,
+					14
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					8,
+					16
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		},
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		}
+	},
+	[12] = {
+		name = &quot;banner_big&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;shopbanner/shop_skin&quot;,
+		id = 12,
+		relation_param = &quot;&quot;,
+		order = 10,
+		time = {
+			{
+				{
+					2025,
+					8,
+					19
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					8,
+					22
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		},
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		}
+	},
+	[13] = {
+		name = &quot;banner_big&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;shopbanner/shop_skin2&quot;,
+		id = 13,
+		relation_param = &quot;&quot;,
+		order = 9,
+		time = {
+			{
+				{
+					2025,
+					8,
+					19
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					8,
+					22
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		},
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		}
+	},
+	[14] = {
+		name = &quot;banner_big&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_skin_default&quot;,
+		id = 14,
+		relation_param = &quot;&quot;,
+		order = 1,
+		param = {
+			&quot;scene skinshop&quot;,
+			{}
+		}
+	},
+	[20] = {
+		name = &quot;banner_middle&quot;,
+		time = &quot;stop&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;&quot;,
+		id = 20,
+		relation_param = &quot;&quot;,
+		order = 10,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 4
+			}
+		}
+	},
+	[21] = {
+		name = &quot;banner_middle&quot;,
+		time = &quot;stop&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;&quot;,
+		id = 21,
+		relation_param = &quot;&quot;,
+		order = 9,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 4
+			}
+		}
+	},
+	[22] = {
+		name = &quot;banner_middle&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_akashi_recommend&quot;,
+		id = 22,
+		relation_param = &quot;&quot;,
+		order = 1,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 4
+			}
+		}
+	},
+	[30] = {
+		name = &quot;banner_small1&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_diamond&quot;,
+		id = 30,
+		relation_param = &quot;&quot;,
+		order = 10,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 1
+			}
+		}
+	},
+	[31] = {
+		name = &quot;banner_small1&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_props&quot;,
+		id = 31,
+		relation_param = &quot;&quot;,
+		order = 1,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 3
+			}
+		}
+	},
+	[40] = {
+		param = &quot;&quot;,
+		name = &quot;banner_small2&quot;,
+		time = &quot;stop&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;&quot;,
+		id = 40,
+		relation_param = &quot;&quot;,
+		order = 10
+	},
+	[41] = {
+		name = &quot;banner_small2&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_item_bg&quot;,
+		id = 41,
+		order = 1,
+		param = {
+			&quot;scene charge&quot;,
+			{
+				warp = 1
+			}
+		},
+		relation_param = {
+			1,
+			1
+		}
+	},
+	[50] = {
+		name = &quot;banner_small3&quot;,
+		type = 2,
+		time_lable = 1,
+		pic = &quot;shopbanner/shop_event_pt&quot;,
+		id = 50,
+		relation_param = &quot;&quot;,
+		order = 10,
+		time = {
+			{
+				{
+					2025,
+					8,
+					14
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2025,
+					9,
+					3
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		},
+		param = {
+			&quot;scene shop&quot;,
+			{
+				warp = &quot;activity&quot;
+			}
+		}
+	},
+	[51] = {
+		name = &quot;banner_small3&quot;,
+		time = &quot;always&quot;,
+		type = 2,
+		time_lable = 0,
+		pic = &quot;shopbanner/shop_shopstreet&quot;,
+		id = 51,
+		relation_param = &quot;&quot;,
+		order = 1,
+		param = {
+			&quot;scene shop&quot;,
+			{
+				warp = &quot;shopstreet&quot;
+			}
+		}
+	},
+	get_id_list_by_name = {
+		banner_big = {
+			10,
+			11,
+			12,
+			13,
+			14
+		},
+		banner_middle = {
+			20,
+			21,
+			22
+		},
+		banner_small1 = {
+			30,
+			31
+		},
+		banner_small2 = {
+			40,
+			41
+		},
+		banner_small3 = {
+			50,
+			51
+		}
+	},
+	all = {
+		10,
+		11,
+		12,
+		13,
+		14,
+		20,
+		21,
+		22,
+		30,
+		31,
+		40,
+		41,
+		50,
+		51
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldbossbattlequitcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldbossbattlequitcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldBossBattleQuitCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if not slot1:getBody().id then
+		return
+	end
+
+	if nowWorld():GetBossProxy():GetBossById(slot3) and not slot5:IsSelfBoss(slot6) then
+		slot5:RemoveCacheBoss(slot3)
+
+		slot12 = slot6.lastTime
+
+		for slot12, slot13 in ipairs(getProxy(ChatProxy):GetMessagesByUniqueId(slot3 .. &quot;_&quot; .. slot12)) do
+			slot13.args.isDeath = true
+
+			slot7:UpdateMsg(slot13)
+		end
+
+		slot14 = slot6.lastTime
+
+		for slot14, slot15 in ipairs(getProxy(GuildProxy):GetMessagesByUniqueId(slot3 .. &quot;_&quot; .. slot14)) do
+			slot15.args.isDeath = true
+
+			slot9:UpdateMsg(slot15)
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

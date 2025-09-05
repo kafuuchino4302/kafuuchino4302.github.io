@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yanjinchenxu23-4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>yanjinchenxu23-4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;YANJINCHENXU23-4&quot;,
+	mode = 2,
+	scripts = {
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			stopbgm = true,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;theme-vichy-slaughter&quot;,
+			say = &quot;在一连串的爆炸声后，山丘般的机甲巨人终于垮塌，成了再也拼不回来的碎片。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;好嘞，收工。怎么样，现在还怀疑我的战斗力么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 207070,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;不…………毫无疑问，你绝对是出色的余烬战士。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;幸好你是站在我们这一边的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;虽然只是暂时的哦，不过还是多谢夸奖~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 805010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;余烬的拉·加利索尼埃小姐，您刚刚究竟是……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900353,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;如你所见，我进行了祈祷，然后我获得了回应。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;塞壬在这里进行的就是这样的实验，我只是利用了一下而已。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;概念的具现化，对吧？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;准确来说，并不是所有概念的具现化，而是与信仰有关的概念的具现化。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900353,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;不过你看来你理解了，很聪明嘛，怨仇小姐。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;哼哼哼，我之前还尝试着呼唤过“战争”，四骑士需要按顺序消灭也是我发现的呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;哈啊？你念了第二印呼唤战争？然后呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;然后感觉……好像受到了某些存在的影响，我开始变得不再是我了……幸好被大主教及时打断了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;居然真的那么危险么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;你运气还真好……是的，非常危险。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;呼唤神是一回事，呼唤末日骑士又是另一回事啊……至少对你呼唤的对象该有个筛选吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900353,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;不过……嗯……………………我觉得可行，你们要不要试试？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;可行？你是指什么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900353,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;「信仰的现化」哦，接下来的战争骑士比饥荒骑士还要对付，你们要是不武装一下自己的话，会被轻松消灭的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 207070,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;这一现象是由塞壬的设施引发的吧，我们用了真的不会有副作用么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;不会不会~塞壬设施只是构建了能够实现这一现象的空间，只能算个工具而已。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 900353,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;好影响与坏影响只取决于使用的人利用它做了什么。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900353,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;向主祈祷自然没事，我刚才做的事你也看到了吧？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 805010,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			dir = 1,
+			bgName = &quot;bg_firedust_7&quot;,
+			say = &quot;如果是这样的话……怨仇女士，我觉得有试一下的价值。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;咦？……但这里终究还是塞壬的设施哦，你不介意么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 805010,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;自然是介意的，不过这里不还有鸢尾教国时期修建的教堂么？去那里祈祷就好。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;也…………行。既然大主教您都不介意的话，我自然也不介意。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_firedust_7&quot;,
+			dir = 1,
+			actor = 207070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;事不宜迟，我们这就去找一处适合祈祷的地点吧~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

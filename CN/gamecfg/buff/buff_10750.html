@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10750.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10750.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升16.0%，受到航空伤害降低16.0%&quot;,
+		addition = {
+			&quot;16.0%(+2.4%)&quot;,
+			&quot;16.0%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升18.4%，受到航空伤害降低18.4%&quot;,
+		addition = {
+			&quot;18.4%(+2.4%)&quot;,
+			&quot;18.4%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升20.8%，受到航空伤害降低20.8%&quot;,
+		addition = {
+			&quot;20.8%(+3.2%)&quot;,
+			&quot;20.8%(+3.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升24.0%，受到航空伤害降低24.0%&quot;,
+		addition = {
+			&quot;24.0%(+2.4%)&quot;,
+			&quot;24.0%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升26.4%，受到航空伤害降低26.4%&quot;,
+		addition = {
+			&quot;26.4%(+2.4%)&quot;,
+			&quot;26.4%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升28.8%，受到航空伤害降低28.8%&quot;,
+		addition = {
+			&quot;28.8%(+3.2%)&quot;,
+			&quot;28.8%(+3.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升32.0%，受到航空伤害降低32.0%&quot;,
+		addition = {
+			&quot;32.0%(+2.4%)&quot;,
+			&quot;32.0%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升34.4%，受到航空伤害降低34.4%&quot;,
+		addition = {
+			&quot;34.4%(+2.4%)&quot;,
+			&quot;34.4%(+2.4%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升36.8%，受到航空伤害降低36.8%&quot;,
+		addition = {
+			&quot;36.8%(+3.2%)&quot;,
+			&quot;36.8%(+3.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;炮击有5%概率发动，8秒内自身机动提升40.0%，受到航空伤害降低40.0%&quot;,
+		addition = {
+			&quot;40.0%&quot;,
+			&quot;40.0%&quot;
+		}
+	},
+	desc_get = &quot;炮击有5%概率发动，8秒内自身机动提升16.0%(满级40.0%)，受到航空伤害降低16.0%(满级40.0%)&quot;,
+	name = &quot;The Nick&quot;,
+	init_effect = &quot;&quot;,
+	id = 10750,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;炮击有5%概率发动，8秒内自身机动提升$1，受到航空伤害降低$2&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 10750,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				rant = 500,
+				skill_id = 10750,
+				target = &quot;TargetSelf&quot;,
+				time = 5
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

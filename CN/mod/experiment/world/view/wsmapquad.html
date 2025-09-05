@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wsmapquad.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wsmapquad.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WSMapQuad&quot;, import(&quot;...BaseEntity&quot;))
+slot0.Fields = {
+	static = &quot;boolean&quot;,
+	twId = &quot;number&quot;,
+	rtWalkQuad = &quot;userdata&quot;,
+	transform = &quot;userdata&quot;,
+	cell = &quot;table&quot;,
+	twTimer = &quot;userdata&quot;,
+	theme = &quot;table&quot;,
+	rtQuad = &quot;userdata&quot;
+}
+
+slot0.GetResName = function()
+	return &quot;world_cell_quad&quot;
+end
+
+slot0.Listeners = {
+	onAddAttachment = &quot;OnAddAttachment&quot;,
+	onRemoveAttachment = &quot;OnRemoveAttachment&quot;,
+	onUpdate = &quot;Update&quot;,
+	onUpdateAttachment = &quot;OnUpdateAttachment&quot;
+}
+
+slot0.GetName = function(slot0, slot1)
+	return &quot;world_quad_&quot; .. slot0 .. &quot;_&quot; .. slot1
+end
+
+slot0.Setup = function(slot0, slot1, slot2)
+	slot0.cell = slot1
+
+	slot0.cell:AddListener(WorldMapCell.EventUpdateInFov, slot0.onUpdate)
+	slot0.cell:AddListener(WorldMapCell.EventAddAttachment, slot0.onAddAttachment)
+	slot0.cell:AddListener(WorldMapCell.EventRemoveAttachment, slot0.onRemoveAttachment)
+	slot0.cell:AddListener(WorldMapCell.EventUpdateFog, slot0.onUpdate)
+	_.each(slot0.cell.attachments, function (slot0)
+		uv0:OnAddAttachment(nil, uv0.cell, slot0)
+	end)
+
+	slot0.theme = slot2
+
+	slot0:Init()
+end
+
+slot0.Dispose = function(slot0)
+	if slot0.twId then
+		LeanTween.cancel(slot0.twId)
+	end
+
+	slot0.cell:RemoveListener(WorldMapCell.EventUpdateInFov, slot0.onUpdate)
+	slot0.cell:RemoveListener(WorldMapCell.EventAddAttachment, slot0.onAddAttachment)
+	slot0.cell:RemoveListener(WorldMapCell.EventRemoveAttachment, slot0.onRemoveAttachment)
+	slot0.cell:RemoveListener(WorldMapCell.EventUpdateFog, slot0.onUpdate)
+	_.each(slot0.cell.attachments, function (slot0)
+		uv0:OnRemoveAttachment(nil, uv0.cell, slot0)
+	end)
+	slot0:Clear()
+end
+
+slot0.Init = function(slot0)
+	slot1 = slot0.cell
+	slot2 = slot0.transform
+	slot0.rtQuad = slot2:Find(&quot;quad&quot;)
+	slot2.name = uv0.GetName(slot1.row, slot1.column)
+	slot2.anchoredPosition = slot0.theme:GetLinePosition(slot1.row, slot1.column)
+	slot0.rtQuad.sizeDelta = slot0.theme.cellSize
+	slot0.rtWalkQuad = slot2:Find(&quot;walk_quad&quot;) or cloneTplTo(slot0.rtQuad, slot2, &quot;walk_quad&quot;)
+
+	slot0.rtWalkQuad:SetSiblingIndex(slot0.rtQuad:GetSiblingIndex())
+	setImageAlpha(slot0.rtWalkQuad, 0)
+	GetImageSpriteFromAtlasAsync(&quot;world/cell/base&quot;, WorldConst.QuadSpriteWhite, slot0.rtWalkQuad)
+	slot0:Update()
+end
+
+slot0.Update = function(slot0, slot1)
+	slot2 = slot0.cell
+
+	if slot1 == nil or slot1 == WorldMapCell.EventUpdateInFov or slot1 == WorldMapCell.EventUpdateFog then
+		slot0:OnUpdateAttachment()
+	end
+end
+
+slot0.OnAddAttachment = function(slot0, slot1, slot2, slot3)
+	slot3:AddListener(WorldMapAttachment.EventUpdateFlag, slot0.onUpdateAttachment)
+	slot3:AddListener(WorldMapAttachment.EventUpdateData, slot0.onUpdateAttachment)
+	slot3:AddListener(WorldMapAttachment.EventUpdateLurk, slot0.onUpdateAttachment)
+
+	if slot1 then
+		slot0:OnUpdateAttachment()
+	end
+end
+
+slot0.OnRemoveAttachment = function(slot0, slot1, slot2, slot3)
+	slot3:RemoveListener(WorldMapAttachment.EventUpdateFlag, slot0.onUpdateAttachment)
+	slot3:RemoveListener(WorldMapAttachment.EventUpdateData, slot0.onUpdateAttachment)
+	slot3:RemoveListener(WorldMapAttachment.EventUpdateLurk, slot0.onUpdateAttachment)
+
+	if slot1 then
+		slot0:OnUpdateAttachment()
+	end
+end
+
+slot0.UpdateStatic = function(slot0, slot1, slot2)
+	if slot0.static ~= slot1 then
+		slot0.static = slot1
+
+		if slot2 then
+			slot0:UpdateScannerQuad()
+		else
+			slot0:OnUpdateAttachment()
+		end
+	end
+end
+
+slot0.OnUpdateAttachment = function(slot0)
+	if slot0.twId then
+		LeanTween.cancel(slot0.twId)
+
+		slot0.twId = nil
+	end
+
+	slot1 = slot0.cell:GetDisplayQuad()
+
+	if slot0.cell:GetInFOV() and not slot0.static and slot1 and not slot0.cell:InFog() then
+		slot2 = slot1[2] or WorldConst.QuadBlinkDuration
+		slot3 = slot1[3] and slot1[3] / 100 or 1
+		slot4 = slot1[4] and slot1[4] / 100 or 0
+
+		GetImageSpriteFromAtlasAsync(&quot;world/cell/base&quot;, slot1[1], slot0.rtQuad)
+		setLocalScale(slot0.rtQuad, Vector3.one)
+
+		slot5 = LeanTween.alpha(slot0.rtQuad, slot4, slot2):setFrom(slot3):setEase(LeanTweenType.easeInOutSine):setLoopPingPong()
+		slot5.passed = slot0.twTimer.passed
+		slot5.direction = slot0.twTimer.direction
+		slot0.twId = slot5.uniqueId
+		slot6 = slot5.passed / slot2 * (slot3 - slot4) + slot4
+
+		setImageAlpha(slot0.rtQuad, slot5.direction &gt; 0 and slot6 or 1 - slot6)
+	else
+		setImageAlpha(slot0.rtQuad, 0)
+	end
+end
+
+slot0.UpdateScannerQuad = function(slot0)
+	if slot0.twId then
+		LeanTween.cancel(slot0.twId)
+
+		slot0.twId = nil
+	end
+
+	if slot0.cell:GetInFOV() and slot0.cell:GetScannerAttachment() then
+		setImageAlpha(slot0.rtQuad, 1)
+		GetImageSpriteFromAtlasAsync(&quot;world/cell/base&quot;, &quot;cell_yellow&quot;, slot0.rtQuad)
+	else
+		setImageAlpha(slot0.rtQuad, 0)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

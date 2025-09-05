@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kangkede7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>kangkede7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;KANGKEDE7&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;康克德与甜食\n\n&lt;size=45&gt;七　来自康克德的糖分&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;糖分互助联盟的又一次聚会——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 904010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;久等了，今天的第一道甜品是松饼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;是糖分充足的松饼！&quot;,
+			side = 0,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 301320,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.5,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 102010,
+			side = 1,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哇啊啊——的确能够激起食欲！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯~嗯……（微笑）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;就像上次的聚会那样，康克德的话很少。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_room&quot;,
+			actor = 904010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这是今天我做的最后一道甜品咯，呵呵，大家尽情享用吧！&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 101290,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦哦——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_room&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;聚会结束后&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，我给你准备了个东西~稍等我一会哦♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;过了一小会儿——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;康克德特制马卡龙来啦~嘻嘻，从敦刻尔克小姐那边得到了不少帮助就是~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，作为康克德的试吃专员，快来第一个尝尝吧~♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这次不会让你失望的～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;盘子中放着各种颜色的马卡龙，是考虑到了不同人的喜好吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;试吃一个&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;果然…还是很甜，不过——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;好吃？唔？很有我的风格？真的？嘻嘻，谢谢夸奖～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;果然甜食还是要像这样满满～的糖分才对嘛～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;虽然槽点很多，不过这大概就是康克德的风格吧&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;告诉康克德“做你自己就好”&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘻嘻～既然指挥官都这么说了，那就～再多吃几个吧～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 102180,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊～～嗯～～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

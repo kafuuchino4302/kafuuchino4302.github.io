@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_3021.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_3021.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高5.0%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;5.0%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高6.1%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;6.1%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高7.2%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;7.2%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高8.3%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;8.3%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高9.4%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;9.4%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高10.5%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;10.5%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高11.6%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;11.6%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高12.7%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;12.7%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高13.8%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;13.8%(+1.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;每次执行空袭后为先锋部队提高15.0%伤害，持续8秒，同技能效果不叠加&quot;,
+		addition = {
+			&quot;15.0%&quot;
+		}
+	},
+	desc_get = &quot;每次执行空袭后为先锋部队提高5.0%(满级15.0%)伤害，持续8秒，同技能效果不叠加&quot;,
+	name = &quot;舰队空母&quot;,
+	init_effect = &quot;&quot;,
+	id = 3021,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;每次执行空袭后为先锋部队提高$1伤害，持续8秒，同技能效果不叠加&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 3020,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAllInStrike&quot;
+			},
+			arg_list = {
+				skill_id = 3021,
+				target = &quot;TargetSelf&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

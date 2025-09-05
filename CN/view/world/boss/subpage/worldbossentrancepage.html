@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldbossentrancepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldbossentrancepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldBossEntrancePage&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldBossEntranceUI&quot;
+end
+
+slot0.Setup = function(slot0, slot1)
+	slot0.proxy = slot1
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.currentTr = slot0:findTF(&quot;current&quot;)
+	slot0.pastTr = slot0:findTF(&quot;past&quot;)
+	slot0.currTimeTxt = slot0.currentTr:Find(&quot;time&quot;):GetComponent(typeof(Text))
+	slot0.currConsumeTxt = slot0.currentTr:Find(&quot;consume&quot;):GetComponent(typeof(Text))
+	slot0.currAccTxt = slot0.currentTr:Find(&quot;acc&quot;):GetComponent(typeof(Text))
+	slot0.pastConsumeTxt = slot0.pastTr:Find(&quot;consume&quot;):GetComponent(typeof(Text))
+	slot0.pastAccTxt = slot0.pastTr:Find(&quot;acc&quot;):GetComponent(typeof(Text))
+	slot0.currProgressTr = slot0:findTF(&quot;current_progress&quot;)
+	slot0.pastProgressTr = slot0:findTF(&quot;past_progress&quot;)
+	slot0.currProgressTxt = slot0:findTF(&quot;current_progress/value&quot;):GetComponent(typeof(Text))
+	slot0.pastProgressTxt = slot0:findTF(&quot;past_progress/value&quot;):GetComponent(typeof(Text))
+	slot0.backBtn = slot0:findTF(&quot;blur_panel/adapt/top/back&quot;)
+	slot2 = slot0:findTF(&quot;current&quot;):GetComponent(typeof(Image))
+	slot2.sprite = GetSpriteFromAtlas(&quot;MetaWorldboss/&quot; .. WorldBossConst.GetCurrBossGroup(), &quot;cur&quot;)
+
+	slot2:SetNativeSize()
+	setText(slot0:findTF(&quot;tip/Text&quot;), i18n(&quot;world_boss_item_usage_tip&quot;))
+	setText(slot0.currentTr:Find(&quot;label&quot;), i18n(&quot;world_boss_current_boss_label&quot;))
+	setText(slot0.currentTr:Find(&quot;label1&quot;), i18n(&quot;world_boss_current_boss_label1&quot;))
+	setText(slot0.pastTr:Find(&quot;label&quot;), i18n(&quot;world_boss_current_boss_label&quot;))
+	setText(slot0.pastTr:Find(&quot;label1&quot;), i18n(&quot;world_boss_current_boss_label1&quot;))
+
+	slot0.pastLabels = {
+		slot0.pastTr:Find(&quot;label&quot;),
+		slot0.pastTr:Find(&quot;label1&quot;),
+		slot0.pastTr:Find(&quot;label2&quot;),
+		slot0.pastTr:Find(&quot;label3&quot;)
+	}
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:emit(BaseUI.ON_BACK)
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.currentTr, function ()
+		uv0:emit(WorldBossScene.ON_SWITCH, WorldBossScene.PAGE_CURRENT)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.pastTr, function ()
+		uv0:emit(WorldBossScene.ON_SWITCH, WorldBossScene.PAGE_ARCHIVES)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.currProgressTr, function ()
+		slot0 = WorldBossConst.GetCurrBossItemInfo()
+
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			hideNo = true,
+			type = MSGBOX_TYPE_DROP_ITEM,
+			name = slot0.name,
+			content = slot0.display,
+			iconPath = slot0.icon,
+			frame = slot0.rarity
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.pastProgressTr, function ()
+		slot0 = WorldBossConst.GetAchieveBossItemInfo()
+
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			hideNo = true,
+			type = MSGBOX_TYPE_DROP_ITEM,
+			name = slot0.name,
+			content = slot0.display,
+			iconPath = slot0.icon,
+			frame = slot0.rarity
+		})
+	end, SFX_PANEL)
+end
+
+slot0.Update = function(slot0)
+	slot0:UpdateCurrent()
+	slot0:UpdatePast()
+	slot0:Show()
+end
+
+slot0.UpdateCurrent = function(slot0)
+	slot0:ClearTimer()
+
+	slot1 = nil
+
+	(function ()
+		slot0, slot1 = WorldBossConst.GetCurrBossLeftDay()
+		uv0.currTimeTxt.text = i18n(&quot;world_boss_lefttime&quot;, slot0)
+
+		if slot1 &gt; 0 then
+			uv0.timer = Timer.New(function ()
+				uv0()
+			end, slot1, 1)
+
+			uv0.timer:Start()
+		end
+	end)()
+
+	slot0.currConsumeTxt.text, slot3, slot4 = WorldBossConst.GetCurrBossConsume()
+	slot0.currAccTxt.text = &quot;&lt;color=#ffdf5d&gt;&quot; .. WorldBossConst.GetCurrBossItemAcc() .. &quot;&lt;/color&gt;/&quot; .. slot3
+	slot0.currProgressTxt.text = WorldBossConst.GetCurrBossItemProgress() .. &quot;/&quot; .. slot4
+end
+
+slot0.UpdatePast = function(slot0)
+	slot1, slot2, slot3 = WorldBossConst.GetAchieveBossConsume()
+	slot0.pastProgressTxt.text = WorldBossConst.GetAchieveBossItemProgress() .. &quot;/&quot; .. slot3
+	slot5 = WorldBossConst.GetSummonPtOldAcc()
+	slot7 = slot0.pastTr:GetComponent(typeof(Image))
+	slot8 = nil
+	slot9 = &quot;&quot;
+
+	if WorldBossConst.ACHIEVE_STATE_STARTING == WorldBossConst.GetAchieveState() then
+		slot0.pastAccTxt.text = &quot;&lt;color=#ffdf5d&gt;&quot; .. slot5 .. &quot;&lt;/color&gt;/&quot; .. slot2
+		slot0.pastConsumeTxt.text = slot1
+		slot7.sprite = GetSpriteFromAtlas(&quot;MetaWorldboss&quot; .. (&quot;/&quot; .. WorldBossConst.BossId2MetaId(WorldBossConst.GetArchivesId())), &quot;useitem_archives&quot;)
+
+		slot7:SetNativeSize()
+	else
+		slot0.pastAccTxt.text = &quot;&quot;
+		slot0.pastConsumeTxt.text = &quot;&quot;
+
+		if WorldBossConst.ACHIEVE_STATE_NOSTART == slot6 then
+			slot8 = &quot;extra_unselect&quot;
+		elseif WorldBossConst.ACHIEVE_STATE_CLEAR == slot6 then
+			slot8 = &quot;extra_clear&quot;
+		end
+
+		slot7.sprite = LoadSprite(&quot;MetaWorldboss/&quot; .. slot8)
+
+		slot7:SetNativeSize()
+	end
+
+	for slot13, slot14 in ipairs(slot0.pastLabels) do
+		setActive(slot14, WorldBossConst.ACHIEVE_STATE_STARTING == slot6)
+	end
+end
+
+slot0.ClearTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0:ClearTimer()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

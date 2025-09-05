@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svbossprogress.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>svbossprogress.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SVBossProgress&quot;, import(&quot;view.base.BaseSubView&quot;))
+slot0.HideView = &quot;SVBossProgress.HideView&quot;
+
+slot0.getUIName = function(slot0)
+	return &quot;SVBossProgress&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf
+	slot0.rtFrame = slot1:Find(&quot;frame&quot;)
+	slot1 = slot0.rtFrame
+	slot0.rtPanel = slot1:Find(&quot;buff_panel/buff_bg&quot;)
+	slot1 = slot0.rtFrame
+	slot0.rtInfo = slot1:Find(&quot;buff_panel/info&quot;)
+
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_CANCEL)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+slot0.Show = function(slot0)
+	setLocalScale(slot0.rtFrame, Vector3(0.5, 0.5, 0.5))
+	LeanTween.cancel(go(slot0.rtFrame))
+	LeanTween.scale(slot0.rtFrame, Vector3.one, 0.15)
+	setActive(slot0._tf, true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.Hide = function(slot0)
+	LeanTween.cancel(go(slot0.rtFrame))
+	setActive(slot0._tf, false)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	slot0:emit(uv0.HideView, slot0.callback)
+end
+
+slot0.Setup = function(slot0, slot1, slot2)
+	slot0.callback = slot2
+	slot4 = 0
+	slot5 = slot1.total
+
+	for slot9, slot10 in ipairs(slot1.drops) do
+		slot4 = slot4 + slot10.count
+	end
+
+	setText(slot0._tf:Find(&quot;frame/buff_panel/info/name&quot;), i18n(&quot;world_boss_drop_title&quot;))
+	setText(slot0._tf:Find(&quot;frame/buff_panel/info/value_before&quot;), slot5 - slot4)
+	setText(slot0._tf:Find(&quot;frame/buff_panel/info/value&quot;), slot5)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

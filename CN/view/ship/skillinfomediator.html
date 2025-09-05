@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skillinfomediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skillinfomediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SkillInfoMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.WARP_TO_TACTIC = &quot;SkillInfoMediator:WARP_TO_TACTIC&quot;
+slot0.WARP_TO_META_TACTICS = &quot;SkillInfoMediator:WARP_TO_METATASK&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.WARP_TO_TACTIC, function (slot0)
+		slot1 = getProxy(NavalAcademyProxy)
+		slot2 = slot1:getStudents()
+		slot3 = 0
+		slot4 = 0
+
+		for slot9 = 1, slot1.MAX_SKILL_CLASS_NUM do
+			if slot2[slot9] then
+				slot3 = slot3 + 1
+			else
+				slot4 = slot9
+
+				break
+			end
+		end
+
+		if slot1:getSkillClassNum() &lt;= slot3 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tactics_lesson_full&quot;))
+			uv0.viewComponent:close()
+
+			return
+		end
+
+		if table.getCount(getProxy(BagProxy):getItemsByType(Item.LESSON_TYPE) or {}) &lt;= 0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tactics_no_lesson&quot;))
+			uv0.viewComponent:close()
+
+			return
+		end
+
+		for slot12, slot13 in pairs(slot2) do
+			if slot13.shipId == uv0.contextData.shipId then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;tactics_lesson_repeated&quot;))
+				uv0.viewComponent:close()
+
+				return
+			end
+		end
+
+		uv0.viewComponent:close()
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.NAVALACADEMYSCENE, {
+			warp = NavalAcademyScene.WARP_TO_TACTIC,
+			shipToLesson = {
+				shipId = uv0.contextData.shipId,
+				skillIndex = uv0.contextData.index,
+				index = slot4
+			}
+		})
+	end)
+	slot0:bind(uv0.WARP_TO_META_TACTICS, function (slot0, slot1)
+		uv0.viewComponent:close()
+		uv0:sendNotification(GAME.GO_SCENE, SCENE.METACHARACTER, {
+			autoOpenTactics = true,
+			autoOpenShipConfigID = slot1
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot2 = slot1:getName()
+	slot3 = slot1:getBody()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

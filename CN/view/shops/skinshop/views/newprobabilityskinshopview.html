@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newprobabilityskinshopview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newprobabilityskinshopview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewProbabilitySkinShopView&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ProbabilitySkinShopItem&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.purchaseBtn = slot0:findTF(&quot;frame&quot;)
+	slot0.tipTxt = slot0:findTF(&quot;tip/Text&quot;):GetComponent(typeof(Text))
+	slot0.icon = slot0:findTF(&quot;frame/icon/Image&quot;):GetComponent(typeof(Image))
+	slot0.tag = slot0:findTF(&quot;frame/icon/tag&quot;):GetComponent(typeof(Image))
+	slot0.nameTxt = slot0:findTF(&quot;frame/name/Text&quot;):GetComponent(typeof(Text))
+	slot0.priceTxt = slot0:findTF(&quot;frame/price&quot;):GetComponent(typeof(Text))
+	slot0.descTxt = slot0:findTF(&quot;frame/desc&quot;):GetComponent(typeof(Text))
+	slot0.limitTxt = slot0:findTF(&quot;frame/count&quot;):GetComponent(typeof(Text))
+	slot0.uiList = UIItemList.New(slot0:findTF(&quot;frame/awards&quot;), slot0:findTF(&quot;frame/awards/award&quot;))
+
+	slot0._tf:SetSiblingIndex(2)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	slot0:UpdateCommodity(slot1)
+	slot0:UpdateTip()
+end
+
+slot0.Flush = function(slot0, slot1)
+	slot0:UpdateCommodity(slot1)
+end
+
+slot1 = function(slot0)
+	return ({
+		&quot;hot&quot;,
+		&quot;new_tag&quot;,
+		&quot;tuijian&quot;,
+		&quot;shuangbei_tag&quot;,
+		&quot;activity&quot;,
+		&quot;xianshi&quot;
+	})[slot0] or &quot;hot&quot;
+end
+
+slot2 = function(slot0, slot1)
+	slot0.uiList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			updateDrop(slot2, {
+				type = slot3[1],
+				id = slot3[2],
+				count = slot3[3]
+			})
+		end
+	end)
+	slot0.uiList:align(#slot1:getConfig(&quot;display&quot;))
+end
+
+slot0.UpdateCommodity = function(slot0, slot1)
+	slot0.icon.sprite = LoadSprite(&quot;ChargeIcon/&quot; .. slot1:getConfig(&quot;picture&quot;))
+	slot3 = slot0.icon
+
+	slot3:SetNativeSize()
+
+	slot0.nameTxt.text = slot1:getConfig(&quot;name_display&quot;)
+	slot0.priceTxt.text = GetMoneySymbol() .. slot1:getConfig(&quot;money&quot;)
+	slot0.limitTxt.text = slot1:GetLimitDesc()
+	slot0.descTxt.text = slot1:getConfig(&quot;descrip&quot;)
+	slot0.tag.sprite = LoadSprite(&quot;chargeTag&quot;, uv0(slot1:getConfig(&quot;tag&quot;)))
+	slot4 = slot0.tag
+
+	slot4:SetNativeSize()
+	uv1(slot0, slot1)
+	onButton(slot0, slot0.purchaseBtn, function ()
+		if uv0:canPurchase() then
+			uv1:OnCharge(uv0)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;buy_countLimit&quot;))
+		end
+	end, SFX_PANEL)
+end
+
+slot0.OnCharge = function(slot0, slot1)
+	slot2 = slot1
+
+	slot0:emit(NewProbabilitySkinShopMediator.OPEN_CHARGE_ITEM_PANEL, {
+		isChargeType = true,
+		isMonthCard = false,
+		infoTip = slot2:GetInfoTip(),
+		icon = &quot;chargeicon/&quot; .. slot2:getConfig(&quot;picture&quot;),
+		name = slot2:getConfig(&quot;name_display&quot;),
+		tipExtra = i18n(&quot;charge_title_getitem&quot;),
+		extraItems = slot2:GetExtraServiceItem(),
+		price = slot2:getConfig(&quot;money&quot;),
+		isLocalPrice = slot2:IsLocalPrice(),
+		tagType = slot2:getConfig(&quot;tag&quot;),
+		descExtra = slot2:getConfig(&quot;descrip_extra&quot;),
+		limitArgs = slot2:getConfig(&quot;limit_args&quot;),
+		onYes = function ()
+			if ChargeConst.isNeedSetBirth() then
+				uv0:emit(NewProbabilitySkinShopMediator.OPEN_CHARGE_BIRTHDAY)
+			else
+				uv0:emit(NewProbabilitySkinShopMediator.CHARGE, uv1.id)
+			end
+		end
+	})
+end
+
+slot0.UpdateTip = function(slot0)
+	slot0.tipTxt.text = i18n(&quot;probabilityskinshop_tip&quot;)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

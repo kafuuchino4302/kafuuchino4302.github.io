@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shambattleshop.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shambattleshop.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShamBattleShop&quot;, import(&quot;.MonthlyShop&quot;))
+slot0.GoodsType = Goods.TYPE_SHAM_BATTLE
+slot0.type = ShopArgs.ShopShamBattle
+
+slot0.update = function(slot0, slot1, slot2)
+	slot0.id = slot1
+	slot0.configId = slot1
+	slot3 = {}
+
+	for slot7, slot8 in ipairs(slot2) do
+		slot3[slot8.shop_id] = slot8.pay_count
+	end
+
+	table.clear(slot0.goods)
+
+	if slot0.id and slot0.id &gt; 0 and slot0:getConfigTable() then
+		slot7 = &quot;core_shop_goods&quot;
+
+		for slot7, slot8 in ipairs(slot0:getConfig(slot7)) do
+			slot0.goods[slot8] = Goods.Create({
+				shop_id = slot8,
+				buy_count = slot3[slot8] or 0
+			}, slot0.GoodsType)
+		end
+	end
+end
+
+slot0.GetResList = function(slot0)
+	return {
+		59900
+	}
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

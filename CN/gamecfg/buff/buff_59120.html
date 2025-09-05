@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_59120.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_59120.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	name = &quot;对前排增伤&quot;,
+	init_effect = &quot;&quot;,
+	id = 59120,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;对前排伤害提高&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 59120,
+	last_effect = &quot;&quot;,
+	blink = {
+		1,
+		0,
+		0,
+		0.3,
+		0.3
+	},
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_1&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_2&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_3&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_18&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_19&quot;
+			}
+		},
+		{
+			type = &quot;BattleBuffAddAttr&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				number = 0.2,
+				attr = &quot;DMG_TAG_EHC_T_20&quot;
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

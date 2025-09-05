@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mangalikecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mangalikecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MangaLikeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.mangaID
+	slot5 = slot2.mangaCB
+	slot6 = getProxy(AppreciateProxy)
+
+	print(&quot;17511 Send Manga ID&quot;, slot3)
+
+	slot7 = pg.ConnectionMgr.GetInstance()
+
+	slot7:Send(17511, {
+		id = slot3,
+		action = slot2.action
+	}, 17512, function (slot0)
+		if slot0.result == 0 then
+			if uv0 == MangaConst.SET_MANGA_LIKE then
+				uv1:addMangaIDToLikeList(uv2)
+			else
+				uv1:removeMangaIDFromLikeList(uv2)
+			end
+
+			if uv3 then
+				uv3()
+			end
+
+			uv4:sendNotification(GAME.APPRECIATE_MANGA_LIKE_DONE, {
+				mangaID = uv2,
+				action = uv0
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;17512 Manga Like Fail:&quot; .. tostring(slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

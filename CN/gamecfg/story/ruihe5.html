@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ruihe5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ruihe5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;RUIHE5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;幸运之鹤\n\n&lt;size=45&gt;五  今天料理我负责！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;指挥室·夜&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			bgm = &quot;story-2&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;指挥官辛苦了！差不多该吃晚饭了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;？前面说过今天不是{namecode:95}姐而是我做饭吧？也不能老是麻烦{namecode:95}姐，我也要努力尝试一下！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;所以稍微等我一会～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_night&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;过了一会，{namecode:96}把晚饭端了上来&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;炸鸡块加香葱蘸料，三分大麦的米饭和加鸡蛋的味增汤，南国定番的椰子果汁，还有专供军官的高级皇家香蕉！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;料理看起来很好吃，但摆盘和盛菜又微妙地有些随便，很有{namecode:96}的风格&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			say = &quot;鸡块旁边偷偷放着的天妇罗莫非是隐藏的小菜？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;怎么样？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			withoutPainting = true,
+			side = 0,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 0,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;很好吃&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;……好吃吗？太好了！哼哼，就算没有{namecode:95}姐帮忙，这点程度的我还是可以的嘛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;比灰色幽灵做的还好吃？谢谢指挥官！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;虽然那边有女灶神的指导，但也不是我的对手呢！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:96}&quot;,
+			side = 2,
+			bgName = &quot;bg_night&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哼哼♪今天赢了灰色幽灵♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

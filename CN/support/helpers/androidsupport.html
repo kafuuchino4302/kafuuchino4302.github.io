@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>androidsupport.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>androidsupport.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">PERMISSION_GRANTED = &quot;permission_granted&quot;
+PERMISSION_NEVER_REMIND = &quot;permission_never_remind&quot;
+PERMISSION_REJECT = &quot;permission_reject&quot;
+ANDROID_CAMERA_PERMISSION = &quot;android.permission.CAMERA&quot;
+ANDROID_RECORD_AUDIO_PERMISSION = &quot;android.permission.RECORD_AUDIO&quot;
+ANDROID_WRITE_EXTERNAL_PERMISSION = &quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;
+
+CheckPermissionGranted = function(slot0)
+	return PermissionMgr.Inst:CheckPermissionGranted(slot0)
+end
+
+ApplyPermission = function(slot0)
+	PermissionMgr.Inst:ApplyPermission(slot0)
+end
+
+OpenDetailSetting = function()
+	PermissionMgr.Inst:OpenDetailSetting()
+end
+
+OnPermissionRequestResult = function(slot0)
+	pg.m02:sendNotification(PERMISSION_GRANTED, slot0)
+end
+
+OnPermissionNeverRemind = function(slot0)
+	pg.m02:sendNotification(PERMISSION_NEVER_REMIND, slot0)
+end
+
+OnPermissionReject = function(slot0)
+	pg.m02:sendNotification(PERMISSION_REJECT, slot0)
+end
+
+IOS_AV_AUTH_GRANTED = &quot;IOS_AV_AUTH_GRANTED&quot;
+IOS_AV_AUTH_REJECTED = &quot;IOS_AV_AUTH_REJECTED&quot;
+
+OnReceiveIOSAVAuth = function(slot0)
+	if slot0 == &quot;true&quot; then
+		pg.m02:sendNotification(IOS_AV_AUTH_GRANTED)
+	elseif slot0 == &quot;false&quot; then
+		pg.m02:sendNotification(IOS_AV_AUTH_REJECTED)
+	end
+end
+
+CheckCameraPermissionGranted = function()
+	if getProxy(UserProxy):GetCacheGatewayInServerLogined() == PLATFORM_ANDROID then
+		return CheckPermissionGranted(ANDROID_CAMERA_PERMISSION)
+	elseif slot0 == PLATFORM_IPHONEPLAYER then
+		return PermissionMgr.Inst:GetIOSAVAuthStatus() == 3
+	end
+end
+
+ApplyCameraPermission = function()
+	if getProxy(UserProxy):GetCacheGatewayInServerLogined() == PLATFORM_ANDROID then
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;apply_permission_camera_tip1&quot;),
+			onYes = function ()
+				ApplyPermission({
+					ANDROID_CAMERA_PERMISSION
+				})
+			end
+		})
+	elseif slot0 == PLATFORM_IPHONEPLAYER then
+		PermissionMgr.Inst:ApplyIOSAVAuth()
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gelasige5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gelasige5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;GELASIGE5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;那便是…恋爱的季节\n\n&lt;size=45&gt;五 是格拉斯哥呀&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			say = &quot;放学后——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201030,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;对不起！格拉斯哥！ 今天能不能帮我打扫一下？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……不会是有什么企图吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 201020,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;(好，好敏锐……)&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我有很重要的事要做，真，真的哦，我说的是实话！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;连爱丁堡都参合进去，就显得更可疑了……你们准备搞什么——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 201030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;唔、唔哇~！再这样下去就来不及了！对不起格拉斯哥，回头一定会补偿你的——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;喂！等等！ 等一下啊——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……真是的，如果太晚回去的话，会给纽卡斯尔姐姐添麻烦的&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;「需要帮忙吗？」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……不用了，你先回去告诉姐姐我要迟点。打扫对我来说只是小菜一碟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;(……而且，因为刚刚的壁咚，现在总觉得莫名在意…)&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;格拉斯哥脸颊发热，一边开始打扫，一边感受着内心的躁动。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;(……啊，真是的！都说了让你先走了，怎么还在等我…真是爱管闲事…）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;都说了我一个人没关系了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……欸？抽屉里有东西？这是…信？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;信封十分可爱。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;格拉斯哥好奇地靠过来，读出了寄信人的名字。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我看看，名字是——原来如此，是格拉斯哥呀。我好像在哪里听过这个名字…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;等，等等！我可不知道这个啊！？我没见过也没写过这样的信——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;撕开信封，便看到信纸上直白的文字，传达着不坦率的少女的真挚感情——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;――我爱你  格拉斯哥。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			actor = 202261,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不，不是的！ 这是假的！ 这绝对是热心、爱丁堡她们搞的鬼！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;就觉得她们肯定在搞什么……真的不是我！因为我不喜欢你！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;「这样啊……不是真的啊……」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202261,
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……欸。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			say = &quot;意外的反应令格拉斯哥不禁露出困惑的表情。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_main_twilight&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;温柔的夕阳，从窗外照进两人独处的教室——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

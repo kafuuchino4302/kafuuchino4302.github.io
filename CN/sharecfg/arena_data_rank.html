@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arena_data_rank.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>arena_data_rank.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.arena_data_rank = {
+	{
+		name = &quot;列兵&quot;,
+		refresh_limit = 5,
+		k_value = 50,
+		battle_award = 50,
+		point = 0,
+		id = 1,
+		order = 0,
+		award_list = {},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;士官&quot;,
+		refresh_limit = 5,
+		k_value = 45,
+		battle_award = 60,
+		point = 100,
+		id = 2,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				200
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;少尉&quot;,
+		refresh_limit = 5,
+		k_value = 40,
+		battle_award = 70,
+		point = 200,
+		id = 3,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				600
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;中尉&quot;,
+		refresh_limit = 5,
+		k_value = 35,
+		battle_award = 70,
+		point = 300,
+		id = 4,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				600
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;上尉&quot;,
+		refresh_limit = 5,
+		k_value = 30,
+		battle_award = 70,
+		point = 400,
+		id = 5,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				600
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;少校&quot;,
+		refresh_limit = 5,
+		k_value = 30,
+		battle_award = 80,
+		point = 550,
+		id = 6,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				1000
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;中校&quot;,
+		refresh_limit = 5,
+		k_value = 30,
+		battle_award = 80,
+		point = 700,
+		id = 7,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				1000
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;上校&quot;,
+		refresh_limit = 5,
+		k_value = 25,
+		battle_award = 80,
+		point = 850,
+		id = 8,
+		order = 0,
+		award_list = {
+			{
+				1,
+				3,
+				1000
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;准将&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 90,
+		point = 1050,
+		id = 9,
+		order = 1000,
+		award_list = {
+			{
+				1,
+				3,
+				1500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;少将&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 90,
+		point = 1250,
+		id = 10,
+		order = 600,
+		award_list = {
+			{
+				1,
+				3,
+				1500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;中将&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 90,
+		point = 1450,
+		id = 11,
+		order = 300,
+		award_list = {
+			{
+				1,
+				3,
+				1500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;上将&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 90,
+		point = 1650,
+		id = 12,
+		order = 100,
+		award_list = {
+			{
+				1,
+				3,
+				1500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;五星上将&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 90,
+		point = 1900,
+		id = 13,
+		order = 50,
+		award_list = {
+			{
+				1,
+				3,
+				1500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	{
+		name = &quot;海军元帅&quot;,
+		refresh_limit = 5,
+		k_value = 20,
+		battle_award = 100,
+		point = 2200,
+		id = 14,
+		order = 10,
+		award_list = {
+			{
+				1,
+				3,
+				2500
+			}
+		},
+		refresh_price = {
+			0
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

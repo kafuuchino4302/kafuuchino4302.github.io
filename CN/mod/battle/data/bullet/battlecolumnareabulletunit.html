@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlecolumnareabulletunit.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlecolumnareabulletunit.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleBulletEvent
+slot2 = slot0.Battle.BattleFormulas
+slot3 = Vector3.up
+slot4 = slot0.Battle.BattleVariable
+slot5 = slot0.Battle.BattleConfig
+slot7 = slot0.Battle.BattleTargetChoise
+slot8 = class(&quot;BattleColumnAreaBulletUnit&quot;, slot0.Battle.BattleAreaBulletUnit)
+slot8.__name = &quot;BattleColumnAreaBulletUnit&quot;
+slot0.Battle.BattleColumnAreaBulletUnit = slot8
+slot8.AreaType = slot0.Battle.BattleConst.AreaType.COLUMN
+
+slot8.InitCldComponent = function(slot0)
+	slot1 = slot0:GetTemplate().cld_box
+	slot2 = slot0:GetTemplate().cld_offset
+	slot0._cldComponent = uv0.Battle.BattleColumnCldComponent.New(slot1[1], slot1[3])
+
+	slot0._cldComponent:SetCldData({
+		type = uv1.CldType.AOE,
+		UID = slot0:GetUniqueID(),
+		IFF = slot0:GetIFF()
+	})
+end
+
+slot8.GetBoxSize = function(slot0)
+	slot1 = slot0._cldComponent:GetCldBoxSize()
+
+	return Vector3(slot1.range, slot1.range, slot1.tickness)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

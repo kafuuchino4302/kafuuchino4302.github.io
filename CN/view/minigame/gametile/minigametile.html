@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigametile.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>minigametile.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MiniGameTile&quot;)
+slot0.BOOM_GAME = &quot;BoomGame&quot;
+slot0.SPRING23_GAME = &quot;Spring23Game&quot;
+slot0.tiles = {
+	BoomGame = {
+		name = &quot;BoomGame&quot;,
+		tile_map = {
+			&quot;BoomCollider&quot;,
+			&quot;BoomCharacter&quot;
+		},
+		tile_data = {
+			&quot;BoomLevel_0&quot;,
+			&quot;BoomLevel_1&quot;,
+			&quot;BoomLevel_2&quot;,
+			&quot;BoomLevel_3&quot;,
+			&quot;BoomLevel_4&quot;,
+			&quot;BoomLevel_5&quot;,
+			&quot;BoomLevel_6&quot;,
+			&quot;BoomLevel_7&quot;,
+			&quot;BoomLevel_8&quot;,
+			&quot;BoomLevel_9&quot;
+		}
+	},
+	Spring23Game = {
+		name = &quot;Spring23Game&quot;,
+		tile_map = {
+			&quot;Spring23Item&quot;,
+			&quot;Spring23Character&quot;,
+			&quot;Spring23Map&quot;
+		},
+		tile_data = {
+			&quot;Spring23Level_1&quot;,
+			&quot;Spring23Level_2&quot;,
+			&quot;Spring23Level_3&quot;,
+			&quot;Spring23Level_4&quot;,
+			&quot;Spring23Level_5&quot;,
+			&quot;Spring23Level_6&quot;,
+			&quot;Spring23Level_7&quot;
+		}
+	}
+}
+slot0.drops = {
+	{
+		{
+			&quot;bomb&quot;,
+			0.2
+		},
+		{
+			&quot;power&quot;,
+			0.2
+		},
+		{
+			&quot;speed&quot;,
+			0.2
+		},
+		{
+			&quot;hp1&quot;,
+			0.07
+		},
+		{
+			&quot;hp2&quot;,
+			0.03
+		},
+		{
+			&quot;spirit&quot;,
+			0.01
+		}
+	},
+	{
+		{
+			&quot;bomb&quot;,
+			0.2
+		},
+		{
+			&quot;power&quot;,
+			0.2
+		},
+		{
+			&quot;speed&quot;,
+			0.2
+		},
+		{
+			&quot;hp1&quot;,
+			0.07
+		},
+		{
+			&quot;hp2&quot;,
+			0.03
+		},
+		{
+			&quot;spirit&quot;,
+			0.02
+		}
+	},
+	{
+		{
+			&quot;bomb&quot;,
+			0.3
+		},
+		{
+			&quot;power&quot;,
+			0.3
+		},
+		{
+			&quot;speed&quot;,
+			0.3
+		},
+		{
+			&quot;hp2&quot;,
+			0.05
+		},
+		{
+			&quot;spirit&quot;,
+			0.05
+		}
+	},
+	{
+		{
+			&quot;bomb&quot;,
+			0.3
+		},
+		{
+			&quot;power&quot;,
+			0.3
+		},
+		{
+			&quot;hp1&quot;,
+			0.3
+		},
+		{
+			&quot;hp2&quot;,
+			0.1
+		}
+	},
+	{
+		{
+			&quot;spirit&quot;,
+			1
+		}
+	}
+}
+slot0.attrs = {
+	BoomLevel_0 = {
+		Ryza = {
+			speed = 4,
+			spirit = true,
+			hp = 3,
+			power = 4,
+			bomb = 4
+		}
+	},
+	BoomLevel_1 = {
+		Ryza = {
+			speed = 1,
+			spirit = false,
+			hp = 3,
+			power = 1,
+			bomb = 1
+		},
+		Scavenger = {
+			speed = 1,
+			hp = 1
+		},
+		BOSS_Scavenger = {
+			speed = 2,
+			hp = 3
+		},
+		Chaser = {
+			speed = 2,
+			hp = 1
+		}
+	},
+	BoomLevel_2 = {
+		Ryza = {
+			speed = 2,
+			spirit = false,
+			hp = 3,
+			power = 2,
+			bomb = 2
+		},
+		Scavenger = {
+			speed = 1,
+			hp = 1
+		},
+		Conductor = {
+			speed = 3,
+			hp = 2
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Chaser = {
+			speed = 2,
+			hp = 1
+		}
+	},
+	BoomLevel_3 = {
+		Ryza = {
+			speed = 2,
+			spirit = false,
+			hp = 3,
+			power = 2,
+			bomb = 2
+		},
+		BOSS_Smasher = {
+			speed = 3,
+			hp = 4
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Chaser = {
+			speed = 2,
+			hp = 1
+		},
+		Scavenger = {
+			speed = 1,
+			hp = 1
+		}
+	},
+	BoomLevel_4 = {
+		Ryza = {
+			speed = 3,
+			spirit = false,
+			hp = 3,
+			power = 3,
+			bomb = 3
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Chaser = {
+			speed = 2,
+			hp = 1
+		},
+		Navigator = {
+			speed = 3,
+			hp = 2
+		}
+	},
+	BoomLevel_5 = {
+		Ryza = {
+			speed = 3,
+			spirit = false,
+			hp = 3,
+			power = 3,
+			bomb = 3
+		},
+		BOSS_Conductor = {
+			speed = 4,
+			hp = 4
+		},
+		Conductor = {
+			speed = 3,
+			hp = 2
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Navigator = {
+			speed = 3,
+			hp = 2
+		}
+	},
+	BoomLevel_6 = {
+		Ryza = {
+			speed = 3,
+			spirit = false,
+			hp = 3,
+			power = 3,
+			bomb = 3
+		},
+		BOSS_Navigator = {
+			speed = 4,
+			hp = 4
+		},
+		Conductor = {
+			speed = 3,
+			hp = 2
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Navigator = {
+			speed = 3,
+			hp = 2
+		}
+	},
+	BoomLevel_7 = {
+		Ryza = {
+			speed = 4,
+			spirit = true,
+			hp = 3,
+			power = 4,
+			bomb = 4
+		},
+		BOSS_Chaser = {
+			speed = 3,
+			hp = 4
+		},
+		Conductor = {
+			speed = 2,
+			hp = 2
+		},
+		Smasher = {
+			speed = 2,
+			hp = 2
+		},
+		Navigator = {
+			speed = 3,
+			hp = 2
+		},
+		Chaser = {
+			speed = 2,
+			hp = 1
+		}
+	},
+	BoomLevel_8 = {
+		Ryza = {
+			speed = 1,
+			spirit = true,
+			hp = 3,
+			power = 1,
+			bomb = 1
+		}
+	},
+	BoomLevel_9 = {
+		Ryza = {
+			speed = 1,
+			spirit = true,
+			hp = 3,
+			power = 1,
+			bomb = 1
+		}
+	}
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

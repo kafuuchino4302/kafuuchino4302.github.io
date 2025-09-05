@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>publicguildmainmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>publicguildmainmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PublicGuildMainMediator&quot;, import(&quot;...base.ContextMediator&quot;))
+slot0.ON_COMMIT = &quot;PublicGuildMainMediator:ON_COMMIT&quot;
+slot0.UPGRADE_TECH = &quot;PublicGuildMainMediator:UPGRADE_TECH&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_COMMIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.PUBLIC_GUILD_COMMIT_DONATE, {
+			id = slot1
+		})
+	end)
+	slot0:bind(uv0.UPGRADE_TECH, function (slot0, slot1)
+		uv0:sendNotification(GAME.PULIC_GUILD_UPGRADE_TECH, {
+			id = slot1
+		})
+	end)
+	slot0.viewComponent:SetPublicGuild(getProxy(GuildProxy):GetPublicGuild())
+	slot0.viewComponent:SetPlayer(getProxy(PlayerProxy):getData())
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.PUBLIC_GUILD_COMMIT_DONATE_DONE,
+		GAME.PUBLIC_GUILD_REFRESH_DONATE_LIST_DONE,
+		PlayerProxy.UPDATED,
+		GAME.PULIC_GUILD_UPGRADE_TECH_DONE,
+		GAME.GET_PUBLIC_GUILD_USER_DATA_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.PUBLIC_GUILD_COMMIT_DONATE_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+		slot0.viewComponent:OnUpdateDonateList()
+	elseif slot2 == GAME.PUBLIC_GUILD_REFRESH_DONATE_LIST_DONE then
+		slot0.viewComponent:OnUpdateDonateList()
+	elseif slot2 == PlayerProxy.UPDATED then
+		slot0.viewComponent:OnPlayerUpdate(slot3)
+	elseif slot2 == GAME.PULIC_GUILD_UPGRADE_TECH_DONE then
+		slot0.viewComponent:OnTechGroupUpdate(slot3.id)
+	elseif slot2 == GAME.GET_PUBLIC_GUILD_USER_DATA_DONE then
+		slot0.viewComponent:SetPublicGuild(getProxy(GuildProxy):GetPublicGuild())
+		slot0.viewComponent:RefreshAll()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

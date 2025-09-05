@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child_buff.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>child_buff.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.child_buff = {
+	[1001] = {
+		name = &quot;忧心忡忡·弱&quot;,
+		during_time = 1,
+		id = 1001,
+		icon = &quot;1001&quot;,
+		desc = &quot;消耗心情+1&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				1
+			}
+		}
+	},
+	[1002] = {
+		name = &quot;忧心忡忡·中&quot;,
+		during_time = 1,
+		id = 1002,
+		icon = &quot;1002&quot;,
+		desc = &quot;消耗心情+2&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				2
+			}
+		}
+	},
+	[1003] = {
+		name = &quot;忧心忡忡·强&quot;,
+		during_time = 1,
+		id = 1003,
+		icon = &quot;1003&quot;,
+		desc = &quot;消耗心情+3&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				3
+			}
+		}
+	},
+	[1004] = {
+		name = &quot;悠然自得·良&quot;,
+		during_time = 1,
+		id = 1004,
+		icon = &quot;1004&quot;,
+		desc = &quot;消耗心情-1&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				-1
+			}
+		}
+	},
+	[1005] = {
+		name = &quot;悠然自得·佳&quot;,
+		during_time = 1,
+		id = 1005,
+		icon = &quot;1005&quot;,
+		desc = &quot;消耗心情-2&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				-2
+			}
+		}
+	},
+	[1006] = {
+		name = &quot;悠然自得·优&quot;,
+		during_time = 1,
+		id = 1006,
+		icon = &quot;1006&quot;,
+		desc = &quot;消耗心情-3&quot;,
+		effect = {
+			{
+				2,
+				2,
+				2,
+				-3
+			}
+		}
+	},
+	[1011] = {
+		name = &quot;挥金如土·弱&quot;,
+		during_time = 1,
+		id = 1011,
+		icon = &quot;1011&quot;,
+		desc = &quot;消耗金钱-1&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				-1
+			}
+		}
+	},
+	[1012] = {
+		name = &quot;挥金如土·中&quot;,
+		during_time = 1,
+		id = 1012,
+		icon = &quot;1012&quot;,
+		desc = &quot;消耗金钱-2&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				-2
+			}
+		}
+	},
+	[1013] = {
+		name = &quot;挥金如土·强&quot;,
+		during_time = 1,
+		id = 1013,
+		icon = &quot;1013&quot;,
+		desc = &quot;消耗金钱-3&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				-3
+			}
+		}
+	},
+	[1014] = {
+		name = &quot;日进斗金·良&quot;,
+		during_time = 1,
+		id = 1014,
+		icon = &quot;1014&quot;,
+		desc = &quot;获得金钱+1&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				1
+			}
+		}
+	},
+	[1015] = {
+		name = &quot;日进斗金·佳&quot;,
+		during_time = 1,
+		id = 1015,
+		icon = &quot;1015&quot;,
+		desc = &quot;获得金钱+2&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				1
+			}
+		}
+	},
+	[1016] = {
+		name = &quot;日进斗金·优&quot;,
+		during_time = 1,
+		id = 1016,
+		icon = &quot;1016&quot;,
+		desc = &quot;获得金钱+3&quot;,
+		effect = {
+			{
+				2,
+				1,
+				2,
+				1
+			}
+		}
+	},
+	[1021] = {
+		name = &quot;体弱多病·弱&quot;,
+		during_time = 1,
+		id = 1021,
+		icon = &quot;1021&quot;,
+		desc = &quot;获得体能-1&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				-1
+			}
+		}
+	},
+	[1022] = {
+		name = &quot;体弱多病·中&quot;,
+		during_time = 1,
+		id = 1022,
+		icon = &quot;1022&quot;,
+		desc = &quot;获得体能-2&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				-2
+			}
+		}
+	},
+	[1023] = {
+		name = &quot;体弱多病·强&quot;,
+		during_time = 1,
+		id = 1023,
+		icon = &quot;1023&quot;,
+		desc = &quot;获得体能-3&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				-3
+			}
+		}
+	},
+	[1024] = {
+		name = &quot;强身健体·良&quot;,
+		during_time = 1,
+		id = 1024,
+		icon = &quot;1024&quot;,
+		desc = &quot;获得体能+1&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				1
+			}
+		}
+	},
+	[1025] = {
+		name = &quot;强身健体·佳&quot;,
+		during_time = 1,
+		id = 1025,
+		icon = &quot;1025&quot;,
+		desc = &quot;获得体能+2&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				2
+			}
+		}
+	},
+	[1026] = {
+		name = &quot;强身健体·优&quot;,
+		during_time = 1,
+		id = 1026,
+		icon = &quot;1026&quot;,
+		desc = &quot;获得体能+3&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				3
+			}
+		}
+	},
+	[1031] = {
+		name = &quot;心不在焉·弱&quot;,
+		during_time = 1,
+		id = 1031,
+		icon = &quot;1031&quot;,
+		desc = &quot;获得智慧-1&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				-1
+			}
+		}
+	},
+	[1032] = {
+		name = &quot;心不在焉·中&quot;,
+		during_time = 1,
+		id = 1032,
+		icon = &quot;1032&quot;,
+		desc = &quot;获得智慧-2&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				-2
+			}
+		}
+	},
+	[1033] = {
+		name = &quot;心不在焉·强&quot;,
+		during_time = 1,
+		id = 1033,
+		icon = &quot;1033&quot;,
+		desc = &quot;获得智慧-3&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				-3
+			}
+		}
+	},
+	[1034] = {
+		name = &quot;专心致志·良&quot;,
+		during_time = 1,
+		id = 1034,
+		icon = &quot;1034&quot;,
+		desc = &quot;获得智慧+1&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				1
+			}
+		}
+	},
+	[1035] = {
+		name = &quot;专心致志·佳&quot;,
+		during_time = 1,
+		id = 1035,
+		icon = &quot;1035&quot;,
+		desc = &quot;获得智慧+2&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				2
+			}
+		}
+	},
+	[1036] = {
+		name = &quot;专心致志·优&quot;,
+		during_time = 1,
+		id = 1036,
+		icon = &quot;1036&quot;,
+		desc = &quot;获得智慧+3&quot;,
+		effect = {
+			{
+				1,
+				102,
+				2,
+				3
+			}
+		}
+	},
+	[1041] = {
+		name = &quot;不修边幅·弱&quot;,
+		during_time = 1,
+		id = 1041,
+		icon = &quot;1041&quot;,
+		desc = &quot;获得气质-1&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				-1
+			}
+		}
+	},
+	[1042] = {
+		name = &quot;不修边幅·中&quot;,
+		during_time = 1,
+		id = 1042,
+		icon = &quot;1042&quot;,
+		desc = &quot;获得气质-2&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				-2
+			}
+		}
+	},
+	[1043] = {
+		name = &quot;不修边幅·强&quot;,
+		during_time = 1,
+		id = 1043,
+		icon = &quot;1043&quot;,
+		desc = &quot;获得气质-3&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				-3
+			}
+		}
+	},
+	[1044] = {
+		name = &quot;风度翩翩·良&quot;,
+		during_time = 1,
+		id = 1044,
+		icon = &quot;1044&quot;,
+		desc = &quot;获得气质+1&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				1
+			}
+		}
+	},
+	[1045] = {
+		name = &quot;风度翩翩·佳&quot;,
+		during_time = 1,
+		id = 1045,
+		icon = &quot;1045&quot;,
+		desc = &quot;获得气质+2&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				2
+			}
+		}
+	},
+	[1046] = {
+		name = &quot;风度翩翩·优&quot;,
+		during_time = 1,
+		id = 1046,
+		icon = &quot;1046&quot;,
+		desc = &quot;获得气质+3&quot;,
+		effect = {
+			{
+				1,
+				103,
+				2,
+				3
+			}
+		}
+	},
+	[1051] = {
+		name = &quot;苦思冥想·弱&quot;,
+		during_time = 1,
+		id = 1051,
+		icon = &quot;1051&quot;,
+		desc = &quot;获得感知-1&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				-1
+			}
+		}
+	},
+	[1052] = {
+		name = &quot;苦思冥想·中&quot;,
+		during_time = 1,
+		id = 1052,
+		icon = &quot;1052&quot;,
+		desc = &quot;获得感知-2&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				-2
+			}
+		}
+	},
+	[1053] = {
+		name = &quot;苦思冥想·强&quot;,
+		during_time = 1,
+		id = 1053,
+		icon = &quot;1053&quot;,
+		desc = &quot;获得感知-3&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				-3
+			}
+		}
+	},
+	[1054] = {
+		name = &quot;灵光一闪·良&quot;,
+		during_time = 1,
+		id = 1054,
+		icon = &quot;1054&quot;,
+		desc = &quot;获得感知+1&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				1
+			}
+		}
+	},
+	[1055] = {
+		name = &quot;灵光一闪·佳&quot;,
+		during_time = 1,
+		id = 1055,
+		icon = &quot;1055&quot;,
+		desc = &quot;获得感知+2&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				2
+			}
+		}
+	},
+	[1056] = {
+		name = &quot;灵光一闪·优&quot;,
+		during_time = 1,
+		id = 1056,
+		icon = &quot;1056&quot;,
+		desc = &quot;获得感知+3&quot;,
+		effect = {
+			{
+				1,
+				104,
+				2,
+				3
+			}
+		}
+	},
+	[1061] = {
+		name = &quot;不尽人意·弱&quot;,
+		during_time = 1,
+		id = 1061,
+		icon = &quot;1061&quot;,
+		desc = &quot;获得表现-1&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				-1
+			}
+		}
+	},
+	[1062] = {
+		name = &quot;不尽人意·中&quot;,
+		during_time = 1,
+		id = 1062,
+		icon = &quot;1062&quot;,
+		desc = &quot;获得表现-2&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				-2
+			}
+		}
+	},
+	[1063] = {
+		name = &quot;不尽人意·强&quot;,
+		during_time = 1,
+		id = 1063,
+		icon = &quot;1063&quot;,
+		desc = &quot;获得表现-3&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				-3
+			}
+		}
+	},
+	[1064] = {
+		name = &quot;才华横溢·良&quot;,
+		during_time = 1,
+		id = 1064,
+		icon = &quot;1064&quot;,
+		desc = &quot;获得表现+1&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				1
+			}
+		}
+	},
+	[1065] = {
+		name = &quot;才华横溢·佳&quot;,
+		during_time = 1,
+		id = 1065,
+		icon = &quot;1065&quot;,
+		desc = &quot;获得表现+2&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				2
+			}
+		}
+	},
+	[1066] = {
+		name = &quot;才华横溢·优&quot;,
+		during_time = 1,
+		id = 1066,
+		icon = &quot;1066&quot;,
+		desc = &quot;获得表现+3&quot;,
+		effect = {
+			{
+				1,
+				301,
+				2,
+				3
+			}
+		}
+	},
+	[1071] = {
+		name = &quot;五音不全·弱&quot;,
+		during_time = 1,
+		id = 1071,
+		icon = &quot;1071&quot;,
+		desc = &quot;获得乐理-1&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				-1
+			}
+		}
+	},
+	[1072] = {
+		name = &quot;五音不全·中&quot;,
+		during_time = 1,
+		id = 1072,
+		icon = &quot;1072&quot;,
+		desc = &quot;获得乐理-2&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				-2
+			}
+		}
+	},
+	[1073] = {
+		name = &quot;五音不全·强&quot;,
+		during_time = 1,
+		id = 1073,
+		icon = &quot;1073&quot;,
+		desc = &quot;获得乐理-3&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				-3
+			}
+		}
+	},
+	[1074] = {
+		name = &quot;悠扬悦耳·良&quot;,
+		during_time = 1,
+		id = 1074,
+		icon = &quot;1074&quot;,
+		desc = &quot;获得乐理+1&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				1
+			}
+		}
+	},
+	[1075] = {
+		name = &quot;悠扬悦耳·佳&quot;,
+		during_time = 1,
+		id = 1075,
+		icon = &quot;1075&quot;,
+		desc = &quot;获得乐理+2&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				2
+			}
+		}
+	},
+	[1076] = {
+		name = &quot;悠扬悦耳·优&quot;,
+		during_time = 1,
+		id = 1076,
+		icon = &quot;1076&quot;,
+		desc = &quot;获得乐理+3&quot;,
+		effect = {
+			{
+				1,
+				302,
+				2,
+				3
+			}
+		}
+	},
+	[1081] = {
+		name = &quot;粗心大意·弱&quot;,
+		during_time = 1,
+		id = 1081,
+		icon = &quot;1081&quot;,
+		desc = &quot;获得细心-1&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				-1
+			}
+		}
+	},
+	[1082] = {
+		name = &quot;粗心大意·中&quot;,
+		during_time = 1,
+		id = 1082,
+		icon = &quot;1082&quot;,
+		desc = &quot;获得细心-2&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				-2
+			}
+		}
+	},
+	[1083] = {
+		name = &quot;粗心大意·强&quot;,
+		during_time = 1,
+		id = 1083,
+		icon = &quot;1083&quot;,
+		desc = &quot;获得细心-3&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				-3
+			}
+		}
+	},
+	[1084] = {
+		name = &quot;心细如发·良&quot;,
+		during_time = 1,
+		id = 1084,
+		icon = &quot;1084&quot;,
+		desc = &quot;获得细心+1&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				1
+			}
+		}
+	},
+	[1085] = {
+		name = &quot;心细如发·佳&quot;,
+		during_time = 1,
+		id = 1085,
+		icon = &quot;1085&quot;,
+		desc = &quot;获得细心+2&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				2
+			}
+		}
+	},
+	[1086] = {
+		name = &quot;心细如发·优&quot;,
+		during_time = 1,
+		id = 1086,
+		icon = &quot;1086&quot;,
+		desc = &quot;获得细心+3&quot;,
+		effect = {
+			{
+				1,
+				303,
+				2,
+				3
+			}
+		}
+	},
+	[1091] = {
+		name = &quot;才思枯竭·弱&quot;,
+		during_time = 1,
+		id = 1091,
+		icon = &quot;1091&quot;,
+		desc = &quot;获得想象-1&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				-1
+			}
+		}
+	},
+	[1092] = {
+		name = &quot;才思枯竭·中&quot;,
+		during_time = 1,
+		id = 1092,
+		icon = &quot;1092&quot;,
+		desc = &quot;获得想象-2&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				-2
+			}
+		}
+	},
+	[1093] = {
+		name = &quot;才思枯竭·强&quot;,
+		during_time = 1,
+		id = 1093,
+		icon = &quot;1093&quot;,
+		desc = &quot;获得想象-3&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				-3
+			}
+		}
+	},
+	[1094] = {
+		name = &quot;天马行空·良&quot;,
+		during_time = 1,
+		id = 1094,
+		icon = &quot;1094&quot;,
+		desc = &quot;获得想象+1&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				1
+			}
+		}
+	},
+	[1095] = {
+		name = &quot;天马行空·佳&quot;,
+		during_time = 1,
+		id = 1095,
+		icon = &quot;1095&quot;,
+		desc = &quot;获得想象+2&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				2
+			}
+		}
+	},
+	[1096] = {
+		name = &quot;天马行空·优&quot;,
+		during_time = 1,
+		id = 1096,
+		icon = &quot;1096&quot;,
+		desc = &quot;获得想象+3&quot;,
+		effect = {
+			{
+				1,
+				304,
+				2,
+				3
+			}
+		}
+	},
+	[1101] = {
+		name = &quot;精疲力竭·弱&quot;,
+		during_time = 1,
+		id = 1101,
+		icon = &quot;1101&quot;,
+		desc = &quot;获得运动-1&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				-1
+			}
+		}
+	},
+	[1102] = {
+		name = &quot;精疲力竭·中&quot;,
+		during_time = 1,
+		id = 1102,
+		icon = &quot;1102&quot;,
+		desc = &quot;获得运动-2&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				-2
+			}
+		}
+	},
+	[1103] = {
+		name = &quot;精疲力竭·强&quot;,
+		during_time = 1,
+		id = 1103,
+		icon = &quot;1103&quot;,
+		desc = &quot;获得运动-3&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				-3
+			}
+		}
+	},
+	[1104] = {
+		name = &quot;运动健将·良&quot;,
+		during_time = 1,
+		id = 1104,
+		icon = &quot;1104&quot;,
+		desc = &quot;获得运动+1&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				1
+			}
+		}
+	},
+	[1105] = {
+		name = &quot;运动健将·佳&quot;,
+		during_time = 1,
+		id = 1105,
+		icon = &quot;1105&quot;,
+		desc = &quot;获得运动+2&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				2
+			}
+		}
+	},
+	[1106] = {
+		name = &quot;运动健将·优&quot;,
+		during_time = 1,
+		id = 1106,
+		icon = &quot;1106&quot;,
+		desc = &quot;获得运动+3&quot;,
+		effect = {
+			{
+				1,
+				305,
+				2,
+				3
+			}
+		}
+	},
+	[1111] = {
+		name = &quot;笨手笨脚·弱&quot;,
+		during_time = 1,
+		id = 1111,
+		icon = &quot;1111&quot;,
+		desc = &quot;获得实践-1&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				-1
+			}
+		}
+	},
+	[1112] = {
+		name = &quot;笨手笨脚·中&quot;,
+		during_time = 1,
+		id = 1112,
+		icon = &quot;1112&quot;,
+		desc = &quot;获得实践-2&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				-2
+			}
+		}
+	},
+	[1113] = {
+		name = &quot;笨手笨脚·强&quot;,
+		during_time = 1,
+		id = 1113,
+		icon = &quot;1113&quot;,
+		desc = &quot;获得实践-3&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				-3
+			}
+		}
+	},
+	[1114] = {
+		name = &quot;心灵手巧·良&quot;,
+		during_time = 1,
+		id = 1114,
+		icon = &quot;1114&quot;,
+		desc = &quot;获得实践+1&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				1
+			}
+		}
+	},
+	[1115] = {
+		name = &quot;心灵手巧·佳&quot;,
+		during_time = 1,
+		id = 1115,
+		icon = &quot;1115&quot;,
+		desc = &quot;获得实践+2&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				2
+			}
+		}
+	},
+	[1116] = {
+		name = &quot;心灵手巧·优&quot;,
+		during_time = 1,
+		id = 1116,
+		icon = &quot;1116&quot;,
+		desc = &quot;获得实践+3&quot;,
+		effect = {
+			{
+				1,
+				306,
+				2,
+				3
+			}
+		}
+	},
+	[1121] = {
+		name = &quot;全属性增加&quot;,
+		during_time = 1,
+		id = 1121,
+		icon = &quot;1121&quot;,
+		desc = &quot;获得全属性+1&quot;,
+		effect = {
+			{
+				1,
+				101,
+				2,
+				1
+			},
+			{
+				1,
+				102,
+				2,
+				1
+			},
+			{
+				1,
+				103,
+				2,
+				1
+			},
+			{
+				1,
+				104,
+				2,
+				1
+			}
+		}
+	},
+	all = {
+		1001,
+		1002,
+		1003,
+		1004,
+		1005,
+		1006,
+		1011,
+		1012,
+		1013,
+		1014,
+		1015,
+		1016,
+		1021,
+		1022,
+		1023,
+		1024,
+		1025,
+		1026,
+		1031,
+		1032,
+		1033,
+		1034,
+		1035,
+		1036,
+		1041,
+		1042,
+		1043,
+		1044,
+		1045,
+		1046,
+		1051,
+		1052,
+		1053,
+		1054,
+		1055,
+		1056,
+		1061,
+		1062,
+		1063,
+		1064,
+		1065,
+		1066,
+		1071,
+		1072,
+		1073,
+		1074,
+		1075,
+		1076,
+		1081,
+		1082,
+		1083,
+		1084,
+		1085,
+		1086,
+		1091,
+		1092,
+		1093,
+		1094,
+		1095,
+		1096,
+		1101,
+		1102,
+		1103,
+		1104,
+		1105,
+		1106,
+		1111,
+		1112,
+		1113,
+		1114,
+		1115,
+		1116,
+		1121
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

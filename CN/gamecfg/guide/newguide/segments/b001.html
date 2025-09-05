@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b001.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>b001.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;新兵，让我来教你如何控制舰队吧&quot;,
+	&quot;首先，&lt;color=#ff7d36&gt;拖动摇杆&lt;/color&gt;试着让舰队移动起来吧！&quot;,
+	&quot;角色会&lt;color=#ff7d36&gt;自动使用武器&lt;/color&gt;攻击，但还有更厉害的武器哦~&quot;,
+	&quot;点击下方按钮&lt;color=#ff7d36&gt;发射鱼雷&lt;/color&gt;！&quot;,
+	&quot;面对敌方护盾防御时，就可以使用主力舰队&lt;color=#ff7d36&gt;主炮跨射&lt;/color&gt;&quot;,
+	&quot;点击主炮按钮发射主炮，&lt;color=#ff7d36&gt;长按主炮并拖动摇杆&lt;/color&gt;可调整攻击位置&quot;
+}
+
+return {
+	id = &quot;B001&quot;,
+	events = {
+		{
+			alpha = 0.34,
+			code = {
+				&quot;HideSkillUI&quot;
+			},
+			hideui = {
+				{
+					ishide = true,
+					path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_1&quot;
+				},
+				{
+					ishide = true,
+					path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_2&quot;
+				},
+				{
+					ishide = true,
+					path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_3&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowStick&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[1]
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowStick&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[2]
+			},
+			ui = {
+				path = &quot;/UICamera/Canvas/UIMain/CombatUI(Clone)/Stick/Area&quot;,
+				triggerType = {
+					4
+				}
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_2&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[3]
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_2&quot;
+			},
+			hideui = {
+				{
+					ishide = false,
+					path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_2&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_2&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[4]
+			},
+			ui = {
+				path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_2/ActCtl&quot;,
+				triggerType = {
+					3
+				}
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_1&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[5]
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_1&quot;
+			},
+			hideui = {
+				{
+					ishide = false,
+					path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_1&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.34,
+			code = {
+				&quot;ShowSkill_1&quot;
+			},
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = 0,
+				posX = 0,
+				text = slot0[6]
+			},
+			ui = {
+				path = &quot;UICamera/Canvas/UIMain/CombatUI(Clone)/Weapon_button_container/Skill_1/ActCtl&quot;,
+				triggerType = {
+					3
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

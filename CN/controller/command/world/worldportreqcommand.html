@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldportreqcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldportreqcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldPortReqCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = pg.ConnectionMgr.GetInstance()
+
+	slot3:Send(33401, {
+		map_id = slot1:getBody().mapId
+	}, 33402, function (slot0)
+		if (slot0.port.port_id &gt; 0 and 0 or 1) == 0 then
+			getProxy(WorldProxy):NetUpdateMapPort(uv0.mapId, slot0.port)
+			nowWorld():GetAtlas():UpdatePortMark(slot0.port.port_id, nil, false)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;port req error.&quot;)
+		end
+
+		uv1:sendNotification(GAME.WORLD_PORT_REQ_DONE)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

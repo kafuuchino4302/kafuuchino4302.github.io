@@ -1,0 +1,2779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>micaidushidexunzongzhe10.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>micaidushidexunzongzhe10.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;MICAIDUSHIDEXUNZONGZHE10&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			mode = 1,
+			bgName = &quot;bg_spycity_1&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			stopbgm = true,
+			asideType = 4,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			rectOffset = {
+				400,
+				400,
+				400,
+				400
+			},
+			sequence = {
+				{
+					&quot;&lt;size=45&gt;Chapter-9-谁是卧底？&lt;/size&gt;&quot;,
+					0.5
+				},
+				{
+					&quot;&lt;size=45&gt;Scene：警视厅会议室&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=45&gt;Time：8:05&lt;/size&gt;&quot;,
+					1.5
+				},
+				{
+					&quot;&lt;size=45&gt;Date：6月27日&lt;/size&gt;&quot;,
+					2
+				},
+				{
+					&quot;&lt;size=45&gt;第二天，你再次将所有人召集到会议室中，包括{namecode:165:吾妻}老师和{namecode:547:曾克}警部在内。&lt;/size&gt;&quot;,
+					2.5
+				},
+				{
+					&quot;&lt;size=45&gt;你的心中已经得出了结论，所有人都在等待你宣布结果。&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=45&gt;那么，你该宣布一个怎样的结果呢——&lt;/size&gt;&quot;,
+					3.5
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;story-spycity-fashion&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你一走进会议室，就立刻被七双眼睛紧紧盯住了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;她们分别是刑事部，帝国警视长。零课，{namecode:546:曾克海军上将}警部。零课，{namecode:545:U-552}警部补。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;搜查一课，海王星警部。搜查二课，{namecode:498:Z13}警部补。交通执行课，{namecode:474:U-37}巡查部长。警校教官，{namecode:165:吾妻}老师。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……怎么感觉这一段似曾相识，在水时长么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这叫做首尾呼应，顺便兼顾一下前情提要。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			actor = 408140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;又是一大早把人都叫过来……顾问，你已经得出结论了吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 8,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查二课 警部补&quot;,
+			dir = 1,
+			actor = 401130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这场无妄之灾终于要结束了……快点宣布结果吧，有一个直播节目马上就要开始了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;交通执行课 巡查部长&quot;,
+			dir = 1,
+			actor = 408100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不愧是特别顾问，短短两三天就把卧底找出来了~！真有效率。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			actor = 299010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这个卧底居然还敢在警局内纵火，真是无法无天……顾问，到底是谁？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;证据已经很明显了，卧底就是{namecode:165:吾妻}老师，真不知道你还在犹豫什么！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;警校教官&quot;,
+			dir = 1,
+			actor = 399040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不要忘了昨天晚上老师跟你说的话，保护好自己。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;警校教官&quot;,
+			dir = 1,
+			actor = 399040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不论你得出什么结论，老师都支持你。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所以，你会得出什么结论呢……伟大的帝国警视长，很好奇。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;于是到了做最终决定的时候了，卧底——究竟是谁呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;剧中旁白，你是卧底吗？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;于是到了做最终决定的时候了，卧底——究竟是谁呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;没有人是卧底！&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;所有人都是卧底！&quot;,
+					flag = 2
+				},
+				{
+					content = &quot;我才是卧底！&quot;,
+					flag = 3
+				},
+				{
+					content = &quot;警视总监才是卧底！&quot;,
+					flag = 4
+				},
+				{
+					content = &quot;导演才是卧底！&quot;,
+					flag = 5
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 1,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没有人是卧底——你宣布了自己的调查结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 408140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没、没有人是卧底？怎么会这样？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哦……？这就是你的结论么……有点意思。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 299010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不对啊，怎么会没有卧底呢！警局的档案馆确实被人烧了啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而且我确确实实被{namecode:165:吾妻}老师袭击了啊！她如果不是卧底为什么要袭击我！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;答案是——这是一次高层精心安排的逼真钓鱼安全测试！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;档案馆的火灾虽然严重，但是在很短时间内就被扑灭了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而我们在这几天内看到的所有可疑情报，都是警视总监为这场安全测试设下的钓鱼饵，看看能不能钓出诸位的破绽来！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;至于卧底——从一开始就不存在！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;警校教官&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 399040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔……这么说来，我看到的那些情报，都是高层故意误导我的么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;警校教官&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 399040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真是抱歉了，{namecode:547:曾克}警部。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没想到居然还有这种事……总部还真是无聊……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不但浪费时间和资源，还加剧了同伴之间的不信任……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我也误会你了……{namecode:165:吾妻}老师！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没关系，误会解除了就好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就这样，卧底的阴云烟消云散，是时候返回总部述职了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 1,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么诸位，就此别过，有缘再见~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;一路顺风哦，特别顾问……伟大的帝国警视长十分欣赏你……我们有缘再见。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			optionFlag = 1,
+			blackBg = true,
+			bgm = &quot;story-darkplan&quot;,
+			sequence = {
+				{
+					&quot;你在热烈友好的气氛中告别了众人，踏上了返回警视厅总部的归途。&quot;,
+					0.5
+				},
+				{
+					&quot;收到了你的报告后，警视总监只是点头表示知道了。&quot;,
+					1
+				},
+				{
+					&quot;半月后，你听到了警视总监提前退休，职位由帝国警视长继任的消息。&quot;,
+					1.5
+				},
+				{
+					&quot;再之后，你作为警视厅平凡的一员在自己的岗位上顺风顺水，步步高升。&quot;,
+					2
+				}
+			}
+		},
+		{
+			optionFlag = 1,
+			mode = 1,
+			asideType = 1,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;「沉浸于工作之中一路向前，不也很好吗？」&quot;,
+					1
+				},
+				{
+					&quot;「——迷彩都市的寻踪者·END」&quot;,
+					2
+				}
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			hidePaintObj = true,
+			say = &quot;CUT~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 2,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所有人都是卧底——你宣布了自己的调查结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 408140,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;所、所有人？你是指……坐在房间里的所有人都是卧底吗？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 299010,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;喂！这种事事关重大，可不能乱开玩笑哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404070,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;对啊对啊，而且我可是受害者啊……为什么说我也是卧底！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查二课 警部补&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 401130,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;简直~莫名其妙啦~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这几天来，你们相互配合，对我透露的消息真真假假，故布疑阵……试图干扰我的判断。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还好有{namecode:165:吾妻}老师主动暴露，才能让我抓到你们的破绽。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;档案馆确实是{namecode:165:吾妻}老师炸的，但是她为我提供的资料也是真的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你们是因为{namecode:165:吾妻}老师想要脱离组织，所以故意放她出来吸引我的注意力，好让你们脱罪吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还需要我继续往下说么？伟大的帝国警视长。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 607020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;不愧是总局派出来的特别顾问……有些本事……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 607020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;你是怎么怀疑到我头上的……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;作为所有人中职位最高，最不可疑的人，你想劝我收手，试图招揽我。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 607020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;你明明是个聪明人的……真是可惜了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 299010,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;欸~既然被发现了，那就没办法了呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;交通执行课 巡查部长&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 408100,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;出去的门已经被我锁上啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查二课 警部补&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 401130,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;监控也都被干掉了~顾问就束手就擒吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 404070,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;放心，我们只是会将你关一段时间，不会有生命危险的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我就知道会变成这样……还好我早有准备。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;窗户就是我的逃跑路线！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 2,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;剩下的事就交给你们了，国际刑警队——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 718011,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;国际刑警组织&quot;,
+			dir = 1,
+			optionFlag = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所有人都不许动，你们已经被包围了，束手就擒吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 299023,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;国际刑警组织&quot;,
+			dir = 1,
+			optionFlag = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;干得漂亮，搭档，前往车库的路线已经清空，快过来吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			optionFlag = 2,
+			blackBg = true,
+			bgm = &quot;story-battle-16bit-sfc&quot;,
+			sequence = {
+				{
+					&quot;你迎着阳光，对着明亮的玻璃窗纵身跃出。&quot;,
+					0.5
+				},
+				{
+					&quot;在众人不可置信的目光中，你顺着大楼斜面的玻璃一路下滑，安全逃离了警视厅大楼。&quot;,
+					1
+				},
+				{
+					&quot;再之后，国际刑警组织接管了现场。&quot;,
+					1.5
+				},
+				{
+					&quot;你圆满完成了自己的任务，获得了警视总监的嘉奖。&quot;,
+					2
+				},
+				{
+					&quot;之后，为了防止组织残余成员的报复。&quot;,
+					2.5
+				},
+				{
+					&quot;你在国际刑警组织的运作下前往了某处世外桃源，过上了隐姓埋名但幸福快乐的生活。&quot;,
+					3
+				}
+			}
+		},
+		{
+			optionFlag = 2,
+			mode = 1,
+			asideType = 1,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;「平凡而幸福的生活，不也挺好吗？」&quot;,
+					1
+				},
+				{
+					&quot;「——迷彩都市的寻踪者·END」&quot;,
+					2
+				}
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			hidePaintObj = true,
+			say = &quot;CUT~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 3,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我才是卧底——你宣布了自己的调查结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;在场的所有人都被你的回答惊得说不出话来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 408140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你说……你是卧底？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 408140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这种时候开玩笑可是有些不合时宜哦，特别顾问。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 3,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为我失忆了，所以理论上来说，我也有可能是卧底，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 299010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……好像有点道理，但是档案馆是你炸的吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 3,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为我失忆了，所以理论上来说，档案馆也有可能是我炸的，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……那我被{namecode:165:吾妻}老师袭击呢，这个总和你没关系了吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 3,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为我失忆了，所以理论上来说，我可能胁迫{namecode:165:吾妻}老师去袭击了你，不是么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查二课 警部补&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 401130,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呃…………这么说，好像确实也不是不行？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵……特别顾问，没想到你这么有幽默细胞……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;一个很好笑的玩笑……伟大的帝国警视长很喜欢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你打算就这么回去跟警视总监述职么？还是说……你是打算总而言之先离开这里呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 3,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我不是很明白你的意思。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;唔……没关系，你确实该回去述职了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;交通执行课 巡查部长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 408100,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;顾问！车已经准备好了哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;警校教官&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 399040,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}顾问，我跟你一起去。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:165:吾妻}老师……顾问是回去述职的，你跟去做什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就这样，你以别出心裁的方式结束了本次调查，是时候坐车返回总部了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 3,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么诸位，就此别过了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;一路顺风哦，特别顾问……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			optionFlag = 3,
+			blackBg = true,
+			bgm = &quot;story-oldcastle-carnival&quot;,
+			sequence = {
+				{
+					&quot;你在有些微妙的气氛中告别了众人，踏上了返回警视厅总部的归途。&quot;,
+					0.5
+				},
+				{
+					&quot;在车上，你翻看着{namecode:165:吾妻}老师提供给你的资料，拨响了警视总监的电话。&quot;,
+					1
+				},
+				{
+					&quot;然后——BOOM！&quot;,
+					1.5
+				},
+				{
+					&quot;汽车在巨大的爆炸声中化为了一颗火球，跌入了悬崖之下。&quot;,
+					2
+				},
+				{
+					&quot;之后，你承认自己是卧底的口供被送上了警视总监的桌案，这场爆炸案以畏罪自杀收尾。&quot;,
+					2.5
+				},
+				{
+					&quot;半月后，警视总监提前退休，职位由帝国警视长继任。&quot;,
+					3
+				},
+				{
+					&quot;世界，依然在缓缓转动中——&quot;,
+					3.5
+				}
+			}
+		},
+		{
+			optionFlag = 3,
+			mode = 1,
+			asideType = 1,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;「有些玩笑，可能不仅仅只是玩笑哦？」&quot;,
+					1
+				},
+				{
+					&quot;「——迷彩都市的寻踪者·END」&quot;,
+					2
+				}
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 3,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			hidePaintObj = true,
+			say = &quot;CUT~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 4,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;警视总监才是卧底——你宣布了自己的调查结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;零课 警部补&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 408140,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……啊？我有点跟不上你的思路了，特别顾问……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;搜查一课 警部&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 299010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这是玩笑么，是玩笑吧……警视总监怎么可能是卧底呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你成功引起了我的注意，特别顾问……说说你的理由？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;根据侦探剧的惯例，凶手总是早早就已经出场过了，没错吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么，警视总监难道不可疑吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没有人比她出场得更早，而她又全程没有留下任何线索。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没有人知道她长什么样子，叫什么名字，在做什么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……话说，警视总监其实是谁啊？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 4,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;警视总监，{namecode:55:青叶}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;太可疑了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就是她用协助取材的名义把我骗过来的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真是太可疑了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;有道理啊……顾问。那我们接下来该怎么做呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 4,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们需要联合起来，抓住警视总监的把柄，最终打倒她！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你这个计划，伟大的帝国很喜欢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;刑事部 警视长&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actor = 607020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么，回去之后一切小心，等我联络……我们一起扳倒警视总监吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			optionFlag = 4,
+			blackBg = true,
+			bgm = &quot;story-dazy-style&quot;,
+			sequence = {
+				{
+					&quot;你在异常热烈友好的气氛中告别了众人，踏上了返回警视厅总部的归途。&quot;,
+					0.5
+				},
+				{
+					&quot;路上，你收到了帝国警视长的单独联络。&quot;,
+					1
+				},
+				{
+					&quot;在她的帮助下你成功用含混不清的结论为这场调查做出了收尾。&quot;,
+					1.5
+				},
+				{
+					&quot;之后，你又与帝国警视长合作，成功找到了警视总监{namecode:55:青叶}巨额财产来历不明的证据。&quot;,
+					2
+				},
+				{
+					&quot;半月后，警视总监{namecode:55:青叶}被解职关押，职位由帝国警视长继任。&quot;,
+					2.5
+				},
+				{
+					&quot;而你，也由于与帝国警视总监的特殊关系，在职场上平步青云。&quot;,
+					3
+				},
+				{
+					&quot;仅仅不到三年，你就已经成为了新的警视长。&quot;,
+					3.5
+				},
+				{
+					&quot;美好的生活，还在继续中——&quot;,
+					4
+				}
+			}
+		},
+		{
+			optionFlag = 4,
+			mode = 1,
+			asideType = 1,
+			blackBg = true,
+			sequence = {
+				{
+					&quot;「生活如此美好，直到世界终结。」&quot;,
+					1
+				},
+				{
+					&quot;「——迷彩都市的寻踪者·END」&quot;,
+					2
+				}
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 4,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			hidePaintObj = true,
+			say = &quot;CUT~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 5,
+			factiontag = &quot;旁白&quot;,
+			bgm = &quot;login-2022401us&quot;,
+			bgName = &quot;star_level_bg_169&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;导演才是卧底——你宣布了自己的调查结果。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 5,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 401022,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;旁白&quot;,
+			actorName = &quot;剧中旁白&quot;,
+			optionFlag = 5,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……导演是卧底，你确定吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;是的，我很确定。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;通过这几日的拍摄，我已经清楚了解了那些设置在剧本中的黑暗桥段……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;也明白了按照原本的剧本设置，我应该指控哪些人是卧底……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;但是——我拒绝！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;如果一定要有一个卧底……那么——导演{namecode:98:明石}，就是卧底！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 312013,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;喵~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			portrait = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			hidePaintObj = true,
+			say = &quot;NG喵~NG喵~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哼哼，你以为我这两天私下里没有做任何准备么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;导演{namecode:98:明石}，这场电影已经不只是你一个人的电影了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_169&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			portrait = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;{namecode:98:明石}&quot;,
+			hidePaintObj = true,
+			say = &quot;……喵？指挥官，你这是什么意思喵？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;或许是宇宙人&quot;,
+			dir = 1,
+			optionFlag = 5,
+			bgName = &quot;star_level_bg_158&quot;,
+			bgm = &quot;qe-ova-12&quot;,
+			actor = 301113,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;意思就是，这部电影要打破第四面墙，迎来超展开了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;或许是超能力者&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 301123,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;剧情世界观也会出现大规模的拓展，加入更丰富的设定哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;专业主播&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;原班人马，同样场景，但是截然不同的剧本，这种设计很有趣吧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;文学少女&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 502071,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我其实已经有剧本思路了哦，交给我吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;大冒险之王&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 501020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;多补拍些镜头，加入大冒险的要素！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;路过的正义使者&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 103160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;还有特摄、热烈的格斗技以及摩托车的飙车环节！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;超级英雄厨&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 102260,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;增加一些超级英雄的要素也不错哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;吸血鬼大小姐&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 404041,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我投票加入吸血鬼要素！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;药剂师&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 201371,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咕噜噜……异世界冒险要素确实不能少呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;传说级格斗家&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 331055,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:6:绫波}……准备好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;传说级勇者&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 201217,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;传说中的勇者小队——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;传说级战士&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 431232,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;——再次集结！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;传说级魔法师&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 131171,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼……zZZZZ&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;治安者巡警&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 702042,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;原本的刑侦片部分也可以加强一下，多点大场面，顺便场景国际化一些。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这都是什么跟……什么喵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:98:明石}的电影……{namecode:98:明石}的电影要……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			optionFlag = 5,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;要显得好像更有趣了……喵？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么——就让我们开始补拍镜头吧~！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_158&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			optionFlag = 5,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;——ACTION！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			bgm = &quot;story-richang-9&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;终于，电影的拍摄全部结束了——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼呼呼，杀青了喵！大家都很厉害嘛喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 401130,
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这就拍完了？明明我还想陪指挥官多玩一会儿的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			dir = 1,
+			actor = 404070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;拍摄时还是太紧张了啊……果然还是得准备更多的应急预案才行。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 102161,
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;指挥官，拍摄辛苦了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_526&quot;,
+			hidePaintObj = true,
+			side = 2,
+			portrait = &quot;zhihuiguan&quot;,
+			say = &quot;孟菲斯啊，来得正好，我有个问题要问你。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			dir = 1,
+			actor = 102161,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;嗯？怎么了，指挥官？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;你是卧底吗？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			portrait = 102161,
+			side = 2,
+			bgName = &quot;star_level_bg_526&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咦————？！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			mode = 1,
+			blackBg = true,
+			bgm = &quot;story-spycity-fashion&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;micaidushidexunzongzhe&quot;
+				},
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					1
+				}
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

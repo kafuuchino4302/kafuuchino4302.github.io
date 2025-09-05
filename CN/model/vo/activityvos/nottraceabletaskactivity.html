@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nottraceabletaskactivity.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nottraceabletaskactivity.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NotTraceableTaskActivity&quot;, import(&quot;model.vo.ActivityVOs.ITaskActivity&quot;))
+
+slot0.GetTaskIdsByDay = function(slot0)
+	return slot0:getConfig(&quot;config_data&quot;)
+end
+
+slot0.GetCurrentDay = function(slot0, slot1)
+	if math.ceil((pg.TimeMgr.GetInstance():GetServerTime() - pg.TimeMgr.GetInstance():parseTimeFromConfig(slot0:getConfig(&quot;time&quot;)[2])) / 86400) &gt; #slot0:getConfig(&quot;config_data&quot;) then
+		slot6 = #slot7
+	end
+
+	return slot6
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refluxsigncommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>refluxsigncommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RefluxSignCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0)
+	slot1 = pg.ConnectionMgr.GetInstance()
+
+	slot1:Send(11753, {
+		type = 0
+	}, 11754, function (slot0)
+		if slot0.result == 0 then
+			slot1 = getProxy(RefluxProxy)
+
+			slot1:setSignLastTimestamp()
+			slot1:addSignCount()
+			pg.m02:sendNotification(GAME.REFLUX_SIGN_DONE, {
+				awards = PlayerConst.addTranDrop(slot0.award_list)
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;Sign Error:&quot; .. slot0.result)
+			getProxy(RefluxProxy):setAutoActionForbidden(true)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

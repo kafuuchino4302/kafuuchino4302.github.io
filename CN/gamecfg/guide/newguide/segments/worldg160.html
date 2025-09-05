@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg160.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg160.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG160&quot;,
+	events = {
+		{
+			style = {
+				text = &quot;大型作战中的常用资源会存放在此处。&quot;,
+				mode = 2,
+				dir = -1,
+				char = &quot;1&quot;,
+				posY = 200,
+				posX = 0
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/top_stage/resources/WorldResPanel(Clone)/res&quot;
+				}
+			}
+		},
+		{
+			style = {
+				text = &quot;进入未探索的海域和使用G.M系统中的舰队操作指令均需要消耗行动力。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 275.49,
+				posX = 2.13
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/top_stage/resources/WorldResPanel(Clone)/res/stamina&quot;,
+					sizeDeltaPlus = {
+						45,
+						20
+					}
+				}
+			}
+		},
+		{
+			style = {
+				text = &quot;作战补给凭证用于在港口商店中购买道具，可以通过击败海域中的敌人或收集海域资源获得。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 304.6,
+				posX = 702.27
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/top_stage/resources/WorldResPanel(Clone)/res/Whuobi&quot;,
+					sizeDeltaPlus = {
+						45,
+						20
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

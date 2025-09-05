@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipindexcfg.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shipindexcfg.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	type = {
+		{
+			types = {}
+		},
+		{
+			types = {
+				TeamType.Vanguard
+			},
+			shipTypes = {
+				ShipType.DaoQuV
+			}
+		},
+		{
+			types = {
+				TeamType.Main
+			},
+			shipTypes = {
+				ShipType.DaoQuM
+			}
+		},
+		{
+			types = {
+				ShipType.QuZhu,
+				ShipType.DaoQuM,
+				ShipType.DaoQuV
+			}
+		},
+		{
+			types = {
+				ShipType.QingXun
+			}
+		},
+		{
+			types = {
+				ShipType.ZhongXun,
+				ShipType.ChaoXun
+			}
+		},
+		{
+			types = {
+				ShipType.ZhanXun,
+				ShipType.ZhanLie
+			}
+		},
+		{
+			types = {
+				ShipType.QingHang,
+				ShipType.ZhengHang
+			}
+		},
+		{
+			types = {
+				ShipType.WeiXiu
+			}
+		},
+		{
+			types = {
+				ShipType.QianTing,
+				ShipType.QianMu
+			}
+		},
+		{
+			types = {
+				ShipType.HangXun,
+				ShipType.HangZhan,
+				ShipType.LeiXun,
+				ShipType.ZhongPao,
+				ShipType.Yunshu,
+				ShipType.FengFanS,
+				ShipType.FengFanV,
+				ShipType.FengFanM
+			}
+		}
+	},
+	camp = {
+		{
+			types = {}
+		},
+		{
+			types = {
+				Nation.US
+			}
+		},
+		{
+			types = {
+				Nation.EN
+			}
+		},
+		{
+			types = {
+				Nation.JP
+			}
+		},
+		{
+			types = {
+				Nation.DE
+			}
+		},
+		{
+			types = {
+				Nation.CN
+			}
+		},
+		{
+			types = {
+				Nation.ITA
+			}
+		},
+		{
+			types = {
+				Nation.SN
+			}
+		},
+		{
+			types = {
+				Nation.FF
+			}
+		},
+		{
+			types = {
+				Nation.MNF
+			}
+		},
+		{
+			types = {
+				Nation.NL
+			}
+		},
+		{
+			types = {
+				Nation.META
+			}
+		},
+		{
+			types = {
+				Nation.MOT
+			}
+		},
+		{
+			types = {
+				Nation.CM,
+				Nation.BURIN,
+				Nation.LINK
+			}
+		}
+	},
+	rarity = {
+		{
+			types = {}
+		},
+		{
+			types = {
+				ShipRarity.Gray
+			}
+		},
+		{
+			types = {
+				ShipRarity.Blue
+			}
+		},
+		{
+			types = {
+				ShipRarity.Purple
+			}
+		},
+		{
+			types = {
+				ShipRarity.Gold
+			}
+		},
+		{
+			types = {
+				ShipRarity.SSR
+			}
+		}
+	},
+	sort = {
+		{
+			sortFuncs = ShipIndexConst.sortByCfg(&quot;rarity&quot;),
+			name = ShipIndexConst.SortNames[1]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByField(&quot;level&quot;),
+			name = ShipIndexConst.SortNames[2]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByCombatPower(),
+			name = ShipIndexConst.SortNames[3]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByField(&quot;createTime&quot;),
+			name = ShipIndexConst.SortNames[4]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByIntimacy(),
+			name = ShipIndexConst.SortNames[5]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;cannon&quot;),
+			name = ShipIndexConst.SortPropertyNames[2]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;air&quot;),
+			name = ShipIndexConst.SortPropertyNames[3]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;dodge&quot;),
+			name = ShipIndexConst.SortPropertyNames[4]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;antiaircraft&quot;),
+			name = ShipIndexConst.SortPropertyNames[5]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;torpedo&quot;),
+			name = ShipIndexConst.SortPropertyNames[6]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;reload&quot;),
+			name = ShipIndexConst.SortPropertyNames[7]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;durability&quot;),
+			name = ShipIndexConst.SortPropertyNames[8]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByProperty(&quot;antisub&quot;),
+			name = ShipIndexConst.SortPropertyNames[9]
+		},
+		{
+			sortFuncs = ShipIndexConst.sortByEnergy(),
+			name = ShipIndexConst.SortNames[6]
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

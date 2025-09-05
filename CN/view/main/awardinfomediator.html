@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>awardinfomediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>awardinfomediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AwardInfoMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_DROP = &quot;AwardInfoMediator:ON_DROP&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_DROP, function (slot0, slot1, slot2)
+		if slot1.type == DROP_TYPE_EQUIP then
+			uv0:addSubLayers(Context.New({
+				mediator = EquipmentInfoMediator,
+				viewComponent = EquipmentInfoLayer,
+				data = {
+					equipmentId = slot1:getConfig(&quot;id&quot;),
+					type = EquipmentInfoMediator.TYPE_DISPLAY,
+					onRemoved = slot2,
+					LayerWeightMgr_weight = LayerWeightConst.THIRD_LAYER
+				}
+			}))
+		elseif slot1.type == DROP_TYPE_SPWEAPON then
+			uv0:addSubLayers(Context.New({
+				mediator = SpWeaponInfoMediator,
+				viewComponent = SpWeaponInfoLayer,
+				data = {
+					spWeaponConfigId = slot1:getConfig(&quot;id&quot;),
+					type = SpWeaponInfoLayer.TYPE_DISPLAY,
+					onRemoved = slot2,
+					LayerWeightMgr_weight = LayerWeightConst.THIRD_LAYER
+				}
+			}))
+		else
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				type = MSGBOX_TYPE_SINGLE_ITEM,
+				drop = slot1,
+				onNo = slot2,
+				onYes = slot2,
+				weight = LayerWeightConst.THIRD_LAYER
+			})
+		end
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.STORY_BEGIN,
+		GAME.STORY_END,
+		GAME.STORY_NEXT
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.STORY_BEGIN or slot2 == GAME.STORY_NEXT then
+		slot0.viewComponent:ShowOrHideSpriteMask(false)
+	elseif slot2 == GAME.STORY_END then
+		slot0.viewComponent:ShowOrHideSpriteMask(true)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

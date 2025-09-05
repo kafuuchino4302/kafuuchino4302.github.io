@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>junheboss5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>junheboss5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;JUNHEBOSS5&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;穿越彼方的水线\n\n&lt;size=45&gt;五　{namecode:175}SIDE&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_nepu2&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;cw-level&quot;,
+			actor = 305110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;演习辛苦了，{namecode:22}、{namecode:97}、还有{namecode:175}。指挥官也赞扬了这次的联合演习哦。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 301160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;真是的……最后简直一团乱嘛！演习用的是模拟弹真是万幸啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 307070,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;竟然冲到离指挥官大人那么近的地方……{namecode:175}，下次绝对要跟我换啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哈哈哈，演习刚刚结束却还这么精神，可真是再好不过了！我看，不如让{namecode:55}将诸位的活跃大书特书一笔吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;………………！？！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_nepu2&quot;,
+			dir = 1,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;请容我坚——————————————决拒绝！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			bgm = &quot;story-2&quot;,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（回想起来，真是没想到会变成这样呢……）&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900200,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;因此，在{namecode:82}大人的裁夺下，重樱舰队方的“指挥官”角色，并非从本港区的成员中选出，而是由我来担任。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（明明以为只是个门面职位，才随便答允下来的——！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;哼哼！不需要使什么小手段！只要还有{namecode:22}大人的幸运加持，这点小事不成问题哒！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（真是够了，我最不擅长应对这种脑子空空行事随便的家伙了！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（但不管怎么说都是同伴啊？又不能放着不管对吧？结果还是只能靠这边努力想办法了不是嘛！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;我个人是不介意被指挥官大人打得落花流水，不过确实也关系到重樱这边的面子呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（那还用说吗！谁想到指挥官的舰队竟然强得那么离谱啊！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（不出奇招的话，绝对会被秒杀的吧！？这不是没办法嘛！明明没打算引人注目的！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（而且如果是其他人来想的话，绝对一下就被指挥官看穿了吧？所以还是得由我这个外人来不是嘛！）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;真是的……最后简直一团乱嘛！演习用的是模拟弹真是万幸啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307070,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;竟然冲到离指挥官大人那么近的地方……{namecode:175}，下次绝对要跟我换啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900200,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;（外人……吗……回想起来，这里的各位似乎没把我当作外人……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;如果在这里的话，说不定我也——&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_nepu1&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;cw-story&quot;,
+			actor = 305110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没错，就算是没有舰历的舰船，跟港区的大家也不会有隔阂的&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900200,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;接下来有什么打算吗？要不，干脆就留在这个港区如何？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;从这回的演习来看的话，你也许会比其他特别计划舰更快地融入这里呢，哈哈哈&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305110,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没事，时间有的是。好好思考吧，从心底得出答案后，再做决定也不迟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900200,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;………………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（是啊。如果是这里的话，我，还有“她”也说不定……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 900200,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;有缘再相见吧——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

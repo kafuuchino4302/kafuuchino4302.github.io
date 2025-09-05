@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducatecollectlayertemplate.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducatecollectlayertemplate.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;EducateCollectLayerTemplate&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	assert(nil, &quot;getUIName方法必须由子类实现&quot;)
+end
+
+slot0.initConfig = function(slot0)
+	assert(nil, &quot;initConfig方法必须由子类实现&quot;)
+end
+
+slot0.init = function(slot0)
+	slot0.anim = slot0:findTF(&quot;anim_root&quot;):GetComponent(typeof(Animation))
+	slot0.animEvent = slot0:findTF(&quot;anim_root&quot;):GetComponent(typeof(DftAniEvent))
+
+	slot0.animEvent:SetEndEvent(function ()
+		uv0:emit(uv1.ON_CLOSE)
+	end)
+
+	slot0.closeBtn = slot0:findTF(&quot;anim_root/bg&quot;)
+	slot0.windowTF = slot0:findTF(&quot;anim_root/window&quot;)
+	slot0.curCntTF = slot0:findTF(&quot;collect/cur&quot;, slot0.windowTF)
+	slot0.allCntTF = slot0:findTF(&quot;collect/all&quot;, slot0.windowTF)
+	slot0.pageTF = slot0:findTF(&quot;page&quot;, slot0.windowTF)
+	slot0.nextBtn = slot0:findTF(&quot;next_btn&quot;, slot0.windowTF)
+	slot0.lastBtn = slot0:findTF(&quot;last_btn&quot;, slot0.windowTF)
+	slot0.paginationTF = slot0:findTF(&quot;pagination&quot;, slot0.windowTF)
+	slot0.performTF = slot0:findTF(&quot;anim_root/perform&quot;)
+
+	setActive(slot0.performTF, false)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:PlayAnimClose()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.nextBtn, function ()
+		uv0:PlayAnimChange()
+
+		uv0.curPageIndex = uv0.curPageIndex + 1
+
+		uv0:UpdatePage()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.lastBtn, function ()
+		uv0:PlayAnimChange()
+
+		uv0.curPageIndex = uv0.curPageIndex - 1
+
+		uv0:UpdatePage()
+	end, SFX_PANEL)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0._tf, {
+		groupName = slot0:getGroupNameFromData(),
+		weight = LayerWeightConst.SECOND_LAYER + 2
+	})
+end
+
+slot0.InitPageInfo = function(slot0)
+	slot0:initConfig()
+
+	slot0.onePageCnt = slot0.pageTF.childCount
+	slot0.pages = math.ceil(#slot0.allIds / slot0.onePageCnt)
+	slot0.curPageIndex = 1
+end
+
+slot0.UpdatePage = function(slot0)
+	setActive(slot0.nextBtn, slot0.pages ~= 1 and slot0.curPageIndex &lt; slot0.pages)
+	setActive(slot0.lastBtn, slot0.pages ~= 1 and slot0.curPageIndex &gt; 1)
+	setText(slot0.paginationTF, slot0.curPageIndex .. &quot;/&quot; .. slot0.pages)
+
+	slot1 = (slot0.curPageIndex - 1) * slot0.onePageCnt
+
+	for slot5 = 1, slot0.onePageCnt do
+		slot6 = slot0:findTF(&quot;frame_&quot; .. slot5, slot0.pageTF)
+
+		if slot0.allIds[slot1 + slot5] then
+			setActive(slot6, true)
+			slot0:UpdateItem(slot7, slot6)
+		else
+			setActive(slot6, false)
+		end
+	end
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2)
+	assert(nil, &quot;updateItem方法必须由子类实现&quot;)
+end
+
+slot0.PlayAnimChange = function(slot0)
+	assert(nil, &quot;playAnimClose方法必须由子类实现&quot;)
+end
+
+slot0.onBackPressed = function(slot0)
+	slot0:PlayAnimClose()
+end
+
+slot0.willExit = function(slot0)
+	slot0.animEvent:SetEndEvent(nil)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

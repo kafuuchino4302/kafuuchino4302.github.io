@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nenjuugameconfig.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>nenjuugameconfig.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	DECOY_RANGE = 5,
+	BLACK_HOLE_RANGE = 2,
+	LANTERN_RANGE = 3,
+	TIME_INTERVAL = 0.016666666666666666,
+	STAGE_CONFIG = {
+		BASE_CONFIG = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_1&quot;,
+					5,
+					10
+				},
+				{
+					&quot;Item_2&quot;,
+					5,
+					20
+				},
+				{
+					&quot;Item_3&quot;,
+					5,
+					30
+				},
+				{
+					&quot;Item_4&quot;,
+					5,
+					40
+				}
+			},
+			extra_time = {
+				120,
+				1000
+			},
+			ability_rate = {
+				gravity = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				delay = 0.5,
+				blackhole = 0.5,
+				stealth = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				gravity = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				delay = true,
+				blackhole = true,
+				stealth = true,
+				breakpassable = true
+			}
+		},
+		Spring23Level_1 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_1&quot;,
+					30,
+					10
+				},
+				{
+					&quot;Item_2&quot;,
+					40,
+					10
+				}
+			},
+			extra_time = {
+				120,
+				300
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				rush = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				rush = true
+			}
+		},
+		Spring23Level_2 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_3&quot;,
+					20,
+					20
+				},
+				{
+					&quot;Item_4&quot;,
+					30,
+					20
+				}
+			},
+			extra_time = {
+				120,
+				300
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				breakpassable = 0.5,
+				rush = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				breakpassable = true,
+				rush = true
+			}
+		},
+		Spring23Level_3 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_6&quot;,
+					30,
+					20
+				},
+				{
+					&quot;Item_5&quot;,
+					30,
+					20
+				}
+			},
+			extra_time = {
+				150,
+				500
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				breakpassable = true
+			}
+		},
+		Spring23Level_4 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_1&quot;,
+					30,
+					20
+				},
+				{
+					&quot;Item_3&quot;,
+					30,
+					30
+				}
+			},
+			extra_time = {
+				150,
+				500
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				delay = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				delay = true,
+				breakpassable = true
+			}
+		},
+		Spring23Level_5 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_2&quot;,
+					20,
+					40
+				},
+				{
+					&quot;Item_4&quot;,
+					20,
+					40
+				}
+			},
+			extra_time = {
+				150,
+				500
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				delay = 0.5,
+				stealth = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				delay = true,
+				stealth = true,
+				breakpassable = true
+			}
+		},
+		Spring23Level_6 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_1&quot;,
+					30,
+					30
+				},
+				{
+					&quot;Item_3&quot;,
+					30,
+					40
+				}
+			},
+			extra_time = {
+				150,
+				600
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				delay = 0.5,
+				stealth = 0.5,
+				gravity = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				delay = true,
+				stealth = true,
+				gravity = true,
+				breakpassable = true
+			}
+		},
+		Spring23Level_7 = {
+			base_rate = 1,
+			wave = {
+				{
+					&quot;Item_1&quot;,
+					5,
+					70
+				},
+				{
+					&quot;Item_2&quot;,
+					5,
+					70
+				},
+				{
+					&quot;Item_3&quot;,
+					5,
+					70
+				},
+				{
+					&quot;Item_4&quot;,
+					5,
+					70
+				},
+				{
+					&quot;Item_6&quot;,
+					5,
+					70
+				},
+				{
+					&quot;Item_5&quot;,
+					5,
+					70
+				}
+			},
+			extra_time = {
+				120,
+				700
+			},
+			ability_rate = {
+				blackhole = 0.5,
+				teleport = 0.5,
+				doppelgangers = 0.5,
+				rush = 0.5,
+				delay = 0.5,
+				stealth = 0.5,
+				gravity = 0.5,
+				breakpassable = 0.5
+			},
+			ability_config = {
+				blackhole = true,
+				teleport = true,
+				doppelgangers = true,
+				rush = true,
+				delay = true,
+				stealth = true,
+				gravity = true,
+				breakpassable = true
+			}
+		}
+	},
+	GetStageConfig = function (slot0)
+		return setmetatable(uv0.STAGE_CONFIG[slot0] or {}, {
+			__index = uv0.STAGE_CONFIG.BASE_CONFIG
+		})
+	end,
+	GetCreateConfig = function (slot0)
+		switch(slot0.name, {
+			FuShun = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetFuShun)
+				table.insert(uv0, &quot;character/FuShun&quot;)
+				table.insert(uv0, &quot;character&quot;)
+			end,
+			Nenjuu = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetNenjuu)
+				table.insert(uv0, &quot;character/Nenjuu&quot;)
+				table.insert(uv0, &quot;character&quot;)
+			end,
+			Nenjuu_Doppelgangers = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetNenjuu)
+				table.insert(uv0, &quot;character/Nenjuu_Doppelgangers&quot;)
+				table.insert(uv0, &quot;character&quot;)
+			end,
+			Ice = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetIce)
+				table.insert(uv0, &quot;object/Ice&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Bomb = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetBomb)
+				table.insert(uv0, &quot;effect/Bomb&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			SignWarp = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetTimeEffect)
+				table.insert(uv0, &quot;effect/SignWarp&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			Rock = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Rock&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			BlackHole = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetBlackHole)
+				table.insert(uv0, &quot;object/BlackHole&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Decoy = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/Decoy&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_bk_Flash_Jump = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/EF_bk_Flash_Jump&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_bk_Flash_Land = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_bk_Flash_Land&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Break_E = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/EF_Break_E&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Break_N = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/EF_Break_N&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Break_S = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/EF_Break_S&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Break_W = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetEffect)
+				table.insert(uv0, &quot;effect/EF_Break_W&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_E = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_E&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_S = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_S&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_N = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_N&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_W = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_W&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_W_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_W_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_W_fr = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_W_fr&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_E_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_E_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_E_fr = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_E_fr&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_N = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_N&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Attack_Hit_S = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_Attack_Hit_S&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_bk_Freeze = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_bk_Freeze&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_bk_overlay_Lantern = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_bk_overlay_Lantern&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			Lamp_A = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Lamp_A&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.hide = true
+			end,
+			Pine = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Pine&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+			end,
+			Plum = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Plum&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+			end,
+			Pond = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Pond&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+			end,
+			Manjuu_fishing = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Manjuu_fishing&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+			end,
+			Fire = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Fire&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(3, 3)
+			end,
+			Building_A = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Building_A&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(3, 3)
+				uv1.hide = true
+			end,
+			Item_1 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Item_2 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Item_3 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Item_4 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Item_5 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Item_6 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetItem)
+				table.insert(uv0, &quot;object/Item&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			EF_fr_Inactivate = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetSubEffect)
+				table.insert(uv0, &quot;effect/EF_fr_Inactivate&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			EF_Ghost_E_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Ghost_E_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Ghost_N_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Ghost_N_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Ghost_N_fr = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Ghost_N_fr&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Ghost_S_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Ghost_S_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Ghost_W_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Ghost_W_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Nenjuu_Ghost_E_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Nenjuu_Ghost_E_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Nenjuu_Ghost_N_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Nenjuu_Ghost_N_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Nenjuu_Ghost_N_fr = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Nenjuu_Ghost_N_fr&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Nenjuu_Ghost_S_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Nenjuu_Ghost_S_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			EF_Nenjuu_Ghost_W_bk = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetRushEffect)
+				table.insert(uv0, &quot;effect/EF_Nenjuu_Ghost_W_bk&quot;)
+				table.insert(uv0, &quot;effect&quot;)
+			end,
+			Snow_1 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Snow_1&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Snow_2 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Snow_2&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Snow_3 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Snow_3&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Snow_4 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Snow_4&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end,
+			Snow_5 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Snow_5&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 1)
+				uv1.hide = true
+			end,
+			Lamp_B1 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Lamp_B1&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.hide = true
+			end,
+			Lamp_B2 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Lamp_B2&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.hide = true
+			end,
+			Building_B = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Building_B&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(4, 3)
+				uv1.hide = true
+			end,
+			[&quot;1_Arbor_1&quot;] = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetArbor)
+				table.insert(uv0, &quot;object/Arbor&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+				uv1.hide = true
+			end,
+			[&quot;1_Arbor_2&quot;] = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetArbor)
+				table.insert(uv0, &quot;object/Arbor&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+				uv1.hide = true
+			end,
+			[&quot;1_Arbor_3&quot;] = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetArbor)
+				table.insert(uv0, &quot;object/Arbor&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+				uv1.hide = true
+			end,
+			[&quot;1_Arbor_4&quot;] = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetArbor)
+				table.insert(uv0, &quot;object/Arbor&quot;)
+				table.insert(uv0, &quot;object&quot;)
+
+				uv1.size = NewPos(2, 2)
+				uv1.hide = true
+			end,
+			Dango_1 = function ()
+				table.insert(uv0, NenjuuGameNameSpace.TargetObject)
+				table.insert(uv0, &quot;object/Dango&quot;)
+				table.insert(uv0, &quot;object&quot;)
+			end
+		}, function ()
+			warning(&quot;name error:&quot; .. uv0.name)
+			table.insert(uv1, false)
+		end)
+
+		return unpack({})
+	end,
+	SKILL_LEVEL_CONFIG = {
+		ice = {
+			level = 1,
+			cost = {
+				0,
+				1000,
+				1000
+			},
+			param = {
+				7,
+				9,
+				11
+			}
+		},
+		flash = {
+			level = 0,
+			cost = {
+				2000,
+				2000,
+				2000
+			},
+			param = {
+				30,
+				25,
+				20
+			}
+		},
+		rush = {
+			level = 0,
+			cost = {
+				2000,
+				2000,
+				2000
+			},
+			param = {
+				{
+					5,
+					1.2
+				},
+				{
+					5,
+					1.3
+				},
+				{
+					7,
+					1.3
+				}
+			}
+		},
+		blessing = {
+			level = 0,
+			cost = {
+				2000,
+				1000,
+				1000
+			},
+			param = {
+				1.03,
+				1.06,
+				1.1
+			}
+		},
+		decoy = {
+			level = 0,
+			cost = {
+				5000
+			}
+		},
+		bomb = {
+			level = 0,
+			cost = {
+				1000
+			}
+		},
+		lantern = {
+			level = 0,
+			cost = {
+				1000
+			}
+		}
+	},
+	GetSkillParam = function (slot0, slot1)
+		return uv0.SKILL_LEVEL_CONFIG[slot0].param[slot1]
+	end,
+	ITEM_LIST = {
+		&quot;bomb&quot;,
+		&quot;lantern&quot;
+	},
+	ParsingElements = function (slot0)
+		slot1 = {
+			high = slot0[1] or 0,
+			count = slot0[2] or 0,
+			item = slot0[3] and uv0.ITEM_LIST[slot0[3]] or nil
+		}
+
+		for slot5 = 1, 7 do
+			slot1[&quot;stage_&quot; .. slot5] = slot0[slot5 + 3] or 0
+		end
+
+		slot1.level = {}
+
+		for slot5, slot6 in ipairs({
+			&quot;bomb&quot;,
+			&quot;lantern&quot;,
+			&quot;ice&quot;,
+			&quot;flash&quot;,
+			&quot;rush&quot;,
+			&quot;blessing&quot;,
+			&quot;decoy&quot;
+		}) do
+			slot1.level[slot6] = slot0[slot5 + 10] or uv0.SKILL_LEVEL_CONFIG[slot6].level
+		end
+
+		return slot1
+	end,
+	ABILITY_LIST = {
+		&quot;teleport&quot;,
+		&quot;rush&quot;,
+		&quot;breakpassable&quot;,
+		&quot;gravity&quot;,
+		&quot;doppelgangers&quot;,
+		&quot;delay&quot;,
+		&quot;blackhole&quot;,
+		&quot;stealth&quot;
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fushun3gameconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fushun3gameconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Fushun3GameConst&quot;)
+slot0.mini_game_leave = &quot;mini_game_leave&quot;
+slot0.mini_game_pause = &quot;mini_game_pause&quot;
+slot0.game_time = 999999999
+slot0.level_time = 30
+slot0.game_scale = 3
+slot0.game_scale_v3 = Vector3(slot0.game_scale, slot0.game_scale, slot0.game_scale)
+slot0.char_init_pos = Vector2(300, 450)
+slot0.attack_cd = 0.45
+slot0.damage_cd = 1
+slot0.move_speed = 8
+slot0.move_speed_shoose = 9
+slot0.attack_time = 0.3
+slot0.power_time = 2.5
+slot0.power_max_num = 8000
+slot0.power_sub_time = 1400
+slot0.platform_distance = 2500
+slot0.platform_remove = 1500
+slot0.heart_num = 4
+slot0.day_type = 1
+slot0.sunset_type = 2
+slot0.night_type = 3
+slot0.time_data = {
+	{
+		time = 30000000,
+		name = &quot;day&quot;,
+		tf = &quot;day1&quot;,
+		type = 1,
+		next = 2,
+		anim = &quot;day&quot;,
+		change_anim = &quot;nightToDay&quot;
+	},
+	{
+		time = 30000000,
+		name = &quot;sunset&quot;,
+		tf = &quot;sunSet&quot;,
+		type = 2,
+		next = 3,
+		anim = &quot;sunset&quot;,
+		change_anim = &quot;dayToSunset&quot;
+	},
+	{
+		time = 30000000,
+		name = &quot;night&quot;,
+		tf = &quot;night&quot;,
+		type = 3,
+		next = 1,
+		anim = &quot;night&quot;,
+		change_anim = &quot;sunsetToNight&quot;
+	}
+}
+slot0.platform_data = {
+	{
+		name = &quot;Roof1&quot;,
+		distance = 256,
+		power = true,
+		weight = 100,
+		diff = 0
+	},
+	{
+		item = true,
+		name = &quot;Roof2&quot;,
+		distance = 320,
+		power = true,
+		weight = 50,
+		diff = 50
+	},
+	{
+		item = true,
+		name = &quot;Roof3&quot;,
+		distance = 256,
+		monster = true,
+		power = true,
+		weight = 50,
+		diff = 25
+	},
+	{
+		monster = true,
+		name = &quot;Roof3&quot;,
+		distance = 256,
+		power = true,
+		weight = 100,
+		diff = 50
+	},
+	{
+		name = &quot;Roof_Cliff1&quot;,
+		distance = 256,
+		power = false,
+		weight = 50,
+		diff = 50
+	},
+	{
+		item = true,
+		name = &quot;Roof_Cliff2&quot;,
+		distance = 384,
+		power = false,
+		weight = 50,
+		diff = 50
+	},
+	{
+		name = &quot;Roof_Cliff3&quot;,
+		distance = 320,
+		power = false,
+		weight = 100,
+		diff = 0
+	},
+	{
+		high = true,
+		name = &quot;Roof_Obstacle1&quot;,
+		distance = 256,
+		power = true,
+		weight = 100,
+		diff = 0
+	},
+	{
+		high = true,
+		name = &quot;Roof_Obstacle2&quot;,
+		distance = 320,
+		power = true,
+		weight = 100,
+		diff = 0
+	},
+	{
+		high = true,
+		name = &quot;Roof_Obstacle3&quot;,
+		distance = 320,
+		monster = true,
+		power = true,
+		item = true,
+		weight = 50,
+		diff = 25
+	},
+	{
+		high = true,
+		name = &quot;Roof_Obstacle4&quot;,
+		distance = 192,
+		monster = true,
+		power = true,
+		weight = 100,
+		diff = 50
+	},
+	{
+		high = true,
+		name = &quot;Roof_Obstacle5&quot;,
+		distance = 192,
+		monster = true,
+		power = true,
+		weight = 100,
+		diff = 50
+	}
+}
+slot0.item_type_score = 1
+slot0.item_type_buff = 2
+slot0.item_type_damage = 3
+slot0.create_time = {
+	3,
+	5
+}
+slot0.item_h = 94
+slot0.item_v = 94
+slot0.item_data = {
+	{
+		score = 50,
+		effect = &quot;EF_fr_Get_Score_Item&quot;,
+		name = &quot;Score_A&quot;,
+		id = 1,
+		type = slot0.item_type_score
+	},
+	{
+		score = 300,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;Score_A2&quot;,
+		id = 2,
+		type = slot0.item_type_score
+	},
+	{
+		buff_id = 1,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;Score_B&quot;,
+		id = 3,
+		type = slot0.item_type_buff
+	},
+	{
+		buff_id = 2,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;Score_C&quot;,
+		id = 4,
+		type = slot0.item_type_buff
+	},
+	{
+		buff_id = 3,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;Score_D&quot;,
+		id = 5,
+		type = slot0.item_type_buff
+	},
+	{
+		buff_id = 4,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;Score_F&quot;,
+		id = 6,
+		type = slot0.item_type_buff
+	},
+	{
+		speed = 2500,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;rocket&quot;,
+		id = 7,
+		type = slot0.item_type_damage
+	},
+	{
+		speed = 2500,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;tamachan&quot;,
+		id = 8,
+		type = slot0.item_type_damage
+	},
+	{
+		speed = 2500,
+		effect = &quot;EF_fr_Item&quot;,
+		name = &quot;sushi&quot;,
+		id = 9,
+		type = slot0.item_type_damage
+	}
+}
+slot0.item_map = {
+	{
+		id = 1,
+		list = {
+			{
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				2,
+				1
+			},
+			{
+				1,
+				1,
+				1
+			}
+		}
+	},
+	{
+		id = 2,
+		list = {
+			{
+				1,
+				2,
+				1
+			},
+			{
+				1,
+				1,
+				1
+			},
+			{
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 3,
+		list = {
+			{
+				0,
+				0,
+				2,
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0,
+				2,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0,
+				1
+			}
+		}
+	},
+	{
+		id = 4,
+		list = {
+			{
+				3
+			}
+		}
+	},
+	{
+		id = 5,
+		list = {
+			{
+				4
+			}
+		}
+	},
+	{
+		id = 6,
+		list = {
+			{
+				6
+			}
+		}
+	},
+	{
+		id = 7,
+		list = {
+			{
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1
+			}
+		}
+	},
+	{
+		id = 8,
+		list = {
+			{
+				0,
+				1,
+				1,
+				0,
+				1,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				2,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 9,
+		list = {
+			{
+				0,
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0,
+				0
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			},
+			{
+				0,
+				1,
+				1,
+				0,
+				0,
+				0,
+				1,
+				1,
+				0
+			},
+			{
+				0,
+				1,
+				1,
+				0,
+				0,
+				0,
+				1,
+				1,
+				0
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			},
+			{
+				0,
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 10,
+		list = {
+			{
+				0,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 11,
+		list = {
+			{
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				1,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 12,
+		list = {
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				2,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				2,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				2,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				2,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			}
+		}
+	},
+	{
+		id = 13,
+		list = {
+			{
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				1
+			}
+		}
+	},
+	{
+		id = 14,
+		list = {
+			{
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				2,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				1,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 15,
+		list = {
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				2
+			},
+			{
+				0,
+				0,
+				0,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 16,
+		list = {
+			{
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				1,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				1,
+				1,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				0,
+				2,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 17,
+		list = {
+			{
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				0
+			},
+			{
+				2,
+				1,
+				1,
+				1,
+				1,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				0,
+				0,
+				0
+			},
+			{
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			}
+		}
+	},
+	{
+		id = 18,
+		list = {
+			{
+				1,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				0,
+				1,
+				1,
+				1,
+				0
+			},
+			{
+				0,
+				1,
+				0,
+				1,
+				0
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				1
+			}
+		}
+	},
+	{
+		id = 19,
+		list = {
+			{
+				1,
+				1,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				1,
+				0,
+				2,
+				0,
+				1
+			},
+			{
+				1,
+				0,
+				0,
+				0,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1
+			}
+		}
+	},
+	{
+		id = 20,
+		list = {
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			},
+			{
+				1,
+				2,
+				0,
+				0,
+				0,
+				2,
+				1
+			},
+			{
+				1,
+				0,
+				1,
+				0,
+				1,
+				0,
+				1
+			},
+			{
+				1,
+				0,
+				0,
+				2,
+				0,
+				0,
+				1
+			},
+			{
+				1,
+				0,
+				1,
+				0,
+				1,
+				0,
+				1
+			},
+			{
+				1,
+				2,
+				0,
+				0,
+				0,
+				2,
+				1
+			},
+			{
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			}
+		}
+	}
+}
+slot0.item_map_ids = {
+	4,
+	5,
+	6,
+	21
+}
+slot0.item_instance_data = {
+	{
+		id = 1,
+		map = 1,
+		weight = 1000
+	},
+	{
+		id = 2,
+		map = 2,
+		weight = 1000
+	},
+	{
+		id = 3,
+		map = 3,
+		weight = 1000
+	},
+	{
+		id = 4,
+		map = 4,
+		weight = 900
+	},
+	{
+		id = 5,
+		map = 5,
+		weight = 800
+	},
+	{
+		id = 6,
+		map = 6,
+		weight = 800
+	},
+	{
+		id = 7,
+		map = 7,
+		weight = 1000
+	},
+	{
+		id = 8,
+		map = 8,
+		weight = 1000
+	},
+	{
+		id = 9,
+		map = 9,
+		weight = 1000
+	},
+	{
+		id = 10,
+		map = 10,
+		weight = 1000
+	},
+	{
+		id = 11,
+		map = 11,
+		weight = 1000
+	},
+	{
+		id = 12,
+		map = 12,
+		weight = 500
+	},
+	{
+		id = 13,
+		map = 13,
+		weight = 1000
+	},
+	{
+		id = 14,
+		map = 14,
+		weight = 1000
+	},
+	{
+		id = 15,
+		map = 15,
+		weight = 1000
+	},
+	{
+		id = 16,
+		map = 16,
+		weight = 1000
+	},
+	{
+		id = 17,
+		map = 17,
+		weight = 1000
+	},
+	{
+		id = 18,
+		map = 18,
+		weight = 1000
+	},
+	{
+		id = 19,
+		map = 19,
+		weight = 1000
+	},
+	{
+		id = 20,
+		map = 20,
+		weight = 1000
+	},
+	{
+		id = 21,
+		map = 21,
+		weight = 1000
+	}
+}
+slot0.follow_bound_mid = 300
+slot0.follow_spring = 0.05
+slot0.backgroud_data = {
+	{
+		rate = 0.05,
+		name = &quot;bgBottom&quot;
+	},
+	{
+		rate = 0.1,
+		name = &quot;bgFire&quot;
+	},
+	{
+		rate = 0.15,
+		name = &quot;bgMid&quot;
+	},
+	{
+		rate = 0.2,
+		name = &quot;bgTop&quot;
+	}
+}
+slot0.buff_weapon = 1
+slot0.buff_speed = 2
+slot0.buff_power_speed = 3
+slot0.buff_catch = 4
+slot0.buff_shield = 5
+slot0.buff_data = {
+	{
+		id = 1,
+		buff = slot0.buff_weapon
+	},
+	{
+		id = 2,
+		buff = slot0.buff_speed
+	},
+	{
+		id = 3,
+		lock_item = true,
+		buff = slot0.buff_power_speed
+	},
+	{
+		id = 4,
+		buff = slot0.buff_catch
+	},
+	{
+		id = 5,
+		buff = slot0.buff_shield
+	}
+}
+slot0.BG_TYPE_LOOP = 1
+slot0.BG_TYPE_MID = 2
+slot0.BG_TYPE_TOP = 3
+slot0.BG_TYPE_FIRE = 4
+slot0.BG_TYPE_PETAL = 5
+slot0.bg_data = {
+	{
+		name = &quot;line&quot;,
+		id = 1,
+		bound = Vector2(640, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_LOOP
+	},
+	{
+		name = &quot;bg&quot;,
+		id = 2,
+		bound = Vector2(672, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_LOOP
+	},
+	{
+		name = &quot;bg_A&quot;,
+		id = 3,
+		bound = Vector2(200, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_B&quot;,
+		id = 4,
+		bound = Vector2(200, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_C&quot;,
+		id = 5,
+		bound = Vector2(100, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_D&quot;,
+		id = 6,
+		bound = Vector2(100, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_E&quot;,
+		id = 7,
+		bound = Vector2(100, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_F&quot;,
+		id = 8,
+		bound = Vector2(100, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_G&quot;,
+		id = 9,
+		bound = Vector2(0, 420),
+		pos = Vector2(0, 500),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;bg_H&quot;,
+		id = 10,
+		bound = Vector2(0, 420),
+		pos = Vector2(0, 500),
+		type = slot0.BG_TYPE_MID
+	},
+	{
+		name = &quot;BLD_Anshan&quot;,
+		id = 11,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;BLD_Niku&quot;,
+		id = 12,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;BLD_Shiratsuyu&quot;,
+		id = 13,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;BLD_Laffey_Ayanami&quot;,
+		id = 14,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;BLD_PingHai_NingHai&quot;,
+		id = 15,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;BLD_TaiYuan_ChangChun&quot;,
+		id = 16,
+		bound = Vector2(400, 420),
+		pos = Vector2(0, -90),
+		type = slot0.BG_TYPE_TOP
+	},
+	{
+		name = &quot;Anchor&quot;,
+		id = 17,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;LRG_B&quot;,
+		id = 18,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;LRG_P&quot;,
+		id = 19,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;LRG_Y&quot;,
+		id = 20,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;Manjuu_L&quot;,
+		id = 21,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;Manjuu_S&quot;,
+		id = 22,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;Materials&quot;,
+		id = 23,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;MID_B&quot;,
+		id = 24,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;MID_P&quot;,
+		id = 25,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;MID_Y&quot;,
+		id = 26,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;Ofunya&quot;,
+		id = 27,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;SML_B&quot;,
+		id = 28,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;SML_P&quot;,
+		id = 29,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;SML_Y&quot;,
+		id = 30,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;U_chan&quot;,
+		id = 31,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_FIRE
+	},
+	{
+		name = &quot;Petal_A&quot;,
+		id = 32,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_PETAL
+	},
+	{
+		name = &quot;Petal_B&quot;,
+		id = 33,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_PETAL
+	},
+	{
+		name = &quot;Petal_C&quot;,
+		id = 34,
+		bound = Vector2(20, 0),
+		pos = Vector2(0, 650),
+		type = slot0.BG_TYPE_PETAL
+	}
+}
+slot0.loop_bg = {
+	1,
+	2
+}
+slot0.loop_nums = 3
+slot0.top_bg = {
+	11,
+	12,
+	13,
+	14,
+	15,
+	16
+}
+slot0.mid_bg = {
+	{
+		num = 1,
+		ids = {
+			3,
+			4
+		}
+	},
+	{
+		num = 3,
+		ids = {
+			5,
+			6,
+			7
+		}
+	},
+	{
+		num = 1,
+		ids = {
+			8
+		}
+	},
+	{
+		num = 2,
+		ids = {
+			5,
+			6,
+			7
+		}
+	},
+	{
+		mid_random = true,
+		num = 1,
+		ids = {
+			9,
+			10
+		}
+	}
+}
+slot0.mid_bg_inst_posX = 2500
+slot0.fire_group = {
+	{
+		17
+	},
+	{
+		18
+	},
+	{
+		19
+	},
+	{
+		20
+	},
+	{
+		21
+	},
+	{
+		22
+	},
+	{
+		23
+	},
+	{
+		24
+	},
+	{
+		25
+	},
+	{
+		26
+	},
+	{
+		27
+	},
+	{
+		28
+	},
+	{
+		29
+	},
+	{
+		30
+	},
+	{
+		31
+	}
+}
+slot0.fire_time = {
+	0.1,
+	1
+}
+slot0.fire_remove = 2
+slot0.petal_ids = {
+	32,
+	33,
+	34
+}
+slot0.petal_count_max = 30
+slot0.peta_remove_time = {
+	7,
+	15
+}
+slot0.petal_speed = {
+	-100,
+	-50
+}
+slot0.petal_speed_offset = 25
+slot0.petal_remove_y = 200
+slot0.bg_remove_posX = -500
+slot0.top_bg_inst_posX = 2500
+slot0.monster_speed = {
+	2,
+	5
+}
+slot0.monster_score = 500
+slot0.monster_data = {
+	{
+		id = 1,
+		name = &quot;monster&quot;
+	}
+}
+slot0.effect_data = {
+	{
+		parent = true,
+		name = &quot;EF_bk_Attack&quot;,
+		trigger = &quot;Attack&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Attack_S&quot;,
+		trigger = &quot;Attack_S&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Down&quot;,
+		trigger = &quot;Down&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_bk_Jump&quot;,
+		trigger = &quot;Jump&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_bk_Jump&quot;,
+		trigger = &quot;Jump_LA&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_bk_Land&quot;,
+		trigger = &quot;Land&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_bk_Land&quot;,
+		trigger = &quot;Land_LA&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Land_S&quot;,
+		trigger = &quot;Land_S&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Land_S&quot;,
+		trigger = &quot;Land_S_LA&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Run&quot;,
+		trigger = &quot;Run&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Run&quot;,
+		trigger = &quot;Run_LA&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Run_S&quot;,
+		trigger = &quot;Run_S&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_bk_Run_S&quot;,
+		trigger = &quot;Run_S_LA&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_Attack_LA&quot;,
+		trigger = &quot;Attack_LA&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_Attack_LA&quot;,
+		trigger = &quot;Attack_S_LA&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_EX_off&quot;,
+		trigger = &quot;EX_off&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_EX_on&quot;,
+		trigger = &quot;EX_on&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_Run_EX&quot;,
+		trigger = &quot;Run_EX&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_fr_Attack&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Hit_LA&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Hit_LA&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Get_Score_Item&quot;
+	},
+	{
+		parent = false,
+		name = &quot;EF_fr_Item&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_Barrier_Get&quot;
+	},
+	{
+		parent = true,
+		name = &quot;EF_Barrier_Break&quot;
+	}
+}
+
+slot0.CheckBoxCollider = function(slot0, slot1, slot2, slot3)
+	slot5 = slot0.y
+	slot6 = slot2.x
+	slot7 = slot2.y
+	slot9 = slot1.y
+	slot10 = slot3.x
+	slot11 = slot3.y
+
+	if slot1.x &lt;= slot0.x and slot4 &gt;= slot8 + slot10 then
+		return false
+	elseif slot4 &lt;= slot8 and slot8 &gt;= slot4 + slot6 then
+		return false
+	elseif slot9 &lt;= slot5 and slot5 &gt;= slot9 + slot11 then
+		return false
+	elseif slot5 &lt;= slot9 and slot9 &gt;= slot5 + slot7 then
+		return false
+	else
+		return true
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

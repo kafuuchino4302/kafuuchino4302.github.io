@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>huanxingcanghongzhiyan26-2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>huanxingcanghongzhiyan26-2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;HUANXINGCANGHONGZHIYAN26-2&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			bgm = &quot;theme-akagi-meta&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;轰————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;诸位，下手可真狠啊~不但擅自闯进门来，还打杀了我的看门之物。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900448,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;{namecode:91}·META&quot;,
+			say = &quot;作为客人来说，是否有些太失礼数了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;妖物，{namecode:91:赤城}前辈在哪里？快把{namecode:91:赤城}前辈放了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:91:赤城}？啊~你说的是之前那个不自量力的红毛小狐狸么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……快把{namecode:91:赤城}前辈放了，否则。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;否则如何？她之前不顾死活上来挡枪，不就是在找死么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;我这人喜欢成人之美，自然是成全她了~不用客气。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你……你说什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;非要我说的那么直白么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;人我已经随手杀了，这次听明白了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			dir = 1,
+			actor = 306070,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……你，今天必死。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……{namecode:91:赤城}前辈，我会为你报仇的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			side = 2,
+			actor = 307150,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 305070,
+			say = &quot;嘶……节哀顺变，{namecode:161:天城}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 305070,
+			say = &quot;事已至此……你别生气上头。身体垮了，报不了仇了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;无需担心，我的身体已经无碍了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;倒是此事……唉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……没想到这个META，居然最符合META原本定义的那一类。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			dir = 1,
+			actor = 102160,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官，救援行动已经失败，接下来该怎么办？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;（观察者，她是否在说谎？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900232,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePainting = true,
+			dir = 1,
+			portraitNoise = true,
+			actor = 900232,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（说没说谎我不清楚，不过岛上确实只剩她一个{namecode:91:赤城}了哦。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			paintingNoise = true,
+			say = &quot;（那你呢，你是否说谎？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900232,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePainting = true,
+			dir = 1,
+			portraitNoise = true,
+			actor = 900232,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（哎呦喂~有你家海伦娜盯着，我哪儿敢啊~）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			paintingNoise = true,
+			say = &quot;（……明白了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 900232,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePainting = true,
+			dir = 1,
+			portraitNoise = true,
+			actor = 900232,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;（哦？你明白什么了？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			paintingNoise = true,
+			say = &quot;（——你猜。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;此事尚有疑点，现在认定行动失败为时过早。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:161:天城}，你怎么看？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;这一次，我想先听听{playername}阁下的意见。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不论如何，大战一场是不可避免了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;嗯，如果必须如此的话……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;本次，可否依旧由我作为先锋出战？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;自然。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actor = 307150,
+			say = &quot;诸位……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307060,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:161:天城}大人，不用勉强……我们都懂。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 306070,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……杀。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;呵，想杀我？那得先看看你们有没有这个本事！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_canghongzhiyan_4&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			actor = 900448,
+			actorName = &quot;{namecode:91}·META&quot;,
+			hidePaintObj = true,
+			say = &quot;燃尽一切吧——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

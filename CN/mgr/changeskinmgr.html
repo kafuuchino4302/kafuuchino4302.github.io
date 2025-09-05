@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>changeskinmgr.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>changeskinmgr.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.ChangeSkinMgr = singletonClass(&quot;ChangeSkinMgr&quot;)
+slot0 = pg.ChangeSkinMgr
+slot1 = 1
+slot2 = 2
+slot3 = 3
+slot4 = 4
+
+slot0.Init = function(slot0, slot1)
+	slot0._go = nil
+	slot0._spineContent = nil
+	slot0._mvContent = nil
+	slot0._live2dContent = nil
+	slot0._spineUI = nil
+	slot0._loadObject = nil
+	slot0._loadObjectName = nil
+
+	slot0:initUI(slot1)
+end
+
+slot0.initUI = function(slot0, slot1)
+	if slot0._go == nil then
+		PoolMgr.GetInstance():GetUI(&quot;ChangeSkinUI&quot;, true, function (slot0)
+			uv0._go = slot0
+
+			uv0._go:SetActive(false)
+			uv0._go.transform:SetParent(GameObject.Find(&quot;OverlayCamera/Overlay/UITop&quot;).transform, false)
+
+			uv0._spineContent = findTF(uv0._go, &quot;ad/spine&quot;)
+			uv0._mvContent = findTF(uv0._go, &quot;ad/mv&quot;)
+			uv0._live2dContent = findTF(uv0._go, &quot;ad/live2d&quot;)
+			uv0._animatorContent = findTF(uv0._go, &quot;ad/animator&quot;)
+
+			uv1()
+		end)
+	end
+end
+
+slot0.preloadChangeAction = function(slot0, slot1, slot2)
+	if ShipSkin.GetChangeSkinAction(slot1) and slot3 ~= &quot;&quot; then
+		slot0._isloading = true
+
+		PoolMgr.GetInstance():GetPrefab(&quot;changeskin/&quot; .. slot3, &quot;&quot;, true, function (slot0)
+			if uv0 then
+				PoolMgr.GetInstance():ReturnPrefab(uv0, &quot;&quot;, slot0, false)
+			end
+
+			if uv1 then
+				uv1()
+			end
+
+			uv2._isloading = false
+		end)
+
+		return
+	end
+
+	if slot2 then
+		slot2()
+	end
+end
+
+slot0.isAble = function(slot0)
+	return not slot0._isloading and not slot0._inPlaying
+end
+
+slot0.play = function(slot0, slot1, slot2, slot3, slot4)
+	if slot0._inPlaying then
+		return
+	end
+
+	slot0._inPlaying = true
+	slot0.changeIndex = ShipSkin.GetChangeSkinIndex(slot1)
+	slot0.changeState = ShipSkin.GetChangeSkinState(slot1)
+	slot0.changAction = ShipSkin.GetChangeSkinAction(slot1)
+
+	if slot0.changeState == uv0 then
+		slot0._loadObjectName = &quot;changeskin/&quot; .. slot0.changAction
+
+		PoolMgr.GetInstance():GetPrefab(slot0._loadObjectName, &quot;&quot;, true, function (slot0)
+			uv0._go:SetActive(true)
+
+			uv0._loadObject = slot0
+			uv0._spineUI = tf(slot0)
+
+			uv0._spineUI:SetParent(uv0._spineContent, false)
+			setActive(uv0._spineUI, true)
+
+			uv0._spineAnimUI = GetComponent(findTF(uv0._spineUI, &quot;ad/spine&quot;), typeof(SpineAnimUI))
+
+			uv0._spineAnimUI:SetAction(&quot;change_&quot; .. uv0.changeIndex, 0)
+			uv0._spineAnimUI:SetActionCallBack(function (slot0)
+				if slot0 == &quot;action&quot; then
+					if uv0 then
+						uv0()
+					end
+				elseif slot0 == &quot;finish&quot; then
+					if uv1 then
+						uv1()
+					end
+
+					uv2:finish(uv3)
+				else
+					print(&quot;触发音效&quot; .. slot0)
+					pg.CriMgr.GetInstance():PlaySoundEffect_V3(&quot;event:/ui/&quot; .. slot0)
+				end
+			end)
+		end)
+	elseif slot0.changeState == uv1 then
+		-- Nothing
+	elseif slot0.changeState == uv2 then
+		-- Nothing
+	elseif slot0.changeState == uv3 then
+		slot0._loadObjectName = &quot;changeskin/changeempty&quot;
+
+		PoolMgr.GetInstance():GetPrefab(slot0._loadObjectName, &quot;&quot;, true, function (slot0)
+			uv0._go:SetActive(true)
+
+			uv0._loadObject = slot0
+			uv0._aniamtorTf = tf(slot0)
+
+			uv0._aniamtorTf:SetParent(uv0._spineContent, false)
+			setActive(uv0._aniamtorTf, true)
+
+			uv0._animatorCom = GetComponent(findTF(uv0._aniamtorTf, &quot;ad/animator&quot;), typeof(Animator))
+			uv0._dftEventCom = GetComponent(findTF(uv0._aniamtorTf, &quot;ad/animator&quot;), typeof(DftAniEvent))
+
+			uv0._animatorCom:SetTrigger(&quot;change_&quot; .. uv0.changeIndex)
+			uv0._dftEventCom:SetTriggerEvent(function (slot0)
+				if uv0 then
+					uv0()
+				end
+			end)
+			uv0._dftEventCom:SetEndEvent(function (slot0)
+				if uv0 then
+					uv0()
+				end
+
+				uv1:finish(uv2)
+			end)
+		end)
+	end
+end
+
+slot0.finish = function(slot0, slot1)
+	if LeanTween.isTweening(slot0._go) then
+		LeanTween.cancel(slot0._go)
+	end
+
+	LeanTween.delayedCall(0.5, System.Action(function ()
+		if uv0._spineAnimUI then
+			uv0._spineAnimUI:SetActionCallBack(nil)
+
+			uv0._spineAnimUI = nil
+		end
+
+		if uv0._loadObject then
+			PoolMgr.GetInstance():ReturnPrefab(uv0._loadObjectName, &quot;&quot;, uv0._loadObject, true)
+		end
+
+		uv0._inPlaying = false
+
+		if uv0._go then
+			uv0._go:SetActive(false)
+		end
+
+		if uv1 then
+			uv1()
+		end
+	end))
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

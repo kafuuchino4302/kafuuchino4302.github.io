@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>url.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>url.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = require(&quot;string&quot;)
+slot1 = _G
+slot2 = require(&quot;table&quot;)
+slot3 = require(&quot;socket&quot;)
+slot3.url = {}
+slot4 = slot3.url
+slot4._VERSION = &quot;URL 1.0.3&quot;
+
+slot4.escape = function(slot0)
+	return uv0.gsub(slot0, &quot;([^A-Za-z0-9_])&quot;, function (slot0)
+		return uv0.format(&quot;%%%02x&quot;, uv0.byte(slot0))
+	end)
+end
+
+slot6 = (function (slot0)
+	slot1 = {}
+
+	for slot5, slot6 in uv0.ipairs(slot0) do
+		slot1[slot0[slot5]] = 1
+	end
+
+	return slot1
+end)({
+	&quot;-&quot;,
+	&quot;_&quot;,
+	&quot;.&quot;,
+	&quot;!&quot;,
+	&quot;~&quot;,
+	&quot;*&quot;,
+	&quot;&#x27;&quot;,
+	&quot;(&quot;,
+	&quot;)&quot;,
+	&quot;:&quot;,
+	&quot;@&quot;,
+	&quot;&amp;&quot;,
+	&quot;=&quot;,
+	&quot;+&quot;,
+	&quot;$&quot;,
+	&quot;,&quot;
+})
+
+slot7 = function(slot0)
+	return uv0.gsub(slot0, &quot;([^A-Za-z0-9_])&quot;, function (slot0)
+		if uv0[slot0] then
+			return slot0
+		else
+			return uv1.format(&quot;%%%02x&quot;, uv1.byte(slot0))
+		end
+	end)
+end
+
+slot4.unescape = function(slot0)
+	return uv0.gsub(slot0, &quot;%%(%x%x)&quot;, function (slot0)
+		return uv0.char(uv1.tonumber(slot0, 16))
+	end)
+end
+
+slot8 = function(slot0, slot1)
+	if uv0.sub(slot1, 1, 1) == &quot;/&quot; then
+		return slot1
+	end
+
+	slot2 = uv0.gsub(uv0.gsub(uv0.gsub(slot0, &quot;[^/]*$&quot;, &quot;&quot;) .. slot1, &quot;([^/]*%./)&quot;, function (slot0)
+		if slot0 ~= &quot;./&quot; then
+			return slot0
+		else
+			return &quot;&quot;
+		end
+	end), &quot;/%.$&quot;, &quot;/&quot;)
+	slot3 = nil
+
+	while slot3 ~= slot2 do
+		slot2 = uv0.gsub(slot2, &quot;([^/]*/%.%./)&quot;, function (slot0)
+			if slot0 ~= &quot;../../&quot; then
+				return &quot;&quot;
+			else
+				return slot0
+			end
+		end)
+	end
+
+	return uv0.gsub(slot3, &quot;([^/]*/%.%.)$&quot;, function (slot0)
+		if slot0 ~= &quot;../..&quot; then
+			return &quot;&quot;
+		else
+			return slot0
+		end
+	end)
+end
+
+slot4.parse = function(slot0, slot1)
+	slot3 = uv0.pairs
+	slot4 = slot1 or {}
+
+	for slot6, slot7 in slot3(slot4) do
+		slot2[slot6] = slot7
+	end
+
+	if not slot0 or slot0 == &quot;&quot; then
+		return nil, &quot;invalid url&quot;
+	end
+
+	if uv1.gsub(uv1.gsub(uv1.gsub(uv1.gsub(uv1.gsub(slot0, &quot;#(.*)$&quot;, function (slot0)
+		uv0.fragment = slot0
+
+		return &quot;&quot;
+	end), &quot;^([%w][%w%+%-%.]*)%:&quot;, function (slot0)
+		uv0.scheme = slot0
+
+		return &quot;&quot;
+	end), &quot;^//([^/]*)&quot;, function (slot0)
+		uv0.authority = slot0
+
+		return &quot;&quot;
+	end), &quot;%?(.*)&quot;, function (slot0)
+		uv0.query = slot0
+
+		return &quot;&quot;
+	end), &quot;%;(.*)&quot;, function (slot0)
+		uv0.params = slot0
+
+		return &quot;&quot;
+	end) ~= &quot;&quot; then
+		slot2.path = slot0
+	end
+
+	if not slot2.authority then
+		return slot2
+	end
+
+	if uv1.gsub(uv1.gsub(slot3, &quot;^([^@]*)@&quot;, function (slot0)
+		uv0.userinfo = slot0
+
+		return &quot;&quot;
+	end), &quot;:([^:%]]*)$&quot;, function (slot0)
+		uv0.port = slot0
+
+		return &quot;&quot;
+	end) ~= &quot;&quot; then
+		slot2.host = uv1.match(slot3, &quot;^%[(.+)%]$&quot;) or slot3
+	end
+
+	if not slot2.userinfo then
+		return slot2
+	end
+
+	slot2.user = uv1.gsub(slot4, &quot;:([^:]*)$&quot;, function (slot0)
+		uv0.password = slot0
+
+		return &quot;&quot;
+	end)
+
+	return slot2
+end
+
+slot4.build = function(slot0)
+	slot2 = uv0.build_path(uv0.parse_path(slot0.path or &quot;&quot;))
+
+	if slot0.params then
+		slot2 = slot2 .. &quot;;&quot; .. slot0.params
+	end
+
+	if slot0.query then
+		slot2 = slot2 .. &quot;?&quot; .. slot0.query
+	end
+
+	slot3 = slot0.authority
+
+	if slot0.host then
+		if uv1.find(slot0.host, &quot;:&quot;) then
+			slot3 = &quot;[&quot; .. slot3 .. &quot;]&quot;
+		end
+
+		if slot0.port then
+			slot3 = slot3 .. &quot;:&quot; .. slot0.port
+		end
+
+		slot4 = slot0.userinfo
+
+		if slot0.user then
+			slot4 = slot0.user
+
+			if slot0.password then
+				slot4 = slot4 .. &quot;:&quot; .. slot0.password
+			end
+		end
+
+		if slot4 then
+			slot3 = slot4 .. &quot;@&quot; .. slot3
+		end
+	end
+
+	if slot3 then
+		slot2 = &quot;//&quot; .. slot3 .. slot2
+	end
+
+	if slot0.scheme then
+		slot2 = slot0.scheme .. &quot;:&quot; .. slot2
+	end
+
+	if slot0.fragment then
+		slot2 = slot2 .. &quot;#&quot; .. slot0.fragment
+	end
+
+	return slot2
+end
+
+slot4.absolute = function(slot0, slot1)
+	slot2 = nil
+
+	if uv0.type(slot0) == &quot;table&quot; then
+		slot0 = uv1.build(slot0)
+	else
+		slot2 = uv1.parse(slot0)
+	end
+
+	slot3 = uv1.parse(slot1)
+
+	if not slot2 then
+		return slot1
+	elseif not slot3 then
+		return slot0
+	elseif slot3.scheme then
+		return slot1
+	else
+		slot3.scheme = slot2.scheme
+
+		if not slot3.authority then
+			slot3.authority = slot2.authority
+
+			if not slot3.path then
+				slot3.path = slot2.path
+
+				if not slot3.params then
+					slot3.params = slot2.params
+
+					if not slot3.query then
+						slot3.query = slot2.query
+					end
+				end
+			else
+				slot3.path = uv2(slot2.path or &quot;&quot;, slot3.path)
+			end
+		end
+
+		return uv1.build(slot3)
+	end
+end
+
+slot4.parse_path = function(slot0)
+	slot1 = {}
+
+	uv0.gsub(slot0 or &quot;&quot;, &quot;([^/]+)&quot;, function (slot0)
+		uv0.insert(uv1, slot0)
+	end)
+
+	for slot5 = 1, #slot1 do
+		slot1[slot5] = uv2.unescape(slot1[slot5])
+	end
+
+	if uv0.sub(slot0, 1, 1) == &quot;/&quot; then
+		slot1.is_absolute = 1
+	end
+
+	if uv0.sub(slot0, -1, -1) == &quot;/&quot; then
+		slot1.is_directory = 1
+	end
+
+	return slot1
+end
+
+slot4.build_path = function(slot0, slot1)
+	slot2 = &quot;&quot;
+	slot3 = #slot0
+
+	if slot1 then
+		for slot7 = 1, slot3 - 1 do
+			slot2 = slot2 .. slot0[slot7] .. &quot;/&quot;
+		end
+
+		if slot3 &gt; 0 then
+			slot2 = slot2 .. slot0[slot3]
+
+			if slot0.is_directory then
+				slot2 = slot2 .. &quot;/&quot;
+			end
+		end
+	else
+		for slot7 = 1, slot3 - 1 do
+			slot2 = slot2 .. uv0(slot0[slot7]) .. &quot;/&quot;
+		end
+
+		if slot3 &gt; 0 then
+			slot2 = slot2 .. uv0(slot0[slot3])
+
+			if slot0.is_directory then
+				slot2 = slot2 .. &quot;/&quot;
+			end
+		end
+	end
+
+	if slot0.is_absolute then
+		slot2 = &quot;/&quot; .. slot2
+	end
+
+	return slot2
+end
+
+return slot4
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

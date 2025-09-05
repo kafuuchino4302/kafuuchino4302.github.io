@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainchaptertimeupsequence.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainchaptertimeupsequence.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainChapterTimeUpSequence&quot;)
+
+slot0.Execute = function(slot0, slot1)
+	slot2 = getProxy(ChapterProxy)
+
+	slot2:checkRemasterInfomation()
+
+	slot4 = slot2:getActiveChapter() and slot2:getMapById(slot3:getConfig(&quot;map&quot;))
+
+	if slot3 and (not slot3:inWartime() or not slot4:isRemaster() and not slot3:inActTime()) then
+		ChapterOpCommand.PrepareChapterRetreat(function ()
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;levelScene_chapter_timeout&quot;))
+
+			if uv0 then
+				uv0()
+			end
+		end)
+	elseif slot1 then
+		slot1()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

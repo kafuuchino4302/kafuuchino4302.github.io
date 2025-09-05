@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandawarddisplay4shipskillwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandawarddisplay4shipskillwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAwardDisplay4ShipSkillWindow&quot;, import(&quot;.IslandAwardDisplayWindow&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandAwardDisplayForShipSkillUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.nameTxt = slot0:findTF(&quot;frame/bg/item/name&quot;):GetComponent(typeof(Text))
+	slot0.levelTxt = slot0:findTF(&quot;frame/bg/item/level&quot;):GetComponent(typeof(Text))
+	slot0.descTxt = slot0:findTF(&quot;frame/bg/item/desc&quot;):GetComponent(typeof(Text))
+	slot0.iconTr = slot0:findTF(&quot;frame/bg/item/icon&quot;)
+	slot0.uiNewStart = UIItemList.New(slot0:findTF(&quot;frame/bg/starts&quot;), slot0:findTF(&quot;frame/bg/starts/tpl&quot;))
+end
+
+slot0.Show = function(slot0, slot1)
+	slot1.awards = {}
+
+	uv0.super.Show(slot0, slot1)
+
+	slot0.title.text = i18n(&quot;island_unlock_skill&quot;)
+	slot2 = slot1.skill
+	slot0.nameTxt.text = slot2:GetName()
+	slot0.levelTxt.text = &quot;[Lv.&quot; .. slot2:GetLevel() .. &quot;]&quot;
+	slot0.descTxt.text = slot2:GetEffectDesc()
+
+	GetImageSpriteFromAtlasAsync(&quot;island/IslandSkillIcon/&quot; .. slot2:GetIcon(), &quot;&quot;, slot0.iconTr)
+	slot0:UpdateBreakLevel(slot1.ship)
+end
+
+slot0.UpdateBreakLevel = function(slot0, slot1)
+	slot0.uiNewStart:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setActive(slot2:Find(&quot;Image&quot;), slot1 &lt; uv0:GetBreakLevel())
+		end
+	end)
+	slot0.uiNewStart:align(slot1:GetBreakMaxLevel())
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gameroom_shop_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gameroom_shop_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.gameroom_shop_template = {
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 1,
+		type = 6,
+		price = 7500,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 5,
+		goods_name = &quot;美味的祭典？&quot;,
+		goods_type = 1,
+		id = 1,
+		drop_type = 7,
+		order = 4,
+		goods = {
+			201221
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 1,
+		type = 6,
+		price = 7500,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 5,
+		goods_name = &quot;新年的剑鬼&quot;,
+		goods_type = 1,
+		id = 2,
+		drop_type = 7,
+		order = 5,
+		goods = {
+			302081
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱&quot;,
+		goods_type = 1,
+		id = 3,
+		drop_type = 2,
+		order = 111,
+		goods = {
+			30302
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(春节)&quot;,
+		goods_type = 1,
+		id = 4,
+		drop_type = 2,
+		order = 112,
+		goods = {
+			30304
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(开学季)&quot;,
+		goods_type = 1,
+		id = 5,
+		drop_type = 2,
+		order = 113,
+		goods = {
+			30305
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(夏末)&quot;,
+		goods_type = 1,
+		id = 6,
+		drop_type = 2,
+		order = 114,
+		goods = {
+			30307
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(小猪)&quot;,
+		goods_type = 1,
+		id = 7,
+		drop_type = 2,
+		order = 115,
+		goods = {
+			30310
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(皇家)&quot;,
+		goods_type = 1,
+		id = 8,
+		drop_type = 2,
+		order = 116,
+		goods = {
+			30311
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(撒丁)&quot;,
+		goods_type = 1,
+		id = 9,
+		drop_type = 2,
+		order = 117,
+		goods = {
+			30314
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(激奏)&quot;,
+		goods_type = 1,
+		id = 10,
+		drop_type = 2,
+		order = 118,
+		goods = {
+			30315
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(北联)&quot;,
+		goods_type = 1,
+		id = 11,
+		drop_type = 2,
+		order = 119,
+		goods = {
+			30317
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(白鹰)&quot;,
+		goods_type = 1,
+		id = 12,
+		drop_type = 2,
+		order = 120,
+		goods = {
+			30318
+		},
+		time = {
+			{
+				{
+					2023,
+					6,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2033,
+					6,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 1,
+		type = 6,
+		price = 7500,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 5,
+		goods_name = &quot;Candy Magic！&quot;,
+		goods_type = 1,
+		id = 13,
+		drop_type = 7,
+		order = 2,
+		goods = {
+			101291
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 1,
+		type = 6,
+		price = 7500,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 5,
+		goods_name = &quot;迎春的神乐舞&quot;,
+		goods_type = 1,
+		id = 14,
+		drop_type = 7,
+		order = 3,
+		goods = {
+			301571
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(鸢尾)&quot;,
+		goods_type = 1,
+		id = 15,
+		drop_type = 2,
+		order = 101,
+		goods = {
+			30319
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(医疗)&quot;,
+		goods_type = 1,
+		id = 16,
+		drop_type = 2,
+		order = 102,
+		goods = {
+			30320
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot; 外观装备箱(重樱)&quot;,
+		goods_type = 1,
+		id = 17,
+		drop_type = 2,
+		order = 103,
+		goods = {
+			30321
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(激唱)&quot;,
+		goods_type = 1,
+		id = 18,
+		drop_type = 2,
+		order = 104,
+		goods = {
+			30322
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(铁血)&quot;,
+		goods_type = 1,
+		id = 19,
+		drop_type = 2,
+		order = 105,
+		goods = {
+			30324
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(2021春节)&quot;,
+		goods_type = 1,
+		id = 20,
+		drop_type = 2,
+		order = 106,
+		goods = {
+			30325
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(游乐园)&quot;,
+		goods_type = 1,
+		id = 21,
+		drop_type = 2,
+		order = 107,
+		goods = {
+			30326
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(牛仔)&quot;,
+		goods_type = 1,
+		id = 22,
+		drop_type = 2,
+		order = 108,
+		goods = {
+			30328
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(水上乐园)&quot;,
+		goods_type = 1,
+		id = 23,
+		drop_type = 2,
+		order = 109,
+		goods = {
+			30329
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(女仆咖啡)&quot;,
+		goods_type = 1,
+		id = 24,
+		drop_type = 2,
+		order = 110,
+		goods = {
+			30331
+		},
+		time = {
+			{
+				{
+					2024,
+					8,
+					8
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 1,
+		type = 6,
+		price = 7500,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 5,
+		goods_name = &quot;新年的LittleKnight&quot;,
+		goods_type = 1,
+		id = 25,
+		drop_type = 7,
+		order = 1,
+		goods = {
+			202072
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(2022春节)&quot;,
+		goods_type = 1,
+		id = 26,
+		drop_type = 2,
+		order = 96,
+		goods = {
+			30332
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(红月)&quot;,
+		goods_type = 1,
+		id = 27,
+		drop_type = 2,
+		order = 97,
+		goods = {
+			30333
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(东煌时尚)&quot;,
+		goods_type = 1,
+		id = 28,
+		drop_type = 2,
+		order = 98,
+		goods = {
+			30334
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(童话世界)&quot;,
+		goods_type = 1,
+		id = 29,
+		drop_type = 2,
+		order = 99,
+		goods = {
+			30335
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	{
+		goods_icon = &quot;&quot;,
+		goods_purchase_limit = 10,
+		type = 2,
+		price = 1200,
+		num = 1,
+		month_re = 0,
+		goods_rarity = 4,
+		goods_name = &quot;外观装备箱(舞蹈)&quot;,
+		goods_type = 1,
+		id = 30,
+		drop_type = 2,
+		order = 100,
+		goods = {
+			30336
+		},
+		time = {
+			{
+				{
+					2025,
+					6,
+					5
+				},
+				{
+					0,
+					0,
+					0
+				}
+			},
+			{
+				{
+					2034,
+					8,
+					8
+				},
+				{
+					23,
+					59,
+					59
+				}
+			}
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

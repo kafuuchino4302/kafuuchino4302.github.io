@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandtasktarget.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandtasktarget.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandTaskTarget&quot;, import(&quot;model.vo.BaseVO&quot;))
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.id = slot1.target_id
+	slot0.configId = slot0.id
+	slot0.progress = slot1.target_count or 0
+end
+
+slot0.bindConfigTable = function(slot0)
+	return pg.island_task_target
+end
+
+slot0.GetType = function(slot0)
+	return slot0:getConfig(&quot;type&quot;)
+end
+
+slot0.GetTargetParam = function(slot0)
+	return slot0:getConfig(&quot;target_param&quot;)
+end
+
+slot0.GetTargetId = function(slot0)
+	return slot0:getConfig(&quot;target_param&quot;)[1]
+end
+
+slot0.GetTargetNum = function(slot0)
+	return slot0:getConfig(&quot;target_num&quot;)
+end
+
+slot0.GetTrackParma = function(slot0)
+	return slot0:getConfig(&quot;tips&quot;)
+end
+
+slot0.GetProgress = function(slot0)
+	if table.contains(IslandTaskTargetType.GetRuntimeTypes(), slot0:GetType()) then
+		slot0.progress = IslandTaskHelper.GetRuntimeData(slot1, slot0:GetTargetParam())
+	end
+
+	return slot0.progress
+end
+
+slot0.UpdateProgress = function(slot0, slot1)
+	slot0.progress = slot1
+end
+
+slot0.IsFinish = function(slot0)
+	return slot0:GetProgress() / slot0:GetTargetNum() &gt;= 1
+end
+
+slot0.CheckTypeAndTargetId = function(slot0, slot1, slot2)
+	return slot0:GetType() == slot1 and slot0:GetTargetId() == slot2
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

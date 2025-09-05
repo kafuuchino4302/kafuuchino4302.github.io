@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainactrefluxbtn.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainactrefluxbtn.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainActRefluxBtn&quot;, import(&quot;.MainBaseSpcailActBtn&quot;))
+
+slot0.GetContainer = function(slot0)
+	return slot0.root.parent:Find(&quot;link_top/layout&quot;)
+end
+
+slot0.InShowTime = function(slot0)
+	return getProxy(RefluxProxy):isActive()
+end
+
+slot0.GetUIName = function(slot0)
+	return &quot;MainUIReturnBtn&quot;
+end
+
+slot0.OnClick = function(slot0)
+	slot0.event:emit(NewMainMediator.GO_SCENE, SCENE.REFLUX)
+end
+
+slot0.OnRegister = function(slot0)
+	slot0.redDot = EffectRedDotNode.New(slot0._tf, {
+		pg.RedDotMgr.TYPES.ACT_RETURN
+	})
+
+	pg.redDotHelper:AddNode(slot0.redDot)
+end
+
+slot0.OnClear = function(slot0)
+	if slot0.redDot then
+		pg.redDotHelper:RemoveNode(slot0.redDot)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

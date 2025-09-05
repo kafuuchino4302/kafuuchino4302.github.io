@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beiliwanshengjie1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>beiliwanshengjie1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;BEILIWANSHENGJIE1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;捣蛋万圣夜！\n\n&lt;size=45&gt;一 去寻找迷路的幽灵吧！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_story_task&quot;,
+			side = 2,
+			dir = -1,
+			bgmDelay = 2,
+			bgm = &quot;story-1&quot;,
+			actor = 102091,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;锵锵！&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;哇哦～好大！&quot;,
+			side = 1,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 306051,
+			actorName = &quot;{namecode:87}&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0.5,
+					dur = 0.2,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301051,
+			actorName = &quot;{namecode:6}&quot;,
+			say = &quot;这就是今天要展示的“超级南瓜灯”吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102091,
+			side = 0,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;正是！从种植到雕刻！在大家的帮助下才终于完成的超级南瓜灯！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301171,
+			actorName = &quot;{namecode:19}&quot;,
+			say = &quot;顺便一提，里面的东西吾辈已经全部做成派了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102091,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;哼哼，我已经等不及了，赶紧试试效果吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102091,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;…奇怪？没反应？难道是里面的灯出故障了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 301051,
+			dir = 1,
+			hideOther = true,
+			actorName = &quot;{namecode:6}&amp;{namecode:87}&quot;,
+			say = &quot;……&quot;,
+			subActors = {
+				{
+					dir = 1,
+					actor = 306051,
+					pos = {
+						x = 1030.5
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 306051,
+			actorName = &quot;{namecode:87}&quot;,
+			say = &quot;唔…有点麻烦了啊，晚上的派对马上就要开始了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 301051,
+			actorName = &quot;{namecode:6}&quot;,
+			say = &quot;南瓜的嘴巴那里…好像有个东西&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102091,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = -1,
+			say = &quot;嗯？啊，真的诶！…有张纸条！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 306051,
+			actorName = &quot;{namecode:87}&quot;,
+			say = &quot;“万圣节派对中混进了一个迷路的幽灵，要集三位善良的魔女之力才能将其送回家”？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 306051,
+			actorName = &quot;{namecode:87}&quot;,
+			say = &quot;这是什么意思？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_task&quot;,
+			actor = 301051,
+			dir = 1,
+			hideOther = true,
+			actorName = &quot;{namecode:6}&amp;{namecode:19}&quot;,
+			say = &quot;“三位善良的魔女”？&quot;,
+			subActors = {
+				{
+					dir = 1,
+					actor = 301171,
+					pos = {
+						x = 1030.5
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101271,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哼哼，这时候！就轮到热心的兔兔星魔女登场了！&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = -1,
+			actor = 102091,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哇，魔女真的出现啦！&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 101271,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;就让来自兔兔星的魔女贝利来帮忙吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:6}&amp;{namecode:19}&amp;克利夫兰&quot;,
+			side = 0,
+			bgName = &quot;bg_story_task&quot;,
+			hideOther = true,
+			dir = 1,
+			blackBg = true,
+			actor = 301051,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦哦哦——&quot;,
+			subActors = {
+				{
+					actor = 301171,
+					pos = {
+						x = 555
+					}
+				},
+				{
+					actor = 102091,
+					dir = -1,
+					pos = {
+						x = 1125
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

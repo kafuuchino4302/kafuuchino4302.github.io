@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shengyongqu24.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shengyongqu24.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;SHENGYONGQU24&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			say = &quot;在拉.加利索尼埃舰队出其不意的近距离冲击下，缺乏护卫舰的航空编队如同靶子一般一艘接一艘的被击破了。&quot;,
+			side = 2,
+			dir = 1,
+			bgm = &quot;level-french2&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;原本计划中应该是这样的………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;嗡------------&quot;,
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/battle/plane&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;喂喂喂，这些舰载机是怎么回事，从哪儿冒出来的啊！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 807010,
+			say = &quot;抱歉喽。黎塞留早就看穿了你们的计划，这些舰载机都是为了你特意准备的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;数队隐藏多时的舰载机，如同箭雨一般从云层中俯冲而下，密集火力让所有靠近光辉和贝亚恩的企图都化为了燃烧的火焰。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			say = &quot;唔，阿尔及利亚没说过这种情况之后该怎么办啊…果然计划这东西是永远赶不上变化的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			say = &quot;算了，想这么多不是我的风格。来都来了，继续鼓起干劲大闹一场吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 807010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎，等等，你还要打么？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 207030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;快住手吧，拉.加利索尼埃小姐。你已经没有胜算了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			say = &quot;这可不行呢。既然从上面接下了任务，无论如何都要不惜代价的完成，这可是审判庭的教条哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			say = &quot;如果今日的牺牲不可避免，至少让我以不辱审判庭的方式做个谢幕演出吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 807010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;拉.加利索尼埃！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;皇家的光辉小姐，很荣幸能由你作为最后对手，永别了---------！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.8,
+					dur = 0.5,
+					x = 2500
+				}
+			}
+		},
+		{
+			actor = 207030,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;舰载机，锁定目标------------&quot;,
+			soundeffect = &quot;event:/battle/plane&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			stopbgm = true,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;通讯器&quot;,
+			say = &quot;嘀------------&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			actor = 903020,
+			actorName = &quot;阿尔及利亚&quot;,
+			say = &quot;快住手，拉.加利索尼埃！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 805010,
+			actorName = &quot;黎塞留&quot;,
+			say = &quot;请等一下，光辉！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 902010,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;哎？阿尔及利亚，发生什么事了…？&quot;,
+			bgm = &quot;hunhe-battle&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 903020,
+			say = &quot;还问我发生什么事了…既然偷袭失败就赶紧撤退啊！怎么在这方面比教廷骑士还死板……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			say = &quot;你之前也没说啊…唉，我还以为你的意思是让我偷袭不成就就地牺牲报国呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 903020,
+			say = &quot;………………我用极光之壁掩护你，快点撤回来。我们现在还有胜算，不要做无谓的牺牲。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 902010,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;早说嘛~不好意思咯光辉小姐，看来现在还不是牺牲的时候。上面的谢幕演说收回，我们一会儿再见吧~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;move&quot;,
+					delay = 0.8,
+					dur = 0.5,
+					x = -2500
+				}
+			}
+		},
+		{
+			actor = 207030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;等-----！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;伴随着拉.加利索尼埃的后撤，极光之壁同时发生了变化。一阵闪光过后，一面新出现的屏障阻挡了光辉等人追击的道路。&quot;,
+			flashout = {
+				dur = 0.25,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.25,
+				dur = 0.25,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			paintingNoise = true,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 805010,
+			say = &quot;光辉、贝亚恩，现在就先让她回去吧。你们重新整队之后前来同主力舰队汇合，决战的时刻就要到了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……我明白了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呼呼呼，实际接触之后才发现，自由鸢尾的枢机主教黎塞留，好像和传闻中有些不太一样呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

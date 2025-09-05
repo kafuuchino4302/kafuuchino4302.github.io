@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandsceneloader.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandsceneloader.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandSceneLoader&quot;)
+
+slot0.Load = function(slot0, slot1, slot2, slot3, slot4)
+	slot0.sceneIndex = slot4 or 1
+
+	pg.UIMgr.GetInstance():LoadingOn(false)
+
+	slot5 = {
+		function (slot0)
+			uv0:LoadProgressUI(slot0)
+		end,
+		function (slot0)
+			gcAll(true)
+			onNextTick(slot0)
+		end,
+		function (slot0)
+			uv0:LoadScene(uv1, slot0)
+		end,
+		function (slot0)
+			uv0:LoadNavigationMesh(uv1, slot0)
+		end,
+		function (slot0)
+			uv0:UnloadProgressUI()
+			slot0()
+		end
+	}
+
+	for slot9 = #slot3, 1, -1 do
+		table.insert(slot5, 5, slot3[slot9])
+	end
+
+	seriesAsync(slot5, function ()
+		pg.UIMgr.GetInstance():LoadingOff()
+	end)
+end
+
+slot0.LoadProgressUI = function(slot0, slot1)
+	slot2 = pg.SceneAnimMgr.GetInstance()
+
+	slot2:Dorm3DSceneChange(function (slot0)
+		uv0.resumeCallback = slot0
+
+		return uv1()
+	end)
+end
+
+slot0.UnloadProgressUI = function(slot0)
+	slot0.resumeCallback = nil
+
+	existCall(slot0.resumeCallback)
+end
+
+slot0.LoadSceneWithProgress = function(slot0, slot1, slot2)
+	slot3 = string.lower(slot1)
+	slot4 = string.match(slot3, &quot;[^/]+$&quot;)
+	slot5 = slot3 .. &quot;_scene&quot;
+	slot0.scenePath = slot5
+	slot0.sceneName = slot4
+	slot6 = SceneOpMgr.Inst
+
+	slot6:LoadSceneAsyncWithProgress(slot5, slot4, LoadSceneMode.Additive, function (slot0)
+		if slot0 == 1 then
+			SceneOpMgr.Inst:SetActiveSceneByIndex(uv0.sceneIndex)
+		end
+
+		uv1(slot0)
+	end)
+end
+
+slot0.LoadScene = function(slot0, slot1, slot2)
+	slot0:LoadSceneWithProgress(slot1, function (slot0)
+		if slot0 == 1 then
+			existCall(uv0)
+		end
+	end)
+end
+
+slot0.LoadNavigationMesh = function(slot0, slot1, slot2)
+	if not slot1 then
+		slot2()
+
+		return
+	end
+
+	slot3 = ResourceMgr.Inst
+
+	slot3:getAssetAsync(&quot;island/Navmesh/&quot; .. slot1, &quot;&quot;, typeof(GameObject), UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+		assert(slot0, &quot;导航网格不能为空&gt;&gt;&gt;&gt;&gt;&quot; .. uv0)
+		Object.Instantiate(slot0)
+		uv1()
+	end), true, true)
+end
+
+slot0.UnLoad = function(slot0, slot1)
+	slot0:UnloadProgressUI()
+
+	slot3 = slot0.sceneName
+
+	if not slot0.scenePath or not slot3 then
+		return
+	end
+
+	slot4 = pg.UIMgr.GetInstance()
+
+	slot4:LoadingOn()
+
+	slot4 = SceneOpMgr.Inst
+
+	slot4:UnloadSceneAsync(slot2, slot3, function ()
+		pg.UIMgr.GetInstance():LoadingOff()
+	end)
+
+	slot0.scenePath = nil
+	slot0.sceneName = nil
+end
+
+slot0.Dispose = function(slot0, slot1)
+	slot0:UnLoad(slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

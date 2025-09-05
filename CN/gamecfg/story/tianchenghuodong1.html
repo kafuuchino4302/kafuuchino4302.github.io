@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tianchenghuodong1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tianchenghuodong1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;TIANCHENGHUODONG1&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;&quot;,
+					0.2
+				}
+			},
+			signDate = {
+				&quot;东大洋——坐标，28.502085, -177.914427&quot;,
+				0.2,
+				{
+					600,
+					-480
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;battle-2&quot;,
+			actor = 307040,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;还没准备好吗！？对方已经展开反击了！&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;一航战二航战全员听令，立刻将舰载机换装鱼雷武装，准备展开对舰攻击！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;什么，在这个时候换装！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;兵贵神速，一步千金，如果被对手抓住了这个机会的话…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;方位0630，高度2000，发现复数敌机，高速接近中！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;正后方？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307020,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;所有战机立刻回防，展开防空火…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			actor = 307020,
+			say = &quot;啊——&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			actorName = &quot;{namecode:91}&quot;,
+			dir = 1,
+			blackBg = true,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:92}，{namecode:92}！！&quot;,
+			flashin = {
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				delay = 1,
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;…………&lt;/size&gt;&quot;,
+					2
+				},
+				{
+					&quot;&lt;size=51&gt;……&lt;/size&gt;&quot;,
+					4
+				},
+				{
+					&quot;&lt;size=51&gt;真是失算啊…居然在关键时刻犯了如此兵家大忌…&lt;/size&gt;&quot;,
+					6
+				},
+				{
+					&quot;&lt;size=51&gt;…&lt;/size&gt; &quot;,
+					8
+				},
+				{
+					&quot;&lt;size=51&gt;…对不起，辜负了您的期待…&lt;/size&gt;&quot;,
+					10
+				},
+				{
+					&quot;……&quot;,
+					12
+				},
+				{
+					&quot;&lt;size=51&gt;{namecode:161}…大人&lt;/size&gt;&quot;,
+					14
+				}
+			}
+		},
+		{
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;                                                              ——苍红的回响&lt;/size&gt;&quot;,
+					2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			dir = 1,
+			bgmDelay = 2,
+			bgm = &quot;story-tiancheng&quot;,
+			say = &quot;？？年前——&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵呵…这样就将死了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:92}&quot;,
+			say = &quot;啊——！！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 12.75,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:91}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;姐姐大人已经十连胜了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;居然这样把我的金将诱骗进了斜行，太狡猾了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哼哼，谁叫{namecode:92}你总是急于进攻呢，当你的王将走到中段时结局就已经显而易见了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;有的时候，以守为攻把猎物悄悄的诱骗进包围网反而能取得意外的收获哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;什么嘛，一副得意洋洋的样子，尾巴都翘得老高了，这局不过是我疏忽大意了而已……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			dir = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;收拾好驹台，我们再战一局！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;再战一局&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;见好就收&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			dir = 1,
+			optionFlag = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊——！！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 12.75,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:91}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			dir = 1,
+			optionFlag = 1,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;姐姐大人十一连胜～&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;时间不早了，{namecode:91}，我们也该回去了，再待下去就要打扰到{namecode:92}大人修行了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:91}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊，好——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;赢完就想要逃跑吗！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;才不是呢～别忘了，重樱一年一度最重要的联合演习后天就要开始了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:161}&quot;,
+			side = 0,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我想{namecode:92}大人也不会想在战场上输得像今天一样惨吧？呵呵呵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;{namecode:92}&quot;,
+			side = 1,
+			bgName = &quot;bg_story_tiancheng1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;…哼，既然如此…究竟谁才是最强的新世代战舰，就放到实战中见分晓吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			stopbgm = true,
+			side = 2,
+			dir = 1,
+			actor = 305060,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;姐姐大人，我去探查了一下~这一届的候选者们都很兴致昂扬呢，这一次的演习有得看了。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305050,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不是说过，周围有人的时候注意不要叫我“姐姐”嘛…！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305060,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;诶～为什么不能叫姐姐大人姐姐大人呀？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305050,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔唔唔…随你喜欢吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 305050,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;这次的联合演习吗？可能会和以往略有不同…希望一切都能顺利就好了…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

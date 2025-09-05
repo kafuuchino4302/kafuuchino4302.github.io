@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settingsaccountchpanle.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>settingsaccountchpanle.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SettingsAccountCHPanle&quot;, import(&quot;.SettingsBasePanel&quot;))
+
+slot0.GetUIName = function(slot0)
+	return &quot;SettingsAccountCH&quot;
+end
+
+slot0.GetTitle = function(slot0)
+	return &quot;注销账户&quot;
+end
+
+slot0.GetTitleEn = function(slot0)
+	return &quot;/ Account Deactivation&quot;
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, findTF(slot0._tf, &quot;delete&quot;), function ()
+		pg.SdkMgr.GetInstance():DeleteAccount()
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

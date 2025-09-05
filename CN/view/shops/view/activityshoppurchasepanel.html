@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activityshoppurchasepanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activityshoppurchasepanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityShopPurchasePanel&quot;, import(&quot;.GuildShopPurchasePanel&quot;))
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0, slot1)
+
+	if slot1.icon then
+		GetImageSpriteFromAtlasAsync(slot1.icon, &quot;&quot;, slot0.resIcon)
+	end
+end
+
+slot0.SetConfirmCb = function(slot0, slot1)
+	slot0.confirmCallback = slot1
+end
+
+slot0.OnConfirm = function(slot0)
+	if slot0.confirmCallback then
+		slot1 = {}
+		slot2 = {}
+
+		for slot6, slot7 in ipairs(slot0.selectedList) do
+			if not slot2[slot7] then
+				slot2[slot7] = 0
+			end
+
+			slot2[slot7] = slot2[slot7] + 1
+		end
+
+		for slot6, slot7 in pairs(slot2) do
+			table.insert(slot1, {
+				key = slot6,
+				value = slot7
+			})
+		end
+
+		slot0.confirmCallback(slot0.data.id, slot1, #slot0.selectedList)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

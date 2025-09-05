@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewutils.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>viewutils.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+slot1 = class(&quot;ViewUtils&quot;)
+pg.ViewUtils = slot1
+
+slot1.SetLayer = function(slot0, slot1)
+	if IsNil(go(slot0)) then
+		return
+	end
+
+	go(slot0).layer = slot1
+
+	for slot6 = 0, slot0.childCount - 1 do
+		uv0.SetLayer(slot0:GetChild(slot6), slot1)
+	end
+end
+
+slot1.SetSortingOrder = function(slot0, slot1)
+	for slot6, slot7 in ipairs(tf(slot0):GetComponents(typeof(Renderer)):ToTable()) do
+		slot7.sortingOrder = slot1
+	end
+
+	if slot0:GetComponent(typeof(Canvas)) then
+		slot3.sortingOrder = slot1
+	end
+
+	for slot7 = 0, slot0.childCount - 1 do
+		uv0.SetSortingOrder(slot0:GetChild(slot7), slot1)
+	end
+end
+
+slot1.AddSortingOrder = function(slot0, slot1)
+	for slot6, slot7 in ipairs(tf(slot0):GetComponents(typeof(Renderer)):ToTable()) do
+		slot7.sortingOrder = slot7.sortingOrder + slot1
+	end
+
+	if slot0:GetComponent(typeof(Canvas)) then
+		slot3.sortingOrder = slot3.sortingOrder + slot1
+	end
+
+	for slot7 = 0, slot0.childCount - 1 do
+		uv0.AddSortingOrder(slot0:GetChild(slot7), slot1)
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapterprecombatmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>chapterprecombatmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ChapterPreCombatMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_START = &quot;ChapterPreCombatMediator:ON_START&quot;
+slot0.ON_SWITCH_SHIP = &quot;ChapterPreCombatMediator:ON_SWITCH_SHIP&quot;
+slot0.ON_SWITCH_FLEET = &quot;ChapterPreCombatMediator:ON_SWITCH_FLEET&quot;
+slot0.ON_OP = &quot;ChapterPreCombatMediator:ON_OP&quot;
+slot0.ON_AUTO = &quot;ChapterPreCombatMediator:ON_AUTO&quot;
+slot0.ON_SUB_AUTO = &quot;ChapterPreCombatMediator:ON_SUB_AUTO&quot;
+slot0.GET_CHAPTER_DROP_SHIP_LIST = &quot;ChapterPreCombatMediator:GET_CHAPTER_DROP_SHIP_LIST&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.GET_CHAPTER_DROP_SHIP_LIST, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.GET_CHAPTER_DROP_SHIP_LIST, {
+			chapterId = slot1,
+			callback = slot2
+		})
+	end)
+	slot0:bind(uv0.ON_SWITCH_SHIP, function (slot0, slot1)
+		slot2 = getProxy(ChapterProxy)
+		slot3 = slot2:getActiveChapter()
+
+		slot3.fleet:synchronousShipIndex(slot1)
+		slot2:updateChapter(slot3, ChapterConst.DirtyFleet)
+	end)
+	slot0:bind(uv0.ON_AUTO, function (slot0, slot1)
+		uv0:onAutoBtn(slot1)
+	end)
+	slot0:bind(uv0.ON_SUB_AUTO, function (slot0, slot1)
+		uv0:onAutoSubBtn(slot1)
+	end)
+	slot0:bind(uv0.ON_START, function (slot0)
+		slot1 = getProxy(ChapterProxy):getActiveChapter()
+		slot2 = slot1.fleet
+		slot3 = slot1:getStageId(slot2.line.row, slot2.line.column)
+
+		seriesAsync({
+			function (slot0)
+				slot1 = {}
+
+				for slot5, slot6 in pairs(uv0.ships) do
+					table.insert(slot1, slot6)
+				end
+
+				Fleet.EnergyCheck(slot1, uv0.name, function (slot0)
+					if slot0 then
+						uv0()
+					end
+				end)
+			end,
+			function (slot0)
+				if getProxy(PlayerProxy):getRawData():GoldMax(1) then
+					pg.MsgboxMgr.GetInstance():ShowMsgBox({
+						content = i18n(&quot;gold_max_tip_title&quot;) .. i18n(&quot;resource_max_tip_battle&quot;),
+						onYes = slot0,
+						weight = LayerWeightConst.SECOND_LAYER
+					})
+				else
+					slot0()
+				end
+			end
+		}, function ()
+			uv0:sendNotification(GAME.BEGIN_STAGE, {
+				system = SYSTEM_SCENARIO,
+				stageId = uv1
+			})
+		end)
+	end)
+	slot0:bind(uv0.ON_OP, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHAPTER_OP, slot1)
+	end)
+
+	slot1 = getProxy(ChapterProxy)
+	slot2 = slot1:getActiveChapter()
+	slot3 = slot2.fleet
+
+	slot0.viewComponent:setSubFlag(slot1.getSubAidFlag(slot2, slot2:getStageId(slot3.line.row, slot3.line.column)))
+	slot0.viewComponent:setPlayerInfo(getProxy(PlayerProxy):getRawData())
+	slot0:display()
+end
+
+slot0.onAutoBtn = function(slot0, slot1)
+	slot0:sendNotification(GAME.AUTO_BOT, {
+		isActiveBot = slot1.isOn,
+		toggle = slot1.toggle
+	})
+end
+
+slot0.onAutoSubBtn = function(slot0, slot1)
+	slot0:sendNotification(GAME.AUTO_SUB, {
+		isActiveSub = slot1.isOn,
+		toggle = slot1.toggle
+	})
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		PlayerProxy.UPDATED,
+		GAME.BEGIN_STAGE_ERRO,
+		GAME.CHAPTER_OP_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == PlayerProxy.UPDATED then
+		slot0.viewComponent:setPlayerInfo(getProxy(PlayerProxy):getRawData())
+	elseif slot2 == GAME.BEGIN_STAGE_ERRO then
+		setActive(slot0.viewComponent._startBtn, true)
+
+		if slot3 == 3 then
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				hideNo = true,
+				content = i18n(&quot;battle_preCombatMediator_timeout&quot;),
+				onYes = function ()
+					uv0.viewComponent:emit(BaseUI.ON_CLOSE)
+				end,
+				weight = LayerWeightConst.SECOND_LAYER
+			})
+		end
+	elseif slot2 == GAME.CHAPTER_OP_DONE and (slot3.type == ChapterConst.OpStrategy or slot3.type == ChapterConst.OpRepair or slot3.type == ChapterConst.OpRequest) then
+		slot0:display()
+	end
+end
+
+slot0.display = function(slot0)
+	slot0.viewComponent:updateChapter(getProxy(ChapterProxy):getActiveChapter())
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

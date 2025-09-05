@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlebuffregisterwaveflags.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlebuffregisterwaveflags.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = class(&quot;BattleBuffRegisterWaveFlags&quot;, slot0.Battle.BattleBuffEffect)
+slot1.__name = &quot;BattleBuffRegisterWaveFlags&quot;
+slot0.Battle.BattleBuffRegisterWaveFlags = slot1
+
+slot1.SetArgs = function(slot0, slot1, slot2)
+	slot0._flags = slot0._tempData.arg_list.flags
+end
+
+slot1.onTrigger = function(slot0, slot1, slot2, slot3)
+	slot8 = slot3
+
+	uv0.super.onTrigger(slot0, slot1, slot2, slot8)
+
+	slot4 = uv1.Battle.BattleDataProxy.GetInstance()
+
+	for slot8, slot9 in ipairs(slot0._flags) do
+		slot4:AddWaveFlag(slot9)
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commanderchangecatterystylecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>commanderchangecatterystylecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CommanderChangeCatteryStyleCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = slot2.id
+	slot4 = slot2.styleId
+
+	if not getProxy(CommanderProxy):GetCommanderHome() then
+		return
+	end
+
+	if not slot6:GetCatteryById(slot3) then
+		return
+	end
+
+	if slot7:GetStyle() == slot4 then
+		return
+	end
+
+	slot8 = pg.ConnectionMgr.GetInstance()
+
+	slot8:Send(25032, {
+		slotidx = slot3,
+		styleidx = slot4
+	}, 25033, function (slot0)
+		if slot0.result == 0 then
+			uv0:UpdateStyle(uv1)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;cattery_style_change_success&quot;))
+			uv2:sendNotification(GAME.COMMANDER_CHANGE_CATTERY_STYLE_DONE, {
+				id = uv0.id
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

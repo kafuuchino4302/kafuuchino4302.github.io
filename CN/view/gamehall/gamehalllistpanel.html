@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gamehalllistpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>gamehalllistpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GameHallListPanel&quot;)
+slot1 = false
+slot0.ScrollPosition = nil
+
+slot0.Ctor = function(slot0, slot1, slot2)
+	slot0._tf = slot1
+	slot0._event = slot2
+	slot0.content = findTF(slot0._tf, &quot;ad/viewport/content&quot;)
+	slot0.listTpl = findTF(slot0.content, &quot;listTpl&quot;)
+
+	setActive(slot0.listTpl, false)
+
+	slot0.gameRoomDatas = {}
+
+	for slot6, slot7 in ipairs(pg.game_room_template.all) do
+		slot8 = pg.game_room_template[slot7].unlock_time
+
+		if pg.TimeMgr:GetInstance():Table2ServerTime({
+			year = slot8[1][1],
+			month = slot8[1][2],
+			day = slot8[1][3],
+			hour = slot8[2][1],
+			min = slot8[2][2],
+			sec = slot8[2][3]
+		}) &lt; pg.TimeMgr:GetInstance():GetServerTime() then
+			table.insert(slot0.gameRoomDatas, Clone(pg.game_room_template[slot7]))
+		end
+	end
+
+	table.sort(slot0.gameRoomDatas, function (slot0, slot1)
+		return slot0.order &lt; slot1.order
+	end)
+
+	for slot6 = 1, #slot0.gameRoomDatas do
+		slot7 = tf(instantiate(go(slot0.listTpl)))
+		slot8 = slot0.gameRoomDatas[slot6]
+
+		setParent(slot7, slot0.content)
+		setActive(slot7, true)
+		setActive(findTF(slot7, &quot;empty&quot;), getProxy(GameRoomProxy):getRoomScore(slot8.id) == 0)
+		setActive(findTF(slot7, &quot;total&quot;), slot11 &gt; 0)
+		setActive(findTF(slot7, &quot;txtScore&quot;), slot11 &gt; 0)
+
+		slot12 = nil
+
+		setText(findTF(slot7, &quot;txtScore&quot;), slot11 &lt; 10 and &quot;00&quot; .. slot11 or slot11 &lt; 100 and &quot;0&quot; .. slot11 or &quot;&quot; .. slot11)
+		setImageSprite(findTF(slot7, &quot;mask/gameIcon&quot;), LoadSprite(&quot;gamehallicon/&quot; .. slot8.icon), true)
+		onButton(slot0._event, slot7, function ()
+			uv0.ScrollPosition = uv1.content.anchoredPosition
+
+			uv1._event:emit(GameHallMediator.OPEN_MINI_GAME, uv2)
+		end, SFX_CANCEL)
+	end
+end
+
+slot0.setVisible = function(slot0, slot1)
+	setActive(slot0._tf, slot1)
+
+	if slot1 then
+		if getProxy(GameRoomProxy):ticketMaxTip() and not GameRoomProxy.ticket_remind then
+			GameRoomProxy.ticket_remind = true
+
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = slot2,
+				onYes = function ()
+				end,
+				onNo = function ()
+					uv0:setVisible(false)
+				end
+			})
+		end
+
+		if uv0.ScrollPosition then
+			slot0.content.anchoredPosition = uv0.ScrollPosition
+		end
+	end
+end
+
+slot0.getVisible = function(slot0)
+	return isActive(slot0._tf)
+end
+
+slot0.dispose = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

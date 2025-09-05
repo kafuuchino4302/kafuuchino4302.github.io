@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng0023.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ng0023.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;进入科研界面&quot;,
+	&quot;现在解锁了META研究室功能&quot;,
+	&quot;通过与信标作战可以获取其同步值,累计同步值获取丰厚奖励&quot;,
+	&quot;奖励领取存在时间限制，过期后将消失，请指挥官注意时间&quot;
+}
+
+return {
+	id = &quot;NG0023&quot;,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -308.7,
+				posX = 199.3,
+				text = slot0[1]
+			},
+			ui = {
+				dynamicPath = function ()
+					if getProxy(SettingsProxy):IsMellowStyle() then
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainMellowTheme(Clone)/frame/bottom/frame/tech&quot;
+					else
+						return &quot;/OverlayCamera/Overlay/UIMain/NewMainClassicTheme(Clone)/frame/bottom/technologyButton&quot;
+					end
+				end,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -32.1,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 98.8
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 1,
+				dir = 1,
+				posY = 0,
+				posX = 286.9,
+				text = slot0[2]
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/SelectTechnologyUI(Clone)/frame/bg/meta_btn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -50.43,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 93.07
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			waitScene = &quot;MetaCharacterScene&quot;,
+			style = {
+				mode = 1,
+				dir = 1,
+				posY = -236.99,
+				posX = -419.8,
+				text = slot0[3]
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -236.99,
+				posX = -419.8,
+				text = slot0[4],
+				ui = {
+					path = &quot;UICamera/Canvas/UIMain/MetaCharacterUI(Clone)/HidePanel/ActTimeTip&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

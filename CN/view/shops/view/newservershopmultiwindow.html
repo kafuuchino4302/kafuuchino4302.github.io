@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newservershopmultiwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newservershopmultiwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewServerShopMultiWindow&quot;, import(&quot;..msgbox.ShopMultiWindow&quot;))
+
+slot0.InitWindow = function(slot0, slot1, slot2)
+	slot3 = {
+		id = slot1:getConfig(&quot;goods&quot;)[1],
+		type = slot1:getConfig(&quot;type&quot;),
+		count = slot1:getConfig(&quot;num&quot;)
+	}
+	slot4, slot5, slot6 = slot1:CheckTimeLimit()
+
+	setActive(slot0.timeLimitTF, slot4)
+
+	if slot4 and slot5 then
+		setText(slot0:findTF(&quot;Text&quot;, slot0.timeLimitTF), i18n(&quot;eventshop_time_hint&quot;, pg.TimeMgr.GetInstance():STimeDescC(getProxy(ActivityProxy):getActivityById(Item.getConfigData(slot3.id).link_id).stopTime, &quot;%m.%d&quot;)))
+	end
+
+	slot8 = math.max(math.floor(Drop.New({
+		type = slot1:getConfig(&quot;resource_category&quot;),
+		id = slot1:getConfig(&quot;resource_type&quot;)
+	}):getOwnedCount() / slot1:getConfig(&quot;resource_num&quot;)), 1)
+
+	if slot1:getConfig(&quot;goods_purchase_limit&quot;) ~= 0 then
+		slot8 = math.min(slot8, math.max(0, slot1:GetPurchasableCnt()))
+	end
+
+	(function (slot0)
+		slot0 = math.min(math.max(slot0, 1), uv0)
+		uv1.countTF.text = slot0
+		uv1.curCount = slot0
+		uv1.itemCountTF.text = slot0 * uv2:getConfig(&quot;num&quot;)
+	end)(1)
+	updateDrop(slot0.topItem:Find(&quot;left/IconTpl&quot;), slot3)
+	UpdateOwnDisplay(slot0.ownerTF, slot3)
+	RegisterDetailButton(slot0, slot0.detailTF, slot3)
+
+	slot0.nameTF.text = slot3:getConfig(&quot;name&quot;)
+	slot0.descTF.text = slot3.desc or slot3:getConfig(&quot;desc&quot;)
+
+	updateDrop(slot0.bottomItem, slot3)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if uv0 then
+			uv0(uv1, uv2.curCount, uv3:getConfig(&quot;name&quot;))
+		end
+
+		uv2:Close()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.leftBtn, function ()
+		uv0(uv1.curCount - 1)
+	end)
+	onButton(slot0, slot0.rightBtn, function ()
+		uv0(uv1.curCount + 1)
+	end)
+	onButton(slot0, slot0.maxBtn, function ()
+		uv0(uv1)
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

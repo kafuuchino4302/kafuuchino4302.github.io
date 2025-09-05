@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itemshowpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>itemshowpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ItemShowPanel&quot;, import(&quot;.MsgboxSubPanel&quot;))
+slot0.ConfigData = {
+	tip_new = &quot;equipment_info_change_text_after&quot;,
+	isOpen = true,
+	title = &quot;equipment_info_change_tip&quot;,
+	icon_new = &quot;equips/50860&quot;,
+	icon_old = &quot;equips/50860&quot;,
+	name_new = &quot;equipment_info_change_name_b&quot;,
+	tip_old = &quot;equipment_info_change_text_before&quot;,
+	equipID = 908601,
+	name_old = &quot;equipment_info_change_name_a&quot;
+}
+
+slot0.getUIName = function(slot0)
+	return &quot;ItemChangeNoticeBox&quot;
+end
+
+slot0.UpdateView = function(slot0, slot1)
+	slot0:PreRefresh(slot1)
+
+	rtf(slot0.viewParent._window).sizeDelta = Vector2.New(1000, 638)
+
+	setText(slot0:findTF(&quot;title&quot;, slot0._tf), i18n(uv0.ConfigData.title))
+	setText(slot0:findTF(&quot;name_origin&quot;, slot0._tf), i18n(uv0.ConfigData.name_old))
+	setText(slot0:findTF(&quot;name_now&quot;, slot0._tf), i18n(uv0.ConfigData.name_new))
+	setText(slot0:findTF(&quot;before/Text&quot;, slot0._tf), i18n(uv0.ConfigData.tip_old))
+	setText(slot0:findTF(&quot;after/Text&quot;, slot0._tf), i18n(uv0.ConfigData.tip_new))
+	setImageSprite(slot0:findTF(&quot;icon_origin&quot;, slot0._tf), LoadSprite(uv0.ConfigData.icon_old))
+	setImageSprite(slot0:findTF(&quot;icon_now&quot;, slot0._tf), LoadSprite(uv0.ConfigData.icon_new))
+	slot0:PostRefresh(slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

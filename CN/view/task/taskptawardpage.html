@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taskptawardpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>taskptawardpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TaskPtAwardPage&quot;, import(&quot;..base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ActivitybonusWindow&quot;
+end
+
+slot0.Display = function(slot0, slot1)
+	if not slot0.window then
+		slot0.window = TaskPtAwardWindow.New(slot0._tf, slot0)
+	end
+
+	slot0.window:Show(slot1)
+	slot0:Show()
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0.window then
+		slot0.window:Dispose()
+
+		slot0.window = nil
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

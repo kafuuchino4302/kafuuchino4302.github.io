@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;template&quot;,
+	events = {
+		{
+			delay = 0,
+			waitScene = &quot;NewMainScene&quot;,
+			alpha = 0.4,
+			code = 2,
+			style = {
+				text = &quot;指挥官，军部为港区派遣了能够在水下作战的舰娘协助我们，快去迎接一下新的伙伴吧&quot;,
+				mode = 1,
+				dir = 1,
+				scene = &quot;BIANDUI&quot;,
+				posY = -110,
+				posX = 200,
+				ui = {
+					pathIndex = 0,
+					path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;
+				}
+			},
+			ui = {
+				eventPath = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;,
+				delay = 0,
+				path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;,
+				eventIndex = 1,
+				scale = 1,
+				pathIndex = 0,
+				triggerType = {
+					2,
+					true
+				},
+				image = {
+					&quot;content/ship_icon&quot;
+				},
+				fingerPos = {
+					posY = -225.3,
+					posX = 256.86
+				},
+				pos = {
+					z = 3,
+					x = 1,
+					y = 2
+				},
+				eulerAngles = {
+					1,
+					2,
+					3
+				}
+			},
+			baseui = {
+				pathIndex = 0,
+				path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;
+			},
+			hideui = {
+				{
+					ishide = true,
+					path = &quot;/UICamera/Canvas/UIMain/LevelMainScene(Clone)/top/top_chapter/back_button&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shipchangenameview.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shipchangenameview.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShipChangeNameView&quot;, import(&quot;...base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;ShipChangeNameView&quot;
+end
+
+slot0.OnInit = function(slot0)
+	slot0._renamePanel = slot0._tf
+	slot1 = slot0._renamePanel
+	slot0._renameConfirmBtn = slot1:Find(&quot;frame/queren&quot;)
+	slot1 = slot0._renamePanel
+	slot0._renameCancelBtn = slot1:Find(&quot;frame/cancel&quot;)
+	slot1 = slot0._renamePanel
+	slot0._renameRevert = slot1:Find(&quot;frame/revert_button&quot;)
+	slot1 = slot0._renamePanel
+	slot0._renameCloseBtn = slot1:Find(&quot;frame/close_btn&quot;)
+
+	setText(findTF(slot0._tf, &quot;frame/name_field/Placeholder&quot;), i18n(&quot;rename_input&quot;))
+	onButton(slot0, slot0._renameConfirmBtn, function ()
+		uv0:emit(ShipMainMediator.RENAME_SHIP, uv0:GetShipVO().id, getInputText(findTF(uv0._renamePanel, &quot;frame/name_field&quot;)))
+	end, SFX_CONFIRM)
+	onButton(slot0, slot0._renameRevert, function ()
+		setInputText(findTF(uv0._renamePanel, &quot;frame/name_field&quot;), uv0:GetShipVO():isRemoulded() and pg.ship_skin_template[uv0:GetShipVO():getRemouldSkinId()].name or pg.ship_data_statistics[uv0:GetShipVO().configId].name)
+	end, SFX_PANEL)
+	onButton(slot0, slot0._renameCloseBtn, function ()
+		uv0:DisplayRenamePanel(false)
+	end, SFX_PANEL)
+	onButton(slot0, slot0._renameCancelBtn, function ()
+		uv0:DisplayRenamePanel(false)
+	end, SFX_CANCEL)
+end
+
+slot0.SetShareData = function(slot0, slot1)
+	slot0.shareData = slot1
+end
+
+slot0.GetShipVO = function(slot0)
+	if slot0.shareData and slot0.shareData.shipVO then
+		return slot0.shareData.shipVO
+	end
+
+	return nil
+end
+
+slot0.DisplayRenamePanel = function(slot0, slot1)
+	slot0.isOpenRenamePanel = slot1
+
+	SetActive(slot0._renamePanel, slot1)
+
+	if slot1 then
+		pg.UIMgr.GetInstance():BlurPanel(slot0._renamePanel, false)
+		setInputText(findTF(slot0._renamePanel, &quot;frame/name_field&quot;), slot0:GetShipVO():getName())
+	else
+		pg.UIMgr.GetInstance():UnblurPanel(slot0._renamePanel, slot0._tf)
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	slot0.shareData = nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>micaidushidexunzongzhe1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>micaidushidexunzongzhe1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;MICAIDUSHIDEXUNZONGZHE1&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			bgm = &quot;story-antarctica-serious&quot;,
+			sequence = {
+				{
+					&quot;霓虹之下，人们将谎言织成迷彩，以生存作为底色。&quot;,
+					1
+				},
+				{
+					&quot;当爆炸的火光点亮城市的暗角，谁在演绎剧本，谁又在书写结局？&quot;,
+					2
+				},
+				{
+					&quot;今晚，警视厅特别顾问——&quot;,
+					3
+				},
+				{
+					&quot;将找寻那唯一的真相。&quot;,
+					4
+				}
+			}
+		},
+		{
+			side = 2,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_171&quot;,
+			bgm = &quot;story-spycity-fashion&quot;,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;喵呼呼~终于要开始了喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;主演，剧本都记住了么喵？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;……什么主演？&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;……什么剧本？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;喵？主演就是主演，剧本就是剧本喵？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官真是贵人多忘事喵，不过没有关系喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们直接开拍吧喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;等等……我很确定我确实没有收到过剧本，也不知道主演是怎么回事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我是收到了{namecode:55:青叶}的联络过来配合她取材……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;特别顾问&quot;,
+			actor = 0,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……你们是一伙的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;喵呼呼~没有剧本就是最好的剧本！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官的本色出演才卖座的喵~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;总之——警视厅特别顾问，希望你在接下来也能一直保持这份敏锐的观察力呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;各部门注意，主演已经就位喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_171&quot;,
+			factiontag = &quot;导演&quot;,
+			dir = 1,
+			actor = 312013,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;三、二、一 ——Action~喵！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			mode = 1,
+			blackBg = true,
+			bgm = &quot;story-spycity-fashion&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;micaidushidexunzongzhe&quot;
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					1
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

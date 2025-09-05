@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldcruisemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldcruisemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldCruiseMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.EVENT_GET_AWARD = &quot;WorldCruiseMediator.EVENT_GET_AWARD&quot;
+slot0.EVENT_GET_AWARD_PAY = &quot;WorldCruiseMediator.EVENT_GET_AWARD_PAY&quot;
+slot0.EVENT_GET_AWARD_ALL = &quot;WorldCruiseMediator.EVENT_GET_AWARD_ALL&quot;
+slot0.EVENT_OPEN_BIRTHDAY = &quot;WorldCruiseMediator.EVENT_OPEN_BIRTHDAY&quot;
+slot0.ON_TASK_GO = &quot;WorldCruiseMediator.ON_TASK_GO&quot;
+slot0.ON_TASK_SUBMIT = &quot;WorldCruiseMediator.ON_TASK_SUBMIT&quot;
+slot0.ON_TASK_QUICK_SUBMIT = &quot;WorldCruiseMediator.ON_TASK_QUICK_SUBMIT&quot;
+slot0.ON_CRUISE_SHOPPING = &quot;WorldCruiseMediator.ON_CRUISE_SHOPPING&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.EVENT_GET_AWARD, function (slot0, slot1)
+		uv0:sendNotification(GAME.CRUSING_CMD, {
+			cmd = 2,
+			activity_id = uv0.viewComponent.activity.id,
+			arg1 = slot1
+		})
+	end)
+	slot0:bind(uv0.EVENT_GET_AWARD_PAY, function (slot0, slot1)
+		uv0:sendNotification(GAME.CRUSING_CMD, {
+			cmd = 3,
+			activity_id = uv0.viewComponent.activity.id,
+			arg1 = slot1
+		})
+	end)
+	slot0:bind(uv0.EVENT_GET_AWARD_ALL, function (slot0)
+		uv0:sendNotification(GAME.CRUSING_CMD, {
+			cmd = 4,
+			activity_id = uv0.viewComponent.activity.id
+		})
+	end)
+	slot0:bind(uv0.EVENT_OPEN_BIRTHDAY, function (slot0, slot1)
+		uv0:addSubLayers(Context.New({
+			mediator = ChargeBirthdayMediator,
+			viewComponent = ChargeBirthdayLayer,
+			data = {}
+		}))
+	end)
+	slot0:bind(uv0.ON_TASK_GO, function (slot0, slot1)
+		uv0:sendNotification(GAME.TASK_GO, {
+			taskVO = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_TASK_SUBMIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.SUBMIT_TASK, slot1.id)
+	end)
+	slot0:bind(uv0.ON_TASK_QUICK_SUBMIT, function (slot0, slot1)
+		uv0:sendNotification(GAME.QUICK_TASK, slot1.id)
+	end)
+	slot0:bind(uv0.ON_CRUISE_SHOPPING, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.SHOPPING, {
+			id = slot1,
+			count = slot2
+		})
+	end)
+	slot0.viewComponent:setActivity(getProxy(ActivityProxy):getAliveActivityByType(ActivityConst.ACTIVITY_TYPE_PT_CRUSING))
+	slot0.viewComponent:setPlayer(getProxy(PlayerProxy):getData())
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ActivityProxy.ACTIVITY_UPDATED,
+		GAME.CRUSING_CMD_DONE,
+		PlayerProxy.UPDATED,
+		GAME.CHARGE_SUCCESS,
+		BagProxy.ITEM_UPDATED,
+		GAME.SUBMIT_TASK_DONE,
+		GAME.SUBMIT_ACTIVITY_TASK_DONE,
+		GAME.SHOPPING_DONE,
+		ShopsProxy.CRUISE_SHOP_UPDATED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == ActivityProxy.ACTIVITY_UPDATED then
+		if slot3.id == slot0.viewComponent.activity.id then
+			slot0.viewComponent:setActivity(slot3)
+			slot0.viewComponent:UpdatePhase()
+			slot0.viewComponent:UpdateAwardPage()
+			slot0.viewComponent:UpdateTaskPage()
+			slot0.viewComponent:UpdateView()
+		end
+	elseif slot2 == GAME.CRUSING_CMD_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+		slot0.viewComponent:UpdateAwardPage()
+		slot0.viewComponent:UpdateView()
+	elseif slot2 == PlayerProxy.UPDATED then
+		slot0.viewComponent:setPlayer(slot3)
+		slot0.viewComponent:UpdateRes()
+	elseif slot2 == GAME.CHARGE_SUCCESS then
+		slot0.viewComponent:OnChargeSuccess(Goods.Create({
+			shop_id = slot3.shopId
+		}, Goods.TYPE_CHARGE))
+		slot0.viewComponent:UpdateRes()
+	elseif slot2 == BagProxy.ITEM_UPDATED then
+		if slot3.id == Item.QUICK_TASK_PASS_TICKET_ID then
+			slot0.viewComponent:UpdateRes()
+		end
+	elseif slot2 == GAME.SUBMIT_TASK_DONE or slot2 == GAME.SUBMIT_ACTIVITY_TASK_DONE then
+		slot0.viewComponent:UpdateTaskPage()
+		slot0.viewComponent:UpdateView()
+	elseif slot2 == GAME.SHOPPING_DONE then
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+	elseif slot2 == ShopsProxy.CRUISE_SHOP_UPDATED then
+		slot0.viewComponent:setShop(slot3.shop)
+		slot0.viewComponent:UpdateShopPage()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

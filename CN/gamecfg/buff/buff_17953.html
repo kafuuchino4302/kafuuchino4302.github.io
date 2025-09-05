@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_17953.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_17953.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	time = 0,
+	name = &quot;&quot;,
+	init_effect = &quot;&quot;,
+	id = 17950,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 17950,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffRecordShield&quot;,
+			trigger = {
+				&quot;onTakeDamage&quot;,
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				effect = &quot;Shield_mojiaduoer&quot;,
+				convertRate = 0.2,
+				exhaust_remove = 1,
+				srcTag = {
+					&quot;MJDESLOW&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onRemove&quot;
+			},
+			arg_list = {
+				skill_id = 17951,
+				target = &quot;TargetSelf&quot;,
+				effectAttachData = {
+					&quot;BattleBuffRecordShield&lt;=0&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

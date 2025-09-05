@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monthcardsetmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>monthcardsetmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MonthCardSetMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_SET_RATIO = &quot;MonthCardSetMediator:ON_SET_RATIO&quot;
+
+slot0.register = function(slot0)
+	slot2 = getProxy(PlayerProxy):getRawData()
+
+	slot0:bind(uv0.ON_SET_RATIO, function (slot0, slot1)
+		if uv0:getCardById(VipCard.MONTH).data ~= slot1 then
+			uv1:sendNotification(GAME.MONTH_CARD_SET_RATIO, slot1)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;month_card_set_ratio_not_change&quot;))
+		end
+	end)
+	slot0.viewComponent:setPlayer(slot2)
+	slot0.viewComponent:setRatio(slot2:getCardById(VipCard.MONTH).data)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot2 = slot1:getName()
+	slot3 = slot1:getBody()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

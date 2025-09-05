@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_holiday_site.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_holiday_site.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_holiday_site = {
+	{
+		name = &quot;货物码头区&quot;,
+		type = 4,
+		id = 1,
+		icon = &quot;&quot;,
+		task_id = 0,
+		locate = {},
+		jumpto = {
+			{
+				&quot;运输码头&quot;
+			},
+			{
+				&quot;海岛别墅的主码头，可供大型邮轮和运输船停靠。\n入口处竖着一块印着猫猫爪印的巨大欢迎牌，附带方向指引。\n——终点果然是某绿头猫咪的贵价果汁摊。&quot;
+			},
+			{
+				&quot;HolidayIcon/1&quot;
+			}
+		}
+	},
+	{
+		name = &quot;别墅生活区&quot;,
+		type = 4,
+		id = 2,
+		icon = &quot;&quot;,
+		task_id = 23702,
+		locate = {},
+		jumpto = {
+			{
+				&quot;阳光别邸&quot;
+			},
+			{
+				&quot;别墅的核心生活区域，也是奢侈的休憩圣域——\n当身体陷入鹅绒床垫的瞬间，就连骨骼都会发出幸福的叹息。&quot;
+			},
+			{
+				&quot;HolidayIcon/2&quot;
+			}
+		}
+	},
+	{
+		name = &quot;室内娱乐区&quot;,
+		type = 4,
+		id = 3,
+		icon = &quot;&quot;,
+		task_id = 23768,
+		locate = {},
+		jumpto = {
+			{
+				&quot;棕榈庄园&quot;
+			},
+			{
+				&quot;作为室内娱乐区的核心，棕榈庄园自重新开放后便人气高涨。\n重修好的第二天，就有不少人缺席了早餐，让长风她们很是担心。\n看来，该把防沉迷措施提上日程了。&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	{
+		name = &quot;室外娱乐区&quot;,
+		type = 4,
+		id = 4,
+		icon = &quot;&quot;,
+		task_id = 23769,
+		locate = {},
+		jumpto = {
+			{
+				&quot;凉亭&quot;
+			},
+			{
+				&quot;处于半环形回廊正中央的凉亭，位于鹅卵石小路的尽头。\n亭内的茶几上搁着款式简单的毛笔和宣纸，几首短诗跃然纸上。\n似乎是个适合吟诗作对、畅谈风雅的好去处。&quot;
+			},
+			{
+				&quot;HolidayIcon/4&quot;
+			}
+		}
+	},
+	{
+		name = &quot;海滩区&quot;,
+		type = 4,
+		id = 5,
+		icon = &quot;&quot;,
+		task_id = 23770,
+		locate = {},
+		jumpto = {
+			{
+				&quot;游艇码头&quot;
+			},
+			{
+				&quot;海滩边的游艇码头，钓鱼爱好者的天堂。\n每个不幸“空军”的钓鱼佬离开后，都会不自觉地走进一旁的鱼店……\n当然，这家店也是绿头猫咪开的。&quot;
+			},
+			{
+				&quot;HolidayIcon/5&quot;
+			}
+		}
+	},
+	{
+		name = &quot;灯塔区&quot;,
+		type = 4,
+		id = 6,
+		icon = &quot;&quot;,
+		task_id = 23771,
+		locate = {},
+		jumpto = {
+			{
+				&quot;灯塔&quot;
+			},
+			{
+				&quot;建造年代久远的灯塔，如今已经重拾引航的功能。\n虽然已有部分房间不再投入使用，那神秘的氛围却吸引了众多冒险家。&quot;
+			},
+			{
+				&quot;HolidayIcon/6&quot;
+			}
+		}
+	},
+	{
+		name = &quot;货物码头区&quot;,
+		jumpto = &quot;HolidayVillaWharfUI&quot;,
+		type = 2,
+		id = 7,
+		icon = &quot;&quot;,
+		task_id = 23701,
+		locate = {
+			9999,
+			9999
+		}
+	},
+	{
+		name = &quot;合成大舰船&quot;,
+		jumpto = &quot;&quot;,
+		type = 2,
+		id = 8,
+		icon = &quot;&quot;,
+		task_id = 23706,
+		locate = {
+			9999,
+			9999
+		}
+	},
+	{
+		name = &quot;啾啾打捞团&quot;,
+		jumpto = &quot;&quot;,
+		type = 2,
+		id = 9,
+		icon = &quot;&quot;,
+		task_id = 23712,
+		locate = {
+			9999,
+			9999
+		}
+	},
+	{
+		name = &quot;啾啾温泉&quot;,
+		jumpto = &quot;&quot;,
+		type = 2,
+		id = 10,
+		icon = &quot;&quot;,
+		task_id = 23709,
+		locate = {
+			9999,
+			9999
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA2&quot;,
+		type = 1,
+		id = 11,
+		icon = &quot;3&quot;,
+		task_id = 23721,
+		locate = {
+			994.7,
+			-317
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA3&quot;,
+		type = 1,
+		id = 12,
+		icon = &quot;3&quot;,
+		task_id = 23722,
+		locate = {
+			-241.7,
+			344.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA4&quot;,
+		type = 1,
+		id = 13,
+		icon = &quot;3&quot;,
+		task_id = 23723,
+		locate = {
+			-110.6,
+			-214.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA5&quot;,
+		type = 1,
+		id = 14,
+		icon = &quot;3&quot;,
+		task_id = 23724,
+		locate = {
+			200.21,
+			263.2
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA6&quot;,
+		type = 1,
+		id = 15,
+		icon = &quot;3&quot;,
+		task_id = 23726,
+		locate = {
+			-861.04,
+			526.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA7&quot;,
+		type = 1,
+		id = 16,
+		icon = &quot;3&quot;,
+		task_id = 23725,
+		locate = {
+			972.9,
+			713
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA8&quot;,
+		type = 1,
+		id = 17,
+		icon = &quot;3&quot;,
+		task_id = 23772,
+		locate = {
+			-110.6,
+			-214.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA9&quot;,
+		type = 1,
+		id = 18,
+		icon = &quot;2&quot;,
+		task_id = 23704,
+		locate = {
+			-224.4,
+			231.1
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA10&quot;,
+		type = 1,
+		id = 19,
+		icon = &quot;2&quot;,
+		task_id = 23704,
+		locate = {
+			-287.2,
+			353.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA11&quot;,
+		type = 1,
+		id = 20,
+		icon = &quot;2&quot;,
+		task_id = 23707,
+		locate = {
+			2.2,
+			-9.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA12&quot;,
+		type = 1,
+		id = 21,
+		icon = &quot;2&quot;,
+		task_id = 23707,
+		locate = {
+			-558,
+			-164.1
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA13&quot;,
+		type = 1,
+		id = 22,
+		icon = &quot;2&quot;,
+		task_id = 23710,
+		locate = {
+			-62.45,
+			-472.2
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA14&quot;,
+		type = 1,
+		id = 23,
+		icon = &quot;2&quot;,
+		task_id = 23710,
+		locate = {
+			650,
+			0.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA15&quot;,
+		type = 1,
+		id = 24,
+		icon = &quot;2&quot;,
+		task_id = 23710,
+		locate = {
+			402,
+			-245.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA16&quot;,
+		type = 1,
+		id = 25,
+		icon = &quot;2&quot;,
+		task_id = 23713,
+		locate = {
+			-993.5,
+			668.1
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA17&quot;,
+		type = 1,
+		id = 26,
+		icon = &quot;2&quot;,
+		task_id = 23713,
+		locate = {
+			-676.4,
+			532.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA18&quot;,
+		type = 1,
+		id = 27,
+		icon = &quot;2&quot;,
+		task_id = 23716,
+		locate = {
+			972.9,
+			713
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA19&quot;,
+		type = 1,
+		id = 28,
+		icon = &quot;2&quot;,
+		task_id = 23704,
+		locate = {
+			-387.1,
+			177.8
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA20&quot;,
+		type = 1,
+		id = 29,
+		icon = &quot;2&quot;,
+		task_id = 23707,
+		locate = {
+			-391.2,
+			-538.1
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA21&quot;,
+		type = 1,
+		id = 30,
+		icon = &quot;2&quot;,
+		task_id = 23707,
+		locate = {
+			-70.1,
+			139.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA22&quot;,
+		type = 1,
+		id = 31,
+		icon = &quot;2&quot;,
+		task_id = 23707,
+		locate = {
+			123.4,
+			44.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA23&quot;,
+		type = 1,
+		id = 32,
+		icon = &quot;2&quot;,
+		task_id = 23710,
+		locate = {
+			85.7,
+			451.9
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA24&quot;,
+		type = 1,
+		id = 33,
+		icon = &quot;2&quot;,
+		task_id = 23713,
+		locate = {
+			-928.5,
+			526.7
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA25&quot;,
+		type = 1,
+		id = 34,
+		icon = &quot;2&quot;,
+		task_id = 23713,
+		locate = {
+			-719.6,
+			303
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA26&quot;,
+		type = 1,
+		id = 35,
+		icon = &quot;2&quot;,
+		task_id = 23713,
+		locate = {
+			-579.8,
+			682.1
+		}
+	},
+	{
+		name = &quot;&quot;,
+		jumpto = &quot;HAIDAOBIESHUDUJIAJIHUA27&quot;,
+		type = 1,
+		id = 36,
+		icon = &quot;2&quot;,
+		task_id = 23716,
+		locate = {
+			810,
+			470.6
+		}
+	},
+	[41] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 41,
+		icon = &quot;1&quot;,
+		task_id = 23705,
+		locate = {
+			-245.5,
+			66.2
+		},
+		jumpto = {
+			{
+				&quot;别邸客厅&quot;
+			},
+			{
+				&quot;宽敞明亮的别邸客厅，落地窗前摆放着舒适的沙发，窗外是无敌的海景。\n近期大热的旧物改造成果也被放置在展示区一角，别具风情。&quot;
+			},
+			{
+				&quot;HolidayIcon/41&quot;
+			}
+		}
+	},
+	[42] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 42,
+		icon = &quot;1&quot;,
+		task_id = 23705,
+		locate = {
+			-224.4,
+			231.1
+		},
+		jumpto = {
+			{
+				&quot;别邸餐厅&quot;
+			},
+			{
+				&quot;别邸餐厅提供丰富的菜式选择，致力于满足每一位食客的喜好。\n餐厅与厨房的衔接处，则为即将举办的美食评审会设立了严格的安检措施。\n这是在提防谁呢……？&quot;
+			},
+			{
+				&quot;HolidayIcon/2&quot;
+			}
+		}
+	},
+	[43] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 43,
+		icon = &quot;1&quot;,
+		task_id = 23705,
+		locate = {
+			-392.8,
+			179.3
+		},
+		jumpto = {
+			{
+				&quot;泳池&quot;
+			},
+			{
+				&quot;别邸后院的露天泳池，自开放起就算得上好评如潮，却在夜幕降临后略显冷清。\n只有细心研究过的人才会发现，这里正位于指挥官夜间散步的必经之路上。&quot;
+			},
+			{
+				&quot;HolidayIcon/2&quot;
+			}
+		}
+	},
+	[44] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 44,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			-25.27,
+			27.6
+		},
+		jumpto = {
+			{
+				&quot;庄园桌游室&quot;
+			},
+			{
+				&quot;庄园的桌游室，也可以被看作一个小型的绝版桌游博物馆。\n玻璃展示柜里陈列着各式复古设计的棋盘游戏，每件藏品都自带传奇故事。&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	[45] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 45,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			-79.9,
+			132.1
+		},
+		jumpto = {
+			{
+				&quot;庄园台球室&quot;
+			},
+			{
+				&quot;专为台球爱好者准备的练习室，也欢迎初学者。\n当然也有目的不单纯的访客，特地前来寻求不一样的邂逅体验。&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	[46] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 46,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			112.1,
+			66.27
+		},
+		jumpto = {
+			{
+				&quot;庄园美术馆&quot;
+			},
+			{
+				&quot;庄园美术馆展出了不少价值连城的珍品佳作，从古典油画到现代雕塑应有尽有。\n优雅，优雅，还是鸟语花香般的优雅。&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	[47] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 47,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			-11.3,
+			-95
+		},
+		jumpto = {
+			{
+				&quot;庄园地下游戏室&quot;
+			},
+			{
+				&quot;位于庄园地下的大型游戏室，即使召开百人团建活动也不显拥挤。\n在这里待久了，似乎连时间概念都会变得模糊……\n应该不会有人把这里当作完美的加班场合吧？&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	[48] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 48,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			94,
+			-205
+		},
+		jumpto = {
+			{
+				&quot;庄园前门&quot;
+			},
+			{
+				&quot;棕榈庄园一处入户门，面向所有人开放。\n根据庄园管理规定，外卖只能送至庄园前门，感谢您的理解与配合。\n请勿尝试爆破墙体、天窗绳降等非法入侵手段。&quot;
+			},
+			{
+				&quot;HolidayIcon/3&quot;
+			}
+		}
+	},
+	[49] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 49,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			-558,
+			-164.1
+		},
+		jumpto = {
+			{
+				&quot;露天烧烤区&quot;
+			},
+			{
+				&quot;深受户外爱好者欢迎的露天烧烤区，帐篷一扎即可就地露营。\n唯一需要小心的，就是那些藏在草丛里的可疑小蘑菇。\n应该不会有人因此中招……吧？&quot;
+			},
+			{
+				&quot;HolidayIcon/49&quot;
+			}
+		}
+	},
+	[50] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 50,
+		icon = &quot;1&quot;,
+		task_id = 23708,
+		locate = {
+			-401.4,
+			-547.6
+		},
+		jumpto = {
+			{
+				&quot;别墅正门&quot;
+			},
+			{
+				&quot;高端大气的铁艺围栏大门，豪华别墅群的正门入口。\n轻松休闲的的假期生活由此开启……吗？\n台风过后，重新装修门面也是最重要的工作之一。&quot;
+			},
+			{
+				&quot;HolidayIcon/50&quot;
+			}
+		}
+	},
+	[51] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 51,
+		icon = &quot;1&quot;,
+		task_id = 23711,
+		locate = {
+			-62.45,
+			-472.2
+		},
+		jumpto = {
+			{
+				&quot;庭院&quot;
+			},
+			{
+				&quot;一处宁静而美丽的安逸空间，在先前的台风中受损严重。\n幸好在埃佛森和七省的精心呵护，花园已重新焕发生机。\n这就是“魔法”的力量吧。&quot;
+			},
+			{
+				&quot;HolidayIcon/51&quot;
+			}
+		}
+	},
+	[52] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 52,
+		icon = &quot;1&quot;,
+		task_id = 23711,
+		locate = {
+			91.3,
+			-365.9
+		},
+		jumpto = {
+			{
+				&quot;塔楼&quot;
+			},
+			{
+				&quot;庭院旁的塔楼，循着旋转楼梯攀至最高处，可以一览海岛绝美风光。\n下层部分，则通常被当作收纳各种园艺工具和材料的储物室。\n但这里的管理者似乎没有上锁的习惯。&quot;
+			},
+			{
+				&quot;HolidayIcon/52&quot;
+			}
+		}
+	},
+	[53] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 53,
+		icon = &quot;1&quot;,
+		task_id = 23711,
+		locate = {
+			402,
+			-245.7
+		},
+		jumpto = {
+			{
+				&quot;湖心亭&quot;
+			},
+			{
+				&quot;位于人工湖内的小小圆亭，乘坐湖畔的小舟即可前往。\n如果看腻了大海，来这里观赏湖景也是不错的选择。&quot;
+			},
+			{
+				&quot;HolidayIcon/53&quot;
+			}
+		}
+	},
+	[54] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 54,
+		icon = &quot;1&quot;,
+		task_id = 23711,
+		locate = {
+			85.7,
+			451.9
+		},
+		jumpto = {
+			{
+				&quot;大浴场&quot;
+			},
+			{
+				&quot;真正的度假胜地不可能没有撒丁大浴池！\n（该发言仅代表某些撒丁舰船的个人观点）\n散发着乳香的热水在清洁肌肤的同时，还能一扫身心的疲惫。&quot;
+			},
+			{
+				&quot;HolidayIcon/54&quot;
+			}
+		}
+	},
+	[55] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 55,
+		icon = &quot;1&quot;,
+		task_id = 23711,
+		locate = {
+			650,
+			0.7
+		},
+		jumpto = {
+			{
+				&quot;户外网球场&quot;
+			},
+			{
+				&quot;位于室外娱乐区的网球场，深受运动爱好者们的青睐。\n少女们挥洒汗水的同时，不时用期待的眼光看向一旁道路的尽头。\n在最重要的观众来之前，可不能过早消耗体力……&quot;
+			},
+			{
+				&quot;HolidayIcon/55&quot;
+			}
+		}
+	},
+	[56] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 56,
+		icon = &quot;1&quot;,
+		task_id = 23714,
+		locate = {
+			-861.04,
+			526.7
+		},
+		jumpto = {
+			{
+				&quot;海滨休息区&quot;
+			},
+			{
+				&quot;海滩区的心脏，集购物、换装、休息于一体的综合性服务区。\n指挥官在这里也有专属的换装室，谢绝闲杂人等进入。&quot;
+			},
+			{
+				&quot;HolidayIcon/56&quot;
+			}
+		}
+	},
+	[57] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 57,
+		icon = &quot;1&quot;,
+		task_id = 23714,
+		locate = {
+			-621.5,
+			523.6
+		},
+		jumpto = {
+			{
+				&quot;露天广场&quot;
+			},
+			{
+				&quot;由一处沙滩空地改造成的露天广场，是绝佳的狂欢场地。\n在这里，全天候的音乐派对从不打烊。\n享受音乐的同时，也不要忘记带走随身垃圾哦~&quot;
+			},
+			{
+				&quot;HolidayIcon/57&quot;
+			}
+		}
+	},
+	[58] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 58,
+		icon = &quot;1&quot;,
+		task_id = 23714,
+		locate = {
+			-570,
+			705.1
+		},
+		jumpto = {
+			{
+				&quot;蔚蓝浅湾&quot;
+			},
+			{
+				&quot;清凉的海水，细腻的沙滩，连绵的遮阳伞……\n这里是海滨度假的圣地，每粒沙子都浸透了度假娱乐的终极奥义。\n但是禁止和摩托艇赛跑、使用无人机代替冲浪板等危险行为。&quot;
+			},
+			{
+				&quot;HolidayIcon/58&quot;
+			}
+		}
+	},
+	[59] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 59,
+		icon = &quot;1&quot;,
+		task_id = 23714,
+		locate = {
+			-711.6,
+			347
+		},
+		jumpto = {
+			{
+				&quot;金色沙滩&quot;
+			},
+			{
+				&quot;绵延百米的黄金沙滩的起点，一处绝佳的观景胜地。\n放松休息的同时，还能将整个海岸线的绝美风光尽收眼底。\n是尽情享受海岛风光的理想去处。&quot;
+			},
+			{
+				&quot;HolidayIcon/59&quot;
+			}
+		}
+	},
+	[60] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 60,
+		icon = &quot;1&quot;,
+		task_id = 23717,
+		locate = {
+			972.9,
+			713
+		},
+		jumpto = {
+			{
+				&quot;灯塔地下室&quot;
+			},
+			{
+				&quot;灯塔地下最深处的物资储藏室，墙壁用料实在，极其坚固。\n如果不慎被困其中的话……试试搜索四周，或许能寻得奇迹。&quot;
+			},
+			{
+				&quot;HolidayIcon/6&quot;
+			}
+		}
+	},
+	[61] = {
+		name = &quot;&quot;,
+		type = 3,
+		id = 61,
+		icon = &quot;1&quot;,
+		task_id = 23717,
+		locate = {
+			810,
+			470.6
+		},
+		jumpto = {
+			{
+				&quot;后山&quot;
+			},
+			{
+				&quot;被大片森林覆盖的隐秘山地，稍有不慎便会迷失方向，是前往灯塔的必经之路。\n若要前往此地，建议结伴出行。&quot;
+			},
+			{
+				&quot;HolidayIcon/61&quot;
+			}
+		}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

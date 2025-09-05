@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10840.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10840.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	{
+		desc = &quot;决死突袭&quot;
+	},
+	desc_get = &quot;当由于战斗减员导致自身成为先锋仅存的角色时，自身伤害提高50.0%，受到伤害提高20.0%&quot;,
+	name = &quot;决死突袭&quot;,
+	init_effect = &quot;&quot;,
+	id = 10840,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;当由于战斗减员导致自身成为先锋仅存的角色时，自身伤害提高50.0%，受到伤害提高20.0%&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 10840,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onTeammateShipDying&quot;
+			},
+			arg_list = {
+				maxTargetNumber = 1,
+				skill_id = 10840,
+				quota = 1,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetPlayerVanguardFleet&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compensatescene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>compensatescene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CompensateScene&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;CompensateUI&quot;
+end
+
+slot0.ResUISettings = function(slot0)
+	return false
+end
+
+slot0.optionsPath = {
+	&quot;adapt/top/option&quot;
+}
+
+slot0.quickExitFunc = function(slot0)
+	slot0:emit(uv0.ON_HOME)
+end
+
+slot0.init = function(slot0)
+	slot0.proxy = getProxy(CompensateProxy)
+	slot0.rtAdapt = slot0._tf:Find(&quot;adapt&quot;)
+
+	setText(slot0.rtAdapt:Find(&quot;top/title&quot;), i18n(&quot;compensate_ui_title1&quot;))
+	setText(slot0.rtAdapt:Find(&quot;top/title/Text&quot;), i18n(&quot;compensate_ui_title2&quot;))
+	onButton(slot0, slot0.rtAdapt:Find(&quot;top/back_btn&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+
+	slot0.rtLabels = slot0.rtAdapt:Find(&quot;left_length/frame/tagRoot&quot;)
+
+	eachChild(slot0.rtLabels, function (slot0)
+		slot1 = nil
+
+		if slot0.name == &quot;mail&quot; then
+			toggleName = i18n(&quot;compensate_ui_title1&quot;)
+		end
+
+		setText(slot0:Find(&quot;unSelect/Text&quot;), toggleName)
+		setText(slot0:Find(&quot;selected/Text&quot;), toggleName)
+		onToggle(uv0, slot0, function (slot0)
+			if slot0 then
+				uv0:SetPage()
+			end
+		end, SFX_PANEL)
+	end)
+
+	slot1 = slot0.rtAdapt:Find(&quot;main/content&quot;)
+	slot0.rtMailLeft = slot1:Find(&quot;left/left_content&quot;)
+	slot0.lsrMailList = slot0.rtMailLeft:Find(&quot;middle/container&quot;):GetComponent(&quot;LScrollRect&quot;)
+
+	slot0.lsrMailList.onUpdateItem = function(slot0, slot1)
+		slot2 = tf(slot1)
+
+		onToggle(uv0, slot2, function (slot0)
+			if slot0 then
+				if uv0.selectMailId ~= uv1.id then
+					uv0:UpdateMailContent(uv1)
+				end
+			elseif uv1.id == uv0.selectMailId then
+				uv0:UpdateMailContent(nil)
+			end
+		end, SFX_PANEL)
+		uv0:UpdateMailTpl(slot2, uv0.filterMails[slot0 + 1])
+	end
+
+	slot0.rtMailRight = slot1:Find(&quot;right&quot;)
+	slot0.rtBtnRightGet = slot0.rtMailRight:Find(&quot;bottom/btn_get&quot;)
+
+	onButton(slot0, slot0.rtBtnRightGet, function ()
+		assert(uv0.selectMailId)
+		uv0:emit(CompensateMediator.ON_GET_REWARD, {
+			reward_id = uv0.selectMailId
+		})
+	end, SFX_PANEL)
+
+	slot0.rtMailEmpty = slot1:Find(&quot;empty&quot;)
+
+	setText(slot0.rtBtnRightGet:Find(&quot;Text&quot;), i18n(&quot;mail_getone_button&quot;))
+	slot0:InitResBar()
+end
+
+slot0.SetPage = function(slot0)
+	slot0:UpdateMailList()
+end
+
+slot0.didEnter = function(slot0)
+	onNextTick(function ()
+		uv0.lsrMailList.enabled = true
+
+		triggerToggle(uv0.rtLabels:Find(&quot;mail&quot;), true)
+	end)
+end
+
+slot0.UpdateMailList = function(slot0)
+	slot1 = slot0.proxy
+	slot0.filterMails = slot1:GetAllRewardList()
+
+	table.sort(slot0.filterMails, CompareFuncs({
+		function (slot0)
+			return -slot0.date
+		end,
+		function (slot0)
+			return -slot0.id
+		end
+	}))
+
+	if #slot0.filterMails == 0 then
+		setActive(slot0.rtMailLeft, false)
+		setActive(slot0.rtMailRight, false)
+		setActive(slot0.rtMailEmpty, true)
+		setText(slot0.rtMailEmpty:Find(&quot;Text&quot;), i18n(&quot;compensate_ui_nothing1&quot;))
+		setText(slot0.rtMailEmpty:Find(&quot;Text_en&quot;), i18n(&quot;compensate_ui_nothing2&quot;))
+	else
+		setActive(slot0.rtMailLeft, true)
+		setActive(slot0.rtMailRight, true)
+		setActive(slot0.rtMailEmpty, false)
+
+		if not slot0.selectMailId then
+			slot0:UpdateMailContent(slot0.filterMails[1])
+		end
+
+		slot0.lsrMailList:SetTotalCount(#slot0.filterMails, delta or -1)
+	end
+end
+
+slot0.UpdateMailTpl = function(slot0, slot1, slot2)
+	setActive(slot1:Find(&quot;content&quot;):Find(&quot;icon/no_attachment&quot;), #slot2.attachments == 0)
+	setActive(slot3:Find(&quot;icon/IconTpl&quot;), #slot2.attachments &gt; 0)
+
+	if #slot2.attachments &gt; 0 then
+		updateDrop(slot3:Find(&quot;icon/IconTpl&quot;), slot2.attachments[1])
+	end
+
+	setText(slot3:Find(&quot;info/title/Text&quot;), shortenString(slot2.title, 10))
+	setText(slot3:Find(&quot;info/time/Text&quot;), os.date(&quot;%Y-%m-%d&quot;, slot2.date))
+
+	if math.floor((slot2.timestamp - pg.TimeMgr.GetInstance():GetServerTime()) / 86400) &gt;= 1 then
+		setText(slot3:Find(&quot;info/time/out_time/Text&quot;), i18n(&quot;compensate_ui_expiration_day&quot;, math.floor(slot4 / 86400)))
+	else
+		setText(slot3:Find(&quot;info/time/out_time/Text&quot;), i18n(&quot;compensate_ui_expiration_hour&quot;, math.floor(slot4 / 3600)))
+	end
+
+	setActive(slot1:Find(&quot;got_mark&quot;), slot2.attachFlag)
+	setText(slot1:Find(&quot;got_mark/got_text&quot;), i18n(&quot;mail_reward_got&quot;))
+	setActive(slot1:Find(&quot;hasread_bg&quot;), true)
+	setActive(slot1:Find(&quot;noread_bg&quot;), false)
+
+	slot6 = SummerFeastScene.TransformColor(&quot;FFFFFF&quot;)
+
+	setTextColor(slot3:Find(&quot;info/title/Text&quot;), slot6)
+	setTextColor(slot3:Find(&quot;info/time/Text&quot;), slot6)
+	triggerToggle(slot1, slot0.selectMailId == slot2.id)
+end
+
+slot0.UpdateMailContent = function(slot0, slot1)
+	eachChild(slot0.rtMailRight, function (slot0)
+		setActive(slot0, tobool(uv0))
+	end)
+
+	if not slot1 then
+		slot0.selectMailId = nil
+
+		return
+	end
+
+	slot0.selectMailId = slot1.id
+
+	changeToScrollText(slot0.rtMailRight:Find(&quot;main/title/info/Text&quot;), i18n2(slot1.title))
+	setText(slot0.rtMailRight:Find(&quot;main/from/Text&quot;), slot1.sender)
+	setText(slot0.rtMailRight:Find(&quot;main/time/Text&quot;), os.date(&quot;%Y-%m-%d&quot;, slot1.date))
+	setText(slot0.rtMailRight:Find(&quot;main/view/content/text/Text&quot;), slot1.text)
+
+	slot2 = slot0.rtMailRight:Find(&quot;main/view/content/attachment&quot;)
+
+	setText(slot2:Find(&quot;got/Text&quot;), i18n(&quot;main_mailLayer_attachTaken&quot;))
+	setActive(slot0.rtBtnRightGet, not slot1.attachFlag)
+	setActive(slot2, #slot1.attachments &gt; 0)
+
+	if #slot1.attachments &gt; 0 then
+		slot3 = slot2:Find(&quot;content&quot;)
+
+		UIItemList.StaticAlign(slot3, slot3:Find(&quot;IconTpl&quot;), #slot1.attachments, function (slot0, slot1, slot2)
+			slot1 = slot1 + 1
+
+			if slot0 == UIItemList.EventUpdate then
+				updateDrop(slot2, uv0.attachments[slot1])
+				onButton(uv1, slot2, function ()
+					uv0:emit(uv1.ON_DROP, uv2)
+				end, SFX_PANEL)
+			end
+		end)
+		setCanvasGroupAlpha(slot3, slot1.attachFlag and 0.5 or 1)
+		setActive(slot2:Find(&quot;got&quot;), slot4)
+	end
+end
+
+slot0.onBackPressed = function(slot0)
+	triggerButton(slot0.rtAdapt:Find(&quot;top/back_btn&quot;))
+end
+
+slot0.willExit = function(slot0)
+end
+
+slot0.UpdateOperationDeal = function(slot0)
+	slot0:UpdateMailList()
+
+	if slot0.selectMailId then
+		slot0:UpdateMailContent(underscore.detect(slot0.filterMails, function (slot0)
+			return slot0.id == uv0.selectMailId
+		end))
+	end
+end
+
+slot0.InitResBar = function(slot0)
+	slot0.resBar = slot0._tf:Find(&quot;adapt/top/res&quot;)
+	slot0.goldMax = slot0.resBar:Find(&quot;gold/max&quot;):GetComponent(typeof(Text))
+	slot0.goldValue = slot0.resBar:Find(&quot;gold/Text&quot;):GetComponent(typeof(Text))
+	slot0.oilMax = slot0.resBar:Find(&quot;oil/max&quot;):GetComponent(typeof(Text))
+	slot0.oilValue = slot0.resBar:Find(&quot;oil/Text&quot;):GetComponent(typeof(Text))
+	slot0.gemValue = slot0.resBar:Find(&quot;gem/Text&quot;):GetComponent(typeof(Text))
+
+	onButton(slot0, slot0.resBar:Find(&quot;gold&quot;), function ()
+		pg.playerResUI:ClickGold()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.resBar:Find(&quot;oil&quot;), function ()
+		pg.playerResUI:ClickOil()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.resBar:Find(&quot;gem&quot;), function ()
+		pg.playerResUI:ClickGem()
+	end, SFX_PANEL)
+	slot0:UpdateRes()
+end
+
+slot0.UpdateRes = function(slot0)
+	PlayerResUI.StaticFlush(getProxy(PlayerProxy):getRawData(), slot0.goldMax, slot0.goldValue, slot0.oilMax, slot0.oilValue, slot0.gemValue)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shenshengdebeixiju17.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shenshengdebeixiju17.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 1,
+	once = true,
+	id = &quot;SHENSHENGDEBEIXIJU17&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;我又回到那幽暗而低洼的森林&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=51&gt;潮湿的泥土将我的双脚掩埋&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;就在我不断下陷之际&lt;/size&gt;&quot;,
+					5
+				},
+				{
+					&quot;&lt;size=51&gt;一个消瘦的身影向我投来目光&lt;/size&gt; &quot;,
+					7
+				},
+				{
+					&quot;&lt;size=51&gt;长久伫立，默不发声&lt;/size&gt;&quot;,
+					9
+				}
+			}
+		},
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;维吉尔&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=51&gt;啊，你便是那涌现出滔滔不绝的动人诗句的泉源&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;维吉尔&lt;/size&gt;&quot;,
+					5
+				},
+				{
+					&quot;&lt;size=51&gt;永恒之邦的向导&lt;/size&gt;&quot;,
+					7
+				},
+				{
+					&quot;&lt;size=51&gt;维吉尔&lt;/size&gt;&quot;,
+					9
+				}
+			}
+		},
+		{
+			bgm = &quot;battle-italy&quot;,
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;轰-------！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			actor = 603020,
+			nameColor = &quot;#ff5c5c&quot;,
+			say = &quot;波拉！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 900197,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;没事，仅仅是擦伤了装甲&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 900197,
+			say = &quot;拥有世界最强装甲的{namecode:526}级重巡洋舰可不是那么容易就会被击败的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 603020,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;Tenacemente！不愧是我可靠的妹妹~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 207050,
+			say = &quot;帝国的战舰…果然和姐姐说的一样硬邦邦的，不喜欢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205029,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;厌战&quot;,
+			say = &quot;可畏，这里就交给我吧，记得说好的规则&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 207050,
+			say = &quot;嗯…「午夜12:00前，夺得“卡拉布里亚的宝石”」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 205029,
+			actorName = &quot;厌战&quot;,
+			say = &quot;事不宜迟，快和猎户座出发吧，你们的航速比我快，不要迟到了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 207050,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;了解~那么可畏这就先出发了！祝您好运，God bless the queen！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = -40,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.25,
+					x = 0,
+					number = 1
+				}
+			}
+		},
+		{
+			actor = 603020,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;想逃跑！开火——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;厌战英勇的冲上前替可畏挡下了一轮炮击&quot;,
+			dir = 1,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 205029,
+			actorName = &quot;厌战&quot;,
+			say = &quot;你们的对手是我，别想动可畏一根指头！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 603020,
+			side = 2,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;这一出是英雄救美吗~不错，很有战士应有的气魄&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 205029,
+			actorName = &quot;厌战&quot;,
+			say = &quot;不…只是，如果可畏生起气的话我也要遭殃的&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ff5c5c&quot;,
+			side = 2,
+			dir = 1,
+			actor = 603020,
+			say = &quot;啊？？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;「旗舰大人，我的妹妹就拜托你照顾了，这是她的初阵，要是有什么意外情况请多多担待哦~」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;「——光辉敬上」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;厌战一边回想着收到的电报，不禁打了个寒颤&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205029,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actorName = &quot;厌战&quot;,
+			say = &quot;没什么，来吧，用舰炮公平的对决吧！Belli dura despicio！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

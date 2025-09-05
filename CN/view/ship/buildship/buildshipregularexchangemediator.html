@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buildshipregularexchangemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buildshipregularexchangemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BuildShipRegularExchangeMediator&quot;, import(&quot;...base.ContextMediator&quot;))
+slot0.EXCHAGNE_SHIP = &quot;BuildShipRegularExchangeMediator.EXCHAGNE_SHIP&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.EXCHAGNE_SHIP, function (slot0, slot1)
+		uv0:sendNotification(GAME.REGULAR_BUILD_POOL_EXCHANGE, {
+			id = slot1
+		})
+	end)
+	slot0.viewComponent:setCount(getProxy(BuildShipProxy):getRegularExchangeCount())
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.REGULAR_BUILD_POOL_EXCHANGE_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.REGULAR_BUILD_POOL_EXCHANGE_DONE then
+		slot0.viewComponent:flush()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

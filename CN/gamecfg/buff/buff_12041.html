@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_12041.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_12041.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	time = 9,
+	name = &quot;不安定的发明家&quot;,
+	init_effect = &quot;&quot;,
+	id = 12041,
+	picture = &quot;&quot;,
+	desc = &quot;战斗中，每12秒触发一种研发中的特殊装备$1，特殊装备的效果随技能等级提高&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 12040,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onAttach&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					12041,
+					12042,
+					12043,
+					12044,
+					12046,
+					12047,
+					12048
+				},
+				range = {
+					{
+						0,
+						0.17
+					},
+					{
+						0.17,
+						0.34
+					},
+					{
+						0.34,
+						0.48
+					},
+					{
+						0.48,
+						0.62
+					},
+					{
+						0.62,
+						0.76
+					},
+					{
+						0.76,
+						0.9
+					},
+					{
+						0.9,
+						1
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

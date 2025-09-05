@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pttaskawardwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>pttaskawardwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PtTaskAwardWindow&quot;, import(&quot;.TaskAwardWindow&quot;))
+
+slot1 = function(slot0)
+	slot2 = function(slot0)
+		for slot4, slot5 in ipairs(uv0.tasklist) do
+			if type(slot5) == &quot;table&quot; then
+				for slot9, slot10 in ipairs(slot5) do
+					if slot10 == slot0 then
+						return slot4
+					end
+				end
+			elseif slot0 == slot5 then
+				return slot4
+			end
+		end
+	end
+
+	slot3 = getProxy(TaskProxy)
+	slot4 = nil
+
+	for slot8 = #_.flatten(slot0.tasklist), 1, -1 do
+		if slot3:getFinishTaskById(slot1[slot8]) and slot10:isReceive() then
+			slot4 = slot9
+		end
+	end
+
+	if not slot4 and slot0.tasklist[math.min(slot0.index, #slot0.tasklist)] then
+		slot4 = slot6
+	end
+
+	slot0.UIlist:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot4 = uv1:getTaskById(uv0[slot1 + 1]) or uv1:getFinishTaskById(slot3) or Task.New({
+				id = slot3
+			})
+
+			if GetPerceptualSize(uv2.resTitle) &gt; 15 then
+				GetComponent(slot2:Find(&quot;target/Text&quot;), typeof(Text)).fontSize = 26
+				GetComponent(slot2:Find(&quot;target/title&quot;), typeof(Text)).fontSize = 26
+			elseif slot5 &gt; 12 then
+				GetComponent(slot2:Find(&quot;target/Text&quot;), typeof(Text)).fontSize = 28
+				GetComponent(slot2:Find(&quot;target/title&quot;), typeof(Text)).fontSize = 28
+			elseif slot5 &gt; 10 then
+				GetComponent(slot2:Find(&quot;target/Text&quot;), typeof(Text)).fontSize = 30
+				GetComponent(slot2:Find(&quot;target/title&quot;), typeof(Text)).fontSize = 30
+			else
+				GetComponent(slot2:Find(&quot;target/Text&quot;), typeof(Text)).fontSize = 32
+				GetComponent(slot2:Find(&quot;target/title&quot;), typeof(Text)).fontSize = 32
+			end
+
+			setText(slot2:Find(&quot;title/Text&quot;), &quot;PHASE &quot; .. uv3(slot3))
+			setText(slot2:Find(&quot;target/Text&quot;), slot4:getConfig(&quot;target_num&quot;))
+
+			if slot2:Find(&quot;target/icon&quot;) then
+				if uv2.resIcon == &quot;&quot; then
+					uv2.resIcon = nil
+				end
+
+				if uv2.resIcon then
+					LoadImageSpriteAsync(uv2.resIcon, slot2:Find(&quot;target/icon&quot;), false)
+				end
+
+				setActive(slot2:Find(&quot;target/icon&quot;), uv2.resIcon)
+				setActive(slot2:Find(&quot;target/mark&quot;), uv2.resIcon)
+			end
+
+			setText(slot2:Find(&quot;target/title&quot;), uv2.resTitle)
+
+			slot6 = slot4:getConfig(&quot;award_display&quot;)[1]
+
+			updateDrop(slot2:Find(&quot;award&quot;), {
+				type = slot6[1],
+				id = slot6[2],
+				count = slot6[3]
+			})
+			onButton(uv2.binder, slot2:Find(&quot;award&quot;), function ()
+				uv0.binder:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+			setActive(slot2:Find(&quot;award/mask&quot;), slot4:isReceive() or uv4 and slot3 &lt; uv4)
+		end
+	end)
+	slot0.UIlist:align(#slot1)
+end
+
+slot0.Show = function(slot0, slot1)
+	slot0.tasklist = slot1.tasklist
+	slot0.ptId = slot1.ptId
+	slot0.totalPt = slot1.totalPt
+	slot0.index = slot1.index or 1
+	slot0.resIcon = nil
+	slot0.cntTitle = i18n(&quot;pt_total_count&quot;, &quot;&quot;)
+	slot0.resTitle = i18n(&quot;target_get_tip&quot;)
+	slot0.cntTitle = string.gsub(slot0.cntTitle, &quot;：&quot;, &quot;&quot;)
+
+	slot0:updateResIcon(slot1.ptId)
+	uv0(slot0)
+
+	slot0.totalTxt.text = slot0.totalPt
+	slot0.totalTitleTxt.text = slot0.cntTitle
+
+	Canvas.ForceUpdateCanvases()
+	setActive(slot0._tf, true)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

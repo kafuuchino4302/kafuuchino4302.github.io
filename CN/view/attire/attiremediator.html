@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attiremediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>attiremediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AttireMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_APPLY = &quot;AttireMediator:ON_APPLY&quot;
+slot0.ON_UNLOCK = &quot;AttireMediator:ON_UNLOCK&quot;
+slot0.ON_CHANGE_MEDAL_DISPLAY = &quot;AttireMediator:ON_CHANGE_MEDAL_DISPLAY&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_APPLY, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.ATTIRE_APPLY, {
+			id = slot2,
+			type = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_UNLOCK, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.GET_ATTIRE, {
+			id = slot2,
+			type = slot1
+		})
+	end)
+	slot0:bind(uv0.ON_CHANGE_MEDAL_DISPLAY, function (slot0, slot1)
+		uv0:sendNotification(GAME.CHANGE_PLAYER_MEDAL_DISPLAY, {
+			medalList = slot1
+		})
+	end)
+	slot0.viewComponent:setAttires(getProxy(AttireProxy):getDataAndTrophys(true))
+	slot0.viewComponent:setPlayer(getProxy(PlayerProxy):getData())
+end
+
+slot0.updateCurrPage = function(slot0)
+	slot0.viewComponent:setAttires(getProxy(AttireProxy):getDataAndTrophys())
+	slot0.viewComponent:updateCurrPage()
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		AttireProxy.ATTIREFRAME_EXPIRED,
+		GAME.ATTIRE_APPLY_DONE,
+		PlayerProxy.UPDATED,
+		GAME.GET_ATTIRE_DONE,
+		GAME.CHANGE_PLAYER_MEDAL_DISPLAY_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == AttireProxy.ATTIREFRAME_EXPIRED then
+		if slot0.viewComponent.page == AttireScene.PAGE_ICONFRAME or slot0.viewComponent.page == AttireScene.PAGE_CHATFRAME then
+			slot0:updateCurrPage()
+		end
+	elseif slot2 == GAME.ATTIRE_APPLY_DONE then
+		slot0:updateCurrPage()
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dress_up_success&quot;))
+	elseif slot2 == PlayerProxy.UPDATED or slot2 == GAME.CHANGE_PLAYER_MEDAL_DISPLAY_DONE then
+		slot0.viewComponent:setPlayer(getProxy(PlayerProxy):getData())
+		slot0:updateCurrPage()
+	elseif slot2 == GAME.GET_ATTIRE_DONE then
+		slot0:updateCurrPage()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

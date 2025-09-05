@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>technologytreemediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>technologytreemediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TechnologyTreeMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+	slot0:bind(TechnologyConst.OPEN_SHIP_BUFF_DETAIL, function (slot0, slot1, slot2, slot3)
+		uv0:addSubLayers(Context.New({
+			mediator = SingleBuffDetailMediator,
+			viewComponent = SingleBuffDetailLayer,
+			data = {
+				groupID = slot1,
+				maxLV = slot2,
+				star = slot3
+			}
+		}))
+	end)
+	slot0:bind(TechnologyConst.CLOSE_TECHNOLOGY_NATION_LAYER, function (slot0)
+		uv0:sendNotification(TechnologyConst.CLOSE_TECHNOLOGY_NATION_LAYER_NOTIFICATION)
+	end)
+	slot0:bind(TechnologyConst.OPEN_TECHNOLOGY_NATION_LAYER, function (slot0)
+		uv0:addSubLayers(Context.New({
+			mediator = TechnologyTreeNationMediator,
+			viewComponent = TechnologyTreeNationScene,
+			data = {}
+		}))
+	end)
+	slot0:bind(TechnologyConst.OPEN_ALL_BUFF_DETAIL, function (slot0)
+		uv0:addSubLayers(Context.New({
+			mediator = AllBuffDetailMediator,
+			viewComponent = AllBuffDetailLayer,
+			data = {
+				LayerWeightMgr_weight = LayerWeightConst.TOP_LAYER
+			}
+		}))
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		TechnologyConst.UPDATE_REDPOINT_ON_TOP
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == TechnologyConst.UPDATE_REDPOINT_ON_TOP then
+		slot0.viewComponent:updateRedPoint(getProxy(TechnologyNationProxy):getShowRedPointTag())
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

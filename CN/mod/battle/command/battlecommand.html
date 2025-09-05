@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleCommand = class(&quot;BattleCommand&quot;, slot0.MVC.Command)
+slot0.Battle.BattleCommand.__name = &quot;BattleCommand&quot;
+
+slot0.Battle.BattleCommand.Ctor = function(slot0)
+	uv0.Battle.BattleCommand.super.Ctor(slot0)
+end
+
+slot0.Battle.BattleCommand.Initialize = function(slot0)
+	uv0.Battle.BattleCommand.super.Initialize(slot0)
+
+	slot0._dataProxy = slot0._state:GetProxyByName(uv0.Battle.BattleDataProxy.__name)
+
+	slot0:InitProtocol()
+	slot0:InitBattleEvent()
+end
+
+slot0.Battle.BattleCommand.StartBattle = function(slot0)
+	slot0._state:Active()
+end
+
+slot0.Battle.BattleCommand.InitProtocol = function(slot0)
+end
+
+slot0.Battle.BattleCommand.InitBattleEvent = function(slot0)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

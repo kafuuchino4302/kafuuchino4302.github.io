@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldbossawardpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldbossawardpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldBossAwardPage&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldBossAwardUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0:findTF(&quot;frame/list/container1/tpl&quot;)
+	slot0.uilist1 = UIItemList.New(slot0:findTF(&quot;frame/list/container1&quot;), slot1)
+	slot0.uilist2 = UIItemList.New(slot0:findTF(&quot;frame/list/container2&quot;), slot1)
+
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Update = function(slot0, slot1)
+	slot0.worldBoss = slot1
+
+	slot0:UpdateAwards()
+	slot0:Show()
+end
+
+slot0.UpdateAwards = function(slot0)
+	slot2 = slot0.worldBoss:GetAwards()
+
+	slot3 = function(slot0, slot1)
+		slot2 = uv0[slot0 + 1]
+		slot3 = {
+			count = 0,
+			type = slot2[1],
+			id = slot2[2]
+		}
+
+		updateDrop(slot1:Find(&quot;equipment/bg&quot;), slot3)
+		slot1:Find(&quot;mask/name&quot;):GetComponent(&quot;ScrollText&quot;):SetText(slot3:getConfig(&quot;name&quot;))
+		onButton(uv1, slot1, function ()
+			uv0:emit(BaseUI.ON_DROP, uv1)
+		end, SFX_PANEL)
+	end
+
+	slot0.uilist1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0(slot1, slot2)
+		end
+	end)
+	slot0.uilist2:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			uv0(slot1 + 4, slot2)
+		end
+	end)
+	slot0.uilist1:align(math.min(#slot2, 4))
+	slot0.uilist2:align(math.max(0, #slot2 - 4))
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

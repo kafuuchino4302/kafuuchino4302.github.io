@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supportshipcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>supportshipcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ExchangeShipCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody().count
+	slot5 = getProxy(BagProxy):getItemById(ITEM_ID_SILVER_HOOK)
+	slot6 = getProxy(BuildShipProxy):getSupportShipCost() * slot3
+	slot7 = getProxy(BayProxy)
+	slot8 = slot7:getShips()
+
+	if getProxy(PlayerProxy):getData():getMaxShipBag() &lt; slot7:getShipCount() + slot3 then
+		NoPosMsgBox(i18n(&quot;switch_to_shop_tip_noDockyard&quot;), openDockyardClear, gotoChargeScene, openDockyardIntensify)
+
+		return
+	end
+
+	if slot5 == nil or slot5.count &lt; slot6 then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;word_materal_no_enough&quot;))
+
+		return
+	end
+
+	slot11 = pg.ConnectionMgr.GetInstance()
+
+	slot11:Send(16100, {
+		cnt = slot3
+	}, 16101, function (slot0)
+		if slot0.result == 0 then
+			uv0:removeItemById(ITEM_ID_SILVER_HOOK, uv1)
+
+			slot1 = {}
+
+			for slot5, slot6 in ipairs(slot0.ship_list) do
+				slot7 = Ship.New(slot6)
+
+				uv2:addShip(slot7)
+				table.insert(slot1, slot7)
+			end
+
+			uv3:sendNotification(GAME.SUPPORT_SHIP_DONE, {
+				ships = slot1
+			})
+		elseif slot0.result == 30 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;support_times_limited&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;ship_exchange_erro&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

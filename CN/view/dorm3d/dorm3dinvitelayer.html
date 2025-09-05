@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3dinvitelayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3dinvitelayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Dorm3dInviteLayer&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;Dorm3dInviteWindow&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.rtInvitePanel = slot0._tf:Find(&quot;invite_panel&quot;)
+
+	setText(slot0.rtInvitePanel:Find(&quot;window/Text&quot;), i18n(&quot;dorm3d_invite_beach_tip&quot;))
+	setText(slot0.rtInvitePanel:Find(&quot;window/btn_confirm/Text&quot;), i18n(&quot;text_confirm&quot;))
+	onButton(slot0, slot0.rtInvitePanel:Find(&quot;bg&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.rtInvitePanel:Find(&quot;window/btn_close&quot;), function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+
+	slot0.rtSelectPanel = slot0._tf:Find(&quot;select_panel&quot;)
+
+	setText(slot0.rtSelectPanel:Find(&quot;window/character/title&quot;), i18n(&quot;dorm3d_select_tip&quot;))
+	onButton(slot0, slot0.rtSelectPanel:Find(&quot;bg&quot;), function ()
+		uv0:HideSelectPanel()
+		uv0:ShowInvitePanel()
+	end, SFX_CANCEL)
+	setText(slot0.rtSelectPanel:Find(&quot;window/title/Text&quot;), i18n(&quot;dorm3d_data_choose&quot;))
+	setText(slot0.rtSelectPanel:Find(&quot;window/bottom/container/btn_confirm/Text&quot;), i18n(&quot;text_confirm&quot;))
+
+	slot0.selectCountTip = i18n(&quot;dorm3d_select_tip&quot;)
+end
+
+slot0.ShowInvitePanel = function(slot0)
+	GetImageSpriteFromAtlasAsync(&quot;dorm3dselect/room_invite_&quot; .. slot0.room:getConfig(&quot;assets_prefix&quot;), &quot;&quot;, slot0.rtInvitePanel:Find(&quot;window/Image&quot;))
+	setText(slot0.rtInvitePanel:Find(&quot;window/Text&quot;), i18n(&quot;dorm3d_data_go&quot;, slot0.room:getRoomName()))
+
+	slot1, slot2 = slot0.room:getInteractRange()
+	slot3 = slot0.rtInvitePanel:Find(&quot;window/container&quot;)
+
+	UIItemList.StaticAlign(slot3, slot3:GetChild(0), slot2, function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.selectIds[slot1]
+
+			setActive(slot2:Find(&quot;empty&quot;), not slot3)
+			setActive(slot2:Find(&quot;ship&quot;), slot3)
+
+			if slot3 then
+				GetImageSpriteFromAtlasAsync(pg.dorm3d_resource[pg.dorm3d_resource.get_id_list_by_ship_group[slot3][1]].head_Icon, &quot;&quot;, slot2:Find(&quot;ship&quot;), true)
+			end
+
+			onButton(uv0, slot2, function ()
+				uv0:HideInvitePanel()
+				uv0:ShowSelectPanel()
+			end, SFX_PANEL)
+
+			if slot1 == uv1 or not slot3 then
+				setActive(slot2:Find(&quot;tip&quot;), PlayerPrefs.GetInt(getProxy(PlayerProxy):getRawData().id .. &quot;_dorm3dRoomInviteSuccess_&quot; .. uv0.room.id, 1) == 0)
+			end
+		end
+	end)
+	onButton(slot0, slot0.rtInvitePanel:Find(&quot;window/btn_confirm&quot;), function ()
+		if #uv0.selectIds &lt; uv1 or uv2 &lt; #uv0.selectIds then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_data_Invite_lack&quot;))
+
+			return
+		end
+
+		slot0 = {}
+
+		if #uv0.selectIds &gt;= 3 and not ApartmentProxy.CheckDeviceRAMEnough() then
+			table.insert(slot0, function (slot0)
+				pg.MsgboxMgr.GetInstance():ShowMsgBox({
+					content = i18n(&quot;drom3d_beach_memory_limit_tip&quot;),
+					onYes = slot0
+				})
+			end)
+		end
+
+		table.insert(slot0, function (slot0)
+			getProxy(ApartmentProxy):SetRoomInviteList(uv0.room.id, uv0.selectIds)
+			slot0()
+		end)
+		seriesAsync(slot0, function ()
+			uv0:emit(Dorm3dInviteMediator.ON_DORM, {
+				roomId = uv0.room.id,
+				groupIds = underscore.rest(uv0.selectIds, 1)
+			})
+		end)
+	end, SFX_CONFIRM)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0.rtInvitePanel, {
+		force = true,
+		weight = LayerWeightConst.SECOND_LAYER
+	})
+	setActive(slot0.rtInvitePanel, true)
+	pg.CriMgr.GetInstance():PlaySE_V3(&quot;ui-dorm_sidebar&quot;)
+end
+
+slot0.HideInvitePanel = function(slot0)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0.rtInvitePanel, slot0._tf)
+	setActive(slot0.rtInvitePanel, false)
+end
+
+slot0.ShowSelectPanel = function(slot0)
+	slot2, slot3 = slot0.room:getInteractRange()
+	slot4 = {}
+	slot5 = {}
+
+	for slot9, slot10 in ipairs(slot0.room:getInviteList()) do
+		if not slot0.room.unlockCharacter[slot10] then
+			slot5[slot10] = &quot;lock&quot;
+		elseif not getProxy(ApartmentProxy):getApartment(slot10) then
+			slot5[slot10] = &quot;room&quot;
+		elseif Apartment.New({
+			ship_group = slot10
+		}):needDownload() then
+			slot5[slot10] = &quot;download&quot;
+		else
+			slot5[slot10] = nil
+		end
+	end
+
+	slot7 = slot0.rtSelectPanel:Find(&quot;window/character/container&quot;)
+
+	UIItemList.StaticAlign(slot7, slot7:GetChild(0), #slot1, function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1]
+
+			setActive(slot2:Find(&quot;base&quot;), slot3)
+			setActive(slot2:Find(&quot;empty&quot;), not slot3)
+
+			if not slot3 then
+				slot2.name = &quot;null&quot;
+
+				setText(slot2:Find(&quot;empty/Text&quot;), i18n(&quot;dorm3d_waiting&quot;))
+			else
+				slot2.name = tostring(slot3)
+
+				uv1:UpdateSelectableCard(slot2:Find(&quot;base&quot;), slot3, function (slot0)
+					table.removebyvalue(uv0, uv1, true)
+
+					if slot0 then
+						table.insert(uv0, uv1)
+					end
+
+					setText(uv2.rtSelectPanel:Find(&quot;window/bottom/title/Text&quot;), uv2.selectCountTip .. #uv0 .. &quot;/&quot; .. uv3)
+				end)
+				triggerToggle(slot2:Find(&quot;base&quot;), table.contains(uv1.selectIds, slot3))
+				setActive(slot2:Find(&quot;base/mask&quot;), uv4[slot3])
+				onButton(uv1, slot2:Find(&quot;base/mask&quot;), function ()
+					if uv0[uv1] == &quot;lock&quot; then
+						uv2:HideSelectPanel()
+						uv2:emit(Dorm3dInviteMediator.OPEN_ROOM_UNLOCK_WINDOW, uv2.room:GetConfigID(), uv1)
+					elseif uv0[uv1] == &quot;room&quot; then
+						pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_role_locked&quot;))
+					elseif uv0[uv1] == &quot;download&quot; then
+						pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_guide_beach_tip&quot;))
+					end
+				end, SFX_PANEL)
+				eachChild(slot2:Find(&quot;base/operation&quot;), function (slot0)
+					setActive(slot0, slot0.name == uv0[uv1])
+				end)
+			end
+
+			setActive(slot2:Find(&quot;tip&quot;), PlayerPrefs.GetInt(uv5 .. &quot;_dorm3dRoomInviteSuccess_&quot; .. uv1.room.id .. &quot;_&quot; .. slot3, 1) == 0)
+			PlayerPrefs.SetInt(uv5 .. &quot;_dorm3dRoomInviteSuccess_&quot; .. uv1.room.id .. &quot;_&quot; .. slot3, 1)
+		end
+	end)
+	PlayerPrefs.SetInt(getProxy(PlayerProxy):getRawData().id .. &quot;_dorm3dRoomInviteSuccess_&quot; .. slot0.room.id, 1)
+	onButton(slot0, slot0.rtSelectPanel:Find(&quot;window/bottom/container/btn_confirm&quot;), function ()
+		if uv1 &lt; #uv0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;dorm3d_data_Invite_lack&quot;))
+
+			return
+		end
+
+		uv2.selectIds = uv0
+
+		uv2:HideSelectPanel()
+		uv2:ShowInvitePanel()
+	end, SFX_CONFIRM)
+	pg.UIMgr.GetInstance():OverlayPanelPB(slot0.rtSelectPanel, {
+		force = true,
+		weight = LayerWeightConst.SECOND_LAYER,
+		pbList = {
+			slot0.rtSelectPanel:Find(&quot;window&quot;)
+		}
+	})
+	setActive(slot0.rtSelectPanel, true)
+end
+
+slot0.UpdateSelectableCard = function(slot0, slot1, slot2, slot3)
+	GetImageSpriteFromAtlasAsync(string.format(&quot;dorm3dselect/room_card_apartment_%d&quot;, Apartment.New({
+		ship_group = slot2
+	}):GetSkinModelID(slot0.room:getConfig(&quot;tag&quot;))), &quot;&quot;, slot1:Find(&quot;Image&quot;))
+	GetImageSpriteFromAtlasAsync(string.format(&quot;dorm3dselect/room_card_apartment_name_%d&quot;, slot2), &quot;&quot;, slot1:Find(&quot;name&quot;))
+
+	slot6 = not getProxy(ApartmentProxy):getApartment(slot2) or slot5:needDownload()
+
+	setActive(slot1:Find(&quot;lock&quot;), slot6)
+	setActive(slot1:Find(&quot;mask&quot;), slot6)
+	setActive(slot1:Find(&quot;unlock&quot;), not slot6)
+	setActive(slot1:Find(&quot;favor_level&quot;), slot5)
+
+	if slot5 then
+		setText(slot1:Find(&quot;favor_level/Text&quot;), slot5.level)
+	end
+
+	onToggle(slot0, slot1, function (slot0)
+		uv0(slot0)
+
+		if slot0 then
+			if not uv1 then
+				pg.TipsMgr.GetInstance():ShowTips(string.format(&quot;need unlock apartment{%d}&quot;, uv2))
+				triggerToggle(uv3, false)
+			elseif uv1:needDownload() then
+				pg.TipsMgr.GetInstance():ShowTips(string.format(&quot;need download resource{%d}&quot;, uv2))
+				triggerToggle(uv3, false)
+			end
+		end
+	end, SFX_UI_CLICK)
+end
+
+slot0.HideSelectPanel = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0.rtSelectPanel, slot0._tf)
+	setActive(slot0.rtSelectPanel, false)
+end
+
+slot0.UpdateRoom = function(slot0, slot1)
+	slot0.room = slot1
+end
+
+slot0.didEnter = function(slot0)
+	slot0.selectIds = underscore.filter(slot0.contextData.groupIds or {}, function (slot0)
+		return uv0.room.unlockCharacter[slot0] and tobool(getProxy(ApartmentProxy):getApartment(slot0)) and not Apartment.New({
+			ship_group = slot0
+		}):needDownload()
+	end)
+	slot0.contextData.groupIds = nil
+
+	slot0:ShowInvitePanel()
+end
+
+slot0.onBackPressed = function(slot0)
+	if isActive(slot0.rtSelectPanel) then
+		slot0:HideSelectPanel()
+		slot0:ShowInvitePanel()
+	else
+		slot0:closeView()
+	end
+end
+
+slot0.willExit = function(slot0)
+	if isActive(slot0.rtSelectPanel) then
+		slot0:HideSelectPanel()
+	else
+		slot0:HideInvitePanel()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

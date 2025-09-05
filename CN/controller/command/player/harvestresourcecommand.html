@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harvestresourcecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>harvestresourcecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;HarvestResourceCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot3 = id2res(slot2)
+	slot5 = getProxy(PlayerProxy):getData()
+	slot6 = nil
+
+	if slot2 == 1 then
+		slot6 = slot5:getLevelMaxGold()
+	elseif slot2 == 2 then
+		slot6 = slot5:getLevelMaxOil()
+	else
+		assert(false)
+	end
+
+	if slot6 &lt;= slot5[slot3] then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;player_harvestResource_error_fullBag&quot;))
+
+		return
+	end
+
+	slot7 = pg.ConnectionMgr.GetInstance()
+
+	slot7:Send(11013, {
+		number = 0,
+		type = slot2
+	}, 11014, function (slot0)
+		if slot0.result == 0 then
+			slot2 = 0
+
+			if uv0 - uv1[uv2] &lt; uv1[uv2 .. &quot;Field&quot;] then
+				slot2 = slot1
+
+				uv1:addResources({
+					[uv2] = slot1
+				})
+
+				uv1[uv2 .. &quot;Field&quot;] = uv1[uv2 .. &quot;Field&quot;] - slot1
+			else
+				slot2 = uv1[uv2 .. &quot;Field&quot;]
+
+				uv1:addResources({
+					[uv2] = uv1[uv2 .. &quot;Field&quot;]
+				})
+
+				uv1[uv2 .. &quot;Field&quot;] = 0
+			end
+
+			uv3:updatePlayer(uv1)
+			uv4:sendNotification(GAME.HARVEST_RES_DONE, {
+				type = uv5,
+				outPut = slot2
+			})
+			pg.CriMgr.GetInstance():PlaySoundEffect_V3(SFX_UI_ACADEMY_GETMATERIAL)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;player_harvestResource&quot;, slot0.result))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

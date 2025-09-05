@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resolveequipmentmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>resolveequipmentmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ResolveEquipmentMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.ON_RESOLVE = &quot;ResolveEquipmentMediator:ON_RESOLVE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.ON_RESOLVE, function (slot0, slot1)
+		uv0:sendNotification(GAME.DESTROY_EQUIPMENTS, {
+			equipments = slot1
+		})
+	end)
+	slot0.viewComponent:setPlayer(getProxy(PlayerProxy):getData())
+
+	slot2 = slot0.contextData.Equipments
+
+	assert(slot2, &quot;equipmentVOs can not be nil&quot;)
+	slot0.viewComponent:setEquipments(slot2)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.DESTROY_EQUIPMENTS_DONE,
+		GAME.CANCEL_LIMITED_OPERATION
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.DESTROY_EQUIPMENTS_DONE then
+		slot0.viewComponent:HideDestroyCondirm()
+
+		if getProxy(ContextProxy):getCurrentContext() and slot4.mediator.__cname ~= &quot;EquipmentMediator&quot; and table.getCount(slot3) ~= 0 then
+			slot0.viewComponent:emit(BaseUI.ON_AWARD, {
+				items = slot3,
+				title = AwardInfoLayer.TITLE.ITEM,
+				removeFunc = function ()
+					uv0.viewComponent:OnResolveEquipDone()
+				end
+			})
+		else
+			slot0.viewComponent:OnResolveEquipDone()
+		end
+	elseif slot2 == GAME.CANCEL_LIMITED_OPERATION then
+		-- Nothing
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

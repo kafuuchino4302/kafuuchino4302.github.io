@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildsearchcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildsearchcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildSearchCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if not slot1:getBody() or slot2 == &quot;&quot; then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_should_input_keyword&quot;))
+
+		return
+	end
+
+	slot2 = slot2 and string.gsub(slot2, &quot;^%s*(.-)%s*$&quot;, &quot;%1&quot;)
+	slot3 = nil
+
+	pg.ConnectionMgr.GetInstance():Send(60028, {
+		type = tonumber(slot2) and 0 or 1,
+		keyword = slot2
+	}, 60029, function (slot0)
+		if slot0.result == 0 then
+			slot1 = {}
+
+			for slot5, slot6 in ipairs(slot0.guild) do
+				slot7 = Guild.New(slot6)
+
+				slot7:SetMaxMemberCntAddition(slot6.tech_seat)
+
+				slot8 = GuildMember.New(slot6.leader)
+
+				slot8:setDuty(GuildConst.DUTY_COMMANDER)
+				slot7:addMember(slot8)
+				table.insert(slot1, slot7)
+			end
+
+			uv0:sendNotification(GAME.GUILD_SEARCH_DONE, slot1)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_search_sucess&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;guild_no_exist&quot;))
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

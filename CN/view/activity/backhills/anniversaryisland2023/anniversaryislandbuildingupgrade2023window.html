@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anniversaryislandbuildingupgrade2023window.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>anniversaryislandbuildingupgrade2023window.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AnniversaryIslandBuildingUpgrade2023Window&quot;, import(&quot;view.base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;AnniversaryIslandBuildingUpgrade2023Window&quot;
+end
+
+slot0.GetAtlasPath = function(slot0)
+	return &quot;ui/&quot; .. slot0:getUIName() .. &quot;_atlas&quot;
+end
+
+slot0.init = function(slot0)
+	slot0.window = slot0._tf:Find(&quot;Window&quot;)
+	slot0.upgradeWindow = slot0.window:Find(&quot;Upgrade&quot;)
+	slot0.displayWindow = slot0.window:Find(&quot;Display&quot;)
+
+	setText(slot0.window:Find(&quot;Upgrade/MaterialsTitle&quot;), i18n(&quot;workbench_need_materials&quot;))
+	setText(slot0.window:Find(&quot;Display/MaxTip&quot;), i18n(&quot;workbench_tips6&quot;))
+
+	slot0.loader = AutoLoader.New()
+end
+
+slot0.didEnter = function(slot0)
+	slot1 = slot0.contextData.buildingID
+
+	onButton(slot0, slot0._tf:Find(&quot;BG&quot;), function ()
+		uv0:onBackPressed()
+	end)
+	onButton(slot0, slot0.upgradeWindow:Find(&quot;Cancel&quot;), function ()
+		uv0:onBackPressed()
+	end, SFX_CANCEL)
+	onButton(slot0, slot0.upgradeWindow:Find(&quot;Upgrade&quot;), function ()
+		if uv0.isMaxLevel then
+			return
+		elseif uv0.isOverAvg then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;haidaojudian_upgrade_limit&quot;))
+		elseif uv0.isLackMat then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;haidaojudian_building_tip&quot;))
+		else
+			uv0:emit(BuildingUpgradeMediator.ACTIVITY_OPERATION, {
+				cmd = 1,
+				activity_id = uv0.activityId,
+				arg1 = uv1
+			})
+		end
+	end)
+	onButton(slot0, slot0.displayWindow:Find(&quot;Confirm&quot;), function ()
+		uv0:onBackPressed()
+	end, SFX_PANEL)
+	slot0:UpdateView()
+end
+
+slot0.UpdateView = function(slot0)
+	slot1 = slot0.contextData.buildingID
+	slot2 = getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_BUILDING_BUFF_2)
+	slot0.activityId = slot2.id
+	slot0.isMaxLevel = slot2:GetBuildingLevel(slot1) &gt;= #pg.activity_event_building[slot1].buff
+	slot0.isOverAvg = slot2:GetTotalBuildingLevel() &lt; slot3
+
+	setActive(slot0.upgradeWindow, not slot0.isMaxLevel)
+	setActive(slot0.displayWindow, slot0.isMaxLevel)
+	slot0.loader:GetSpriteQuiet(slot0:GetAtlasPath(), AnniversaryIsland2023Scene.Buildings[slot1], (slot0.isMaxLevel and slot0.displayWindow or slot0.upgradeWindow):Find(&quot;Title/BuildingName&quot;), true)
+
+	slot8 = 0
+
+	(function ()
+		uv0.loader:GetSpriteQuiet(uv0:GetAtlasPath(), uv1, uv2:Find(&quot;Title/LevelBefore&quot;), true)
+
+		slot1 = CommonBuff.New({
+			id = uv3.buff[uv1]
+		})
+		slot2 = string.split(slot1:getConfig(&quot;desc&quot;), &quot;/&quot;)
+
+		assert(slot2)
+
+		slot3, slot4, slot5 = string.find(slot2[1], &quot;([^%+]*)%+&quot;)
+		slot7, slot8, slot9 = string.find(slot2[2], &quot;([^%+]*)%+&quot;)
+
+		setText(uv2:Find(&quot;Progress1/1/Desc&quot;), slot5)
+		setText(uv2:Find(&quot;Progress1/1/Value&quot;), string.sub(slot2[1], slot4, #slot2[1]))
+		setText(uv2:Find(&quot;Progress2/1/Desc&quot;), slot9)
+		setText(uv2:Find(&quot;Progress2/1/Value&quot;), string.sub(slot2[2], slot8, #slot2[2]))
+
+		uv4 = tonumber(slot1:getConfig(&quot;benefit_effect&quot;))
+	end)()
+	(function ()
+		if uv1 &lt;= uv0 then
+			return
+		end
+
+		slot0 = uv0 + 1
+
+		uv2.loader:GetSpriteQuiet(uv2:GetAtlasPath(), slot0, uv3:Find(&quot;Title/LevelAfter&quot;), true)
+
+		slot2 = CommonBuff.New({
+			id = uv4.buff[slot0]
+		})
+		slot3 = string.split(slot2:getConfig(&quot;desc&quot;), &quot;/&quot;)
+
+		assert(slot3)
+
+		slot4, slot5, slot6 = string.find(slot3[1], &quot;([^%+]*)%+&quot;)
+		slot8, slot9, slot10 = string.find(slot3[2], &quot;([^%+]*)%+&quot;)
+
+		setText(uv3:Find(&quot;Progress1/2/Desc&quot;), slot6)
+		setText(uv3:Find(&quot;Progress1/2/Value&quot;), string.sub(slot3[1], slot5, #slot3[1]))
+		setText(uv3:Find(&quot;Progress2/2/Desc&quot;), slot10)
+		setText(uv3:Find(&quot;Progress2/2/Value&quot;), string.sub(slot3[2], slot9, #slot3[2]))
+		setActive(uv3:Find(&quot;Progress2/2/Up&quot;), uv5 &lt; tonumber(slot2:getConfig(&quot;benefit_effect&quot;)))
+	end)()
+	(function ()
+		if uv1 &lt;= uv0 then
+			return
+		end
+
+		slot1 = getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_VIRTUAL_BAG)
+		uv3.isLackMat = false
+
+		UIItemList.StaticAlign(uv4:Find(&quot;Materials&quot;), uv4:Find(&quot;Materials&quot;):GetChild(0), #uv2.material[uv0], function (slot0, slot1, slot2)
+			if slot0 ~= UIItemList.EventUpdate then
+				return
+			end
+
+			slot3 = uv0[slot1 + 1]
+
+			uv1:UpdateActivityDrop(slot2:Find(&quot;Icon&quot;), {
+				type = slot3[1],
+				id = slot3[2],
+				count = slot3[3]
+			})
+			onButton(uv1, slot2:Find(&quot;Icon&quot;), function ()
+				if uv0.type == DROP_TYPE_WORKBENCH_DROP then
+					uv1:emit(WorkBenchItemDetailMediator.SHOW_DETAIL, WorkBenchItem.New({
+						configId = uv0.id,
+						count = uv0.count
+					}))
+				else
+					uv1:emit(BaseUI.ON_DROP, uv0)
+				end
+			end)
+
+			slot8 = uv2:getVitemNumber(slot3[2]) &lt; slot3[3]
+
+			setText(slot2:Find(&quot;Text&quot;), setColorStr(slot7, slot8 and &quot;#bb6754&quot; or &quot;#6b5a48&quot;) .. &quot;/&quot; .. slot6)
+
+			uv1.isLackMat = uv1.isLackMat or slot8
+		end)
+	end)()
+end
+
+slot1 = &quot;ui/AtelierCommonUI_atlas&quot;
+
+slot0.UpdateActivityDrop = function(slot0, slot1, slot2, slot3)
+	updateDrop(slot1, slot2)
+	SetCompomentEnabled(slot1:Find(&quot;icon_bg&quot;), typeof(Image), false)
+	setActive(slot1:Find(&quot;bg&quot;), false)
+	setActive(slot1:Find(&quot;icon_bg/frame&quot;), false)
+	setActive(slot1:Find(&quot;icon_bg/stars&quot;), false)
+
+	slot4 = slot2:getConfig(&quot;rarity&quot;)
+
+	if slot2.type == DROP_TYPE_EQUIP or slot2.type == DROP_TYPE_EQUIPMENT_SKIN then
+		slot4 = slot4 - 1
+	end
+
+	slot5 = &quot;icon_frame_&quot; .. slot4
+
+	if slot3 then
+		slot5 = slot5 .. &quot;_small&quot;
+	end
+
+	slot0.loader:GetSpriteQuiet(uv0, slot5, slot1)
+end
+
+slot0.willExit = function(slot0)
+	slot0.loader:Clear()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

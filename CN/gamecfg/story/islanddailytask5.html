@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islanddailytask5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islanddailytask5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 10,
+	id = &quot;ISLANDDAILYTASK5&quot;,
+	map = {
+		{
+			100500,
+			10010003
+		}
+	},
+	look_weight = {
+		{
+			0.7,
+			0
+		},
+		{
+			0.3,
+			0
+		}
+	},
+	scripts = {
+		{
+			animation = &quot;nod&quot;,
+			subName = &quot;牧场管理员&quot;,
+			characterId = 100500,
+			say = &quot;哇——！是指挥官！是给我的牧场动物们带吃的东西来了吗？&quot;,
+			face2Face = {
+				{
+					0,
+					100500
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;啊，不是的话也没关系，只要是指挥官带来的东西，梅莉都很喜欢哦~&quot;,
+			animation = &quot;talk&quot;,
+			characterId = 100500,
+			subName = &quot;牧场管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;动物们也是！有你在，牧场一定会越来越热闹的~&quot;,
+			animation = &quot;helation&quot;,
+			characterId = 100500,
+			subName = &quot;牧场管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

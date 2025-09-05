@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zhuhongmiju2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>zhuhongmiju2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;ZHUHONGMIJU2&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;朱红迷局\n\n&lt;size=45&gt;阴云之下&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			bgm = &quot;bsm-3&quot;,
+			say = &quot;阴云之下，猎手与猎物正在海面上疾驰着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 204010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;皇家舰队H舰队所属——声望号战列巡洋舰，奉命拦截贵舰，请放弃无谓的抵抗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 204010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;皇家已经发动了总动员，整个皇家舰队的战舰都在往此处赶来，你是没有机会逃脱的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 207020,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;……转身而逃了么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 207020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;果然和预期的一样，这家伙是不会束手就擒的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 207020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;想要拦截这个怪物，必须得先减慢她的航速。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 207020,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;剑鱼818中队出击！目标，{namecode:435:俾斯麦}！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;啧……那个角度……是死角！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;回避……来不及了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 900262,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#FF9B93&quot;,
+			paintingNoise = true,
+			say = &quot;这是最后的通牒了，{namecode:435:俾斯麦}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			paintingNoise = true,
+			actor = 900262,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;以女王的名义，请你立刻解除武装，与我们返回皇家，接受应有的审判——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我舰已失去行动能力，莱茵行动已经失败……到此为止了么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900011,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;测试者&quot;,
+			say = &quot;{namecode:435:俾斯麦}女士，就算是这样的局面，也不打算使用“那个”吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这里不需要你们插手。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900011,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;测试者&quot;,
+			say = &quot;到了最后时刻也还在嘴硬啊。明明只需要一点点的决心，就可以把这些敌人送入海底——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			hidePaintObj = true,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			actor = 499020,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;真是不和谐的杂音。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 499020,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;测试者，{namecode:435:俾斯麦}女士应该已经说的很清楚了，这里不需要你们插手。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 304050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435:俾斯麦}阁下，久等了，您没事吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:441:腓特烈}和……你是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 304050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:161:天城}。阁下不记得我了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;重樱的……{namecode:161:天城}。{namecode:91:赤城}的……姐姐？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你身后的那支黑色舰队是……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304050,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;由我所带领的支援舰队哦，铁血的支援舰队也已经抵达，皇家舰队不敢再继续接近了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 304050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你已经安全了哦，{namecode:435:俾斯麦}阁下。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我已经……安全了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435:俾斯麦}口中缓缓重复着这个词，似乎在细细品味它的味道。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 900011,
+			nameColor = &quot;#FF9B93&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			side = 2,
+			actorName = &quot;测试者&quot;,
+			say = &quot;意料之外的变量出现，推演结果相应更改。看来你多了一条路可选呢，你要怎么做？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我要……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435:俾斯麦}的视线划过测试者，划过{namecode:161:天城}，划过{namecode:440:腓特烈大帝}，最后停留在舰装之中散发着漆黑光芒的心智魔方上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304050,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:435:俾斯麦}阁下……为何要发笑？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:441:腓特烈}，你亲自带人来救我，改变我在“围剿{namecode:435:俾斯麦}”事件中的最终命运——就是你的救援计划么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 499020,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你觉得呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为这与我们的约定不同。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你现在应该在司令部中，等待着我沉没的消息，然后以雷霆手段接管铁血——而不是出现在这里。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所以——这不是现实，对么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 499020,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;呵呵——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 304050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435:俾斯麦}阁下……您究竟在说什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304050,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;此处毫无疑问就是现实，而且是一个美好的现实。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 304050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就让现实如此发展下去不好么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;人生路漫漫。回首过往，难免有尴尬、有遗憾、有血泪……更有错误。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;然而，过去是未来的基石。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;一度发生过的事，绝对不能当成没发生过。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不管这件事是尴尬，是遗憾，是血泪，亦或是错误。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们能做的，都只有接受它。接受过去，才能真正迈向未来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:435:俾斯麦}一边说着，一边让主炮开始了蓄能。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			say = &quot;不祥的黑色光芒在炮口集中着，汇聚而成了一个微小的“点”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 304050,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;{namecode:435:俾斯麦}阁下快住手！……你这是要……做什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 405010,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;做我应该做的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;就如同过去那般——测试者，我将用这股力量，再次粉碎你的舰队！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			dir = 1,
+			actor = 405010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而后——迎接我的终局！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_bsmlevel&quot;,
+			hidePaintObj = true,
+			say = &quot;黑色的光芒自微小的“点”中倾泻而出。吞没了冷漠的测试者，吞没了不解的{namecode:161:天城}，吞没了微笑的{namecode:440:腓特烈大帝}，亦吞没了操纵之人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;革律翁&quot;,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#FFC960&quot;,
+			hidePaintObj = true,
+			say = &quot;▁▂▃▄▅▆▇███*猛烈的咆哮*██▌&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……看来，这里才是现实呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你看……接受了过去，才有未来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 405050,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;——更美好的未来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

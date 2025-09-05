@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>holidayvillapage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>holidayvillapage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;HolidayVillaPage&quot;, import(&quot;view.base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.signTF = slot0:findTF(&quot;sign&quot;, slot0.bg)
+	slot0.getBtn = slot0:findTF(&quot;get&quot;, slot0.signTF)
+	slot0.got = slot0:findTF(&quot;got&quot;, slot0.signTF)
+	slot0.getBtn_tip = slot0:findTF(&quot;get/tip&quot;, slot0.signTF)
+	slot0.countbg = slot0:findTF(&quot;count_bg&quot;, slot0.signTF)
+	slot0.countText = slot0:findTF(&quot;count_bg/count&quot;, slot0.signTF)
+	slot0.go = slot0:findTF(&quot;go_btn&quot;, slot0.signTF)
+	slot0.Notbtn = slot0:findTF(&quot;Not_unlocked&quot;, slot0.signTF)
+	slot0.list = {
+		slot0:findTF(&quot;list/unfinished_1&quot;, slot0.signTF),
+		slot0:findTF(&quot;list/unfinished_2&quot;, slot0.signTF),
+		slot0:findTF(&quot;list/unfinished_3&quot;, slot0.signTF),
+		slot0:findTF(&quot;list/unfinished_4&quot;, slot0.signTF),
+		slot0:findTF(&quot;list/unfinished_5&quot;, slot0.signTF)
+	}
+
+	setActive(slot0.go, false)
+	setActive(slot0.Notbtn, false)
+end
+
+slot0.OnDataSetting = function(slot0)
+	slot0.nday = 0
+	slot0.taskProxy = getProxy(TaskProxy)
+	slot0.taskGroup = underscore.flatten(slot0.activity:getConfig(&quot;config_data&quot;))
+	slot0.preStory = slot0.activity:getConfig(&quot;config_client&quot;).preStory
+
+	return updateActivityTaskStatus(slot0.activity)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	onButton(slot0, slot0.getBtn, function ()
+		if not uv0.remainCnt or uv0.remainCnt &lt;= 0 then
+			return
+		end
+
+		seriesAsync({
+			function (slot0)
+				if checkExist(uv0.activity:getConfig(&quot;config_client&quot;).story, {
+					uv0.nday
+				}, {
+					1
+				}) then
+					pg.NewStoryMgr.GetInstance():Play(slot1[uv0.nday][1], slot0)
+				else
+					slot0()
+				end
+			end,
+			function (slot0)
+				if uv0.curTaskVO:getTaskStatus() == 1 then
+					uv0:emit(ActivityMediator.ON_TASK_SUBMIT, uv0.curTaskVO, slot0)
+				else
+					slot0()
+				end
+			end
+		})
+	end, SFX_PANEL)
+	onButton(slot0, slot0.go, function ()
+		if uv0:IsLockLiner() then
+			return
+		end
+
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.HOLIDAY_VILLA_MAP)
+	end, SFX_PANEL)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.nday = slot0.activity.data3
+	slot1 = slot0:IsFinishSign()
+
+	setActive(slot0.got, false)
+	setActive(slot0.go, not slot0:IsLockLiner() and slot1)
+	setActive(slot0.Notbtn, slot0:IsLockLiner())
+
+	if not slot1 then
+		setActive(slot0.Notbtn, false)
+
+		slot0.curTaskVO = slot0.taskProxy:getTaskById(slot0.taskGroup[slot0.nday]) or slot0.taskProxy:getFinishTaskById(slot2)
+		slot0.remainCnt = math.min(slot0.activity:getDayIndex(), #slot0.taskGroup) - slot0.nday
+
+		if slot0.curTaskVO:getTaskStatus() == 1 then
+			slot0.remainCnt = slot0.remainCnt + 1
+		end
+
+		warning(&quot;self.remainCnt   :&quot;, slot0.remainCnt)
+		setActive(slot0.getBtn_tip, slot0.remainCnt &gt; 0)
+		setActive(slot0.getBtn, slot0.remainCnt &gt; 0)
+		setActive(slot0.got, slot0.remainCnt == 0)
+		setActive(slot0.countbg, true)
+		setText(slot0.countText, i18n(&quot;liner_sign_cnt_tip&quot;) .. slot0.remainCnt)
+	else
+		setActive(slot0.countbg, false)
+		setActive(slot0.getBtn, false)
+	end
+
+	for slot5, slot6 in ipairs(slot0.list) do
+		setActive(slot0:findTF(&quot;accomplish&quot;, slot0.list[slot5]), slot1 or slot5 &lt; slot0.nday)
+		setImageAlpha(slot6, (slot1 or slot5 &lt; slot0.nday) and 0 or 1)
+		setActive(slot0:findTF(&quot;Check_point&quot;, slot0.list[slot5]), not slot1 and slot5 == slot0.nday)
+	end
+end
+
+slot0.IsFinishSign = function(slot0)
+	slot2 = slot0.taskProxy:getTaskById(slot0.taskGroup[#slot0.taskGroup]) or slot0.taskProxy:getFinishTaskById(slot1)
+
+	return slot2 and slot2:getTaskStatus() == 2
+end
+
+slot0.IsLockLiner = function(slot0)
+	return not getProxy(ActivityProxy):getActivityById(ActivityConst.HOLIDAY_ACT_ID) or slot1:isEnd()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

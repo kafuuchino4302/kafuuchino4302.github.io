@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200457.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200457.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 0,
+	name = &quot;2023俾斯麦Z活动 剧情战BOSS&quot;,
+	init_effect = &quot;&quot;,
+	id = 200457,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 200457,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				hpUpperBound = 0.3,
+				skill_id = 200460,
+				target = &quot;TargetSelf&quot;,
+				quota = 1
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.9,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.8,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.7,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.6,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.5,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.4,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200456,
+					200457
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.3,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200458,
+					200459
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.2,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200458,
+					200459
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkillRandom&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				quota = 1,
+				hpUpperBound = 0.1,
+				target = &quot;TargetSelf&quot;,
+				skill_id_list = {
+					200458,
+					200459
+				},
+				range = {
+					{
+						0,
+						0.5
+					},
+					{
+						0.5,
+						1
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>genvertify.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>genvertify.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">GetBattleCheck = function()
+	return 0
+end
+
+GetBattleCheckResult = function(slot0, slot1, slot2)
+	slot3 = 2621
+	slot4 = 3527
+	slot0 = math.floor(slot0 % slot3 * (slot1 % slot3) % slot3 + slot2)
+
+	return slot0, tostring(math.floor(GetBattleCheck() % slot4 * (slot1 % slot4) % (slot4 + slot0)))
+end
+
+ys.BattleShipLevelVertify = {}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

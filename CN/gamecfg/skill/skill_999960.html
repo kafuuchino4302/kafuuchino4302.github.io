@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skill_999960.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>skill_999960.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	uiEffect = &quot;&quot;,
+	name = &quot;&quot;,
+	cd = 0,
+	picture = &quot;0&quot;,
+	aniEffect = &quot;&quot;,
+	desc = &quot;&quot;,
+	painting = 0,
+	id = 999960,
+	effect_list = {
+		{
+			type = &quot;BattleSkillRemoveAllWeapon&quot;,
+			arg_list = {}
+		},
+		{
+			type = &quot;BattleSkillPhaseJump&quot;,
+			arg_list = {
+				index = 11
+			}
+		},
+		{
+			targetAniEffect = &quot;&quot;,
+			casterAniEffect = &quot;&quot;,
+			type = &quot;BattleSkillSummon&quot;,
+			target_choise = &quot;TargetNil&quot;,
+			arg_list = {
+				delay = 5,
+				spawnData = {
+					monsterTemplateID = 300902,
+					score = 0,
+					delay = 0,
+					moveCast = true,
+					corrdinate = {
+						-25,
+						0,
+						60
+					},
+					phase = {
+						{
+							switchType = 1,
+							switchTo = 4,
+							index = 0,
+							switchParam = 0.1,
+							setAI = 20006
+						},
+						{
+							index = 1,
+							switchType = 1,
+							switchTo = 2,
+							switchParam = 2
+						},
+						{
+							switchParam = 10,
+							switchTo = 3,
+							index = 2,
+							switchType = 1,
+							addBuff = {
+								999979
+							},
+							addWeapon = {
+								9999973
+							}
+						},
+						{
+							switchTo = 4,
+							switchParam = 8,
+							index = 3,
+							switchType = 1,
+							removeBuff = {
+								999979
+							},
+							removeWeapon = {
+								9999973
+							}
+						},
+						{
+							switchParam = 10,
+							switchTo = 5,
+							index = 4,
+							switchType = 1,
+							addBuff = {
+								999979
+							},
+							addWeapon = {
+								9999974
+							}
+						},
+						{
+							switchTo = 2,
+							switchParam = 8,
+							index = 5,
+							switchType = 1,
+							removeBuff = {
+								999979
+							},
+							removeWeapon = {
+								9999974
+							}
+						},
+						{
+							switchParam = 5,
+							switchTo = 7,
+							index = 6,
+							switchType = 1,
+							addBuff = {
+								999977
+							},
+							addWeapon = {
+								9999975
+							}
+						},
+						{
+							switchTo = 4,
+							switchParam = 8,
+							index = 7,
+							switchType = 1,
+							removeBuff = {
+								999977
+							},
+							removeWeapon = {
+								9999975
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

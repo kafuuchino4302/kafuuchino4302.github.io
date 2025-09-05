@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guliteguanqia18.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guliteguanqia18.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;GULITEGUANQIA18&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			say = &quot;城市区·周边海域&quot;,
+			side = 2,
+			dir = 1,
+			bgm = &quot;ssss-az-battle-boss&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;你确定是这个方向么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			actor = 10800070,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;绝对没错，之前的战斗结束后就是向着这里撤退的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 900233,
+			actorName = &quot;净化亲&quot;,
+			hidePaintObj = true,
+			say = &quot;我分析的也是在这个方向哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;貉，你这个舰装还真是方便啊……正常打仗都是量产型越打越少，你这反而越打越多。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10800070,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;用来控制塞壬量产型的话确实方便，不过也不是所有的都能控制。我还不知道这个力量的原理是什么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;你慢慢研究，反正这里的塞壬舰队多得是。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;接近之后才发现居然在海雾里藏了这么多。呵呵，正好让我发泄一下暂时与指挥官分别的痛苦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;通讯器&quot;,
+			side = 2,
+			dir = 1,
+			soundeffect = &quot;event:/ui/alarm&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;警报音————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			actor = 301812,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;发现敌方巨大目标接近中，那个是……什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_ssss_2&quot;,
+			dir = 1,
+			say = &quot;远方天际线缓缓出现了一个红黑色的巨影。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_ssss_3&quot;,
+			dir = 1,
+			say = &quot;如同钢铁巨兽一样的身躯，如同恶龙一样的头部，再加上无数散发着诡异光芒的炮管。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_ssss_4&quot;,
+			dir = 1,
+			say = &quot;浑身散发着能够歼灭任何敌人的气魄巨物——这就是塞壬的怪兽。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10800050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;身体是不是变得比之前更大了……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;好像有些狩猎的价值了，呵呵呵……全舰瞄准！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 900233,
+			actorName = &quot;净化亲&quot;,
+			hidePaintObj = true,
+			say = &quot;等等，停！那个怪兽情况有些不对，大家快撤退，不要跟它打！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;怎么了，净化者也会害怕？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 900233,
+			actorName = &quot;净化亲&quot;,
+			hidePaintObj = true,
+			say = &quot;不是害怕不害怕的问题，而是那个敌人不对劲，虽然我说不上来哪里不对劲……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			actor = 900233,
+			actorName = &quot;净化亲&quot;,
+			hidePaintObj = true,
+			say = &quot;总之，我们现在不是它的对手！还是先撤吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;敌人已经冲到跟前了，怎么能掉头逃跑？我们舰队人数这么多，不会有问题的~首先请航空母舰进行轰炸吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307041,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;{namecode:439}说的没错，具体什么情况总要试一试再说！{namecode:93}姐我们一起来吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 10800060,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;两位前辈，我也来帮忙！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			say = &quot;轰————————！&quot;,
+			dir = 1,
+			side = 2,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;舰载机群用机枪扫射着怪兽的躯体，数量庞大的鱼雷向着双足涌去，轰炸机飞到怪兽的头部开始投弹。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;可是不论是机枪、鱼雷还是炸弹，都没能对前方的巨物造成丝毫损伤。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;仿佛有什么看不见但极其坚固的存在让所有攻击都偏转了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_ssss_5&quot;,
+			dir = 1,
+			actorName = &quot;飞鸟川千濑&quot;,
+			hidePaintObj = true,
+			say = &quot;哎？没有效果！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_ssss_5&quot;,
+			dir = 1,
+			actorName = &quot;貉&quot;,
+			hidePaintObj = true,
+			say = &quot;似乎多了一些特殊的防御能力，和之前见到的时候不一样了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_ssss_5&quot;,
+			dir = 1,
+			actorName = &quot;貉&quot;,
+			hidePaintObj = true,
+			say = &quot;除了体积变大之外，作战能力也大幅提升了啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_ssss_5&quot;,
+			actorName = &quot;宝多六花&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;对方开始反击了！…这个有点糟糕吧？&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_ssss_5&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:439}&quot;,
+			hidePaintObj = true,
+			say = &quot;这个威力…开什么玩笑？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			actorName = &quot;净化亲&quot;,
+			dir = 1,
+			paintingNoise = true,
+			actor = 900233,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;所以说对面不对劲啊，快点撤！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;还没完，让我用主炮去试试————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 102163,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:439}，打不赢的！战斗力差距已经很明显了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			actor = 102163,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官在这里的话一样会选择撤退的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;啊……这么说来，我们这支舰队的旗舰究竟是谁呀？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 10800050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;谁都好吧……现在是需要纠结这个问题的时候么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;这个问题很重要哎！指挥官不在的话应该是旗舰负责指挥，如果没有指挥不就乱套了么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 306060,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;确实有道理……虽然从气势上来说就变成{namecode:439}了进行指挥，不过毕竟不是正式决定下来的事。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;巨大的塞壬怪兽一边射击一边缓缓接近着，无数散发着危险颜色的光束从众人身旁擦过。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 10800050,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;我说……要不要先撤退，等回去再慢慢讨论？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 900318,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;切……你们说的对，不能跟底细不明的敌人硬拼，准备撤退吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;了解~不过撤退的命令应该让谁来下……？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 10800060,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;爱~丁~堡~小~姐~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202111,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;哎嘿嘿！大家撤退哦，撤退！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

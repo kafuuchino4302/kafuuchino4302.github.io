@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_29171.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_29171.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;主炮每进行15次攻击，触发专属弹幕-Z1I&quot;
+	},
+	desc_get = &quot;主炮每进行15次攻击，触发专属弹幕-Z1I&quot;,
+	name = &quot;专属弹幕-Z1I&quot;,
+	init_effect = &quot;&quot;,
+	id = 29171,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;主炮每进行15次攻击，触发专属弹幕-Z1I&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 29170,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCount&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				countTarget = 15,
+				countType = 29170,
+				index = {
+					1
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				target = &quot;TargetSelf&quot;,
+				countType = 29170,
+				maxTargetNumber = 0,
+				skill_id = 29171,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Z1SP&quot;
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onBattleBuffCount&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				target = &quot;TargetSelf&quot;,
+				countType = 29170,
+				skill_id = 29173,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Z1SP&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

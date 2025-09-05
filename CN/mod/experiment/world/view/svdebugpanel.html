@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svdebugpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>svdebugpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SVDebugPanel&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;SVDebugPanel&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = slot0._tf
+	slot0.scrollRect = slot1:Find(&quot;scrollview&quot;):GetComponent(typeof(ScrollRect))
+	slot0.rtContent = slot1:Find(&quot;scrollview/viewport/content&quot;)
+	slot0.rtText = slot0.rtContent:Find(&quot;text&quot;)
+	slot0.btnX = slot1:Find(&quot;panel/x&quot;)
+
+	onButton(slot0, slot0.btnX, function ()
+		uv0:Hide()
+	end)
+
+	slot2 = slot1:Find(&quot;panel/buttons&quot;)
+
+	setActive(slot0.rtText, false)
+	setParent(slot0.rtText, slot1, false)
+
+	slot4 = nowWorld()
+	slot6 = UIItemList.New(slot2, slot2:Find(&quot;button&quot;))
+
+	slot6:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			setText(slot2:Find(&quot;Text&quot;), uv0[slot1].name)
+			onButton(uv1, slot2, uv0[slot1].func)
+		end
+	end)
+	slot6:align(#{
+		{
+			name = &quot;清理打印&quot;,
+			func = function ()
+				for slot3 = uv0.rtContent.childCount - 1, 0, -1 do
+					Destroy(uv0.rtContent:GetChild(slot3))
+				end
+			end
+		},
+		{
+			name = &quot;entity缓存&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;打印entity缓存信息：&quot;)
+
+				slot0 = {}
+
+				for slot4, slot5 in pairs(WPool.pools) do
+					table.insert(slot0, slot4.__cname .. &quot; : &quot; .. #slot5)
+				end
+
+				table.sort(slot0)
+
+				for slot4, slot5 in ipairs(slot0) do
+					uv0:AppendText(slot5)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;地图信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;当前大世界进度：&quot;)
+				uv0:AppendText(tostring(uv1:GetProgress()))
+				uv0:AppendText(&quot;&quot;)
+				uv0:AppendText(&quot;当前所在入口信息：&quot;)
+
+				if uv1:GetActiveEntrance() then
+					uv0:AppendText(slot0:DebugPrint())
+				end
+
+				uv0:AppendText(&quot;&quot;)
+				uv0:AppendText(&quot;当前所在地图信息：&quot;)
+
+				if uv1:GetActiveMap() then
+					uv0:AppendText(slot1:DebugPrint())
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;任务信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;任务信息：&quot;)
+
+				for slot5, slot6 in pairs(uv1:GetTaskProxy():getTasks()) do
+					uv0:AppendText(slot6:DebugPrint())
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;事件信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;事件信息：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindAttachments(WorldMapAttachment.TypeEvent), function (slot0)
+						uv0:AppendText(slot0:DebugPrint())
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;感染事件&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;感染事件：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindAttachments(WorldMapAttachment.TypeEvent), function (slot0)
+						if slot0.config.infection_value &gt; 0 then
+							uv0:AppendText(slot0:DebugPrint())
+						end
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;路标事件&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;路标事件：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindAttachments(WorldMapAttachment.TypeEvent), function (slot0)
+						if slot0:IsSign() then
+							uv0:AppendText(slot0:DebugPrint())
+						end
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;舰队信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;打印舰队信息：&quot;)
+				_.each(uv1:GetFleets(), function (slot0)
+					uv0:AppendText(slot0:DebugPrint())
+				end)
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;敌人信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;打印敌人信息：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindEnemys(), function (slot0)
+						uv0:AppendText(slot0:DebugPrint())
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;陷阱信息&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;打印陷阱信息：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindAttachments(WorldMapAttachment.TypeTrap), function (slot0)
+						uv0:AppendText(slot0:DebugPrint())
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;场景物件&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;当前所在地图场景物件信息：&quot;)
+
+				if uv1:GetActiveMap() then
+					_.each(slot0:FindAttachments(WorldMapAttachment.TypeArtifact), function (slot0)
+						uv0:AppendText(slot0:DebugPrint())
+					end)
+				end
+
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		},
+		{
+			name = &quot;一键压制&quot;,
+			func = function ()
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+				uv0:AppendText(&quot;当前地图压制啦&quot;)
+
+				slot0 = uv1:GetAtlas()
+
+				slot0:AddPressingMap(slot0.activeMapId)
+				uv0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+			end
+		}
+	})
+end
+
+slot0.OnDestroy = function(slot0)
+	setParent(slot0.rtText, slot0.rtContent, false)
+end
+
+slot0.Show = function(slot0)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0._tf)
+	setActive(slot0._tf, true)
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf, slot0._parentTf)
+	setActive(slot0._tf, false)
+end
+
+slot0.Setup = function(slot0)
+end
+
+slot0.OnClickRichText = function(slot0, slot1, slot2)
+	if slot1 == &quot;ShipProperty&quot; then
+		slot3 = tonumber(slot2)
+		slot4 = nowWorld():GetShipVO(slot3)
+
+		assert(slot4, &quot;ship not exist: &quot; .. slot3)
+		slot0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+		slot0:AppendText(&quot;打印舰娘属性：&quot;)
+
+		slot10 = slot4.id
+		slot11 = slot4.configId
+
+		slot0:AppendText(string.format(&quot;[%s] [id: %s] [config_id: %s]&quot;, slot4:getName(), slot10, slot11))
+
+		slot6 = slot4:getProperties()
+
+		for slot10, slot11 in ipairs({
+			{
+				AttributeType.Durability,
+				&quot;耐久&quot;
+			},
+			{
+				AttributeType.Cannon,
+				&quot;炮击&quot;
+			},
+			{
+				AttributeType.Torpedo,
+				&quot;雷击&quot;
+			},
+			{
+				AttributeType.AntiAircraft,
+				&quot;防空&quot;
+			},
+			{
+				AttributeType.AntiSub,
+				&quot;反潜&quot;
+			},
+			{
+				AttributeType.Air,
+				&quot;航空&quot;
+			},
+			{
+				AttributeType.Reload,
+				&quot;装填&quot;
+			},
+			{
+				AttributeType.CD,
+				&quot;射速&quot;
+			},
+			{
+				AttributeType.Armor,
+				&quot;装甲&quot;
+			},
+			{
+				AttributeType.Hit,
+				&quot;命中&quot;
+			},
+			{
+				AttributeType.Speed,
+				&quot;航速&quot;
+			},
+			{
+				AttributeType.Luck,
+				&quot;幸运&quot;
+			},
+			{
+				AttributeType.Dodge,
+				&quot;机动&quot;
+			},
+			{
+				AttributeType.Expend,
+				&quot;消耗&quot;
+			},
+			{
+				AttributeType.Damage,
+				&quot;伤害&quot;
+			},
+			{
+				AttributeType.Healthy,
+				&quot;治疗&quot;
+			},
+			{
+				AttributeType.Speciality,
+				&quot;特性&quot;
+			},
+			{
+				AttributeType.Range,
+				&quot;射程&quot;
+			},
+			{
+				AttributeType.Angle,
+				&quot;射角&quot;
+			},
+			{
+				AttributeType.Scatter,
+				&quot;散布&quot;
+			},
+			{
+				AttributeType.Ammo,
+				&quot;弹药&quot;
+			},
+			{
+				AttributeType.HuntingRange,
+				&quot;狩猎范围&quot;
+			},
+			{
+				AttributeType.OxyMax,
+				&quot;氧气最大含量&quot;
+			},
+			{
+				AttributeType.OxyCost,
+				&quot;氧气秒消耗&quot;
+			},
+			{
+				AttributeType.OxyRecovery,
+				&quot;氧气秒恢复&quot;
+			},
+			{
+				AttributeType.OxyAttackDuration,
+				&quot;水面攻击持续时长&quot;
+			},
+			{
+				AttributeType.OxyRaidDistance,
+				&quot;水下攻击持续时长&quot;
+			},
+			{
+				AttributeType.SonarRange,
+				&quot;声呐范围&quot;
+			},
+			{
+				AttributeType.SonarInterval,
+				&quot;声呐间隔&quot;
+			},
+			{
+				AttributeType.SonarDuration,
+				&quot;声呐效果持续时间&quot;
+			}
+		}) do
+			slot12 = nil
+
+			if (slot11[1] ~= AttributeType.Armor or slot4:getShipArmorName()) and slot6[slot11[1]] then
+				slot0:AppendText(string.format(&quot;\t\t%s[%s] : &lt;color=#A9F548&gt;%s&lt;/color&gt;&quot;, slot11[1], slot11[2], slot12))
+			end
+		end
+
+		slot0:AppendText(&quot;-------------------------------------------------------------------------&quot;)
+	end
+end
+
+slot0.AppendText = function(slot0, slot1)
+	slot2 = cloneTplTo(slot0.rtText, slot0.rtContent, false)
+	slot3 = slot2:GetComponent(&quot;RichText&quot;)
+
+	slot3:AddListener(function (slot0, slot1)
+		uv0:OnClickRichText(slot0, slot1)
+	end)
+	setText(slot2, slot1)
+	print(slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

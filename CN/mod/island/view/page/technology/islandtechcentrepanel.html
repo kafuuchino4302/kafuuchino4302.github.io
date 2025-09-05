@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandtechcentrepanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandtechcentrepanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandTechCentrePanel&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandTechCentrePanel&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot1 = slot0._tf:Find(&quot;view/content&quot;)
+	slot0.uiList = UIItemList.New(slot1, slot1:Find(&quot;tpl&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot0.uiList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			uv0:InitVerticalItem(slot1, slot2)
+		elseif slot0 == UIItemList.EventUpdate then
+			uv0:UpdateVerticalItem(slot1, slot2)
+		end
+	end)
+	slot0:InifConfigData()
+end
+
+slot0.InifConfigData = function(slot0)
+	slot0.config = pg.island_technology_template
+	slot0.level2Ids = {}
+	slot0.levels = {}
+
+	for slot4, slot5 in ipairs(slot0.config.get_id_list_by_tech_belong[IslandTechBelong.CENTRE]) do
+		if not slot0.level2Ids[slot0.config[slot5].island_level] then
+			slot0.level2Ids[slot6] = {}
+
+			table.insert(slot0.levels, slot6)
+		end
+
+		table.insert(slot0.level2Ids[slot6], slot5)
+	end
+
+	table.sort(slot0.levels)
+
+	slot0.level2UIList = {}
+end
+
+slot0.InitVerticalItem = function(slot0, slot1, slot2)
+	setText(slot2:Find(&quot;level/lv&quot;), &quot;LV.&quot; .. slot0.levels[slot1 + 1])
+	setActive(slot2:Find(&quot;line&quot;), slot1 + 1 ~= #slot0.levels)
+
+	slot4 = slot0.level2Ids[slot3]
+	slot5 = slot2:Find(&quot;items_view/content&quot;)
+	slot6 = UIItemList.New(slot5, slot5:Find(&quot;tpl&quot;))
+
+	slot6:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			uv0.name = uv1
+
+			uv2:InitItem(slot1, slot2, uv1)
+		elseif slot0 == UIItemList.EventUpdate then
+			uv2:UpdateItem(slot1, slot2, uv1)
+		end
+	end)
+
+	slot0.level2UIList[slot3] = slot6
+end
+
+slot0.UpdateVerticalItem = function(slot0, slot1, slot2)
+	slot3 = slot0.levels[slot1 + 1]
+
+	slot0.level2UIList[slot3]:align(#slot0.level2Ids[slot3])
+	setActive(slot2:Find(&quot;lock&quot;), slot0.islandLevel &lt; slot3 or slot0:IsAnyUnFinish(slot0.levels[slot1] and slot0.level2Ids[slot5] or {}))
+end
+
+slot0.IsAnyUnFinish = function(slot0, slot1)
+	return underscore.any(slot1, function (slot0)
+		return not uv0.techAgency:IsFinishedTech(slot0)
+	end)
+end
+
+slot0.InitItem = function(slot0, slot1, slot2, slot3)
+	slot4 = slot0.level2Ids[slot3]
+	slot5 = slot4[slot1 + 1]
+	slot2.name = slot5
+	slot6 = slot0.techAgency:GetTechnology(slot4[slot1 + 1])
+
+	setText(slot2:Find(&quot;corner/Text&quot;), slot0.config[slot5].tech_level)
+	LoadImageSpriteAsync(&quot;island/IslandTechnology/&quot; .. slot0.config[slot5].tech_icon, slot2:Find(&quot;icon&quot;), true)
+	setActive(slot2:Find(&quot;line&quot;), slot1 + 1 ~= #slot4)
+end
+
+slot0.UpdateItem = function(slot0, slot1, slot2, slot3)
+	slot4 = slot0.level2Ids[slot3]
+	slot5 = slot4[slot1 + 1]
+
+	setActive(slot2:Find(&quot;receive&quot;), slot0.techAgency:GetTechnology(slot4[slot1 + 1]):GetStatus() == IslandTechnology.STATUS.RECEIVE)
+	setActive(slot2:Find(&quot;studying&quot;), slot7 == IslandTechnology.STATUS.STUDYING)
+	setImageAlpha(slot2:Find(&quot;icon&quot;), (slot7 == IslandTechnology.STATUS.STUDYING or slot7 == IslandTechnology.STATUS.NORMAL and slot6:GetFinishedCnt() == 0) and 0.5 or 1)
+	onButton(slot0, slot2, function ()
+		existCall(uv0.contextData.onItemClick, uv1.id)
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0)
+	slot0.super.Show(slot0)
+	slot0:Flush()
+end
+
+slot0.Flush = function(slot0)
+	slot1 = getProxy(IslandProxy):GetIsland()
+	slot0.islandLevel = slot1:GetLevel()
+	slot0.techAgency = slot1:GetTechnologyAgency()
+
+	slot0.uiList:align(#slot0.levels)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

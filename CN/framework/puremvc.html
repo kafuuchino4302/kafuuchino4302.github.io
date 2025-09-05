@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>puremvc.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>puremvc.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pm = pm or {}
+pm.VERSION = &quot;1.0.0&quot;
+pm.FRAMEWORK_NAME = &quot;puremvc lua&quot;
+pm.PACKAGE_NAME = &quot;Framework.puremvc&quot;
+
+require(pm.PACKAGE_NAME .. &quot;.help.oop&quot;)
+
+pm.Facade = import(pm.PACKAGE_NAME .. &quot;.patterns.facade.Facade&quot;)
+pm.Mediator = import(pm.PACKAGE_NAME .. &quot;.patterns.mediator.Mediator&quot;)
+pm.Proxy = import(pm.PACKAGE_NAME .. &quot;.patterns.proxy.Proxy&quot;)
+pm.SimpleCommand = import(pm.PACKAGE_NAME .. &quot;.patterns.command.SimpleCommand&quot;)
+pm.MacroCommand = import(pm.PACKAGE_NAME .. &quot;.patterns.command.MacroCommand&quot;)
+pm.Notifier = import(pm.PACKAGE_NAME .. &quot;.patterns.observer.Notifier&quot;)
+pm.Notification = import(pm.PACKAGE_NAME .. &quot;.patterns.observer.Notification&quot;)
+pm.State = import(pm.PACKAGE_NAME .. &quot;.utilities.statemachine.State&quot;)
+pm.StateMachine = import(pm.PACKAGE_NAME .. &quot;.utilities.statemachine.StateMachine&quot;)
+pm.FSMInjector = import(pm.PACKAGE_NAME .. &quot;.utilities.statemachine.FSMInjector&quot;)
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

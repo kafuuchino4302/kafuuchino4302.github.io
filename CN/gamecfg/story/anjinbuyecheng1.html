@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anjinbuyecheng1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>anjinbuyecheng1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;ANJINBUYECHENG1&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			asideType = 1,
+			sequence = {
+				{
+					&quot;在一片遥远的大陆上，有一座梦之都会。&quot;,
+					1
+				},
+				{
+					&quot;——不夜城。&quot;,
+					2
+				},
+				{
+					&quot;它高雅，它下流。它挥金如土，它惜财如命。&quot;,
+					3
+				},
+				{
+					&quot;然而，无知又无畏的做梦家们，依旧蜂拥而来。&quot;,
+					4
+				},
+				{
+					&quot;「天啾塔」下无新事。&quot;,
+					5
+				},
+				{
+					&quot;即便它的内部，已经沸腾如斯——&quot;,
+					6
+				}
+			}
+		},
+		{
+			blackBg = true,
+			mode = 1,
+			effects = {
+				{
+					active = true,
+					name = &quot;anjinbuyecheng&quot;
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			bgm = &quot;story-antarctica-serious&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;似乎听到有什么人在呼唤。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;anjinbuyecheng&quot;
+				}
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;*——*&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;醒醒——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;醒来了，骑士，我们还有活要干呢——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			say = &quot;意识中的朦胧终于褪去，率先映入眼中的，是一名正带着好奇目光的少女。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			say = &quot;以及已经褪色龟裂，不知历经了多少岁月的监室墙皮。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这是……被抓了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			say = &quot;我竭力在脑海中回忆着，但却没有任何与之有关的记忆浮现。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;哈，你终于醒了，骑士。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;你是谁？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;呵呵，你果然什么都不记得了呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 9702070,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			side = 2,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;我是谁不重要。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;但知道你自己是谁，非常重要。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;「指挥官」。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你说什……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			soundeffect = &quot;event:/ui/erming&quot;,
+			say = &quot;——嗡。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			soundeffect = &quot;event:/ui/erming&quot;,
+			say = &quot;下个瞬间，记忆如雪花般涌入脑海——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;啾啾护卫&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;护卫啾&quot;,
+			soundeffect = &quot;event:/ui/kaiqiang&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;啾啾——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			},
+			effects = {
+				{
+					active = true,
+					name = &quot;memoryFog&quot;
+				}
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;啾啾护卫&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;护卫啾&quot;,
+			soundeffect = &quot;event:/ui/kaiqiang&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;啾啾啾！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			actorName = &quot;啾啾护卫&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;护卫啾&quot;,
+			soundeffect = &quot;event:/ui/kaiqiang&quot;,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;啾啾！——啾啾啾！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			soundeffect = &quot;event:/ui/erming&quot;,
+			say = &quot;灼热的气浪从不远处席卷而来，将沿途的一切都掀翻在地。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			soundeffect = &quot;event:/ui/erming&quot;,
+			say = &quot;也包括那位平时只能仰望的大人物——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;“great”总裁&quot;,
+			dir = 1,
+			actor = 205100,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;啊……啊啊……救……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;“great”总裁&quot;,
+			dir = 1,
+			actor = 205100,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;看到……没有……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;“great”总裁&quot;,
+			dir = 1,
+			actor = 205100,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;这是……尊贵的我……的身份盘……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;“great”总裁&quot;,
+			dir = 1,
+			actor = 205100,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;只要……救我……荣华富贵…………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_508&quot;,
+			factiontag = &quot;“great”总裁&quot;,
+			dir = 1,
+			actor = 205100,
+			nameColor = &quot;#FF9B93&quot;,
+			say = &quot;…………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.1,
+					x = 15,
+					number = 3
+				},
+				{
+					y = -2000,
+					type = &quot;move&quot;,
+					delay = 0.5,
+					dur = 0.7,
+					x = 0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			say = &quot;“总裁”渐渐不动了，她一直拿在手中的东西，也掉落在了地上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			side = 2,
+			say = &quot;回想起来，依旧觉得不可思议。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;memoryFog&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			say = &quot;那时，就这么冷漠地注视着这位不可一世的大人物，在稀里糊涂中咽了气。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_508&quot;,
+			say = &quot;相比起来，甚至姗姗来迟的、上城区治安者身上的电击棍，都更加要有冲击力。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……敬这个麻木的世界。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;摸索内衣里缝着的口袋&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			say = &quot;*「通天之匣」x1 入手&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			icon = {
+				scale = 2,
+				image = &quot;Props/story_tongtianzhixia&quot;,
+				pos = {
+					0,
+					0
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;“Great”的身份盘……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;没错~就是这个。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;谁能带着它登上「天啾塔」，谁就能成为不夜城的新主人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;拯救一切于水火，还是成为新的君王，一念之间就能决断万千命运~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;哼哼，实在是太有趣了不是么♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;我该怎么做？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;做你该做的事就好了~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……我怎么会知道该做什么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;这不是我一个谜语人该考虑的事哟？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;顺便一提，有人要来接你了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;那么~就此别过了，我帅气的骑士大人——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;「指挥官」&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;等等，至少告诉我你的名字！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;哦？你好奇心真旺盛呀。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			actor = 9702070,
+			actorName = &quot;？？？？·？？？？&quot;,
+			say = &quot;那么，听好了！本大人是天上地下帅气无敌的水星纪念。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_130&quot;,
+			factiontag = &quot;幻影&quot;,
+			dir = 1,
+			actor = 9702070,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;是你脑海中的骑士妄想哦——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_130&quot;,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;轰——————！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashN = {
+				color = {
+					1,
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2,
+						0
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			blackBg = true,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

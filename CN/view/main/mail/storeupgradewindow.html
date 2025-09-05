@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>storeupgradewindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>storeupgradewindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;StoreUpgradeWindow&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MailStoreExtendMsgboxUI&quot;
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf:Find(&quot;bg&quot;), function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.closeBtn = slot0:findTF(&quot;window/top/btnBack&quot;)
+
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.btnDiamond = slot0:findTF(&quot;window/button_container/btn_diamond&quot;)
+
+	onButton(slot0, slot0.btnDiamond, function ()
+		uv0:emit(MailMediator.ON_EXTEND_STORE, true)
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.btnGold = slot0:findTF(&quot;window/button_container/btn_gold&quot;)
+
+	onButton(slot0, slot0.btnGold, function ()
+		uv0:emit(MailMediator.ON_EXTEND_STORE, false)
+		uv0:Hide()
+	end, SFX_PANEL)
+	setText(slot0._tf:Find(&quot;window/top/bg/infomation/title&quot;), i18n(&quot;mail_boxroom_extend_title&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/tip/Text&quot;), i18n(&quot;mail_boxroom_extend_tips&quot;))
+	setText(slot0.btnGold:Find(&quot;Text&quot;), i18n(&quot;mail_buy_button&quot;))
+	setText(slot0.btnDiamond:Find(&quot;Text&quot;), i18n(&quot;mail_buy_button&quot;))
+	setText(slot0._tf:Find(&quot;window/frame/price/Text&quot;), i18n(&quot;mail_all_price&quot;))
+end
+
+slot0.UpdateInfo = function(slot0)
+	slot1 = slot0._tf:Find(&quot;window/frame&quot;)
+	slot2 = getProxy(PlayerProxy):getRawData()
+	slot3 = pg.mail_storeroom[slot2.mailStoreLevel]
+	slot4 = pg.mail_storeroom[slot2.mailStoreLevel + 1]
+	slot5, slot6 = slot2:GetExtendStoreCost()
+
+	setText(slot1:Find(&quot;gold/before&quot;), slot3.gold_store)
+	setText(slot1:Find(&quot;gold/after&quot;), slot4.gold_store)
+	setText(slot1:Find(&quot;oil/before&quot;), slot3.oil_store)
+	setText(slot1:Find(&quot;oil/after&quot;), slot4.oil_store)
+	setText(slot1:Find(&quot;oil/name&quot;), i18n(&quot;mail_oil_res&quot;))
+	setText(slot1:Find(&quot;gold/name&quot;), i18n(&quot;mail_gold_res&quot;))
+	setActive(slot1:Find(&quot;price/price_diamond&quot;), slot5)
+	setText(slot1:Find(&quot;price/price_diamond/Text&quot;), slot5 and slot5.count or 0)
+	setActive(slot1:Find(&quot;price/price_gold&quot;), slot6)
+	setText(slot1:Find(&quot;price/price_gold/Text&quot;), slot6 and slot6.count or 0)
+	setActive(slot1:Find(&quot;price/line&quot;), slot5 and slot6)
+	setActive(slot0.btnDiamond, slot5)
+	setActive(slot0.btnGold, slot6)
+end
+
+slot0.Show = function(slot0)
+	uv0.super.Show(slot0)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	slot0:UpdateInfo()
+end
+
+slot0.Hide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+	uv0.super.Hide(slot0)
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

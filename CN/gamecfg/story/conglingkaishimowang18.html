@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conglingkaishimowang18.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>conglingkaishimowang18.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;CONGLINGKAISHIMOWANG18&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			bgm = &quot;story-mmorpg&quot;,
+			say = &quot;旧都遗迹·王宫&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;指挥官，你确定在王宫的遗迹里能找到足够多的金币么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯，我有种直觉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这群海盗在王都沦陷之时被临时征召，又因为对于尾款的执念变为了束缚在此的幽灵军团。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;正是因为这支幽灵军团的存在，才保护了王宫遗迹数百年的安宁。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;而王宫，又恰好是我们此行的目标，众多线索的汇聚之处。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;要说这一切是巧合，也未免太巧了些。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;化为幽灵，也是一种延长生命的方式。或许这件事和吸血鬼猎人的形成也有关联……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;对大厅遗迹使用情报分析技能&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			bgName = &quot;star_level_bg_500&quot;,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;大家看那边的墙上，是不是有一块石头正在发光！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = false,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;难道说……有密室？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;厚重的墙体随着机关缓缓开启，一间尘封多年的书房映入眼帘。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;空气中弥漫着陈旧的气息，地面上铺着布满灰尘的地毯，靠魔力驱动的灯具虽然还在运作却已经非常昏暗。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;房间最深处的书桌上，静静悬浮着一个金色魔法球。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这个魔法……是用来减缓物品时间流速的宫廷魔法。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;神圣教会圣女&quot;,
+			dir = 1,
+			actor = 802020,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;一般被用来保存文物……和重要文件！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;触碰法阵后，法阵自动解除，露出了其保护了数百年的内容物。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;一叠文件和——一封信。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			bgm = &quot;theme-clemenceau&quot;,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;余乃约克公爵，王都吸血鬼家族的族长。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;亦或是……曾经王都吸血鬼家族的族长。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;余不知道这封信会在多少年后被人发现……或者说，能否被人发现。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;但……余有义务记录下这一切。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;一个月前，一种奇怪的“症状”开始在余的家族中蔓延。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;期初，余只是将其当成了一种令人衰弱的诅咒。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;可是随后，余发现这种疾病会削吸血鬼家族成员之间的联系，使感染者逐渐臣服于另一个声音……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;余花了太长时间才完全搞明白，那个声音属于魔王——这是魔王想要掌控吸血鬼家族的阴谋。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;当余试图采取措施的时候，一切都晚了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;此刻，余所深爱的王都正在燃烧……在由吸血鬼所引发的“背叛”中燃烧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;余的时间已经不多了……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;但余还有最后一个计划&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;如果能成功的话，至少能保住一部分人……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;以及这间密室……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;室内角落的箱子里存放着支付给海盗团的金币。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;书桌的文件里则包含解除“永夜之暗”的术式，和……消灭吸血鬼的术式。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			oldPhoto = true,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;……未来看到这封信的汝。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			oldPhoto = true,
+			side = 2,
+			bgName = &quot;star_level_bg_501&quot;,
+			factiontag = &quot;吸血鬼公爵&quot;,
+			dir = 1,
+			actor = 205072,
+			nameColor = &quot;#FEF15E&quot;,
+			say = &quot;做正确的事，赐予余之眷属解脱吧……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_500&quot;,
+			say = &quot;信件中愈发潦草的字迹，到这里就彻底结束了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……原来吸血鬼家族并没有主动背叛……而是遭到了魔王的控制。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;而我们能够存活至今，竟然是全是因为吸血鬼……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 404031,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊哈哈，真是令人笑不出来的真相。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……迟来的真相也是真相&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……你说的对，迟来的真相也是真相。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我们终于得知了王都灭亡的真正原因……也知道了矛头真正该对准的人。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;走吧，指挥官，我们已经获得了所有的必要情报。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_500&quot;,
+			factiontag = &quot;吸血鬼猎人&quot;,
+			dir = 1,
+			actor = 202084,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……还有三个要塞要拔除呢。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_525&quot;,
+			bgm = &quot;theme-tempest-up&quot;,
+			say = &quot;离开密室后，我将所有找到的旧王国金币全部给了飓风海盗团。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600050,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这、这么多……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600050,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;就算把几百年的利息都加一块儿也没这么多啊……？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;伟大的冒险者……你们真是太慷慨了！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;飓风海盗团喜欢和慷慨的人做朋友！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600030,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;给，收下这个“海潮号角”吧，算作我们友谊的象征。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;飓风海盗团&quot;,
+			dir = 1,
+			actor = 9600040,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;遇到危机的时候吹响它，飓风海盗团一定来给你帮帮场子~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;冒险终端&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;「系统提示，获得新技能：海潮号角，评级：SSS」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			icon = {
+				scale = 1.4,
+				image = &quot;Props/story_tablet&quot;,
+				pos = {
+					0,
+					100
+				}
+			}
+		},
+		{
+			actorName = &quot;冒险终端&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;「系统提示，当前可学习技能已达上限，请选择替换技能或放弃学习。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			icon = {
+				scale = 1.4,
+				image = &quot;Props/story_tablet&quot;,
+				pos = {
+					0,
+					100
+				}
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;嗯……投掷是唯一的战斗技能，不能替换掉。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;奔跑这个技能，一路上都没有特意使用过。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 0,
+			side = 2,
+			bgName = &quot;star_level_bg_525&quot;,
+			factiontag = &quot;指挥官&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;而且腿长在自己身上，没了奔跑技能，应该也不至于无法跑步……吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_525&quot;,
+			say = &quot;在下定决心后，对着“奔跑”技能，摁下了替换键——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

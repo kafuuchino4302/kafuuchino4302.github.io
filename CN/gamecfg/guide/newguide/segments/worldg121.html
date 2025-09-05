@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg121.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg121.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG121&quot;,
+	events = {
+		{
+			alpha = 0.3,
+			code = {
+				&quot;ClickOrder&quot;
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/right_stage/compass_panel/btn_order&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -44.8,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 64.54
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/SVOrderPanel(Clone)/adapt/order_list/expansion/type_enable&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = 0,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 0
+				}
+			}
+		},
+		{
+			notifies = {
+				{
+					notify = &quot;story update&quot;,
+					body = {
+						storyId = &quot;WorldG121&quot;
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

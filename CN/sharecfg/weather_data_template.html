@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather_data_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>weather_data_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.weather_data_template = {
+	[101] = {
+		buff_desc = &quot;苏里高海峡被黑夜和雷雨笼罩，己方先锋舰队与敌方舰队均获得「夜战隐蔽」状态。被攻击时，舰队会依据当前隐蔽强度获得额外的规避能力。&quot;,
+		name = &quot;夜战&quot;,
+		id = 101,
+		buff_icon = &quot;weather_101&quot;,
+		icon = &quot;&quot;,
+		effect_args = {
+			buff = 9677
+		}
+	},
+	[102] = {
+		buff_desc = &quot;处于海雾区域中，战斗时己方和敌方的隐蔽强度降低速率减慢。&quot;,
+		name = &quot;海雾&quot;,
+		id = 102,
+		buff_icon = &quot;weather_102&quot;,
+		icon = &quot;suligao_fog&quot;,
+		effect_args = {
+			buff = 9620
+		}
+	},
+	all = {
+		101,
+		102
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopargs.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shopargs.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShopArgs&quot;)
+slot0.EffecetEquipBagSize = &quot;equip_bag_size&quot;
+slot0.EffecetShipBagSize = &quot;ship_bag_size&quot;
+slot0.EffectDromExpPos = &quot;dorm_exp_pos&quot;
+slot0.EffectDromFixPos = &quot;dorm_fix_pos&quot;
+slot0.EffectDromFoodMax = &quot;dorm_food_max&quot;
+slot0.EffectShopStreetFlash = &quot;shop_street_flash&quot;
+slot0.EffectShopStreetLevel = &quot;shop_street_level&quot;
+slot0.EffectOilFieldLevel = &quot;oilfield_level&quot;
+slot0.EffectTradingPortLevel = &quot;tradingport_level&quot;
+slot0.EffectClassLevel = &quot;class_room_level&quot;
+slot0.EffectGuildFlash = &quot;guild_store_flash&quot;
+slot0.EffectDormFloor = &quot;dorm_floor&quot;
+slot0.EffectSkillPos = &quot;skill_room_pos&quot;
+slot0.EffectCommanderBagSize = &quot;commander_bag_size&quot;
+slot0.EffectSpWeaponBagSize = &quot;spweapon_bag_size&quot;
+slot0.ShoppingStreetUpgrade = &quot;shop_street_upgrade&quot;
+slot0.BackyardFoodExtend = &quot;backyard_food_extend&quot;
+slot0.BuyOil = &quot;buy_oil&quot;
+slot0.ShoppingStreetLimit = &quot;shopping_street&quot;
+slot0.ArenaShopLimit = &quot;arena_shop&quot;
+slot0.GiftPackage = &quot;gift_package&quot;
+slot0.GenShop = &quot;gem_shop&quot;
+slot0.SkinShop = &quot;skin_shop&quot;
+slot0.ActivityShop = &quot;activity_shop&quot;
+slot0.guildShop = &quot;guild_store&quot;
+slot0.guildShopFlash = &quot;guild_shop_flash&quot;
+slot0.skillRoomUpgrade = &quot;skill_room_upgrade&quot;
+slot0.SkinShopTimeLimit = &quot;skin_shop_timelimit&quot;
+slot0.WorldShop = &quot;world&quot;
+slot0.WorldCollection = &quot;world_collection_task&quot;
+slot0.NewServerShop = &quot;new_server_shop&quot;
+slot0.CruiseSkin = &quot;cruise_skin&quot;
+slot0.CruiseGearSkin = &quot;cruise_gearskin&quot;
+slot0.BlackFridayShop = &quot;black_friday_shop&quot;
+slot0.ShopStreet = 1
+slot0.MilitaryShop = 2
+slot0.ShopActivity = 3
+slot0.ShopGUILD = 4
+slot0.ShopShamBattle = 5
+slot0.ShopEscort = 6
+slot0.ShopFragment = 7
+slot0.ShopMedal = 8
+slot0.ShopMiniGame = 9
+slot0.ShopQuota = 10
+slot0.ShopCruise = 11
+slot0.DORM_FLOOR_ID = 19
+slot0.LIMIT_ARGS_META_SHIP_EXISTENCE = 1
+slot0.LIMIT_ARGS_SALE_START_TIME = 2
+slot0.LIMIT_ARGS_TRAN_ITEM_WHEN_FULL = 3
+slot0.LIMIT_ARGS_UNIQUE_SHIP = &quot;uniqueship&quot;
+
+slot0.getOilByLevel = function(slot0)
+	return 500 + slot0 * 3
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

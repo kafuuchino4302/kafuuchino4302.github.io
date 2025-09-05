@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ruihe4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ruihe4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;RUIHE4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;幸运之鹤\n\n&lt;size=45&gt;四  {namecode:96}与大前辈&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			say = &quot;傍晚·演习海域&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			bgm = &quot;battle-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;很好！就照这样子攻过来！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;好的！&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			actorName = &quot;{namecode:96}&quot;,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			say = &quot;{namecode:96}的舰载机投下的模拟弹漂亮地击中了{namecode:82}&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/plane&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;好疼！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					dur = 0.1,
+					x = 15,
+					number = 3
+				}
+			}
+		},
+		{
+			say = &quot;赢了！……啊！{namecode:82}前辈！没事吧！&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			actorName = &quot;{namecode:96}&quot;,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#a9f548&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 1,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;没、没事…漂亮的轰炸！比刚开始训练时进步了不少啊！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;非常感谢！…指挥官觉得刚才我的表现怎么样！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.15,
+					number = 3,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;…啊哈哈哈，不用这么夸我啦～！好！这下就离那个“灰色幽灵”更近一步了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 307060,
+			actorName = &quot;{namecode:96}&quot;,
+			say = &quot;……下次出击请让我和“灰色幽灵”一起！我绝对会拿下MVP的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			say = &quot;{namecode:96}一边笑着一边把航向转向了港区&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actorName = &quot;{namecode:82}&quot;,
+			actor = 305110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;指挥官，能说句话不&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;虽然{namecode:96}平时那样，其实她是会不断给自己加担子的类型——换句话说，就是会不断逼自己走牛角尖的性格&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;不只是超越灰色幽灵这件事，对{namecode:95}和重樱的同胞、港区的同伴们、人类的世界、甚至还有指挥官你——都想要独自背负&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;指挥官，作为那孩子的前辈…我有个请求，不是作为您的部下，仅仅是个人的请求&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			actor = 305110,
+			actorName = &quot;{namecode:82}&quot;,
+			say = &quot;如果有一天，那孩子被责任所压垮，撑不住了的话……希望指挥官能在她身边，与她一起支撑下去&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 0,
+			nameColor = &quot;#a9f548&quot;,
+			bgName = &quot;bg_story_nepu1&quot;,
+			withoutPainting = true,
+			dir = 1,
+			side = 0,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;{namecode:82}&quot;,
+			side = 2,
+			bgName = &quot;bg_story_nepu1&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 305110,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;……呵呵，你的回答，我会记着的。{namecode:96}就拜托你了啊&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

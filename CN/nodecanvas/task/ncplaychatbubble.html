@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ncplaychatbubble.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ncplaychatbubble.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NcPlayChatBubble&quot;, import(&quot;..base.NodeCanvasBaseTask&quot;))
+
+slot0.OnExecute = function(slot0)
+	slot0:DoAction(slot0:GetStringArg(&quot;storyName&quot;), function ()
+		uv0:EndAction()
+	end)
+end
+
+slot0.DoAction = function(slot0, slot1, slot2)
+	slot0:SendEvent(ISLAND_EVT.PLAY_BUBBLE, {
+		name = slot1,
+		callback = slot2
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

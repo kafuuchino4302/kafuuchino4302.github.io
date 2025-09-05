@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tact30006.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tact30006.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;TACT30006&quot;,
+	once = true,
+	fadeType = 1,
+	scripts = {
+		{
+			actor = 404010,
+			side = 2,
+			dir = -1,
+			nameColor = &quot;#D6341D&quot;,
+			say = &quot;咕，干得漂亮，但我是不会逃的！&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 0,
+			say = &quot;不……也没要你逃跑就是了……&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 1
+			},
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404020,
+			side = 1,
+			dir = -1,
+			nameColor = &quot;#D6341D&quot;,
+			say = &quot;姐姐，我建议你不要老是把逃跑挂在嘴边，这样会显得很欲盖弥彰的……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 1,
+			dir = -1,
+			nameColor = &quot;#D6341D&quot;,
+			say = &quot;可是我真的不想跑啊，明明是上面的人不懂战斗，打仗就是靠一口气，却怪我……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404020,
+			side = 1,
+			dir = -1,
+			nameColor = &quot;#D6341D&quot;,
+			say = &quot;好了姐姐，不要老是在意这种事，不是还有我理解你吗？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 404010,
+			side = 1,
+			dir = -1,
+			nameColor = &quot;#D6341D&quot;,
+			say = &quot;格、格奈……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			actor = 213011,
+			say = &quot;……好像没有我插入的余地了……趁现在……悄悄地……悄悄地……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			sequenceSpd = 2,
+			BgFade = true,
+			sequence = {
+				{
+					&quot;几个小时后&quot;,
+					2
+				}
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;……就是这个吗？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;呜……造型独特的宝箱，还带个“Goal”的横幅，用指挥官的话说……大概是“让人很难吐槽”……？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;就不能象征性地埋一下吗，埋半个进土里至少也有点寻宝的感觉……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;总之……打开看看……只有一张纸…内容…？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;「制作巧克力最重要的东西就是制作者本人一颗真挚的心喔！」&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;一颗真挚的心？有种……被敷衍了的感觉……？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;嗯……？背面还有字……「遥远的观察者致上」&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;这是……？观察者？难道不是{namecode:89}小姐出于好玩埋的吗？&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;总之既然宝藏找到了，赶快回去吧，还得给指挥官报告一下这场闹剧以及……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 213011,
+			side = 2,
+			blackBg = true,
+			say = &quot;做巧克力呢……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			sequenceSpd = 2,
+			BgFade = true,
+			sequence = {
+				{
+					&quot;??领域 ??时??分??秒&quot;,
+					2
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#D6341D&quot;,
+			blackBg = true,
+			actor = 306031,
+			actorName = &quot;{namecode:89}？？&quot;,
+			say = &quot;呵呵呵，稍微加点引导和刺激，就收集到了不错的数据呢……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			say = &quot;真是恶趣味呢，观察者……&quot;,
+			actorName = &quot;测试者β型&quot;,
+			blackBg = true,
+			actor = 900011,
+			nameColor = &quot;#D6341D&quot;,
+			paintingFadeOut = {
+				time = 0.5,
+				side = 0
+			},
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			nameColor = &quot;#D6341D&quot;,
+			dir = -1,
+			blackBg = true,
+			actor = 900012,
+			actorName = &quot;观察者？？&quot;,
+			say = &quot;哼哼，由心智魔方诞生的“兵器”……受到“人类”影响而产生的“感情”……高涨的“情感”对战斗能力的影响……实在是让人很感兴趣啊～&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 1,
+			nameColor = &quot;#D6341D&quot;,
+			blackBg = true,
+			actor = 900011,
+			actorName = &quot;测试者β型&quot;,
+			say = &quot;毕竟这是“主人们”最终也没能彻底探明的“黑箱”啊……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 0,
+			nameColor = &quot;#D6341D&quot;,
+			dir = -1,
+			blackBg = true,
+			actor = 900012,
+			actorName = &quot;观察者？？&quot;,
+			say = &quot;主人……如果您看到这些，看到您的“女儿们”如今的模样，您会怎么想呢……？是会露出欣慰的笑容，还是意料之中的神情呢？主人……&quot;,
+			shake = {
+				speed = 1,
+				number = 3
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

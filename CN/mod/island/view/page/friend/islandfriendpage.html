@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandfriendpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandfriendpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandFriendPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+slot0.EVENT_MSG = &quot;IslandFriendPage:EVENT_MSG&quot;
+slot1 = 1
+slot2 = 2
+slot3 = 3
+slot4 = 4
+slot5 = 5
+slot6 = 6
+slot7 = 7
+slot8 = 8
+
+slot9 = function(slot0)
+	return ({
+		i18n(&quot;island_friend&quot;),
+		i18n(&quot;island_guild&quot;),
+		i18n(&quot;island_code&quot;),
+		i18n(&quot;island_search&quot;),
+		i18n(&quot;island_request&quot;),
+		i18n(&quot;island_whiteList&quot;),
+		i18n(&quot;island_blackList&quot;),
+		i18n(&quot;island_settings&quot;)
+	})[slot0]
+end
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandFriendUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.backBtn = slot0:findTF(&quot;top/back&quot;)
+	slot0.giftTipTxt = slot0:findTF(&quot;top/gift_tip/Text&quot;):GetComponent(typeof(Text))
+	slot0.uiToggleList = UIItemList.New(slot0._tf:Find(&quot;toggles/content&quot;), slot0._tf:Find(&quot;toggles/content/tpl&quot;))
+	slot1 = slot0._tf
+	slot0.mainTr = slot1:Find(&quot;main&quot;)
+	slot0.pages = {
+		[uv0] = IslandFriendListPage.New(slot0.mainTr, slot0.event),
+		[uv1] = IslandFriendList4GuildPage.New(slot0.mainTr, slot0.event),
+		[uv2] = IslandFriendCodePage.New(slot0.mainTr, slot0.event),
+		[uv3] = IslandFriendSearchPage.New(slot0.mainTr, slot0.event),
+		[uv4] = IslandFriendRequestPage.New(slot0.mainTr, slot0.event),
+		[uv5] = IslandFriendWhiteListPage.New(slot0.mainTr, slot0.event),
+		[uv6] = IslandFriendBlackListPage.New(slot0.mainTr, slot0.event),
+		[uv7] = IslandFriendSettingPage.New(slot0.mainTr, slot0.event)
+	}
+
+	setText(slot0:findTF(&quot;top/title/Text&quot;), i18n(&quot;island_btn_label_visit&quot;))
+end
+
+slot0.AddListeners = function(slot0)
+	slot0:AddListener(GAME.FRIEND_SEARCH_DONE, slot0.OnSearch)
+	slot0:AddListener(GAME.ISLAND_REFRESH_INVITECODE_DONE, slot0.OnRefreshInviteCode)
+	slot0:AddListener(GAME.ISLAND_ACCESS_OP_DONE, slot0.OnAccessOp)
+	slot0:AddListener(GAME.FRIEND_DELETE_DONE, slot0.OnDelFriend)
+	slot0:AddListener(uv0.EVENT_MSG, slot0.OnShowMsg)
+	slot0:AddListener(IslandSignInAgency.OTHER_FETCH_CNT_UPDATE, slot0.OnOtherFetchCntUpdate)
+	slot0:AddListener(NotificationProxy.FRIEND_REQUEST_REMOVED, slot0.OnRequestChange)
+	slot0:AddListener(NotificationProxy.FRIEND_REQUEST_ADDED, slot0.OnRequestChange)
+end
+
+slot0.RemoveListeners = function(slot0)
+	slot0:RemoveListener(GAME.FRIEND_SEARCH_DONE, slot0.OnSearch)
+	slot0:RemoveListener(GAME.ISLAND_REFRESH_INVITECODE_DONE, slot0.OnRefreshInviteCode)
+	slot0:RemoveListener(GAME.ISLAND_ACCESS_OP_DONE, slot0.OnAccessOp)
+	slot0:RemoveListener(GAME.FRIEND_DELETE_DONE, slot0.OnDelFriend)
+	slot0:RemoveListener(uv0.EVENT_MSG, slot0.OnShowMsg)
+	slot0:RemoveListener(IslandSignInAgency.OTHER_FETCH_CNT_UPDATE, slot0.OnOtherFetchCntUpdate)
+	slot0:RemoveListener(NotificationProxy.FRIEND_REQUEST_REMOVED, slot0.OnRequestChange)
+	slot0:RemoveListener(NotificationProxy.FRIEND_REQUEST_ADDED, slot0.OnRequestChange)
+end
+
+slot0.OnRequestChange = function(slot0)
+	if slot0.pages[uv0] and slot1:GetLoaded() and slot1:isShowing() then
+		slot1:Flush()
+	end
+
+	slot0:UpdateTip()
+end
+
+slot0.OnOtherFetchCntUpdate = function(slot0)
+	slot0:UpdateGiftTxt()
+end
+
+slot0.OnDelFriend = function(slot0)
+	if slot0.pages[uv0] and slot1:GetLoaded() and slot1:isShowing() then
+		slot1:Flush()
+	end
+end
+
+slot0.OnAccessOp = function(slot0)
+	if slot0.pages[uv0] and slot1:GetLoaded() and slot1:isShowing() then
+		slot1:Flush()
+	end
+
+	if slot0.pages[uv1] and slot2:GetLoaded() and slot2:isShowing() then
+		slot2:Flush()
+	end
+
+	if slot0.pages[uv2] and slot3:GetLoaded() and slot3:isShowing() then
+		slot3:Flush()
+	end
+end
+
+slot0.OnRefreshInviteCode = function(slot0)
+	if slot0.pages[uv0] and slot1:GetLoaded() and slot1:isShowing() then
+		slot1:OnRefreshInviteCode()
+	end
+end
+
+slot0.OnSearch = function(slot0, slot1)
+	if slot0.pages[uv0] and slot2:GetLoaded() and slot2:isShowing() then
+		slot2:OnSearch(slot1)
+	end
+end
+
+slot0.OnShowMsg = function(slot0, slot1)
+	slot0:ShowMsgBox({
+		content = slot1,
+		type = IslandMsgBox.TYPE_WHITOUT_BTN
+	})
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+
+	slot0.toggles = {}
+
+	slot0.uiToggleList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			onToggle(uv0, slot2, function (slot0)
+				if slot0 then
+					uv0:SwitchPage(uv1 + 1)
+				end
+			end, SF_PANEL)
+			setText(slot2:Find(&quot;unsel&quot;), uv1(slot1 + 1))
+			setText(slot2:Find(&quot;sel/content/Text&quot;), uv1(slot1 + 1))
+			table.insert(uv0.toggles, slot2)
+		end
+	end)
+	slot0.uiToggleList:align(#slot0.pages)
+	slot0:UpdateTip()
+end
+
+slot0.UpdateTip = function(slot0)
+	setActive(slot0.toggles[uv0]:Find(&quot;tip&quot;), getProxy(NotificationProxy):getRequestCount() &gt; 0)
+end
+
+slot0.SwitchPage = function(slot0, slot1)
+	if slot0.page then
+		slot0.page:ExecuteAction(&quot;Hide&quot;)
+
+		slot0.page = nil
+	end
+
+	slot2 = slot0.pages[slot1]
+
+	slot2:ExecuteAction(&quot;Show&quot;)
+
+	slot0.page = slot2
+end
+
+slot0.OnShow = function(slot0)
+	slot0:UpdateGiftTxt()
+	triggerToggle(slot0.toggles[uv0], true)
+	slot0:BlurPanel()
+end
+
+slot0.UpdateGiftTxt = function(slot0)
+	slot1 = getProxy(IslandProxy):GetIsland():GetSignInAgency()
+	slot0.giftTipTxt.text = i18n(&quot;island_git_cnt_tip&quot;) .. slot1:GetLeftOtherFetchCnt() .. &quot;/&quot; .. slot1:GetMaxOtheFetchcnt()
+end
+
+slot0.OnHide = function(slot0)
+	slot0:UnBlurPanel()
+end
+
+slot0.OnDestroy = function(slot0)
+	for slot4, slot5 in ipairs(slot0.pages) do
+		slot5:Destroy()
+	end
+
+	slot0.pages = nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

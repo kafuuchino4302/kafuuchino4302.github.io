@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandagoraplacedlistmsgboxwindow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandagoraplacedlistmsgboxwindow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAgoraPlacedListMsgboxWindow&quot;, import(&quot;.IslandCommonMsgboxWindow&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandAgoraPlacedInfoMsgBox&quot;
+end
+
+slot1 = function(slot0)
+	slot2 = slot0.transform
+	slot2 = slot2:Find(&quot;icon&quot;)
+	slot2 = slot2:GetComponent(typeof(Image))
+	slot3 = slot0.transform
+	slot3 = slot3:Find(&quot;name&quot;)
+	slot3 = slot3:GetComponent(typeof(Text))
+	slot4 = slot0.transform
+	slot4 = slot4:Find(&quot;count&quot;)
+	slot4 = slot4:GetComponent(typeof(Text))
+	slot5 = slot0.transform
+	slot5 = slot5:Find(&quot;capacity&quot;)
+	slot5 = slot5:GetComponent(typeof(Text))
+
+	return {
+		go = slot0,
+		Update = function (slot0)
+			uv0.text = slot0.name
+			uv1.text = &quot;X&quot; .. slot0.count
+			uv2.text = slot0.capacity
+
+			LoadSpriteAsync(&quot;island/IslandFurnitureIcon/&quot; .. slot0.icon, function (slot0)
+				uv0.sprite = slot0
+			end)
+		end
+	}
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+	setText(slot0:findTF(&quot;list/titles/1&quot;), i18n(&quot;island_label_furniture&quot;))
+	setText(slot0:findTF(&quot;list/titles/2&quot;), i18n(&quot;island_label_furniture_cnt&quot;))
+	setText(slot0:findTF(&quot;list/titles/3&quot;), i18n(&quot;island_label_furniture_capacity&quot;))
+
+	slot1 = slot0:findTF(&quot;capacity&quot;)
+	slot0.capacityTxt = slot1:GetComponent(typeof(Text))
+	slot1 = slot0._tf
+	slot1 = slot1:Find(&quot;list/scrollrect&quot;)
+	slot0.scrollRect = slot1:GetComponent(&quot;LScrollRect&quot;)
+
+	slot0.scrollRect.onInitItem = function(slot0)
+		uv0:OnInitItem(slot0)
+	end
+
+	slot0.scrollRect.onUpdateItem = function(slot0, slot1)
+		uv0:OnUpdateItem(slot0, slot1)
+	end
+
+	slot0.cards = {}
+end
+
+slot0.FlushBtn = function(slot0, slot1)
+end
+
+slot0.OnShow = function(slot0)
+	slot0.settings.content = i18n(&quot;island_label_furniture_tip&quot;)
+
+	uv0.super.OnShow(slot0)
+
+	slot1 = slot0.settings.list
+
+	slot0:UpdateCapacity(slot1, slot0.settings.totalCnt)
+	slot0:UpdateList(slot1)
+end
+
+slot0.UpdateCapacity = function(slot0, slot1, slot2)
+	slot3 = 0
+
+	for slot7, slot8 in ipairs(slot1) do
+		slot3 = slot3 + slot8.capacity
+	end
+
+	slot0.capacityTxt.text = i18n(&quot;island_label_furniture_capacity_display&quot;) .. slot3 .. &quot;/&quot; .. slot2
+end
+
+slot0.OnInitItem = function(slot0, slot1)
+	slot0.cards[slot1] = uv0(slot1)
+end
+
+slot0.OnUpdateItem = function(slot0, slot1, slot2)
+	if not slot0.cards[slot2] then
+		slot0:OnInitItem(slot2)
+
+		slot3 = slot0.cards[slot2]
+	end
+
+	slot3.Update(slot0.settings.list[slot1 + 1])
+end
+
+slot0.UpdateList = function(slot0, slot1)
+	slot0.scrollRect:SetTotalCount(#slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

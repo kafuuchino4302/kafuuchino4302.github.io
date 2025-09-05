@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandseasonreviewpanel.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandseasonreviewpanel.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandSeasonReviewPanel&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandSeasonReviewPanel&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot1 = slot0._tf:Find(&quot;content&quot;)
+
+	setText(slot1:Find(&quot;infos/left/Text&quot;), i18n(&quot;island_first_season&quot;))
+
+	slot0.contentTF = slot1:Find(&quot;infos&quot;)
+	slot0.emptyTF = slot1:Find(&quot;empty&quot;)
+
+	setText(slot0.emptyTF, i18n(&quot;island_season_review_miss&quot;))
+	setText(slot0.contentTF:Find(&quot;season/title/Text&quot;), i18n(&quot;island_season_title&quot;))
+	setText(slot0.contentTF:Find(&quot;prod/title/Text&quot;), i18n(&quot;island_season_review_produce&quot;))
+	setText(slot0.contentTF:Find(&quot;relax/title/Text&quot;), i18n(&quot;island_season_review_relax&quot;))
+
+	slot2 = slot0.contentTF
+	slot0.iconTF = slot2:Find(&quot;island/icon_mask/icon&quot;)
+	slot5 = &quot;relax/list&quot;
+	slot0.infoTFs = {
+		slot0.contentTF:Find(&quot;island/list&quot;),
+		slot0.contentTF:Find(&quot;season/list&quot;),
+		slot0.contentTF:Find(&quot;prod/list&quot;),
+		slot0.contentTF:Find(slot5)
+	}
+
+	for slot5, slot6 in ipairs(slot0.infoTFs) do
+		eachChild(slot6, function (slot0)
+			setText(slot0:Find(&quot;name&quot;), IslandSeasonReview.KEY2NAME[tonumber(slot0.name)])
+		end)
+	end
+end
+
+slot0.OnInit = function(slot0)
+	slot0.newestId = IslandSeasonAgency.GetCurrentSeason() - 1
+	slot0.switchPanel = IslandSeasonSwitchPanel.New(slot0._tf, slot0.event, setmetatable({
+		count = slot0.newestId,
+		onSelected = function (slot0)
+			uv0:Flush(slot0)
+		end,
+		defaultSelId = slot0.newestId
+	}, {
+		__index = slot0.contextData
+	}))
+	slot0.rankType = PowerRank.TYPE_ISLAND_SEASON_PT
+	slot0.playerRankVOs = {}
+end
+
+slot0.Show = function(slot0)
+	slot0.super.Show(slot0)
+	slot0.switchPanel:ExecuteAction(&quot;Show&quot;)
+end
+
+slot0.Flush = function(slot0, slot1)
+	slot2 = getProxy(IslandProxy):GetIsland():GetSeasonAgency():GetReviewData(slot1)
+
+	setActive(slot0.emptyTF, not slot2)
+	setActive(slot0.contentTF, slot2)
+
+	if slot2 then
+		for slot6, slot7 in ipairs(slot0.infoTFs) do
+			eachChild(slot7, function (slot0)
+				setText(slot0:Find(&quot;value&quot;), uv0:GetRecordData(tonumber(slot0.name)))
+			end)
+		end
+	end
+
+	slot0.seasonId = slot1
+
+	if not slot0.playerRankVOs[slot1] or getProxy(BillboardProxy):canFetch(slot0.rankType, slot0.seasonId) then
+		slot0:emit(IslandMediator.ON_GET_SEASON_RANK, slot0.rankType, slot0.seasonId)
+	else
+		slot0:UpdataIcon()
+	end
+end
+
+slot0.UpdateRankVOs = function(slot0, slot1, slot2, slot3)
+	slot0.playerRankVOs[slot1] = slot3
+end
+
+slot0.UpdataIcon = function(slot0)
+	if slot0.playerRankVOs[slot0.seasonId] then
+		GetImageSpriteFromAtlasAsync(&quot;squareicon/&quot; .. pg.ship_skin_template[slot1.skinId].prefab, &quot;&quot;, slot0.iconTF)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

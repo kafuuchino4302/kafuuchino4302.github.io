@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ryzaminigameconfig.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ryzaminigameconfig.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot1 = {
+	{
+		&quot;S&quot;,
+		&quot;N&quot;
+	},
+	{
+		&quot;E&quot;,
+		&quot;W&quot;
+	}
+}
+slot2 = math.sin(math.pi / 8)
+
+return {
+	ALL_GAME_TIME = 120,
+	GRASS_CHAGNE_RATE = 0.2,
+	TIME_INTERVAL = 0.016666666666666666,
+	MIN_MAP_SIZE = {
+		20,
+		20
+	},
+	SOIL_RANDOM_CONFIG = {
+		spacer_rate = 0.25,
+		size_rate = {
+			0.5,
+			0.7
+		},
+		cancel_rate = {
+			0.2,
+			0.3
+		}
+	},
+	SOIL_SPRITES_DIC = {
+		[55.0] = &quot;Soil_4&quot;,
+		[126.0] = &quot;Soil_2&quot;,
+		[236.0] = &quot;Soil_3&quot;,
+		[205.0] = &quot;Soil_6&quot;,
+		[238.0] = &quot;Soil_2&quot;,
+		[204.0] = &quot;Soil_3&quot;,
+		[239.0] = &quot;Soil_11&quot;,
+		[217.0] = &quot;Soil_9&quot;,
+		[119.0] = &quot;Soil_4&quot;,
+		[102.0] = &quot;Soil_1&quot;,
+		[237.0] = &quot;Soil_6&quot;,
+		[191.0] = &quot;Soil_12&quot;,
+		[118.0] = &quot;Soil_1&quot;,
+		[51.0] = &quot;Soil_7&quot;,
+		[137.0] = &quot;Soil_9&quot;,
+		[153.0] = &quot;Soil_9&quot;,
+		[251.0] = &quot;Soil_8&quot;,
+		[219.0] = &quot;Soil_8&quot;,
+		[187.0] = &quot;Soil_8&quot;,
+		[155.0] = &quot;Soil_8&quot;,
+		[38.0] = &quot;Soil_1&quot;,
+		[255.0] = &quot;Soil_5&quot;,
+		[223.0] = &quot;Soil_13&quot;,
+		[254.0] = &quot;Soil_2&quot;,
+		[54.0] = &quot;Soil_1&quot;,
+		[253.0] = &quot;Soil_6&quot;,
+		[221.0] = &quot;Soil_6&quot;,
+		[127.0] = &quot;Soil_10&quot;,
+		[110.0] = &quot;Soil_2&quot;,
+		[76.0] = &quot;Soil_3&quot;,
+		[179.0] = &quot;Soil_7&quot;,
+		[147.0] = &quot;Soil_7&quot;,
+		[108.0] = &quot;Soil_3&quot;,
+		[247.0] = &quot;Soil_4&quot;,
+		[19.0] = &quot;Soil_7&quot;,
+		[183.0] = &quot;Soil_4&quot;,
+		[201.0] = &quot;Soil_9&quot;
+	},
+	ENEMY_TYPE_LIST = {
+		&quot;Scavenger&quot;,
+		&quot;Chaser&quot;,
+		&quot;Smasher&quot;,
+		&quot;Conductor&quot;,
+		&quot;Navigator&quot;,
+		&quot;BOSS_Scavenger&quot;,
+		&quot;BOSS_Conductor&quot;,
+		&quot;BOSS_Chaser&quot;,
+		&quot;BOSS_Navigator&quot;,
+		&quot;BOSS_Smasher&quot;
+	},
+	FREE_MAP_BOSS_LIMIT = {
+		2,
+		2,
+		3,
+		3,
+		3,
+		4,
+		4
+	},
+	CreateInfo = function (slot0)
+		slot1 = {}
+
+		switch(slot0, {
+			Item = function ()
+				uv0.targetClass = TargetItem
+				uv0.path = &quot;object/Item&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Bomb = function ()
+				uv0.targetClass = ObjectBomb
+				uv0.path = &quot;object/Bomb&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Bush = function ()
+				uv0.targetClass = ObjectBush
+				uv0.path = &quot;object/Bush&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Box = function ()
+				uv0.targetClass = ObjectBreakable
+				uv0.path = &quot;object/Box&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Grass = function ()
+				uv0.targetClass = ObjectBreakable
+				uv0.path = &quot;object/Grass&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Taru = function ()
+				uv0.targetClass = ObjectBreakable
+				uv0.path = &quot;object/Taru&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Rock_A = function ()
+				uv0.targetClass = TargetObject
+				uv0.path = &quot;object/Rock_A&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Rock_B = function ()
+				uv0.targetClass = ObjectRockB
+				uv0.path = &quot;object/Rock_B&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Tree_L = function ()
+				uv0.targetClass = TargetObject
+				uv0.path = &quot;object/Tree_L&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Tree_S = function ()
+				uv0.targetClass = TargetObject
+				uv0.path = &quot;object/Tree_S&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Treasure_N = function ()
+				uv0.targetClass = ObjectTreasureN
+				uv0.path = &quot;object/Treasure_N&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Treasure_R = function ()
+				uv0.targetClass = ObjectTreasureR
+				uv0.path = &quot;object/Treasure_R&quot;
+				uv0.parent = &quot;object&quot;
+			end,
+			Fire = function ()
+				uv0.targetClass = EffectFire
+				uv0.path = &quot;effect/Fire&quot;
+				uv0.parent = &quot;effect&quot;
+				uv0.order = &quot;low&quot;
+			end,
+			Impack = function ()
+				uv0.targetClass = EffectImpack
+				uv0.path = &quot;effect/Impack&quot;
+				uv0.parent = &quot;effect&quot;
+			end,
+			Bullet = function ()
+				uv0.targetClass = EffectBullet
+				uv0.path = &quot;effect/Bullet&quot;
+				uv0.parent = &quot;effect&quot;
+			end,
+			Laser = function ()
+				uv0.targetClass = EffectLaser
+				uv0.path = &quot;effect/Laser&quot;
+				uv0.parent = &quot;effect&quot;
+			end,
+			Ryza = function ()
+				uv0.targetClass = MoveRyza
+				uv0.path = &quot;character/Ryza&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			Scavenger = function ()
+				uv0.targetClass = EnemyScavenger
+				uv0.path = &quot;character/Scavenger&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			BOSS_Scavenger = function ()
+				uv0.targetClass = EnemyBossScavenger
+				uv0.path = &quot;character/BOSS_Scavenger&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			Chaser = function ()
+				uv0.targetClass = EnemyChaser
+				uv0.path = &quot;character/Chaser&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			BOSS_Chaser = function ()
+				uv0.targetClass = EnemyBossChaser
+				uv0.path = &quot;character/BOSS_Chaser&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			Smasher = function ()
+				uv0.targetClass = EnemySmasher
+				uv0.path = &quot;character/Smasher&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			BOSS_Smasher = function ()
+				uv0.targetClass = EnemyBossSmasher
+				uv0.path = &quot;character/BOSS_Smasher&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			Conductor = function ()
+				uv0.targetClass = EnemyConductor
+				uv0.path = &quot;character/Conductor&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			BOSS_Conductor = function ()
+				uv0.targetClass = EnemyBossConductor
+				uv0.path = &quot;character/BOSS_Conductor&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			Navigator = function ()
+				uv0.targetClass = EnemyNavigator
+				uv0.path = &quot;character/Navigator&quot;
+				uv0.parent = &quot;character&quot;
+			end,
+			BOSS_Navigator = function ()
+				uv0.targetClass = EnemyBossNavigator
+				uv0.path = &quot;character/BOSS_Navigator&quot;
+				uv0.parent = &quot;character&quot;
+			end
+		})
+
+		return slot1.targetClass, slot1.path, slot1.parent
+	end,
+	GetEightDirMark = function (slot0)
+		slot1 = {}
+
+		for slot5, slot6 in ipairs({
+			slot0.y,
+			slot0.x
+		}) do
+			if slot6 * slot6 &lt; uv0 * uv0 then
+				slot6 = 0
+			end
+
+			if slot6 &gt; 0 then
+				slot1[slot5] = uv1[slot5][1]
+			elseif slot6 &lt; 0 then
+				slot1[slot5] = uv1[slot5][2]
+			else
+				slot1[slot5] = &quot;&quot;
+			end
+		end
+
+		return slot1[1] .. slot1[2]
+	end,
+	GetFourDirMark = function (slot0)
+		slot1 = {}
+		slot2 = slot0.y * slot0.y &lt; slot0.x * slot0.x and {
+			0,
+			slot0.x
+		} or {
+			slot0.y,
+			0
+		}
+
+		for slot6, slot7 in ipairs(slot2) do
+			if slot7 &gt; 0 then
+				slot1[slot6] = uv0[slot6][1]
+			elseif slot7 &lt; 0 then
+				slot1[slot6] = uv0[slot6][2]
+			else
+				slot1[slot6] = &quot;&quot;
+			end
+		end
+
+		return slot1[1] .. slot1[2]
+	end,
+	GetDestroyPoint = function (slot0)
+		slot1 = 0
+
+		if slot0.class == TargetItem then
+			switch(slot0.type, {
+				bomb = function ()
+					uv0 = 50
+				end,
+				power = function ()
+					uv0 = 50
+				end,
+				speed = function ()
+					uv0 = 50
+				end,
+				hp1 = function ()
+					uv0 = 100
+				end,
+				hp2 = function ()
+					uv0 = 200
+				end,
+				spirit = function ()
+					uv0 = 300
+				end
+			})
+		elseif isa(slot0, TargetObject) then
+			switch(slot0.class, {
+				[ObjectBreakable] = function ()
+					uv0 = 20
+				end,
+				[ObjectRockB] = function ()
+					uv0 = 50
+				end,
+				[ObjectTreasureN] = function ()
+					uv0 = 200
+				end,
+				[ObjectTreasureR] = function ()
+					uv0 = 500
+				end
+			})
+		elseif isa(slot0, MoveEnemy) then
+			switch(slot0.class, {
+				[EnemyScavenger] = function ()
+					uv0 = 100
+				end,
+				[EnemyBossScavenger] = function ()
+					uv0 = 300
+				end,
+				[EnemyChaser] = function ()
+					uv0 = 100
+				end,
+				[EnemyBossChaser] = function ()
+					uv0 = 500
+				end,
+				[EnemyNavigator] = function ()
+					uv0 = 150
+				end,
+				[EnemyBossNavigator] = function ()
+					uv0 = 600
+				end,
+				[EnemySmasher] = function ()
+					uv0 = 150
+				end,
+				[EnemyBossSmasher] = function ()
+					uv0 = 500
+				end,
+				[EnemyConductor] = function ()
+					uv0 = 200
+				end,
+				[EnemyBossConductor] = function ()
+					uv0 = 600
+				end
+			})
+		end
+
+		return slot1
+	end,
+	GetPassGamePoint = function (slot0)
+		return math.floor(10000 / math.log(slot0))
+	end,
+	ReSetDir = function (slot0)
+		if slot0.x ~= 0 and slot0.y ~= 0 then
+			slot1 = math.sign(slot0.x)
+			slot2 = math.sign(slot0.y)
+
+			if math.abs(slot0.y) &lt; math.abs(slot0.x) then
+				slot0.x = math.ceil(slot3) * slot1
+				slot0.y = 0
+			else
+				slot0.x = 0
+				slot0.y = math.ceil(slot4) * slot2
+			end
+		end
+
+		return slot0
+	end
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

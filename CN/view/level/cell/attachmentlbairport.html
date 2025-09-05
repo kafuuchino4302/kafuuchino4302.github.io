@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attachmentlbairport.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>attachmentlbairport.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AttachmentLBAirport&quot;, import(&quot;view.level.cell.StaticCellView&quot;))
+slot0.StateOutControl = 1
+slot0.StateUnderControl = 2
+
+slot0.GetOrder = function(slot0)
+	return ChapterConst.CellPriorityAttachment
+end
+
+slot0.Update = function(slot0)
+	slot1 = slot0.extraFlagList
+
+	if IsNil(slot0.go) then
+		slot0:PrepareBase(&quot;airport&quot;)
+	end
+
+	if table.contains(slot1, ChapterConst.StatusAirportOutControl) and slot0.state ~= uv0.StateOutControl then
+		slot0.state = uv0.StateOutControl
+		slot2 = slot0:GetLoader()
+
+		slot2:ClearRequest(&quot;Dead&quot;, AutoLoader.PartLoading)
+
+		slot2 = slot0:GetLoader()
+
+		slot2:GetPrefab(&quot;chapter/dexiv3_2x2_2&quot;, &quot;dexiv3_2x2_2&quot;, function (slot0)
+			uv0:GetLoader():ClearRequest(&quot;Dead&quot;)
+			setParent(slot0, uv0.tf)
+		end, &quot;Enemy&quot;)
+	elseif table.contains(slot1, ChapterConst.StatusAirportUnderControl) and slot0.state ~= uv0.StateUnderControl then
+		slot0.state = uv0.StateUnderControl
+		slot2 = slot0:GetLoader()
+
+		slot2:ClearRequest(&quot;Enemy&quot;, AutoLoader.PartLoading)
+
+		slot2 = slot0:GetLoader()
+
+		slot2:GetPrefab(&quot;chapter/dexiv3_2x2_1&quot;, &quot;dexiv3_2x2_1&quot;, function (slot0)
+			uv0:GetLoader():ClearRequest(&quot;Enemy&quot;)
+			setParent(slot0, uv0.tf)
+		end, &quot;Dead&quot;)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

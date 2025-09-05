@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taskemptylistpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>taskemptylistpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TaskEmptyListPage&quot;, import(&quot;..base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;TaskEmptyListUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0._tf:SetSiblingIndex(1)
+	setText(findTF(slot0._tf, &quot;Text&quot;), i18n(&quot;list_empty_tip_taskscene&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	slot0.isShowUI = false
+end
+
+slot0.ShowOrHide = function(slot0, slot1)
+	if slot0.isShowUI == slot1 then
+		return
+	end
+
+	if slot1 then
+		slot0:Show()
+	else
+		slot0:Hide()
+	end
+
+	slot0.isShowUI = slot1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

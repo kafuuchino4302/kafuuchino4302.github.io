@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlefleetcardpuzzlediscard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlefleetcardpuzzlediscard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot1 = slot0.Battle.BattleUnitEvent
+slot2 = slot0.Battle.BattleEvent
+slot3 = slot0.Battle.BattleCardPuzzleEvent
+slot4 = slot0.Battle.BattleFormulas
+slot5 = slot0.Battle.BattleConst
+slot6 = slot0.Battle.BattleConfig
+slot7 = slot0.Battle.BattleAttr
+slot8 = slot0.Battle.BattleDataFunction
+slot9 = slot0.Battle.BattleAttr
+slot10 = class(&quot;BattleFleetCardPuzzleDiscard&quot;)
+slot0.Battle.BattleFleetCardPuzzleDiscard = slot10
+slot10.__name = &quot;BattleFleetCardPuzzleDiscard&quot;
+
+slot10.Ctor = function(slot0, slot1, slot2)
+	slot0._cardPuzzleComponent = slot1
+	slot0._indexID = slot2
+
+	slot0:init()
+end
+
+slot10.GetIndexID = function(slot0)
+	return slot0._indexID
+end
+
+slot10.Dispose = function(slot0)
+end
+
+slot10.GetCardList = function(slot0)
+	return slot0._discardList
+end
+
+slot10.init = function(slot0)
+	slot0._discardList = {}
+
+	uv0.EventDispatcher.AttachEventDispatcher(slot0)
+	uv0.Battle.BattleFleetCardPuzzleCardManageComponent.AttachCardManager(slot0)
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

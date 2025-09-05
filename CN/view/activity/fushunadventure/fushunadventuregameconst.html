@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fushunadventuregameconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fushunadventuregameconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;FushunAdventureGameConst&quot;)
+slot0.BGM_NAME = &quot;main-chunjie2&quot;
+slot0.GAME_BGM_NAME = &quot;bgm-cccp3&quot;
+slot0.A_BTN_VOICE = &quot;event:/ui/quanji&quot;
+slot0.B_BTN_VOICE = &quot;event:/ui/tiji&quot;
+slot0.COUNT_DOWN_VOICE = &quot;event:/ui/ddldaoshu2&quot;
+slot0.ENTER_EX_VOICE = &quot;event:/ui/baoqi&quot;
+slot0.EX_TIP_TIME = 3
+slot0.EX_TIME = 10
+slot0.EX_CLICK_SCORE = 10
+slot0.COMBO_SCORE_TARGET = 20
+slot0.COMBO_EXTRA_SCORE = 5
+slot0.LEVEL_CNT = 7
+slot0.SHAKE_RANGE = 0.1
+slot0.SHAKE_TIME = 0.05
+slot0.SHAKE_LOOP_CNT = 2
+slot0.FUSHUN_INIT_POSITION = Vector2(-655.7, -205)
+slot0.FUSHUN_ATTACK_DISTANCE = 230
+slot0.FUSHUN_ATTACK_RANGE = 300
+slot0.ENEMY_SPAWN_POSITION = Vector2(1300, -351)
+slot0.EX_ENEMY_SPAWN_TIME = 0.5
+slot0.SPEED_ADDITION = {
+	{
+		{
+			0,
+			1000
+		},
+		2.5
+	},
+	{
+		{
+			1001,
+			3000
+		},
+		3
+	},
+	{
+		{
+			3001,
+			6000
+		},
+		3.2
+	},
+	{
+		{
+			6001,
+			8000
+		},
+		3.4
+	}
+}
+slot0.PROPABILITES = {
+	{
+		{
+			0,
+			1000
+		},
+		60,
+		20,
+		20
+	},
+	{
+		{
+			1001,
+			3000
+		},
+		50,
+		30,
+		20
+	},
+	{
+		{
+			3001,
+			5000
+		},
+		40,
+		40,
+		20
+	},
+	{
+		{
+			5001,
+			8000
+		},
+		20,
+		50,
+		30
+	}
+}
+slot0.ENEMY_SPAWN_TIME_ADDITION = {
+	{
+		{
+			0,
+			1000
+		},
+		{
+			2.2,
+			2.6
+		}
+	},
+	{
+		{
+			1001,
+			3000
+		},
+		{
+			1.8,
+			2.2
+		}
+	},
+	{
+		{
+			3001,
+			5000
+		},
+		{
+			1.5,
+			1.8
+		}
+	},
+	{
+		{
+			5001,
+			8000
+		},
+		{
+			1,
+			1.6
+		}
+	}
+}
+slot0.ENEMYS = {
+	{
+		crazy_speed = 14,
+		name = &quot;beast01&quot;,
+		hp = 1,
+		speed = 3,
+		id = 1,
+		score = 10,
+		attackDistance = 150,
+		energyScore = 3
+	},
+	{
+		crazy_speed = 13,
+		name = &quot;beast02&quot;,
+		hp = 2,
+		speed = 3,
+		id = 2,
+		score = 20,
+		attackDistance = 150,
+		energyScore = 5
+	},
+	{
+		crazy_speed = 12,
+		name = &quot;beast03&quot;,
+		hp = 3,
+		speed = 3,
+		id = 3,
+		score = 30,
+		attackDistance = 150,
+		energyScore = 8
+	}
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

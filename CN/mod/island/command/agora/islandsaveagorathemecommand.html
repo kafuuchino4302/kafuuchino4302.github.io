@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandsaveagorathemecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandsaveagorathemecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandSaveAgoraThemeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot12 = pg.ConnectionMgr.GetInstance()
+
+	slot12:Send(21317, {
+		theme = {
+			id = slot2.themeData.id,
+			name = slot2.themeData.name,
+			placed_data = {
+				placed_list = AgoraCalc.EncodePlaced(slot2.themeData.updateList),
+				floor_data = AgoraCalc.EncodeLayer(slot2.themeData.floorList),
+				tile_data = AgoraCalc.EncodeLayer(slot2.themeData.tileList)
+			}
+		}
+	}, 21318, function (slot0)
+		if slot0.result == 0 then
+			getProxy(IslandProxy):GetIsland():GetAgoraAgency():AddTheme(IslandTheme.New(uv0))
+			uv1:sendNotification(GAME.ISLAND_SAVE_AGORA_THEME_DONE)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

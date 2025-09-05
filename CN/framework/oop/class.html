@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>class.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">Clone_Copy = function(slot0, slot1)
+	if type(slot0) ~= &quot;table&quot; then
+		return slot0
+	elseif slot1[slot0] then
+		return slot1[slot0]
+	end
+
+	slot1[slot0] = {}
+	slot3 = type(slot0) == &quot;table&quot; and slot0.__ctype == 2
+
+	for slot7, slot8 in pairs(slot0) do
+		if slot3 and slot7 == &quot;class&quot; then
+			slot2[slot7] = slot8
+		else
+			slot2[Clone_Copy(slot7, slot1)] = Clone_Copy(slot8, slot1)
+		end
+	end
+
+	return setmetatable(slot2, getmetatable(slot0))
+end
+
+Clone = function(slot0)
+	return Clone_Copy(slot0, {})
+end
+
+class = function(slot0, slot1)
+	slot3 = nil
+
+	if type(slot1) ~= &quot;function&quot; and slot2 ~= &quot;table&quot; then
+		slot2 = nil
+		slot1 = nil
+	end
+
+	if slot2 == &quot;function&quot; or slot1 and slot1.__ctype == 1 then
+		slot3 = {}
+
+		if slot2 == &quot;table&quot; then
+			for slot7, slot8 in pairs(slot1) do
+				slot3[slot7] = slot8
+			end
+
+			slot3.__create = slot1.__create
+			slot3.super = slot1
+		else
+			slot3.__create = slot1
+		end
+
+		slot3.Ctor = function()
+		end
+
+		slot3.__cname = slot0
+		slot3.__ctype = 1
+
+		slot3.New = function(...)
+			slot0 = uv0.__create(...)
+
+			for slot4, slot5 in pairs(uv0) do
+				slot0[slot4] = slot5
+			end
+
+			slot0.class = uv0
+
+			slot0.Ctor(slot0, ...)
+
+			return slot0
+		end
+	else
+		if slot1 then
+			setmetatable({}, slot1).super = slot1
+		else
+			slot3 = {
+				Ctor = function ()
+				end
+			}
+		end
+
+		slot3.__cname = slot0
+		slot3.__ctype = 2
+		slot3.__index = slot3
+
+		slot3.New = function(...)
+			slot0 = setmetatable({}, uv0)
+			slot0.class = uv0
+
+			slot0:Ctor(...)
+
+			return slot0
+		end
+	end
+
+	return slot3
+end
+
+isa = function(slot0, slot1)
+	slot2 = getmetatable(slot0)
+
+	while slot2 ~= nil do
+		if slot2 == slot1 then
+			return true
+		else
+			assert(slot2 ~= getmetatable(slot2), &quot;Loop metatable&quot;)
+
+			slot2 = getmetatable(slot2)
+		end
+	end
+
+	return false
+end
+
+instanceof = function(slot0, slot1)
+	return superof(slot0.class, slot1)
+end
+
+superof = function(slot0, slot1)
+	while slot0 ~= nil do
+		if slot0 == slot1 then
+			return true
+		else
+			slot0 = slot0.super
+		end
+	end
+
+	return false
+end
+
+singletonClass = function(slot0, slot1)
+	slot2 = class(slot0, slot1)
+	slot2._new = slot2.New
+
+	rawset(slot2, &quot;_singletonInstance&quot;, nil)
+
+	slot2.New = function()
+		if not uv0._singletonInstance then
+			return uv0.GetInstance()
+		end
+
+		error(&quot;singleton class can not new. Please use &quot; .. uv1 .. &quot;.GetInstance() to get it&quot;, 2)
+	end
+
+	slot2.GetInstance = function()
+		if rawget(uv0, &quot;_singletonInstance&quot;) == nil then
+			rawset(uv0, &quot;_singletonInstance&quot;, uv0._new())
+		end
+
+		return uv0._singletonInstance
+	end
+
+	return slot2
+end
+
+removeSingletonInstance = function(slot0)
+	if slot0 and rawget(slot0, &quot;_singletonInstance&quot;) then
+		rawset(slot0, &quot;_singletonInstance&quot;, nil)
+
+		return true
+	end
+
+	return false
+end
+
+tracebackex = function()
+	slot1 = 2
+	slot0 = &quot;&quot; .. &quot;stack traceback:\n&quot;
+
+	while true do
+		if not debug.getinfo(slot1, &quot;Sln&quot;) then
+			break
+		end
+
+		slot0 = slot2.what == &quot;C&quot; and slot0 .. tostring(slot1) .. &quot;\tC function\n&quot; or slot0 .. string.format(&quot;\t[%s]:%d in function `%s`\n&quot;, slot2.short_src, slot2.currentline, slot2.name or &quot;&quot;)
+		slot3 = 1
+
+		while true do
+			slot4, slot5 = debug.getlocal(slot1, slot3)
+
+			if not slot4 then
+				break
+			end
+
+			slot0 = slot0 .. &quot;\t\t&quot; .. slot4 .. &quot; =\t&quot; .. tostringex(slot5, 3) .. &quot;\n&quot;
+			slot3 = slot3 + 1
+		end
+
+		slot1 = slot1 + 1
+	end
+
+	return slot0
+end
+
+tostringex = function(slot0, slot1)
+	if slot1 == nil then
+		slot1 = 0
+	end
+
+	slot2 = string.rep(&quot;\t&quot;, slot1)
+	slot3 = &quot;&quot;
+
+	if type(slot0) == &quot;table&quot; then
+		if slot1 &gt; 5 then
+			return &quot;\t{ ... }&quot;
+		end
+
+		slot4 = &quot;&quot;
+
+		for slot8, slot9 in pairs(slot0) do
+			slot4 = slot4 .. &quot;\n\t&quot; .. slot2 .. tostring(slot8) .. &quot;:&quot; .. tostringex(slot9, slot1 + 1)
+		end
+
+		if slot4 == &quot;&quot; then
+			slot3 = slot3 .. slot2 .. &quot;{ }\t(&quot; .. tostring(slot0) .. &quot;)&quot;
+		else
+			if slot1 &gt; 0 then
+				slot3 = slot3 .. &quot;\t(&quot; .. tostring(slot0) .. &quot;)\n&quot;
+			end
+
+			slot3 = slot3 .. slot2 .. &quot;{&quot; .. slot4 .. &quot;\n&quot; .. slot2 .. &quot;}&quot;
+		end
+	else
+		slot3 = slot3 .. slot2 .. tostring(slot0) .. &quot;\t(&quot; .. type(slot0) .. &quot;)&quot;
+	end
+
+	return slot3
+end
+
+DecorateClass = function(slot0, slot1)
+	assert(slot0, &quot;Need a Base Class&quot;)
+
+	slot2 = setmetatable({}, {
+		__index = function (slot0, slot1)
+			return uv0[slot1] or uv1[slot1]
+		end
+	})
+	slot2.super = slot0
+	slot2.__cname = slot0.__cname .. &quot; feat.&quot; .. slot1.__cname
+	slot2.__ctype = 2
+	slot2.__index = slot2
+
+	slot2.New = function(...)
+		slot0 = setmetatable({}, uv0)
+		slot0.class = uv0
+
+		slot0:Ctor(...)
+
+		return slot0
+	end
+
+	return slot2
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

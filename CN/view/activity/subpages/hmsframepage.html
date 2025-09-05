@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hmsframepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>hmsframepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;HMSFramePage&quot;, import(&quot;.TemplatePage.NewFrameTemplatePage&quot;))
+
+slot0.Switch = function(slot0, slot1)
+	slot2, slot3 = nil
+
+	if slot1 then
+		slot3 = slot0.phases[2]
+		slot2 = slot0.phases[1]
+	else
+		slot3 = slot0.phases[1]
+		slot2 = slot0.phases[2]
+	end
+
+	slot4 = GetOrAddComponent(slot2, typeof(CanvasGroup))
+	slot5 = slot2.localPosition
+	slot6 = slot3.localPosition
+
+	slot3:SetAsLastSibling()
+	setActive(slot2:Find(&quot;Image&quot;), false)
+	setActive(slot2:Find(&quot;label&quot;), true)
+	setActive(slot3:Find(&quot;Image&quot;), true)
+	setActive(slot3:Find(&quot;label&quot;), false)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

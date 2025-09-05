@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itemcell.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>itemcell.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ItemCell&quot;, import(&quot;view.level.cell.LevelCellView&quot;))
+
+slot0.Ctor = function(slot0, slot1, slot2, slot3)
+	uv0.super.Ctor(slot0)
+
+	slot0.go = slot1
+	slot0.tf = slot0.go.transform
+	slot0.line = {
+		row = slot2,
+		column = slot3
+	}
+	slot0.assetName = nil
+
+	slot0:OverrideCanvas()
+	slot0:ResetCanvasOrder()
+end
+
+slot0.Init = function(slot0, slot1)
+	if not slot1 then
+		return
+	end
+
+	slot0.info = CreateShell(slot1)
+end
+
+slot0.GetInfo = function(slot0)
+	return slot0.info
+end
+
+slot0.GetOriginalInfo = function(slot0)
+	slot1 = slot0.info and getmetatable(slot0.info)
+
+	return slot1 and slot1.__index
+end
+
+slot0.Update = function(slot0)
+	slot1 = slot0.info
+	slot2 = slot0.loader
+
+	slot2:GetPrefabBYStopLoading(&quot;chapter/&quot; .. slot1.item, slot1.item, function (slot0)
+		slot1 = slot0.transform
+		slot1.name = uv0.item
+
+		slot1:SetParent(uv1.go, false)
+
+		slot1.anchoredPosition3D = uv0.itemOffset
+
+		uv1:RecordCanvasOrder(slot1)
+		uv1:AddCanvasOrder(slot1, uv1:GetCurrentOrder())
+	end, &quot;ChapterItem&quot; .. slot0.line.row .. &quot;_&quot; .. slot0.line.column)
+end
+
+slot0.UpdateAsset = function(slot0, slot1)
+	if not slot0.info or not slot1 or slot1 == rawget(slot0.info, &quot;item&quot;) then
+		return
+	end
+
+	slot0.info.item = slot1
+
+	slot0:Update()
+end
+
+slot0.ClearLoader = function(slot0)
+end
+
+slot0.Clear = function(slot0)
+	slot0.loader:ClearRequest(&quot;ChapterItem&quot; .. slot0.line.row .. &quot;_&quot; .. slot0.line.column)
+	uv0.super.Clear(slot0)
+end
+
+slot0.TransformItemAsset = function(slot0, slot1)
+	if type(slot1) ~= &quot;string&quot; then
+		return
+	end
+
+	if type(slot0:getConfig(&quot;ItemTransformPattern&quot;)) ~= &quot;table&quot; then
+		return slot1
+	end
+
+	_.each(slot0:getExtraFlags(), function (slot0)
+		if uv0[slot0] and (function ()
+			if not uv0[uv1][3] then
+				return true
+			end
+
+			return math.random() &lt;= slot0
+		end)() then
+			uv1 = string.gsub(uv1, uv0[slot0][1], uv0[slot0][2])
+		end
+	end)
+
+	return slot1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng0024.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ng0024.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;META研究室中拥有&lt;color=#ff5c5c&gt;能量激活&lt;/color&gt;、&lt;color=#ff5c5c&gt;舰装强化&lt;/color&gt;、&lt;color=#ff5c5c&gt;战术研习&lt;/color&gt;、&lt;color=#ff5c5c&gt;资讯同步&lt;/color&gt;四个系统模块。&quot;,
+	&quot;来看看META角色的战术研习吧。&quot;,
+	&quot;META角色的技能在进行升级之前首先需要解锁。&quot;,
+	&quot;需要消耗一定数量与技能类型相同的技能书进行解锁操作。&quot;
+}
+
+return {
+	id = &quot;NG0024&quot;,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -230.2,
+				posX = -332.5,
+				text = slot0[1]
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -186.8,
+				posX = 634.32,
+				text = slot0[2]
+			},
+			ui = {
+				path = &quot;UICamera/Canvas/UIMain/MetaCharacterUI(Clone)/HidePanel/MenuPanel/TacticsBtn&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -58.49,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 81.69
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = 1,
+				posY = -133,
+				posX = 0,
+				text = slot0[3]
+			},
+			ui = {
+				pathIndex = 0,
+				path = &quot;OverlayCamera/Overlay/UIMain/MetaCharacterTacticsUI(Clone)/SkillPanel/Skills/Content&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = 0,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 0
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 2,
+				dir = -1,
+				posY = 0,
+				posX = 383.59,
+				text = slot0[4]
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

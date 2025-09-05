@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>musicgameconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>musicgameconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MusicGameConst&quot;)
+slot0.music_game_data = {
+	{
+		light = 2,
+		music_id = 1,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 1,
+		bgm = &quot;06&quot;,
+		pu = &quot;06&quot;,
+		img = 1,
+		settlement_painting = {
+			&quot;daiduo_idol_n&quot;,
+			&quot;baerdimo_idol_n&quot;,
+			&quot;guanghui_idol_n&quot;,
+			&quot;tashigan_idol_n&quot;,
+			&quot;daqinghuayu_idolns&quot;
+		},
+		ships = {
+			&quot;daiduo_idol&quot;,
+			&quot;baerdimo_idol&quot;,
+			&quot;guanghui_idol&quot;,
+			&quot;tashigan_idol&quot;,
+			&quot;daqinghuayu_idol&quot;
+		}
+	},
+	{
+		light = 3,
+		music_id = 2,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 2,
+		bgm = &quot;08&quot;,
+		pu = &quot;08&quot;,
+		img = 2,
+		settlement_painting = {
+			&quot;luoen_idol_n&quot;,
+			&quot;dafeng_idol_n&quot;
+		},
+		ships = {
+			false,
+			&quot;dafeng_idol&quot;,
+			false,
+			&quot;luoen_idol&quot;,
+			false
+		}
+	},
+	{
+		light = 1,
+		music_id = 3,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 3,
+		bgm = &quot;07&quot;,
+		pu = &quot;07&quot;,
+		img = 3,
+		settlement_painting = {
+			&quot;edu_idol_n&quot;
+		},
+		ships = {
+			false,
+			false,
+			&quot;edu_idol&quot;,
+			false,
+			false
+		}
+	},
+	{
+		light = false,
+		music_id = 4,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		bgm = &quot;09&quot;,
+		pu = &quot;09&quot;,
+		img = 4,
+		settlement_painting = {
+			&quot;chicheng_idolns&quot;,
+			&quot;xiefeierde_idolns&quot;,
+			&quot;jiasikenie_idolns&quot;,
+			&quot;kelifulan_idolns&quot;,
+			&quot;xipeier_idolns&quot;
+		},
+		ships = {
+			&quot;chicheng_idol&quot;,
+			&quot;xiefeierde_idol&quot;,
+			&quot;jiasikenie_idol&quot;,
+			&quot;kelifulan_idol&quot;,
+			&quot;xipeier_idol&quot;
+		}
+	},
+	{
+		pu = &quot;010&quot;,
+		music_id = 5,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		img = 5,
+		bgm = &quot;10&quot;
+	},
+	{
+		light = false,
+		music_id = 6,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		bgm = &quot;01&quot;,
+		pu = &quot;01&quot;,
+		img = 6,
+		settlement_painting = {
+			&quot;chicheng_idol&quot;
+		},
+		ships = {
+			&quot;chicheng_idol&quot;,
+			&quot;xiefeierde_idol&quot;,
+			&quot;jiasikenie_idol&quot;,
+			&quot;kelifulan_idol&quot;,
+			&quot;xipeier_idol&quot;
+		}
+	},
+	{
+		pu = &quot;02&quot;,
+		music_id = 7,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		img = 7,
+		bgm = &quot;02&quot;
+	},
+	{
+		pu = &quot;03&quot;,
+		music_id = 8,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		img = 8,
+		bgm = &quot;03&quot;
+	},
+	{
+		pu = &quot;04&quot;,
+		music_id = 9,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		img = 9,
+		bgm = &quot;04&quot;
+	},
+	{
+		pu = &quot;05&quot;,
+		music_id = 10,
+		comboEffect = 1,
+		music_piece = 2,
+		bg = 4,
+		img = 10,
+		bgm = &quot;05&quot;
+	}
+}
+
+slot0.getRandomBand = function()
+	return MusicGameConst.random_band[math.random(1, #MusicGameConst.random_band)]
+end
+
+slot0.painting_const_key = {
+	tashigan_idol_n = &quot;tashigan_idol&quot;,
+	kelifulan_idolns = &quot;kelifulan_idol&quot;,
+	xipeier_idolns = &quot;xipeier_idol&quot;,
+	jiasikenie_idolns = &quot;jiasikenie_idol&quot;,
+	daqinghuayu_idolns = &quot;tashigan_idol_n&quot;,
+	ougen_idol_n = &quot;ougen_idol&quot;,
+	kewei_idol_n = &quot;kewei_idol&quot;,
+	nengdai_idol_n = &quot;nengdai_idol&quot;,
+	luoen_idol_n = &quot;luoen_idol&quot;,
+	dafeng_idol_n = &quot;dafeng_idol&quot;,
+	boyixi_idol_n = &quot;boyixi_idol&quot;,
+	baerdimo_idol_n = &quot;baerdimo_idol&quot;,
+	xiefeierde_idolns = &quot;xiefeierde_idol&quot;,
+	edu_idol_n = &quot;edu_idol&quot;,
+	lumang_idol_n = &quot;lumang_idol&quot;,
+	daiduo_idol_n = &quot;daiduo_idol&quot;,
+	jingang_idol_n = &quot;jingang_idol&quot;,
+	guanghui_idol_n = &quot;guanghui_idol&quot;,
+	chicheng_idolns = &quot;chicheng_idol&quot;
+}
+slot0.random_band = {
+	{
+		light = false,
+		bg = 4,
+		settlement_painting = {
+			&quot;chicheng_idolns&quot;,
+			&quot;xiefeierde_idolns&quot;,
+			&quot;jiasikenie_idolns&quot;,
+			&quot;kelifulan_idolns&quot;,
+			&quot;xipeier_idolns&quot;
+		},
+		ships = {
+			&quot;chicheng_idol&quot;,
+			&quot;xiefeierde_idol&quot;,
+			&quot;jiasikenie_idol&quot;,
+			&quot;kelifulan_idol&quot;,
+			&quot;xipeier_idol&quot;
+		}
+	},
+	{
+		light = 2,
+		bg = 1,
+		settlement_painting = {
+			&quot;daiduo_idol_n&quot;,
+			&quot;baerdimo_idol_n&quot;,
+			&quot;guanghui_idol_n&quot;,
+			&quot;tashigan_idol_n&quot;,
+			&quot;daqinghuayu_idolns&quot;
+		},
+		ships = {
+			&quot;daiduo_idol&quot;,
+			&quot;baerdimo_idol&quot;,
+			&quot;guanghui_idol&quot;,
+			&quot;tashigan_idol&quot;,
+			&quot;daqinghuayu_idol&quot;
+		}
+	},
+	{
+		light = 1,
+		bg = 3,
+		settlement_painting = {
+			&quot;edu_idol_n&quot;
+		},
+		ships = {
+			false,
+			false,
+			&quot;edu_idol&quot;,
+			false,
+			false
+		}
+	},
+	{
+		light = 3,
+		bg = 2,
+		settlement_painting = {
+			&quot;luoen_idol_n&quot;,
+			&quot;dafeng_idol_n&quot;
+		},
+		ships = {
+			false,
+			&quot;dafeng_idol&quot;,
+			false,
+			&quot;luoen_idol&quot;,
+			false
+		}
+	}
+}
+slot0.music_all_ship = {
+	&quot;chicheng_idol&quot;,
+	&quot;xiefeierde_idol&quot;,
+	&quot;jiasikenie_idol&quot;,
+	&quot;kelifulan_idol&quot;,
+	&quot;xipeier_idol&quot;,
+	&quot;luoen_idol&quot;,
+	&quot;baerdimo_idol&quot;,
+	&quot;edu_idol&quot;,
+	&quot;dafeng_idol&quot;,
+	&quot;daiduo_idol&quot;,
+	&quot;guanghui_idol&quot;,
+	&quot;tashigan_idol&quot;,
+	&quot;daqinghuayu_idol&quot;
+}
+slot0.music_all_painting = {
+	&quot;chicheng_idolns&quot;,
+	&quot;xiefeierde_idolns&quot;,
+	&quot;jiasikenie_idolns&quot;,
+	&quot;kelifulan_idolns&quot;,
+	&quot;xipeier_idolns&quot;,
+	&quot;baerdimo_idol_n&quot;,
+	&quot;dafeng_idol_n&quot;,
+	&quot;daiduo_idol_n&quot;,
+	&quot;daqinghuayu_idolns&quot;,
+	&quot;edu_idol_n&quot;,
+	&quot;guanghui_idol_n&quot;,
+	&quot;luoen_idol_n&quot;,
+	&quot;tashigan_idol_n&quot;
+}
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

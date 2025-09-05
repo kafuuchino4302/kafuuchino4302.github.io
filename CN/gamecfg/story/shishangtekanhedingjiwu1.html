@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shishangtekanhedingjiwu1.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shishangtekanhedingjiwu1.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;SHISHANGTEKANHEDINGJIWU1&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			bgm = &quot;story-nonightcity&quot;,
+			say = &quot;咚咚咚咚咚——！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			say = &quot;伴随着强力的鼓点，眼前陌生的舞台之上，箱子的幕布“唰”地一下卷起——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;login&quot;,
+			say = &quot;华光乍现，幻梦摇曳……这转瞬即现于汝眼前的魔术，汝可喜欢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			withoutActorName = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;礼花炸开，聚光灯如梦如幻地笼罩在箱中少女的身上，与我对视时，她绽放出甜美的笑靥。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;我很喜欢。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;这是怎么办到的？&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 1,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;这种形式很新颖，我很喜欢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			optionFlag = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;汝喜欢便好，欢迎步入妾身特地为汝准备的梦境。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			optionFlag = 2,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;这是怎么办到的？莫非是{namecode:182:信浓}又进入了我的梦境么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			optionFlag = 2,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;不错。正是妾身进入了汝的梦境，为汝编织了此般奇术舞台。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;啊……还有，妾身险些将此事忘了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = &quot;main4&quot;,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;她说着，慢悠悠抬手，对我比出了俏皮的“V”字手势。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;驱逐舰们告知妾身，此般举止能够传达欢欣之意……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;{namecode:182:信浓}顿了顿，又在箱子中动了动，无奈尾巴几乎填满了箱子，她无法自如行动。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;抱歉，此箱子的尺寸与妾身原先所想略有偏差，倒是稍显局促了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;既然是在梦中，箱子的尺寸{namecode:182:信浓}不能调节么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;魔术之奥妙，便藏在这箱中……若是妾身轻易调节了，便会失去惊喜。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;嗯？莫非这箱子有什么机关么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch&quot;,
+			say = &quot;既然好奇，不如上前一探究竟？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;走上舞台，围绕着箱子检查了一圈，并未发现机关。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;（箱子周围并无异常，那机关会是玻璃本身么？）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;{namecode:182:信浓}带着睡意的慵懒目光一直跟随着我移动，直至我来到了她的面前——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;带着几分探查之意，我将手放在了玻璃上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;而她也将手覆了上来，隔着玻璃与我的手交叠。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;她靠得很近，温热的气息在玻璃上晕开一片朦胧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;深邃神秘如海洋一般蓝色眼眸中盛满柔情。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;main2&quot;,
+			say = &quot;汝找到机关了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;没有找到。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;headtouch&quot;,
+			say = &quot;呵呵，汝不妨再靠近些，检查一番箱子内部呢？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;zhihuiguan&quot;,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			actorName = &quot;{playername}&quot;,
+			hideRecordIco = true,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;内部？难道不是要找到机关才能打……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;话还没说完，面前的玻璃便化为柔和的光粒逐渐飘散消失。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;失去了面前玻璃支撑的{namecode:182:信浓}，纤长而柔软的手指借势与我十指紧扣。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;单薄的布料难以掩盖的温热柔软与我紧紧相依。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = &quot;touch2&quot;,
+			say = &quot;这才是这机关的精髓，指挥官。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			live2d = true,
+			withoutActorName = true,
+			side = 2,
+			say = &quot;舞台上的灯光渐渐黯下，毛茸茸的尾巴缠了上来，将我与她包围。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			dir = 1,
+			actor = 307084,
+			nameColor = &quot;#A9F548FF&quot;,
+			live2d = true,
+			say = &quot;妾身予汝的美梦，还未结束……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

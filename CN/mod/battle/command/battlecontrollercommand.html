@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battlecontrollercommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battlecontrollercommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys = ys or {}
+slot0 = ys
+slot0.Battle.BattleControllerCommand = class(&quot;BattleControllerCommand&quot;, slot0.MVC.Command)
+slot0.Battle.BattleControllerCommand.__name = &quot;BattleControllerCommand&quot;
+
+slot0.Battle.BattleControllerCommand.Ctor = function(slot0)
+	uv0.Battle.BattleControllerCommand.super.Ctor(slot0)
+end
+
+slot0.Battle.BattleControllerCommand.Initialize = function(slot0)
+	uv0.Battle.BattleControllerCommand.super.Initialize(slot0)
+
+	slot0._dataProxy = slot0._state:GetProxyByName(uv0.Battle.BattleDataProxy.__name)
+
+	slot0:InitBattleEvent()
+end
+
+slot0.Battle.BattleControllerCommand.InitBattleEvent = function(slot0)
+end
+
+slot0.Battle.BattleControllerCommand.addSpeed = function(slot0)
+	uv0.Battle.BattleConfig.BASIC_TIME_SCALE = uv0.Battle.BattleConfig.BASIC_TIME_SCALE * slot0
+
+	uv0.Battle.BattleVariable.AppendIFFFactor(uv0.Battle.BattleConfig.FOE_CODE, &quot;cheat_speed_up_&quot; .. uv0.Battle.BattleConfig.BASIC_TIME_SCALE, slot0)
+	uv0.Battle.BattleVariable.AppendIFFFactor(uv0.Battle.BattleConfig.FRIENDLY_CODE, &quot;cheat_speed_up_&quot; .. uv0.Battle.BattleConfig.BASIC_TIME_SCALE, slot0)
+end
+
+slot0.Battle.BattleControllerCommand.removeSpeed = function(slot0)
+	uv0.Battle.BattleVariable.RemoveIFFFactor(uv0.Battle.BattleConfig.FOE_CODE, &quot;cheat_speed_up_&quot; .. uv0.Battle.BattleConfig.BASIC_TIME_SCALE)
+	uv0.Battle.BattleVariable.RemoveIFFFactor(uv0.Battle.BattleConfig.FRIENDLY_CODE, &quot;cheat_speed_up_&quot; .. uv0.Battle.BattleConfig.BASIC_TIME_SCALE)
+
+	uv0.Battle.BattleConfig.BASIC_TIME_SCALE = uv0.Battle.BattleConfig.BASIC_TIME_SCALE * slot0
+end
+
+slot0.Battle.BattleControllerCommand.scaleTime = function(slot0)
+	pg.TipsMgr.GetInstance():ShowTips(&quot;┏━━━━━━━━━━━━┓&quot;)
+	pg.TipsMgr.GetInstance():ShowTips(&quot;┃ヽ(•̀ω•́ )ゝ嗑药 X&quot; .. uv0.Battle.BattleConfig.BASIC_TIME_SCALE .. &quot; ！(ง •̀_•́)ง┃&quot;)
+	pg.TipsMgr.GetInstance():ShowTips(&quot;┗━━━━━━━━━━━━┛&quot;)
+	slot0._state:ScaleTimer()
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

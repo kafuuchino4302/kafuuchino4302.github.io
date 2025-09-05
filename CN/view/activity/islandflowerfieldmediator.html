@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandflowerfieldmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandflowerfieldmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandFlowerFieldMediator&quot;, import(&quot;..base.ContextMediator&quot;))
+slot0.GET_FLOWER_AWARD = &quot;IslandFlowerFieldMediator.GET_FLOWER_AWARD&quot;
+
+slot0.register = function(slot0)
+	slot1 = getProxy(ActivityProxy)
+	slot2 = slot0.viewComponent
+
+	slot2:setActivity(slot1:getActivityByType(ActivityConst.ACTIVITY_TYPE_FLOWER_FIELD))
+	slot0:bind(uv0.GET_FLOWER_AWARD, function (slot0, slot1)
+		uv0:sendNotification(GAME.ISLAND_FLOWER_GET, {
+			act_id = uv1.id,
+			isAuto = slot1
+		})
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.ISLAND_FLOWER_GET_DONE,
+		ActivityProxy.ACTIVITY_UPDATED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.ISLAND_FLOWER_GET_DONE then
+		if #slot3.awards &gt; 0 then
+			if slot3.isAuto then
+				slot0:addSubLayers(Context.New({
+					mediator = SixthAnniversaryIslandFlowerWindowMediator,
+					viewComponent = SixthAnniversaryIslandFlowerWindowLayer,
+					data = {
+						awards = slot3.awards,
+						name = pg.ship_data_statistics[slot0.contextData.shipConfigId].name
+					}
+				}))
+			else
+				slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards)
+			end
+		end
+	elseif slot2 == ActivityProxy.ACTIVITY_UPDATED and slot3:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_FLOWER_FIELD then
+		slot0.viewComponent:setActivity(slot3)
+		slot0.viewComponent:refreshDisplay()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

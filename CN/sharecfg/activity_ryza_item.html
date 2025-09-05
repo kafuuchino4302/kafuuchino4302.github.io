@@ -1,0 +1,3343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activity_ryza_item.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activity_ryza_item.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.activity_ryza_item = {
+	{
+		icon = &quot;ryza_item_1&quot;,
+		display = &quot;钓鱼竿的强化版。经过强化后，会让鱼失去戒心主动靠近。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 6,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 1,
+		prop_level = 1,
+		name = &quot;神杆慈悲&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 4
+		}
+	},
+	{
+		icon = &quot;ryza_item_2&quot;,
+		display = &quot;炎烧杖的强化版。前端的宝玉更换为蓝色，因此能更有效率地破坏岩石和水晶。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 6,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 2,
+		prop_level = 1,
+		name = &quot;蓝炎烧杖&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 3
+		}
+	},
+	{
+		icon = &quot;ryza_item_3&quot;,
+		display = &quot;因为经过改良，仔细调整了锋利度和重量，采集木材和木柴会比一般斧头更轻松。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 6,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 3,
+		prop_level = 2,
+		name = &quot;黄金之斧&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 2
+		}
+	},
+	{
+		icon = &quot;ryza_item_4&quot;,
+		display = &quot;这把镰刀被改良得更方便采集，可以像风一样安静轻巧地割下花草。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 6,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 4,
+		prop_level = 2,
+		name = &quot;寂静镰刀&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			3
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1
+		}
+	},
+	{
+		icon = &quot;ryza_item_5&quot;,
+		display = &quot;拥有强大的握力和推力的塞壬机械臂，还能发射灼热的开采激光——用来进行炼金术素材的采集似乎是个不错的选择？&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 6,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 5,
+		prop_level = 2,
+		name = &quot;激光切割器&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 5
+		}
+	},
+	{
+		icon = &quot;ryza_item_6&quot;,
+		display = &quot;在沙滩相对容易发现的贝类。含有适量的盐分，直接烤一下就很好吃。&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 6,
+		prop_level = 1,
+		name = &quot;普鲁姆鲁螺&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH4-失落之都」&quot;,
+			chapterid = 1690024
+		},
+		got_voice = {
+			{
+				10900050,
+				&quot;ryza_item1&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item1&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			1,
+			1,
+			1,
+			0,
+			0
+		},
+		normal_circle = {
+			0.78,
+			0.78,
+			0.78,
+			0.85,
+			0.85
+		}
+	},
+	{
+		icon = &quot;ryza_item_7&quot;,
+		display = &quot;栖息在河川和湖泊中的淡水鱼，是常见鱼类之一。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 7,
+		prop_level = 2,
+		name = &quot;沙丁鱼&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH4-失落之都」&quot;,
+			chapterid = 1690024
+		},
+		got_voice = {
+			{
+				10900020,
+				&quot;ryza_item1&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item1&quot;,
+				&quot;saili&quot;
+			}
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			2,
+			-1
+		},
+		normal_circle = {
+			0.7,
+			0.7,
+			0.7,
+			2.3,
+			-1
+		}
+	},
+	{
+		icon = &quot;ryza_item_8&quot;,
+		display = &quot;据说栖息于湖底最深处，是湖中的鱼类之主。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 8,
+		prop_level = 3,
+		name = &quot;湖底之主&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH4-失落之都」&quot;,
+			chapterid = 1690024
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item1&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item1&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item1&quot;,
+				&quot;saili&quot;
+			}
+		},
+		base_circle = {
+			1.05,
+			1.05,
+			1.05,
+			0,
+			0
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			0,
+			-1.5
+		}
+	},
+	{
+		icon = &quot;ryza_item_9&quot;,
+		display = &quot;如结晶般透明的石头碎片。碎片种类包罗万象，从普通石头到矿石都有，甚至会有高级宝石混在其中。&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		base_circle = &quot;&quot;,
+		id = 9,
+		prop_level = 1,
+		name = &quot;小晶石&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH3-争斗之城」&quot;,
+			chapterid = 1690023
+		},
+		got_voice = {
+			{
+				10900020,
+				&quot;ryza_item2&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item2&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item2&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_10&quot;,
+		display = &quot;敲碎岩石时可采集到的砂，散发出挥发性气体的气味，一点火就会燃烧。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 10,
+		prop_level = 2,
+		name = &quot;可燃之砂&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH3-争斗之城」&quot;,
+			chapterid = 1690023
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item2&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item2&quot;,
+				&quot;lila&quot;
+			}
+		},
+		base_circle = {
+			1.2,
+			1.2,
+			1.2,
+			0,
+			0
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_11&quot;,
+		display = &quot;由熔岩矿粉碎而成的粉末状物质。虽为粉末，但仍具有熔岩特质，因此仅是闲置在旁就有发热或起火的危险。要是被风吹走，估计会酿成悲剧。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 11,
+		prop_level = 3,
+		name = &quot;岩浆粉&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH3-争斗之城」&quot;,
+			chapterid = 1690023
+		},
+		got_voice = {
+			{
+				10900040,
+				&quot;ryza_item2&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item2&quot;,
+				&quot;saili&quot;
+			}
+		},
+		base_circle = {
+			0.26,
+			0.26,
+			0.26,
+			0,
+			0
+		},
+		normal_circle = {
+			0.21,
+			0.21,
+			0.21,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_12&quot;,
+		display = &quot;只是杂草。唯一的特点就是无所不在，所以只被称为杂草。由于太常见，因此也常被列入炼金术的配方。&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		base_circle = &quot;&quot;,
+		id = 12,
+		prop_level = 1,
+		name = &quot;无名草&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH1-起始之地」&quot;,
+			chapterid = 1690021
+		},
+		got_voice = {
+			{
+				10900020,
+				&quot;ryza_item3&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item3&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		normal_circle = {
+			0.72,
+			0.72,
+			0.72,
+			2,
+			-1.5
+		}
+	},
+	{
+		icon = &quot;ryza_item_13&quot;,
+		display = &quot;形状像鸟类翅膀的叶片。因为很轻，只要风一吹就会打转飘走。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 13,
+		prop_level = 2,
+		name = &quot;翼叶草&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH1-起始之地」&quot;,
+			chapterid = 1690021
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item3&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item3&quot;,
+				&quot;keluodiya&quot;
+			}
+		},
+		base_circle = {
+			1.1,
+			1.1,
+			1.1,
+			0,
+			0
+		},
+		normal_circle = {
+			0.77,
+			0.77,
+			0.77,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_14&quot;,
+		display = &quot;和一般通草不同，是红黑色的。通常认为是因生长在含有铁质的土壤中才会变成这个颜色。特征是即使刚砍下来尚未干燥，一旦靠近火源也会烧得很旺。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 14,
+		prop_level = 3,
+		name = &quot;血红通草&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH1-起始之地」&quot;,
+			chapterid = 1690021
+		},
+		got_voice = {
+			{
+				10900020,
+				&quot;ryza_item3&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item3&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item3&quot;,
+				&quot;saili&quot;
+			}
+		},
+		base_circle = {
+			1.05,
+			1.05,
+			1.05,
+			-1,
+			6
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0.46
+		}
+	},
+	{
+		icon = &quot;ryza_item_15&quot;,
+		display = &quot;拥有雷之力的矿石。经常在雷雨多发之地、山丘等高处挖掘到。据说是因落雷导致岩石变质，进而产生这种矿石。&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		base_circle = &quot;&quot;,
+		id = 15,
+		prop_level = 1,
+		name = &quot;闪电矿&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH2-异界之森」&quot;,
+			chapterid = 1690022
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item4&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item4&quot;,
+				&quot;saili&quot;
+			}
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_16&quot;,
+		display = &quot;巨大陨石的碎片。这种碎片必定成对存在，而且两者之间有着无论相隔多远都能超越空间相系的连结。只要利用这点就能进行空间移动……也说不定。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 16,
+		prop_level = 2,
+		name = &quot;引导之星碎片&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH2-异界之森」&quot;,
+			chapterid = 1690022
+		},
+		got_voice = {
+			{
+				10900020,
+				&quot;ryza_item4&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item4&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item4&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			1.2,
+			1.2,
+			1.2,
+			-3,
+			1
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-1.15,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_17&quot;,
+		display = &quot;内部闪耀七彩光辉且带有透明感的矿石。强度与其他矿石天差地别，据说无法使用正常方法进行加工。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 1,
+		id = 17,
+		prop_level = 3,
+		name = &quot;圣石&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH2-异界之森」&quot;,
+			chapterid = 1690022
+		},
+		got_voice = {
+			{
+				10900040,
+				&quot;ryza_item4&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item4&quot;,
+				&quot;saili&quot;
+			}
+		},
+		base_circle = {
+			1.1,
+			1.1,
+			1.1,
+			-3,
+			3.6
+		},
+		normal_circle = {
+			0.77,
+			0.77,
+			0.77,
+			-0.5,
+			3
+		}
+	},
+	{
+		icon = &quot;ryza_item_18&quot;,
+		display = &quot;从核心区挖掘获得的未知结晶。质地坚硬，其中融合了各种元素的能量，或许是不错的炼金素材？&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 4,
+		version = 1,
+		id = 18,
+		prop_level = 1,
+		name = &quot;未知结晶矿&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH5-核心之所」&quot;,
+			chapterid = 1690025
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			0.85,
+			0.85,
+			0.85,
+			3.58,
+			2.38
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			3.97,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_19&quot;,
+		display = &quot;拆解核心区残骸获得的神秘装甲板，坚韧光洁的白色外壳显然经过各种元素的淬炼，似乎可以作为高阶炼金素材来使用。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 4,
+		version = 1,
+		id = 19,
+		prop_level = 2,
+		name = &quot;未知装甲板&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH5-核心之所」&quot;,
+			chapterid = 1690025
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-1,
+			1.7
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-0.8,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_20&quot;,
+		display = &quot;古代遗迹守护者的动力来源。即使离开了守护者的躯体，依然在向外散发着仿佛无穷无尽的能量。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 4,
+		version = 1,
+		id = 20,
+		prop_level = 3,
+		name = &quot;未知能源核心&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TH5-核心之所」&quot;,
+			chapterid = 1690025
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-0.74,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_21&quot;,
+		display = &quot;小瓶中封存了以炼金术人工制造的精灵之力。可适应任何属性，却不易使用。&quot;,
+		prop_type = 0,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 21,
+		prop_level = 1,
+		name = &quot;精灵的小瓶&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 210
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-1.5,
+			1
+		}
+	},
+	{
+		icon = &quot;ryza_item_22&quot;,
+		display = &quot;频繁出现在炼金术调合中的基础药剂。为红色液体，与火属性素材的契合度高。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 22,
+		prop_level = 2,
+		name = &quot;中和剂·红&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 220
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_23&quot;,
+		display = &quot;频繁出现在炼金术调合中的基础药剂。为蓝色液体，与冰属性素材的契合度高。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 23,
+		prop_level = 2,
+		name = &quot;中和剂·蓝&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 230
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_25&quot;,
+		display = &quot;频繁出现在炼金术调合中的基础药剂。为黄色液体，与雷属性素材的契合度高。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 24,
+		prop_level = 2,
+		name = &quot;中和剂·黄&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 240
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_24&quot;,
+		display = &quot;频繁出现在炼金术调合中的基础药剂。为绿色液体，与风属性素材的契合度高&quot;,
+		prop_type = 0,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 25,
+		prop_level = 2,
+		name = &quot;中和剂·绿&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 250
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_26&quot;,
+		display = &quot;从四种元素核心制作而成的最高阶素材之一。具备全属性与高属性值，进行高阶调合时可派上用场。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 26,
+		prop_level = 3,
+		name = &quot;核水晶元素&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 260
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_27&quot;,
+		display = &quot;代表异界之森的遗迹之钥，匙柄上镶嵌有粉色的托帕石。握在手中，会让人想起这片森林曾经葳蕤的岁月。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 27,
+		prop_level = 2,
+		name = &quot;遗迹之钥·异界之森&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56202
+		}
+	},
+	{
+		icon = &quot;ryza_item_28&quot;,
+		display = &quot;代表起始之地的遗迹之钥，匙柄上镶嵌有无暇的钻石。愿冒险之人的本心始终如钻石般洁白无暇。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 28,
+		prop_level = 2,
+		name = &quot;遗迹之钥·起始之地&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56201
+		}
+	},
+	{
+		icon = &quot;ryza_item_29&quot;,
+		display = &quot;代表失落之都的遗迹之钥，匙柄上镶嵌有青翠的祖母绿。比起宝藏本身，寻找宝藏的过程才是冒险者真正的财富。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 29,
+		prop_level = 2,
+		name = &quot;遗迹之钥·失落之都&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56204
+		}
+	},
+	{
+		icon = &quot;ryza_item_30&quot;,
+		display = &quot;代表争斗之城的遗迹之钥，匙柄上镶嵌有绚烂的红宝石。往昔的残酷真相，或许已经伴着时间溶解在其中。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 30,
+		prop_level = 2,
+		name = &quot;遗迹之钥·争斗之城&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56203
+		}
+	},
+	{
+		icon = &quot;ryza_item_31&quot;,
+		display = &quot;借助炼金术融合四把钥匙之后形成的类似门卡的装置，形状似乎能与核心之所大门上的凹槽完美对应。&quot;,
+		prop_type = 0,
+		rarity = 5,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 31,
+		prop_level = 3,
+		name = &quot;遗迹之钥·核心之所&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 190
+		}
+	},
+	{
+		icon = &quot;ryza_item_32&quot;,
+		display = &quot;累计收集「遗迹水晶簇」10000点获得的纪念徽章，用来调合「遗迹冒险之证」的必要素材&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 32,
+		prop_level = 3,
+		name = &quot;徽章·遗迹水晶簇&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56217
+		}
+	},
+	{
+		icon = &quot;ryza_item_33&quot;,
+		display = &quot;成功开发温泉获得的纪念徽章，用来调合「遗迹冒险之证」的必要素材&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 33,
+		prop_level = 3,
+		name = &quot;徽章·温泉开发战&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56228
+		}
+	},
+	{
+		icon = &quot;300001&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得炮击、航空、雷击属性提高的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 34,
+		prop_level = 2,
+		name = &quot;输出提升核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 270
+		},
+		benefit_buff = {
+			300001,
+			300002,
+			300003
+		}
+	},
+	{
+		icon = &quot;300011&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得伤害降低的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 35,
+		prop_level = 2,
+		name = &quot;防御提升核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 280
+		},
+		benefit_buff = {
+			300011,
+			300012,
+			300013
+		}
+	},
+	{
+		icon = &quot;300021&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得恢复耐久的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 36,
+		prop_level = 2,
+		name = &quot;缓慢修复核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 290
+		},
+		benefit_buff = {
+			300021,
+			300022,
+			300023
+		}
+	},
+	{
+		icon = &quot;300031&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得损伤管控的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 37,
+		prop_level = 2,
+		name = &quot;损伤管控核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 300
+		},
+		benefit_buff = {
+			300031,
+			300032,
+			300033
+		}
+	},
+	{
+		icon = &quot;300041&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得点燃弹幕支援的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 38,
+		prop_level = 2,
+		name = &quot;点燃支援核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 310
+		},
+		benefit_buff = {
+			300041,
+			300042,
+			300043
+		}
+	},
+	{
+		icon = &quot;300051&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得易伤弹幕支援的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 39,
+		prop_level = 2,
+		name = &quot;易伤支援核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 320
+		},
+		benefit_buff = {
+			300051,
+			300052,
+			300053
+		}
+	},
+	{
+		icon = &quot;300061&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得经验提升的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 40,
+		prop_level = 2,
+		name = &quot;经验提升核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 330
+		},
+		benefit_buff = {
+			300061,
+			300062,
+			300063
+		}
+	},
+	{
+		icon = &quot;300071&quot;,
+		display = &quot;于「炼金术士与遗迹群岛」控制中心中使用。使用后，在活动关卡中可以获得好感提升的效果&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		type = 5,
+		version = 1,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 41,
+		prop_level = 2,
+		name = &quot;好感提升核心&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 340
+		},
+		benefit_buff = {
+			300071
+		}
+	},
+	{
+		icon = &quot;ryza_item_42&quot;,
+		display = &quot;特殊兵装「闪耀梦想」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「闪耀梦想」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 42,
+		prop_level = 3,
+		name = &quot;模块-闪耀梦想&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56201
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_43&quot;,
+		display = &quot;特殊兵装「暗夜星矢」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「暗夜星矢」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 43,
+		prop_level = 3,
+		name = &quot;模块-暗夜星矢&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56202
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_44&quot;,
+		display = &quot;特殊兵装「百花盛开」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「百花盛开」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 44,
+		prop_level = 3,
+		name = &quot;模块-百花盛开&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56204
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_45&quot;,
+		display = &quot;特殊兵装「爱瑟尔剑」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「爱瑟尔剑」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 45,
+		prop_level = 3,
+		name = &quot;模块-爱瑟尔剑&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56203
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_46&quot;,
+		display = &quot;特殊兵装「百合长老」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「百合长老」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 46,
+		prop_level = 2,
+		name = &quot;模块-百合长老&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56213
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_47&quot;,
+		display = &quot;特殊兵装「幽兰爪」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「幽兰爪」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 47,
+		prop_level = 3,
+		name = &quot;模块-幽兰爪&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56223
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_48&quot;,
+		display = &quot;设备装备「炙烈炎烧」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「炙烈炎烧」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 48,
+		prop_level = 3,
+		name = &quot;模块-炙烈炎烧&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56208
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_49&quot;,
+		display = &quot;设备装备「结晶冰精」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「结晶冰精」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 49,
+		prop_level = 3,
+		name = &quot;模块-结晶冰精&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56209
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_50&quot;,
+		display = &quot;设备装备「震耳雷球」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「震耳雷球」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 50,
+		prop_level = 3,
+		name = &quot;模块-震耳雷球&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56207
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_51&quot;,
+		display = &quot;设备装备「涡旋风精」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「涡旋风精」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 51,
+		prop_level = 3,
+		name = &quot;模块-涡旋风精&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56206
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_52&quot;,
+		display = &quot;设备装备「创世之槌」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「创世之槌」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 52,
+		prop_level = 2,
+		name = &quot;模块-创世之槌&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板第二日任务奖励&quot;,
+			taskid = 56230
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_53&quot;,
+		display = &quot;设备装备「泡云弹车」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「泡云弹车」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 53,
+		prop_level = 2,
+		name = &quot;模块-泡云弹车&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板第二日任务奖励&quot;,
+			taskid = 56231
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_54&quot;,
+		display = &quot;设备装备「Ｎ／Ａ」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「Ｎ／Ａ」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 54,
+		prop_level = 3,
+		name = &quot;模块-Ｎ／Ａ&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			3
+		},
+		get_access = {
+			&quot;产出途径：港区委托板第三日任务奖励&quot;,
+			taskid = 56232
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_55&quot;,
+		display = &quot;设备装备「默示录」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「默示录」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 55,
+		prop_level = 3,
+		name = &quot;模块-默示录&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板第三日任务奖励&quot;,
+			taskid = 56233
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_56&quot;,
+		display = &quot;设备装备「神秘的羽衣」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「神秘的羽衣」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 56,
+		prop_level = 2,
+		name = &quot;模块-神秘的羽衣&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56228
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_57&quot;,
+		display = &quot;设备装备「万灵药剂」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「万灵药剂」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 57,
+		prop_level = 3,
+		name = &quot;模块-万灵药剂&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1,
+			2
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56227
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	{
+		icon = &quot;ryza_item_58&quot;,
+		display = &quot;设备装备「形意口琴」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「形意口琴」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 1,
+		got_voice = &quot;&quot;,
+		id = 58,
+		prop_level = 2,
+		name = &quot;模块-形意口琴&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			2,
+			4
+		},
+		get_access = {
+			&quot;产出途径：港区委托板任务奖励&quot;,
+			taskid = 56229
+		},
+		base_circle = {
+			0.95,
+			0.95,
+			0.95,
+			0,
+			0
+		}
+	},
+	[101] = {
+		icon = &quot;yumia_item_1&quot;,
+		display = &quot;菌盖上有结晶化孢子的菌菇，加工后能作为珠宝饰品贩卖，无法食用。&quot;,
+		prop_type = 1,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		base_circle = &quot;&quot;,
+		id = 101,
+		prop_level = 1,
+		name = &quot;宝晶塞欧伊菇&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS1-起始层」&quot;,
+			chapterid = 1940021
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_1&quot;,
+				&quot;youmiya&quot;
+			}
+		}
+	},
+	[102] = {
+		icon = &quot;yumia_item_2&quot;,
+		display = &quot;长得像菌菇，但包含菌菇部位在内都是虫，不适合食用。&quot;,
+		prop_type = 1,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		base_circle = &quot;&quot;,
+		id = 102,
+		prop_level = 1,
+		name = &quot;拟菇虫&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS1-起始层」&quot;,
+			chapterid = 1940021
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_2&quot;,
+				&quot;youmiya&quot;
+			}
+		}
+	},
+	[103] = {
+		icon = &quot;yumia_item_3&quot;,
+		display = &quot;表面覆盖着一层尖刺的植物果实，可当作投掷武器，果肉可食用。&quot;,
+		prop_type = 2,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 103,
+		prop_level = 1,
+		name = &quot;海胆&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS2-丰饶层」&quot;,
+			chapterid = 1940022
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_3&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			1,
+			1,
+			1,
+			0,
+			0
+		},
+		normal_circle = {
+			0.78,
+			0.78,
+			0.78,
+			0.85,
+			0.85
+		}
+	},
+	[104] = {
+		icon = &quot;yumia_item_4&quot;,
+		display = &quot;大部分果肉化为结晶的海胆，未化为结晶的部分可食用，但说不上美味。&quot;,
+		prop_type = 2,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 104,
+		prop_level = 1,
+		name = &quot;结晶海胆&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS2-丰饶层」&quot;,
+			chapterid = 1940022
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_4&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			2,
+			-1
+		},
+		normal_circle = {
+			0.7,
+			0.7,
+			0.7,
+			2.3,
+			-1
+		}
+	},
+	[105] = {
+		icon = &quot;yumia_item_5&quot;,
+		display = &quot;从持续释放有毒气体的朽木采集到的毒雾，毒性猛烈，吸入会造成麻痹。&quot;,
+		prop_type = 3,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 105,
+		prop_level = 1,
+		name = &quot;朽木毒雾&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS3-腐蚀层」&quot;,
+			chapterid = 1940023
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_5&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			1.05,
+			1.05,
+			1.05,
+			0,
+			0
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			0,
+			-1.5
+		}
+	},
+	[106] = {
+		icon = &quot;yumia_item_6&quot;,
+		display = &quot;超微粒子状态的金属……与其说是金属，不如说是气体更准确。&quot;,
+		prop_type = 3,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		base_circle = &quot;&quot;,
+		id = 106,
+		prop_level = 1,
+		name = &quot;金属气体&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS3-腐蚀层」&quot;,
+			chapterid = 1940023
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_6&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			0,
+			0
+		}
+	},
+	[107] = {
+		icon = &quot;yumia_item_7&quot;,
+		display = &quot;蕴含将周围热气转变为冷气力量的矿石，适合用来保持食材鲜度。&quot;,
+		prop_type = 4,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 107,
+		prop_level = 1,
+		name = &quot;寒冰石&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS4-墟骸层」&quot;,
+			chapterid = 1940024
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_7&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			1.2,
+			1.2,
+			1.2,
+			0,
+			0
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			0,
+			0
+		}
+	},
+	[108] = {
+		icon = &quot;yumia_item_8&quot;,
+		display = &quot;花瓣如水晶般的木槿亚种，即可作为植物素材，也可作为金属素材使用。&quot;,
+		prop_type = 4,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 108,
+		prop_level = 1,
+		name = &quot;铋矿木槿&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS4-墟骸层」&quot;,
+			chapterid = 1940024
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_8&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			0.26,
+			0.26,
+			0.26,
+			0,
+			0
+		},
+		normal_circle = {
+			0.21,
+			0.21,
+			0.21,
+			0,
+			0
+		}
+	},
+	[109] = {
+		icon = &quot;yumia_item_9&quot;,
+		display = &quot;表面布满了可以轻易刺穿试图触摸它的人的尖刺。经常被人误解成球海藻……但其实是海胆的亚种。&quot;,
+		prop_type = 5,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		base_circle = &quot;&quot;,
+		id = 109,
+		prop_level = 1,
+		name = &quot;球藻&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS5-天际层」&quot;,
+			chapterid = 1940025
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_11&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		normal_circle = {
+			0.72,
+			0.72,
+			0.72,
+			2,
+			-1.5
+		}
+	},
+	[110] = {
+		icon = &quot;yumia_item_10&quot;,
+		display = &quot;有毒刺的鱼，受到攻击时会从体内伸出毒刺来保护自己。&quot;,
+		prop_type = 5,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 1,
+		version = 2,
+		id = 110,
+		prop_level = 1,
+		name = &quot;毒气球&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 「TS5-天际层」&quot;,
+			chapterid = 1940025
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_12&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			1.1,
+			1.1,
+			1.1,
+			0,
+			0
+		},
+		normal_circle = {
+			0.77,
+			0.77,
+			0.77,
+			0,
+			0
+		}
+	},
+	[111] = {
+		icon = &quot;yumia_item_11&quot;,
+		display = &quot;在天际塔周边生长的晶矿，晶矿内蕴含着物质能量。&quot;,
+		prop_type = 6,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 4,
+		version = 2,
+		id = 111,
+		prop_level = 1,
+		name = &quot;天际塔结晶矿&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 任意关卡&quot;,
+			chapterid = 1940021
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_9&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		base_circle = {
+			1.05,
+			1.05,
+			1.05,
+			-1,
+			6
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0.46
+		}
+	},
+	[112] = {
+		icon = &quot;yumia_item_12&quot;,
+		display = &quot;由天际塔能源凝缩而成的晶核，晶核内凝聚着庞大能源。&quot;,
+		prop_type = 6,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 4,
+		version = 2,
+		base_circle = &quot;&quot;,
+		id = 112,
+		prop_level = 1,
+		name = &quot;天际塔能源核心&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：采集地- 任意关卡&quot;,
+			chapterid = 1940021
+		},
+		got_voice = {
+			{
+				11300010,
+				&quot;atelier_yumia_item_10&quot;,
+				&quot;youmiya&quot;
+			}
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			0,
+			0
+		}
+	},
+	[116] = {
+		icon = &quot;yumia_item_13&quot;,
+		display = &quot;特殊兵装「刹那追忆」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「刹那追忆」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		id = 116,
+		prop_level = 2,
+		name = &quot;模块-刹那追忆&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24261
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			1.2,
+			1.2,
+			1.2,
+			-3,
+			1
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-1.15,
+			0
+		}
+	},
+	[117] = {
+		icon = &quot;yumia_item_14&quot;,
+		display = &quot;特殊兵装「秘枪三叉戟」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「秘枪三叉戟」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		id = 117,
+		prop_level = 2,
+		name = &quot;模块-秘枪三叉戟&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24262
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			1.1,
+			1.1,
+			1.1,
+			-3,
+			3.6
+		},
+		normal_circle = {
+			0.77,
+			0.77,
+			0.77,
+			-0.5,
+			3
+		}
+	},
+	[118] = {
+		icon = &quot;yumia_item_15&quot;,
+		display = &quot;特殊兵装「女猎人」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「女猎人」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		id = 118,
+		prop_level = 2,
+		name = &quot;模块-女猎人&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24263
+		},
+		got_voice = {
+			{
+				10900010,
+				&quot;ryza_item5&quot;,
+				&quot;laisha&quot;
+			},
+			{
+				10900020,
+				&quot;ryza_item5&quot;,
+				&quot;keluodiya&quot;
+			},
+			{
+				10900040,
+				&quot;ryza_item5&quot;,
+				&quot;lila&quot;
+			},
+			{
+				10900050,
+				&quot;ryza_item5&quot;,
+				&quot;saili&quot;
+			},
+			{
+				10900030,
+				&quot;ryza_item5&quot;,
+				&quot;patelixia&quot;
+			}
+		},
+		base_circle = {
+			0.85,
+			0.85,
+			0.85,
+			3.58,
+			2.38
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			3.97,
+			0
+		}
+	},
+	[119] = {
+		icon = &quot;yumia_item_16&quot;,
+		display = &quot;特殊兵装「黄泉之螳螂」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「黄泉之螳螂」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 119,
+		prop_level = 2,
+		name = &quot;模块-黄泉之螳螂&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24264
+		},
+		base_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-1,
+			1.7
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-0.8,
+			0
+		}
+	},
+	[120] = {
+		icon = &quot;yumia_item_17&quot;,
+		display = &quot;设备装备「最终陨石」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「最终陨石」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 120,
+		prop_level = 2,
+		name = &quot;模块-最终陨石&quot;,
+		prop = {
+			1,
+			3
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24265
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-0.74,
+			0
+		}
+	},
+	[121] = {
+		icon = &quot;yumia_item_18&quot;,
+		display = &quot;设备装备「高级魔导书」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「高级魔导书」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 121,
+		prop_level = 2,
+		name = &quot;模块-高级魔导书&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：据点建装获得&quot;,
+			strongholdid = 1690022
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.75,
+			0.75,
+			0.75,
+			-1.5,
+			1
+		}
+	},
+	[122] = {
+		icon = &quot;yumia_item_19&quot;,
+		display = &quot;设备装备「宏伟光辉」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「宏伟光辉」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 122,
+		prop_level = 2,
+		name = &quot;模块-宏伟光辉&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：据点建装获得&quot;,
+			strongholdid = 1690022
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.8,
+			0.8,
+			0.8,
+			0,
+			0
+		}
+	},
+	[126] = {
+		icon = &quot;yumia_item_20&quot;,
+		display = &quot;设备装备「神药球」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「神药球」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 126,
+		prop_level = 2,
+		name = &quot;模块-神药球&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：据点建装获得&quot;,
+			strongholdid = 1690022
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[127] = {
+		icon = &quot;yumia_item_21&quot;,
+		display = &quot;设备装备「天恩浑仪」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「天恩浑仪」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 127,
+		prop_level = 2,
+		name = &quot;模块-天恩浑仪&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24257
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[128] = {
+		icon = &quot;yumia_item_22&quot;,
+		display = &quot;设备装备「地狱立方体」的核心模块。作为配方中不可或缺的素材，可在炼金工房中用于「地狱立方体」的调合。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 128,
+		prop_level = 2,
+		name = &quot;模块-地狱立方体&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：活动任务获得&quot;,
+			taskid = 24256
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[129] = {
+		icon = &quot;yumia_item_23&quot;,
+		display = &quot;频繁运用于炼金术的基础药剂，红色中和剂与火属性具有良好的契合度。&quot;,
+		prop_type = 7,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 129,
+		prop_level = 2,
+		name = &quot;中和剂·红&quot;,
+		prop = {
+			1
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1021
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[130] = {
+		icon = &quot;yumia_item_24&quot;,
+		display = &quot;频繁运用于炼金术的基础药剂，蓝色中和剂与冰属性具有良好的契合度。&quot;,
+		prop_type = 7,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 130,
+		prop_level = 2,
+		name = &quot;中和剂·蓝&quot;,
+		prop = {
+			2
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1022
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[131] = {
+		icon = &quot;yumia_item_25&quot;,
+		display = &quot;频繁运用于炼金术的基础药剂，黄色中和剂与雷属性具有良好的契合度。&quot;,
+		prop_type = 7,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 131,
+		prop_level = 2,
+		name = &quot;中和剂·黄&quot;,
+		prop = {
+			3
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1023
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[132] = {
+		icon = &quot;yumia_item_26&quot;,
+		display = &quot;频繁运用于炼金术的基础药剂，绿色中和剂与风属性具有良好的契合度。&quot;,
+		prop_type = 7,
+		rarity = 2,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 132,
+		prop_level = 2,
+		name = &quot;中和剂·绿&quot;,
+		prop = {
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1024
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[133] = {
+		icon = &quot;yumia_item_27&quot;,
+		display = &quot;频繁用于炼金术的基础药剂。经过改良后，成了与任何素材均可高度契合的万能中和剂。&quot;,
+		prop_type = 7,
+		rarity = 3,
+		is_show = 1,
+		benefit_buff = &quot;&quot;,
+		type = 2,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 133,
+		prop_level = 2,
+		name = &quot;中和剂·七彩&quot;,
+		prop = {
+			1,
+			2,
+			3,
+			4
+		},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1025
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[134] = {
+		icon = &quot;yumia_item_28&quot;,
+		display = &quot;Ⅰ级调节器，用于调节天际塔能源的专属设备。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 134,
+		prop_level = 2,
+		name = &quot;天际塔能源调节器I&quot;,
+		prop = {},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1017
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[135] = {
+		icon = &quot;yumia_item_29&quot;,
+		display = &quot;Ⅱ级调节器，用于调节天际塔能源的专属设备。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 135,
+		prop_level = 2,
+		name = &quot;天际塔能源调节器II&quot;,
+		prop = {},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1018
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[136] = {
+		icon = &quot;yumia_item_30&quot;,
+		display = &quot;Ⅲ级调节器，用于调节天际塔能源的专属设备。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 136,
+		prop_level = 2,
+		name = &quot;天际塔能源调节器III&quot;,
+		prop = {},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1019
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[137] = {
+		icon = &quot;yumia_item_31&quot;,
+		display = &quot;Ⅳ级调节器，用于调节天际塔能源的专属设备。&quot;,
+		prop_type = 0,
+		rarity = 4,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		got_voice = &quot;&quot;,
+		id = 137,
+		prop_level = 2,
+		name = &quot;天际塔能源调节器IV&quot;,
+		prop = {},
+		get_access = {
+			&quot;产出途径：炼金工房调合获得&quot;,
+			recipeid = 1020
+		},
+		base_circle = {
+			0.9,
+			0.9,
+			0.9,
+			-2.9,
+			0.22
+		},
+		normal_circle = {
+			0.85,
+			0.85,
+			0.85,
+			-0.8,
+			0
+		}
+	},
+	[138] = {
+		icon = &quot;65653&quot;,
+		display = &quot;通用建筑材料，可用于建设任何木类建筑。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		get_access = &quot;&quot;,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 138,
+		prop_level = 2,
+		name = &quot;通用建设木板&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {}
+	},
+	[139] = {
+		icon = &quot;65654&quot;,
+		display = &quot;通用建筑素材，可用于制作任何石类建筑。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		get_access = &quot;&quot;,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 139,
+		prop_level = 2,
+		name = &quot;通用建设石材&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {}
+	},
+	[140] = {
+		icon = &quot;65655&quot;,
+		display = &quot;通用建筑素材，可用于制作任何金属类建筑。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		get_access = &quot;&quot;,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 140,
+		prop_level = 2,
+		name = &quot;通用建设金属&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {}
+	},
+	[141] = {
+		icon = &quot;65656&quot;,
+		display = &quot;通用建筑素材，可用于制作任何植被类建筑。&quot;,
+		prop_type = 0,
+		rarity = 3,
+		get_access = &quot;&quot;,
+		is_show = 0,
+		benefit_buff = &quot;&quot;,
+		type = 3,
+		version = 2,
+		base_circle = &quot;&quot;,
+		got_voice = &quot;&quot;,
+		id = 141,
+		prop_level = 2,
+		name = &quot;通用建设植被&quot;,
+		normal_circle = &quot;&quot;,
+		prop = {}
+	},
+	all = {
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		101,
+		102,
+		103,
+		104,
+		105,
+		106,
+		107,
+		108,
+		109,
+		110,
+		111,
+		112,
+		116,
+		117,
+		118,
+		119,
+		120,
+		121,
+		122,
+		126,
+		127,
+		128,
+		129,
+		130,
+		131,
+		132,
+		133,
+		134,
+		135,
+		136,
+		137,
+		138,
+		139,
+		140,
+		141
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

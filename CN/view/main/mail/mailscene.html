@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mailscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mailscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MailScene&quot;, import(&quot;view.base.BaseUI&quot;))
+slot1 = 592
+slot2 = 125
+slot3 = 9
+
+slot0.getUIName = function(slot0)
+	return &quot;MailUI&quot;
+end
+
+slot0.ResUISettings = function(slot0)
+	return false
+end
+
+slot0.optionsPath = {
+	&quot;adapt/top/option&quot;
+}
+
+slot0.quickExitFunc = function(slot0)
+	slot1 = {}
+
+	if MAIL_COUNT_LIMIT &lt; slot0.proxy.totalExist then
+		table.insert(slot1, function (slot0)
+			uv0:ShowDoubleConfiremationMsgBox({
+				type = MailProxy.MailMessageBoxType.ShowTips,
+				content = i18n(&quot;warning_mail_max_4&quot;, uv0.proxy.totalExist),
+				onYes = slot0
+			})
+		end)
+	end
+
+	seriesAsync(slot1, function ()
+		uv0:emit(uv1.ON_HOME)
+	end)
+end
+
+slot0.init = function(slot0)
+	slot0.proxy = getProxy(MailProxy)
+	slot0.rtAdapt = slot0._tf:Find(&quot;adapt&quot;)
+
+	setText(slot0.rtAdapt:Find(&quot;CommonTitleAndBack/title&quot;), i18n(&quot;mail_title_new&quot;))
+	setText(slot0.rtAdapt:Find(&quot;CommonTitleAndBack/title/en&quot;), i18n(&quot;mail_title_English&quot;))
+	onButton(slot0, slot0.rtAdapt:Find(&quot;CommonTitleAndBack/back_btn&quot;), function ()
+		slot0 = {}
+
+		if MAIL_COUNT_LIMIT &lt; uv0.proxy.totalExist then
+			table.insert(slot0, function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;warning_mail_max_4&quot;, uv0.proxy.totalExist),
+					onYes = slot0
+				})
+			end)
+		end
+
+		seriesAsync(slot0, function ()
+			uv0:closeView()
+		end)
+	end, SFX_CANCEL)
+
+	slot0.rtLabels = slot0.rtAdapt:Find(&quot;left_length/frame/tagRoot&quot;)
+
+	eachChild(slot0.rtLabels, function (slot0)
+		slot1 = nil
+
+		if slot0.name == &quot;mail&quot; then
+			toggleName = &quot;mail_mail_page&quot;
+		elseif slot0.name == &quot;store&quot; then
+			toggleName = &quot;mail_storeroom_page&quot;
+		elseif slot0.name == &quot;collection&quot; then
+			toggleName = &quot;mail_boxroom_page&quot;
+		end
+
+		setText(slot0:Find(&quot;unSelect/Text&quot;), i18n(toggleName))
+		setText(slot0:Find(&quot;selected/Text&quot;), i18n(toggleName))
+		onToggle(uv0, slot0, function (slot0)
+			if slot0 then
+				uv0:SetPage(uv1.name)
+			end
+		end, SFX_PANEL)
+	end)
+
+	slot1 = slot0.rtAdapt:Find(&quot;main/content/left/head&quot;)
+	slot0.rightSelect = slot1:Find(&quot;rightSelect&quot;)
+	slot0.rtToggles = slot0.rightSelect:Find(&quot;toggle&quot;)
+
+	eachChild(slot0.rtToggles, function (slot0)
+		slot1 = nil
+
+		if slot0.name == &quot;btn_all&quot; then
+			toggleName = &quot;mail_all_page&quot;
+		elseif slot0.name == &quot;btn_important&quot; then
+			toggleName = &quot;mail_important_page&quot;
+		elseif slot0.name == &quot;btn_rare&quot; then
+			toggleName = &quot;mail_rare_page&quot;
+		end
+
+		setText(slot0:Find(&quot;unselect/Text&quot;), i18n(toggleName))
+		setText(slot0:Find(&quot;select/Text&quot;), i18n(toggleName))
+	end)
+	onToggle(slot0, slot0.rtToggles:Find(&quot;btn_all&quot;), function (slot0)
+		if slot0 then
+			if uv0.mailToggle == &quot;all&quot; then
+				return
+			end
+
+			uv0.selectMailId = nil
+
+			uv0:UpdateMailList(&quot;all&quot;, 0)
+		end
+	end, SFX_PANEL)
+	onToggle(slot0, slot0.rtToggles:Find(&quot;btn_important&quot;), function (slot0)
+		if slot0 then
+			slot1 = {}
+
+			if not uv0.proxy.importantIds then
+				table.insert(slot1, function (slot0)
+					uv0:emit(MailMediator.ON_REQUIRE, &quot;important&quot;, slot0)
+				end)
+			end
+
+			seriesAsync(slot1, function ()
+				if uv0.mailToggle == &quot;important&quot; then
+					return
+				end
+
+				uv0.selectMailId = nil
+
+				uv0:UpdateMailList(&quot;important&quot;, 0)
+			end)
+		end
+	end, SFX_PANEL)
+	onToggle(slot0, slot0.rtToggles:Find(&quot;btn_rare&quot;), function (slot0)
+		if slot0 then
+			slot1 = {}
+
+			if not uv0.proxy.rareIds then
+				table.insert(slot1, function (slot0)
+					uv0:emit(MailMediator.ON_REQUIRE, &quot;rare&quot;, slot0)
+				end)
+			end
+
+			seriesAsync(slot1, function ()
+				if uv0.mailToggle == &quot;rare&quot; then
+					return
+				end
+
+				uv0.selectMailId = nil
+
+				uv0:UpdateMailList(&quot;rare&quot;, 0)
+			end)
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.rtAdapt:Find(&quot;top/help&quot;), function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = i18n(&quot;mail_tip&quot;)
+		})
+	end, SFX_PANEL)
+
+	slot0.rtSearch = slot1:Find(&quot;search&quot;)
+	slot0.rtCollectionInput = slot0.rtSearch:Find(&quot;input/InputField&quot;)
+
+	setText(slot0.rtCollectionInput:Find(&quot;Placeholder&quot;), i18n(&quot;mail_search_new&quot;))
+	onInputEndEdit(slot0, slot0.rtCollectionInput, function ()
+		uv0.collectionFilterStr = getInputText(uv0.rtCollectionInput)
+
+		if uv0.mailToggle == &quot;collection&quot; then
+			uv0:UpdateMailList(uv0.mailToggle, 0)
+		end
+	end)
+
+	slot0.collectionFilterStr = &quot;&quot;
+	slot0.rtToggleCollectionSort = slot0.rtSearch:Find(&quot;sort&quot;)
+
+	setText(slot0.rtToggleCollectionSort:Find(&quot;Text&quot;), i18n(&quot;mail_receive_time&quot;))
+	onToggle(slot0, slot0.rtToggleCollectionSort, function (slot0)
+		uv0.collectionSortToggle = slot0
+
+		if uv0.mailToggle == &quot;collection&quot; then
+			uv0:UpdateMailList(uv0.mailToggle, 0)
+		end
+	end, SFX_PANEL)
+	triggerToggle(slot0.rtToggleCollectionSort, false)
+
+	slot2 = slot0.rtAdapt:Find(&quot;main/content&quot;)
+	slot0.rtMailLeft = slot2:Find(&quot;left/left_content&quot;)
+	slot0.rtTip = slot0.rtMailLeft:Find(&quot;top/tip&quot;)
+	slot0.rtMailCount = slot0.rtMailLeft:Find(&quot;top/count&quot;)
+	slot0.Scrollbar = slot0.rtMailLeft:Find(&quot;middle/Scrollbar&quot;):GetComponent(&quot;Scrollbar&quot;)
+	slot0.lsrMailList = slot0.rtMailLeft:Find(&quot;middle/container&quot;):GetComponent(&quot;LScrollRect&quot;)
+
+	slot0.lsrMailList.onUpdateItem = function(slot0, slot1)
+		slot2 = tf(slot1)
+
+		if uv0.filterMails[slot0 + 1].id == 0 then
+			GetOrAddComponent(slot1, typeof(CanvasGroup)).alpha = 0
+			GetOrAddComponent(slot1, typeof(CanvasGroup)).blocksRaycasts = false
+
+			uv0:RequrereNextToIndex(slot0)
+
+			return
+		end
+
+		if uv0.tplMailDic[slot2] then
+			uv0.mailTplDic[uv0.tplMailDic[slot2]] = nil
+		end
+
+		uv0.mailTplDic[slot3.id] = slot2
+		uv0.tplMailDic[slot2] = slot3.id
+
+		onToggle(uv0, slot2, function (slot0)
+			if slot0 then
+				if uv0.selectMailId ~= uv1.id then
+					uv0:UpdateMailContent(uv1)
+				end
+			elseif uv1.id == uv0.selectMailId then
+				uv0:UpdateMailContent(nil)
+			end
+		end, SFX_PANEL)
+
+		GetOrAddComponent(slot1, typeof(CanvasGroup)).alpha = 1
+		GetOrAddComponent(slot1, typeof(CanvasGroup)).blocksRaycasts = true
+
+		uv0:UpdateMailTpl(slot3)
+	end
+
+	slot0.mailTplDic = {}
+	slot0.tplMailDic = {}
+	slot0.rtBtnLeftManager = slot0.rtMailLeft:Find(&quot;bottom/btn_managerMail&quot;)
+
+	onButton(slot0, slot0.rtBtnLeftManager, function ()
+		uv0.mailMgrSubView:ExecuteAction(&quot;Show&quot;)
+	end, SFX_PANEL)
+
+	slot0.rtBtnLeftDeleteAll = slot0.rtMailLeft:Find(&quot;bottom/btn_deleteMail&quot;)
+
+	onButton(slot0, slot0.rtBtnLeftDeleteAll, function ()
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;main_mailLayer_quest_clear&quot;),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_OPERATION, {
+				cmd = &quot;delete&quot;,
+				filter = {
+					type = &quot;all&quot;
+				}
+			})
+		end)
+	end, SFX_CANCEL)
+
+	slot0.rtBtnLeftMoveAll = slot0.rtMailLeft:Find(&quot;bottom/btn_moveAll&quot;)
+
+	onButton(slot0, slot0.rtBtnLeftMoveAll, function ()
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;mail_moveto_markroom_2&quot;),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_OPERATION, {
+				cmd = &quot;move&quot;,
+				filter = {
+					type = &quot;ids&quot;,
+					list = underscore.rest(uv0.proxy.importantIds, 1)
+				}
+			})
+		end)
+	end, SFX_CANCEL)
+
+	slot0.rtBtnLeftGetAll = slot0.rtMailLeft:Find(&quot;bottom/btn_getAll&quot;)
+
+	onButton(slot0, slot0.rtBtnLeftGetAll, function ()
+		slot0 = {}
+
+		if uv0.mailToggle == &quot;important&quot; then
+			slot0 = underscore.rest(uv0.proxy.importantIds, 1)
+		elseif uv0.mailToggle == &quot;rare&quot; then
+			slot0 = underscore.rest(uv0.proxy.rareIds, 1)
+		else
+			assert(false)
+		end
+
+		uv0:emit(MailMediator.ON_OPERATION, {
+			cmd = &quot;attachment&quot;,
+			filter = {
+				type = &quot;ids&quot;,
+				list = slot0
+			}
+		})
+	end, SFX_CANCEL)
+
+	slot0.rtBtnLeftDeleteCollection = slot0.rtMailLeft:Find(&quot;bottom/btn_deleteCollection&quot;)
+
+	onButton(slot0, slot0.rtBtnLeftDeleteCollection, function ()
+		if not uv0.selectMailId then
+			return
+		end
+
+		assert(uv0.selectMailId)
+
+		slot0 = uv0.proxy:getCollecitonMail(uv0.selectMailId)
+
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;mail_markroom_delete&quot;, uv1.title),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_DELETE_COLLECTION, uv0.selectMailId)
+		end)
+	end, SFX_CANCEL)
+
+	slot0.rtMailRight = slot2:Find(&quot;right&quot;)
+	slot0.rtBtnRightMove = slot0.rtMailRight:Find(&quot;bottom/btn_move&quot;)
+
+	onButton(slot0, slot0.rtBtnRightMove, function ()
+		assert(uv0.selectMailId)
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;mail_moveto_markroom_1&quot;),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_OPERATION, {
+				noAttachTip = true,
+				cmd = &quot;move&quot;,
+				filter = {
+					type = &quot;ids&quot;,
+					list = {
+						uv0.selectMailId
+					}
+				}
+			})
+		end)
+	end, SFX_PANEL)
+
+	slot0.rtBtnRightGet = slot0.rtMailRight:Find(&quot;bottom/btn_get&quot;)
+
+	onButton(slot0, slot0.rtBtnRightGet, function ()
+		assert(uv0.selectMailId)
+		uv0:emit(MailMediator.ON_OPERATION, {
+			noAttachTip = true,
+			cmd = &quot;attachment&quot;,
+			filter = {
+				type = &quot;ids&quot;,
+				list = {
+					uv0.selectMailId
+				}
+			}
+		})
+	end, SFX_PANEL)
+
+	slot0.rtBtnRightDelte = slot0.rtMailRight:Find(&quot;bottom/btn_delete&quot;)
+
+	onButton(slot0, slot0.rtBtnRightDelte, function ()
+		assert(uv0.selectMailId)
+
+		if uv0.proxy:getMail(uv0.selectMailId).importantFlag == true then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;mail_confirm_delete_important_flag&quot;))
+
+			return
+		end
+
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.ShowTips,
+					content = i18n(&quot;mail_markroom_delete&quot;, uv1.title),
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_OPERATION, {
+				noAttachTip = true,
+				cmd = &quot;delete&quot;,
+				filter = {
+					type = &quot;ids&quot;,
+					list = {
+						uv0.selectMailId
+					}
+				}
+			})
+		end)
+	end, SFX_PANEL)
+
+	slot0.rtMailEmpty = slot2:Find(&quot;empty&quot;)
+	slot0.rtStore = slot2:Find(&quot;store&quot;)
+	slot0.mailMgrSubView = MailMgrWindow.New(slot0._tf, slot0.event, slot0.contextData)
+	slot0.storeUpgradeSubView = StoreUpgradeWindow.New(slot0._tf, slot0.event, slot0.contextData)
+	slot0.mailConfirmationSubView = MailConfirmationWindow.New(slot0._tf, slot0.event, slot0.contextData)
+	slot0.mailOverflowWindowSubView = MailOverflowWindow.New(slot0._tf, slot0.event, slot0.contextData)
+	slot0.mailStoreroomRewardSubView = MailRewardWindow.New(slot0._tf, slot0.event, slot0.contextData)
+
+	setText(slot0.rtBtnLeftDeleteAll:Find(&quot;Text&quot;), i18n(&quot;mail_deleteread_button&quot;))
+	setText(slot0.rtBtnLeftManager:Find(&quot;Text&quot;), i18n(&quot;mail_manage_button&quot;))
+	setText(slot0.rtBtnLeftMoveAll:Find(&quot;Text&quot;), i18n(&quot;mail_move_button&quot;))
+	setText(slot0.rtBtnLeftGetAll:Find(&quot;Text&quot;), i18n(&quot;mail_get_oneclick&quot;))
+	setText(slot0.rtBtnLeftDeleteCollection:Find(&quot;Text&quot;), i18n(&quot;mail_delet_button&quot;))
+	setText(slot0.rtBtnRightMove:Find(&quot;Text&quot;), i18n(&quot;mail_moveone_button&quot;))
+	setText(slot0.rtBtnRightGet:Find(&quot;Text&quot;), i18n(&quot;mail_getone_button&quot;))
+	setText(slot0.rtBtnRightDelte:Find(&quot;Text&quot;), i18n(&quot;mail_delet_button_1&quot;))
+	setText(slot0.rtMailRight:Find(&quot;main/title/matter/on/Text&quot;), i18n(&quot;mail_toggle_on&quot;))
+	setText(slot0.rtMailRight:Find(&quot;main/title/matter/off/Text&quot;), i18n(&quot;mail_toggle_off&quot;))
+	slot0:InitResBar()
+end
+
+slot0.SetPage = function(slot0, slot1)
+	if slot0.page == slot1 then
+		return
+	end
+
+	slot0.page = slot1
+
+	setActive(slot0.rightSelect, slot1 == &quot;mail&quot;)
+	setActive(slot0.rtSearch, slot1 == &quot;collection&quot;)
+	setActive(slot0.rtStore, slot1 == &quot;store&quot;)
+
+	if slot1 == &quot;store&quot; then
+		setActive(slot0.rtMailEmpty, false)
+		setActive(slot0.rtMailLeft, false)
+		setActive(slot0.rtMailRight, false)
+
+		slot0.mailToggle = nil
+
+		slot0:UpdateStore()
+		setText(slot0.rtTip, i18n(&quot;mail_storeroom_tips&quot;))
+	elseif slot1 == &quot;mail&quot; then
+		triggerToggle(slot0.rtToggles:Find(&quot;btn_all&quot;), true)
+		setText(slot0.rtTip, i18n(&quot;warning_mail_max_5&quot;))
+	elseif slot1 == &quot;collection&quot; then
+		slot2 = {}
+
+		if not slot0.proxy.collectionIds then
+			table.insert(slot2, function (slot0)
+				uv0:emit(MailMediator.ON_REQUIRE, &quot;collection&quot;, slot0)
+			end)
+		end
+
+		seriesAsync(slot2, function ()
+			uv0.selectMailId = nil
+
+			uv0:UpdateMailList(&quot;collection&quot;, 0)
+		end)
+		setText(slot0.rtTip, i18n(&quot;mail_markroom_tip&quot;))
+	end
+end
+
+slot0.didEnter = function(slot0)
+	onNextTick(function ()
+		uv0.lsrMailList.enabled = true
+
+		triggerToggle(uv0.rtLabels:Find(&quot;mail&quot;), true)
+	end)
+end
+
+slot0.RequrereNextToIndex = function(slot0, slot1)
+	if slot0.mailToggle == &quot;all&quot; and not slot0.inRequire and #slot0.proxy.ids &lt; slot0.proxy.totalExist and slot1 &gt; #slot0.proxy.ids then
+		slot0.inRequire = true
+		slot2 = pg.UIMgr.GetInstance()
+
+		slot2:LoadingOn()
+		slot0:emit(MailMediator.ON_REQUIRE, slot1, function ()
+			uv0.inRequire = nil
+
+			if uv0.mailToggle == &quot;all&quot; then
+				uv0:UpdateMailList(uv0.mailToggle)
+			end
+
+			pg.UIMgr.GetInstance():LoadingOff()
+		end)
+	end
+end
+
+slot0.UpdateMailList = function(slot0, slot1, slot2)
+	slot0.mailToggle = slot1
+	slot3, slot4 = switch(slot1, {
+		all = function ()
+			return uv0.proxy.ids, string.format(&quot;&lt;color=%s&gt;%d&lt;/color&gt;/&lt;color=%s&gt;%d&lt;/color&gt;&quot;, MAIL_COUNT_LIMIT &lt; uv0.proxy.totalExist and COLOR_RED or COLOR_WHITE, uv0.proxy.totalExist, &quot;#181E32&quot;, MAIL_COUNT_LIMIT)
+		end,
+		important = function ()
+			return uv0.proxy.importantIds, string.format(&quot;&lt;color=#FFFFFF&gt;%d&lt;/color&gt;&quot;, #uv0.proxy.importantIds)
+		end,
+		rare = function ()
+			return uv0.proxy.rareIds, string.format(&quot;&lt;color=#FFFFFF&gt;%d&lt;/color&gt;&quot;, #uv0.proxy.rareIds)
+		end,
+		collection = function ()
+			return uv0.proxy.collectionIds, string.format(&quot;&lt;color=#FFFFFF&gt;%d&lt;/color&gt;/%d&quot;, #uv0.proxy.collectionIds, getProxy(PlayerProxy):getRawData():getConfig(&quot;max_markmail&quot;))
+		end
+	})
+
+	if slot1 == &quot;collection&quot; then
+		slot0.filterMails = slot0.proxy:GetCollectionMails(slot3)
+
+		if slot0.collectionFilterStr then
+			slot0.filterMails = underscore.filter(slot0.filterMails, function (slot0)
+				return slot0:IsMatchKey(uv0.collectionFilterStr)
+			end)
+		end
+
+		table.sort(slot0.filterMails, CompareFuncs({
+			function (slot0)
+				return (uv0.collectionSortToggle and 1 or -1) * slot0.date
+			end,
+			function (slot0)
+				return (uv0.collectionSortToggle and 1 or -1) * slot0.id
+			end
+		}))
+	elseif slot1 == &quot;all&quot; then
+		slot5 = slot0.proxy
+		slot0.filterMails = slot5:GetMails(slot3)
+		slot8 = {
+			function (slot0)
+				return -slot0.id
+			end
+		}
+
+		table.sort(slot0.filterMails, CompareFuncs(slot8))
+
+		for slot8 = #slot3 + 1, slot0.proxy.totalExist do
+			table.insert(slot0.filterMails, {
+				id = 0
+			})
+		end
+	else
+		slot5 = slot0.proxy
+		slot0.filterMails = slot5:GetMails(slot3)
+
+		table.sort(slot0.filterMails, CompareFuncs({
+			function (slot0)
+				return -slot0.id
+			end
+		}))
+	end
+
+	if slot0.mailToggle == &quot;all&quot; and #slot0.proxy.ids &lt; slot0.proxy.totalExist and #slot0.proxy.ids &lt; SINGLE_MAIL_REQUIRE_SIZE then
+		slot0.inRequire = true
+
+		slot0:emit(MailMediator.ON_REQUIRE, &quot;next&quot;, function ()
+			if uv0.mailToggle == &quot;all&quot; then
+				uv0:UpdateMailList(uv0.mailToggle)
+			end
+
+			uv0.inRequire = nil
+		end)
+	elseif #slot0.filterMails == 0 then
+		setActive(slot0.rtMailLeft, false)
+		setActive(slot0.rtMailRight, false)
+		setActive(slot0.rtMailEmpty, true)
+
+		if slot0.mailToggle == &quot;collection&quot; then
+			setText(slot0.rtMailEmpty:Find(&quot;Text&quot;), i18n(&quot;emptymarkroom_tip_mailboxui&quot;))
+			setText(slot0.rtMailEmpty:Find(&quot;Text_en&quot;), i18n(&quot;emptymarkroom_tip_mailboxui_en&quot;))
+		else
+			setText(slot0.rtMailEmpty:Find(&quot;Text&quot;), i18n(&quot;empty_tip_mailboxui&quot;))
+			setText(slot0.rtMailEmpty:Find(&quot;Text_en&quot;), i18n(&quot;empty_tip_mailboxui_en&quot;))
+		end
+	else
+		setActive(slot0.rtMailLeft, true)
+		setActive(slot0.rtMailRight, true)
+		setActive(slot0.rtMailEmpty, false)
+
+		if not slot0.selectMailId then
+			slot0:UpdateMailContent(slot0.filterMails[1])
+		end
+
+		slot0.lsrMailList:SetTotalCount(#slot0.filterMails, slot2 or -1)
+		setText(slot0.rtMailCount, slot4)
+		setActive(slot0.rtBtnLeftManager, slot0.mailToggle == &quot;all&quot;)
+		setActive(slot0.rtBtnLeftMoveAll, slot0.mailToggle == &quot;important&quot;)
+		setActive(slot0.rtBtnLeftDeleteCollection, slot0.mailToggle == &quot;collection&quot;)
+		setActive(slot0.rtBtnLeftDeleteAll, slot0.mailToggle == &quot;all&quot; or slot0.mailToggle == &quot;rare&quot;)
+		setActive(slot0.rtBtnLeftGetAll, slot0.mailToggle == &quot;important&quot; or slot0.mailToggle == &quot;rare&quot;)
+	end
+end
+
+slot0.UpdateMailTpl = function(slot0, slot1)
+	if not slot0.mailTplDic[slot1.id] then
+		return
+	end
+
+	setActive(slot2:Find(&quot;content&quot;):Find(&quot;icon/no_attachment&quot;), #slot1.attachments == 0)
+	setActive(slot3:Find(&quot;icon/IconTpl&quot;), #slot1.attachments &gt; 0)
+
+	if #slot1.attachments &gt; 0 then
+		updateDrop(slot3:Find(&quot;icon/IconTpl&quot;), slot1.attachments[1])
+	end
+
+	setText(slot3:Find(&quot;info/title/Text&quot;), shortenString(slot1.title, 10))
+	setActive(slot3:Find(&quot;info/title/mark&quot;), slot1.importantFlag and slot0.mailToggle ~= &quot;collection&quot;)
+	setText(slot3:Find(&quot;info/time/Text&quot;), os.date(&quot;%Y-%m-%d&quot;, slot1.date))
+	setActive(slot3:Find(&quot;info/time/out_time&quot;), false)
+	setActive(slot2:Find(&quot;got_mark&quot;), slot0.mailToggle ~= &quot;collection&quot; and (#slot1.attachments &gt; 0 and slot1.attachFlag))
+	setText(slot2:Find(&quot;got_mark/got_text&quot;), i18n(&quot;mail_reward_got&quot;))
+	triggerToggle(slot2, slot0.selectMailId == slot1.id)
+
+	slot5 = slot1.readFlag or slot0.mailToggle == &quot;collection&quot;
+
+	setActive(slot2:Find(&quot;hasread_bg&quot;), slot5)
+	setActive(slot2:Find(&quot;noread_bg&quot;), not slot5)
+
+	slot6 = SummerFeastScene.TransformColor(slot5 and &quot;FFFFFF&quot; or &quot;181E32&quot;)
+
+	setTextColor(slot3:Find(&quot;info/title/Text&quot;), slot6)
+	setTextColor(slot3:Find(&quot;info/time/Text&quot;), slot6)
+end
+
+slot0.UpdateMailContent = function(slot0, slot1)
+	eachChild(slot0.rtMailRight, function (slot0)
+		setActive(slot0, tobool(uv0))
+	end)
+
+	if not slot1 then
+		slot0.selectMailId = nil
+
+		return
+	end
+
+	slot0.selectMailId = slot1.id
+
+	changeToScrollText(slot0.rtMailRight:Find(&quot;main/title/info/Text&quot;), i18n2(slot1.title))
+	setText(slot0.rtMailRight:Find(&quot;main/from/Text&quot;), slot1.sender)
+	setText(slot0.rtMailRight:Find(&quot;main/time/Text&quot;), os.date(&quot;%Y-%m-%d&quot;, slot1.date))
+	setText(slot0.rtMailRight:Find(&quot;main/view/content/text/Text&quot;), slot1.content)
+	setActive(slot0.rtMailRight:Find(&quot;main/title/matter&quot;), slot0.mailToggle ~= &quot;collection&quot;)
+
+	if slot0.mailToggle ~= &quot;collection&quot; then
+		onToggle(slot0, slot0.rtMailRight:Find(&quot;main/title/matter&quot;), function (slot0)
+			if slot0 ~= uv0.importantFlag then
+				uv1:emit(MailMediator.ON_OPERATION, {
+					cmd = slot0 and &quot;important&quot; or &quot;unimportant&quot;,
+					filter = {
+						type = &quot;ids&quot;,
+						list = {
+							uv0.id
+						}
+					}
+				})
+			end
+		end, SFX_CONFIRM)
+		triggerToggle(slot0.rtMailRight:Find(&quot;main/title/matter&quot;), slot1.importantFlag)
+	end
+
+	slot3 = slot0.rtMailRight:Find(&quot;main/view/content/attachment&quot;)
+
+	setText(slot3:Find(&quot;got/Text&quot;), i18n(&quot;main_mailLayer_attachTaken&quot;))
+	setActive(slot3, #slot1.attachments &gt; 0)
+
+	if #slot1.attachments &gt; 0 then
+		slot4 = slot3:Find(&quot;content&quot;)
+
+		UIItemList.StaticAlign(slot4, slot4:Find(&quot;IconTpl&quot;), #slot1.attachments, function (slot0, slot1, slot2)
+			slot1 = slot1 + 1
+
+			if slot0 == UIItemList.EventUpdate then
+				updateDrop(slot2, uv0.attachments[slot1])
+				onButton(uv1, slot2, function ()
+					uv0:emit(uv1.ON_DROP, uv2)
+				end, SFX_PANEL)
+			end
+		end)
+
+		slot5 = slot0.mailToggle == &quot;collection&quot; or slot1.attachFlag
+
+		setCanvasGroupAlpha(slot4, slot5 and 0.5 or 1)
+		setActive(slot3:Find(&quot;got&quot;), slot5)
+	end
+
+	setActive(slot0.rtBtnRightMove, slot0.mailToggle ~= &quot;collection&quot;)
+	setActive(slot0.rtBtnRightGet, slot0.mailToggle ~= &quot;collection&quot; and not slot1.attachFlag)
+	setActive(slot0.rtBtnRightDelte, slot0.mailToggle ~= &quot;collection&quot; and slot1.attachFlag)
+
+	if slot0.mailToggle ~= &quot;collection&quot; and not slot1.readFlag then
+		slot0:emit(MailMediator.ON_OPERATION, {
+			ignoreTips = true,
+			cmd = &quot;read&quot;,
+			filter = {
+				type = &quot;ids&quot;,
+				list = {
+					slot1.id
+				}
+			}
+		})
+	end
+end
+
+slot0.UpdateOperationDeal = function(slot0, slot1, slot2, slot3)
+	if #slot2 == 0 then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;mail_manage_3&quot;))
+	elseif not slot3 and switch(slot1, {
+		delete = function ()
+			return i18n(&quot;main_mailMediator_mailDelete&quot;)
+		end,
+		attachment = function ()
+			return i18n(&quot;main_mailMediator_attachTaken&quot;)
+		end,
+		read = function ()
+			return i18n(&quot;main_mailMediator_mailread&quot;)
+		end,
+		move = function ()
+			return i18n(&quot;main_mailMediator_mailmove&quot;)
+		end
+	}) then
+		pg.TipsMgr.GetInstance():ShowTips(slot4)
+	end
+
+	slot4 = {}
+
+	for slot8, slot9 in ipairs(slot2) do
+		slot4[slot9] = true
+	end
+
+	slot0:UpdateMailList(slot0.mailToggle)
+
+	if slot4[slot0.selectMailId] then
+		slot0:UpdateMailContent(underscore.detect(slot0.filterMails, function (slot0)
+			return slot0.id == uv0.selectMailId
+		end))
+	end
+end
+
+slot0.UpdateCollectionDelete = function(slot0, slot1)
+	slot0:UpdateMailList(slot0.mailToggle)
+
+	if slot0.selectMailId == slot1 then
+		slot0:UpdateMailContent(nil)
+	end
+end
+
+slot0.UpdateStore = function(slot0)
+	slot0.withdrawal = {
+		gold = 0,
+		oil = 0
+	}
+	slot1 = getProxy(PlayerProxy)
+	slot1 = slot1:getRawData()
+	slot4 = slot0.rtStore
+
+	setText(slot4:Find(&quot;gold/Text/count&quot;), string.format(&quot;%d/%d&quot;, slot1:getResource(PlayerConst.ResStoreGold), pg.mail_storeroom[slot1.mailStoreLevel].gold_store))
+
+	slot4 = slot0.rtStore
+	slot4 = slot4:Find(&quot;bottom/btn_extend&quot;)
+
+	SetActive(slot4, not slot1:IsStoreLevelMax())
+	onButton(slot0, slot4, function ()
+		if uv0 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;mail_storeroom_noextend&quot;))
+		else
+			uv1.storeUpgradeSubView:ExecuteAction(&quot;Show&quot;)
+		end
+	end, SFX_PANEL)
+
+	slot5 = slot0.rtStore
+
+	onButton(slot0, slot5:Find(&quot;bottom/btn_get&quot;), function ()
+		seriesAsync({
+			function (slot0)
+				uv0:ShowDoubleConfiremationMsgBox({
+					type = MailProxy.MailMessageBoxType.RewardStoreroom,
+					content = uv0.withdrawal,
+					onYes = slot0
+				})
+			end
+		}, function ()
+			uv0:emit(MailMediator.ON_WITHDRAWAL, uv0.withdrawal)
+		end)
+	end, SFX_CONFIRM)
+	(function ()
+		slot0 = uv0.withdrawal.oil ~= 0 or uv0.withdrawal.gold ~= 0
+
+		setButtonEnabled(uv1, slot0)
+		setGray(uv1, not slot0)
+	end)()
+
+	slot10 = PlayerConst.ResStoreGold
+
+	for slot10, slot11 in pairs({
+		{
+			&quot;oil&quot;,
+			PlayerConst.ResOil,
+			PlayerConst.ResStoreOil,
+			&quot;#0173FF&quot;,
+			&quot;max_oil&quot;
+		},
+		{
+			&quot;gold&quot;,
+			PlayerConst.ResGold,
+			slot10,
+			&quot;#FF9C01&quot;,
+			&quot;max_gold&quot;
+		}
+	}) do
+		slot12, slot13, slot14, slot15, slot16 = unpack(slot11)
+		slot18 = math.max(pg.gameset[slot16].key_value - slot1:getResource(slot13), 0)
+		slot21 = slot0.rtStore
+
+		setText(slot21:Find(slot12 .. &quot;/tips&quot;), i18n(&quot;mail_reward_tips&quot;))
+
+		slot21 = slot0.rtStore
+
+		setText(slot21:Find(slot12 .. &quot;/Text/count&quot;), string.format(&quot;&lt;color=%s&gt;%d&lt;/color&gt;/%d&quot;, slot15, slot1:getResource(slot14), slot2[slot12 .. &quot;_store&quot;]))
+
+		slot20 = slot0.rtStore
+		slot20 = slot20:Find(slot12 .. &quot;/calc&quot;)
+		slot21 = slot20:Find(&quot;count/count&quot;)
+
+		setText(slot21:Find(&quot;tip&quot;), i18n(&quot;mail_storeroom_resourcetaken&quot;))
+		setInputText(slot21, slot0.withdrawal[slot12])
+		onInputEndEdit(slot0, slot21, function ()
+			if getInputText(uv0) == &quot;&quot; or slot0 == nil then
+				slot0 = 0
+			end
+
+			if uv2 &lt;= math.clamp(tonumber(slot0), 0, uv1) then
+				slot1 = uv2
+
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;resource_max_tip_storeroom&quot;))
+			end
+
+			if uv3.withdrawal[uv4] ~= slot1 then
+				uv3.withdrawal[uv4] = slot1
+
+				uv5()
+			end
+
+			setInputText(uv0, uv3.withdrawal[uv4])
+		end)
+		pressPersistTrigger(slot20:Find(&quot;count/left&quot;), 0.5, function (slot0)
+			if uv0.withdrawal[uv1] == 0 then
+				slot0()
+
+				return
+			end
+
+			uv0.withdrawal[uv1] = math.max(uv0.withdrawal[uv1] - 100, 0)
+
+			setInputText(uv2, uv0.withdrawal[uv1])
+
+			if uv0.withdrawal[uv1] == 0 then
+				uv3()
+			end
+		end, nil, true, true, 0.15, SFX_PANEL)
+		pressPersistTrigger(slot20:Find(&quot;count/right&quot;), 0.5, function (slot0)
+			if uv2 &lt;= uv0.withdrawal[uv1] then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;resource_max_tip_storeroom&quot;))
+				slot0()
+
+				return
+			end
+
+			if uv0.withdrawal[uv1] == uv3 then
+				return
+			end
+
+			slot1 = uv0.withdrawal[uv1]
+			uv0.withdrawal[uv1] = math.min(uv0.withdrawal[uv1] + 100, uv3)
+
+			if uv2 &lt;= uv0.withdrawal[uv1] then
+				uv0.withdrawal[uv1] = uv2
+
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;resource_max_tip_storeroom&quot;))
+			end
+
+			setInputText(uv4, uv0.withdrawal[uv1])
+
+			if slot1 == 0 then
+				uv5()
+			end
+		end, nil, true, true, 0.15, SFX_PANEL)
+		onButton(slot0, slot20:Find(&quot;max&quot;), function ()
+			uv0.withdrawal[uv1] = getProxy(PlayerProxy):getRawData():ResLack(uv1, uv2)
+
+			if uv3 &lt;= uv0.withdrawal[uv1] then
+				uv0.withdrawal[uv1] = uv3
+
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;resource_max_tip_storeroom&quot;))
+			end
+
+			setInputText(uv4, uv0.withdrawal[uv1])
+			uv5()
+		end, SFX_PANEL)
+	end
+end
+
+slot0.onBackPressed = function(slot0)
+	if slot0.mailMgrSubView:isShowing() then
+		slot0.mailMgrSubView:Hide()
+	elseif slot0.storeUpgradeSubView:isShowing() then
+		slot0.storeUpgradeSubView:Hide()
+	elseif slot0.mailConfirmationSubView:isShowing() then
+		slot0.mailConfirmationSubView:Hide()
+	elseif slot0.mailOverflowWindowSubView:isShowing() then
+		slot0.mailOverflowWindowSubView:Hide()
+	elseif slot0.mailStoreroomRewardSubView:isShowing() then
+		slot0.mailStoreroomRewardSubView:Hide()
+	else
+		triggerButton(slot0.rtAdapt:Find(&quot;CommonTitleAndBack/back_btn&quot;))
+	end
+end
+
+slot0.willExit = function(slot0)
+	slot0.mailMgrSubView:Destroy()
+	slot0.storeUpgradeSubView:Destroy()
+	slot0.mailConfirmationSubView:Destroy()
+	slot0.mailOverflowWindowSubView:Destroy()
+	slot0.mailStoreroomRewardSubView:Destroy()
+end
+
+slot0.ShowDoubleConfiremationMsgBox = function(slot0, slot1)
+	if slot1.type == MailProxy.MailMessageBoxType.OverflowConfirm then
+		slot0.mailOverflowWindowSubView:ExecuteAction(&quot;Show&quot;, slot1)
+	elseif slot1.type == MailProxy.MailMessageBoxType.RewardStoreroom then
+		slot0.mailStoreroomRewardSubView:ExecuteAction(&quot;Show&quot;, slot1)
+	else
+		slot0.mailConfirmationSubView:ExecuteAction(&quot;Show&quot;, slot1)
+	end
+end
+
+slot0.InitResBar = function(slot0)
+	slot0.resBar = slot0._tf:Find(&quot;adapt/top/res&quot;)
+	slot0.goldMax = slot0.resBar:Find(&quot;gold/max&quot;):GetComponent(typeof(Text))
+	slot0.goldValue = slot0.resBar:Find(&quot;gold/Text&quot;):GetComponent(typeof(Text))
+	slot0.oilMax = slot0.resBar:Find(&quot;oil/max&quot;):GetComponent(typeof(Text))
+	slot0.oilValue = slot0.resBar:Find(&quot;oil/Text&quot;):GetComponent(typeof(Text))
+	slot0.gemValue = slot0.resBar:Find(&quot;gem/Text&quot;):GetComponent(typeof(Text))
+
+	onButton(slot0, slot0.resBar:Find(&quot;gold&quot;), function ()
+		pg.playerResUI:ClickGold()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.resBar:Find(&quot;oil&quot;), function ()
+		pg.playerResUI:ClickOil()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.resBar:Find(&quot;gem&quot;), function ()
+		pg.playerResUI:ClickGem()
+	end, SFX_PANEL)
+	slot0:UpdateRes()
+end
+
+slot0.UpdateRes = function(slot0)
+	PlayerResUI.StaticFlush(getProxy(PlayerProxy):getRawData(), slot0.goldMax, slot0.goldValue, slot0.oilMax, slot0.oilValue, slot0.gemValue)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

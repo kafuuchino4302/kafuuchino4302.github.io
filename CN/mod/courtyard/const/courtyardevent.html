@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courtyardevent.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>courtyardevent.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CourtYardEvent&quot;)
+slot0.INITED = &quot;CourtYardEvent:INITED&quot;
+slot0.CREATE_ITEM = &quot;CourtYardEvent:CREATE_ITEM&quot;
+slot0.ADD_ITEM = &quot;CourtYardEvent:ADD_ITEM&quot;
+slot0.REMOVE_ITEM = &quot;CourtYardEvent:REMOVE_ITEM&quot;
+slot0.ITEM_OP_FLAG_CHANGE = &quot;CourtYardEvent:ITEM_OP_FLAG_CHANGE&quot;
+slot0.DRAG_ITEM = &quot;CourtYardEvent:DRAG_ITEM&quot;
+slot0.DRAGING_ITEM = &quot;CourtYardEvent:DRAGING_ITEM&quot;
+slot0.DRAG_ITEM_END = &quot;CourtYardEvent:DRAG_ITEM_END&quot;
+slot0.SELETED_ITEM = &quot;CourtYardEvent:SELETED_ITEM&quot;
+slot0.UNSELETED_ITEM = &quot;CourtYardEvent:UNSELETED_ITEM&quot;
+slot0.ROTATE_ITEM = &quot;CourtYardEvent:ROTATE_ITEM&quot;
+slot0.ROTATE_ITEM_FAILED = &quot;CourtYardEvent:ROTATE_ITEM_FAILED&quot;
+slot0.DETORY_ITEM = &quot;CourtYardEvent:DETORY_ITEM&quot;
+slot0.CHILD_ITEM = &quot;CourtYardEvent:CHILD_ITEM&quot;
+slot0.UN_CHILD_ITEM = &quot;CourtYardEvent:UN_CHILD_ITEM&quot;
+slot0.ADD_MAT_ITEM = &quot;CourtYardEvent:ADD_MAT_ITEM&quot;
+slot0.REMOVE_MAT_ITEM = &quot;CourtYardEvent:REMOVE_MAT_ITEM&quot;
+slot0.ADD_ITEM_FAILED = &quot;CourtYardEvent:ADD_ITEM_FAILED&quot;
+slot0.REMIND_SAVE = &quot;CourtYardEvent:REMIND_SAVE&quot;
+slot0.SHOW_FURNITURE_DESC = &quot;CourtYardEvent:SHOW_FURNITURE_DESC&quot;
+slot0.ITEM_INTERACTION = &quot;CourtYardEvent:ITEM_INTERACTION&quot;
+slot0.CLEAR_ITEM_INTERACTION = &quot;CourtYardEvent:CLEAR_ITEM_INTERACTION&quot;
+slot0.ON_TOUCH_ITEM = &quot;CourtYardEvent:ON_TOUCH_ITEM&quot;
+slot0.ON_CANCEL_TOUCH_ITEM = &quot;CourtYardEvent:ON_CANCEL_TOUCH_ITEM&quot;
+slot0.ON_ITEM_PLAY_MUSIC = &quot;CourtYardEvent:ON_ITEM_PLAY_MUSIC&quot;
+slot0.ON_ITEM_STOP_MUSIC = &quot;CourtYardEvent:ON_ITEM_STOP_MUSIC&quot;
+slot0.ON_ADD_EFFECT = &quot;CourtYardEvent:ON_ADD_EFFECT&quot;
+slot0.ON_REMOVE_EFFECT = &quot;CourtYardEvent:ON_REMOVE_EFFECT&quot;
+slot0.DISABLE_ROTATE_ITEM = &quot;CourtYardEvent:DISABLE_ROTATE_ITEM&quot;
+slot0.TAKE_PHOTO = &quot;CourtYardEvent:TAKE_PHOTO&quot;
+slot0.END_TAKE_PHOTO = &quot;CourtYardEvent:END_TAKE_PHOTO&quot;
+slot0.ENTER_ARCH = &quot;CourtYardEvent:ENTER_ARCH&quot;
+slot0.EXIT_ARCH = &quot;CourtYardEvent:EXIT_ARCH&quot;
+slot0.REMOVE_ILLEGALITY_ITEM = &quot;CourtYardEvent:REMOVE_ILLEGALITY_ITEM&quot;
+slot0.OPEN_LAYER = &quot;CourtYardEvent:OPEN_LAYER&quot;
+slot0.BACK_PRESSED = &quot;CourtYardEvent:BACK_PRESSED&quot;
+slot0.UPDATE_STOREY = &quot;CourtYardEvent:UPDATE_STOREY&quot;
+slot0.UPDATE_WALLPAPER = &quot;CourtYardEvent:UPDATE_WALLPAPER&quot;
+slot0.UPDATE_FLOORPAPER = &quot;CourtYardEvent:UPDATE_FLOORPAPER&quot;
+slot0.ENTER_EDIT_MODE = &quot;CourtYardEvent:ENTER_EDIT_MODE&quot;
+slot0.EXIT_EDIT_MODE = &quot;CourtYardEvent:EXIT_EDIT_MODE&quot;
+slot0.SHIP_STATE_CHANGE = &quot;CourtYardEvent:SHIP_STATE_CHANGE&quot;
+slot0.SHIP_MOVE = &quot;CourtYardEvent:SHIP_MOVE&quot;
+slot0.SHIP_POSITION_CHANGE = &quot;CourtYardEvent:SHIP_POSITION_CHANGE&quot;
+slot0.SHIP_GET_AWARD = &quot;CourtYardEvent:SHIP_GET_AWARD&quot;
+slot0.SHIP_INIMACY_CHANGE = &quot;CourtYardEvent:SHIP_INIMACY_CHANGE&quot;
+slot0.SHIP_COIN_CHANGE = &quot;CourtYardEvent:SHIP_COIN_CHANGE&quot;
+slot0.SHIP_UPDATE_INTERACTION = &quot;CourtYardEvent:SHIP_UPDATE_INTERACTION&quot;
+slot0.SHIP_WILL_INTERACTION = &quot;CourtYardEvent:SHIP_WILL_INTERACTION&quot;
+slot0.SHIP_START_INTERACTION = &quot;CourtYardEvent:SHIP_START_INTERACTION&quot;
+slot0.SHIP_STOP_INTERACTION = &quot;CourtYardEvent:SHIP_STOP_INTERACTION&quot;
+slot0.FURNITURE_POSITION_CHANGE = &quot;CourtYardEvent:FURNITURE_POSITION_CHANGE&quot;
+slot0.ROTATE_FURNITURE = &quot;CourtYardEvent:ROTATE_FURNITURE&quot;
+slot0.FURNITURE_OP_FLAG_CHANGE = &quot;CourtYardEvent:FURNITURE_OP_FLAG_CHANGE&quot;
+slot0.FURNITURE_STATE_CHANGE = &quot;CourtYardEvent:FURNITURE_STATE_CHANGE&quot;
+slot0.FURNITURE_UPDATE_INTERACTION = &quot;CourtYardEvent:FURNITURE_UPDATE_INTERACTION&quot;
+slot0.FURNITURE_WILL_INTERACTION = &quot;CourtYardEvent:FURNITURE_WILL_INTERACTION&quot;
+slot0.FURNITURE_START_INTERACTION = &quot;CourtYardEvent:FURNITURE_START_INTERACTION&quot;
+slot0.FURNITURE_STOP_INTERACTION = &quot;CourtYardEvent:FURNITURE_STOP_INTERACTION&quot;
+slot0.FURNITURE_MOVE = &quot;CourtYardEvent:FURNITURE_MOVE&quot;
+slot0.FURNITURE_STOP_MOVE = &quot;CourtYardEvent:FURNITURE_STOP_MOVE&quot;
+slot0.FURNITURE_PLAY_MUSICALINSTRUMENTS = &quot;CourtYardEvent:FURNITURE_PLAY_MUSICALINSTRUMENTS&quot;
+slot0.FURNITURE_STOP_PLAY_MUSICALINSTRUMENTS = &quot;CourtYardEvent:FURNITURE_STOP_PLAY_MUSICALINSTRUMENTS&quot;
+slot0.FURNITURE_MUTE_ALL = &quot;CourtYardEvent:FURNITURE_MUTE_ALL&quot;
+slot0.FEAST_SHIP_BUBBLE_CHANGE = &quot;CourtYardEvent:FEAST_SHIP_BUBBLE_CHANGE&quot;
+slot0.FEAST_SHIP_CHAT_CHANGE = &quot;CourtYardEvent:FEAST_SHIP_CHAT_CHANGE&quot;
+slot0.FEAST_SHIP_BUBBLE_INTERACTION = &quot;CourtYardEvent:FEAST_SHIP_BUBBLE_INTERACTION&quot;
+slot0.FEAST_SHIP_SHOW_EXPRESS = &quot;CourtYardEvent:FEAST_SHIP_SHOW_EXPRESS&quot;
+slot0._SYN_FURNITURE = &quot;CourtYardEvent:_SYN_FURNITURE&quot;
+slot0._QUIT = &quot;CourtYardEvent:_QUIT&quot;
+slot0._EXIT_MODE = &quot;CourtYardEvent:_EXIT_MODE&quot;
+slot0._ENTER_MODE = &quot;CourtYardEvent:_ENTER_MODE&quot;
+slot0._DRAG_ITEM = &quot;CourtYardEvent:_DRAG_ITEM&quot;
+slot0._DRAG_ITEM_END = &quot;CourtYardEvent:_DRAG_ITEM_END&quot;
+slot0._EXTEND = &quot;CourtYardEvent:_EXTEND&quot;
+slot0._INITED = &quot;CourtYardEvent:_INITED&quot;
+slot0._NO_POS_TO_ADD_SHIP = &quot;CourtYardEvent:_NO_POS_TO_ADD_SHIP&quot;
+slot0._TOUCH_SHIP = &quot;CourtYardEvent:_TOUCH_SHIP&quot;
+slot0._ADD_ITEM_FAILED = &quot;CourtYardEvent:_ADD_ITEM_FAILED&quot;
+slot0._FURNITURE_SELECTED = &quot;CourtYardEvent:_FURNITURE_SELECTED&quot;
+slot0._FEAST_INTERACTION = &quot;CourtYardEvent:_Feast_INTERACTION&quot;
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

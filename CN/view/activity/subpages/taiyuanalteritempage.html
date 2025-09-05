@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taiyuanalteritempage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>taiyuanalteritempage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TaiyuanAlterItemPage&quot;, import(&quot;.TemplatePage.SkinTemplatePage&quot;))
+
+slot0.UpdateTask = function(slot0, slot1, slot2)
+	slot4 = slot0:findTF(&quot;item&quot;, slot2)
+	slot6 = slot0.taskProxy:getTaskById(slot0.taskGroup[slot0.nday][slot1 + 1]) or slot0.taskProxy:getFinishTaskById(slot5)
+
+	assert(slot6, &quot;without this task by id: &quot; .. slot5)
+	updateDrop(slot4, Drop.Create(slot6:getConfig(&quot;award_display&quot;)[1]))
+	onButton(slot0, slot4, function ()
+		uv0:emit(BaseUI.ON_DROP, uv1)
+	end, SFX_PANEL)
+
+	slot8 = slot6:getProgress()
+	slot9 = slot6:getConfig(&quot;target_num&quot;)
+
+	setText(slot0:findTF(&quot;description&quot;, slot2), slot6:getConfig(&quot;desc&quot;))
+
+	slot10, slot11 = slot0:GetProgressColor()
+
+	setText(slot0:findTF(&quot;progressText&quot;, slot2), &quot;&lt;color=#E95545&gt;&quot; .. (slot10 and setColorStr(slot8, slot10) or slot8) .. &quot;&lt;/color&gt;&lt;color=#6D8189&gt;&quot; .. (slot11 and setColorStr(&quot;/&quot; .. slot9, slot11) or &quot;/&quot; .. slot9) .. &quot;&lt;/color&gt;&quot;)
+	setSlider(slot0:findTF(&quot;progress&quot;, slot2), 0, slot9, slot8)
+
+	slot13 = slot0:findTF(&quot;get_btn&quot;, slot2)
+
+	setActive(slot0:findTF(&quot;go_btn&quot;, slot2), slot6:getTaskStatus() == 0)
+	setActive(slot13, slot15 == 1)
+	setActive(slot0:findTF(&quot;got_btn&quot;, slot2), slot15 == 2)
+	onButton(slot0, slot12, function ()
+		uv0:emit(ActivityMediator.ON_TASK_GO, uv1)
+	end, SFX_PANEL)
+	onButton(slot0, slot13, function ()
+		uv0:emit(ActivityMediator.ON_TASK_SUBMIT, uv1)
+	end, SFX_PANEL)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

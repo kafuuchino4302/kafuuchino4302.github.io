@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tb_5.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>tb_5.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;tb_5&quot;,
+	isWorld = false,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;又可以领取任务奖励了。&quot;,
+				mode = 2,
+				char = 1,
+				posY = -38.32,
+				dir = 1,
+				posX = 696.9,
+				uiset = {
+					pathIndex = -1,
+					lineMode = 2,
+					path = &quot;OverlayCamera/Overlay/UIMain/blur_panel/top/target/EducateTargetPanel(Clone)/content&quot;
+				}
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/blur_panel/top/target/EducateTargetPanel(Clone)/content&quot;,
+				fingerPos = {
+					posY = -200,
+					posX = -50
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			waitScene = &quot;EducateTargetLayer&quot;,
+			style = {
+				text = &quot;又完成了一个目标呢。接下来可以继续进行行程规划了。&quot;,
+				mode = 2,
+				dir = 1,
+				char = 1,
+				posY = 0,
+				delay = 0.3,
+				posX = 490
+			},
+			ui = {
+				pathIndex = -1,
+				eventPath = &quot;OverlayCamera/Overlay/UIMain/EducateTargetUI(Clone)/anim_root/window/task_scrollview/content/main_list/list/tpl/status/get&quot;,
+				path = &quot;OverlayCamera/Overlay/UIMain/EducateTargetUI(Clone)/anim_root/window/task_scrollview/content/main_list/list/tpl/status/get/btn&quot;,
+				fingerPos = {
+					posY = -50,
+					posX = 0
+				}
+			}
+		},
+		{
+			alpha = 0,
+			waitScene = &quot;EducateAwardInfoLayer&quot;,
+			style = {
+				text = &quot;点击空白处关闭&quot;,
+				mode = 2,
+				dir = 1,
+				char = 1,
+				posY = -350,
+				delay = 0.5,
+				posX = -400
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/EducateAwardInfoUI(Clone)/award_window/close&quot;,
+				fingerPos = {
+					posY = -400,
+					posX = 50
+				}
+			}
+		},
+		{
+			alpha = 0,
+			style = {
+				text = &quot;点击空白处关闭&quot;,
+				mode = 2,
+				dir = -1,
+				char = 1,
+				posY = -350,
+				posX = -300
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/EducateTargetUI(Clone)/anim_root/close&quot;,
+				fingerPos = {
+					posY = -100,
+					posX = -800
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				text = &quot;请点打开&lt;color=#39bfff&gt;行程计划&lt;/color&gt;&quot;,
+				mode = 2,
+				char = 1,
+				posY = -230.56,
+				dir = 1,
+				posX = -6.8,
+				uiset = {}
+			},
+			ui = {
+				pathIndex = -1,
+				path = &quot;OverlayCamera/Overlay/UIMain/blur_panel/bottom/right/EducateBottomPanel(Clone)/content/btns/schedule&quot;,
+				fingerPos = {
+					posY = 57.88,
+					posX = -66.02
+				}
+			}
+		},
+		{
+			alpha = 0.5,
+			style = {
+				text = &quot;勾选这里，可以跳过行程动画，但不会跳过行程中的特殊事件哦。&quot;,
+				mode = 2,
+				char = 1,
+				posY = -385.98,
+				dir = -1,
+				posX = -346.26,
+				uiset = {
+					{
+						pathIndex = -1,
+						lineMode = 2,
+						path = &quot;OverlayCamera/Overlay/UIMain/main/schedule_left/skip_toggle&quot;
+					}
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

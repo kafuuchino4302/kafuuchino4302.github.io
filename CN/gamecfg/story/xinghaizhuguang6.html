@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xinghaizhuguang6.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>xinghaizhuguang6.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;XINGHAIZHUGUANG6&quot;,
+	mode = 2,
+	fadeOut = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			bgm = &quot;theme-starsea-core&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「星海」基地-实验层-「长蛇座」-联合行动组办公室&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;一行人推门进入办公室后，自动感应电灯随即点亮了这间干脆能当做会议室使用的宽阔房间。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;两位随便坐吧，不用客气。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼……没想到咱们来得还挺早，其他人都还没到呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不……其实你是最晚的。在成功抓到你之前，我已经给其他部门的人分配好各自的任务了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;叫你来主要是为了当面向你说明一下本次打捞行动的任务内容。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;——这很重要，所以不要走神。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;咦……？等等……我还以为你叫我来是为了例会的事呢……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;打捞任务的话，你自己的部门不是可以全权处理么？我也不懂相关的技术，帮不上忙呀……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;因为现在……实在人手不足。而且本次行动……或许会遭遇“战斗”。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;至于打捞本身，交给松鲷就好。她已经完成过很多次打捞任务了，能力出色。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;你和路易斯维尔只需要在她进行打捞时保护她的安全就好。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;原来是业务对口的保镖任务啊~那就没问题了，放心交给美少女关岛吧！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;任务目标的时间和地点呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;珊瑚海，发生海战的那一天。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……我要再调查一次那片战场。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;通过总结此前历次失败的经验教训，我已经制定了一份全新的打捞计划，这次一定能成功。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;打捞行动，代号「逐光」……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_story_task&quot;,
+			hidePaintObj = true,
+			say = &quot;关岛仔细查看着星座递来的打捞计划书，表情逐渐凝重起来。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这次的打捞区域，是在此前的历次模拟中都被划为禁区，严禁进入的区域吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这样的行动不会违反禁令么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;放心，萨拉托加已经拿到了本次行动所需的全部许可，行动不会有任何阻碍的。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……还有顾虑？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;欸……好嘛好嘛~本美少女替你跑一趟就是了~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……谢了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 104010,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;那么圣哈辛托，关岛和路易斯维尔就拜托你了。你带她们与松鲷汇合，然后执行打捞程序吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_task&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;遵命，两位请随我来~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			bgm = &quot;story-richang-11&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;「星海」基地-实验层-「长蛇座」-打捞行动出发区&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_503&quot;,
+			hidePaintObj = true,
+			say = &quot;虽然被称为打捞行动出发区，不过，任何与“打捞”这个字眼相关的设备，都没有出现在众人眼中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_503&quot;,
+			hidePaintObj = true,
+			say = &quot;能够搭乘的，可以称之为“交通工具”的事物，更是全然没有。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_503&quot;,
+			hidePaintObj = true,
+			say = &quot;取而代之的，就是一个如同门的巨型设备——作为实验室中最与众不同的东西，这扇“门”自然也吸引了全部的目光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……那扇门……难道是你们深海数据解析局进入模拟世界的专用设备？！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;原来你们一直是通过这个设备进行实验的，怪不得在银河之心那里从来没遇到过你们！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呵呵，毕竟我们进入模拟世界的需求，比其他部门要多得多嘛。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;除了我们局之外，类似的设备在星海之中还有几台。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;每一台机器的设计思路都不同，大概算是技术的并行化研究？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;对了，正好介绍一下。我旁边的这位是松鲷。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 7,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 107300,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;松鲷，这两位是战术行动局的关岛和装备设计局的路易斯维尔。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;大家好！我是松鲷，隶属于深海数据解析局的打捞员！接下来的行动请多指教！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;关岛姐姐，你的星海vlog都拍得十分有趣，我、我是你的粉丝！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;请问……在行动结束之后……能、能给我一份签名么！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;哇哦~没想到在这里遇到粉丝了！No Problem~等回来之后一定给你签一张又大又漂亮的☆~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;非、非常感谢！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			actor = 103270,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;真是个可爱的孩子……要吃饼干么？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……啊？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			actor = 108080,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;吃……但是，我可不是小动物哦。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 6,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			actor = 103270,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;啊……非常抱歉，我一不小心走神了。我们还是专注于任务吧……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……这个属性难道说……迷糊？电波？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_503&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actor = 118020,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呼呼呼……感觉以后能合作出些有趣的节目了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			hidePaintObj = true,
+			say = &quot;一串仅有圣哈辛托本人才能理解的复杂指令，被键入到了控制台中。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			hidePaintObj = true,
+			say = &quot;圆形的门框震动起来，发出了轻微的嗡鸣声。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			hidePaintObj = true,
+			say = &quot;几秒钟后，震动也消失了，只剩下控制面板规律的嘀嗒声。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			hidePaintObj = true,
+			say = &quot;一道轻柔的光幕从门框中飘荡出来，形成了一道明亮但温和的光之门。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;路易斯维尔&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好像科幻电影中会出现的场景一样……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;路易斯维尔&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;我再确认一下……我们其实是要进入模拟世界，不是要穿越时空……对吧？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 118020,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actorName = &quot;关岛&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;没错哦。我感觉之所以做成这个外形，可能只是设计者觉得比较酷罢了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			portrait = 118020,
+			actorName = &quot;关岛&quot;,
+			hidePaintObj = true,
+			say = &quot;毕竟长得不够酷的东西，怎么能让使用者相信它的强大呢~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;路易斯维尔&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;有道理……可是从模拟世界里，要怎么把东西“打捞”出来呢？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 118020,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			actorName = &quot;关岛&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;呃……这个涉及到诸多专业知识……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			portrait = 118020,
+			actorName = &quot;关岛&quot;,
+			hidePaintObj = true,
+			say = &quot;本美少女不知道哦，欸嘿☆~&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;松鲷&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;噗嗤……两位姐姐都是第一次参加打捞行动对吧。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;松鲷&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;不用担心，打捞的事包在我身上就好！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;路易斯维尔&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;装备设计局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;好可靠的孩子……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;松鲷&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;也……也没有啦……嘿嘿。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;圣哈辛托&quot;,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;深海数据解析局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;各位如果已经准备完毕的话，我们就出发吧？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_zhuguang_cg2&quot;,
+			factiontag = &quot;战术行动局&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			portrait = 118020,
+			actorName = &quot;关岛&quot;,
+			hidePaintObj = true,
+			say = &quot;没问题，出发~！&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

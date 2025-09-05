@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg164.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg164.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG164&quot;,
+	events = {
+		{
+			style = {
+				text = &quot;可以派遣指挥喵在搜寻点执行物资搜寻工作。指挥喵的稀有度与等级将会影响水下搜寻的奖励产出。派遣后指挥喵会暂时离队，不提供相应加成。&quot;,
+				mode = 2,
+				dir = -1,
+				char = &quot;1&quot;,
+				posY = -250,
+				posX = -300
+			}
+		},
+		{
+			alpha = 0.4,
+			ui = {
+				pathIndex = -999,
+				path = &quot;OverlayCamera/Overlay/UIMain/top/adapt/left_stage/other/salvage_list&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -30,
+					posX = 50
+				}
+			},
+			style = {
+				text = &quot;搜寻进度会随着舰队行动次数而推进，指挥官点击此处可以查看指挥喵物资搜寻的相关信息。&quot;,
+				mode = 2,
+				dir = -1,
+				char = &quot;1&quot;,
+				posY = -250,
+				posX = -300
+			}
+		},
+		{
+			style = {
+				text = &quot;点击此处可以中断搜寻作业，并根据当前搜寻进度计算搜寻奖励。&quot;,
+				mode = 2,
+				dir = -1,
+				char = &quot;1&quot;,
+				posY = -100,
+				posX = 500
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/SVSalvageResult(Clone)/window/button_container/custom_button_1&quot;
+				}
+			}
+		},
+		{
+			style = {
+				text = &quot;点击这里可显示物资搜寻中可能获得的所有资源列表。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = -200,
+				posX = 0
+			},
+			showSign = {
+				type = 2,
+				signList = {
+					{
+						signType = 4
+					}
+				},
+				clickUI = {
+					path = &quot;OverlayCamera/Overlay/UIMain/SVSalvageResult(Clone)/window/display_panel/info/items_btn&quot;
+				}
+			}
+		},
+		{
+			alpha = 0.4,
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/SVSalvageResult(Clone)/window/display_panel/info/help&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					posY = -30,
+					posX = 50
+				}
+			},
+			style = {
+				text = &quot;点击此处可以查看指挥喵搜寻的帮助说明。&quot;,
+				mode = 2,
+				dir = 1,
+				char = &quot;1&quot;,
+				posY = 100,
+				posX = 200
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

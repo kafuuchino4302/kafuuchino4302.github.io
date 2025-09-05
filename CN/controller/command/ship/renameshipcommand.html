@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>renameshipcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>renameshipcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;RenameShipCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.name
+
+	if not getProxy(BayProxy):getShipById(slot2.shipId) then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;ship_error_noShip&quot;, slot3))
+
+		return
+	end
+
+	slot7 = slot6:isRemoulded() and pg.ship_skin_template[slot6:getRemouldSkinId()].name or pg.ship_data_statistics[slot6.configId].name
+
+	if slot6:getName() == slot4 then
+		slot0:sendNotification(GAME.RENAME_SHIP_DONE, {
+			ship = slot6
+		})
+
+		return
+	end
+
+	if slot4 == &quot;&quot; then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;login_createNewPlayer_error_nameNull&quot;))
+
+		return
+	end
+
+	if slot4 ~= slot7 and not nameValidityCheck(slot4, 0, 40, {
+		&quot;spece_illegal_tip&quot;,
+		&quot;login_newPlayerScene_name_tooShort&quot;,
+		&quot;ship_renameShip_error_2011&quot;,
+		&quot;playerinfo_mask_word&quot;
+	}) then
+		return
+	end
+
+	slot8 = function()
+		slot0 = pg.ConnectionMgr.GetInstance()
+
+		slot0:Send(12034, {
+			ship_id = uv0,
+			name = uv1 == uv2 and &quot;&quot; or uv1
+		}, 12035, function (slot0)
+			if slot0.result == 0 then
+				uv0.name = uv1
+				uv0.renameTime = pg.TimeMgr.GetInstance():GetServerTime()
+
+				uv2:updateShip(uv0)
+				uv3:sendNotification(BayProxy.SHIP_UPDATED, uv0)
+				uv3:sendNotification(GAME.RENAME_SHIP_DONE, {
+					ship = uv0
+				})
+			else
+				pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;ship_renameShip&quot;, slot0.result))
+			end
+		end)
+	end
+
+	pg.MsgboxMgr.GetInstance():ShowMsgBox({
+		content = i18n(&quot;word_rename_time_warning&quot;, slot6:getName(), slot4),
+		onYes = function ()
+			uv0()
+		end
+	})
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

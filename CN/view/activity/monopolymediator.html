@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monopolymediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>monopolymediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MonopolyPtMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.ON_START = &quot;MonopolyGame:ON_START&quot;
+slot0.ON_MOVE = &quot;MonopolyGame:ON_MOVE&quot;
+slot0.ON_TRIGGER = &quot;MonopolyGame:ON_TRIGGER&quot;
+slot0.ON_AWARD = &quot;MonopolyGame:ON_AWARD&quot;
+slot0.MONOPOLY_OP_LAST = &quot;MonopolyGame:MONOPOLY_OP_LAST&quot;
+slot0.ON_STOP = &quot;MonopolyGame:MONOPOLY_ON_STOP&quot;
+slot0.AWARDS = {}
+
+slot0.register = function(slot0)
+	slot0:bind(MonopolyPtMediator.ON_STOP, function (slot0, slot1, slot2)
+		if not uv0.viewComponent.autoFlag and #MonopolyPtMediator.AWARDS &gt; 0 then
+			uv0:emit(BaseUI.ON_ACHIEVE, MonopolyPtMediator.AWARDS, slot2)
+
+			MonopolyPtMediator.AWARDS = {}
+		end
+	end)
+	slot0:bind(MonopolyPtMediator.MONOPOLY_OP_LAST, function (slot0, slot1, slot2)
+		pg.m02:sendNotification(GAME.MONOPOLY_OP, {
+			activity_id = slot1,
+			cmd = ActivityConst.MONOPOLY_OP_LAST,
+			callback = slot2
+		})
+	end)
+	slot0:bind(MonopolyPtMediator.ON_START, function (slot0, slot1, slot2)
+		pg.m02:sendNotification(GAME.MONOPOLY_OP, {
+			activity_id = slot1,
+			cmd = ActivityConst.MONOPOLY_OP_THROW,
+			callback = slot2
+		})
+	end)
+	slot0:bind(MonopolyPtMediator.ON_MOVE, function (slot0, slot1, slot2)
+		pg.m02:sendNotification(GAME.MONOPOLY_OP, {
+			activity_id = slot1,
+			cmd = ActivityConst.MONOPOLY_OP_MOVE,
+			callback = slot2
+		})
+	end)
+	slot0:bind(MonopolyPtMediator.ON_TRIGGER, function (slot0, slot1, slot2)
+		pg.m02:sendNotification(GAME.MONOPOLY_OP, {
+			activity_id = slot1,
+			cmd = ActivityConst.MONOPOLY_OP_TRIGGER,
+			callback = slot2
+		})
+	end)
+	slot0:bind(MonopolyPtMediator.ON_AWARD, function (slot0)
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.REDPACKEY)
+	end)
+
+	slot0._configId = slot0.contextData.configId
+	slot0._activityId = slot0.contextData.activityId
+	slot0._activity = getProxy(ActivityProxy):getActivityById(slot0._activityId)
+
+	slot0.viewComponent:firstUpdata(slot0._activity)
+
+	if not slot0.viewComponent.autoFlag and #MonopolyPtMediator.AWARDS &gt; 0 then
+		slot0:emit(BaseUI.ON_ACHIEVE, MonopolyPtMediator.AWARDS, function ()
+		end)
+
+		MonopolyPtMediator.AWARDS = {}
+	end
+end
+
+slot0.getLeftRpCount = function()
+	slot0 = getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_MONOPOLY)
+
+	return slot0.data2_list[1] - slot0.data2_list[2]
+end
+
+slot0.onAward = function(slot0, slot1, slot2)
+	for slot6 = 1, #slot1 do
+		table.insert(MonopolyPtMediator.AWARDS, slot1[slot6])
+	end
+
+	if slot0.viewComponent.autoFlag then
+		slot0.viewComponent:addAwards(slot1)
+
+		if slot2 then
+			slot2()
+		end
+	else
+		slot0:emit(BaseUI.ON_ACHIEVE, MonopolyPtMediator.AWARDS, slot2)
+
+		MonopolyPtMediator.AWARDS = {}
+	end
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ActivityProxy.ACTIVITY_UPDATED,
+		ActivityProxy.ACTIVITY_ADDED,
+		GAME.MONOPOLY_AWARD_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+	slot4 = slot1:getType()
+
+	if slot1:getName() == ActivityProxy.ACTIVITY_UPDATED or slot2 == ActivityProxy.ACTIVITY_ADDED then
+		slot0:updateGameUI()
+	elseif slot2 == GAME.MONOPOLY_AWARD_DONE then
+		if slot0._activity:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_MONOPOLY and slot0.viewComponent.onAward then
+			slot0.viewComponent:onAward(slot3.awards, slot3.callback)
+		else
+			slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards, slot3.callback)
+		end
+	end
+end
+
+slot0.updateGameUI = function(slot0)
+	if not slot0._activityId then
+		return
+	end
+
+	slot0._activity = getProxy(ActivityProxy):getActivityById(slot0._activityId)
+
+	slot0.viewComponent:updataActivity(slot0._activity)
+end
+
+slot0.remove = function(slot0)
+	if slot0.viewComponent then
+		MonopolyPtMediator.AWARDS = {}
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notifier.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>notifier.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = import(&quot;..facade.Facade&quot;)
+slot1 = class(&quot;Notifier&quot;)
+
+slot1.Ctor = function(slot0)
+end
+
+slot1.sendNotification = function(slot0, slot1, slot2, slot3)
+	if slot0:getFacade() ~= nil then
+		slot4:sendNotification(slot1, slot2, slot3)
+	end
+end
+
+slot1.initializeNotifier = function(slot0, slot1)
+	slot0.multitonKey = slot1
+	slot0.facade = slot0:getFacade()
+end
+
+slot1.getFacade = function(slot0)
+	if slot0.multitonKey == nil then
+		error(uv0.MULTITON_MSG)
+	end
+
+	return uv1.getInstance(slot0.multitonKey)
+end
+
+slot1.MULTITON_MSG = &quot;multitonKey for this Notifier not yet initialized!&quot;
+
+return slot1
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

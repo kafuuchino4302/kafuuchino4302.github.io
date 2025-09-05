@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>island3dtaskacceptpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>island3dtaskacceptpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;Island3dTaskAcceptPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;Island3dTaskAcceptUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.chapterText = slot0._tf:Find(&quot;frame/chapter&quot;)
+	slot0.nameText = slot0._tf:Find(&quot;frame/name&quot;)
+	slot0.tipText = slot0:findTF(&quot;frame/tip/Text&quot;)
+
+	setText(slot0.tipText, i18n(&quot;island_task_open&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0._tf:GetComponent(typeof(DftAniEvent)):SetEndEvent(function ()
+			uv0:SetEndEvent(nil)
+
+			if uv1.onExit then
+				uv1.onExit()
+
+				uv1.onExit = nil
+			end
+
+			if uv1.taskId == IslandGuideChecker.FIRST_TASK_ID then
+				IslandGuideChecker.CheckGuide(&quot;ISLAND_GUIDE_4&quot;)
+			end
+
+			uv1:Hide()
+		end)
+		uv0._tf:GetComponent(typeof(Animation)):Play(&quot;Anim_Island3dTaskAcceptUI_out&quot;)
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1, slot2)
+	uv0.super.Show(slot0)
+
+	slot0.taskId = slot1
+	slot3 = getProxy(IslandProxy):GetIsland():GetTaskAgency():GetTask(slot0.taskId)
+
+	setText(slot0.chapterText, slot3:getConfig(&quot;series&quot;))
+	setText(slot0.nameText, slot3:getConfig(&quot;series_name&quot;))
+
+	slot0.onExit = slot2
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wsporttaskdetail.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>wsporttaskdetail.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WSPortTaskDetail&quot;, import(&quot;...BaseEntity&quot;))
+slot0.Fields = {
+	onCancel = &quot;function&quot;,
+	task = &quot;table&quot;,
+	transform = &quot;userdata&quot;
+}
+
+slot0.Setup = function(slot0)
+	pg.DelegateInfo.New(slot0)
+	slot0:Init()
+end
+
+slot0.Dispose = function(slot0)
+	pg.DelegateInfo.Dispose(slot0)
+	slot0:Clear()
+end
+
+slot0.Init = function(slot0)
+	slot1 = slot0.transform
+
+	onButton(slot0, slot1, function ()
+		uv0.onCancel()
+	end, SFX_CANCEL)
+	onButton(slot0, slot1:Find(&quot;top/btnBack&quot;), function ()
+		uv0.onCancel()
+	end, SFX_CANCEL)
+end
+
+slot0.UpdateTask = function(slot0, slot1)
+	slot0.task = slot1
+	slot2 = slot0.transform
+
+	setText(slot2:Find(&quot;window/desc&quot;), slot1.config.description)
+
+	slot6 = UIItemList.New(slot2:Find(&quot;window/scrollview/list&quot;), slot2:Find(&quot;window/scrollview/item&quot;))
+
+	slot6:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			updateDrop(slot2, slot3)
+			setScrollText(slot2:Find(&quot;name_mask/name&quot;), slot3:getConfig(&quot;name&quot;))
+		end
+	end)
+	slot6:align(#slot1:GetDisplayDrops())
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

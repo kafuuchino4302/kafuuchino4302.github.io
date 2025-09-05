@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandsetroledressupreadcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandsetroledressupreadcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandSetRoleDressupReadCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot4 = getProxy(IslandProxy)
+	slot4 = slot4:GetIsland()
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(21624, {
+		dress_id = slot1:getBody().dress_List
+	}, 21625, function (slot0)
+		if slot0.result == 0 then
+			slot2 = getProxy(IslandProxy):GetIsland():GetCharacterAgency()
+
+			for slot6, slot7 in ipairs(uv0) do
+				slot2:SetDressHasRead(slot7)
+			end
+
+			uv1:sendNotification(GAME.ISLAND_SEND_ROLE_DRESS_READ_DONE, {
+				dress_id = dress_id
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

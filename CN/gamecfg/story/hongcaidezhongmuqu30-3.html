@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hongcaidezhongmuqu30-3.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>hongcaidezhongmuqu30-3.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;HONGCAIDEZHONGMUQU30-3&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgm = &quot;theme-arbitrator-tower&quot;,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			hidePaintObj = true,
+			say = &quot;指挥官！重樱舰队加入战斗了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;重樱舰队终于选择不再冷眼旁观了么……很好，这样我们的胜算又大了一分。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900230,
+			nameColor = &quot;#ff5c5c&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;这次是重樱么……那就来看看属于你们的记录吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;海雾再次出现了。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;……啧。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 306090,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:96}，你的伤……！&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;……别管我了，你们快走吧。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			actor = 306080,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;话虽如此，行动已经失败，作为诱饵的我们已经无路可逃了吧。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;说的也是，已经无路可逃了呢……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;直到最后，我们好像都没帮上大家什么忙呢，啊哈哈……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 306090,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;更多的敌方舰载机过来了，{namecode:96}，{namecode:103}姐，你们还有飞机么……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;没有了。我们已经没有任何反击的能力，也没有任何反击的必要了……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			actor = 306090,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:103}姐，我的身体好沉……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 306080,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;没事的，我会陪在你的身边的，让我们共赴黄泉吧。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:95}姐，再等我一下，我们很快就能重逢了……&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;……伴随着炸弹的呼啸声，海雾中的重樱舰队一艘接一艘消失在爆炸与火光中。&quot;,
+			effects = {
+				{
+					center = true,
+					name = &quot;miwu_01&quot;,
+					active = true
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 302130,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;那些……是白鹰的舰载机？&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;miwu_01&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;这次莫名其妙幻象的主角变成我们了么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;白鹰的航空力量确实强大的，但我们也一样！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;而且用缺乏护卫的航母编队进行诱敌……？就算{namecode:91}前辈脑子真昏了头也不会做出这种决定的！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;这种景象在过去没有发生过，在未来也绝不会发生！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;构建者，不要在继续用蛊惑人心的幻象拖延时间了！我们是不会动摇的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900230,
+			nameColor = &quot;#ff5c5c&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;经历之事未必是真实的，未经历之事未必是虚假的。记录不会说谎。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			actor = 900230,
+			nameColor = &quot;#ff5c5c&quot;,
+			hidePaintObj = true,
+			say = &quot;{namecode:91}，你不是早就明白了么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900230,
+			nameColor = &quot;#ff5c5c&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;明白了，还要做出如此选择，无法理解。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;………………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;呵，不要太得意忘形了，我们之间的关系自始至终都是相互利用而已。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 307010,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			side = 2,
+			say = &quot;你对我们发动攻击，我们进行反击是理所应当的。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307010,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;重樱舰队全员准备战斗，粉碎构建者。给我打出重樱舰队的气势来！&quot;,
+			dialogShake = {
+				speed = 0.08,
+				x = 15,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307020,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;领命。&quot;,
+			effects = {
+				{
+					active = true,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			actor = 307060,
+			nameColor = &quot;#ffff4d&quot;,
+			hidePaintObj = true,
+			say = &quot;嘿嘿，这才像是前辈们的一贯作风嘛————！&quot;,
+			effects = {
+				{
+					active = false,
+					name = &quot;speed&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

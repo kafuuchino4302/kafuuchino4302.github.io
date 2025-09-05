@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apartmenttriggerfavorcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>apartmenttriggerfavorcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ApartmentTriggerFavorCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot6 = getProxy(ApartmentProxy):getApartment(slot2.groupId)
+
+	if pg.dorm3d_favor_trigger[slot2.triggerId].is_repeat == 0 and slot6.triggerCountDic[slot4] &gt; 0 or slot5.stamina &lt; slot7.is_daily_max then
+		return
+	end
+
+	slot8 = pg.ConnectionMgr.GetInstance()
+
+	slot8:Send(28003, {
+		ship_group = slot3,
+		trigger_id = slot4
+	}, 28004, function (slot0)
+		if slot0.result == 0 then
+			slot1, slot2 = uv0:triggerFavor(uv1, uv2)
+
+			uv3:sendNotification(GAME.APARTMENT_TRIGGER_FAVOR_DONE, {
+				triggerId = uv2,
+				cost = slot2,
+				delta = slot1,
+				apartment = uv4
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

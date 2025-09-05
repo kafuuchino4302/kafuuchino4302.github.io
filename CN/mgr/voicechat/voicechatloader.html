@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voicechatloader.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>voicechatloader.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;VoiceChatLoader&quot;, import(&quot;view.base.BaseSubView&quot;))
+slot1 = 1
+slot2 = 2
+slot3 = 3
+slot4 = 4
+
+slot0.getUIName = function(slot0)
+	return &quot;VoiceChatUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.stateTxt = slot0:findTF(&quot;front/label&quot;):GetComponent(typeof(Text))
+	slot0.stateEnTxt = slot0:findTF(&quot;front/label/en&quot;):GetComponent(typeof(Text))
+	slot0.timeTxt = slot0:findTF(&quot;front/label/time&quot;):GetComponent(typeof(Text))
+	slot0.respondBtn = slot0:findTF(&quot;front/btns/respond&quot;)
+	slot0.closeBtn = slot0:findTF(&quot;front/btns/close_btn&quot;)
+	slot0.optionPanel = slot0._tf:Find(&quot;front/options_panel&quot;)
+	slot0.bg = slot0._tf:Find(&quot;back&quot;)
+	slot0.bgImg = slot0._tf:Find(&quot;back/bg&quot;):GetComponent(typeof(Image))
+	slot0.player = VoiceChatPlayer.New(slot0._go)
+	slot0.state = uv0
+end
+
+slot5 = {
+	&quot;&quot;,
+	&quot;JP&quot;,
+	&quot;KR&quot;,
+	&quot;US&quot;,
+	&quot;&quot;
+}
+
+slot0.LoadScript = function(slot0, slot1)
+	slot2 = uv0[PLATFORM_CODE]
+
+	if slot1 == &quot;index&quot; then
+		slot1 = slot1 .. slot2
+	end
+
+	slot3 = nil
+	slot3 = PLATFORM_CODE == PLATFORM_JP and &quot;GameCfg.story&quot; .. slot2 .. &quot;.&quot; .. slot1 or &quot;GameCfg.story&quot; .. &quot;.&quot; .. slot1
+	slot4, slot5 = pcall(function ()
+		return require(uv0)
+	end)
+
+	assert(slot5, &quot;load script failed:&quot; .. slot1)
+
+	return VoiceChat.New(slot5)
+end
+
+slot0.Play = function(slot0, slot1, slot2)
+	slot4 = {}
+
+	table.insert(slot4, function (slot0)
+		uv0:WaitForRespond(uv1, slot0, uv2)
+	end)
+	table.insert(slot4, function (slot0)
+		uv0:StartAction(uv1)
+		slot0()
+	end)
+
+	for slot8, slot9 in ipairs(slot0:LoadScript(slot1).steps) do
+		table.insert(slot4, function (slot0)
+			uv0.player:Play(uv1, uv2, slot0)
+		end)
+	end
+
+	table.insert(slot4, function (slot0)
+		uv0:WaitForHangUp(slot0)
+	end)
+
+	slot0.script = slot3
+
+	slot0:InitAction(slot3)
+	seriesAsync(slot4, function ()
+		uv0:EndAction()
+
+		if uv1 then
+			uv1()
+		end
+	end)
+end
+
+slot0.InitAction = function(slot0, slot1)
+	slot0.state = uv0
+
+	removeOnButton(slot0.respondBtn)
+	removeOnButton(slot0.closeBtn)
+	setActive(slot0.optionPanel, false)
+	setActive(slot0.bg, slot1:HasBg())
+	slot0:Show()
+
+	if slot1:HasBg() then
+		slot0.bgImg.sprite = LoadSprite(&quot;bg/&quot; .. slot1:GetBgName())
+
+		slot0.bgImg:SetNativeSize()
+	end
+
+	slot0.player:OnStart()
+end
+
+slot0.WaitForRespond = function(slot0, slot1, slot2, slot3)
+	setActive(slot0.respondBtn, true)
+	setActive(slot0.closeBtn, true)
+
+	slot0.stateTxt.text = i18n(slot1:GetLabel(), slot1:GetShipName())
+	slot0.stateEnTxt.text = &quot;P R I V A T E C H A T&quot;
+
+	onButton(slot0, slot0.respondBtn, slot2, SFX_PANEL)
+	onButton(slot0, slot0.closeBtn, function ()
+		slot0 = uv0.closeBtn
+		slot0 = slot0:GetComponent(typeof(Animation))
+
+		slot0:Play(&quot;anim_close_btn_hang&quot;)
+
+		slot1 = uv0.closeBtn
+		slot1 = slot1:GetComponent(typeof(DftAniEvent))
+
+		slot1:SetEndEvent(function ()
+			uv0:Stop()
+			existCall(uv1)
+		end)
+	end, SFX_PANEL)
+end
+
+slot6 = function(slot0)
+	return string.format(&quot;%02d:%02d&quot;, math.floor(slot0 / 60), slot0 % 60)
+end
+
+slot0.StartAction = function(slot0, slot1)
+	slot0.state = uv0
+	slot0.stateEnTxt.text = &quot;V I D E O  I N V I T E&quot;
+	slot2 = 0
+
+	slot0:AddTimer(1, function ()
+		uv0 = uv0 + 1
+		uv1.timeTxt.text = uv2(uv0)
+	end)
+	setActive(slot0.respondBtn, false)
+
+	if slot1:ShouldStopBgm() then
+		pg.BgmMgr.GetInstance():StopPlay()
+	end
+end
+
+slot0.WaitForHangUp = function(slot0, slot1)
+	slot0:RemoveTimer()
+
+	slot0.timeTxt.text = &quot;&quot;
+
+	slot0:AddWaitTimer(2, slot1)
+end
+
+slot0.EndAction = function(slot0)
+	slot0:RemoveWaitTimer()
+	slot0:RemoveTimer()
+	slot0:Hide()
+
+	if slot0.script:ShouldStopBgm() then
+		pg.BgmMgr.GetInstance():ContinuePlay()
+	end
+
+	slot0.player:OnEnd()
+
+	slot0.script = nil
+	slot0.state = uv0
+
+	removeOnButton(slot0.respondBtn)
+	removeOnButton(slot0.closeBtn)
+end
+
+slot0.IsRunning = function(slot0)
+	return slot0.state == uv0 or slot0.state == uv1
+end
+
+slot0.Stop = function(slot0)
+	if not slot0:IsRunning() then
+		return
+	end
+
+	if slot0.state == uv0 then
+		slot0.script:MarkSkip()
+		slot0.player:OnStop()
+	elseif slot0.state == uv1 then
+		slot0:EndAction()
+	end
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+
+	slot0:RemoveWaitTimer()
+	slot0:RemoveTimer()
+
+	if slot0.player then
+		slot0.player:Clear()
+	end
+end
+
+slot0.AddTimer = function(slot0, slot1, slot2)
+	slot0:RemoveTimer()
+
+	slot0.timer = Timer.New(slot2, slot1, -1)
+
+	slot0.timer.func()
+	slot0.timer:Start()
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.timer then
+		slot0.timer:Stop()
+
+		slot0.timer = nil
+	end
+end
+
+slot0.AddWaitTimer = function(slot0, slot1, slot2)
+	slot0:RemoveWaitTimer()
+
+	slot0.waitTimer = Timer.New(slot2, slot1, 1)
+
+	slot0.waitTimer:Start()
+end
+
+slot0.RemoveWaitTimer = function(slot0)
+	if slot0.waitTimer then
+		slot0.waitTimer:Stop()
+
+		slot0.waitTimer = nil
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

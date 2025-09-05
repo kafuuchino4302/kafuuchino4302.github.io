@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baseshop.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>baseshop.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;BaseShop&quot;, import(&quot;..BaseVO&quot;))
+
+slot0.IsSameKind = function(slot0, slot1)
+	assert(false)
+end
+
+slot0.GetCommodityById = function(slot0, slot1)
+	assert(false)
+end
+
+slot0.GetCommodities = function(slot0)
+	assert(false)
+end
+
+slot0.IsPurchaseAll = function(slot0)
+	for slot5, slot6 in pairs(slot0:GetCommodities()) do
+		if slot6:canPurchase() then
+			return false
+		end
+	end
+
+	return true
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

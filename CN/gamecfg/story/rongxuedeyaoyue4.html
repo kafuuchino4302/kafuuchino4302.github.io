@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rongxuedeyaoyue4.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>rongxuedeyaoyue4.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;RONGXUEDEYAOYUE4&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;融雪的邀约\n\n&lt;size=45&gt;鸢尾花的指引&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;star_level_bg_167&quot;,
+			side = 2,
+			bgmDelay = 1.5,
+			bgm = &quot;theme-warmwinter-daily&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;雪原中的一汪清泉，蒸腾的水汽萦绕在空中，似乎从中还传来了窸窸窣窣的声音。&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_167&quot;,
+			say = &quot;在我走近时，耳畔响起了少女那熟悉的祷告声——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;「……赞叹您的恩泽，让我们得以在此舒缓旅途的倦怠……」&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;「……感激您的指引，让我们在此寻得肉体与精神的小歇……」&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;………………&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;既然已经来到此地，一言不发地站在我的身后，可不是什么礼貌的行为，指挥官。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;难道说，在刚才我换衣服的时候，您犯下了名为“偷窥”的罪行？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;其实什么也没有看见&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;只是顺着鸢尾花的痕迹，误入此处……&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;刚才明显感觉到了您的视线……难道是错觉？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……无法做出准确的裁定，只好暂且相信您这一回。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……鸢尾花，沿途有栽种过么……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			optionFlag = 2,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;虽然不知您是不是以此来开脱，但只此一次的话……暂且饶恕您。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;如果您也打算来享受冬日温泉那美好又温暖的治愈的话，可以和我一同……&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;……对，就是“共浴”的邀请。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			withoutActorName = true,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;不知是否是错觉，霞飞的脸上似乎爬上了一抹微红？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;您感觉如何，指挥官？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;这汪温泉，让您身心感觉到些许的治愈了吗？&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			withoutActorName = true,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;温暖而舒畅的感觉游走在四肢百骸之中，感觉身体中的疲惫一扫而空。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;倘若这汪温泉能治愈您身体当中积攒的劳累，那便再好不过了。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;另外，请让我帮您进行一些入浴后的按摩……对促进血液循环大有好处。&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;star_level_bg_167&quot;,
+			spine = true,
+			dir = 1,
+			actor = 907012,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;毕竟是难得的休憩，如果不好好享受放松的话，反而是辜负了“鸢尾花的指引”哦——&quot;,
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

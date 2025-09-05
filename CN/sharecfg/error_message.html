@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error_message.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>error_message.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.error_message = {
+	{
+		desc = &quot;无效操作&quot;
+	},
+	{
+		desc = &quot;缺少配置&quot;
+	},
+	{
+		desc = &quot;超时&quot;
+	},
+	{
+		desc = &quot;时间未到&quot;
+	},
+	{
+		desc = &quot;已达到最大等级&quot;
+	},
+	{
+		desc = &quot;已达到最大数量限制&quot;
+	},
+	{
+		desc = &quot;已经完成&quot;
+	},
+	{
+		desc = &quot;未定义参数&quot;
+	},
+	{
+		desc = &quot;错误参数&quot;
+	},
+	{
+		desc = &quot;栏位已满&quot;
+	},
+	{
+		desc = &quot;数据库错误&quot;
+	},
+	{
+		desc = &quot;系统异常&quot;
+	},
+	{
+		desc = &quot;禁止登录&quot;
+	},
+	[15] = {
+		desc = &quot;注册数已达上限，感谢您的支持。&quot;
+	},
+	[19] = {
+		desc = &quot;无效的重复操作&quot;
+	},
+	[20] = {
+		desc = &quot;数据不存在&quot;
+	},
+	[21] = {
+		desc = &quot;玩家不存在&quot;
+	},
+	[22] = {
+		desc = &quot;舰船不存在&quot;
+	},
+	[23] = {
+		desc = &quot;物品不存在&quot;
+	},
+	[24] = {
+		desc = &quot;装备不存在&quot;
+	},
+	[25] = {
+		desc = &quot;任务不存在&quot;
+	},
+	[26] = {
+		desc = &quot;战斗信息不存在&quot;
+	},
+	[27] = {
+		desc = &quot;采集点不存在&quot;
+	},
+	[28] = {
+		desc = &quot;好友不存在&quot;
+	},
+	[29] = {
+		desc = &quot;邮件不存在&quot;
+	},
+	[30] = {
+		desc = &quot;目标不足&quot;
+	},
+	[31] = {
+		desc = &quot;资源不足&quot;
+	},
+	[32] = {
+		desc = &quot;金币不足&quot;
+	},
+	[33] = {
+		desc = &quot;石油不足&quot;
+	},
+	[34] = {
+		desc = &quot;银沙不足&quot;
+	},
+	[35] = {
+		desc = &quot;晶钻不足&quot;
+	},
+	[36] = {
+		desc = &quot;家具币不足&quot;
+	},
+	[37] = {
+		desc = &quot;物品不足&quot;
+	},
+	[38] = {
+		desc = &quot;食物不足&quot;
+	},
+	[39] = {
+		desc = &quot;体力不足&quot;
+	},
+	[40] = {
+		desc = &quot;不合法限制条件&quot;
+	},
+	[41] = {
+		desc = &quot;等级不符合&quot;
+	},
+	[42] = {
+		desc = &quot;类型不符合&quot;
+	},
+	[1010] = {
+		desc = &quot;账号错误&quot;
+	},
+	[1011] = {
+		desc = &quot;账号已存在&quot;
+	},
+	[1012] = {
+		desc = &quot;纯数字账号&quot;
+	},
+	[1013] = {
+		desc = &quot;服务器繁忙&quot;
+	},
+	[1020] = {
+		desc = &quot;密码错误&quot;
+	},
+	[1030] = {
+		desc = &quot;md5验证错误&quot;
+	},
+	[1031] = {
+		desc = &quot;md5长度错误&quot;
+	},
+	[1040] = {
+		desc = &quot;服务器已关闭&quot;
+	},
+	[2010] = {
+		desc = &quot;名字检查错误&quot;
+	},
+	[2011] = {
+		desc = &quot;名字过长&quot;
+	},
+	[2012] = {
+		desc = &quot;名字过短&quot;
+	},
+	[2013] = {
+		desc = &quot;名字有屏蔽词&quot;
+	},
+	[2014] = {
+		desc = &quot;名字错误字符&quot;
+	},
+	[2015] = {
+		desc = &quot;名字已被使用&quot;
+	},
+	[3010] = {
+		desc = &quot;舰船不可战斗&quot;
+	},
+	[3020] = {
+		desc = &quot;前置关卡未通过&quot;
+	},
+	[4010] = {
+		desc = &quot;舰船不可用&quot;
+	},
+	[4020] = {
+		desc = &quot;舰船是看板娘&quot;
+	},
+	[4030] = {
+		desc = &quot;舰船在编队中&quot;
+	},
+	[4040] = {
+		desc = &quot;舰船不在编队中&quot;
+	},
+	[4050] = {
+		desc = &quot;相同的舰船&quot;
+	},
+	[4201] = {
+		desc = &quot;礼包码已过期&quot;
+	},
+	[4202] = {
+		desc = &quot;该渠道不支持&quot;
+	},
+	[4203] = {
+		desc = &quot;礼包码不存在&quot;
+	},
+	[4204] = {
+		desc = &quot;礼包码已被使用&quot;
+	},
+	[4205] = {
+		desc = &quot;礼包码兑换有误，请重试&quot;
+	},
+	[4206] = {
+		desc = &quot;该类型礼包兑换次数已达上限&quot;
+	},
+	[4207] = {
+		desc = &quot;没有礼包兑换URL&quot;
+	},
+	[9999] = {
+		desc = &quot;未定义错误&quot;
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

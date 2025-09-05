@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shenshengdebeixiju13.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shenshengdebeixiju13.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;SHENSHENGDEBEIXIJU13&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			stopbgm = true,
+			mode = 1,
+			sequence = {
+				{
+					&quot;&lt;size=51&gt;在那幽暗密林的出口，三头野兽挡住了我的去路&lt;/size&gt;&quot;,
+					1
+				},
+				{
+					&quot;&lt;size=51&gt;豹子&lt;/size&gt;&quot;,
+					2
+				},
+				{
+					&quot;&lt;size=51&gt;——它皮色斑斓，利牙环眼&lt;/size&gt;&quot;,
+					3
+				},
+				{
+					&quot;&lt;size=51&gt;狮子&lt;/size&gt; &quot;,
+					4
+				},
+				{
+					&quot;&lt;size=51&gt;——它头颅高昂，盛气凌人&lt;/size&gt;&quot;,
+					5
+				},
+				{
+					&quot;&lt;size=51&gt;母狼&lt;/size&gt;&quot;,
+					6
+				},
+				{
+					&quot;&lt;size=51&gt;——它骨瘦如柴，却也饿得发疯&lt;/size&gt;&quot;,
+					7
+				},
+				{
+					&quot;&lt;size=51&gt;它们将我包围，满抱种种贪婪欲望&lt;/size&gt;&quot;,
+					8
+				},
+				{
+					&quot;&lt;size=51&gt;啊，它们一步一步地向我逼近，把我逼回到幽暗的森林&lt;/size&gt;&quot;,
+					9
+				},
+				{
+					&quot;&lt;size=51&gt;那里连太阳也变得黯淡无光…&lt;/size&gt;&quot;,
+					10
+				}
+			}
+		},
+		{
+			mode = 1,
+			stopbgm = true,
+			blackBg = true,
+			effects = {
+				{
+					delay = 1,
+					name = &quot;shenshengdebeixijuxia&quot;,
+					active = true
+				}
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				5,
+				delay = 0,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			sequence = {
+				{
+					&quot;&quot;,
+					1
+				}
+			}
+		},
+		{
+			bgName = &quot;bg_italy_cg4&quot;,
+			side = 2,
+			dir = 1,
+			bgmDelay = 1,
+			bgm = &quot;story-2&quot;,
+			say = &quot;皇家三岛&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			effects = {
+				{
+					active = false,
+					name = &quot;shenshengdebeixijuxia&quot;
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;胜利，可畏，你们可是都迟到了哦&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;胜利&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;抱歉~想到要服役的事，不知不觉就…啊哈哈哈&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;可畏&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;胜利姐是在想要服役的事，还是在想服役之后————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			dir = 1,
+			actorName = &quot;胜利&quot;,
+			say = &quot;啊啊啊，可畏！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;好啦好啦，来，先尝尝我亲手泡的红茶，我们三姐妹好久没有这样悠闲的聚在一起过了&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;对了，胜利，你的服役测试都还顺利吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;胜利&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔…由于一点点小小的意外，所以比预期的服役时间要晚上几个月&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;作为妹妹的可畏反倒是比你先服役了呢，之后可要加把劲呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;胜利&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;唔…胜利会加油的！！为了姐姐和女王陛下&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;呵呵呵，这次把两位妹妹一起招来，也是因为一件重要的事情要宣布…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;可畏&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;是姐姐要大婚了！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			dir = 1,
+			actorName = &quot;光辉&quot;,
+			say = &quot;噗呲—— 不是啦！！&quot;,
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			dir = 1,
+			say = &quot;光辉脸红着，红茶差点洒了出来&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;可畏&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;可畏，别突然开这样的玩笑呀~咳咳咳...&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;总之，是这样的，你们…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;光辉&quot;,
+			side = 2,
+			bgName = &quot;bg_italy_cg4&quot;,
+			dir = 1,
+			blackBg = true,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;——要不要一起去陆间海度个假？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandaccepttaskcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandaccepttaskcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAcceptTaskCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.callback
+	slot5 = pg.ConnectionMgr.GetInstance()
+
+	slot5:Send(21032, {
+		task_id_list = slot2.taskIds
+	}, 21033, function (slot0)
+		slot1 = getProxy(IslandProxy):GetIsland():GetTaskAgency()
+		slot2 = {}
+		slot3 = ipairs
+		slot4 = slot0.task_list or {}
+
+		for slot6, slot7 in slot3(slot4) do
+			slot1:AddTask(IslandTask.New(slot7))
+			table.insert(slot2, slot7.id)
+		end
+
+		if #slot2 &gt; 0 then
+			slot1:TryAutoTrackTask()
+		end
+
+		uv0:sendNotification(GAME.ISLAND_ACCEPT_TASK_DONE, {
+			taskIds = slot2,
+			callback = uv1
+		})
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

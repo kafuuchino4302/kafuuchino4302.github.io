@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldg015.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldg015.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	id = &quot;WorldG015&quot;,
+	events = {
+		{
+			alpha = 0,
+			code = {
+				&quot;showAllMargin&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world show margin&quot;,
+					body = {
+						tdType = WorldConst.TransportDisplayGuideEnable
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;showTransportTip&quot;
+			},
+			style = {
+				text = &quot;舰队访问地图边缘的虚拟单元格就可以跨地图移动&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 296.05,
+				posX = -417.84
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;showDangerousMargin&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world show margin&quot;,
+					body = {
+						tdType = WorldConst.TransportDisplayGuideDanger
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.2,
+			code = {
+				&quot;getCompassDangerousPos&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world get compass pos&quot;,
+					body = {
+						row = 2,
+						column = 13
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.2,
+			code = {
+				&quot;showWorldDangerousSign&quot;
+			},
+			showSign = {
+				simultaneously = true,
+				type = 1,
+				signList = {
+					{
+						pos = &quot;useCachePos&quot;,
+						signType = 2
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;showDangerousTip&quot;
+			},
+			style = {
+				text = &quot;红色的虚拟单元格意味着当前的海域过于危险&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 296.05,
+				posX = -417.84
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;showForbiddenMargin&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world show margin&quot;,
+					body = {
+						tdType = WorldConst.TransportDisplayGuideForbid
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.2,
+			code = {
+				&quot;getCompassForbiddenPos&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world get compass pos&quot;,
+					body = {
+						row = 2,
+						column = 13
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.2,
+			code = {
+				&quot;showWorldForbiddenSign&quot;
+			},
+			showSign = {
+				simultaneously = true,
+				type = 1,
+				signList = {
+					{
+						pos = &quot;useCachePos&quot;,
+						signType = 3
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;showForbiddenTip&quot;
+			},
+			style = {
+				text = &quot;禁止标记则意味着当前海域无法进行边缘传送&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 296.05,
+				posX = -417.84
+			}
+		},
+		{
+			alpha = 0,
+			code = {
+				&quot;showNormalMargin&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world show margin&quot;,
+					body = {
+						tdType = WorldConst.TransportDisplayNormal
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			delay = 0.2,
+			code = {
+				&quot;getCompassTargetPos&quot;
+			},
+			notifies = {
+				{
+					notify = &quot;world get compass map pos&quot;,
+					body = {
+						mapId = 13
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.2,
+			code = {
+				&quot;showWorldTargetSign&quot;
+			},
+			showSign = {
+				simultaneously = true,
+				type = 1,
+				signList = {
+					{
+						pos = &quot;useCachePos&quot;,
+						signType = 1
+					}
+				}
+			}
+		},
+		{
+			alpha = 0.3,
+			code = {
+				&quot;showForbiddenTip&quot;
+			},
+			style = {
+				text = &quot;好的，现在请按照罗经指示的方向开始移动到新水域吧&quot;,
+				mode = 2,
+				dir = -1,
+				posY = 296.05,
+				posX = -417.84
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

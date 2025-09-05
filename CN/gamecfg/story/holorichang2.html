@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>holorichang2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>holorichang2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HOLORICHANG2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;虚拟与现实的双向镜-日常篇\n\n&lt;size=45&gt;二 关于灵魂上的相似&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgName = &quot;bg_story_room&quot;,
+			bgm = &quot;holo-shion&quot;,
+			actor = 900214,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;吹雪酱，你的脸色很差哦，身体不舒服么？&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;不是那样的…就在刚刚，我可能猜到祭会把谁找来了……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900211,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;是很可怕的家伙吗？！！！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在某种意义上……很可怕…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			bgmDelay = 2,
+			bgName = &quot;bg_story_room&quot;,
+			bgm = &quot;holo-matsuri&quot;,
+			actor = 900212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;大家久等了~！祭把她带过来了哦！&quot;,
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 1,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 301640,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;hololive的各位你们好，初次见面，我是来自重樱的{namecode:146}，从今往后还请多指教呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哎？{namecode:146}……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;是{namecode:146}哦，吹雪以为我会把谁找来呢~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那个...方舟之类的...咳咳，什么事也没有！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0.6,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900214,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;这不是很普通的清纯美少女吗，和祭那种行走的荷尔蒙有哪里相似了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301640,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;hololive的各位果然和传闻中的一样是十分出色的女性呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301640,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;听说各入加入舰队时我就一直想要认识各位，祭小姐能给我这个机会实在是太好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900215,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（喂！吹雪…这个氛围，难道说……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（没错，就是那个“难道说”……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:146}和祭一样，都是最喜欢世界上所有可爱的女孩子了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900211,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;.........&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900214,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嗯...是很不妙的人呢&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900210,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;咦，喜欢女孩子不是很…普通的事情么，为什么大家都是这种反应？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900215,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;虽然是很普通的事，不过如果和祭酱一样的话，应该说是有点过度呢，还是说有点微妙呢…&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900210,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;欸，欸欸欸欸欸？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			bgName = &quot;bg_story_room&quot;,
+			actor = 900212,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我们是在一次观察行动之中偶然认识的，然后就一见如故地成为好朋友啦。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 301640,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没错~我和祭小姐在爱好上有很多相通之处呢。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900214,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;没想到，这么清纯的美少女，竟然和祭有着类似的兴趣……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 900212,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;喂等等，祭也是hololive首屈一指的清楚美少女好不好！美少女之间是会相互吸引的！所以，祭也最喜欢{namecode:146}了哦~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 5,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			actor = 900214,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;出现了，是“呼吸”发言！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 900209,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;祭酱真是比呼吸还频繁的出轨啊，一般人能做出这样的事来么....&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

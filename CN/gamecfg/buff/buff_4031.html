@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_4031.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_4031.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;每隔25秒，回复自身5.0%的耐久&quot;,
+		addition = {
+			&quot;5.0%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身6.1%的耐久&quot;,
+		addition = {
+			&quot;6.1%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身7.2%的耐久&quot;,
+		addition = {
+			&quot;7.2%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身8.3%的耐久&quot;,
+		addition = {
+			&quot;8.3%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身9.4%的耐久&quot;,
+		addition = {
+			&quot;9.4%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身10.5%的耐久&quot;,
+		addition = {
+			&quot;10.5%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身11.6%的耐久&quot;,
+		addition = {
+			&quot;11.6%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身12.7%的耐久&quot;,
+		addition = {
+			&quot;12.7%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身13.8%的耐久&quot;,
+		addition = {
+			&quot;13.8%(+1.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;每隔25秒，回复自身15.0%的耐久&quot;,
+		addition = {
+			&quot;15.0%&quot;
+		}
+	},
+	desc_get = &quot;每隔25秒，回复自身5.0%(满级15.0%)的耐久&quot;,
+	name = &quot;损害管制&quot;,
+	init_effect = &quot;&quot;,
+	id = 4031,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;每隔25秒，回复自身$1的耐久&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 4030,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				skill_id = 4031,
+				target = &quot;TargetSelf&quot;,
+				time = 25
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

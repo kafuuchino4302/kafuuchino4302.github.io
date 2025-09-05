@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ateliercompositeyumiascene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ateliercompositeyumiascene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AtelierCompositeYumiaScene&quot;, import(&quot;view.activity.Atelier.base.AtelierCompositeBaseScene&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;AtelierCompositeYumiaUI&quot;
+end
+
+slot0.InitCustom = function(slot0)
+	slot0.layerEmpty = slot0:findTF(&quot;bg/Empty&quot;)
+
+	setText(slot0:findTF(&quot;bg/Empty/bg/Text&quot;), i18n(slot0.unlockText))
+
+	slot0.painting = slot0:findTF(&quot;bg/painting&quot;)
+	slot0.topBar = slot0:findTF(&quot;Top/TopBar&quot;)
+	slot0.chat = slot0:findTF(&quot;bg/Chat&quot;)
+
+	setActive(slot0.chat, false)
+end
+
+slot0.InitStr = function(slot0)
+	slot0.bundleName = &quot;ui/AtelierCompositeYumiaUI_atlas&quot;
+	slot0.commonBundleName = &quot;ui/AtelierCommonYumiaUI_atlas&quot;
+	slot0.chatText = {
+		idle = {
+			&quot;atelier_yumia_1&quot;
+		},
+		clickFormula = {
+			&quot;atelier_yumia_2&quot;,
+			&quot;atelier_yumia_3&quot;,
+			&quot;atelier_yumia_4&quot;
+		},
+		showMaterialSelectWindow = {
+			&quot;atelier_yumia_2&quot;,
+			&quot;atelier_yumia_3&quot;,
+			&quot;atelier_yumia_4&quot;
+		},
+		selectMaterial = {
+			&quot;atelier_yumia_5&quot;,
+			&quot;atelier_atellier6&quot;,
+			&quot;atelier_atellier7&quot;
+		},
+		compositeResult = {
+			&quot;atelier_atellier8&quot;,
+			&quot;atelier_atellier9&quot;
+		},
+		compositeResult2 = {
+			&quot;atelier_atellier10&quot;,
+			&quot;atelier_atellier11&quot;
+		}
+	}
+	slot0.soundStr = {
+		formulaDetailUnlock = &quot;event:/ui/ryza_atellier_ui_3&quot;,
+		showMaterialSelectWindow = &quot;event:/ui/ryza_atellier_ui_1&quot;,
+		compositeConfirm = &quot;event:/ui/ryza_atellier_ui_6&quot;,
+		selectMaterial = &quot;event:/ui/ryza_atellier_ui_2&quot;,
+		formulaDetail = &quot;event:/ui/ryza_atellier_ui_5&quot;,
+		clickFormula = &quot;event:/ui/ryza_atellier_ui_1&quot;,
+		formulaDetailFill = &quot;event:/ui/ryza_atellier_ui_4&quot;
+	}
+	slot0.helpStr = &quot;ryza_composite_help_tip&quot;
+	slot0.tipStr = &quot;yumia_atelier_tip22&quot;
+	slot0.unlockText = &quot;yumia_atelier_tip1&quot;
+end
+
+slot0.InitView = function(slot0)
+	slot0.atelierFormulaListView = AtelierFormulaListYumiaView.New(slot0.layerFormulaPanel, slot0)
+	slot0.atelierFormulaDetailView = AtelierFormulaDetailYumiaView.New(slot0.layerFormulaDetailPanel, slot0)
+	slot0.atelierMaterialSelectView = AtelierMaterialSelectYumiaView.New(slot0.materialSelectPanel, slot0)
+	slot0.atelierMaterialsPreview = AtelierFormulaMaterialsPreviewYumia.New(slot0.materialsPreviewPanel, slot0)
+	slot0.atelierCompositeConfirmView = AtelierCompositeConfirmYumiaView.New(slot0.compositeConfirmPanel, slot0)
+	slot0.atelierCompositeResultView = AtelierCompositeResultYumiaView.New(slot0.compositeResultPanel, slot0)
+end
+
+slot0.RefreshEmptyPanel = function(slot0)
+	setActive(slot0.layerEmpty, not slot0.unlockSystem)
+end
+
+slot0.didEnter = function(slot0)
+	slot0:UpdateAdapt()
+	uv0.super.didEnter(slot0)
+end
+
+slot0.UpdateAdapt = function(slot0)
+	slot3 = pg.CameraFixMgr.GetInstance()
+	slot4 = math.clamp(slot3.currentWidth / slot3.currentHeight, 1.3333333333333333, 2.1666666666666665)
+	slot0._tf:GetComponent(typeof(AspectRatioFitter)).aspectRatio = slot4
+	slot0.top:GetComponent(typeof(AspectRatioFitter)).aspectRatio = slot4
+end
+
+slot0.OnClickStore = function(slot0)
+	addSubLayer(Context.New({
+		mediator = AtelierStoreBaseMediator,
+		viewComponent = AtelierStoreYumiaScene,
+		data = {
+			activity = slot0.activity
+		}
+	}), getProxy(ContextProxy):getCurrentContext():getContextByMediator(AtelierCompositeMediator))
+end
+
+slot0.ShowFormulaList = function(slot0)
+	slot0:AddIdleTimer()
+	slot0.atelierFormulaListView:ShowFormulaList()
+end
+
+slot0.ShowFormulaDetail = function(slot0, slot1)
+	slot0.contextData.formulaId = slot1:GetConfigID()
+
+	slot0.atelierFormulaDetailView:Show(slot1)
+	setActive(slot0.materialSelectPanel, false)
+end
+
+slot0.HideFormulaDetail = function(slot0)
+	slot0:ShowTopBar(true)
+
+	if not isActive(slot0.layerFormulaDetailPanel) then
+		return
+	end
+
+	slot0.atelierMaterialSelectView:HideCandicatePanel()
+	slot0.atelierFormulaDetailView:HideDescriptionView()
+	setActive(slot0.layerFormulaDetailPanel, false)
+
+	return true
+end
+
+slot0.ShowMaterialSelectWindow = function(slot0, slot1, slot2, slot3)
+	slot0.atelierFormulaDetailView:HideDescriptionView()
+	slot0.atelierFormulaDetailView:HideCompositePanel()
+	uv0.super.ShowMaterialSelectWindow(slot0, slot1, slot2, slot3)
+end
+
+slot0.RefreshScrollViewPosition = function(slot0)
+	slot0.atelierFormulaDetailView:RefreshScrollViewPosition()
+end
+
+slot0.ShowTopBar = function(slot0, slot1)
+	setActive(slot0.topBar, slot1)
+end
+
+slot0.UpdateRyzaDrop = function(slot0, slot1, slot2, slot3)
+	updateDrop(slot1, slot2)
+	SetCompomentEnabled(slot0:findTF(&quot;icon_bg&quot;, slot1), typeof(Image), false)
+	setActive(slot0:findTF(&quot;bg&quot;, slot1), false)
+	setActive(slot0:findTF(&quot;icon_bg/frame&quot;, slot1), false)
+	setActive(slot0:findTF(&quot;icon_bg/stars&quot;, slot1), false)
+
+	slot4 = slot2:getConfig(&quot;rarity&quot;)
+
+	if slot2.type == DROP_TYPE_EQUIP or slot2.type == DROP_TYPE_EQUIPMENT_SKIN then
+		slot4 = slot4 - 1
+	end
+
+	GetImageSpriteFromAtlasAsync(&quot;weaponframes&quot;, &quot;bg&quot; .. ItemRarity.Rarity2Print(slot4), slot0:findTF(&quot;icon_bg&quot;, slot1))
+
+	if slot2.type ~= DROP_TYPE_RYZA_DROP then
+		onButton(slot0, slot1, function ()
+			uv0:emit(uv1.ON_DROP, uv2)
+		end, SFX_PANEL)
+	else
+		removeOnButton(slot1)
+	end
+end
+
+slot0.UpdateRyzaItem = function(slot0, slot1, slot2, slot3)
+	AtelierTools.UpdateYumiaItem(slot1, slot2)
+end
+
+slot0.GetAtelierCompositEffect = function(slot0)
+	return &quot;youmiya_lianjinhecheng&quot;
+end
+
+slot0.GetAtelierCompositEffectPos = function(slot0)
+	return Vector2(0, 100)
+end
+
+slot0.AddIdleTimer = function(slot0)
+	if GetComponent(slot0._tf, typeof(Animation)):IsPlaying(&quot;anim_composite_in&quot;) then
+		slot0:RemoveIdleTimer()
+
+		slot0.idleTimer = FrameTimer.New(function ()
+			if not uv0:IsPlaying(&quot;anim_composite_in&quot;) then
+				uv1:DispalyChat(uv1.chatText.idle)
+				uv1:AddChatTimer()
+
+				return
+			end
+		end, 1, -1)
+
+		slot0.idleTimer:Start()
+	else
+		slot0:AddChatTimer()
+	end
+end
+
+slot0.AddChatTimer = function(slot0)
+	slot0:RemoveIdleTimer()
+
+	slot0.idleTimer = Timer.New(function ()
+		uv0:DispalyChat(uv0.chatText.idle)
+		uv0:AddIdleTimer()
+	end, 8 + math.random() * 4)
+
+	slot0.idleTimer:Start()
+end
+
+slot0.DispalyChat = function(slot0, slot1)
+	if GetComponent(slot0._tf, typeof(Animation)):IsPlaying(&quot;anim_composite_in&quot;) then
+		return
+	end
+
+	uv0.super.DispalyChat(slot0, slot1)
+	slot0.painting:Find(&quot;root&quot;):GetComponent(&quot;Animation&quot;):Play(&quot;anim_composite_formulalist_talk&quot;)
+end
+
+slot0.GetSoundPath = function(slot0)
+	return &quot;event:/cv/&quot; .. 1130001 .. &quot;/&quot;
+end
+
+slot0.PlaySoundEffect = function(slot0, slot1)
+end
+
+slot0.ClearSound = function(slot0)
+end
+
+slot0.PlayGuide = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

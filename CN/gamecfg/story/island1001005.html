@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>island1001005.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>island1001005.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	mode = 10,
+	id = &quot;ISLAND1001005&quot;,
+	map = {
+		{
+			100600,
+			10040022
+		},
+		{
+			100700,
+			10040045
+		}
+	},
+	look_weight = {
+		{
+			0.7,
+			0
+		},
+		{
+			0.3,
+			0
+		}
+	},
+	scripts = {
+		{
+			animation = &quot;talk&quot;,
+			subName = &quot;矿山管理员&quot;,
+			characterId = 100600,
+			say = &quot;喔哦，指挥官好厉害！加上你采的这些，修复计划用到的煤炭就足够了。&quot;,
+			face2Face = {
+				{
+					0,
+					100600
+				}
+			},
+			turnto = {
+				{
+					100700,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;这样就能修复好交通线了？&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			animation = &quot;think&quot;,
+			say = &quot;还不行，要想完全修好的话还需要一些木材。&quot;,
+			characterId = 100600,
+			subName = &quot;矿山管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			animation = &quot;amaze&quot;,
+			say = &quot;欸？原来还要木材啊，我都没准备呢。&quot;,
+			characterId = 100700,
+			subName = &quot;林场管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;乔安，现在去还来得及吗？&quot;,
+			characterId = 0,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			animation = &quot;talk&quot;,
+			say = &quot;嗯……我会在你们去准备木材的同时进行一些基础的修复工作，这样就来得及了！&quot;,
+			characterId = 100600,
+			subName = &quot;矿山管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			animation = &quot;nod&quot;,
+			say = &quot;好耶~那指挥官，我们赶快出发吧！&quot;,
+			characterId = 100700,
+			subName = &quot;林场管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			say = &quot;要快点采集到这些木材才行。&quot;,
+			characterId = 100700,
+			subName = &quot;林场管理员&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			options = {
+				{
+					content = &quot;好，我这就去看看。&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;包在我身上！&quot;,
+					flag = 2
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>renamefleetcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>renamefleetcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;FleetRenameCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.name
+
+	if not getProxy(FleetProxy):getFleetById(slot2.id) then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;fleet_error_no_fleet&quot;))
+
+		return
+	end
+
+	if not nameValidityCheck(slot4, 2, 24, {
+		&quot;spece_illegal_tip&quot;,
+		&quot;login_newPlayerScene_name_tooShort&quot;,
+		&quot;login_newPlayerScene_name_tooLong&quot;,
+		&quot;playerinfo_mask_word&quot;
+	}) then
+		return
+	end
+
+	slot7 = pg.ConnectionMgr.GetInstance()
+
+	slot7:Send(12104, {
+		id = slot3,
+		name = slot4
+	}, 12105, function (slot0)
+		if slot0.result == 0 then
+			uv0:renameFleet(uv1, uv2)
+			uv3:sendNotification(GAME.RENAME_FLEET_DONE)
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result])
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

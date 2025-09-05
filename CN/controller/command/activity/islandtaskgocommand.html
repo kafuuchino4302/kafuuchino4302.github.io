@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandtaskgocommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandtaskgocommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandTaskGoCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if slot1.body.taskVO:getConfig(&quot;scene&quot;) and #slot4 &gt; 0 then
+		if slot4[1] == &quot;ANNIVERSARY_ISLAND_SEA&quot; then
+			slot7 = slot4[2].nodeIds
+
+			if getProxy(ContextProxy):getCurrentContext():getContextByMediator(SixthAnniversaryIslandMediator) then
+				slot0:sendNotification(SixthAnniversaryIslandMediator.DISPLAY_NODES, slot7)
+			else
+				slot0:sendNotification(GAME.GO_SCENE, SCENE.ANNIVERSARY_ISLAND_SEA, {
+					nodeIds = slot7
+				})
+			end
+		elseif slot4[1] == &quot;ANNIVERSARY_ISLAND_WORKBENCH&quot; then
+			if not getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_WORKBENCH) or slot5:isEnd() then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;common_activity_end&quot;))
+
+				return
+			end
+
+			if AcessWithinNull(slot4[2], &quot;formulaId&quot;) and slot6 &gt; 0 then
+				slot7 = WorkBenchFormula.New({
+					configId = slot6
+				})
+
+				slot7:BuildFromActivity()
+
+				if not slot7:IsAvaliable() then
+					pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;workbench_tips1&quot;))
+
+					return
+				end
+
+				if not slot7:IsUnlock() then
+					pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;workbench_tips4&quot;, slot7:GetLockLimit() and slot8[3]))
+
+					return
+				end
+			end
+
+			if getProxy(ContextProxy):getCurrentContext():getContextByMediator(AnniversaryIslandComposite2023Mediator) then
+				slot0:sendNotification(AnniversaryIslandComposite2023Mediator.OPEN_FORMULA, slot6)
+			else
+				slot0:sendNotification(GAME.GO_SCENE, SCENE.ANNIVERSARY_ISLAND_WORKBENCH, {
+					formulaId = slot6
+				})
+			end
+		elseif slot4[1] == &quot;ISLAND_BUILDING&quot; then
+			slot8 = Context.New({
+				mediator = AnniversaryIslandBuildingUpgrade2023WindowMediator,
+				viewComponent = AnniversaryIslandBuildingUpgrade2023Window,
+				data = {
+					isLayer = true,
+					buildingID = slot4[2].build
+				}
+			})
+
+			if getProxy(ContextProxy):getCurrentContext():getContextByMediator(AnniversaryIsland2023Mediator) then
+				slot0:sendNotification(GAME.LOAD_LAYERS, {
+					parentContext = slot6,
+					context = slot8
+				})
+			else
+				slot6 = Context.New()
+
+				SCENE.SetSceneInfo(slot6, SCENE.ANNIVERSARY_ISLAND_BACKHILL_2023)
+				slot6:addChild(slot8)
+				print(&quot;load scene: &quot; .. SCENE.ANNIVERSARY_ISLAND_BACKHILL_2023)
+				slot0:sendNotification(GAME.LOAD_SCENE, {
+					context = slot6
+				})
+			end
+		else
+			slot5 = Context.New()
+
+			SCENE.SetSceneInfo(slot5, SCENE[slot4[1]])
+
+			if getProxy(ContextProxy):getCurrentContext():getContextByMediator(slot5.mediator) then
+				warning(&quot;Enter Current Context&quot;)
+
+				return
+			end
+
+			slot0:sendNotification(GAME.GO_SCENE, SCENE[slot4[1]], slot4[2])
+		end
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

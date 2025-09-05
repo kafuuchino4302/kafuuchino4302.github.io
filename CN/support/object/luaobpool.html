@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luaobpool.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>luaobpool.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+slot1 = class(&quot;LuaObPool&quot;)
+pg.LuaObPool = slot1
+
+slot1.Ctor = function(slot0, slot1, slot2, slot3)
+	assert(slot1.Init, &quot;template should have func Init&quot;)
+	assert(slot1.Recycle, &quot;template should have func Recycle&quot;)
+	assert(slot1.Dispose, &quot;template should have func Dispose&quot;)
+
+	slot0.baseClass = slot1
+	slot0.info = slot2
+	slot0.list = {}
+	slot0.ob2index = {}
+
+	for slot7 = 1, slot3 do
+		slot0.list[slot7] = slot1.New(slot0, slot2)
+	end
+
+	slot0.usedEnd = 0
+end
+
+slot1.GetObject = function(slot0)
+	slot3 = nil
+
+	if slot0.usedEnd &gt;= #slot0.list then
+		slot1[#slot1 + 1] = slot0.baseClass.New(slot0, slot0.info)
+	end
+
+	slot2 = slot2 + 1
+	slot3 = slot1[slot2]
+	slot0.ob2index[slot3] = slot2
+	slot0.usedEnd = slot2
+
+	slot3:Init()
+
+	return slot3
+end
+
+slot1.Recycle = function(slot0, slot1)
+	slot4 = slot0.list
+
+	slot1:Recycle()
+
+	if slot0.usedEnd ~= slot0.ob2index[slot1] then
+		slot5 = slot4[slot3]
+		slot0.ob2index[slot5] = slot2
+		slot4[slot2] = slot5
+		slot4[slot3] = slot1
+	end
+
+	slot0.ob2index[slot1] = nil
+	slot0.usedEnd = slot3 - 1
+end
+
+slot1.UpdateInfo = function(slot0, slot1, slot2)
+	slot0.info[slot1] = slot2
+end
+
+slot1.Dispose = function(slot0)
+	for slot4, slot5 in ipairs(slot0.list) do
+		slot5:Dispose()
+	end
+
+	slot0.ob2index = nil
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>publicguildtechnology.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>publicguildtechnology.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PublicGuildTechnology&quot;, import(&quot;..GuildTechnology&quot;))
+
+slot0.GetConsume = function(slot0)
+	slot3 = slot0:getConfig(&quot;contribution_multiple&quot;)
+
+	return slot0:getConfig(&quot;contribution_consume&quot;) * slot3, slot0:getConfig(&quot;gold_consume&quot;) * slot3
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

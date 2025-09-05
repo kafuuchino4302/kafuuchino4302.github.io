@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>haman7.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>haman7.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;HAMAN7&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			mode = 1,
+			stopbgm = true,
+			sequence = {
+				{
+					&quot;哈曼观察日志\n\n&lt;size=45&gt;七 坦率只有…一瞬间！&lt;/size&gt;&quot;,
+					1
+				}
+			}
+		},
+		{
+			actor = 107050,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			say = &quot;哈曼，指挥官人就在这里，你就为刚才的事诚实道个歉吧？&quot;,
+			dir = 1,
+			bgm = &quot;story-1&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101240,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;啊！萨拉托加的那段虽然好玩不过还是别用了哦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;才不会用啦！……知道啦！不就是道歉吗我道歉总行了吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;你这…不是，指，指挥官！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.2,
+					number = 2,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;刚，刚才是我不好…把你赶出指挥室……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;其实是我没发现指挥官早上有那么多工作！结果就……！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;（小声）……其，其实是想让指挥官能快点夸我……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = -30,
+					dur = 0.5,
+					number = 1,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;（小声）……但是你不理我……明明我这么喜欢指挥官……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;虽然声音非常小，还是能听清哈曼的心声。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;对哈曼道歉说自己也有不对&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;指挥官…呜呜…谢谢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					dur = 0.4,
+					x = 30,
+					number = 3
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;你不理哈曼的话哈曼就会不开心……所以……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;能感受到扑过来的哈曼带来的体温。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101240,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;“……其，其实是想让指挥官能快点夸我……”&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101240,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;哦，录音成功！嘿嘿嘿♪&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.1,
+					number = 2,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;！！！？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 0,
+					type = &quot;shake&quot;,
+					dur = 0.1,
+					x = 30,
+					number = 3
+				}
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;西——姆——斯——！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.5,
+					number = 3,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			actor = 101240,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;哎呀～啊，指挥官，刚才我只答应不录像，没说不录音哦？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107050,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;哎呀……这还真是……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 101250,
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			say = &quot;西姆斯！快删掉！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 30,
+					dur = 0.15,
+					number = 1,
+					type = &quot;shake&quot;
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_story_room&quot;,
+			dir = 1,
+			blackBg = true,
+			say = &quot;今天也是——手忙脚乱的一天。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

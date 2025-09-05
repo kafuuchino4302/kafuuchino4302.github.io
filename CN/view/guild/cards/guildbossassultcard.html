@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guildbossassultcard.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>guildbossassultcard.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GuildBossAssultCard&quot;)
+
+slot0.Ctor = function(slot0, slot1)
+	slot0._tr = tf(slot1)
+	slot0._go = slot1
+	slot0.mask = findTF(slot0._tr, &quot;mask&quot;):GetComponent(typeof(Image))
+	slot0.icon = findTF(slot0._tr, &quot;icon/icon&quot;):GetComponent(typeof(Image))
+	slot0.shipNameTxt = findTF(slot0._tr, &quot;info/shipname&quot;):GetComponent(typeof(Text))
+	slot0.userNameTxt = findTF(slot0._tr, &quot;info/username&quot;):GetComponent(typeof(Text))
+	slot0.levelTxt = findTF(slot0._tr, &quot;info/lv/Text&quot;):GetComponent(typeof(Text))
+	slot0.startList = UIItemList.New(findTF(slot0._tr, &quot;info/stars&quot;), findTF(slot0._tr, &quot;info/stars/star_tpl&quot;))
+	slot0.recommendBtn = findTF(slot0._tr, &quot;info/recom_btn&quot;)
+	slot0.recommendBtnMark = slot0.recommendBtn:Find(&quot;mark&quot;)
+	slot0.viewEquipmentBtn = findTF(slot0._tr, &quot;info/view_equipment&quot;)
+	slot0.tag = findTF(slot0._tr, &quot;tag&quot;)
+end
+
+slot0.Flush = function(slot0, slot1, slot2)
+	slot0.shipNameTxt.text = slot2:getName()
+	slot0.ship = slot2
+	slot0.member = slot1
+	slot0.levelTxt.text = slot2.level
+	slot4 = slot2:getStar()
+
+	slot0.startList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			setActive(slot2:Find(&quot;star_tpl&quot;), slot1 &lt;= uv0)
+		end
+	end)
+	slot0.startList:align(slot2:getMaxStar())
+
+	slot0.userNameTxt.text = i18n(&quot;guild_ship_from&quot;) .. slot1.name
+
+	LoadSpriteAsync(&quot;shipYardIcon/&quot; .. slot2:getPainting(), function (slot0)
+		if uv0._tr then
+			uv0.icon.sprite = slot0
+		end
+	end)
+
+	slot6 = false
+
+	if #slot2:rarity2bgPrint() &gt; 1 then
+		if string.sub(slot5, 1, 1) == &quot;1&quot; then
+			slot6 = true
+		else
+			slot5 = string.sub(slot5, 2, 1)
+		end
+	end
+
+	slot0:LoadMetaEffect(slot6)
+
+	slot0.mask.sprite = GetSpriteFromAtlas(&quot;ui/GuildBossAssultUI_atlas&quot;, slot5)
+
+	setActive(slot0.recommendBtnMark, slot2.guildRecommand)
+	setActive(slot0.tag, slot2.guildRecommand)
+	setActive(slot0.recommendBtn, GuildMember.IsAdministrator(getProxy(GuildProxy):getRawData():getSelfDuty()))
+end
+
+slot1 = &quot;meta_huoxing&quot;
+
+slot0.LoadMetaEffect = function(slot0, slot1)
+	if slot0.loading then
+		slot0.destoryMetaEffect = not slot1
+
+		return
+	end
+
+	if slot1 and not slot0.metaEffect then
+		slot0.loading = true
+		slot2 = PoolMgr.GetInstance()
+
+		slot2:GetUI(uv0, true, function (slot0)
+			uv0.loading = nil
+
+			if uv0.destoryMetaEffect then
+				uv0:RemoveMetaEffect()
+
+				uv0.destoryMetaEffect = nil
+			else
+				uv0.metaEffect = slot0
+
+				SetParent(uv0.metaEffect, uv0._tr)
+				setActive(slot0, true)
+			end
+		end)
+	elseif not slot1 and slot0.metaEffect then
+		slot0:RemoveMetaEffect()
+	elseif slot0.metaEffect then
+		setActive(slot0.metaEffect, true)
+	end
+end
+
+slot0.RemoveMetaEffect = function(slot0)
+	if slot0.metaEffect then
+		PoolMgr.GetInstance():ReturnUI(uv0, slot0.metaEffect)
+
+		slot0.metaEffect = nil
+	end
+end
+
+slot0.Dispose = function(slot0)
+	slot0:RemoveMetaEffect()
+
+	slot0.destoryMetaEffect = true
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

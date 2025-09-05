@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng0019.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ng0019.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = {
+	&quot;点击这里可以对一键退役的条件进行设置&quot;,
+	&quot;上方选择优先级可以对稀有度优先级进行设置&quot;,
+	&quot;下方可以对拥有或未拥有满星舰船时的选择条件进行设置&quot;,
+	&quot;点击帮助按钮可以查看详细退役条件&quot;
+}
+
+return {
+	id = &quot;NG0019&quot;,
+	events = {
+		{
+			alpha = 0.4,
+			style = {
+				mode = 1,
+				dir = -1,
+				posY = -285,
+				posX = -302,
+				text = slot0[1]
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/blur_panel/adapt/left_length/frame/setting&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -58.1,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 61.22
+				}
+			}
+		},
+		{
+			alpha = 0.1,
+			style = {
+				mode = 1,
+				dir = 1,
+				posY = 101.6,
+				posX = -56.2,
+				text = slot0[2]
+			}
+		},
+		{
+			alpha = 0.1,
+			style = {
+				mode = 1,
+				dir = 1,
+				posY = -159.6,
+				posX = 13.3,
+				text = slot0[3]
+			}
+		},
+		{
+			alpha = 0.4,
+			style = {
+				mode = 1,
+				dir = -1,
+				posY = 150.7,
+				posX = 224.01,
+				text = slot0[4]
+			},
+			ui = {
+				path = &quot;OverlayCamera/Overlay/UIMain/DockyardQuickSelectSettingUI(Clone)/window/top/bg/obtain/title/title_en/info&quot;,
+				triggerType = {
+					1
+				},
+				fingerPos = {
+					rotateY = 0,
+					posY = -37.35,
+					rotateX = 0,
+					rotateZ = 0,
+					posX = 66.5
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

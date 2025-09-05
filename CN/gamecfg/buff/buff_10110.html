@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10110.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10110.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升5.0%&quot;,
+		addition = {
+			&quot;5.0%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升6.1%&quot;,
+		addition = {
+			&quot;6.1%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升7.2%&quot;,
+		addition = {
+			&quot;7.2%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升8.3%&quot;,
+		addition = {
+			&quot;8.3%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升9.4%&quot;,
+		addition = {
+			&quot;9.4%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升10.5%&quot;,
+		addition = {
+			&quot;10.5%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升11.6%&quot;,
+		addition = {
+			&quot;11.6%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升12.7%&quot;,
+		addition = {
+			&quot;12.7%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升13.8%&quot;,
+		addition = {
+			&quot;13.8%(+1.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升15.0%&quot;,
+		addition = {
+			&quot;15.0%&quot;
+		}
+	},
+	desc_get = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升5.0%(满级15.0%)&quot;,
+	name = &quot;妹妹真是太棒了！&quot;,
+	init_effect = &quot;&quot;,
+	id = 10110,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;与印第安纳波利斯同时出击时，炮击、防空、装填提升$1&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 10110,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				skill_id = 10110,
+				target = &quot;TargetSelf&quot;,
+				check_target = {
+					&quot;TargetAllHelp&quot;,
+					&quot;TargetShipTag&quot;
+				},
+				ship_tag_list = {
+					&quot;Indianapolis&quot;
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

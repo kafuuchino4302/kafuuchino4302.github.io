@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>handleguildandpublicguildtechcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>handleguildandpublicguildtechcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;HandleGuildAndPublicGuildTechCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = getProxy(GuildProxy)
+
+	assert(slot2:GetPublicGuild())
+
+	if not slot2:getData() then
+		return
+	end
+
+	slot5 = false
+
+	for slot10, slot11 in pairs(slot3:GetTechnologyGroups()) do
+		slot12 = slot4:getTechnologyGroupById(slot11.id)
+
+		slot12:update({
+			id = slot12.pid,
+			state = slot12.state,
+			progress = slot12.progress,
+			fake_id = slot11.pid
+		})
+
+		slot5 = true
+	end
+
+	if slot5 then
+		slot2:updateGuild(slot4)
+	end
+
+	slot0:sendNotification(GAME.HANDLE_GUILD_AND_PUBLIC_GUILD_TECH_DONE)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

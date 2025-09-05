@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battleconst.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>battleconst.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">ys.Battle.BattleConst = ys.Battle.BattleConst or {}
+slot0 = ys.Battle.BattleConst
+slot0.BATTLE_GLOBAL_BUFF = &quot;battle_buff&quot;
+slot0.NORMALIZE_FLEET_SPEED = Vector3.right
+slot0.SUMMONING_SICKNESS_DURATION = 1.5
+slot0.NON_QUEUE_WEAPON = 0
+slot0.SMOKING_HP_RATE = 0.3
+slot0.NORMAL_TEXT_SCALE = 1
+slot0.SMALL_TEXT_SCALE = 0.8
+slot0.TEXT_MOVE_TIME = 0.4
+slot0.TEXT_FADEOUT_TIME = 0.6
+slot0.TEXT_SCALE_TIME = 0.4
+slot0.CRI_TEXT_OFFSET = 1
+slot0.MAX_EQUIPMENT_COUNT = 6
+slot0.DEAD_FLAG = &quot;flagDead&quot;
+slot0.WaveTriggerType = {
+	NORMAL = 0,
+	TIMER = 1,
+	RANGE = 2,
+	STORY = 3,
+	AID = 4,
+	BGM = 5,
+	GUIDE = 6,
+	CAMERA = 7,
+	CLEAR = 8,
+	ENVIRONMENT = 10,
+	LABEL = 11,
+	CARD_PUZZLE = 12
+}
+slot0.UnitType = {
+	PLAYER_UNIT = 1,
+	ENEMY_UNIT = 2,
+	BOSS_UNIT = 3,
+	AIRCRAFT_UNIT = 4,
+	AIRFIGHTER_UNIT = 5,
+	MAIN_UNIT = 7,
+	FUNNEL_UNIT = 8,
+	UAV_UNIT = 9,
+	SUB_UNIT = 10,
+	CONST_UNIT = 11,
+	MINION_UNIT = 12,
+	SUPPORT_UNIT = 13,
+	CARDPUZZLE_PLAYER_UNIT = 30
+}
+slot0.CharacterUnitType = {
+	slot0.UnitType.PLAYER_UNIT,
+	slot0.UnitType.ENEMY_UNIT,
+	slot0.UnitType.MINION_UNIT
+}
+slot0.AircraftUnitType = {
+	slot0.UnitType.AIRCRAFT_UNIT,
+	slot0.UnitType.AIRFIGHTER_UNIT,
+	slot0.UnitType.FUNNEL_UNIT,
+	slot0.UnitType.UAV_UNIT
+}
+slot0.EquipmentType = {
+	MAIN_CANNON = 1,
+	SUB_CANNON = 2,
+	TORPEDO = 3,
+	ANTI_AIR = 4,
+	ARMOR = 5,
+	ENGINE = 6,
+	RADAR = 7,
+	STRIKE_AIRCRAFT = 10,
+	INTERCEPT_AIRCRAFT = 11,
+	CREW = 12,
+	CHARGE = 13,
+	SPECIAL = 14,
+	MEGA_CHARGE = 15,
+	MANUAL_TORPEDO = 16,
+	ANTI_SEA = 17,
+	HAMMER_HEAD = 18,
+	BOMBER_PRE_CAST_ALERT = 19,
+	MULTI_LOCK = 20,
+	MANUAL_SUB = 21,
+	FLEET_ANTI_AIR = 22,
+	POINT_HIT_AND_LOCK = 23,
+	BEAM = 24,
+	DEPTH_CHARGE = 25,
+	REPEATER_ANTI_AIR = 26,
+	DISPOSABLE_TORPEDO = 27,
+	SPACE_LASER = 28,
+	MISSILE = 29,
+	FLEET_RANGE_ANTI_AIR = 30,
+	MANUAL_MISSILE = 31,
+	AUTO_MISSILE = 32,
+	MANUAL_METEOR = 33,
+	POINT_AIR_STRIKE = 34,
+	MANUAL_AAMISSILE = 80,
+	PREVIEW_ARICRAFT = 99,
+	AIR_ASSIST = &quot;airAssist&quot;
+}
+slot0.OXY_STATE = {
+	FLOAT = 1,
+	DIVE = 2
+}
+slot0.ActionName = {
+	ATTACK = &quot;attack&quot;,
+	ATTACKLEFT = &quot;attack_left&quot;,
+	DEFAULT_ATTACK = &quot;attack&quot;,
+	DEAD = &quot;dead&quot;,
+	DEAD_SWIM = &quot;dead_swim&quot;,
+	MOVE = &quot;move&quot;,
+	IDLE = &quot;normal&quot;,
+	STAND = &quot;stand&quot;,
+	VICTORY = &quot;victory&quot;,
+	VICTORY_SWIM = &quot;victory_swim&quot;,
+	WALK = &quot;walk&quot;,
+	MOVELEFT = &quot;move_left&quot;,
+	SKILL = &quot;skill&quot;,
+	SPELL = &quot;suoquan&quot;,
+	DIVE = &quot;swim&quot;,
+	DIVELEFT = &quot;swim_left&quot;,
+	RAID = &quot;attack_swim&quot;,
+	RAIDLEFT = &quot;attack_swim_left&quot;,
+	INTERRUPT = &quot;break&quot;,
+	DIVING = &quot;xiaqian&quot;,
+	SKILL_START = &quot;skill_start&quot;,
+	SKILL_END = &quot;skill_end&quot;
+}
+slot0.ActionLoop = {
+	attack = false,
+	attack_left = false,
+	fire = false,
+	fire_left = false,
+	dead = false,
+	dead_swim = false,
+	skill = false,
+	move = true,
+	normal = true,
+	stand = true,
+	victory = true,
+	victory_swim = true,
+	walk = true,
+	move_left = true,
+	suoquan = true,
+	swim = true,
+	swim_left = true,
+	swim_attack = false,
+	swim_attack_left = false,
+	xiaqian = false,
+	skill_start = false,
+	skill_end = false,
+	attack_unequip = false,
+	attack_unequip_left = false,
+	dead_unequip = false,
+	move_unequip = true,
+	move_unequip_left = true
+}
+slot0.CldType = {
+	BULLET = &quot;bullet&quot;,
+	SHIP = &quot;ship&quot;,
+	AIRCRAFT = &quot;aircraft&quot;,
+	AOE = &quot;AOE&quot;,
+	WALL = &quot;Wall&quot;
+}
+slot0.CldMass = {
+	L1 = 1,
+	L2 = 2,
+	L3 = 3,
+	L4 = 4
+}
+slot0.UnitDir = {
+	RIGHT = 1,
+	LEFT = -1,
+	MIDDLE = 0
+}
+slot0.WeaponSearchType = {
+	SECTOR = 1,
+	SQUARE = 2,
+	STRIKE = 3
+}
+slot0.WeaponAimType = {
+	FORWARD = 0,
+	AIM = 1
+}
+slot0.WeaponSuppressType = {
+	NONE = 1,
+	SUPPRESSION = 0
+}
+slot0.WeaponDamageAttr = {
+	CANNON = 1,
+	TORPEDO = 2,
+	ANTI_AIR = 3,
+	AIR = 4,
+	ANIT_SUB = 5
+}
+slot0.BulletType = {
+	CANNON = 1,
+	BOMB = 2,
+	TORPEDO = 3,
+	DIRECT = 4,
+	SHRAPNEL = 5,
+	ANTI_AIR = 6,
+	ANTI_SEA = 7,
+	STRAY = 8,
+	EFFECT = 9,
+	BEAM = 10,
+	G_BULLET = 11,
+	ELECTRIC_ARC = 12,
+	MISSILE = 13,
+	SPACE_LASER = 14,
+	SCALE = 15,
+	TRIGGER_BOMB = 16,
+	AAMissile = 17
+}
+slot0.BulletDamageType = {
+	NORMAL = 1,
+	BOMBER = 2,
+	REAL = 3
+}
+slot0.BulletField = {
+	SURFACE = 1,
+	UNDER_WATER = 2,
+	AIR = 3
+}
+slot0.BulletOutBound = {
+	COMMON = 0,
+	EXIST = 1,
+	RANDOM = 2,
+	VISION = 3,
+	SPLIT = 4
+}
+slot0.AOEField = {
+	SURFACE = 1,
+	UNDER_WATER = 2,
+	AIR = 3,
+	BULLET = 4
+}
+slot0.AreaType = {
+	CUBE = 1,
+	COLUMN = 2
+}
+slot0.ShakeType = {
+	HIT = 301,
+	FIRE = 302,
+	UNIT_DIE = 302
+}
+slot0.BuffEffectType = {
+	ON_INIT_GAME = &quot;onInitGame&quot;,
+	ON_START_GAME = &quot;onStartGame&quot;,
+	ON_MANUAL = &quot;onManual&quot;,
+	ON_AUTOBOT = &quot;onAutoBot&quot;,
+	ON_FLAG_SHIP = &quot;onFlagShip&quot;,
+	ON_UPPER_CONSORT = &quot;onUpperConsort&quot;,
+	ON_LOWER_CONSORT = &quot;onLowerConsort&quot;,
+	ON_LEADER = &quot;onLeader&quot;,
+	ON_CENTER = &quot;onCenter&quot;,
+	ON_REAR = &quot;onRear&quot;,
+	ON_SUB_LEADER = &quot;onSubLeader&quot;,
+	ON_UPPER_SUB_CONSORT = &quot;onUpperSubConsort&quot;,
+	ON_LOWER_SUB_CONSORT = &quot;onLowerSubConsort&quot;,
+	ON_ATTACH = &quot;onAttach&quot;,
+	ON_REMOVE = &quot;onRemove&quot;,
+	ON_STACK = &quot;onStack&quot;,
+	ON_UPDATE = &quot;onUpdate&quot;,
+	ON_BUFF_ADDED = &quot;onBuffAdded&quot;,
+	ON_BUFF_REMOVED = &quot;onBuffRemoved&quot;,
+	ON_BULLET_CREATE = &quot;onBulletCreate&quot;,
+	ON_TORPEDO_BULLET_CREATE = &quot;onTorpedoWeaponBulletCreate&quot;,
+	ON_AIRCRAFT_CREATE = &quot;onAircraftCreate&quot;,
+	ON_INTERNAL_BULLET_CREATE = &quot;onInternalBulletCreate&quot;,
+	ON_MANUAL_BULLET_CREATE = &quot;onManualBulletCreate&quot;,
+	ON_BULLET_COLLIDE_BEFORE = &quot;onBulletCollideBefore&quot;,
+	ON_BOMB_BULLET_BANG = &quot;onBombBulletBang&quot;,
+	ON_TORPEDO_BULLET_BANG = &quot;onTorpedoBulletBang&quot;,
+	ON_BULLET_COLLIDE = &quot;onBulletCollide&quot;,
+	ON_BULLET_HIT_BEFORE = &quot;onBulletHitBefore&quot;,
+	ON_BULLET_HIT = &quot;onBulletHit&quot;,
+	ON_TEAMMATE_BULLET_HIT = &quot;onTeammateBulletHit&quot;,
+	ON_BULLET_KILL = &quot;onBulletKill&quot;,
+	ON_BE_HIT = &quot;onBeHit&quot;,
+	ON_BEFORE_TAKE_DAMAGE = &quot;onBeforeTakeDamage&quot;,
+	ON_TAKE_DAMAGE = &quot;onTakeDamage&quot;,
+	ON_TAKE_HEALING = &quot;onTakeHealing&quot;,
+	ON_OVER_HEALING = &quot;onOverHealing&quot;,
+	ON_SHIELD_ABSORB = &quot;onShieldAbsorb&quot;,
+	ON_DAMAGE_FIX = &quot;onDamageFix&quot;,
+	ON_DAMAGE_CONCLUDE = &quot;onDamageConclude&quot;,
+	ON_COMBO = &quot;onCombo&quot;,
+	ON_WEAPON_STEDAY = &quot;onWeaponSteday&quot;,
+	ON_FIRE = &quot;onFire&quot;,
+	ON_CHARGE_FIRE = &quot;onChargeWeaponFire&quot;,
+	ON_TORPEDO_FIRE = &quot;onTorpedoWeaponFire&quot;,
+	ON_ANTIAIR_FIRE_FAR = &quot;onAntiAirWeaponFireFar&quot;,
+	ON_ANTIAIR_FIRE_NEAR = &quot;onAntiAirWeaponFireNear&quot;,
+	ON_MANUAL_MISSILE_FIRE = &quot;onManualMissileFire&quot;,
+	ON_ALL_IN_STRIKE_STEADY = &quot;onAllInStrikeSteady&quot;,
+	ON_ALL_IN_STRIKE = &quot;onAllInStrike&quot;,
+	ON_DEPTH_CHARGE_DROP = &quot;onDepthChargeDrop&quot;,
+	ON_POINT_STRIKE_STEADY = &quot;onPointStrikeSteady&quot;,
+	ON_POINT_STRIKE = &quot;onPointStrike&quot;,
+	ON_WEAPON_INTERRUPT = &quot;onWeaonInterrupt&quot;,
+	ON_WEAPON_SUCCESS = &quot;onWeaponSuccess&quot;,
+	ON_CHARGE_READY = &quot;onChargeWeaponReady&quot;,
+	ON_MANUAL_TORPEDO_READY = &quot;onManualTorpedoReady&quot;,
+	ON_AIR_ASSIST_READY = &quot;onAirAssistReady&quot;,
+	ON_MANUAL_MISSILE_READY = &quot;onManualMissileReady&quot;,
+	ON_POINT_STRIKE_READY = &quot;onPointStrikeReady&quot;,
+	ON_TORPEDO_BUTTON_PUSH = &quot;onTorpedoButtonPush&quot;,
+	ON_BEFORE_FATAL_DAMAGE = &quot;onBeforeFatalDamage&quot;,
+	ON_FRIENDLY_AIRCRAFT_DYING = &quot;onFriendlyAircraftDying&quot;,
+	ON_TEAMMATE_SHIP_DYING = &quot;onTeammateShipDying&quot;,
+	ON_SINK = &quot;onSink&quot;,
+	ON_FOE_DYING = &quot;onFoeDying&quot;,
+	ON_FOE_AIRCRAFT_DYING = &quot;onFoeAircraftDying&quot;,
+	ON_RETREAT = &quot;onRetreat&quot;,
+	ON_FRIENDLY_HP_RATIO_UPDATE = &quot;onFriendlyHpRatioUpdate&quot;,
+	ON_TEAMMATE_HP_RATIO_UPDATE = &quot;onTeammateHpRatioUpdate&quot;,
+	ON_HP_RATIO_UPDATE = &quot;onHPRatioUpdate&quot;,
+	ON_BATTLE_BUFF_COUNT = &quot;onBattleBuffCount&quot;,
+	ON_SHIELD_BROKEN = &quot;onShieldBroken&quot;,
+	ON_SUBMARINE_AID = &quot;onSubmarineAid&quot;,
+	ON_SUBMARINE_FREE_DIVE = &quot;onSubmarinFreeDive&quot;,
+	ON_SUBMARINE_FREE_FLOAT = &quot;onSubmarinFreeFloat&quot;,
+	ON_SUBMARINE_FREE_SPECIAL = &quot;onSubmarineFreeSpecial&quot;,
+	ON_SUBMARINE_DIVE = &quot;onSubmarineDive&quot;,
+	ON_SUBMARINE_RAID = &quot;onSubmarineRaid&quot;,
+	ON_SUBMARINE_FLOAT = &quot;onSubmarineFloat&quot;,
+	ON_SUBMARINE_RETREAT = &quot;onSubmarineRetreat&quot;,
+	ON_SUB_DETECTED = &quot;onSubDetected&quot;,
+	ON_SUB_UNDETECTED = &quot;onSubUnDetected&quot;,
+	ON_ANTI_SUB_HATE_CHAIN = &quot;onAntiSubHateChain&quot;,
+	ON_RECORD = &quot;onRecord&quot;,
+	ON_CLOAK_UPDATE = &quot;onCloakUpdate&quot;,
+	ON_TEAMMATE_CLOAK_UPDATE = &quot;onTeammateCloakUpdate&quot;,
+	ON_FLEET_ATTR_UPDATE = &quot;onFleetAttrUpdate&quot;
+}
+slot0.FXContainerIndex = {
+	&quot;center&quot;,
+	&quot;top&quot;,
+	&quot;bottom&quot;,
+	&quot;auradown&quot;
+}
+slot0.UnitDeathReason = {
+	KILLED = 1,
+	LEAVE = 2,
+	DESTRUCT = 3,
+	TOUCHDOWN = 4,
+	CRUSH = 5,
+	CLS = 6,
+	DEFUSION = 7
+}
+slot0.BattleScore = {
+	D = 0,
+	C = 1,
+	B = 2,
+	A = 3,
+	S = 4
+}
+slot0.CPChatType = {
+	GROUP_ID = 0,
+	SHIP_TYPE = 1,
+	RARE = 2,
+	NATIONALITY = 3,
+	ILLUSTRATOR = 4,
+	TEAM = 5
+}
+slot0.CPChatTargetFunc = {
+	[slot0.CPChatType.GROUP_ID] = &quot;TargetGroup&quot;,
+	[slot0.CPChatType.SHIP_TYPE] = &quot;TargetShipType&quot;,
+	[slot0.CPChatType.RARE] = &quot;TargetRarity&quot;,
+	[slot0.CPChatType.NATIONALITY] = &quot;TargetNationality&quot;,
+	[slot0.CPChatType.ILLUSTRATOR] = &quot;TargetIllustrator&quot;,
+	[slot0.CPChatType.TEAM] = &quot;TargetTeam&quot;
+}
+slot0.AIStepType = {
+	STAY = 0,
+	MOVE_TO = 1,
+	MOVE = 2,
+	BROWNIAN = 3,
+	CIRCLE = 4,
+	RELATIVE_BROWNIAN = 5,
+	HIVE_STAY = 6,
+	HIVE_CIRCLE = 7,
+	RELATIVE_FLEET_MOVE_TO = 8,
+	MOVE_RELATIVE = 9,
+	MINION_STAY = 10,
+	MINION_CIRCLE = 11
+}
+slot0.BossPhaseSwitchType = {
+	NONE = 0,
+	DURATION = 1,
+	HP = 2,
+	POSITION_X_GREATER = 3,
+	POSITION_X_LESS = 4,
+	OXYGEN = 5
+}
+slot0.SubAidFlag = {
+	AMMO_EMPTY = 0,
+	AID_EMPTY = -1,
+	OIL_EMPTY = -2
+}
+slot0.ManualWeaponIndex = {
+	CALIBRATION = 1,
+	TORPEDO = 2,
+	AIR_ASSIST = 3
+}
+slot0.PARALLEL_LABEL_TAG = {
+	&quot;parallelMG&quot;,
+	&quot;parallelTP&quot;,
+	&quot;parallelAS&quot;
+}
+slot0.EnviroumentBehaviour = {
+	PLAY_FX = 1,
+	DAMAGE = 2,
+	BUFF = 3,
+	MOVEMENT = 4,
+	FORCE = 5,
+	SPAWN = 6,
+	PLAY_SFX = 7,
+	SHAKE_SCREEN = 8,
+	SPAWN = 6
+}
+slot0.Difficulty = {
+	CASUAL = 1,
+	ELITE = 2,
+	RANDOM = 3,
+	WORLD = 4
+}
+slot0.FIRE_FX_TYPE = {
+	COMMON = 1,
+	LASTING = 2
+}
+slot0.DEATH_MARK_SKILL = {
+	IGNORE = 0,
+	DEACTIVE = 1
+}
+slot0.UltimateBonus = {
+	GunnerCountMod = 2,
+	TorpedoBarrageBuff = 374,
+	AuxBoostValue = 0.3
+}
+slot0.WEATHER = {
+	NIGHT = 101
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

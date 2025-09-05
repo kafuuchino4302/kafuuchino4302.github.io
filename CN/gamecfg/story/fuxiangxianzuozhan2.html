@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fuxiangxianzuozhan2.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>fuxiangxianzuozhan2.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	fadeType = 2,
+	once = true,
+	id = &quot;FUXIANGXIANZUOZHAN2&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			bgm = &quot;bsm-5&quot;,
+			say = &quot;铁血浮岛要塞群·E2浮岛-休息区&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 1,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;（升级按时结束……很好，加强后的浮岛机场可以按照计划应用到今天的训练中了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（虽然很想借助升级机会改装一座飞艇停泊基地，不过考虑到实用性只能放弃了么……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（实用性的飞艇计划……实用性的飞艇计划啊…………嗯？时间差不多了。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;{namecode:454}、{namecode:467}、{namecode:412}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			nameColor = &quot;#a9f548&quot;,
+			side = 0,
+			bgName = &quot;bg_guild_red_n&quot;,
+			hideOther = true,
+			dir = 1,
+			actor = 406010,
+			actorName = &quot;{namecode:467}&amp;{namecode:412}&quot;,
+			say = &quot;在！\n在。&quot;,
+			subActors = {
+				{
+					actor = 401460,
+					pos = {
+						x = 1185
+					}
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;浮岛机场功能已经升级完毕，从本日开始，我们将会进行强度更高的海空战训练。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;详细内容我已经写在本次的任务简报上了，记得查看。当然，训练开始之后我也会再次说明。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;现在检查一下各自的舰装情况，三小时后准时在B3浮岛P011港集合。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401460,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;明白。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 406010,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;三小时后么…没问题，不过...{namecode:454}又去哪了？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 401460,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;根据往昔的经验，当{namecode:454}没有在休息区的时候，通常是独自一人在海域中进行特训的时候。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			dir = 1,
+			actor = 406010,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;我想起来了，是那个她自己称为「{namecode:454}式」的特训么？其实多数时间和玩闹区别不大吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_guild_red_n&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;倒是很有{namecode:454}风格的努力方式。这样好了，你们继续准备，我亲自去通知她。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			side = 2,
+			dir = 1,
+			say = &quot;铁血浮岛要塞群·F区-训练海域&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;嘿，呵！装甲舰冲锋~！！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			say = &quot;浮岛之间被命名为F区的训练区域之中，一位少女正在浮标间高速驰骋着。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;（单程只用了十七秒……保持炮口平稳的同时进行了高速急转，接下来的瞄准射击如果能压缩到三秒内……）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/boom2&quot;,
+			say = &quot;轰————————！&quot;,
+			flashN = {
+				color = {
+					1,
+					1,
+					1
+				},
+				alpha = {
+					{
+						0,
+						1,
+						0.2
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.2
+					},
+					{
+						0,
+						1,
+						0.2,
+						0.4
+					},
+					{
+						1,
+						0,
+						0.2,
+						0.6
+					}
+				}
+			},
+			dialogShake = {
+				speed = 0.09,
+				x = 8.5,
+				number = 2
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			say = &quot;伴随着炮声和完美的曲线，演习用的浮标被准确击破了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;耶~！完美命中！干得漂亮，小铁！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（把飞行时间刨除之后……恩，合格。）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;海因里——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403090,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哎~？{namecode:471}，你来的正好！能帮我去控制台再刷新出一批浮标来么！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊？嗯，嗯…稍等片刻，我记得F区的控制台路径是在……完成。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;哦~~~~！出现了，大量浮标出现了！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;……有必要每次都这么惊讶么，训练了这么久早就应该习惯了吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;可是！每次看到的时候都觉得真的很帅啊~{namecode:471}不觉得么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;确实是一种非常复杂的技术……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;那就是很帅的意思嘛~谢谢啦{namecode:471}，接下来是那边的浮标！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（糟糕，不知不觉就又被带到她的节奏里去了…）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;{namecode:454}，关于今天的训练———&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403090,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哼哼，等下的战斗一定要让大家对我刮目相看！上吧，小铁！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;（………………还是采取强硬点的手段吧——）&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/plane&quot;,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;P级装甲舰{namecode:454}，全弹发射————哇，好痛！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			say = &quot;一声呼啸过后，舰载机的训练弹准确“砸”在了正在做发射准备的{namecode:453}头上。&quot;,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			soundeffect = &quot;event:/battle/plane&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;啊，{namecode:471}！为什么要突然袭击我啦！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			say = &quot;{namecode:470}没有说话，只是默默的指了指怀表。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 403090,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;原来已经这个时间了么……欸，{namecode:471}难道是来催我参加训练的吗？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 407030,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没错，看来你已经理解情况了。关于今天的训练区域————————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			actor = 403090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;糟了糟了，得赶紧去进行准备才行！谢啦，{namecode:471}！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			bgName = &quot;bg_fuxiangxian_1&quot;,
+			dir = 1,
+			blackBg = true,
+			actor = 407030,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;在B3岛P011港…一百一十三分钟之后……唉…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

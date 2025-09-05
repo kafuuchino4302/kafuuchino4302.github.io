@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newworldbossresultstatisticspage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newworldbossresultstatisticspage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewWorldBossResultStatisticsPage&quot;, import(&quot;..NewBattleResultStatisticsPage&quot;))
+
+slot0.UpdateGrade = function(slot0)
+	LoadImageSpriteAsync(&quot;battlescore/grade_label_clear&quot;, slot0.gradeTxt, false)
+	setActive(slot0.gradeIcon, false)
+	setActive(slot0.topPanel:Find(&quot;grade/label&quot;), false)
+end
+
+slot0.LoadBG = function(slot0, slot1)
+	LoadAnyAsync(&quot;BattleResultItems/&quot; .. &quot;CommonBg&quot;, &quot;&quot;, nil, function (slot0)
+		if uv0.exited or IsNil(slot0) then
+			if uv1 then
+				uv1()
+			end
+
+			return
+		end
+
+		slot1 = Object.Instantiate(slot0, uv0._tf)
+
+		slot1.transform:SetAsFirstSibling()
+
+		uv0.effectTr = slot1.transform
+
+		if uv1 then
+			uv1()
+		end
+	end)
+end
+
+slot0.UpdateOutput = function(slot0, slot1)
+	setText(slot1:Find(&quot;Text&quot;), slot0.contextData.statistics.specificDamage)
+end
+
+slot0.UpdateCommanders = function(slot0, slot1)
+	LoadAnyAsync(&quot;BattleResultItems/Worldboss&quot;, &quot;&quot;, nil, function (slot0)
+		if uv0.exited or IsNil(slot0) then
+			uv1()
+
+			return
+		end
+
+		uv0:UpdateOutput(Object.Instantiate(slot0, uv0.topPanel).transform)
+		uv1()
+	end)
+end
+
+slot0.UpdatePlayer = function(slot0)
+	setActive(slot0.topPanel:Find(&quot;exp&quot;), false)
+end
+
+slot0.RegisterEvent = function(slot0, slot1)
+	uv0.super.RegisterEvent(slot0, slot1)
+	triggerButton(slot0.statisticsBtn)
+	setActive(slot0.statisticsBtn, false)
+end
+
+slot0.UpdatePainting = function(slot0, slot1)
+	slot0:UpdatePaintingPosition()
+	slot0:UpdateMvpPainting(slot1)
+end
+
+slot0.UpdateChapterName = function(slot0)
+	slot0.chapterName.text = &quot;&quot;
+
+	setActive(slot0.opBonus, false)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

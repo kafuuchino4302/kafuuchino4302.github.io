@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shanchengptoilpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shanchengptoilpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShanchengPTOilPage&quot;, import(&quot;.TemplatePage.PtTemplatePage&quot;))
+
+slot0.OnFirstFlush = function(slot0)
+	uv0.super.OnFirstFlush(slot0)
+
+	uv0.scrolltext = slot0:findTF(&quot;name&quot;, slot0.awardTF)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	uv0.super.OnUpdateFlush(slot0)
+	onButton(slot0, slot0.battleBtn, function ()
+		uv0:emit(ActivityMediator.SPECIAL_BATTLE_OPERA)
+	end, SFX_PANEL)
+	slot0:SetAwardName()
+
+	slot1, slot2, slot3 = slot0.ptData:GetResProgress()
+
+	setText(slot0.progress, (slot3 &gt;= 1 and setColorStr(slot1, &quot;#A2A2A2FF&quot;) or slot1) .. &quot;/&quot; .. slot2)
+end
+
+slot0.SetAwardName = function(slot0)
+	if Item.getConfigData(slot0.ptData:GetAward().id) then
+		changeToScrollText(uv0.scrolltext, slot1:getName())
+	else
+		setActive(slot0:findTF(&quot;name&quot;, slot0.awardTF), false)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

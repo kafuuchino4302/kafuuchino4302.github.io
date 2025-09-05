@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ncclickobject.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>ncclickobject.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NcClickObject&quot;, import(&quot;..base.NodeCanvasBaseTask&quot;))
+
+slot0.OnExecute = function(slot0)
+	uv0.Click = function(slot0)
+		uv0:EndAction()
+	end
+
+	slot0:GetRouter().onMouseDown = slot0:GetRouter().onMouseDown + uv0.Click
+end
+
+slot0.OnStop = function(slot0)
+	if uv0.Click then
+		slot0:GetRouter().onMouseDown = slot0:GetRouter().onMouseDown - uv0.Click
+		uv0.Click = nil
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>springfestivaltownscene.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>springfestivaltownscene.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;SpringFestivalTownScene&quot;, import(&quot;..TemplateMV.BackHillTemplate&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;SpringFestivalTownUI&quot;
+end
+
+slot0.getBGM = function(slot0)
+	return &quot;story-china&quot;
+end
+
+slot0.HUB_ID = 5
+slot0.edge2area = {
+	default = &quot;_middle&quot;,
+	[&quot;9_9&quot;] = &quot;_bottom&quot;,
+	[&quot;4_4&quot;] = &quot;_front&quot;
+}
+
+slot0.init = function(slot0)
+	slot0.top = slot0:findTF(&quot;top&quot;)
+	slot0._closeBtn = slot0:findTF(&quot;top/return_btn&quot;)
+	slot0._homeBtn = slot0:findTF(&quot;top/return_main_btn&quot;)
+	slot0._helpBtn = slot0:findTF(&quot;top/help_btn&quot;)
+	slot0._map = slot0:findTF(&quot;map&quot;)
+
+	for slot4 = 0, slot0._map.childCount - 1 do
+		slot5 = slot0._map:GetChild(slot4)
+		slot0[&quot;_&quot; .. go(slot5).name] = slot5
+	end
+
+	slot0._front = slot0._map:Find(&quot;top&quot;)
+	slot0._middle = slot0._map:Find(&quot;middle&quot;)
+	slot1 = slot0._map
+	slot0._bottom = slot1:Find(&quot;bottom&quot;)
+	slot0.containers = {
+		slot0._front,
+		slot0._middle,
+		slot0._bottom
+	}
+	slot0._shipTpl = slot0._map:Find(&quot;ship&quot;)
+	slot0.graphPath = GraphPath.New(import(&quot;GameCfg.BackHillGraphs.SpringFestivalTownGraph&quot;))
+	slot0._upper = slot0:findTF(&quot;upper&quot;)
+	slot0.usableTxt = slot0.top:Find(&quot;usable_count/Text&quot;):GetComponent(typeof(Text))
+	slot0.diedieleTF = slot0.top:Find(&quot;diediele_count&quot;)
+	slot0.diedieleTxt = slot0.diedieleTF:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.effectReq = LoadPrefabRequestPackage.New(&quot;ui/map_donghuangchunjie&quot;, &quot;map_donghuangchunjie&quot;, function (slot0)
+		setParent(slot0, uv0._map, false)
+
+		slot2 = GameObject.Find(&quot;UICamera/Canvas&quot;):GetComponent(typeof(Canvas)).sortingOrder
+
+		for slot7, slot8 in ipairs(slot0:GetComponentsInChildren(typeof(Renderer)):ToTable()) do
+			slot8.sortingOrder = slot2 + 1
+		end
+
+		uv0.mapeffect = slot0
+	end):Start()
+
+	slot0:managedTween(LeanTween.value, nil, go(slot0._map), System.Action_UnityEngine_Color(function (slot0)
+		go(uv0._map):GetComponent(typeof(Image)).material:SetColor(&quot;_Color&quot;, slot0)
+	end), Color(0, 0, 0, 0), Color(1, 1, 0, 0), 1.5):setLoopPingPong(-1)
+end
+
+slot0.didEnter = function(slot0)
+	slot1 = getProxy(MiniGameProxy)
+
+	onButton(slot0, slot0._closeBtn, function ()
+		uv0:emit(uv1.ON_BACK)
+	end)
+	onButton(slot0, slot0.diedieleTF, function ()
+		uv0:emit(NewYearFestivalMediator.ON_OPEN_PILE_SIGNED)
+	end)
+	onButton(slot0, slot0._homeBtn, function ()
+		uv0:emit(uv1.ON_HOME)
+	end)
+	onButton(slot0, slot0._helpBtn, function ()
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			type = MSGBOX_TYPE_HELP,
+			helps = pg.gametip.help_chunjie_feast.tip
+		})
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;kaihongbao&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SUBLAYER, Context.New({
+			mediator = RedPacketMediator,
+			viewComponent = RedPacketLayer,
+			onRemoved = function ()
+				if uv0.mapeffect then
+					setActive(uv0.mapeffect, true)
+				end
+			end
+		}), function ()
+			if uv0.mapeffect then
+				setActive(uv0.mapeffect, false)
+			end
+		end)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;danianshou&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.ACTIVITY, {
+			id = ActivityConst.BEAT_MONSTER_NIAN_2020
+		})
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;dafuweng&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.ACTIVITY, {
+			id = ActivityConst.MONOPOLY_2020
+		})
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;diediele&quot;, function ()
+		pg.m02:sendNotification(GAME.GO_MINI_GAME, 9)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;jianzao&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.GETBOAT, {
+			projectName = &quot;new&quot;,
+			page = 1
+		})
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;sishu&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.COLORING)
+	end)
+	slot0:InitFacilityCross(slot0._map, slot0._upper, &quot;pifushangdian&quot;, function ()
+		uv0:emit(NewYearFestivalMediator.GO_SCENE, SCENE.SKINSHOP)
+	end)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0.top)
+	slot0:InitStudents(ActivityConst.ACTIVITY_478, 3, 5)
+	slot0:UpdateView()
+end
+
+slot0.UpdateView = function(slot0)
+	slot1, slot2 = nil
+
+	setActive(slot0._upper:Find(&quot;danianshou/tip&quot;), getProxy(ActivityProxy):getActivityById(ActivityConst.BEAT_MONSTER_NIAN_2020) and slot2:readyToAchieve())
+	setActive(slot0._upper:Find(&quot;dafuweng/tip&quot;), slot3:getActivityById(ActivityConst.MONOPOLY_2020) and slot2:readyToAchieve())
+	setActive(slot0._upper:Find(&quot;sishu/tip&quot;), getProxy(ColoringProxy):CheckTodayTip())
+	setActive(slot0._upper:Find(&quot;jianzao/tip&quot;), false)
+	setActive(slot0._upper:Find(&quot;pifushangdian/tip&quot;), false)
+	setActive(slot0._upper:Find(&quot;kaihongbao/tip&quot;), RedPacketLayer.isShowRedPoint())
+	setActive(slot0._upper:Find(&quot;diediele/tip&quot;), getProxy(MiniGameProxy):GetHubByHubId(slot0.HUB_ID).count &gt; 0)
+	slot0:UpdateDieDieleCnt(slot5)
+end
+
+slot0.UpdateDieDieleCnt = function(slot0, slot1)
+	slot0.usableTxt.text = &quot;X&quot; .. slot1.count
+	slot0.diedieleTxt.text = slot1.usedtime .. &quot;/&quot; .. slot1:getConfig(&quot;reward_need&quot;)
+end
+
+slot0.TryPlayStory = function(slot0)
+end
+
+slot0.willExit = function(slot0)
+	slot0.effectReq:Stop()
+
+	slot0.mapeffect = nil
+
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0.top, slot0._tf)
+	slot0:clearStudents()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

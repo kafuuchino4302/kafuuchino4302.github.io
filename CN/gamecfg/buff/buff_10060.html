@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10060.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10060.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度15.0%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;15.0%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度16.1%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;16.1%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度17.2%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;17.2%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度18.3%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;18.3%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度19.4%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;19.4%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度20.5%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;20.5%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度21.6%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;21.6%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度22.7%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;22.7%(+1.1%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度23.8%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;23.8%(+1.2%)&quot;
+		}
+	},
+	{
+		desc = &quot;耐久低于20%时，恢复总耐久度25.0%的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+		addition = {
+			&quot;25.0%&quot;
+		}
+	},
+	desc_get = &quot;耐久低于20%时，恢复总耐久度15.0%(满级25.0%)的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+	name = &quot;真红の不死鸟&quot;,
+	init_effect = &quot;&quot;,
+	id = 10060,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;耐久低于20%时，恢复总耐久度$1的耐久，15秒内炮击提高30%，每场战斗只能发动1次&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 10060,
+	last_effect = &quot;Health&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onHPRatioUpdate&quot;
+			},
+			arg_list = {
+				hpUpperBound = 0.2,
+				skill_id = 10060,
+				target = &quot;TargetSelf&quot;,
+				quota = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

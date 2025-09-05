@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldcollectionlayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldcollectionlayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldCollectionLayer&quot;, import(&quot;..base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldCollectionUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot1 = slot0._tf
+	slot0.top = slot1:Find(&quot;top&quot;)
+	slot1 = slot0.top
+	slot0.backBtn = slot1:Find(&quot;back_btn&quot;)
+	slot1 = slot0.top
+	slot0.topToggles = slot1:Find(&quot;toggles&quot;)
+	slot1 = slot0._tf
+	slot0.rtMain = slot1:Find(&quot;main&quot;)
+	slot1 = slot0.rtMain
+	slot0.entranceContainer = slot1:Find(&quot;list_bg/map_list/content&quot;)
+	slot1 = slot0.rtMain
+	slot0.btnGetAll = slot1:Find(&quot;list_bg/btn_get_all&quot;)
+	slot0.scrollEntrance = GetComponent(slot0.entranceContainer, &quot;LScrollRect&quot;)
+
+	slot0.scrollEntrance.onUpdateItem = function(slot0, slot1)
+		slot0 = slot0 + 1
+		slot2 = tf(slot1)
+		slot3 = uv0.achEntranceList[slot0]
+		uv0.entranceOjbecDic[slot0] = slot2
+
+		setText(slot2:Find(&quot;icon/deco_id&quot;), slot3.config.serial_number)
+		setText(slot2:Find(&quot;icon/name&quot;), slot3:GetBaseMap():GetName())
+		setActive(slot2:Find(&quot;icon/tip&quot;), nowWorld():AnyUnachievedAchievement(slot3))
+		onButton(uv0, slot2, function ()
+			uv0:UpdateAchievement(uv1)
+		end, SFX_PANEL)
+
+		slot4 = slot2:Find(&quot;icon&quot;)
+
+		setAnchoredPosition(slot4, {
+			y = (1 - slot0 % 2 * 2) * math.abs(slot4.anchoredPosition.y)
+		})
+		setActive(slot4:Find(&quot;select&quot;), uv0.selectedIndex == slot0)
+		setText(slot4:Find(&quot;select/gomap/Text&quot;), i18n(&quot;world_target_goto&quot;))
+		onButton(uv0, slot4:Find(&quot;select/gomap&quot;), function ()
+			uv0:emit(WorldCollectionMediator.ON_MAP, uv1)
+			uv0:closeView()
+		end, SFX_PANEL)
+	end
+
+	slot0.scrollEntrance.onReturnItem = function(slot0, slot1)
+		if uv0.exited then
+			return
+		end
+
+		uv0.entranceOjbecDic[slot0 + 1] = nil
+
+		removeOnButton(slot1)
+	end
+
+	slot1 = slot0.scrollEntrance.onValueChanged
+
+	slot1:AddListener(function (slot0)
+		uv0:UpdateJumpBtn()
+	end)
+
+	slot1 = slot0.rtMain
+	slot0.entrancePanel = slot1:Find(&quot;map&quot;)
+	slot1 = slot0.entrancePanel
+	slot0.entranceTitle = slot1:Find(&quot;target_rect/title&quot;)
+	slot1 = slot0.entrancePanel
+	slot0.targetContainer = slot1:Find(&quot;target_rect/target_list/content&quot;)
+	slot3 = slot0.targetContainer
+	slot0.targetItemList = UIItemList.New(slot0.targetContainer, slot3:Find(&quot;item&quot;))
+	slot1 = slot0.targetItemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		slot1 = slot1 + 1
+
+		if slot0 == UIItemList.EventUpdate then
+			slot4 = slot1 &gt; #uv0.achEntranceList[uv0.selectedIndex].config.normal_target
+			slot5 = slot2:Find(&quot;bg&quot;)
+
+			setActive(slot5:Find(&quot;normal&quot;), not slot4)
+			setActive(slot5:Find(&quot;hidden&quot;), slot4)
+
+			slot7 = uv0.targetList[slot1]:IsAchieved()
+			slot8 = not slot4 or slot7 or uv0.showHiddenDesc
+
+			setText(slot5:Find(&quot;desc&quot;), slot8 and slot6.config.target_desc or &quot;???&quot;)
+			setText(slot5:Find(&quot;progress&quot;), slot8 and slot6:GetProgress() .. &quot;/&quot; .. slot6:GetMaxProgress() or &quot;&quot;)
+			setActive(slot5:Find(&quot;finish_mark/Image&quot;), slot7)
+
+			slot9 = slot2:Find(&quot;pop&quot;)
+
+			if slot8 and #slot6:GetTriggers() &gt; 1 then
+				slot13 = slot9:Find(&quot;Text&quot;)
+
+				slot15 = function(slot0, slot1)
+					slot2 = uv0[slot0]
+
+					setText(slot1, slot2:GetDesc())
+					setTextColor(slot1, slot2:IsAchieved() and Color.New(0.3686274509803922, 0.6078431372549019, 1) or Color.New(0.4745098039215686, 0.4745098039215686, 0.4745098039215686))
+					setActive(slot1, true)
+				end
+
+				for slot19 = #slot10, slot9.childCount - 1 do
+					setActive(slot12:GetChild(slot19), false)
+				end
+
+				for slot19 = slot14, #slot10 - 1 do
+					cloneTplTo(slot13, slot12)
+				end
+
+				for slot19 = 0, #slot10 - 1 do
+					slot15(slot19 + 1, slot12:GetChild(slot19))
+				end
+			end
+
+			triggerToggle(slot2, false)
+			setToggleEnabled(slot2, slot11)
+			setActive(slot5:Find(&quot;arrow&quot;), slot11)
+		end
+	end)
+
+	slot1 = slot0.entrancePanel
+	slot0.achAwardRect = slot1:Find(&quot;award_rect&quot;)
+	slot1 = slot0.achAwardRect
+	slot0.achAchieveBtn = slot1:Find(&quot;btn_achieve&quot;)
+	slot1 = slot0.entrancePanel
+	slot0.overviewBtn = slot1:Find(&quot;btn_overview&quot;)
+	slot0.subviewAchAward = WorldAchAwardSubview.New(slot0._tf, slot0.event)
+
+	slot0:bind(WorldAchAwardSubview.ShowDrop, function (slot0, slot1)
+		uv0:emit(uv1.ON_DROP, slot1)
+	end)
+end
+
+slot0.onBackPressed = function(slot0)
+	if slot0.subviewAchAward:isShowing() then
+		slot0.subviewAchAward:ActionInvoke(&quot;Hide&quot;)
+	else
+		uv0.super.onBackPressed(slot0)
+	end
+end
+
+slot0.didEnter = function(slot0)
+	pg.UIMgr.GetInstance():OverlayPanel(slot0._tf)
+	onButton(slot0, slot0.backBtn, function ()
+		uv0:closeView()
+	end, SFX_CANCEL)
+	onToggle(slot0, slot0.topToggles:Find(&quot;all&quot;), function (slot0)
+		if slot0 then
+			uv0:UpdateEntranceFilter(false)
+		end
+	end, SFX_PANEL)
+	setText(slot0.topToggles:Find(&quot;all/Text&quot;), i18n(&quot;world_target_filter_tip1&quot;))
+	setText(slot0.topToggles:Find(&quot;all/Image/Text&quot;), i18n(&quot;world_target_filter_tip1&quot;))
+	onToggle(slot0, slot0.topToggles:Find(&quot;unfinish&quot;), function (slot0)
+		if slot0 then
+			uv0:UpdateEntranceFilter(true)
+		end
+	end, SFX_PANEL)
+	setText(slot0.topToggles:Find(&quot;unfinish/Text&quot;), i18n(&quot;world_target_filter_tip2&quot;))
+	setText(slot0.topToggles:Find(&quot;unfinish/Image/Text&quot;), i18n(&quot;world_target_filter_tip2&quot;))
+	onButton(slot0, slot0.rtMain:Find(&quot;list_bg/jump_icon_left&quot;), function ()
+		uv0:ScrollAndSelectEntrance(uv0:GetAwardIndex(false))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.rtMain:Find(&quot;list_bg/jump_icon_right&quot;), function ()
+		uv0:ScrollAndSelectEntrance(uv0:GetAwardIndex(true))
+	end, SFX_PANEL)
+	onButton(slot0, slot0.btnGetAll, function ()
+		slot0, slot1 = nowWorld():GetFinishAchievements(uv0.achEntranceList)
+
+		if #slot0 &gt; 0 then
+			pg.MsgboxMgr.GetInstance():ShowMsgBox({
+				content = i18n(&quot;world_target_get_all&quot;),
+				onYes = function ()
+					uv0:emit(WorldCollectionMediator.ON_ACHIEVE_STAR, uv1)
+				end
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(&quot;without any award&quot;)
+		end
+	end, SFX_CONFIRM)
+	onButton(slot0, slot0.achAchieveBtn, function ()
+		slot0, slot1 = nowWorld():AnyUnachievedAchievement(uv0.entrance)
+
+		if slot0 then
+			uv0:emit(WorldCollectionMediator.ON_ACHIEVE_STAR, {
+				{
+					id = uv0.entrance.id,
+					star_list = {
+						slot1.star
+					}
+				}
+			})
+		end
+	end, SFX_PANEL)
+	onButton(slot0, slot0.entrancePanel:Find(&quot;page_left&quot;), function ()
+		uv0:ScrollAndSelectEntrance(uv0.selectedIndex - 1)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.entrancePanel:Find(&quot;page_right&quot;), function ()
+		uv0:ScrollAndSelectEntrance(uv0.selectedIndex + 1)
+	end, SFX_PANEL)
+	onButton(slot0, slot0.overviewBtn, function ()
+		uv0:emit(WorldCollectionMediator.ON_ACHIEVE_OVERVIEW)
+	end, SFX_PANEL)
+	triggerToggle(slot0.topToggles:Find(&quot;all&quot;), true)
+end
+
+slot0.willExit = function(slot0)
+	slot0.subviewAchAward:Destroy()
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf)
+end
+
+slot0.SetAchievementList = function(slot0, slot1)
+	slot0.baseEntranceList = slot1
+end
+
+slot0.BuildEntranceScrollPos = function(slot0)
+	slot0.entrancePos = {}
+	slot0.entranceIndexDic = {}
+
+	for slot4, slot5 in ipairs(slot0.achEntranceList) do
+		table.insert(slot0.entrancePos, slot0.scrollEntrance:HeadIndexToValue(slot4 - 1))
+
+		slot0.entranceIndexDic[slot5.id] = slot4
+
+		if nowWorld():AnyUnachievedAchievement(slot5) then
+			table.insert(slot0.achAwardIndexList, slot4)
+		end
+	end
+end
+
+slot0.UpdateEntranceFilter = function(slot0, slot1)
+	if slot1 then
+		slot0.achEntranceList = underscore.filter(slot0.baseEntranceList, function (slot0)
+			slot1, slot2, slot3 = nowWorld():CountAchievements(slot0)
+
+			return slot3 &gt; slot1 + slot2
+		end)
+	else
+		slot0.achEntranceList = underscore.rest(slot0.baseEntranceList, 1)
+	end
+
+	slot0:UpdateGetAllAwardBtn()
+
+	slot0.achAwardIndexList = {}
+	slot0.entranceOjbecDic = {}
+
+	slot0.scrollEntrance:SetTotalCount(#slot0.achEntranceList)
+	slot0:BuildEntranceScrollPos()
+
+	slot0.contextData.entranceId = defaultValue(slot0.contextData.entranceId, 0)
+
+	if slot0.achEntranceList[defaultValue(slot0.entranceIndexDic[slot0.contextData.entranceId], 1)] then
+		slot0:ScrollAndSelectEntrance(slot2)
+	else
+		setActive(slot0.entrancePanel:Find(&quot;page_left&quot;), false)
+		setActive(slot0.entrancePanel:Find(&quot;page_right&quot;), false)
+	end
+end
+
+slot0.UpdateGetAllAwardBtn = function(slot0)
+	slot1, slot2 = nowWorld():GetFinishAchievements(slot0.achEntranceList)
+
+	setActive(slot0.btnGetAll, pg.gameset.world_target_obtain.key_value &lt;= #slot1)
+end
+
+slot0.FlushEntranceItem = function(slot0, slot1)
+	for slot5, slot6 in ipairs(slot1) do
+		if not nowWorld():AnyUnachievedAchievement(slot0.achEntranceList[slot0.entranceIndexDic[slot6.id]]) then
+			if slot0.entranceOjbecDic[slot7] then
+				setActive(slot0.entranceOjbecDic[slot7]:Find(&quot;icon/tip&quot;), false)
+			end
+
+			table.removebyvalue(slot0.achAwardIndexList, slot7)
+		end
+	end
+
+	slot0:UpdateGetAllAwardBtn()
+end
+
+slot0.UpdateAchievement = function(slot0, slot1, slot2)
+	if slot2 or slot0.selectedIndex ~= slot1 then
+		slot0.selectedIndex = slot1
+
+		for slot6, slot7 in ipairs({
+			slot0.selectedIndex,
+			slot0.selectedIndex
+		}) do
+			if slot0.entranceOjbecDic[slot7] then
+				setActive(slot8:Find(&quot;icon/select&quot;), slot0.selectedIndex == slot7)
+			end
+		end
+
+		slot0.entrance = slot0.achEntranceList[slot0.selectedIndex]
+
+		slot0:FlushAchievement()
+	end
+end
+
+slot0.GetAwardIndex = function(slot0, slot1)
+	if #slot0.achEntranceList == 0 then
+		return nil
+	end
+
+	slot2 = slot0.entrancePos[#slot0.achEntranceList] - 1
+
+	if slot1 then
+		slot3 = slot0.scrollEntrance.value + slot2
+
+		for slot7 = 1, #slot0.achAwardIndexList do
+			if slot3 &lt; slot0.entrancePos[slot0.achAwardIndexList[slot7]] then
+				return slot0.achAwardIndexList[slot7]
+			end
+		end
+
+		return nil
+	else
+		slot3 = slot0.scrollEntrance.value
+
+		for slot7 = #slot0.achAwardIndexList, 1, -1 do
+			if slot0.entrancePos[slot0.achAwardIndexList[slot7]] &lt; slot3 then
+				return slot0.achAwardIndexList[slot7]
+			end
+		end
+
+		return nil
+	end
+end
+
+slot0.ScrollAndSelectEntrance = function(slot0, slot1)
+	slot0:UpdateAchievement(slot1, true)
+	slot0.scrollEntrance:ScrollTo(math.clamp(slot0.entrancePos[slot1] - (slot0.entrancePos[#slot0.achEntranceList] - 1) / 2, 0, 1))
+end
+
+slot0.UpdateJumpBtn = function(slot0)
+	setActive(slot0.rtMain:Find(&quot;list_bg/jump_icon_left&quot;), slot0:GetAwardIndex(false))
+	setActive(slot0.rtMain:Find(&quot;list_bg/jump_icon_right&quot;), slot0:GetAwardIndex(true))
+end
+
+slot0.FlushAchievement = function(slot0)
+	slot0:UpdateJumpBtn()
+
+	slot1 = nowWorld()
+	slot0.showHiddenDesc = slot1:IsNormalAchievementAchieved(slot0.entrance)
+	slot0.targetList = slot1:GetAchievements(slot0.entrance)
+
+	slot0.targetItemList:align(#slot0.targetList)
+
+	slot2 = slot0.entrance:GetBaseMap()
+
+	GetImageSpriteFromAtlasAsync(&quot;world/targeticon/&quot; .. slot2.config.entrance_mapicon, &quot;&quot;, slot0.entranceTitle)
+	setText(slot0.entranceTitle:Find(&quot;name&quot;), slot2:GetName(slot0.entrance))
+	setText(slot0.entranceTitle:Find(&quot;deco_id&quot;), slot0.entrance.config.serial_number)
+
+	slot3, slot4, slot5 = slot1:CountAchievements(slot0.entrance)
+
+	setText(slot0.entranceTitle:Find(&quot;progress_text&quot;), slot3 + slot4 .. &quot;/&quot; .. slot5)
+
+	slot6, slot7 = slot1:AnyUnachievedAchievement(slot0.entrance)
+	slot8 = slot0.achAwardRect:Find(&quot;award&quot;)
+
+	if slot7 then
+		setActive(slot0.achAwardRect:Find(&quot;get_mask&quot;), slot6)
+		setActive(slot0.achAwardRect:Find(&quot;got_mask&quot;), false)
+	else
+		slot9 = slot0.entrance:GetAchievementAwards()
+		slot7 = slot9[#slot9]
+
+		setActive(slot0.achAwardRect:Find(&quot;get_mask&quot;), false)
+		setActive(slot0.achAwardRect:Find(&quot;got_mask&quot;), true)
+	end
+
+	updateDrop(slot8, slot7.drop)
+	onButton(slot0, slot8, function ()
+		uv0:showAchAwardPanel(uv0.entrance)
+	end, SFX_PANEL)
+	setText(slot0.achAwardRect:Find(&quot;star_count/Text&quot;), slot3 + slot4 .. &quot;/&quot; .. slot7.star)
+	setActive(slot0.achAchieveBtn, slot6)
+	setActive(slot0.entrancePanel:Find(&quot;page_left&quot;), slot0.selectedIndex &gt; 1)
+	setActive(slot0.entrancePanel:Find(&quot;page_right&quot;), slot0.selectedIndex &lt; #slot0.achEntranceList)
+end
+
+slot0.flushAchieveUpdate = function(slot0, slot1)
+	slot0:FlushEntranceItem(slot1)
+	slot0:FlushAchievement()
+end
+
+slot0.showAchAwardPanel = function(slot0, slot1)
+	slot0.subviewAchAward:Load()
+	slot0.subviewAchAward:ActionInvoke(&quot;Setup&quot;, slot1)
+	slot0.subviewAchAward:ActionInvoke(&quot;Show&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

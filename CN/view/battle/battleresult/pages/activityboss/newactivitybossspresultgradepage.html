@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newactivitybossspresultgradepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>newactivitybossspresultgradepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewActivityBossSPResultGradePage&quot;, import(&quot;.NewActivityBossResultGradePage&quot;))
+
+slot0.LoadBGAndGrade = function(slot0, slot1)
+	parallelAsync({
+		function (slot0)
+			uv0:LoadBG(slot0)
+		end,
+		function (slot0)
+			uv0:LoadGrade(slot0)
+		end,
+		function (slot0)
+			uv0:LoadActivityBossSPRes(slot0)
+		end
+	}, slot1)
+end
+
+slot0.LoadActivityBossSPRes = function(slot0, slot1)
+	slot2 = ResourceMgr.Inst
+
+	slot2:getAssetAsync(&quot;BattleResultItems/ActivitybossSP&quot;, &quot;&quot;, UnityEngine.Events.UnityAction_UnityEngine_Object(function (slot0)
+		if uv0.exited then
+			return
+		end
+
+		uv0:InitActivityPanel(Object.Instantiate(slot0, uv0.bgTr).transform)
+		uv1()
+	end), true, true)
+end
+
+slot0.InitActivityPanel = function(slot0, slot1)
+	slot1:SetSiblingIndex(1)
+
+	slot0.playAgain = slot1:Find(&quot;playAgain&quot;)
+	slot0.toggle = slot1:Find(&quot;playAgain/ticket/checkbox&quot;)
+	slot2 = getProxy(ActivityProxy):GetActivityBossRuntime(slot0.contextData.actId)
+	slot3 = slot2.spScore
+	slot2.spScore = {
+		score = 0
+	}
+
+	setText(slot1:Find(&quot;Score/Text&quot;), slot3.score)
+	setActive(slot1:Find(&quot;Score/NewText&quot;), slot3.new)
+	setActive(slot1:Find(&quot;Score/NotNewText&quot;), not slot3.new)
+	slot0:UpdateActiveBuffs(slot1:Find(&quot;Active&quot;), slot2.buffIds)
+	setText(slot1:Find(&quot;Score/Title&quot;), i18n(&quot;activityboss_sp_score&quot;))
+	setText(slot1:Find(&quot;Score/NewText&quot;), i18n(&quot;activityboss_sp_score_update&quot;))
+	setText(slot1:Find(&quot;Score/NotNewText&quot;), i18n(&quot;activityboss_sp_score_not_update&quot;))
+	setText(slot1:Find(&quot;Active/PTTitle&quot;), i18n(&quot;activityboss_sp_score_bonus&quot;))
+	setText(slot1:Find(&quot;Active/BuffTitle&quot;), i18n(&quot;activityboss_sp_active_buff&quot;))
+end
+
+slot0.UpdateActiveBuffs = function(slot0, slot1, slot2)
+	slot4 = slot1:Find(&quot;ScrollView&quot;)
+	slot4 = slot4:GetComponent(&quot;LScrollRect&quot;)
+
+	slot4.onUpdateItem = function(slot0, slot1)
+		slot3 = uv0[slot0 + 1]
+
+		setActive(tf(slot1):Find(&quot;Icon&quot;), tobool(slot3))
+
+		if not slot3 then
+			return
+		end
+
+		GetImageSpriteFromAtlasAsync(slot3:GetIconPath(), &quot;&quot;, slot2:Find(&quot;Icon&quot;))
+	end
+
+	slot4:SetTotalCount(20)
+	setText(slot1:Find(&quot;Text&quot;), &quot;+&quot; .. Mathf.Round(_.reduce(_.map(slot2, function (slot0)
+		return ActivityBossBuff.New({
+			configId = slot0
+		})
+	end), 0, function (slot0, slot1)
+		return slot0 + slot1:GetBonus()
+	end) * 100) .. &quot;%&quot;)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

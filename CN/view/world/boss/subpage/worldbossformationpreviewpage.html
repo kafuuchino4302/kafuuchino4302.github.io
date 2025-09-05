@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>worldbossformationpreviewpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>worldbossformationpreviewpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;WorldBossFormationPreViewPage&quot;, import(&quot;....base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;WorldBossFormationPreViewPage&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.shipList = {
+		slot0:findTF(&quot;frame/ships/1&quot;),
+		slot0:findTF(&quot;frame/ships/2&quot;),
+		slot0:findTF(&quot;frame/ships/3&quot;)
+	}
+	slot0.returnBtn = slot0:findTF(&quot;frame/return&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.returnBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	onToggle(slot0, slot0:findTF(&quot;frame/toggles/main&quot;), function (slot0)
+		if slot0 then
+			uv0:Switch(1)
+		end
+	end, SFX_PANEL)
+	onToggle(slot0, slot0:findTF(&quot;frame/toggles/vanguard&quot;), function (slot0)
+		if slot0 then
+			uv0:Switch(2)
+		end
+	end, SFX_PANEL)
+end
+
+slot0.Switch = function(slot0, slot1)
+	slot2 = slot0.ships[slot1]
+
+	for slot6, slot7 in ipairs(slot0.shipList) do
+		slot0:UpdateShip(slot7, slot2[slot6])
+	end
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	setParent(slot0._tf, pg.UIMgr.GetInstance().UIMain)
+
+	slot2 = {}
+	slot3 = {}
+
+	for slot7, slot8 in ipairs(slot1) do
+		if slot8:getTeamType() == TeamType.Vanguard then
+			table.insert(slot3, slot8)
+		elseif slot9 == TeamType.Main then
+			table.insert(slot2, slot8)
+		end
+	end
+
+	slot0.ships = {
+		slot2,
+		slot3
+	}
+
+	triggerToggle(slot0:findTF(&quot;frame/toggles/main&quot;), true)
+end
+
+slot0.OnHide = function(slot0)
+	uv0.super.OnHide(slot0)
+end
+
+slot0.UpdateShip = function(slot0, slot1, slot2)
+	setActive(slot1:Find(&quot;bg/info&quot;), slot2)
+
+	if slot2 then
+		slot6 = UIItemList.New(slot3:Find(&quot;stars&quot;), slot3:Find(&quot;stars/star_tpl&quot;))
+		slot3:Find(&quot;name&quot;):GetComponent(typeof(Text)).text = shortenString(slot2:getName(), 6)
+		slot3:Find(&quot;ship_type&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;shiptype&quot;, shipType2print(pg.ship_data_statistics[slot2.configId].type))
+		slot10 = slot2:getStar()
+
+		slot6:make(function (slot0, slot1, slot2)
+			if slot0 == UIItemList.EventUpdate then
+				setActive(slot2:Find(&quot;star_tpl&quot;), slot1 &lt;= uv0)
+			end
+		end)
+		slot6:align(slot2:getMaxStar())
+
+		slot3:Find(&quot;lv&quot;):GetComponent(typeof(Text)).text = &quot;Lv.&quot; .. slot2.level
+		slot3:Find(&quot;mask/icon&quot;):GetComponent(typeof(Image)).sprite = LoadSprite(&quot;HeroHrzIcon/&quot; .. slot2:getPainting())
+	end
+
+	slot1:Find(&quot;bg/line&quot;).sizeDelta = slot2 and Vector2(235, 2) or Vector2(461, 2)
+
+	slot0:UpdateEquipments(slot3, slot2)
+end
+
+slot0.UpdateEquipments = function(slot0, slot1, slot2)
+	slot3 = UIItemList.New(slot1.parent:Find(&quot;equipemtns&quot;), slot1.parent:Find(&quot;equipemtns/equipment_tpl&quot;))
+	slot4 = slot2 and slot2:getActiveEquipments() or {}
+
+	slot3:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			setActive(slot2:Find(&quot;info&quot;), slot3)
+			setActive(slot2:Find(&quot;empty&quot;), not slot3)
+
+			if slot3 then
+				updateEquipment(slot2:Find(&quot;info&quot;), slot3)
+				onButton(uv1, slot2, function ()
+					uv0:emit(BaseUI.ON_EQUIPMENT, {
+						type = EquipmentInfoMediator.TYPE_DISPLAY,
+						equipment = uv1
+					})
+				end, SFX_PANEL)
+			else
+				removeOnButton(slot2)
+			end
+		end
+	end)
+	slot3:align(5)
+end
+
+slot0.OnDestroy = function(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

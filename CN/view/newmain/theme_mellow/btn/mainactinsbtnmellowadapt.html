@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mainactinsbtnmellowadapt.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mainactinsbtnmellowadapt.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainActInsBtnMellowAdapt&quot;, import(&quot;.MainDifferentStyleSpActBtnAdapt&quot;))
+
+slot0.GetContainer = function(slot0)
+	return slot0.root:Find(&quot;left&quot;)
+end
+
+slot0.OnInit = function(slot0)
+	slot1 = getProxy(InstagramProxy):ShouldShowTip() or getProxy(InstagramChatProxy):ShouldShowTip()
+
+	setActive(slot0._tf:Find(&quot;tip&quot;), slot1)
+
+	slot0.textTr = slot0._tf:Find(&quot;Text&quot;):GetComponent(typeof(Text))
+	slot0.systemTimeUtil = slot0.systemTimeUtil or SystemTimeUtil.New()
+
+	slot0:AddTimer()
+
+	slot2 = slot0._tf:GetComponent(typeof(Animation))
+
+	if slot1 then
+		slot2:Play(&quot;shake&quot;)
+	else
+		slot2:Stop()
+
+		slot0._tf.localEulerAngles = Vector3.zero
+	end
+
+	slot3 = getProxy(AppreciateProxy):CanPlayMainMusicPlayer()
+
+	setActive(slot0._tf:Find(&quot;base&quot;), not slot3)
+	setActive(slot0._tf:Find(&quot;music&quot;), slot3)
+end
+
+slot0.AddTimer = function(slot0)
+	slot1 = slot0.systemTimeUtil
+
+	slot1:SetUp(function (slot0, slot1, slot2)
+		uv0.textTr.text = slot0 .. &quot;:&quot; .. slot1
+	end)
+end
+
+slot0.RemoveTimer = function(slot0)
+	if slot0.systemTimeUtil then
+		slot0.systemTimeUtil:Dispose()
+
+		slot0.systemTimeUtil = nil
+	end
+end
+
+slot0.OnClear = function(slot0)
+	slot0:RemoveTimer()
+end
+
+slot0.OnDisable = function(slot0)
+	slot0:RemoveTimer()
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

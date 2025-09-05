@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>triggertaskcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>triggertaskcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;TriggerTaskCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getType()
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(20007, {
+		id = slot1:getBody()
+	}, 20008, function (slot0)
+		if slot0.result == 0 then
+			getProxy(TaskProxy):addTask(Task.New({
+				id = uv0
+			}))
+			uv1:sendNotification(GAME.TRIGGER_TASK_DONE)
+
+			if uv2 then
+				uv2(true)
+			end
+		elseif uv2 then
+			uv2(false)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

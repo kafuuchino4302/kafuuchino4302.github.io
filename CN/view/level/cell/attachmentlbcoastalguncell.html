@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attachmentlbcoastalguncell.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>attachmentlbcoastalguncell.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;AttachmentLBCoastalGunCell&quot;, import(&quot;view.level.cell.StaticCellView&quot;))
+slot0.StateLive = 1
+slot0.StateDead = 2
+
+slot0.GetOrder = function(slot0)
+	return ChapterConst.CellPriorityAttachment
+end
+
+slot0.Update = function(slot0)
+	slot1 = slot0.info
+
+	if IsNil(slot0.go) then
+		slot0:PrepareBase(&quot;landbase_&quot; .. slot1.attachmentId)
+	end
+
+	slot2 = slot0.state
+
+	if slot1.flag == ChapterConst.CellFlagActive and slot0.state ~= uv0.StateLive then
+		slot0.state = uv0.StateLive
+		slot0.dead = nil
+
+		slot0:ClearLoader()
+		assert(pg.land_based_template[slot1.attachmentId], &quot;land_based_template not exist: &quot; .. slot1.attachmentId)
+
+		slot4 = slot0:GetLoader()
+
+		slot4:GetPrefab(&quot;leveluiview/Tpl_Enemy&quot;, &quot;Tpl_Enemy&quot;, function (slot0)
+			setParent(slot0, uv0.tf)
+
+			tf(slot0).anchoredPosition = Vector2(0, 10)
+
+			uv0:GetLoader():GetSprite(&quot;enemies/&quot; .. uv1.prefab, &quot;&quot;, findTF(slot0, &quot;icon&quot;))
+			setActive(findTF(slot0, &quot;lv&quot;), false)
+			setActive(findTF(slot0, &quot;titleContain/bg_boss&quot;), false)
+			setActive(findTF(slot0, &quot;damage_count&quot;), false)
+			setActive(findTF(slot0, &quot;fighting&quot;), false)
+
+			uv0.enemy = slot0
+
+			uv0:Update()
+		end)
+	elseif slot1.flag == ChapterConst.CellFlagDisabled and slot0.state ~= uv0.StateDead then
+		slot0.state = uv0.StateDead
+
+		if not IsNil(slot0.enemy) then
+			slot3 = slot0.enemy
+
+			setActive(findTF(slot3, &quot;lv&quot;), true)
+			setActive(findTF(slot3, &quot;titleContain&quot;), true)
+			setActive(findTF(slot3, &quot;damage_count&quot;), true)
+			setActive(findTF(slot3, &quot;fighting&quot;), true)
+		end
+
+		slot0.enemy = nil
+
+		slot0:ClearLoader()
+		assert(pg.land_based_template[slot1.attachmentId], &quot;land_based_template not exist: &quot; .. slot1.attachmentId)
+
+		slot4 = slot0:GetLoader()
+
+		slot4:GetPrefab(&quot;leveluiview/Tpl_Dead&quot;, &quot;Tpl_Dead&quot;, function (slot0)
+			setParent(slot0, uv0.tf)
+
+			tf(slot0).anchoredPosition = Vector2(0, 10)
+
+			uv0:GetLoader():GetSprite(&quot;enemies/&quot; .. uv1.prefab .. &quot;_d_blue&quot;, &quot;&quot;, findTF(slot0, &quot;icon&quot;))
+			setActive(findTF(slot0, &quot;effect_not_open&quot;), false)
+			setActive(findTF(slot0, &quot;effect_open&quot;), false)
+			setActive(findTF(slot0, &quot;huoqiubaozha&quot;), uv2 == uv3.StateLive)
+
+			uv0.dead = slot0
+
+			uv0:ResetCanvasOrder()
+			uv0:Update()
+		end)
+	end
+
+	if slot1.flag == ChapterConst.CellFlagActive and slot0.enemy then
+		setActive(findTF(slot0.enemy, &quot;effect_found&quot;), slot1.trait == ChapterConst.TraitVirgin)
+
+		if slot1.trait == ChapterConst.TraitVirgin then
+			pg.CriMgr.GetInstance():PlaySoundEffect_V3(SFX_UI_WEIGHANCHOR_ENEMY)
+		end
+	end
+end
+
+slot0.DestroyGO = function(slot0)
+	if not IsNil(slot0.enemy) then
+		slot1 = slot0.enemy
+
+		setActive(findTF(slot1, &quot;lv&quot;), true)
+		setActive(findTF(slot1, &quot;titleContain&quot;), true)
+		setActive(findTF(slot1, &quot;damage_count&quot;), true)
+		setActive(findTF(slot1, &quot;fighting&quot;), true)
+	end
+
+	uv0.super.DestroyGO(slot0)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

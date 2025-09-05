@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metacharactertacticslayer.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>metacharactertacticslayer.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MetaCharacterTacticsLayer&quot;, import(&quot;...base.BaseUI&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;MetaCharacterTacticsUI&quot;
+end
+
+slot0.init = function(slot0)
+	slot0:initUITextTips()
+	slot0:initData()
+	slot0:initUI()
+	slot0:addListener()
+end
+
+slot0.didEnter = function(slot0)
+	slot0:updateRedTag()
+	slot0:updateShipImg()
+	slot0:updateNamePanel()
+	slot0:updateChar()
+	slot0:updateSkillListPanel()
+	slot0:enablePartialBlur()
+
+	if slot0.contextData.isMainOpen then
+		slot0.contextData.isMainOpen = nil
+
+		slot0:moveShipImg(true)
+	end
+
+	slot0:moveRightPanel()
+end
+
+slot0.willExit = function(slot0)
+	slot0:moveShipImg(false)
+	slot0:recycleChar()
+	slot0:disablePartialBlur()
+end
+
+slot0.onBackPressed = function(slot0)
+	if isActive(slot0.skillUnlockPanel) then
+		slot0:closeUnlockSkillPanel()
+
+		return
+	else
+		slot0:emit(uv0.ON_BACK_PRESSED)
+	end
+end
+
+slot0.initUITextTips = function(slot0)
+	setText(slot0:findTF(&quot;ExpEveryDay&quot;, slot0:findTF(&quot;ExpPanel&quot;)), i18n(&quot;meta_exp_per_day&quot;))
+	setText(slot0:findTF(&quot;TaskPanel/StudySkillTip/TipText&quot;), i18n(&quot;meta_skill_unlock&quot;))
+end
+
+slot0.initData = function(slot0)
+	slot0.metaCharacterProxy = getProxy(MetaCharacterProxy)
+	slot0.bayProxy = getProxy(BayProxy)
+	slot0.shipPrefab = nil
+	slot0.shipModel = nil
+	slot0.curMetaShipID = slot0.contextData.shipID
+	slot0.curShipVO = nil
+	slot0.curMetaCharacterVO = nil
+
+	slot0:updateData()
+
+	slot0.skillBtnList = {}
+	slot0.curUnlockSkillID = nil
+	slot0.curUnlockMaterialID = nil
+	slot0.curUnlockMaterialNeedCount = nil
+end
+
+slot0.updateData = function(slot0)
+	slot0.curShipVO = slot0.bayProxy:getShipById(slot0.curMetaShipID)
+	slot0.curMetaCharacterVO = slot0.curShipVO:getMetaCharacter()
+end
+
+slot0.setTacticsData = function(slot0, slot1)
+	slot0.doubleExpValue = slot1.doubleExp
+	slot0.normalExpValue = slot1.normalExp
+	slot0.curSkillID = slot1.curSkillID
+	slot0.switchCountLeft = slot1.switchCount
+	slot0.taskInfoTable = slot1.taskInfoTable
+	slot0.skillExpTable = slot1.skillExpTable
+	slot1 = nil
+end
+
+slot0.switchTacticsSkillData = function(slot0, slot1, slot2)
+	slot0.curSkillID = slot1
+	slot0.switchCountLeft = slot2
+end
+
+slot0.levelupTacticsSkillData = function(slot0, slot1, slot2)
+	slot0.skillExpTable[slot1] = 0
+	slot0.switchCountLeft = slot2
+
+	slot0:clearTaskInfo()
+end
+
+slot0.updateSkillExp = function(slot0, slot1, slot2)
+	slot0.skillExpTable[slot1] = slot2
+end
+
+slot0.clearTaskInfo = function(slot0, slot1)
+	slot0.taskInfoTable[slot1] = {}
+end
+
+slot0.initUI = function(slot0)
+	slot0.shipImg = slot0:findTF(&quot;ShipImg&quot;)
+	slot0.nameTF = slot0:findTF(&quot;NamePanel&quot;)
+	slot0.nameScrollText = slot0:findTF(&quot;NameMask/NameText&quot;, slot0.nameTF)
+	slot0.shipTypeImg = slot0:findTF(&quot;TypeImg&quot;, slot0.nameTF)
+	slot0.enNameText = slot0:findTF(&quot;NameENText&quot;, slot0.nameTF)
+	slot0.nameTFStarUIList = UIItemList.New(slot0:findTF(&quot;StarContainer&quot;, slot0.nameTF), slot0:findTF(&quot;StarTpl&quot;, slot0.nameTF))
+	slot0.expPanel = slot0:findTF(&quot;ExpPanel&quot;)
+	slot0.expText = slot0:findTF(&quot;ExpText&quot;, slot0.expPanel)
+	slot0.expDoubleTag = slot0:findTF(&quot;DoubleTag&quot;, slot0.expText)
+	slot0.taskPanel = slot0:findTF(&quot;TaskPanel&quot;)
+	slot0.qCharContainer = slot0:findTF(&quot;QChar&quot;, slot0.taskPanel)
+	slot0.taskTpl = slot0:findTF(&quot;TaskTpl&quot;, slot0.taskPanel)
+	slot0.taskScrollTF = slot0:findTF(&quot;ScrollView&quot;, slot0.taskPanel)
+	slot0.taskTplContainer = slot0:findTF(&quot;ScrollView/Viewport/Content&quot;, slot0.taskPanel)
+	slot0.taskScrollBar = slot0:findTF(&quot;ScrollView/Scrollbar Vertical&quot;, slot0.taskPanel)
+	slot0.taskUIItemList = UIItemList.New(slot0.taskTplContainer, slot0.taskTpl)
+	slot0.skillInfoPanel = slot0:findTF(&quot;SkillInfo&quot;, slot0.taskPanel)
+	slot0.curSkillIcon = slot0:findTF(&quot;Skill/Icon&quot;, slot0.skillInfoPanel)
+	slot0.curSkillNameScrollText = slot0:findTF(&quot;NameMask/Name&quot;, slot0.skillInfoPanel)
+	slot0.curSkillLevelText = slot0:findTF(&quot;LevelInfo/CurLevel&quot;, slot0.skillInfoPanel)
+	slot0.nextSkillLevelText = slot0:findTF(&quot;LevelInfo/NextLevel&quot;, slot0.skillInfoPanel)
+	slot0.curSkillDescText = slot0:findTF(&quot;DescView/Viewport/SkillDesc&quot;, slot0.skillInfoPanel)
+	slot0.curSkillProgressText = slot0:findTF(&quot;ExpProgress/Text&quot;, slot0.skillInfoPanel)
+	slot0.curSkillProgressSlider = slot0:findTF(&quot;ExpSlider&quot;, slot0.skillInfoPanel)
+	slot0.curSkillQuickBtn = slot0:findTF(&quot;QuickBtn&quot;, slot0.skillInfoPanel)
+	slot0.studySkillTip = slot0:findTF(&quot;StudySkillTip&quot;, slot0.taskPanel)
+	slot0.startSkillTip = slot0:findTF(&quot;StartLearn&quot;, slot0.taskPanel)
+	slot0.maxSkillTip = slot0:findTF(&quot;SkillMax&quot;, slot0.taskPanel)
+	slot0.studySkillBtn = slot0:findTF(&quot;StartLearnBtn&quot;, slot0.startSkillTip)
+	slot0.skillPanel = slot0:findTF(&quot;SkillPanel&quot;)
+	slot0.skillTpl = slot0:findTF(&quot;SkillTpl&quot;, slot0.skillPanel)
+	slot0.skillContainer = slot0:findTF(&quot;Skills/Content&quot;, slot0.skillPanel)
+	slot0.skillUIItemList = UIItemList.New(slot0.skillContainer, slot0.skillTpl)
+	slot0.skillUnlockPanel = slot0:findTF(&quot;SkillLearnBox&quot;)
+	slot0.skillUnlockPanelBG = slot0:findTF(&quot;BG&quot;, slot0.skillUnlockPanel)
+	slot0.skillUnlockPanelTipText = slot0:findTF(&quot;Box/TipText&quot;, slot0.skillUnlockPanel)
+	slot0.skillUnlockPanelCancelBtn = slot0:findTF(&quot;Box/Btns/CancenBtn&quot;, slot0.skillUnlockPanel)
+	slot0.skillUnlockPanelConfirmBtn = slot0:findTF(&quot;Box/Btns/ConfirmBtn&quot;, slot0.skillUnlockPanel)
+	slot0.materialTpl = slot0:findTF(&quot;Box/Material&quot;, slot0.skillUnlockPanel)
+	slot0.materialTplContainer = slot0:findTF(&quot;Box/MaterialContainer&quot;, slot0.skillUnlockPanel)
+	slot0.materialUIItemList = UIItemList.New(slot0.materialTplContainer, slot0.materialTpl)
+end
+
+slot0.addListener = function(slot0)
+	onButton(slot0, slot0.skillUnlockPanelBG, function ()
+		uv0:closeUnlockSkillPanel()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.skillUnlockPanelCancelBtn, function ()
+		uv0:closeUnlockSkillPanel()
+	end, SFX_PANEL)
+	onButton(slot0, slot0.skillUnlockPanelConfirmBtn, function ()
+		if not uv0.curUnlockMaterialID then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;meta_unlock_skill_select&quot;))
+
+			return
+		elseif getProxy(BagProxy):getItemCountById(uv0.curUnlockMaterialID) &lt; uv0.curUnlockMaterialNeedCount then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;word_materal_no_enough&quot;))
+		else
+			slot1 = 0
+			slot2 = 0
+
+			for slot8, slot9 in ipairs(uv0:getMetaSkillTacticsConfigBySkillID(uv0.curUnlockSkillID, 1).skill_unlock) do
+				if uv0.curUnlockMaterialID == slot9[2] then
+					slot1 = slot8
+					slot2 = slot9[3]
+
+					break
+				end
+			end
+
+			pg.m02:sendNotification(GAME.TACTICS_META_UNLOCK_SKILL, {
+				shipID = uv0.curMetaShipID,
+				skillID = uv0.curUnlockSkillID,
+				materialIndex = slot1,
+				materialInfo = {
+					id = uv0.curUnlockMaterialID,
+					count = slot2
+				}
+			})
+		end
+	end, SFX_PANEL)
+end
+
+slot0.updateRedTag = function(slot0)
+	slot0.metaCharacterProxy:updateRedTag(slot0.curMetaCharacterVO.id)
+end
+
+slot0.updateShipImg = function(slot0)
+	slot1, slot2 = MetaCharacterConst.GetMetaCharacterPaintPath(slot0.curMetaCharacterVO.id, true)
+
+	setImageSprite(slot0.shipImg, LoadSprite(slot1, slot2), true)
+
+	slot4 = MetaCharacterConst.UIConfig[slot0.curMetaCharacterVO.id]
+
+	setLocalPosition(slot0.shipImg, {
+		x = slot4[7],
+		y = slot4[8]
+	})
+	setLocalScale(slot0.shipImg, {
+		x = slot4[3],
+		y = slot4[4]
+	})
+end
+
+slot0.updateNamePanel = function(slot0)
+	slot1 = slot0.curShipVO
+	slot2 = slot0.curMetaCharacterVO
+
+	setScrollText(slot0.nameScrollText, slot1:getName())
+	setImageSprite(slot0.shipTypeImg, LoadSprite(&quot;shiptype&quot;, slot1:getShipType()))
+	setText(slot0.enNameText, slot1:getConfig(&quot;english_name&quot;))
+
+	slot7 = slot1:getStar()
+
+	slot0.nameTFStarUIList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0:findTF(&quot;empty&quot;, slot2)
+
+			setActive(uv0:findTF(&quot;on&quot;, slot2), slot1 + 1 &lt;= uv1)
+		end
+	end)
+	slot0.nameTFStarUIList:align(slot1:getMaxStar())
+end
+
+slot0.updateChar = function(slot0)
+end
+
+slot0.recycleChar = function(slot0)
+	if slot0.shipPrefab and slot0.shipModel then
+		PoolMgr.GetInstance():ReturnSpineChar(slot0.shipPrefab, slot0.shipModel)
+
+		slot0.shipPrefab = nil
+		slot0.shipModel = nil
+	end
+end
+
+slot0.updateSkillListPanel = function(slot0)
+	slot2 = slot0.curMetaCharacterVO
+
+	slot0.skillUIItemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate and uv0[slot1 + 1] then
+			uv1.skillBtnList[slot3] = slot2
+
+			uv1:updateSkillTF(slot2, slot3)
+		end
+	end)
+	slot0.skillUIItemList:align(#slot0:getSkillIDListForShow(slot0.curShipVO.configId))
+end
+
+slot0.updateSkillTF = function(slot0, slot1, slot2)
+	slot4 = slot0.curMetaCharacterVO
+	slot6 = slot0:findTF(&quot;Skill/Level&quot;, slot1)
+	slot8 = slot0:findTF(&quot;Skill/Arrow&quot;, slot1)
+	slot9 = slot0:findTF(&quot;Lock&quot;, slot1)
+	slot10 = slot0:findTF(&quot;Learning&quot;, slot1)
+	slot11 = getSkillConfig(slot2)
+
+	setImageSprite(slot0:findTF(&quot;Skill/Icon&quot;, slot1), LoadSprite(&quot;skillicon/&quot; .. slot11.icon))
+	setScrollText(slot0:findTF(&quot;Skill/Mask/Name&quot;, slot1), getSkillName(slot11.id))
+
+	if slot0.curShipVO:getMetaSkillLevelBySkillID(slot2) &gt; 0 then
+		setText(slot6, &quot;LEVEL: &quot; .. slot12)
+		setActive(slot9, false)
+		onButton(slot0, slot1, function ()
+			if not isActive(uv0) then
+				eachChild(uv1.skillContainer, function (slot0)
+					setActive(uv0:findTF(&quot;Skill/Arrow&quot;, slot0), false)
+				end)
+				setActive(uv0, true)
+				uv1:updateTaskPanel(uv2)
+			end
+		end, SFX_PANEL)
+	else
+		setText(slot6, &quot;LEVEL: ??&quot;)
+		setActive(slot9, true)
+		onButton(slot0, slot1, function ()
+			uv0:openUnlockSkillPanel(uv1)
+		end, SFX_PANEL)
+	end
+end
+
+slot0.updateSkillTFLearning = function(slot0)
+	slot1 = slot0.curShipVO
+
+	for slot5, slot6 in pairs(slot0.skillBtnList) do
+		setActive(slot0:findTF(&quot;Learning&quot;, slot6), slot5 == slot0.curSkillID and not slot1:isSkillLevelMax(slot5))
+	end
+end
+
+slot0.TryPlayGuide = function(slot0)
+	pg.SystemGuideMgr.GetInstance():PlayByGuideId(&quot;NG0025&quot;)
+end
+
+slot0.updateExpPanel = function(slot0)
+	slot2 = slot0:isAllSkillMaxLevel()
+
+	if slot0:isAllSkillLock() or slot2 then
+		setActive(slot0.expPanel, false)
+	elseif slot0.curSkillID &gt; 0 then
+		setActive(slot0.expPanel, true)
+		setText(slot0.expText, slot0.normalExpValue .. &quot;/&quot; .. pg.gameset.meta_skill_exp_max.key_value)
+		setActive(slot0.expDoubleTag, slot0.doubleExpValue &lt; pg.gameset.meta_skill_exp_double.key_value)
+	else
+		setActive(slot0.expPanel, false)
+	end
+end
+
+slot0.updateSkillInfoPanel = function(slot0, slot1)
+	slot3 = getSkillConfig(slot1)
+
+	setImageSprite(slot0.curSkillIcon, LoadSprite(&quot;skillicon/&quot; .. slot3.icon))
+	setScrollText(slot0.curSkillNameScrollText, getSkillName(slot3.id))
+
+	slot6 = pg.skill_data_template[slot1].max_level &lt;= slot0.curShipVO:getMetaSkillLevelBySkillID(slot1)
+
+	setText(slot0.curSkillLevelText, slot5)
+	setText(slot0.nextSkillLevelText, math.min(slot5 + 1, slot4))
+	setText(slot0.curSkillDescText, getSkillDesc(slot1, slot2:getMetaSkillLevelBySkillID(slot1)))
+	setActive(slot0.curSkillQuickBtn, not slot6 and not LOCK_META_SKILL_QUICK)
+	onButton(slot0, slot0.curSkillQuickBtn, function ()
+		uv0:emit(MetaCharacterTacticsMediator.ON_QUICK, uv0.curShipVO.id, uv1)
+	end, SFX_PANEL)
+
+	slot8 = slot0.skillExpTable[slot1] or 0
+
+	if not slot6 then
+		slot10 = slot0:getMetaSkillTacticsConfigBySkillID(slot1, slot5).need_exp
+
+		setText(slot0.curSkillProgressText, slot8 .. &quot;/&quot; .. slot10)
+		setSlider(slot0.curSkillProgressSlider, 0, slot10, slot8)
+
+		if slot8 &lt; slot10 then
+			-- Nothing
+		end
+	else
+		setText(slot0.curSkillProgressText, slot8 .. &quot;/Max&quot;)
+		setSlider(slot0.curSkillProgressSlider, 0, 1, 1)
+	end
+end
+
+slot0.updateTaskListPanel = function(slot0, slot1)
+	slot0.taskUIItemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0:findTF(&quot;Desc&quot;, slot2)
+			slot5 = uv0:findTF(&quot;Text&quot;, slot2)
+			slot9 = uv0:getTaskInfoBySkillAndTaskID(uv2, uv1[slot1 + 1][1]) and slot8.finishCount or 0
+
+			setText(uv0:findTF(&quot;AddExp&quot;, slot2), &quot;+&quot; .. slot6[3])
+
+			if slot6[2] == 0 then
+				setText(slot5, slot9 .. &quot;/∞&quot;)
+			else
+				setText(slot5, slot9 .. &quot;/&quot; .. slot11)
+			end
+
+			setText(slot3, pg.task_meta_data_template[slot7].desc)
+		end
+	end)
+	slot0.taskUIItemList:align(#slot0:sortTaskConfig(slot1, slot0:getMetaSkillTacticsConfigBySkillID(slot1, slot0.curShipVO:getMetaSkillLevelBySkillID(slot1)).skill_levelup_task))
+end
+
+slot0.updateTaskPanel = function(slot0, slot1)
+	slot3 = slot0.curMetaCharacterVO
+
+	if slot0.curShipVO:isSkillLevelMax(slot1) == true then
+		setActive(slot0.studySkillTip, false)
+		setActive(slot0.startSkillTip, false)
+		setActive(slot0.maxSkillTip, true)
+		setActive(slot0.skillInfoPanel, true)
+		setActive(slot0.taskTplContainer, false)
+		setActive(slot0.taskScrollBar, false)
+		slot0:updateSkillInfoPanel(slot1)
+	elseif slot1 ~= slot0.curSkillID then
+		setActive(slot0.studySkillTip, false)
+		setActive(slot0.startSkillTip, true)
+		setActive(slot0.maxSkillTip, false)
+		setActive(slot0.skillInfoPanel, true)
+		setActive(slot0.taskTplContainer, true)
+		setActive(slot0.taskScrollBar, true)
+		slot0:updateSkillInfoPanel(slot1)
+		slot0:updateTaskListPanel(slot1)
+		onButton(slot0, slot0.studySkillBtn, function ()
+			if uv0.switchCountLeft == 0 then
+				pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;meta_switch_skill_disable&quot;))
+			else
+				pg.MsgboxMgr.GetInstance():ShowMsgBox({
+					content = i18n(&quot;meta_switch_skill_box_title&quot;, getSkillName(uv1)),
+					onYes = function ()
+						pg.m02:sendNotification(GAME.TACTICS_META_SWITCH_SKILL, {
+							shipID = uv0.id,
+							skillID = uv1
+						})
+					end,
+					weight = LayerWeightConst.TOP_LAYER
+				})
+			end
+		end, SFX_PANEL)
+	else
+		setActive(slot0.studySkillTip, false)
+		setActive(slot0.startSkillTip, false)
+		setActive(slot0.maxSkillTip, false)
+		setActive(slot0.skillInfoPanel, true)
+		setActive(slot0.taskTplContainer, true)
+		setActive(slot0.taskScrollBar, true)
+		slot0:updateSkillInfoPanel(slot1)
+		slot0:updateTaskListPanel(slot1)
+	end
+end
+
+slot0.updateMain = function(slot0)
+	slot2 = slot0:getSkillIDListForShow(slot0.curShipVO.configId)
+	slot3 = true
+	slot4 = 0
+	slot3, slot4 = slot0:isAllSkillLock()
+
+	setActive(slot0.taskScrollTF, not slot3)
+
+	if slot3 then
+		setActive(slot0.expPanel, false)
+		setActive(slot0.skillInfoPanel, false)
+		setActive(slot0.taskTplContainer, false)
+		setActive(slot0.taskScrollBar, false)
+		setActive(slot0.studySkillTip, true)
+		setActive(slot0.startSkillTip, false)
+		setActive(slot0.maxSkillTip, false)
+	elseif slot0.curUnlockSkillID then
+		triggerButton(slot0.skillBtnList[slot0.curUnlockSkillID])
+	elseif slot0.curSkillID &gt; 0 then
+		triggerButton(slot0.skillBtnList[slot0.curSkillID])
+	else
+		triggerButton(slot0.skillBtnList[slot4])
+	end
+end
+
+slot0.tryLearnSkillAfterFirstUnlock = function(slot0)
+	slot1 = slot0.curUnlockSkillID
+
+	slot0:switchTacticsSkillData(slot1, 1)
+	slot0:updateExpPanel()
+	slot0:updateTaskPanel(slot1)
+	slot0:updateSkillTFLearning()
+	slot0:TryPlayGuide()
+end
+
+slot0.moveShipImg = function(slot0, slot1)
+	slot3 = MetaCharacterConst.UIConfig[slot0.curMetaCharacterVO.id]
+
+	slot0:managedTween(LeanTween.moveX, nil, rtf(slot0.shipImg), slot1 and slot3[7] or -2000, 0.2):setFrom(slot1 and -2000 or slot3[7])
+end
+
+slot0.moveRightPanel = function(slot0)
+	slot1 = 2000
+	slot2 = 500
+
+	slot0:managedTween(LeanTween.moveX, nil, rtf(slot0.skillPanel), slot2, 0.2):setFrom(slot1)
+	slot0:managedTween(LeanTween.moveX, nil, rtf(slot0.taskPanel), slot2, 0.2):setFrom(slot1)
+end
+
+slot0.openUnlockSkillPanel = function(slot0, slot1)
+	slot2 = slot0.curShipVO
+	slot0.curUnlockSkillID = slot1
+
+	setText(slot0.skillUnlockPanelTipText, i18n(&quot;meta_unlock_skill_tip&quot;, ShipGroup.getDefaultShipNameByGroupID(slot0.curMetaCharacterVO.id), getSkillName(slot1)))
+
+	slot6 = slot0:getMetaSkillTacticsConfigBySkillID(slot1, 1)
+	slot7 = slot6.skill_unlock
+
+	slot0.materialUIItemList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0[slot1 + 1]
+
+			updateDrop(uv1:findTF(&quot;Item&quot;, slot2), {
+				type = DROP_TYPE_ITEM,
+				id = slot3[2],
+				count = slot3[3]
+			})
+			setActive(uv1:findTF(&quot;SelectedTag&quot;, slot2), false)
+			setText(uv1:findTF(&quot;Count/Text&quot;, slot2), (getProxy(BagProxy):getItemCountById(slot3[2]) &lt; slot3[3] and setColorStr(slot10, COLOR_RED) or setColorStr(slot10, COLOR_GREEN)) .. &quot;/&quot; .. slot9)
+
+			uv1.curUnlockMaterialID = slot8
+			uv1.curUnlockMaterialNeedCount = slot9
+		end
+	end)
+	slot0.materialUIItemList:align(#{
+		slot6.skill_unlock[1]
+	})
+	setActive(slot0.skillUnlockPanel, true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0.skillUnlockPanel, false, {
+		weight = LayerWeightConst.TOP_LAYER
+	})
+end
+
+slot0.closeUnlockSkillPanel = function(slot0)
+	slot0.curUnlockSkillID = nil
+	slot0.curUnlockMaterialID = nil
+	slot0.curUnlockMaterialNeedCount = nil
+
+	setActive(slot0.skillUnlockPanel, false)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0.skillUnlockPanel, slot0._tf)
+end
+
+slot0.enablePartialBlur = function(slot0)
+	if slot0._tf then
+		slot1 = {}
+
+		table.insert(slot1, slot0.taskPanel)
+		table.insert(slot1, slot0.skillPanel)
+		pg.UIMgr.GetInstance():OverlayPanelPB(slot0._tf, {
+			pbList = slot1,
+			groupName = LayerWeightConst.GROUP_META,
+			weight = LayerWeightConst.BASE_LAYER - 1
+		})
+	end
+end
+
+slot0.disablePartialBlur = function(slot0)
+	if slot0._tf then
+		pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf)
+	end
+end
+
+slot0.getMetaSkillTacticsConfigBySkillID = function(slot0, slot1, slot2)
+	return MetaCharacterConst.getMetaSkillTacticsConfig(slot1, slot2)
+end
+
+slot0.getTaskInfoBySkillAndTaskID = function(slot0, slot1, slot2)
+	slot3 = slot0.taskInfoTable[slot1] or {}
+
+	for slot7, slot8 in ipairs(slot3) do
+		if slot8.taskID == slot2 then
+			return slot8
+		end
+	end
+end
+
+slot0.isAllSkillLock = function(slot0)
+	slot3 = true
+	slot4 = 0
+
+	for slot8, slot9 in ipairs(slot0:getSkillIDListForShow(slot0.curShipVO.configId)) do
+		if slot1:getMetaSkillLevelBySkillID(slot9) &gt; 0 then
+			slot3 = false
+			slot4 = slot9
+
+			break
+		end
+	end
+
+	return slot3, slot4
+end
+
+slot0.isAllSkillMaxLevel = function(slot0)
+	slot3 = true
+
+	for slot7, slot8 in ipairs(slot0:getSkillIDListForShow(slot0.curShipVO.configId)) do
+		if not slot1:isSkillLevelMax(slot8) then
+			return false
+		end
+	end
+end
+
+slot0.updateTacticsRedTag = function(slot0)
+	slot1 = slot0.curShipVO
+	slot2 = slot1:getMetaCharacter()
+	slot4 = false
+
+	for slot8, slot9 in ipairs(slot0:getSkillIDListForShow(slot1.configId)) do
+		slot11 = slot1:isSkillLevelMax(slot9)
+
+		if slot1:getMetaSkillLevelBySkillID(slot9) &gt; 0 and not slot11 and slot0:getMetaSkillTacticsConfigBySkillID(slot9, slot10).need_exp &lt;= (slot0.skillExpTable and slot0.skillExpTable[slot9] or 0) then
+			slot4 = true
+
+			break
+		end
+	end
+end
+
+slot0.sortTaskConfig = function(slot0, slot1, slot2)
+	slot3 = Clone(slot2)
+
+	table.sort(slot3, function (slot0, slot1)
+		slot4 = slot0[2]
+		slot5 = slot1[2]
+		slot7 = uv0:getTaskInfoBySkillAndTaskID(uv1, slot1[1])
+		slot10 = slot4 &gt; 0 and (uv0:getTaskInfoBySkillAndTaskID(uv1, slot0[1]) and slot6.finishCount or 0) &lt;= slot4
+		slot11 = slot5 &gt; 0 and (slot7 and slot7.finishCount or 0) &lt;= slot5
+
+		if slot4 == 0 and slot5 == 0 then
+			return slot2 &lt; slot3
+		elseif slot4 == 0 then
+			return true
+		elseif slot5 == 0 then
+			return false
+		elseif slot10 == true and slot11 == true then
+			return slot2 &lt; slot3
+		elseif slot10 == true then
+			return false
+		elseif slot11 == true then
+			return true
+		else
+			return slot2 &lt; slot3
+		end
+	end)
+
+	return slot3
+end
+
+slot0.getSkillIDListForShow = function(slot0, slot1)
+	return MetaCharacterConst.getTacticsSkillIDListByShipConfigID(slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

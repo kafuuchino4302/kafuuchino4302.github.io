@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idolmedalcollectionmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>idolmedalcollectionmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IdolMedalCollectionMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+
+slot0.register = function(slot0)
+	slot0:BindEvent()
+end
+
+slot0.BindEvent = function(slot0)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		GAME.MEMORYBOOK_UNLOCK_DONE,
+		ActivityProxy.ACTIVITY_SHOW_AWARDS,
+		ActivityProxy.ACTIVITY_UPDATED
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == GAME.MEMORYBOOK_UNLOCK_DONE then
+		slot0.viewComponent:updateAfterSubmit(slot3)
+	elseif slot2 == ActivityProxy.ACTIVITY_UPDATED then
+		if slot3:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_PUZZLA then
+			slot0.viewComponent:UpdateActivity()
+		end
+	elseif slot2 == ActivityProxy.ACTIVITY_SHOW_AWARDS then
+		slot4 = getProxy(ContextProxy):getContextByMediator(ActivityMediator)
+
+		slot0.viewComponent:emit(BaseUI.ON_ACHIEVE, slot3.awards, slot3.callback)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

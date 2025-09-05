@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valentinepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>valentinepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ValentinePage&quot;, import(&quot;.TemplatePage.LoginTemplatePage&quot;))
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+
+	slot0.title = slot0:findTF(&quot;day&quot;, slot0.bg)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	setActive(slot0.item, false)
+
+	slot1 = slot0.itemList
+
+	slot1:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventInit then
+			slot3 = uv0
+			slot4 = uv0.config.front_drops[slot1 + 1]
+
+			updateDrop(slot3:findTF(&quot;item&quot;, slot2), {
+				type = slot4[1],
+				id = slot4[2],
+				count = slot4[3]
+			})
+			onButton(uv0, slot2, function ()
+				uv0:emit(BaseUI.ON_DROP, uv1)
+			end, SFX_PANEL)
+
+			return
+		end
+
+		if slot0 == UIItemList.EventUpdate then
+			setActive(uv0:findTF(&quot;got&quot;, slot2), slot1 &lt; uv0.nday)
+		end
+	end)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot0.nday = slot0.activity.data1
+
+	setText(slot0.title, slot0.nday)
+	slot0.itemList:align(slot0.Day)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

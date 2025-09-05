@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>commissioninfoeventitem.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>commissioninfoeventitem.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CommissionInfoEventItem&quot;, import(&quot;.CommissionInfoItem&quot;))
+
+slot0.Ctor = function(slot0, slot1, slot2)
+	uv0.super.Ctor(slot0, slot1, slot2)
+
+	slot0.lockTF = slot0._tf:Find(&quot;lock&quot;)
+
+	setActive(slot0.lockTF, false)
+	setText(slot0.lockTF:Find(&quot;Text&quot;), i18n(&quot;commission_label_unlock_event_tip&quot;))
+end
+
+slot0.CanOpen = function(slot0)
+	return getProxy(PlayerProxy):getData().level &gt;= 12
+end
+
+slot0.Init = function(slot0)
+	slot1 = slot0:CanOpen()
+
+	setActive(slot0.lockTF, not slot1)
+	setGray(slot0.toggle, not slot1, true)
+	setActive(slot0.foldFlag, slot1)
+	setActive(slot0.goBtn, slot1)
+
+	slot0.ptBonus = EventPtBonus.New(slot0.toggle:Find(&quot;bonusPt&quot;))
+
+	uv0.super.Init(slot0)
+end
+
+slot0.GetList = function(slot0)
+	assert(slot0.list, &quot;why ???&quot;)
+	table.sort(slot0.list, CompareFuncs({
+		function (slot0)
+			return -slot0:GetState()
+		end
+	}))
+
+	return slot0.list, 4
+end
+
+slot0.OnFlush = function(slot0)
+	slot0.list, slot3, slot0.ongoingCounter.text, slot0.leisureCounter.text = getProxy(EventProxy):GetEventListForCommossionInfo()
+	slot0.finishedCounter.text = slot3
+
+	setActive(slot0.finishedCounterContainer, slot3 &gt; 0)
+	setActive(slot0.ongoingCounterContainer, slot4 &gt; 0)
+	setActive(slot0.leisureCounterContainer, slot5 &gt; 0)
+	setActive(slot0.goBtn, slot3 == 0)
+	setActive(slot0.finishedBtn, slot3 &gt; 0)
+end
+
+slot0.UpdateList = function(slot0)
+	uv0.super.UpdateList(slot0)
+	slot0:UpdateActList()
+end
+
+slot0.UpdateActList = function(slot0)
+	if getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_COLLECTION_EVENT) and not slot1:isEnd() and getProxy(EventProxy):GetEventByActivityId(slot1.id) then
+		slot3 = cloneTplTo(slot0.uilist.item, slot0.uilist.container)
+
+		slot3:SetAsFirstSibling()
+		slot0:UpdateEventInfo(slot3, slot2)
+		setActive(slot3:Find(&quot;unlock&quot;), true)
+		setActive(slot3:Find(&quot;lock&quot;), false)
+		slot0:UpdateStyle(slot3, true)
+	end
+end
+
+slot0.GetChapterByCount = function(slot0, slot1)
+	for slot6, slot7 in pairs(pg.chapter_template.all) do
+		if slot2[slot7].collection_team == slot1 then
+			return slot2[slot7]
+		end
+	end
+end
+
+slot0.UpdateListItem = function(slot0, slot1, slot2, slot3)
+	if getProxy(EventProxy).maxFleetNums &lt; slot1 then
+		assert(slot0:GetChapterByCount(slot1), slot1)
+
+		if getProxy(SettingsProxy):IsMellowStyle() then
+			setText(slot3:Find(&quot;lock/Text&quot;), i18n(&quot;commission_open_tip&quot;, slot6.chapter_name))
+		else
+			setText(slot3:Find(&quot;lock/Text&quot;), i18n(&quot;commission_no_open&quot;) .. &quot;\n&quot; .. i18n(&quot;commission_open_tip&quot;, slot6.chapter_name))
+		end
+	else
+		slot0:UpdateEventInfo(slot3, slot2)
+	end
+
+	setActive(slot3:Find(&quot;unlock&quot;), not slot5)
+	setActive(slot3:Find(&quot;lock&quot;), slot5)
+	slot0:UpdateStyle(slot3, false, slot2)
+end
+
+slot0.UpdateEventInfo = function(slot0, slot1, slot2)
+	if (slot2 and slot2:GetState() or EventInfo.StateNone) == EventInfo.StateNone then
+		setText(slot1:Find(&quot;unlock/name_bg/Text&quot;), i18n(&quot;commission_idle&quot;))
+		onButton(slot0, slot1:Find(&quot;unlock/leisure/go_btn&quot;), function ()
+			uv0:OnSkip()
+		end, SFX_PANEL)
+		onButton(slot0, slot1, function ()
+			triggerButton(uv0:Find(&quot;unlock/leisure/go_btn&quot;))
+		end, SFX_PANEL)
+	elseif slot3 == EventInfo.StateFinish then
+		setText(slot1:Find(&quot;unlock/name_bg/Text&quot;), slot2.template.title)
+		onButton(slot0, slot1:Find(&quot;unlock/finished/finish_btn&quot;), function ()
+			uv0:emit(CommissionInfoMediator.FINISH_EVENT, uv1)
+		end, SFX_PANEL)
+		onButton(slot0, slot1, function ()
+			triggerButton(uv0:Find(&quot;unlock/finished/finish_btn&quot;))
+		end, SFX_PANEL)
+	elseif slot3 == EventInfo.StateActive then
+		setText(slot1:Find(&quot;unlock/name_bg/Text&quot;), slot2.template.title)
+		slot0:AddTimer(slot2, slot1:Find(&quot;unlock/ongoging/time&quot;):GetComponent(typeof(Text)))
+	end
+
+	setActive(slot1:Find(&quot;unlock/leisure&quot;), slot3 == EventInfo.StateNone)
+	setActive(slot1:Find(&quot;unlock/ongoging&quot;), slot3 == EventInfo.StateActive)
+	setActive(slot1:Find(&quot;unlock/finished&quot;), slot3 == EventInfo.StateFinish)
+end
+
+slot0.AddTimer = function(slot0, slot1, slot2)
+	slot0:RemoveTimer(slot1)
+
+	slot3 = slot1.finishTime + 2
+	slot0.timers[slot1.id] = Timer.New(function ()
+		if uv0 - pg.TimeMgr.GetInstance():GetServerTime() &lt;= 0 then
+			uv1.timers[uv2.id]:Stop()
+
+			uv1.timers[uv2.id] = nil
+
+			uv1:OnFlush()
+			uv1:UpdateList()
+		else
+			uv3.text = pg.TimeMgr.GetInstance():DescCDTime(slot0)
+		end
+	end, 1, -1)
+
+	slot0.timers[slot1.id]:Start()
+	slot0.timers[slot1.id].func()
+end
+
+slot0.RemoveTimer = function(slot0, slot1)
+	if slot0.timers[slot1.id] then
+		slot0.timers[slot1.id]:Stop()
+
+		slot0.timers[slot1.id] = nil
+	end
+end
+
+slot0.UpdateStyle = function(slot0, slot1, slot2, slot3)
+	slot4 = slot3 and slot3:GetState() or EventInfo.StateNone
+	slot5 = &quot;icon_1&quot;
+	slot6 = &quot;icon_4&quot;
+	slot7 = &quot;icon_3&quot;
+
+	if slot2 then
+		slot7 = &quot;icon_6&quot;
+		slot6 = &quot;icon_6&quot;
+		slot5 = &quot;icon_5&quot;
+	end
+
+	slot8 = function(slot0, slot1)
+		slot2 = uv0:Find(string.format(&quot;unlock/%s/icon&quot;, slot0))
+		slot2.localScale = uv1 and Vector3.one or Vector3(1.2, 1.2, 1.2)
+		slot2:GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/commissioninfoui_atlas&quot;, slot1)
+
+		slot2:GetComponent(typeof(Image)):SetNativeSize()
+	end
+
+	slot8(&quot;leisure&quot;, slot5)
+	slot8(&quot;ongoging&quot;, slot6)
+	slot8(&quot;finished&quot;, slot7)
+
+	slot9 = &quot;event_ongoing&quot;
+
+	if slot2 then
+		slot9 = &quot;event_bg_act&quot;
+	end
+
+	if getProxy(SettingsProxy):IsMellowStyle() then
+		slot9 = &quot;frame_unlock&quot;
+		slot1:Find(&quot;unlock/ongoging&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/CommissionInfoUI4Mellow_atlas&quot;, slot9)
+		slot1:Find(&quot;unlock/finished&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/CommissionInfoUI4Mellow_atlas&quot;, slot9)
+	else
+		slot1:Find(&quot;unlock/ongoging&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/commissioninfoui_atlas&quot;, slot9)
+		slot1:Find(&quot;unlock/finished&quot;):GetComponent(typeof(Image)).sprite = GetSpriteFromAtlas(&quot;ui/commissioninfoui_atlas&quot;, slot9)
+	end
+
+	slot11 = slot2 and Color.New(0.996078431372549, 0.7568627450980392, 0.9725490196078431, 1) or Color.New(0.6039215686274509, 0.7843137254901961, 0.9607843137254902, 1)
+	slot1:Find(&quot;unlock/ongoging/print&quot;):GetComponent(typeof(Image)).color = slot11
+	slot1:Find(&quot;unlock/finished/print&quot;):GetComponent(typeof(Image)).color = slot11
+
+	setActive(slot1:Find(&quot;unlock/act&quot;), slot4 == EventInfo.StateNone and slot2)
+end
+
+slot0.OnSkip = function(slot0)
+	slot0:emit(CommissionInfoMediator.ON_ACTIVE_EVENT)
+end
+
+slot0.OnFinishAll = function(slot0)
+	slot1 = {}
+	slot2 = 0
+
+	_.each(slot0.list, function (slot0)
+		if slot0:GetState() == EventInfo.StateFinish then
+			table.insert(uv0, function (slot0)
+				uv0:emit(CommissionInfoMediator.FINISH_EVENT, uv1, uv2, slot0)
+			end)
+		end
+	end)
+
+	if getProxy(ActivityProxy):getActivityByType(ActivityConst.ACTIVITY_TYPE_COLLECTION_EVENT) and not slot3:isEnd() then
+		if getProxy(EventProxy):GetEventByActivityId(slot3.id) and slot4:GetState() == EventInfo.StateFinish then
+			table.insert(slot1, function (slot0)
+				uv0:emit(CommissionInfoMediator.FINISH_EVENT, uv1, uv2, slot0)
+			end)
+		end
+	end
+
+	slot2 = #slot1
+
+	seriesAsync(slot1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_12100.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_12100.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;出击时，队友中每有一个铁血角色，自身航空、防空、装填属性上升1.0%(满级5.0%)&quot;,
+	name = &quot;铁血第一航母&quot;,
+	init_effect = &quot;&quot;,
+	id = 12100,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;出击时，队友中每有一个铁血角色，自身航空、防空、装填属性上升$1&quot;,
+	stack = 1,
+	color = &quot;yellow&quot;,
+	icon = 12100,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				buff_id = 12101,
+				check_target = &quot;TargetNationalityFriendly&quot;,
+				nationality = 4,
+				isBuffStackByCheckTarget = true
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onStartGame&quot;
+			},
+			arg_list = {
+				check_target = &quot;TargetNationalityFriendly&quot;,
+				minTargetNumber = 1,
+				skill_id = 12100,
+				nationality = 4
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

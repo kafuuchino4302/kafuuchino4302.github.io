@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shenshengxvmurepage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>shenshengxvmurepage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ShenshengxvmuRePage&quot;, import(&quot;...base.BaseActivityPage&quot;))
+
+slot0.OnInit = function(slot0)
+	slot0.bg = slot0:findTF(&quot;AD&quot;)
+	slot0.step = slot0:findTF(&quot;step&quot;, slot0.bg)
+	slot0.progress = slot0:findTF(&quot;progress&quot;, slot0.bg)
+	slot0.displayBtn = slot0:findTF(&quot;display_btn&quot;, slot0.bg)
+	slot0.awardTF = slot0:findTF(&quot;award&quot;, slot0.bg)
+	slot0.battleBtn = slot0:findTF(&quot;battle_btn&quot;, slot0.bg)
+	slot0.getBtn = slot0:findTF(&quot;get_btn&quot;, slot0.bg)
+	slot0.gotBtn = slot0:findTF(&quot;got_btn&quot;, slot0.bg)
+end
+
+slot0.OnFirstFlush = function(slot0)
+	uv0.super.OnFirstFlush(slot0)
+	setActive(slot0.displayBtn, false)
+	setActive(slot0.awardTF, false)
+	onButton(slot0, slot0.battleBtn, function ()
+		uv0:emit(ActivityMediator.EVENT_GO_SCENE, SCENE.TASK, {
+			page = &quot;activity&quot;
+		})
+	end, SFX_PANEL)
+
+	slot0.step = slot0:findTF(&quot;AD/step&quot;)
+	slot0.progress = slot0:findTF(&quot;AD/progress&quot;)
+	slot0.bar = slot0:findTF(&quot;AD/slider/bar&quot;)
+
+	if pg.activity_event_avatarframe[slot0.activity:getConfig(&quot;config_id&quot;)].start_time == &quot;stop&quot; then
+		slot0.inTime = false
+	else
+		slot0.inTime = pg.TimeMgr.GetInstance():GetServerTime() - pg.TimeMgr.GetInstance():Table2ServerTime({
+			year = slot1[1][1],
+			month = slot1[1][2],
+			day = slot1[1][3],
+			hour = slot1[2][1],
+			min = slot1[2][2],
+			sec = slot1[2][3]
+		}) &gt; 0
+	end
+
+	setActive(slot0.battleBtn, isActive(slot0.battleBtn) and slot0.inTime)
+end
+
+slot0.Switch = function(slot0, slot1)
+	slot0:UpdateAwardGot()
+	onButton(slot0, slot0.getBtn, function ()
+		uv0:emit(ActivityMediator.EVENT_OPERATION, {
+			cmd = 1,
+			activity_id = uv0.activity.id
+		})
+	end, SFX_PANEL)
+end
+
+slot0.UpdateAwardGot = function(slot0)
+	setActive(slot0:findTF(&quot;AD/got&quot;), slot0.activity.data2 &gt;= 1)
+end
+
+slot0.OnUpdateFlush = function(slot0)
+	slot1 = slot0.activity
+
+	setActive(slot0.battleBtn, isActive(slot0.battleBtn) and slot0.inTime)
+	slot0:UpdateAwardGot()
+
+	if pg.activity_event_avatarframe[slot0.activity:getConfig(&quot;config_id&quot;)].target &lt; slot0.activity.data1 then
+		slot2 = slot3
+	end
+
+	setText(slot0.step, slot2 / slot3 &gt;= 1 and setColorStr(slot2, &quot;#487CFFFF&quot;) or slot2)
+	setText(slot0.progress, &quot;/&quot; .. slot3)
+	setFillAmount(slot0.bar, slot2 / slot3)
+
+	slot5 = slot3 &lt;= slot2
+	slot6 = slot0.activity.data2 &gt;= 1
+
+	setActive(slot0.battleBtn, not slot6 and not slot5 and slot0.inTime)
+	setActive(slot0.getBtn, slot5 and not slot6)
+	setActive(slot0.gotBtn, slot6)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

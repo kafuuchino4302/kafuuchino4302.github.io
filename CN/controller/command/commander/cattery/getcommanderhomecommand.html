@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getcommanderhomecommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>getcommanderhomecommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;GetCommanderHomeCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+
+	if getProxy(CommanderProxy):GetCommanderHome() then
+		return
+	end
+
+	slot4 = pg.ConnectionMgr.GetInstance()
+
+	slot4:Send(25026, {
+		type = 0
+	}, 25027, function (slot0)
+		uv0:AddCommanderHome(CommanderHome.New(slot0))
+
+		for slot5, slot6 in ipairs(slot0.slots) do
+			if slot6.commander_id ~= 0 and slot6.commander_level and slot6.commander_level ~= 0 and slot6.commander_exp then
+				uv1:UpdateCommanderLevelAndExp(slot6.commander_id, slot6.commander_level, slot6.commander_exp)
+			end
+		end
+	end)
+end
+
+slot0.UpdateCommanderLevelAndExp = function(slot0, slot1, slot2, slot3)
+	if getProxy(CommanderProxy):getCommanderById(slot1) then
+		slot5:UpdateLevelAndExp(slot2, slot3)
+		slot4:updateCommander(slot5)
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

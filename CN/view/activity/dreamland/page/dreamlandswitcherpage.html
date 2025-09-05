@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dreamlandswitcherpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dreamlandswitcherpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;DreamlandSwitcherPage&quot;, import(&quot;view.base.BaseSubView&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;DreamlandSwitcherUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot1 = slot0._tf
+	slot0.confirmBtn = slot1:Find(&quot;bg/confirm&quot;)
+	slot0.times = {
+		slot0._tf:Find(&quot;bg/conent/1&quot;),
+		slot0._tf:Find(&quot;bg/conent/2&quot;),
+		slot0._tf:Find(&quot;bg/conent/3&quot;)
+	}
+
+	setText(slot0.times[1]:Find(&quot;title&quot;), i18n(&quot;dreamland_label_day&quot;))
+	setText(slot0.times[2]:Find(&quot;title&quot;), i18n(&quot;dreamland_label_dusk&quot;))
+	setText(slot0.times[3]:Find(&quot;title&quot;), i18n(&quot;dreamland_label_night&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	for slot4, slot5 in ipairs(slot0.times) do
+		onToggle(slot0, slot5, function (slot0)
+			if slot0 then
+				uv0.selected = uv1
+			end
+
+			uv0:UpdateToggleStyle(uv2, slot0)
+		end, SFX_PANEL)
+	end
+
+	onButton(slot0, slot0.confirmBtn, function ()
+		if not uv0.selected then
+			return
+		end
+
+		uv0:emit(DreamlandScene.EVENT_SWITCH_TIME, uv0.selected)
+		uv0:Hide()
+	end, SFX_PANEL)
+	onButton(slot0, slot0._tf, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.Show = function(slot0, slot1)
+	uv0.super.Show(slot0)
+	triggerToggle(slot0.times[slot1], true)
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+	slot0:InitTogglesStyle(slot1)
+end
+
+slot0.InitTogglesStyle = function(slot0, slot1)
+	for slot5, slot6 in ipairs(slot0.times) do
+		if slot5 ~= slot1 then
+			slot0:UpdateToggleStyle(slot6, false)
+		end
+	end
+end
+
+slot0.UpdateToggleStyle = function(slot0, slot1, slot2)
+	slot6 = Color.New(1, 1, 1, 1)
+	slot7 = Color.New(0.4235294, 0.4313726, 0.5137255, 1)
+	slot1:Find(&quot;icon&quot;):GetComponent(typeof(Image)).color = slot2 and slot6 or slot7
+	slot1:Find(&quot;title_icon&quot;):GetComponent(typeof(Image)).color = slot2 and slot6 or slot7
+	slot1:Find(&quot;title&quot;):GetComponent(typeof(Text)).color = slot2 and slot6 or slot7
+end
+
+slot0.Hide = function(slot0)
+	uv0.super.Hide(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf, slot0._parentTf)
+end
+
+slot0.OnDestroy = function(slot0)
+	if slot0:isShowing() then
+		slot0:Hide()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

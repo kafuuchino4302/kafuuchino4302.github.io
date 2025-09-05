@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objectbush.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>objectbush.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ObjectBush&quot;, import(&quot;view.miniGame.gameView.RyzaMiniGame.object.TargetObject&quot;))
+
+slot0.GetBaseOrder = function(slot0)
+	return 3
+end
+
+slot0.CellPassability = function(slot0)
+	return true
+end
+
+slot0.FirePassability = function(slot0)
+	return 0
+end
+
+slot0.InitUI = function(slot0, slot1)
+	slot0.hideCount = 0
+end
+
+slot0.InitRegister = function(slot0, slot1)
+	slot2 = slot0._tf
+	slot2 = slot2:Find(&quot;Image&quot;)
+	slot3 = slot2:GetComponent(typeof(Animator))
+
+	slot0:Register(&quot;burn&quot;, function ()
+		uv0:Play(&quot;New State&quot;)
+		uv0:Play(&quot;Burn_A&quot;)
+	end, {
+		{
+			0,
+			0
+		}
+	})
+	slot0:Register(&quot;move&quot;, function (slot0)
+		uv0:Play(&quot;New State&quot;)
+		uv0:Play(&quot;Sway&quot;)
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(&quot;ui-ryza-minigame-grass&quot;)
+		slot0:SetHide(true)
+
+		if not isa(slot0, MoveEnemy) then
+			uv1:ChangeHide(true)
+		end
+	end, {
+		{
+			0,
+			0
+		}
+	})
+	slot0:Register(&quot;leave&quot;, function (slot0)
+		uv0:Play(&quot;New State&quot;)
+		uv0:Play(&quot;Sway&quot;)
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(&quot;ui-ryza-minigame-grass&quot;)
+		slot0:SetHide(false)
+
+		if not isa(slot0, MoveEnemy) then
+			uv1:ChangeHide(false)
+		end
+	end, {
+		{
+			0,
+			0
+		}
+	})
+end
+
+slot0.ChangeHide = function(slot0, slot1)
+	slot0.hideCount = slot0.hideCount + (slot1 and 1 or -1)
+	GetOrAddComponent(slot0._tf, typeof(CanvasGroup)).alpha = slot0.hideCount &gt; 0 and 0.5 or 1
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

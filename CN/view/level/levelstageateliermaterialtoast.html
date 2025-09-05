@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>levelstageateliermaterialtoast.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>levelstageateliermaterialtoast.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;LevelStageAtelierMaterialToast&quot;, import(&quot;view.base.BaseSubPanel&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;LevelStageAtelierMaterialToast&quot;
+end
+
+slot0.OnInit = function(slot0)
+end
+
+slot0.OnLoaded = function(slot0)
+end
+
+slot1 = 26
+slot2 = 47
+slot3 = 196
+
+slot0.Play = function(slot0, slot1)
+	slot2 = slot0.contextData.settings
+
+	setText(slot0._tf:Find(&quot;Title&quot;), slot2.title)
+
+	slot3 = slot0._tf:Find(&quot;Desc&quot;)
+	slot5 = WorldMediaCollectionFileDetailLayer.getTextPreferredHeight(GetComponent(slot3, typeof(Text)), slot3.rect.width, slot2.desc)
+	slot6 = 2
+
+	while slot5 &gt; uv0 + uv1 * (slot6 - 1) do
+		slot6 = slot6 + 1
+	end
+
+	CustomIndexLayer.Clone2Full(slot0._tf:Find(&quot;Lines&quot;), slot6 + 1)
+	setSizeDelta(slot0._tf, {
+		x = slot0._tf.sizeDelta.x,
+		y = uv2 + math.max(slot6 - 2, 0) * uv1
+	})
+	setText(slot3, slot2.desc)
+
+	if slot2.icon then
+		slot7 = slot2.iconScale or 1
+
+		LoadImageSpriteAtlasAsync(&quot;ui/ryzaicon_atlas&quot;, slot2.icon, slot0._tf:Find(&quot;Image&quot;))
+		setLocalScale(slot0._tf:Find(&quot;Image&quot;), {
+			x = slot7,
+			y = slot7
+		})
+	end
+
+	if slot2.voice then
+		pg.CriMgr.GetInstance():PlaySoundEffect_V3(slot2.voice)
+	end
+
+	slot7 = slot0._go.transform
+
+	slot7:SetParent(pg.UIMgr.GetInstance().OverlayToast, false)
+
+	slot7 = GetComponent(slot0._tf, typeof(DftAniEvent))
+
+	slot7:SetEndEvent(function ()
+		uv0:Destroy()
+		existCall(uv1)
+	end)
+end
+
+slot0.OnDestroy = function(slot0)
+	pg.UIMgr.GetInstance():UnOverlayPanel(slot0._tf)
+	LeanTween.cancel(slot0._go)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

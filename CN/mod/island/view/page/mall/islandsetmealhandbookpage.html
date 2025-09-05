@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandsetmealhandbookpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandsetmealhandbookpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandSetMealHandbookPage&quot;, import(&quot;...base.IslandBasePage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandSetMealHandbookUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	slot0.closeBtn = slot0._tf:Find(&quot;top/back&quot;)
+	slot0.setMealList = UIItemList.New(slot0._tf:Find(&quot;setMealList/Viewport/Content&quot;), slot0._tf:Find(&quot;setMealList/Viewport/Content/setMealTpl&quot;))
+	slot0.detail = slot0._tf:Find(&quot;detail&quot;)
+	slot0.detailName = slot0.detail:Find(&quot;name&quot;)
+	slot0.formulaList1 = slot0.detail:Find(&quot;formulaList1&quot;)
+	slot0.formulaList2 = slot0.detail:Find(&quot;formulaList2&quot;)
+	slot0.detailDesc = slot0.detail:Find(&quot;desc&quot;)
+	slot0.conditionList = UIItemList.New(slot0.detail:Find(&quot;conditionList&quot;), slot0.detail:Find(&quot;conditionList/condition&quot;))
+
+	setActive(slot0.detail, false)
+	setText(slot0._tf:Find(&quot;top/title/Text&quot;), i18n1(&quot;套餐图鉴&quot;))
+	setText(slot0._tf:Find(&quot;top/title/Text/en&quot;), i18n1(&quot;HANDBOOK&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	onButton(slot0, slot0.closeBtn, function ()
+		uv0:Hide()
+	end, SFX_PANEL)
+	slot0:InitData()
+end
+
+slot0.InitData = function(slot0)
+	slot0.formulaNums = getProxy(IslandProxy):GetIsland():GetBuildingAgency():GetFormulaNums()
+	slot0.formulas = {}
+
+	for slot4, slot5 in ipairs(pg.island_combo.all) do
+		slot6 = Clone(pg.island_formula[slot5])
+		slot6.unlock_condition = pg.island_combo[slot5].unlock_condition
+		slot6.is_hide = pg.island_combo[slot5].is_hide
+
+		table.insert(slot0.formulas, slot6)
+	end
+
+	table.sort(slot0.formulas, CompareFuncs({
+		function (slot0)
+			slot2 = slot0.is_hide == 1
+			slot3 = true
+			slot4 = true
+
+			for slot8, slot9 in ipairs(slot1.unlock_condition) do
+				slot11 = slot9[2]
+
+				if not uv0.formulaNums[slot9[1]] or uv0.formulaNums[slot10] &lt; 1 then
+					slot3 = false
+				end
+
+				if not uv0.formulaNums[slot10] or uv0.formulaNums[slot10] &lt; slot11 then
+					slot4 = false
+				end
+			end
+
+			return (not slot2 and slot3 or slot2 and slot4) and 0 or 1
+		end,
+		function (slot0)
+			return slot0.id
+		end
+	}))
+end
+
+slot0.SetFormulaList = function(slot0)
+	slot0.setMealList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot4 = uv0.formulas[slot1 + 1].is_hide == 1
+			slot5 = true
+			slot6 = true
+
+			for slot10, slot11 in ipairs(slot3.unlock_condition) do
+				slot13 = slot11[2]
+
+				if not uv0.formulaNums[slot11[1]] or uv0.formulaNums[slot12] &lt; 1 then
+					slot5 = false
+				end
+
+				if not uv0.formulaNums[slot12] or uv0.formulaNums[slot12] &lt; slot13 then
+					slot6 = false
+				end
+			end
+
+			slot7 = not slot4 and slot5 or slot4 and slot6
+
+			setActive(slot2:Find(&quot;special&quot;), slot4 and slot6)
+			setActive(slot2:Find(&quot;name&quot;), slot7)
+			setActive(slot2:Find(&quot;IslandItemTpl&quot;), slot7)
+			setActive(slot2:Find(&quot;lock&quot;), not slot7)
+
+			if slot7 then
+				setText(slot2:Find(&quot;name&quot;), slot3.name)
+				updateCustomDrop(slot2:Find(&quot;IslandItemTpl&quot;), {
+					count = 0,
+					type = DROP_TYPE_ISLAND_ITEM,
+					id = slot3.item_id
+				})
+			end
+
+			if slot7 then
+				onToggle(uv0, slot2, function (slot0)
+					setActive(uv0:Find(&quot;select&quot;), slot0)
+
+					if slot0 then
+						uv1:SetDetail(uv2)
+					end
+				end, SFX_PANEL)
+			else
+				removeOnToggle(slot2)
+			end
+		end
+	end)
+	slot0.setMealList:align(#slot0.formulas)
+end
+
+slot0.SetDetail = function(slot0, slot1)
+	setActive(slot0.detail, true)
+	setText(slot0.detailName, slot1.name)
+	setActive(slot0.formulaList1, #slot1.unlock_condition == 2)
+	setActive(slot0.formulaList2, #slot1.unlock_condition == 3)
+
+	if #slot1.unlock_condition == 2 then
+		for slot5 = 1, 2 do
+			GetImageSpriteFromAtlasAsync(&quot;island/&quot; .. pg.island_item_data_template[pg.island_formula[slot1.unlock_condition[slot5][1]].item_id].icon, &quot;&quot;, slot0.formulaList1:Find(&quot;formula&quot; .. slot5 .. &quot;/icon&quot;))
+		end
+	elseif #slot1.unlock_condition == 3 then
+		for slot5 = 1, 3 do
+			GetImageSpriteFromAtlasAsync(&quot;island/&quot; .. pg.island_item_data_template[pg.island_formula[slot1.unlock_condition[slot5][1]].item_id].icon, &quot;&quot;, slot0.formulaList2:Find(&quot;formula&quot; .. slot5 .. &quot;/icon&quot;))
+		end
+	end
+
+	slot0.conditionList:make(function (slot0, slot1, slot2)
+		if slot0 == UIItemList.EventUpdate then
+			slot3 = uv0.unlock_condition[slot1 + 1][1]
+
+			setText(slot2:Find(&quot;name&quot;), &quot;制作&quot; .. pg.island_formula[slot3].name)
+
+			if uv0.unlock_condition[slot1 + 1][2] &lt; (uv1.formulaNums[slot3] or 0) then
+				formulaNum = slot4
+			end
+
+			setText(slot2:Find(&quot;count&quot;), &quot;&quot; .. slot6 .. &quot;/&quot; .. slot4 .. &quot;次&quot;)
+
+			if slot6 &lt; slot4 then
+				uv2 = false
+			end
+		end
+	end)
+	slot0.conditionList:align(#slot1.unlock_condition)
+
+	if true == true then
+		setText(slot0.detailDesc, i18n1(&quot;已解锁套餐制作&quot;))
+	else
+		setText(slot0.detailDesc, slot1.desc or &quot;&quot;)
+	end
+end
+
+slot0.OnShow = function(slot0)
+	slot0:InitData()
+	slot0:SetFormulaList()
+	pg.UIMgr.GetInstance():BlurPanel(slot0._tf)
+end
+
+slot0.OnHide = function(slot0)
+	pg.UIMgr.GetInstance():UnblurPanel(slot0._tf)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

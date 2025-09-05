@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_10020.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_10020.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{
+		desc = &quot;每10秒有20.0%几率触发，自身机动上升30.0%，持续8秒&quot;,
+		addition = {
+			&quot;20.0%(+2.2%)&quot;,
+			&quot;30.0%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有22.2%几率触发，自身机动上升33.3%，持续8秒&quot;,
+		addition = {
+			&quot;22.2%(+2.2%)&quot;,
+			&quot;33.3%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有24.4%几率触发，自身机动上升36.6%，持续8秒&quot;,
+		addition = {
+			&quot;24.4%(+2.2%)&quot;,
+			&quot;36.6%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有26.6%几率触发，自身机动上升39.9%，持续8秒&quot;,
+		addition = {
+			&quot;26.6%(+2.2%)&quot;,
+			&quot;39.9%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有28.8%几率触发，自身机动上升43.2%，持续8秒&quot;,
+		addition = {
+			&quot;28.8%(+2.2%)&quot;,
+			&quot;43.2%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有31.0%几率触发，自身机动上升46.5%，持续8秒&quot;,
+		addition = {
+			&quot;31.0%(+2.2%)&quot;,
+			&quot;46.5%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有33.2%几率触发，自身机动上升49.8%，持续8秒&quot;,
+		addition = {
+			&quot;33.2%(+2.2%)&quot;,
+			&quot;49.8%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有35.4%几率触发，自身机动上升53.1%，持续8秒&quot;,
+		addition = {
+			&quot;35.4%(+2.2%)&quot;,
+			&quot;53.1%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有37.6%几率触发，自身机动上升56.4%，持续8秒&quot;,
+		addition = {
+			&quot;37.6%(+2.4%)&quot;,
+			&quot;56.4%(+3.3%)&quot;
+		}
+	},
+	{
+		desc = &quot;每10秒有40.0%几率触发，自身机动上升60.0%，持续8秒&quot;,
+		addition = {
+			&quot;40.0%&quot;,
+			&quot;60.0%&quot;
+		}
+	},
+	desc_get = &quot;每10秒有20.0%(满级40.0%)几率触发，自身机动上升30.0%(满级60.0%)，持续8秒&quot;,
+	name = &quot;水上狂飙&quot;,
+	init_effect = &quot;&quot;,
+	id = 10020,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;每10秒有$1几率触发，自身机动上升$2，持续8秒&quot;,
+	stack = 1,
+	color = &quot;blue&quot;,
+	icon = 10020,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onUpdate&quot;
+			},
+			arg_list = {
+				buff_id = 10021,
+				target = &quot;TargetSelf&quot;,
+				time = 10
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

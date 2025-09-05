@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>activitybeupdatedcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>activitybeupdatedcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ActivityBeUpdatedCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if slot1:getBody().activity:getConfig(&quot;type&quot;) == ActivityConst.ACTIVITY_TYPE_PT_BUFF and slot0:IsLinkVoteAct(slot3) and ActivityPtData.New(slot3):CanGetAward() then
+		slot0:sendNotification(GAME.ACT_NEW_PT, {
+			cmd = 4,
+			activity_id = slot4:GetId(),
+			arg1 = slot4:GetCurrTarget()
+		})
+	end
+end
+
+slot0.IsLinkVoteAct = function(slot0, slot1)
+	if getProxy(ActivityProxy):getActivityById(ActivityConst.VOTE_ENTRANCE_ACT_ID) and not slot2:isEnd() then
+		return slot1.id == slot2:getConfig(&quot;config_client&quot;)[1]
+	end
+
+	return false
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

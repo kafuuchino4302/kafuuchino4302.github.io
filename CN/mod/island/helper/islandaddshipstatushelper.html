@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandaddshipstatushelper.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandaddshipstatushelper.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandAddShipStatusHelper&quot;)
+
+slot0.CheckAddStatus = function(slot0, slot1, slot2, slot3)
+	assert(pg.island_buff_template[slot2], slot2)
+
+	uv0.tipList = {}
+
+	seriesAsync({
+		function (slot0)
+			uv0.CheckType(uv1, uv2, uv3, slot0)
+		end,
+		function (slot0)
+			onNextTick(slot0)
+		end,
+		function (slot0)
+			uv0.CheckSpecific(uv1, uv2, uv3, slot0)
+		end,
+		function (slot0)
+			onNextTick(slot0)
+		end,
+		function (slot0)
+			uv0.CheckLevelInSameGroup(uv1, uv2, uv3, slot0)
+		end,
+		function (slot0)
+			uv0.tipList = {}
+
+			slot0()
+		end
+	}, slot3)
+end
+
+slot0.IsTip = function(slot0)
+	return table.contains(uv0.tipList, slot0)
+end
+
+slot0.CheckType = function(slot0, slot1, slot2, slot3)
+	slot4 = slot2.type_duel
+
+	if _.detect(slot1:GetVaildStatus(), function (slot0)
+		return table.contains(uv0, slot0:GetGroup())
+	end) and not uv0.IsTip(slot6.id) then
+		slot0:ShowMsgBox({
+			content = i18n(&quot;island_ship_buff_cover&quot;),
+			type = IslandMsgBox.TYPE_SHIP_STATUS_MSG,
+			buff = slot6,
+			onYes = slot3
+		})
+		table.insert(uv0.tipList, slot6.id)
+	else
+		slot3()
+	end
+end
+
+slot0.CheckSpecific = function(slot0, slot1, slot2, slot3)
+	slot4 = slot2.buff_duel
+
+	if _.detect(slot1:GetVaildStatus(), function (slot0)
+		return table.contains(uv0, slot0.id)
+	end) and not uv0.IsTip(slot6.id) then
+		slot0:ShowMsgBox({
+			content = i18n(&quot;island_ship_buff_cover_1&quot;),
+			type = IslandMsgBox.TYPE_SHIP_STATUS_MSG,
+			buff = slot6,
+			onYes = slot3
+		})
+		table.insert(uv0.tipList, slot6.id)
+	else
+		slot3()
+	end
+end
+
+slot0.CheckLevelInSameGroup = function(slot0, slot1, slot2, slot3)
+	if _.detect(slot1:GetVaildStatusByGroup(slot2.buff_group), function (slot0)
+		return uv0.buff_level &lt; slot0:GetLevel()
+	end) and not uv0.IsTip(slot5.id) then
+		slot0:ShowMsgBox({
+			content = i18n(&quot;island_ship_buff_cover_2&quot;),
+			type = IslandMsgBox.TYPE_SHIP_STATUS_MSG,
+			buff = slot5,
+			onYes = slot3
+		})
+	elseif #slot4 &gt; 0 and _.all(slot4, function (slot0)
+		return slot0:GetLevel() &lt; uv0.buff_level
+	end) and not uv0.IsTip(slot4[1].id) then
+		slot0:ShowMsgBox({
+			content = i18n(&quot;island_ship_buff_cover_3&quot;),
+			type = IslandMsgBox.TYPE_SHIP_STATUS_MSG,
+			buff = slot4[1],
+			onYes = slot3
+		})
+	else
+		slot3()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

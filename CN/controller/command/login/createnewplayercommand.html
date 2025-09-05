@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createnewplayercommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>createnewplayercommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;CreateNewPlayerCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot2 = slot1:getBody()
+	slot4 = slot2.shipId
+
+	if slot2.nickname == &quot;&quot; then
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;login_createNewPlayer_error_nameNull&quot;))
+	end
+
+	slot5 = pg.ConnectionMgr.GetInstance()
+	slot9 = pg.SdkMgr.GetInstance()
+
+	slot5:Send(10024, {
+		nick_name = slot3,
+		ship_id = slot4,
+		device_id = slot9:GetDeviceId()
+	}, 10025, function (slot0)
+		if slot0.result == 0 then
+			print(&quot;created new player: &quot; .. slot0.user_id)
+			pg.TrackerMgr.GetInstance():Tracking(TRACKING_ROLE_CREATE, nil, slot0.user_id)
+			getProxy(SettingsProxy):SetSelectedShipId(uv0)
+			uv1:sendNotification(GAME.CREATE_NEW_PLAYER_DONE, slot0.user_id)
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;create_player_success&quot;))
+		elseif slot0.result == 6 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;login_createNewPlayer_full&quot;))
+		elseif slot0.result == 18 then
+			pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;system_database_busy&quot;))
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result])
+		end
+	end, false)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

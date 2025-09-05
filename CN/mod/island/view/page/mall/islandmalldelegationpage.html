@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandmalldelegationpage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandmalldelegationpage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandMallDelegationPage&quot;, import(&quot;Mod.Island.View.page.building.IslandRoleDelegationPage&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandMallDelegationUI&quot;
+end
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+	onButton(slot0, slot0._tf:Find(&quot;handbookBtn&quot;), function ()
+		uv0:OpenPage(IslandSetMealHandbookPage)
+	end)
+	setActive(slot0._tf:Find(&quot;handbookBtn&quot;), getProxy(IslandProxy):GetIsland():GetAblityAgency():HasAbility(29001))
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

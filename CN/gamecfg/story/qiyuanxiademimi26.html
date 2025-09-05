@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qiyuanxiademimi26.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>qiyuanxiademimi26.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeOut = 1.5,
+	mode = 2,
+	id = &quot;QIYUANXIADEMIMI26&quot;,
+	placeholder = {
+		&quot;playername&quot;
+	},
+	scripts = {
+		{
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			bgm = &quot;story-enzecheng-theme&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;沉睡之地·静默树庭&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;生命之树的荫蔽下，三位精灵大贤者正在沉睡。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			hidePaintObj = true,
+			say = &quot;她们面容安详，却透露出奇异而梦幻的威严。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;太好了，守护结界还在……看来封印魔法仍在正常运载，灾厄之子并未苏醒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;接下来，我会尝试唤醒三贤者，灾厄之子也会苏醒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;但是刚从百年沉睡中苏醒的灾厄之子必然非常虚弱，请抓住这个机会将其击倒。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;所以说……{playername}阁下，接下就是最终战了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……呼，抱歉，请不要被我的紧张情绪影响。我相信你已经准备好了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;若是成功战胜灾厄之子，我们就有办法重新净化被灾厄污染的奇渊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;暴风雪会平息，腐化的树林变回曾经的乐土，被风沙埋没的建筑也会焕然一新……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg4&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;这个世界曾经很美好。我不会忘记孩童时期见到的春天，不会忘记萌芽与新枝。我希望你们也能看到那情景。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_qiyuan_cg5&quot;,
+			hideRecordIco = true,
+			actorName = &quot;魔法圣典&quot;,
+			hidePaintObj = true,
+			say = &quot;【特别提醒】警告！危险正在逼近！危险正在逼近！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;bg_qiyuan_cg5&quot;,
+			hidePaintObj = true,
+			say = &quot;咔嚓——{namecode:448:埃姆登}送给我的护身符突然破碎，浓稠的黑雾如活物般翻涌而出。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg5&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……成功了！三贤者很快就会苏醒，大家请做好战斗准备——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 206072,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg5&quot;,
+			actorName = &quot;阿尔比恩&quot;,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;{playername}阁下？附着在你身上的魔法是……？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			say = &quot;阳光却愈发刺目，灼烈的光芒与黑雾交织成诡异的辉光。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = true,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			actorName = &quot;金狮&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;七省&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;呼啊，这次好像睡了很久呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;埃佛森&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;你是……之前那位人类？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;七省&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;看来加护魔法维持得很好呢……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;金狮&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;…………不对。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			actorName = &quot;金狮&quot;,
+			side = 2,
+			bgName = &quot;bg_qiyuan_cg6&quot;,
+			hidePaintObj = true,
+			dir = 1,
+			nameColor = &quot;#A9F548FF&quot;,
+			say = &quot;附着在你身上的那道黑影是……“灾厄之子”！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = &quot;login&quot;,
+			side = 2,
+			dir = 1,
+			bgName = &quot;star_level_bg_156&quot;,
+			bgm = &quot;story-mirrorheart-mystic&quot;,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「接受来自灾厄之子的崇高谢意吧，可爱的人类。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 1,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 1,
+				black = true,
+				delay = 1,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「没错，我就是那颗散布灾厄的流星，是不息的恶意，是绝望的主人。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actor = 402071,
+			actorName = &quot;魔法圣典&quot;,
+			live2d = true,
+			say = &quot;【人物补充】{namecode:448:埃姆登}，真实身份是两百年前降临这个世界的流星的化身——灾厄之子。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = &quot;headtouch&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「你从我手里逃走了三次。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「第一次，这些可鄙的古精灵们苏醒并庇护了你。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actor = 402071,
+			actorName = &quot;魔法圣典&quot;,
+			live2d = true,
+			say = &quot;【人物补充】{playername}，第1届奇渊探索队小队指挥官，小队成员包括贝劳森林、{namecode:429:德意志}、不明。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actor = 402071,
+			actorName = &quot;魔法圣典&quot;,
+			live2d = true,
+			say = &quot;在探索到沉睡之地的时候，意外唤醒了灾厄之子和精灵三贤者，因此获得了精灵的加护。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「第二次，你的小队为我送来了克莱蒙梭。利用她，我终于拥有了自由的身份。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actor = 402071,
+			actorName = &quot;魔法圣典&quot;,
+			live2d = true,
+			say = &quot;【人物补充】{playername}，第17届奇渊探索队小队指挥官，小队成员包括克莱蒙梭、拉·加利索尼埃、霞飞。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「第三次，有人利用上古遗迹里的机关转移了你的行踪。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = &quot;story_tablet&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			hideRecordIco = true,
+			actor = 402071,
+			actorName = &quot;魔法圣典&quot;,
+			live2d = true,
+			say = &quot;【人物补充】{playername}，第91届奇渊探索队小队指挥官，小队成员包括大胆、迪盖·特鲁因、迪凯纳。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = &quot;main3&quot;,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「因此，这一次……我绝不容许失败。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「事实上，成功已经是手到擒来的了。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「你身上的精灵加护，能够反过来用以破坏她们的保护结界，让我侵蚀她们的精神。」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			live2d = true,
+			side = 2,
+			bgName = &quot;star_level_bg_156&quot;,
+			dir = 1,
+			actor = 402071,
+			nameColor = &quot;#FF9B93&quot;,
+			hidePaintObj = true,
+			say = &quot;「精灵的历史已经终结，即刻起，迈入灾厄的时代吧——」&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_156&quot;,
+			hidePaintObj = true,
+			say = &quot;黑暗袭来，像是要与之对抗，我手中的魔法圣典突然散发出了微弱的光芒——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			nameColor = &quot;#A9F548FF&quot;,
+			hidePaintObj = true,
+			say = &quot;……{namecode:448:埃姆登}很高兴。指挥官终于想起了一切。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			flashout = {
+				dur = 0.5,
+				black = false,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				dur = 0.5,
+				black = false,
+				delay = 0.5,
+				alpha = {
+					1,
+					0
+				}
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			say = &quot;伸手不见五指的黑暗中，突然出现在我面前的，如天鹅般纯白的少女露出了微笑。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			say = &quot;【人物补充】“魔法圣典”，{namecode:448:埃姆登}的命匣，第1届奇渊探索队小队队员。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			say = &quot;{namecode:448:埃姆登}，其实一直陪伴在指挥官身边哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			side = 2,
+			nameColor = &quot;#A9F548FF&quot;,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			say = &quot;她轻柔地握住我的手，在我掌心放下某样柔软的东西。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			say = &quot;请收下我的“一切”。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			say = &quot;请拯救我、唤醒我……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		},
+		{
+			portrait = 402071,
+			side = 2,
+			bgName = &quot;star_level_bg_589&quot;,
+			hidePaintObj = true,
+			nameColor = &quot;#A9F548FF&quot;,
+			actorName = &quot;“魔法圣典”&quot;,
+			say = &quot;……带我回家。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

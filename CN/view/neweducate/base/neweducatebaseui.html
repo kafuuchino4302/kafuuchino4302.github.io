@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neweducatebaseui.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>neweducatebaseui.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;NewEducateBaseUI&quot;, import(&quot;view.base.BaseUI&quot;))
+slot0.GO_SCENE = &quot;NewEducateBaseUI.EDUCATE_GO_SCENE&quot;
+slot0.CHANGE_SCENE = &quot;NewEducateBaseUI.CHANGE_SCENE&quot;
+slot0.GO_SUBLAYER = &quot;NewEducateBaseUI.GO_SUBLAYER&quot;
+slot0.ON_DROP = &quot;NewEducateBaseUI.ON_DROP&quot;
+slot0.ON_ITEM = &quot;NewEducateBaseUI.ON_ITEM&quot;
+slot0.ON_BOX = &quot;NewEducateBaseUI.ON_BOX&quot;
+slot0.ON_SHOP = &quot;NewEducateBaseUI.ON_SHOP&quot;
+
+slot0.getGroupName = function(slot0)
+	return LayerWeightConst.GROUP_EDUCATE
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

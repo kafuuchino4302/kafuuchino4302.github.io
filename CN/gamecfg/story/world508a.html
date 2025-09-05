@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>world508a.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>world508a.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	fadeType = 1,
+	mode = 2,
+	once = true,
+	id = &quot;WORLD508A&quot;,
+	fadein = 1.5,
+	scripts = {
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			bgm = &quot;main-arbitrationsystem-theme&quot;,
+			actor = 102160,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;等等，前方有舰队正在对峙……一边看起来是塞壬，另一边雷达上完全没显示，大概是余烬吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;领航员小姐，请分析一下周围的余烬信标数据——&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;很不巧，出故障的领航员系统现在可指望不上。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;啊，对哎……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;贝法，能分辨出主要目标么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没有问题，陛下。通过进行资料比对，前方舰队中威胁程度最高的目标有五个。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;其中三个为塞壬仲裁机关，两个为余烬成员。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 103160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;余烬居然同时出现了两个人？！她们会集体行动还真是少见。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;与之对应的，名为仲裁机关的塞壬超强力个体也一次性出现了三个……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;在五个目标之中，有四个为已知目标。分别是仲裁者·司特莲库斯、仲裁者·天帕岚斯、仲裁者·赫米忒、余烬{namecode:94}。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 202120,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;剩下的一个未知的余烬目标根据外貌特征判断……极大可能是皇家方舟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哦？那个就是救了白鹰科研舰队的皇家方舟啊。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;本王终于见到你了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			actor = 107090,
+			nameColor = &quot;#a9f548&quot;,
+			say = &quot;救了我们科研舰队的……？等等，那不是我们之前正在追踪的不明目标么？！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			action = {
+				{
+					y = 45,
+					type = &quot;shake&quot;,
+					delay = 0,
+					dur = 0.15,
+					x = 0,
+					number = 2
+				}
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;可是怎么可能……余烬当时怎么会出现在我们的雷达上……？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;不好意思，埃塞克斯小姐……我觉得现在不是考虑这些问题的合适时机……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102160,
+			say = &quot;趁她们没发现，我们先躲起来看看情况会不会比较好……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			paintingNoise = true,
+			dir = 1,
+			actor = 9707010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;是个好想法，可惜已经太迟了哦。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			bgm = &quot;battle-ashes-theme&quot;,
+			actor = 9707010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;哟，来的刚刚好。我就知道你们一定会赶上的。&quot;,
+			flashout = {
+				dur = 0.5,
+				black = true,
+				alpha = {
+					0,
+					1
+				}
+			},
+			flashin = {
+				delay = 0.5,
+				dur = 0.5,
+				black = true,
+				alpha = {
+					1,
+					0
+				}
+			},
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;到底是怎么回事，{namecode:94}？这段时间你一个人神出鬼没的就是在弄的这些事么……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 9707010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			say = &quot;塞壬有基地，我们可没有，所以一直以来我们才会采取速战速决的运动战。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;现在突然要和它们打阵地战了，稍微来点智慧不是挺好~&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;{namecode:66}不是说尽量不要产生交集……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;计划赶不上变化嘛。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 9707010,
+			side = 2,
+			nameColor = &quot;#ffa500&quot;,
+			dir = 1,
+			say = &quot;你看对面这么认真，只靠我们两人怎么跟三台仲裁机关打？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;随便你了…………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;看到舰队的出现，两名余烬成员之间似乎发生了轻微的争执。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			say = &quot;不过片刻之后，共识就被达成了。放弃争执的皇家方舟转而看向指挥舰的方向。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;………………你就是G很在意的指挥官？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;（沉默）&quot;,
+					flag = 1
+				},
+				{
+					content = &quot;你好——&quot;,
+					flag = 2
+				}
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			optionFlag = 1,
+			say = &quot;……………………&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			side = 2,
+			dir = 1,
+			optionFlag = 1,
+			actor = 9707020,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;沉默不言么，哼。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			dir = 1,
+			optionFlag = 2,
+			say = &quot;初次见面，你是余烬那边的皇家方舟吧？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 4,
+			side = 2,
+			dir = 1,
+			optionFlag = 2,
+			actor = 9707020,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;不错。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 1,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;指挥官，原来是这种感觉的存在么。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;你是……皇家方舟？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;陛————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;………………是的。别会错意了！对于我来说，我是皇家方舟，但是对于你来说，我就未必是了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707020,
+			say = &quot;……………………就这样，我不想再继续谈下去了。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;也罢，那就如此吧。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;别在意，她一直都是这种风格。虽说像她这样才是最正确的选择吧……&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;言归正传。经过这段时间的观察，我觉得你们也不是什么安蒂克丝的牢固盟友。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			nameColor = &quot;#ffa500&quot;,
+			say = &quot;这次既然来了这么多人，怎么样，有兴趣一起来打一场么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			},
+			options = {
+				{
+					content = &quot;询问舰队的意见——&quot;,
+					flag = 1
+				}
+			}
+		},
+		{
+			actor = 205010,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;哈？你才是舰队指挥官吧！这种小事你自己看着办！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107060,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;指挥官，我没有意见。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107090,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;我也没有。一边是可交流的不确定阵营，一边是明确的敌人，这种情况下我选择优先消灭确定的敌人。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 107030,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;没错，不论如何塞壬都是要消灭的存在！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actor = 102160,
+			side = 2,
+			nameColor = &quot;#a9f548&quot;,
+			dir = 1,
+			say = &quot;而且趁这个机会近距离收集一下余烬的情报也好。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 6,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;喂喂喂，当着我们的面说这种话真的合适么？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#a9f548&quot;,
+			side = 2,
+			dir = 1,
+			actor = 102160,
+			say = &quot;本来也没隐藏的打算，我们已经尝试与你们对话很久了吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 3,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;呵，你们可远没有你们自我认知中的那样可信哟。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			expression = 2,
+			nameColor = &quot;#ffa500&quot;,
+			side = 2,
+			dir = 1,
+			actor = 9707010,
+			say = &quot;不过当然，只是偶尔一起打打安蒂克丝倒也挺不错的。你们觉得呢，对面的仲裁机关？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;仲裁者·天帕岚斯·XIV&quot;,
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;………………出现计划外的干扰者，行动是否取消？&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;仲裁者·赫米忒·IX&quot;,
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;无妨。我们只需在允许的范围内恰到好处完成任务即可。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;仲裁者·司特莲库斯·VIII&quot;,
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;消除余烬，维持实验场的正常运传。&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			actorName = &quot;仲裁者·赫米忒·IX&quot;,
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			nameColor = &quot;#ff5c5c&quot;,
+			dir = 1,
+			say = &quot;没错~消除余烬，或者被余烬所消除。直到任何一方机能彻底停止之前，让我们尽情战斗吧！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			dir = 1,
+			say = &quot;全员注意，现在开始与余烬联合行动————&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		},
+		{
+			side = 2,
+			bgName = &quot;bg_nacorearea_1&quot;,
+			dir = 1,
+			say = &quot;目标，塞壬仲裁机关，自由开火！&quot;,
+			typewriter = {
+				speed = 0.05,
+				speedUp = 0.01
+			},
+			painting = {
+				alpha = 0.3,
+				time = 1
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

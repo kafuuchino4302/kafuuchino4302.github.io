@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extraprotoresultcommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>extraprotoresultcommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;ExtraProtoResultCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	if slot1:getBody().result == 9998 then
+		getProxy(WorldProxy).isProtoLock = true
+
+		pg.TipsMgr.GetInstance():ShowTips(i18n(&quot;world_close&quot;))
+
+		if getProxy(ContextProxy):getCurrentContext():retriveLastChild() and slot5 ~= slot4 then
+			slot0:sendNotification(GAME.REMOVE_LAYERS, {
+				context = slot5
+			})
+		end
+
+		slot0:sendNotification(GAME.GO_SCENE, SCENE.MAINUI)
+	else
+		pg.TipsMgr.GetInstance():ShowTips(errorTip(&quot;&quot;, slot2.result))
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dorm3d_camera_volume_template.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>dorm3d_camera_volume_template.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">pg = pg or {}
+pg.dorm3d_camera_volume_template = {
+	[2] = {
+		unlock_text = &quot;契合度1级解锁&quot;,
+		name = &quot;反差&quot;,
+		volume = &quot;contrast_volume&quot;,
+		id = 2,
+		icon = &quot;Props/drom3d_camera1001&quot;,
+		rarity = 2,
+		desc = &quot;获得后可在相机功能中解锁反差滤镜&quot;,
+		unlock = {}
+	},
+	[3] = {
+		unlock_text = &quot;契合度9级解锁&quot;,
+		name = &quot;黄昏&quot;,
+		volume = &quot;dusk_volume&quot;,
+		id = 3,
+		icon = &quot;Props/drom3d_camera1001&quot;,
+		rarity = 2,
+		desc = &quot;获得后可在相机功能中解锁黄昏滤镜&quot;,
+		unlock = {
+			1,
+			20220,
+			9
+		}
+	},
+	[4] = {
+		unlock_text = &quot;契合度13级解锁&quot;,
+		name = &quot;柔光&quot;,
+		volume = &quot;soft_volume&quot;,
+		id = 4,
+		icon = &quot;Props/drom3d_camera1001&quot;,
+		rarity = 2,
+		desc = &quot;获得后可在相机功能中解锁柔光滤镜&quot;,
+		unlock = {
+			1,
+			20220,
+			13
+		}
+	},
+	all = {
+		2,
+		3,
+		4
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

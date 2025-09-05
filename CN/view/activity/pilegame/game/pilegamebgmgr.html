@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pilegamebgmgr.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>pilegamebgmgr.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;PileGameBgMgr&quot;)
+slot0.bgMaps = {
+	&quot;1&quot;,
+	&quot;2&quot;,
+	&quot;3&quot;,
+	&quot;4&quot;,
+	&quot;5&quot;,
+	&quot;6&quot;,
+	&quot;7&quot;,
+	&quot;8&quot;,
+	&quot;9&quot;,
+	&quot;10&quot;,
+	&quot;11&quot;,
+	&quot;12&quot;
+}
+slot0.effects = {
+	nil,
+	&quot;diediele_1yanhua&quot;,
+	nil,
+	&quot;diediele_2liuxin&quot;,
+	&quot;diediele_2liuxin&quot;,
+	[12.0] = &quot;diediele_3xinxin&quot;
+}
+
+slot0.Ctor = function(slot0, slot1)
+	slot0.tr = slot1
+end
+
+slot0.Init = function(slot0, slot1)
+	slot0.list = {
+		slot0.tr:Find(&quot;Image1&quot;),
+		slot0.tr:Find(&quot;Image2&quot;),
+		slot0.tr:Find(&quot;Image3&quot;)
+	}
+	slot0.names = {}
+	slot2 = {}
+
+	for slot6 = 1, 2 do
+		setActive(slot0.list[slot6], false)
+		table.insert(slot2, function (slot0)
+			slot1 = uv0:GetBg(uv1)
+
+			uv0:LoadImage(slot1, function (slot0)
+				setActive(uv0.list[uv1], true)
+
+				uv0.list[uv1]:GetComponent(typeof(Image)).sprite = slot0
+
+				uv2()
+			end)
+
+			uv0.names[uv0.list[uv1]] = slot1
+
+			uv0:LoadEffect(slot1, uv0.list[uv1])
+		end)
+	end
+
+	seriesAsync(slot2, function ()
+		slot0 = 0
+
+		for slot4, slot5 in ipairs(uv0.list) do
+			if uv0.list[slot4 - 1] then
+				slot0 = slot0 + slot6.rect.height
+			end
+
+			setAnchoredPosition(slot5, {
+				z = 0,
+				x = 0,
+				y = slot0
+			})
+		end
+
+		uv1()
+	end)
+end
+
+slot0.DoMove = function(slot0, slot1)
+	slot2 = nil
+
+	for slot6, slot7 in ipairs(slot0.list) do
+		if slot7 then
+			slot2 = slot2 or slot6
+
+			setAnchoredPosition(slot7, {
+				y = getAnchoredPosition(slot7).y - slot1
+			})
+		end
+	end
+
+	slot0:DoCheck(slot2)
+end
+
+slot0.DoCheck = function(slot0, slot1)
+	slot2 = slot0.list[slot1]
+	slot3 = slot0.list[slot1 + 2]
+
+	if getAnchoredPosition(slot2).y + slot2.rect.height + slot0.list[slot1 + 1].rect.height - slot0.tr.rect.height &gt;= 50 then
+		slot6 = slot3:GetComponent(typeof(Image))
+
+		if slot0.names[slot3] ~= slot0:GetBg(slot1 + 2) then
+			slot0:LoadImage(slot7, function (slot0)
+				setActive(uv0, true)
+
+				uv1.sprite = slot0
+
+				uv1:SetNativeSize()
+			end)
+			slot0:LoadEffect(slot7, slot3)
+
+			slot0.names[slot3] = slot7
+		end
+	end
+
+	if slot2.rect.height &lt;= math.abs(slot4.y) then
+		slot2:GetComponent(typeof(Image)).sprite = nil
+		slot0.names[slot2] = nil
+
+		slot2:SetAsFirstSibling()
+
+		slot0.list[slot1 + 3] = slot2
+		slot0.list[slot1] = false
+
+		setAnchoredPosition(slot2, {
+			y = getAnchoredPosition(slot3).y + slot3.rect.height
+		})
+		slot0:ReturnEffect(slot2)
+	end
+end
+
+slot0.GetBg = function(slot0, slot1)
+	return uv0.bgMaps[slot1] or uv0.bgMaps[#uv0.bgMaps]
+end
+
+slot0.LoadImage = function(slot0, slot1, slot2)
+	LoadSpriteAtlasAsync(&quot;clutter/bg&quot; .. slot1, nil, function (slot0)
+		uv0(slot0)
+	end)
+end
+
+slot0.LoadEffect = function(slot0, slot1, slot2)
+	if uv0.effects[tonumber(slot1)] then
+		slot4 = PoolMgr.GetInstance()
+
+		slot4:GetUI(slot3, true, function (slot0)
+			if not uv0.list then
+				PoolMgr.GetInstance():ReturnUI(uv1, slot0)
+			else
+				slot0.name = uv1
+
+				SetParent(slot0, uv2)
+				setActive(slot0, true)
+			end
+		end)
+	end
+end
+
+slot0.ReturnEffect = function(slot0, slot1)
+	if slot1.childCount &gt; 0 then
+		slot3 = slot1:GetChild(0)
+
+		PoolMgr.GetInstance():ReturnUI(slot3.name, slot3.gameObject)
+	end
+end
+
+slot0.Clear = function(slot0)
+	eachChild(slot0.tr, function (slot0)
+		slot0:GetComponent(typeof(Image)).sprite = nil
+
+		uv0:ReturnEffect(slot0)
+	end)
+
+	slot0.list = nil
+	slot0.names = nil
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

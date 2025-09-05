@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mediasaver.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>mediasaver.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">MediaSaver = {}
+slot0 = MediaSaver
+
+slot0.SaveImageWithBytes = function(slot0, slot1)
+	System.IO.File.WriteAllBytes(slot0, slot1)
+
+	if CameraHelper.IsIOS() then
+		slot2 = pg.TimeMgr.GetInstance():STimeDescS(pg.TimeMgr.GetInstance():GetServerTime(), &quot;*t&quot;)
+
+		YARecorder.Inst:WritePictureToAlbum(&quot;azur&quot; .. slot2.year .. slot2.month .. slot2.day .. slot2.hour .. slot2.min .. slot2.sec .. &quot;.png&quot;, slot1)
+	else
+		YSTool.YSMediaSaver.Inst:SaveImage(slot0)
+	end
+
+	if System.IO.File.Exists(slot0) then
+		System.IO.File.Delete(slot0)
+		warning(&quot;del old file path:&quot; .. slot0)
+	end
+end
+
+slot0.SaveVideoWithPath = function(slot0)
+	YSTool.YSMediaSaver.Inst:SaveVideo(slot0)
+
+	if System.IO.File.Exists(slot0) then
+		System.IO.File.Delete(slot0)
+		warning(&quot;del old file path:&quot; .. slot0)
+	end
+end
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

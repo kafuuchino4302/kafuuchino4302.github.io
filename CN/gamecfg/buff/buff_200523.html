@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_200523.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_200523.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	time = 1,
+	name = &quot;2023克莱蒙梭活动 教皇下属蛋船 孢子爆炸效果&quot;,
+	init_effect = &quot;&quot;,
+	color = &quot;red&quot;,
+	picture = &quot;&quot;,
+	desc = &quot;&quot;,
+	stack = 99,
+	id = 200523,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				maxTargetNumber = 0,
+				skill_id = 200523,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetNationality&quot;
+				},
+				nationality = {
+					99
+				}
+			}
+		},
+		{
+			type = &quot;BattleBuffCastSkill&quot;,
+			trigger = {
+				&quot;onAttach&quot;,
+				&quot;onStack&quot;
+			},
+			arg_list = {
+				minTargetNumber = 1,
+				skill_id = 200524,
+				check_target = {
+					&quot;TargetSelf&quot;,
+					&quot;TargetNationality&quot;
+				},
+				nationality = {
+					99
+				}
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

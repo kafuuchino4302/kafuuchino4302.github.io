@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minigameshopbuycommand.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>minigameshopbuycommand.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MiniGameShopBuyCommand&quot;, pm.SimpleCommand)
+
+slot0.execute = function(slot0, slot1)
+	slot3 = slot1:getBody() and slot2.callback
+	slot6 = pg.gameroom_shop_template[slot2.id]
+	slot7 = 0
+	slot8 = 0
+
+	for slot12, slot13 in ipairs(slot2.list) do
+		slot14 = slot13.id
+		slot15 = slot13.num
+		slot8 = slot8 + slot15
+		slot7 = slot7 + slot6.price * slot15
+	end
+
+	if getProxy(GameRoomProxy):getTicket() &lt; slot7 then
+		pg.MsgboxMgr.GetInstance():ShowMsgBox({
+			content = i18n(&quot;game_ticket_notenough&quot;),
+			onYes = function ()
+				uv0:sendNotification(GAME.GO_SCENE, SCENE.GAME_HALL)
+			end,
+			onNo = function ()
+			end
+		})
+
+		return
+	end
+
+	slot10 = pg.ConnectionMgr.GetInstance()
+
+	slot10:Send(26152, {
+		goodsid = slot4,
+		selected = slot5
+	}, 26153, function (slot0)
+		slot1 = nil
+
+		if slot0.result == 0 then
+			getProxy(PlayerProxy):getRawData():consume({
+				[id2res(GameRoomProxy.ticket_res_id)] = uv0 or 0
+			})
+
+			slot3 = getProxy(ShopsProxy):getMiniShop()
+
+			slot3:consume(uv1, uv2)
+			getProxy(ShopsProxy):setMiniShop(slot3)
+			uv3:sendNotification(GAME.MINI_GAME_SHOP_BUY_DONE, {
+				list = PlayerConst.addTranDrop(slot0.drop_list)
+			})
+		else
+			pg.TipsMgr.GetInstance():ShowTips(ERROR_MESSAGE[slot0.result] .. slot0.result)
+		end
+	end)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

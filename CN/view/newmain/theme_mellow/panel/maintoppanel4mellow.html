@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maintoppanel4mellow.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>maintoppanel4mellow.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;MainTopPanel4Mellow&quot;, import(&quot;...base.MainBasePanel&quot;))
+
+slot0.GetBtns = function(slot0)
+	return {
+		MainPlayerInfoBtn4Mellow.New(slot0._tf, slot0.event),
+		MainMailBtn.New(findTF(slot0._tf, &quot;btns/mail&quot;), slot0.event),
+		MainNoticeBtn.New(findTF(slot0._tf, &quot;btns/noti&quot;), slot0.event),
+		MainSettingsBtn.New(findTF(slot0._tf, &quot;btns/settings&quot;), slot0.event)
+	}
+end
+
+slot0.GetDirection = function(slot0)
+	return Vector2(0, 1)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

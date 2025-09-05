@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youmiyastrongholdmediator.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>youmiyastrongholdmediator.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;YoumiyaStrongholdMediator&quot;, import(&quot;view.base.ContextMediator&quot;))
+slot0.MAKE_FURNITURE = &quot;YoumiyaStrongholdMediator.MAKE_FURNITURE&quot;
+slot0.GET_AWARD = &quot;YoumiyaStrongholdMediator.GET_AWARD&quot;
+slot0.YOUMIA_GO_SCENE = &quot;YoumiyaStrongholdMediator.YOUMIA_GO_SCENE&quot;
+
+slot0.register = function(slot0)
+	slot0:bind(uv0.MAKE_FURNITURE, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 1,
+			activity_id = ActivityConst.YUMIA_BASE_ACT_ID,
+			arg1 = slot1,
+			consumes = slot2
+		})
+	end)
+	slot0:bind(uv0.GET_AWARD, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.ACTIVITY_OPERATION, {
+			cmd = 2,
+			activity_id = ActivityConst.YUMIA_BASE_ACT_ID,
+			arg1 = slot1,
+			canGetIndex = slot2
+		})
+	end)
+	slot0:bind(uv0.YOUMIA_GO_SCENE, function (slot0, slot1, slot2)
+		uv0:sendNotification(GAME.GO_SCENE, slot1, slot2)
+	end)
+end
+
+slot0.listNotificationInterests = function(slot0)
+	return {
+		ActivityProxy.ACTIVITY_OPERATION_DONE
+	}
+end
+
+slot0.handleNotification = function(slot0, slot1)
+	slot3 = slot1:getBody()
+
+	if slot1:getName() == ActivityProxy.ACTIVITY_OPERATION_DONE then
+		slot0.viewComponent:RefreshView()
+	end
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

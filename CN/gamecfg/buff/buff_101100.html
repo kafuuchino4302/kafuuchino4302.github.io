@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buff_101100.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>buff_101100.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">return {
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	desc_get = &quot;每次炮击为自身叠加1层刃舞buff，最多可叠加n层，每层刃舞buff提高雷击，发射鱼雷后buff重置为0层&quot;,
+	name = &quot;幻影刃舞·风暴&quot;,
+	init_effect = &quot;&quot;,
+	id = 101100,
+	time = 0,
+	picture = &quot;&quot;,
+	desc = &quot;每次炮击为自身叠加1层刃舞buff，最多可叠加n层，每层刃舞buff提高雷击，发射鱼雷后buff重置为0层&quot;,
+	stack = 1,
+	color = &quot;red&quot;,
+	icon = 101100,
+	last_effect = &quot;&quot;,
+	effect_list = {
+		{
+			type = &quot;BattleBuffAddBuff&quot;,
+			trigger = {
+				&quot;onFire&quot;
+			},
+			arg_list = {
+				buff_id = 101101
+			}
+		}
+	}
+}
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>

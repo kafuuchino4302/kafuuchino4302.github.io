@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>islandordertendencypage.lua</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>islandordertendencypage.lua</h1>
+    <a href="index.html">返回主页</a>
+    <pre><code class="language-lua">slot0 = class(&quot;IslandOrderTendencyPage&quot;, import(&quot;Mod.Island.View.page.msgbox.window.IslandCommonMsgboxWindow&quot;))
+
+slot0.getUIName = function(slot0)
+	return &quot;IslandOrderTendencyUI&quot;
+end
+
+slot0.OnLoaded = function(slot0)
+	uv0.super.OnLoaded(slot0)
+
+	slot0.toggles = {
+		[IslandOrderSlot.TENDENCY_TYPE_COMMON] = slot0:findTF(&quot;toggle/1&quot;),
+		[IslandOrderSlot.TENDENCY_TYPE_EASY] = slot0:findTF(&quot;toggle/0&quot;),
+		[IslandOrderSlot.TENDENCY_TYPE_HARD] = slot0:findTF(&quot;toggle/2&quot;)
+	}
+
+	setText(slot0:findTF(&quot;toggle/0/Text&quot;), i18n(&quot;island_order_difficulty_2&quot;))
+	setText(slot0:findTF(&quot;toggle/1/Text&quot;), i18n(&quot;island_order_difficulty_1&quot;))
+	setText(slot0:findTF(&quot;toggle/2/Text&quot;), i18n(&quot;island_order_difficulty_3&quot;))
+end
+
+slot0.OnInit = function(slot0)
+	uv0.super.OnInit(slot0)
+	onButton(slot0, slot0.confirmBtn, function ()
+		if uv0.onYes then
+			uv0.onYes(uv0.selectedIndex)
+		end
+
+		uv0:Hide()
+	end, SFX_PANEL)
+end
+
+slot0.OnShow = function(slot0)
+	uv0.super.OnShow(slot0)
+
+	slot0.selectedIndex = slot0.settings.selected or IslandOrderSlot.TENDENCY_TYPE_COMMON
+
+	slot0:FlushToggles()
+end
+
+slot0.OnHide = function(slot0)
+	uv0.super.OnHide(slot0)
+
+	slot0.settings = nil
+end
+
+slot0.FlushToggles = function(slot0)
+	for slot4, slot5 in pairs(slot0.toggles) do
+		onToggle(slot0, slot5, function (slot0)
+			if slot0 then
+				uv0.selectedIndex = uv1
+
+				uv0:UpdateContent()
+			end
+		end, SFX_PANEL)
+	end
+
+	triggerToggle(slot0.toggles[slot0.selectedIndex], true)
+end
+
+slot0.UpdateContent = function(slot0)
+	slot0.contentTxt.text = IslandOrderSlot.TENDENCY2TIP(slot0.selectedIndex)
+end
+
+return slot0
+</code></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-lua.min.js"></script>
+</body>
+</html>
