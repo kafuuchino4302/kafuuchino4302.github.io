@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クイズ式オナサポダンジョン 〜間違え続けたら…、どうなっちゃうか分かってるよね♡〜</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #000; color: white;
+            font-family: "Microsoft YaHei", sans-serif; overflow: hidden;
+        }
+
+        #overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; display: flex; align-items: center;
+            justify-content: center; z-index: 1000; cursor: pointer; font-size: 1.5rem;
+        }
+
+        #main-container {
+            display: none; height: 100vh; width: 100%;
+            flex-direction: row; align-items: center;
+            padding-left: 20%; box-sizing: border-box;
+        }
+
+        .left-column {
+            display: flex; flex-direction: column; align-items: center;
+            flex: 0 0 auto; margin-top: -60px;
+        }
+
+        #main-img {
+            height: 70vh; width: auto; max-width: 60vw;
+            border-radius: 4px; box-shadow: 0 0 40px rgba(255, 64, 129, 0.3);
+            object-fit: contain;
+        }
+
+        .sub-btn-area {
+            margin-top: 25px; height: 100px;
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; width: 100%;
+        }
+
+        .sub-btn {
+            padding: 12px 25px; font-size: 1.1rem; cursor: pointer;
+            background: transparent; border-radius: 4px; transition: all 0.3s;
+            display: none;
+        }
+
+        .btn-blue { color: #40c4ff; border: 2px solid #40c4ff; }
+        .btn-blue:hover { background: #40c4ff; color: #000; }
+        .btn-orange { color: #ff9100; border: 2px solid #ff9100; }
+        .btn-orange:hover { background: #ff9100; color: #000; }
+
+        .right-column {
+            display: flex; flex-direction: column; gap: 40px;
+            margin-left: 60px; width: 300px;
+        }
+
+        .action-btn {
+            padding: 25px 40px; font-size: 1.4rem; color: #ff4081;
+            background: rgba(0,0,0,0.6); border: 2px solid #ff4081;
+            border-radius: 8px; cursor: pointer; transition: all 0.3s; text-align: center;
+        }
+        .action-btn:hover { background: #ff4081; color: #fff; }
+
+        .hidden-space { visibility: hidden !important; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="start()">点击进入</div>
+
+    <div id="main-container">
+        <div class="left-column">
+            <img id="main-img" src="https://raw.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88/01_quiz_onasapo_dungeon_jacket.jpg">
+            <div class="sub-btn-area" id="sub-btns">
+            </div>
+        </div>
+
+        <div class="right-column" id="end-btns">
+            <button class="action-btn" onclick="playFinal('シコシコで射精')">シコシコで射精</button>
+            <button class="action-btn" onclick="playFinal('乳首で射精')">乳首で射精</button>
+        </div>
+    </div>
+
+    <div id="audio-container">
+        <audio id="prologue" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E3%83%97%E3%83%AD%E3%83%AD%E3%83%BC%E3%82%B0.m4a"></audio>
+        <audio id="quiz1" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%82%AF%E3%82%A4%E3%82%BA%E3%81%AE%E9%96%93%E3%80%8C%E7%AC%AC%E4%B8%80%E5%95%8F%E7%9B%AE%E3%80%8D.m4a"></audio>
+        <audio id="punishment1" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%89%E3%81%AA%E3%81%84/%E3%81%8A%E4%BB%95%E7%BD%AE%E3%81%8D%E9%83%A8%E5%B1%8B%E3%81%9D%E3%81%AE1.m4a"></audio>
+        <audio id="quiz2" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/%E3%82%AF%E3%82%A4%E3%82%BA%E3%81%AE%E9%96%93%E3%80%8C%E7%AC%AC%E4%BA%8C%E5%95%8F%E7%9B%AE%E3%80%8D.m4a"></audio>
+        <audio id="punishment2" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0/%E3%81%8A%E4%BB%95%E7%BD%AE%E3%81%8D%E9%83%A8%E5%B1%8B%E3%81%9D%E3%81%AE2.m4a"></audio>
+        <audio id="quiz3" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%82%AF%E3%82%A4%E3%82%BA%E3%81%AE%E9%96%93%E3%80%8C%E7%AC%AC%E4%B8%89%E5%95%8F%E7%9B%AE%E3%80%8D.m4a"></audio>
+        <audio id="punishment3" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%8B/%E3%81%8A%E4%BB%95%E7%BD%AE%E3%81%8D%E9%83%A8%E5%B1%8B%E3%81%9D%E3%81%AE3.m4a"></audio>
+        <audio id="quiz4" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/%E3%82%AF%E3%82%A4%E3%82%BA%E3%81%AE%E9%96%93%E3%80%8C%E7%AC%AC%E5%9B%9B%E5%95%8F%E7%9B%AE%E3%80%8D.m4a"></audio>
+        <audio id="wrong0" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/0/0%E5%9B%9E%E9%96%93%E9%81%95%E3%81%88%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+        <audio id="wrong1" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/1/1%E5%9B%9E%E9%96%93%E9%81%95%E3%81%88%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+        <audio id="wrong2" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/2/2%E5%9B%9E%E9%96%93%E9%81%95%E3%81%88%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+        <audio id="wrong3" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/3/3%E5%9B%9E%E9%96%93%E9%81%95%E3%81%88%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+        <audio id="reward0" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/0/%E5%8F%B3%E3%81%AE%E9%81%93/%E3%83%96%E3%83%A9%E3%83%B3%E3%81%8B%E3%82%89%E3%81%AE%E3%81%94%E8%A4%92%E7%BE%8E%EF%BC%88%E3%82%BB%E3%83%83%E3%82%AF%E3%82%B9%EF%BC%89_SE%E3%81%82%E3%82%8A.m4a"></audio>
+        <audio id="reward1" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/1/%E5%8F%B3%E3%81%AE%E9%81%93/%E3%83%96%E3%83%A9%E3%83%B3%E3%81%8B%E3%82%89%E3%81%AE%E3%81%94%E8%A4%92%E7%BE%8E%EF%BC%88%E2%97%8B%E2%97%8B%E3%82%BB%E3%83%83%E3%82%AF%E3%82%B9%EF%BC%89_SE%E3%81%82%E3%82%8A.m4a"></audio>
+        <audio id="reward2" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/2/%E5%8F%B3%E3%81%AE%E9%81%93/%E3%83%96%E3%83%A9%E3%83%B3%E3%81%8B%E3%82%89%E3%81%AE%E3%81%94%E8%A4%92%E7%BE%8E%EF%BC%88%E6%89%8B%E3%82%B3%E3%82%AD%EF%BC%89.m4a"></audio> 
+        <audio id="seikan" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/0/%E5%B7%A6%E3%81%AE%E9%81%93/%E7%94%9F%E9%82%84.m4a"></audio>
+        <audio id="baka" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%A5%A5%E3%81%B8%E9%80%B2%E3%82%80/%E3%81%84%E3%82%8B/0%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84/%E3%81%AA%E3%82%89%E3%81%AA%E3%81%84/3/%E5%B7%A6%E3%81%AE%E9%81%93/%E3%81%B0%EF%BD%9E%E3%81%8B%E2%99%A1%E9%80%83%E3%81%8C%E3%81%99%E3%82%8F%E3%81%91%E3%81%AA%E3%81%84%E3%81%98%E3%82%83%E3%82%93%E2%99%A1.m4a"></audio> 
+        <audio id="シコシコで射精" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%B0%84%E7%B2%BE%E3%81%97%E3%81%9F%E4%BA%BA%E7%94%A8/%E3%82%B7%E3%82%B3%E3%82%B7%E3%82%B3%E3%81%A7%E5%B0%84%E7%B2%BE%E3%81%97%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+        <audio id="乳首で射精" src="https://fast.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%80%8E%E3%83%80%E3%83%B3%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%AE%E5%85%A5%E5%8F%A3%E3%81%B8...%E3%80%8F/%E5%B0%84%E7%B2%BE%E3%81%97%E3%81%9F%E4%BA%BA%E7%94%A8/%E4%B9%B3%E9%A6%96%E3%81%A7%E5%B0%84%E7%B2%BE%E3%81%97%E3%81%9F%E4%BA%BA%E3%81%B8.m4a"></audio>
+    </div>
+
+    <script>
+        let wrongCount = 0;
+        const subBtnArea = document.getElementById('sub-btns');
+
+        function clearBtns() { subBtnArea.innerHTML = ''; }
+
+        function createBtn(text, className, onClick) {
+            const btn = document.createElement('button');
+            btn.innerText = text;
+            btn.className = `sub-btn ${className}`;
+            btn.style.display = 'block';
+            btn.onclick = onClick;
+            subBtnArea.appendChild(btn);
+        }
+
+        function stopAll() {
+            const audios = document.querySelectorAll('audio');
+            audios.forEach(a => { a.pause(); a.currentTime = 0; a.onended = null; });
+        }
+
+        function play(id, onEndFunc) {
+            stopAll();
+            const el = document.getElementById(id);
+            if (onEndFunc) el.onended = onEndFunc;
+            el.play().catch(e => console.log("播放被拦截"));
+        }
+
+        function start() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('main-container').style.display = 'flex';
+            play('prologue', () => {
+                createBtn('奥へ進む', 'btn-blue', () => { clearBtns(); phaseQuiz1(); });
+            });
+        }
+
+        function phaseQuiz1() {
+            play('quiz1', () => {
+                createBtn('いる', 'btn-blue', () => { clearBtns(); phaseQuiz2(); });
+                createBtn('いらない', 'btn-orange', () => { clearBtns(); wrongCount++; phasePunish1(); });
+            });
+        }
+
+        function phasePunish1() {
+            play('punishment1', () => {
+                createBtn('いる', 'btn-blue', () => { clearBtns(); phaseQuiz2(); });
+            });
+        }
+
+        function phaseQuiz2() {
+            play('quiz2', () => {
+                createBtn('0ではない', 'btn-blue', () => { clearBtns(); phaseQuiz3(); });
+                createBtn('0', 'btn-orange', () => { clearBtns(); wrongCount++; phasePunish2(); });
+            });
+        }
+
+        function phasePunish2() {
+            play('punishment2', () => {
+                createBtn('0ではない', 'btn-blue', () => { clearBtns(); phaseQuiz3(); });
+            });
+        }
+
+        function phaseQuiz3() {
+            play('quiz3', () => {
+                createBtn('ならない', 'btn-blue', () => { clearBtns(); phaseQuiz4(); });
+                createBtn('なる', 'btn-orange', () => { clearBtns(); wrongCount++; phasePunish3(); });
+            });
+        }
+
+        function phasePunish3() {
+            play('punishment3', () => {
+                createBtn('ならない', 'btn-blue', () => { clearBtns(); phaseQuiz4(); });
+            });
+        }
+
+        function phaseQuiz4() {
+            play('quiz4', () => {
+                const id = `wrong${wrongCount}`;
+                play(id, () => phaseFinalChoice());
+            });
+        }
+
+        function phaseFinalChoice() {
+            clearBtns();
+            createBtn('右の道', 'btn-blue', () => {
+                clearBtns();
+                if (wrongCount >= 3) play('baka');
+                else play(`reward${wrongCount}`);
+            });
+            createBtn('左の道', 'btn-orange', () => {
+                clearBtns();
+                if (wrongCount >= 3) play('baka');
+                else play('seikan');
+            });
+        }
+
+        function playFinal(id) {
+            clearBtns();
+            document.getElementById('end-btns').classList.add('hidden-space');
+            play(id);
+        }
+    </script>
+</body>
+</html>
