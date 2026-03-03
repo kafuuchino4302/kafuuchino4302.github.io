@@ -50,6 +50,11 @@
         .btn-blue:hover { background: #40c4ff; color: #000; }
         .btn-orange { color: #ff9100; border: 2px solid #ff9100; }
         .btn-orange:hover { background: #ff9100; color: #000; }
+        
+        .btn-disabled {
+            color: #555; border: 2px solid #333; cursor: not-allowed;
+            opacity: 0.5;
+        }
 
         .right-column {
             display: flex; flex-direction: column; gap: 40px;
@@ -116,7 +121,7 @@
             btn.innerText = text;
             btn.className = `sub-btn ${className}`;
             btn.style.display = 'block';
-            btn.onclick = onClick;
+            if (onClick) btn.onclick = onClick;
             subBtnArea.appendChild(btn);
         }
 
@@ -181,8 +186,17 @@
 
         function phaseQuiz4() {
             play('quiz4', () => {
-                const id = `wrong${wrongCount}`;
-                play(id, () => phaseFinalChoice());
+                clearBtns();
+                for (let i = 0; i <= 3; i++) {
+                    if (i === wrongCount) {
+                        createBtn(i, 'btn-blue', () => { 
+                            clearBtns(); 
+                            play(`wrong${i}`, () => phaseFinalChoice()); 
+                        });
+                    } else {
+                        createBtn(i, 'btn-disabled', null);
+                    }
+                }
             });
         }
 
