@@ -92,8 +92,8 @@
             <div class="sub-btn-area" id="sub-btns"></div>
         </div>
         <div class="right-column" id="end-btns">
-            <button class="action-btn" id="quick-end-1" onclick="playFinal('シコシコで射精')">方式一</button>
-            <button class="action-btn" id="quick-end-2" onclick="playFinal('乳首で射精')">方式二</button>
+            <button class="action-btn" id="quick-end-1" onclick="playFinal('シコシコで射精')">シコシコで射精</button>
+            <button class="action-btn" id="quick-end-2" onclick="playFinal('乳首で射精')">乳首で射精</button>
         </div>
     </div>
 
@@ -145,7 +145,7 @@
 
     <script>
         let wrongCount = 0;
-        let currentGame = 0;
+        let g2Visited = new Set();
         const subBtnArea = document.getElementById('sub-btns');
 
         function clearBtns() { subBtnArea.innerHTML = ''; }
@@ -167,77 +167,56 @@
         function play(id, onEndFunc) {
             stopAll();
             const el = document.getElementById(id);
-            if (!el || !el.src) { alert("音频地址为空"); return; }
+            if (!el || !el.src) return;
             if (onEndFunc) el.onended = onEndFunc;
             el.play().catch(e => console.log("Play Error"));
         }
 
         function initGame(num) {
-            currentGame = num;
             document.getElementById('overlay').style.display = 'none';
-            document.getElementById('main-container').style.display = 'flex';
+            const container = document.getElementById('main-container');
             const img = document.getElementById('main-img');
+            const rightCol = document.getElementById('end-btns');
+            container.style.display = 'flex';
             
             if(num === 1) {
                 img.src = "https://raw.kiko-play-niptan.one/media/stream/daily/2026-02-16/RJ01519975/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88/01_quiz_onasapo_dungeon_jacket.jpg";
-                play('g1_prologue', () => {
-                    createBtn('奥へ進む', 'btn-blue', () => { clearBtns(); g1_quiz1(); });
-                });
+                rightCol.style.display = 'flex';
+                play('g1_prologue', () => { createBtn('奥へ進む', 'btn-blue', () => { clearBtns(); g1_quiz1(); }); });
             } else {
                 img.src = "https://raw.kiko-play-niptan.one/media/stream/daily/2025-12-04/RJ01496676/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88/2.png";
+                rightCol.style.display = 'none';
+                g2Visited.clear();
                 play('g2_序章', g2_step1);
             }
         }
 
-        function g1_quiz1() {
-            play('g1_quiz1', () => {
-                createBtn('いる', 'btn-blue', () => { clearBtns(); g1_quiz2(); });
-                createBtn('いらない', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish1(); });
-            });
-        }
+        function g1_quiz1() { play('g1_quiz1', () => { createBtn('いる', 'btn-blue', () => { clearBtns(); g1_quiz2(); }); createBtn('いらない', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish1(); }); }); }
         function g1_punish1() { play('g1_punish1', () => { createBtn('いる', 'btn-blue', () => { clearBtns(); g1_quiz2(); }); }); }
-        function g1_quiz2() {
-            play('g1_quiz2', () => {
-                createBtn('0ではない', 'btn-blue', () => { clearBtns(); g1_quiz3(); });
-                createBtn('0', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish2(); });
-            });
-        }
+        function g1_quiz2() { play('g1_quiz2', () => { createBtn('0ではない', 'btn-blue', () => { clearBtns(); g1_quiz3(); }); createBtn('0', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish2(); }); }); }
         function g1_punish2() { play('g1_punish2', () => { createBtn('0ではない', 'btn-blue', () => { clearBtns(); g1_quiz3(); }); }); }
-        function g1_quiz3() {
-            play('g1_quiz3', () => {
-                createBtn('ならない', 'btn-blue', () => { clearBtns(); g1_quiz4(); });
-                createBtn('なる', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish3(); });
-            });
-        }
+        function g1_quiz3() { play('g1_quiz3', () => { createBtn('ならない', 'btn-blue', () => { clearBtns(); g1_quiz4(); }); createBtn('なる', 'btn-orange', () => { clearBtns(); wrongCount++; g1_punish3(); }); }); }
         function g1_punish3() { play('g1_punish3', () => { createBtn('ならない', 'btn-blue', () => { clearBtns(); g1_quiz4(); }); }); }
-        function g1_quiz4() {
-            play('g1_quiz4', () => {
-                clearBtns();
-                for(let i=0; i<=3; i++) createBtn(i, i===wrongCount ? 'btn-blue' : 'btn-disabled', i===wrongCount ? () => { clearBtns(); play(`wrong${i}`, g1_final); } : null, i!==wrongCount);
-            });
-        }
-        function g1_final() {
-            createBtn('右の道', 'btn-blue', () => { clearBtns(); if(wrongCount>=3) play('baka'); else play(`reward${wrongCount}`); });
-            createBtn('左の道', 'btn-orange', () => { clearBtns(); if(wrongCount>=3) play('baka'); else play('seikan'); });
-        }
+        function g1_quiz4() { play('g1_quiz4', () => { clearBtns(); for(let i=0; i<=3; i++) createBtn(i, i===wrongCount ? 'btn-blue' : 'btn-disabled', i===wrongCount ? () => { clearBtns(); play(`wrong${i}`, g1_final); } : null, i!==wrongCount); }); }
+        function g1_final() { createBtn('右の道', 'btn-blue', () => { clearBtns(); if(wrongCount>=3) play('baka'); else play(`reward${wrongCount}`); }); createBtn('左的道', 'btn-orange', () => { clearBtns(); if(wrongCount>=3) play('baka'); else play('seikan'); }); }
 
-        function g2_step1() { createBtn('房间N', 'btn-blue', () => { clearBtns(); play('g2_N', () => g2_step2(true)); }); createBtn('房间P', 'btn-blue', () => { clearBtns(); g2_P(); }); }
-        function g2_step2(nUsed) { createBtn('房间N', 'btn-disabled', null, true); createBtn('房间P', 'btn-blue', g2_P); }
-        function g2_P() { play('g2_P', () => { createBtn('房间D', 'btn-blue', g2_D); createBtn('房间U', 'btn-blue', g2_U); }); }
-        function g2_U() { clearBtns(); play('g2_U', () => { createBtn('房间D', 'btn-blue', g2_D); createBtn('房间U', 'btn-disabled', null, true); }); }
-        function g2_D() { clearBtns(); play('g2_D', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-blue', g2_K); createBtn('房间Q', 'btn-blue', g2_Q); }); }
-        function g2_A() { clearBtns(); play('g2_A', () => { createBtn('房间B', 'btn-blue', g2_B); createBtn('房间C', 'btn-blue', g2_C); }); }
-        function g2_B() { clearBtns(); play('g2_B', () => { createBtn('房间B', 'btn-disabled', null, true); createBtn('房间C', 'btn-blue', g2_C); }); }
-        function g2_C() { clearBtns(); play('g2_C', () => { createBtn('终点房间', 'btn-orange', () => { clearBtns(); play('g2_Finish1'); }); }); }
-        function g2_K() { clearBtns(); play('g2_K', () => { createBtn('房间E', 'btn-blue', g2_E); }); }
-        function g2_E() { clearBtns(); play('g2_E', () => { play('g2_DeadEnd', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-disabled', null, true); createBtn('房间Q', 'btn-blue', g2_Q); }); }); }
-        function g2_Q() { clearBtns(); play('g2_Q', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-blue', g2_K); createBtn('房间G', 'btn-blue', g2_G); createBtn('房间W', 'btn-blue', g2_W); }); }
-        function g2_G() { clearBtns(); play('g2_G', () => { createBtn('房间L', 'btn-blue', g2_L); }); }
-        function g2_L() { clearBtns(); play('g2_L', () => { createBtn('终点房间', 'btn-orange', () => { clearBtns(); play('g2_Finish2'); }); createBtn('房间R', 'btn-blue', g2_R); createBtn('房间Z', 'btn-blue', g2_Z); }); }
-        function g2_R() { clearBtns(); play('g2_R', () => { createBtn('房间R', 'btn-disabled', null, true); createBtn('房间Z', 'btn-blue', g2_Z); }); }
-        function g2_Z() { clearBtns(); play('g2_Z', () => { createBtn('终点房间', 'btn-orange', () => { clearBtns(); play('g2_Finish3'); }); createBtn('房间X', 'btn-blue', g2_X); }); }
-        function g2_X() { clearBtns(); play('g2_X', () => { createBtn('终点房间', 'btn-orange', () => { clearBtns(); play('g2_Finish4'); }); }); }
-        function g2_W() { clearBtns(); play('g2_W', () => { createBtn('房间G', 'btn-blue', g2_G); createBtn('房间W', 'btn-disabled', null, true); }); }
+        function g2_step1() { createBtn('房间N', 'btn-blue', () => { clearBtns(); g2Visited.add('N'); play('g2_N', g2_stepN); }); createBtn('房间P', 'btn-blue', () => { clearBtns(); g2_P(); }); }
+        function g2_stepN() { createBtn('房间N', 'btn-disabled', null, true); createBtn('房间P', 'btn-blue', g2_P); }
+        function g2_P() { clearBtns(); g2Visited.add('P'); play('g2_P', () => { createBtn('房间D', 'btn-blue', g2_D); createBtn('房间U', 'btn-blue', g2_U); }); }
+        function g2_U() { clearBtns(); g2Visited.add('U'); play('g2_U', () => { createBtn('房间D', 'btn-blue', g2_D); createBtn('房间U', 'btn-disabled', null, true); }); }
+        function g2_D() { clearBtns(); g2Visited.add('D'); play('g2_D', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-blue', g2_K); createBtn('房间Q', 'btn-blue', g2_Q); }); }
+        function g2_A() { clearBtns(); g2Visited.add('A'); play('g2_A', () => { createBtn('房间B', 'btn-blue', g2_B); createBtn('房间C', 'btn-blue', g2_C); }); }
+        function g2_B() { clearBtns(); g2Visited.add('B'); play('g2_B', () => { createBtn('房间B', 'btn-disabled', null, true); createBtn('房间C', 'btn-blue', g2_C); }); }
+        function g2_C() { clearBtns(); g2Visited.add('C'); play('g2_C', () => { createBtn('射精房间', 'btn-orange', () => { clearBtns(); play('g2_Finish1'); }); }); }
+        function g2_K() { clearBtns(); g2Visited.add('K'); play('g2_K', () => { createBtn('房间E', 'btn-blue', g2_E); }); }
+        function g2_E() { clearBtns(); g2Visited.add('E'); play('g2_E', () => { play('g2_DeadEnd', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-disabled', null, true); createBtn('房间Q', 'btn-blue', g2_Q); }); }); }
+        function g2_Q() { clearBtns(); g2Visited.add('Q'); play('g2_Q', () => { createBtn('房间A', 'btn-blue', g2_A); createBtn('房间K', 'btn-blue', g2_K); createBtn('房间G', 'btn-blue', g2_G); createBtn('房间W', 'btn-blue', g2_W); }); }
+        function g2_G() { clearBtns(); g2Visited.add('G'); play('g2_G', () => { createBtn('房间L', 'btn-blue', g2_L); }); }
+        function g2_L() { clearBtns(); g2Visited.add('L'); play('g2_L', () => { createBtn('射精房间', 'btn-orange', () => { clearBtns(); play('g2_Finish2'); }); createBtn('房间R', 'btn-blue', g2_R); createBtn('房间Z', 'btn-blue', g2_Z); }); }
+        function g2_R() { clearBtns(); g2Visited.add('R'); play('g2_R', () => { createBtn('房间R', 'btn-disabled', null, true); createBtn('房间Z', 'btn-blue', g2_Z); }); }
+        function g2_Z() { clearBtns(); g2Visited.add('Z'); play('g2_Z', () => { createBtn('射精房间', 'btn-orange', () => { clearBtns(); play('g2_Finish3'); }); createBtn('房间X', 'btn-blue', g2_X); }); }
+        function g2_X() { clearBtns(); g2Visited.add('X'); play('g2_X', () => { createBtn('射精房间', 'btn-orange', () => { clearBtns(); play('g2_Finish4'); }); }); }
+        function g2_W() { clearBtns(); g2Visited.add('W'); play('g2_W', () => { createBtn('房间G', 'btn-blue', g2_G); createBtn('房间W', 'btn-disabled', null, true); }); }
 
         function playFinal(id) { clearBtns(); document.getElementById('end-btns').classList.add('hidden-space'); play(id); }
     </script>
